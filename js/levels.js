@@ -258,7 +258,7 @@ brawl.state4.prototype = {
             this.player.frame = 6;
             if ((this.cursors.right.isDown && this.cursors.up.isDown) || (this.player.customParams.rightMovement && this.player.customParams.mustJump)) {
                 this.player.body.velocity.y = -500;
-                this.player.body.velocity.x = -1500;
+                this.player.body.velocity.x = -3000;
                 this.player.customParams.leftMovement = false;
             }
             else if ((this.cursors.left.isDown && this.cursors.up.isDown) || (this.player.customParams.leftMovement && this.player.customParams.mustJump)) {
@@ -273,7 +273,7 @@ brawl.state4.prototype = {
             this.player.frame = 12;
             if ((this.cursors.left.isDown && this.cursors.up.isDown) || (this.player.customParams.leftMovement && this.player.customParams.mustJump)) {
                 this.player.body.velocity.y = -500;
-                this.player.body.velocity.x = 1500;
+                this.player.body.velocity.x = 3000;
                 this.player.customParams.rightMovement = false;
             }
             else if ((this.cursors.right.isDown && this.cursors.up.isDown) || (this.player.customParams.rightMovement && this.player.customParams.mustJump)) {
