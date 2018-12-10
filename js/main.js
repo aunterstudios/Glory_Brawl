@@ -13,12 +13,8 @@ game.state.add('levelSix',brawl.state9);
 game.state.add('levelSeven',brawl.state10);
 game.state.add('levelEight',brawl.state11);
 //////////////////////////////////////////////////Starting States//////////////////////////////////////////////
-game.state.start('mainMenu');
-//game.state.start('levelFive');
-//game.state.start('levelSix');
-//game.state.start('levelSeven');
-//game.state.start('ruleSets');
-//game.state.start('levelEight');
+//game.state.start('mainMenu');
+game.state.start('levelEight');
 //////////////////////////////////////////////////Global Variables//////////////////////////////////////////////
 
 // Variables that Hold Cumlative Power-Up Booleans
@@ -26,13 +22,13 @@ var runFastX = false;
 var jumpHigherX = false;
 
 // Life Mechanic for Entire Game
-var lives = 10;
+var lives = 1000;
 // To Allow Re-Use of Death State and Ruleset States.
 var ghettoLoopMechanic = 11;
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "Version Platformer-30",
+  "Version Platformer-31",
   "Welcome to Glory Brawl."
 ];
 
