@@ -236,8 +236,8 @@ brawl.state4.prototype = {
         this.game.physics.arcade.overlap(this.player, this.finish, nextLevel, null, this);
 
         this.player.body.velocity.x = 0;
-        this.player.body.acceleration.y = 0;
-        this.player.body.acceleration.x = 0;
+        this.player.body.acceleration.y = 300;
+        this.player.body.acceleration.x = 300;
 
         ///Player Movement and Wall-Jump Mechanics
         if (this.player.body.touching.down) {
