@@ -256,13 +256,11 @@ brawl.state4.prototype = {
             this.player.body.velocity.x = 50;
             this.player.body.velocity.y = 50;
             this.player.frame = 6;
-            if ((this.cursors.up.isDown && !this.cursors.left.isDown) || (this.player.customParams.mustJump && !this.player.customParams.leftMovement)) {
-                this.player.body.velocity.y = -500;
-            }
-            else if ((this.cursors.left.isDown && this.cursors.up.isDown) || (this.player.customParams.leftMovement && this.player.customParams.mustJump)) {
+            if (this.cursors.up.isDown || this.player.customParams.mustJump) {
+                this.player.body.acceleration.y = -650;
+                this.player.body.acceleration.x = -1000;
                 this.player.body.velocity.y = -650;
-                this.player.body.velocity.x = -325;
-                this.player.customParams.rightMovement = false;
+                this.player.body.velocity.x = -1000;
             }
         }
         else if (this.player.body.touching.left) {
@@ -1486,8 +1484,8 @@ brawl.state10.prototype = {
     preload: function () {
         this.load.image('wall', 'assets/wall.png');
         this.load.image('rotatedWall', 'assets/rotatedWall.png');
-        this.load.image('fallingSpikes','assets/newSpikes.png');
-        this.load.image('win','assets/flag.png');
+        this.load.image('fallingSpikes', 'assets/newSpikes.png');
+        this.load.image('win', 'assets/flag.png');
         this.load.image('enemy', 'assets/trumpface.png');
         this.load.image('ball', 'assets/ball.png');
         this.load.image('brownPlatform', 'assets/platform2.png');
@@ -1559,7 +1557,7 @@ brawl.state10.prototype = {
                 this.wallX.scale.setTo(.3);
             }
             else if (i === 6) {
-                this.wallX = this.wall.create(1200, this.game.world.centerY-100, 'wall');
+                this.wallX = this.wall.create(1200, this.game.world.centerY - 100, 'wall');
                 this.wallX.scale.setTo(.30, .03);
             }
             else {
@@ -1603,7 +1601,7 @@ brawl.state10.prototype = {
 
         //Adding Enemy
         this.enemy = this.game.add.sprite(700, 100, 'enemy');
-        this.game.physics.arcade.enable(this.enemy); 
+        this.game.physics.arcade.enable(this.enemy);
         this.enemy.body.bounce.setTo(1);
         //this.enemy.body.gravity.y = 10;
         this.enemy.body.collideWorldBounds = true;
@@ -1688,14 +1686,14 @@ brawl.state10.prototype = {
 
         //Player Mechanics
         this.game.physics.arcade.collide(this.player, this.wall);
-        this.game.physics.arcade.collide(this.player,this.ledge,ledgeUpMiddle);
+        this.game.physics.arcade.collide(this.player, this.ledge, ledgeUpMiddle);
 
         //Wall/Enemy/Ledge/Spike Mechanics
-        this.game.physics.arcade.collide(this.ledge,this.wall);
-        this.game.physics.arcade.collide(this.ledge,this.enemy);
-        this.game.physics.arcade.collide(this.ledge,this.spikes);
-        this.game.physics.arcade.collide(this.enemy,this.spikes); 
-        this.game.physics.arcade.collide(this.enemy,this.wall); 
+        this.game.physics.arcade.collide(this.ledge, this.wall);
+        this.game.physics.arcade.collide(this.ledge, this.enemy);
+        this.game.physics.arcade.collide(this.ledge, this.spikes);
+        this.game.physics.arcade.collide(this.enemy, this.spikes);
+        this.game.physics.arcade.collide(this.enemy, this.wall);
 
         //Spikes Dying
         this.game.physics.arcade.overlap(this.fallingSpikes, this.ledge, deathTwo, null, this);
@@ -1703,9 +1701,9 @@ brawl.state10.prototype = {
         this.game.physics.arcade.overlap(this.fallingSpikes, this.wall, deathTwo, null, this);
 
         //Flag Moving Mechanics
-        this.game.physics.arcade.collide(this.finish,this.wall);
-        this.game.physics.arcade.collide(this.finish,this.ledge);
-        this.game.physics.arcade.collide(this.finish,this.spikes);
+        this.game.physics.arcade.collide(this.finish, this.wall);
+        this.game.physics.arcade.collide(this.finish, this.ledge);
+        this.game.physics.arcade.collide(this.finish, this.spikes);
 
         //Win
         this.game.physics.arcade.overlap(this.player, this.finish, nextLevel, null, this);
@@ -1793,8 +1791,8 @@ brawl.state11.prototype = {
     preload: function () {
         this.load.image('wall', 'assets/wall.png');
         this.load.image('rotatedWall', 'assets/rotatedWall.png');
-        this.load.image('fallingSpikes','assets/newSpikes.png');
-        this.load.image('win','assets/flag.png');
+        this.load.image('fallingSpikes', 'assets/newSpikes.png');
+        this.load.image('win', 'assets/flag.png');
         this.load.image('enemy', 'assets/trumpface.png');
         this.load.image('ball', 'assets/ball.png');
         this.load.image('brownPlatform', 'assets/platform2.png');
