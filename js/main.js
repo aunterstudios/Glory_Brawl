@@ -271,10 +271,15 @@ this.player.body.acceleration.x = -5000;
 this.player.body.velocity.y = -5000;
 this.player.body.velocity.x = -1000;
 
+/////////////Better Variation of Super  Bounce
+this.player.body.velocity.y = -500;
+this.player.body.velocity.x = -100;
+this.player.body.acceleration.y = -10000;
+this.player.body.acceleration.x = -10000;
+
+
+
 */
-
-
-
 
 
 
