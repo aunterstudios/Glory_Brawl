@@ -281,12 +281,12 @@ brawl.state4.prototype = {
         else if (this.player.body.touching.none) {
             this.player.frame = 10;
             if (this.cursors.left.isDown || this.player.customParams.leftMovement) {
-                this.player.body.velocity.x = -600;
+                this.player.body.velocity.x = -300;
                 this.player.body.acceleration.x = -1000;
                 this.player.customParams.rightMovement = false;
             }
             else if (this.cursors.right.isDown || this.player.customParams.rightMovement) {
-                this.player.body.velocity.x = 600;
+                this.player.body.velocity.x = 300;
                 this.player.body.acceleration.x = 1000;
                 this.player.customParams.leftMovement = false;
             }
