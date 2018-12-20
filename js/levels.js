@@ -258,11 +258,11 @@ brawl.state4.prototype = {
             this.player.body.velocity.x = 50;
             this.player.body.velocity.y = 50;
             this.player.frame = 6;
-            if (this.cursors.up.isDown || this.player.customParams.mustJump) {
+            if ((this.cursors.up.isDown && this.cursors.left.isDown) || (this.player.customParams.mustJump && this.player.customParams.leftMovement)) {
                 this.player.body.acceleration.y = -5000;
                 this.player.body.acceleration.x = -5000;
                 this.player.body.velocity.y = -100;
-                this.player.body.velocity.x = -5000;
+                this.player.body.velocity.x = -100;
             }
         }
         else if (this.player.body.touching.left) {
