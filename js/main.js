@@ -7,18 +7,18 @@ game.state.add('ruleSets', brawl.state3);
 game.state.add('levelOne', brawl.state4);
 game.state.add('levelTwo', brawl.state5);
 game.state.add('levelThree', brawl.state6);
-game.state.add('levelFour',brawl.state7);
-game.state.add('levelFive',brawl.state8);
-game.state.add('levelSix',brawl.state9);
-game.state.add('levelSeven',brawl.state10);
-game.state.add('levelEight',brawl.state11);
+game.state.add('levelFour', brawl.state7);
+game.state.add('levelFive', brawl.state8);
+game.state.add('levelSix', brawl.state9);
+game.state.add('levelSeven', brawl.state10);
+game.state.add('levelEight', brawl.state11);
 //////////////////////////////////////////////////Starting States//////////////////////////////////////////////
 game.state.start('mainMenu');
 //game.state.start('levelEight');
 //////////////////////////////////////////////////Global Variables//////////////////////////////////////////////
 
 // Variables that Hold Cumlative Power-Up Booleans
-var runFastX = false; 
+var runFastX = false;
 var jumpHigherX = false;
 
 // Life Mechanic for Entire Game
@@ -96,7 +96,7 @@ function jumpHigher(player, wing) {
 //////////////////////////////////////////////////Changing Game States//////////////////////////////////////////////
 
 //Next Level
-function nextLevel(player,door) {
+function nextLevel(player, door) {
   game.state.start('ruleSets');
 }
 
@@ -123,19 +123,19 @@ function deathThree(killer, victim) {
 
 //Ledge Mechanics
 
-function ledgeNormal (player, ledge) {
+function ledgeNormal(player, ledge) {
   if (ledge.body.touching.up) {
     ledge.body.velocity.y = -300;
-  } 
+  }
 }
 
-function ledgeUpMiddle (player,ledge) {
+function ledgeUpMiddle(player, ledge) {
   if (ledge.body.touching.up) {
     ledge.body.velocity.y = -500;
   }
 }
 
-function ledgeUpFast (player,ledge) {
+function ledgeUpFast(player, ledge) {
   if (ledge.body.touching.up) {
     ledge.body.velocity.y = -500;
     player.body.velocity.x = ledge.body.velocity.x;
@@ -152,7 +152,7 @@ function ledgeUpFast (player,ledge) {
   }
 }
 
-function spikeLedge (spikes,ledge) {
+function spikeLedge(spikes, ledge) {
   if (ledge.body.touching.down) {
     ledge.body.angularVelocity = 200;
   }
@@ -160,7 +160,7 @@ function spikeLedge (spikes,ledge) {
 
 //Ball Mechanics
 
-function ballMover (player,ball) {
+function ballMover(player, ball) {
   if (ball.body.touching.left) {
     ball.body.velocity.x = 300;
   }
@@ -193,17 +193,18 @@ function wallFalse (player,wall) {
 
 ///////////////////////////////////////////Back-Up Code////////////////////////////////////////////
 /*
+
+///////////Page Settings
 this.scale.pageAlignHorizontally = true;
 this.scale.pageAlignVertically = true;
 
+//////////Sprite Velocity Constrainment
 function constrainVelocity(sprite, maxVelocity) {  
   var body = sprite.body  
   var angle, currVelocitySqr, vx, vy;  vx = body.data.velocity[0];  vy = body.data.velocity[1];  currVelocitySqr = vx * vx + vy * vy;  if (currVelocitySqr > maxVelocity * maxVelocity) {    angle = Math.atan2(vy, vx);    vx = Math.cos(angle) * maxVelocity;    vy = Math.sin(angle) * maxVelocity;    body.data.velocity[0] = vx;    body.data.velocity[1] = vy;    console.log('limited speed to: '+maxVelocity);  }
 }
 
-*/
-
-/*
+///////////////////////////Filter
 this.fragmentSrc = [
             "precision mediump float;",
             "uniform vec2      resolution;",
@@ -241,10 +242,13 @@ this.fragmentSrc = [
         this.filter.update();
 */
 
+////////////Weird Glitchy Physics
 /*
 this.player.rotation = this.game.physics.arcade.angleBetween(this.player,this.enemy);
 */
 
+
+/////////////Control Settings?
 /*
         this.leftArrow.events.onInputOver.add(function () {
             this.player.customParams.leftMovement = true;
@@ -255,6 +259,18 @@ this.player.rotation = this.game.physics.arcade.angleBetween(this.player,this.en
             this.player.customParams.leftMovement = false;
             this.leftArrow.alpha = .05;
         }, this);
+*/
+
+
+///////////Potential Super Bounce
+/*
+
+
+this.player.body.acceleration.y = -5000;
+this.player.body.acceleration.x = -5000;
+this.player.body.velocity.y = -5000;
+this.player.body.velocity.x = -1000;
+
 */
 
 
