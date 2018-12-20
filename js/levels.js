@@ -261,8 +261,8 @@ brawl.state4.prototype = {
             if (this.cursors.up.isDown || this.player.customParams.mustJump) {
                 this.player.body.acceleration.y = -5000;
                 this.player.body.acceleration.x = -5000;
-                this.player.body.velocity.y = -650;
-                this.player.body.velocity.x = -1000;
+                this.player.body.velocity.y = -100;
+                this.player.body.velocity.x = -5000;
             }
         }
         else if (this.player.body.touching.left) {
