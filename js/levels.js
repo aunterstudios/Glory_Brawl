@@ -236,17 +236,17 @@ brawl.state4.prototype = {
         this.game.physics.arcade.overlap(this.player, this.finish, nextLevel, null, this);
 
         this.player.body.velocity.x = 0;
-        this.player.body.acceleration.y = 300;
-        this.player.body.acceleration.x = 300;
+        this.player.body.acceleration.y = 0;
+        this.player.body.acceleration.x = 0;
 
         ///Player Movement and Wall-Jump Mechanics
         if (this.player.body.touching.down) {
             if (this.cursors.left.isDown || this.player.customParams.leftMovement) {
-                this.player.body.velocity.x = -400;
+                this.player.body.velocity.x = -375;
                 this.player.animations.play('left');
             }
             else if (this.cursors.right.isDown || this.player.customParams.rightMovement) {
-                this.player.body.velocity.x = 400;
+                this.player.body.velocity.x = 375;
                 this.player.animations.play('right');
             }
             else {
@@ -269,25 +269,23 @@ brawl.state4.prototype = {
             this.player.body.velocity.x = -50;
             this.player.body.velocity.y = 50;
             this.player.frame = 12;
-            if ((this.cursors.up.isDown && !this.cursors.right.isDown) || (this.player.customParams.mustJump && !this.player.customParams.rightMovement)) {
+            if ((this.cursors.up.isDown && this.cursors.right.isDown) || (this.player.customParams.mustJump && this.player.customParams.rightMovement)) {
                 this.player.body.velocity.y = -500;
-            }
-            else if ((this.cursors.right.isDown && this.cursors.up.isDown) || (this.player.customParams.rightMovement && this.player.customParams.mustJump)) {
-                this.player.body.velocity.y = -650;
-                this.player.body.velocity.x = 325;
-                this.player.customParams.leftMovement = false;
+                this.player.body.velocity.x = 50;
+                this.player.body.acceleration.y = -300;
+                this.player.body.acceleration.x = 50;
             }
         }
         else if (this.player.body.touching.none) {
             this.player.frame = 10;
             if (this.cursors.left.isDown || this.player.customParams.leftMovement) {
-                this.player.body.velocity.x = -300;
-                this.player.body.acceleration.x = -1000;
+                this.player.body.velocity.x = -400;
+                this.player.body.acceleration.x = -100;
                 this.player.customParams.rightMovement = false;
             }
             else if (this.cursors.right.isDown || this.player.customParams.rightMovement) {
-                this.player.body.velocity.x = 300;
-                this.player.body.acceleration.x = 1000;
+                this.player.body.velocity.x = 400;
+                this.player.body.acceleration.x = 100;
                 this.player.customParams.leftMovement = false;
             }
         }
