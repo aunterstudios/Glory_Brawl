@@ -242,11 +242,11 @@ brawl.state4.prototype = {
         ///Player Movement and Wall-Jump Mechanics
         if (this.player.body.touching.down) {
             if (this.cursors.left.isDown || this.player.customParams.leftMovement) {
-                this.player.body.velocity.x = -375;
+                this.player.body.velocity.x = -400;
                 this.player.animations.play('left');
             }
             else if (this.cursors.right.isDown || this.player.customParams.rightMovement) {
-                this.player.body.velocity.x = 375;
+                this.player.body.velocity.x = 400;
                 this.player.animations.play('right');
             }
             else {
@@ -272,20 +272,20 @@ brawl.state4.prototype = {
             if ((this.cursors.up.isDown && this.cursors.right.isDown) || (this.player.customParams.mustJump && this.player.customParams.rightMovement)) {
                 this.player.body.velocity.y = -500;
                 this.player.body.velocity.x = 50;
-                this.player.body.acceleration.y = -300;
-                this.player.body.acceleration.x = 50;
+                this.player.body.acceleration.y = -10000;
+                this.player.body.acceleration.x = 10000;
             }
         }
         else if (this.player.body.touching.none) {
             this.player.frame = 10;
             if (this.cursors.left.isDown || this.player.customParams.leftMovement) {
-                this.player.body.velocity.x = -400;
-                this.player.body.acceleration.x = -100;
+                this.player.body.velocity.x = -200;
+                this.player.body.acceleration.x = -5000;
                 this.player.customParams.rightMovement = false;
             }
             else if (this.cursors.right.isDown || this.player.customParams.rightMovement) {
-                this.player.body.velocity.x = 400;
-                this.player.body.acceleration.x = 100;
+                this.player.body.velocity.x = 200;
+                this.player.body.acceleration.x = 5000;
                 this.player.customParams.leftMovement = false;
             }
         }
