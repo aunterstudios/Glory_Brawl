@@ -236,19 +236,17 @@ brawl.state4.prototype = {
         this.game.physics.arcade.overlap(this.player, this.finish, nextLevel, null, this);
 
         this.player.body.velocity.x = 0;
-        this.player.body.acceleration.y = 0;
-        this.player.body.acceleration.x = 0;
+        // this.player.body.acceleration.y = 0;
+        // this.player.body.acceleration.x = 0;
 
         ///Player Movement and Wall-Jump Mechanics
         if (this.player.body.touching.down) {
             if (this.cursors.left.isDown || this.player.customParams.leftMovement) {
                 this.player.body.velocity.x = -400;
-                this.player.body.acceleration = 300;
                 this.player.animations.play('left');
             }
             else if (this.cursors.right.isDown || this.player.customParams.rightMovement) {
                 this.player.body.velocity.x = 400;
-                this.player.body.acceleration = -300;
                 this.player.animations.play('right');
             }
             else {
@@ -281,15 +279,15 @@ brawl.state4.prototype = {
         if (this.player.body.touching.none) {
             this.player.frame = 10;
             if (this.cursors.left.isDown || this.player.customParams.leftMovement) {
-                this.player.body.velocity.x = -200;
-                this.player.body.acceleration.y = -500;
-                this.player.body.acceleration.x = -20000;
+                this.player.body.velocity.x = -400;
+                //this.player.body.acceleration.y = 500;
+                // this.player.body.acceleration.x = -20000;
                 this.player.customParams.rightMovement = false;
             }
             else if (this.cursors.right.isDown || this.player.customParams.rightMovement) {
-                this.player.body.velocity.x = 200;
-                this.player.body.acceleration.y = -500;
-                this.player.body.acceleration.x = 20000;
+                this.player.body.velocity.x = 400;
+                //this.player.body.acceleration.y = 500;
+                // this.player.body.acceleration.x = 20000;
                 this.player.customParams.leftMovement = false;
             }
         }
