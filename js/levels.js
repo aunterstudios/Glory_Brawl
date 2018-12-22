@@ -243,10 +243,12 @@ brawl.state4.prototype = {
         if (this.player.body.touching.down) {
             if (this.cursors.left.isDown || this.player.customParams.leftMovement) {
                 this.player.body.velocity.x = -400;
+                this.player.body.acceleration = 300;
                 this.player.animations.play('left');
             }
             else if (this.cursors.right.isDown || this.player.customParams.rightMovement) {
                 this.player.body.velocity.x = 400;
+                this.player.body.acceleration = -300;
                 this.player.animations.play('right');
             }
             else {
@@ -260,9 +262,9 @@ brawl.state4.prototype = {
             this.player.frame = 6;
             if ((this.cursors.up.isDown && this.cursors.left.isDown) || (this.player.customParams.mustJump && this.player.customParams.leftMovement)) {
                 this.player.body.velocity.y = -500;
-                this.player.body.velocity.x = -50;
-                this.player.body.acceleration.y = -20000;
-                this.player.body.acceleration.x = 3000;
+                this.player.body.velocity.x = -1000;
+                this.player.body.acceleration.y = -500;
+                this.player.body.acceleration.x = -20000;
             }
         }
         else if (this.player.body.touching.left) {
@@ -279,15 +281,20 @@ brawl.state4.prototype = {
         if (this.player.body.touching.none) {
             this.player.frame = 10;
             if (this.cursors.left.isDown || this.player.customParams.leftMovement) {
-                this.player.body.velocity.x = -400;
+                this.player.body.velocity.x = -200;
+                this.player.body.acceleration.y = -500;
+                this.player.body.acceleration.x = -20000;
                 this.player.customParams.rightMovement = false;
             }
             else if (this.cursors.right.isDown || this.player.customParams.rightMovement) {
-                this.player.body.velocity.x = 400;
+                this.player.body.velocity.x = 200;
+                this.player.body.acceleration.y = -500;
+                this.player.body.acceleration.x = 20000;
                 this.player.customParams.leftMovement = false;
             }
         }
         
+        /* MORE FOR INSTANTANEOUS REACTION */
         // if (this.player.body.wasTouching.none) {
         //     console.log("wasTouching")
         //     this.player.frame = 10;
