@@ -276,7 +276,7 @@ brawl.state4.prototype = {
                 // this.player.body.acceleration.x = 10000;
             }
         }
-        else if (this.player.body.touching.none) {
+        if (this.player.body.touching.none) {
             this.player.frame = 10;
             if (this.cursors.left.isDown || this.player.customParams.leftMovement) {
                 this.player.body.velocity.x = -400;
@@ -287,6 +287,19 @@ brawl.state4.prototype = {
                 this.player.customParams.leftMovement = false;
             }
         }
+        
+        // if (this.player.body.wasTouching.none) {
+        //     console.log("wasTouching")
+        //     this.player.frame = 10;
+        //     if (this.cursors.left.isDown || this.player.customParams.leftMovement) {
+        //         this.player.body.velocity.x = -400;
+        //         this.player.customParams.rightMovement = false;
+        //     }
+        //     else if (this.cursors.right.isDown || this.player.customParams.rightMovement) {
+        //         this.player.body.velocity.x = 400;
+        //         this.player.customParams.leftMovement = false;
+        //     }
+        // }
 
         ////Player Jump Mechanics
         if ((this.cursors.up.isDown || this.player.customParams.mustJump) && this.player.body.touching.down) {
