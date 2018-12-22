@@ -116,12 +116,12 @@ brawl.state4.prototype = {
         this.game.add.sprite(0, 0, 'sky');
 
         //Adding Flag to End Game
-        this.finish = this.game.add.sprite(810, this.game.world.centerY - 175, 'win');
+        this.finish = this.game.add.sprite(1010, this.game.world.centerY - 175, 'win');
         this.finish.anchor.setTo(.5);
         this.game.physics.arcade.enable(this.finish);
 
         //Adding Wall in the Middle
-        this.wall = this.game.add.sprite(800, this.game.world.centerY + 75, 'wall');
+        this.wall = this.game.add.sprite(1000, this.game.world.centerY + 75, 'wall');
         this.wall.anchor.setTo(.5);
         this.wall.scale.setTo(.5);
         this.game.physics.arcade.enable(this.wall); //enables physics for wall
@@ -137,7 +137,7 @@ brawl.state4.prototype = {
         this.game.physics.arcade.enable(this.player); //enables physics for player
         this.player.scale.setTo(.75);
         this.player.body.bounce.y = 0;
-        this.player.body.gravity.y = 3000;
+        this.player.body.gravity.y = 1500;
         this.player.body.collideWorldBounds = true;
 
         // PLAYER ANIMATIONS
@@ -162,9 +162,9 @@ brawl.state4.prototype = {
             }
             else if (i === 2) {
                 var x = 750;
-                var y = this.game.world.centerY - 300;
+                var y = this.game.world.centerY - 250;
                 var fontNumber = 30;
-                var string = "Jump on the Wall. \n\n You Can Climb While on the Wall by Pressing Jump. \n\n You Can Jump Off the Wall by Pressing Jump and Moving the Opposite Direction.";
+                var string = "Jump on the Wall. \n\n Press Jump + Move (Opposite Direction) to Wall Jump. \n\n While in the Air Move Towards the Wall To Get Back on It. \n\n Rinse and Repeat.";
             }
             else {
                 var x = 1250;
@@ -261,8 +261,8 @@ brawl.state4.prototype = {
             if ((this.cursors.up.isDown && this.cursors.left.isDown) || (this.player.customParams.mustJump && this.player.customParams.leftMovement)) {
                 this.player.body.velocity.y = -500;
                 this.player.body.velocity.x = -50;
-                // this.player.body.acceleration.y = -10000;
-                // this.player.body.acceleration.x = -10000;
+                this.player.body.acceleration.y = -20000;
+                this.player.body.acceleration.x = 3000;
             }
         }
         else if (this.player.body.touching.left) {
@@ -280,12 +280,10 @@ brawl.state4.prototype = {
             this.player.frame = 10;
             if (this.cursors.left.isDown || this.player.customParams.leftMovement) {
                 this.player.body.velocity.x = -400;
-                this.player.body.acceleration.x = 2000;
                 this.player.customParams.rightMovement = false;
             }
             else if (this.cursors.right.isDown || this.player.customParams.rightMovement) {
                 this.player.body.velocity.x = 400;
-                this.player.body.acceleration.x = -2000;
                 this.player.customParams.leftMovement = false;
             }
         }
@@ -293,7 +291,7 @@ brawl.state4.prototype = {
         ////Player Jump Mechanics
         if ((this.cursors.up.isDown || this.player.customParams.mustJump) && this.player.body.touching.down) {
             this.player.frame = 10;
-            this.player.body.velocity.y = -1000;
+            this.player.body.velocity.y = -650;
             this.player.customParams.mustJump = false;
         }
     },
