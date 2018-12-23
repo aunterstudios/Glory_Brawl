@@ -261,8 +261,8 @@ brawl.state4.prototype = {
             if ((this.cursors.up.isDown && this.cursors.left.isDown) || (this.player.customParams.mustJump && this.player.customParams.leftMovement)) {
                 this.player.body.velocity.y = -500;
                 this.player.body.velocity.x = -1000;
-                this.player.body.acceleration.y = -500;
-                this.player.body.acceleration.x = -20000;
+                // this.player.body.acceleration.y = -10000;
+                // this.player.body.acceleration.x = -20000;
             }
         }
         else if (this.player.body.touching.left) {
@@ -273,7 +273,7 @@ brawl.state4.prototype = {
                 this.player.body.velocity.y = -500;
                 this.player.body.velocity.x = 50;
                 // this.player.body.acceleration.y = -10000;
-                // this.player.body.acceleration.x = 10000;
+                // this.player.body.acceleration.x = 20000;
             }
         }
         if (this.player.body.touching.none) {
