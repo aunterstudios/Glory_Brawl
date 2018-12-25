@@ -467,7 +467,7 @@ brawl.state5.prototype = {
         }
         else if (this.player.body.touching.right) {
             this.player.body.velocity.x = 50;
-            this.player.body.velocity.y = 350;
+            this.player.body.velocity.y = 300;
             this.player.frame = 6;
             if ((this.cursors.up.isDown && this.cursors.left.isDown) || (this.player.customParams.mustJump && this.player.customParams.leftMovement)) {
                 this.player.body.velocity.y = -650;
@@ -476,7 +476,7 @@ brawl.state5.prototype = {
         }
         else if (this.player.body.touching.left) {
             this.player.body.velocity.x = -50;
-            this.player.body.velocity.y = 350;
+            this.player.body.velocity.y = 300;
             this.player.frame = 12;
             if ((this.cursors.up.isDown && this.cursors.right.isDown) || (this.player.customParams.mustJump && this.player.customParams.rightMovement)) {
                 this.player.body.velocity.y = -650;
@@ -698,7 +698,7 @@ brawl.state6.prototype = {
         }
         else if (this.player.body.touching.right) {
             this.player.body.velocity.x = 50;
-            this.player.body.velocity.y = 350;
+            this.player.body.velocity.y = 300;
             this.player.frame = 6;
             if ((this.cursors.up.isDown && this.cursors.left.isDown) || (this.player.customParams.mustJump && this.player.customParams.leftMovement)) {
                 this.player.body.velocity.y = -650;
@@ -707,7 +707,7 @@ brawl.state6.prototype = {
         }
         else if (this.player.body.touching.left) {
             this.player.body.velocity.x = -50;
-            this.player.body.velocity.y = 350;
+            this.player.body.velocity.y = 300;
             this.player.frame = 12;
             if ((this.cursors.up.isDown && this.cursors.right.isDown) || (this.player.customParams.mustJump && this.player.customParams.rightMovement)) {
                 this.player.body.velocity.y = -650;
@@ -746,6 +746,7 @@ brawl.state6.prototype = {
             this.player.body.velocity.y = -650;
             this.player.customParams.mustJump = false;
         }
+
 
 
     }
@@ -944,7 +945,7 @@ brawl.state7.prototype = {
         }
         else if (this.player.body.touching.right) {
             this.player.body.velocity.x = 50;
-            this.player.body.velocity.y = 350;
+            this.player.body.velocity.y = 300;
             this.player.frame = 6;
             if ((this.cursors.up.isDown && this.cursors.left.isDown) || (this.player.customParams.mustJump && this.player.customParams.leftMovement)) {
                 this.player.body.velocity.y = -650;
@@ -953,7 +954,7 @@ brawl.state7.prototype = {
         }
         else if (this.player.body.touching.left) {
             this.player.body.velocity.x = -50;
-            this.player.body.velocity.y = 350;
+            this.player.body.velocity.y = 300;
             this.player.frame = 12;
             if ((this.cursors.up.isDown && this.cursors.right.isDown) || (this.player.customParams.mustJump && this.player.customParams.rightMovement)) {
                 this.player.body.velocity.y = -650;
@@ -992,6 +993,7 @@ brawl.state7.prototype = {
             this.player.body.velocity.y = -650;
             this.player.customParams.mustJump = false;
         }
+
 
     }
 };
@@ -1202,7 +1204,7 @@ brawl.state8.prototype = {
         }
         else if (this.player.body.touching.right) {
             this.player.body.velocity.x = 50;
-            this.player.body.velocity.y = 350;
+            this.player.body.velocity.y = 300;
             this.player.frame = 6;
             if ((this.cursors.up.isDown && this.cursors.left.isDown) || (this.player.customParams.mustJump && this.player.customParams.leftMovement)) {
                 this.player.body.velocity.y = -650;
@@ -1211,7 +1213,7 @@ brawl.state8.prototype = {
         }
         else if (this.player.body.touching.left) {
             this.player.body.velocity.x = -50;
-            this.player.body.velocity.y = 350;
+            this.player.body.velocity.y = 300;
             this.player.frame = 12;
             if ((this.cursors.up.isDown && this.cursors.right.isDown) || (this.player.customParams.mustJump && this.player.customParams.rightMovement)) {
                 this.player.body.velocity.y = -650;
@@ -1455,7 +1457,7 @@ brawl.state9.prototype = {
         }
         else if (this.player.body.touching.right) {
             this.player.body.velocity.x = 50;
-            this.player.body.velocity.y = 350;
+            this.player.body.velocity.y = 300;
             this.player.frame = 6;
             if ((this.cursors.up.isDown && this.cursors.left.isDown) || (this.player.customParams.mustJump && this.player.customParams.leftMovement)) {
                 this.player.body.velocity.y = -650;
@@ -1464,7 +1466,7 @@ brawl.state9.prototype = {
         }
         else if (this.player.body.touching.left) {
             this.player.body.velocity.x = -50;
-            this.player.body.velocity.y = 350;
+            this.player.body.velocity.y = 300;
             this.player.frame = 12;
             if ((this.cursors.up.isDown && this.cursors.right.isDown) || (this.player.customParams.mustJump && this.player.customParams.rightMovement)) {
                 this.player.body.velocity.y = -650;
@@ -1503,6 +1505,7 @@ brawl.state9.prototype = {
             this.player.body.velocity.y = -650;
             this.player.customParams.mustJump = false;
         }
+
 
 
     }
@@ -1768,7 +1771,7 @@ brawl.state10.prototype = {
         }
         else if (this.player.body.touching.right) {
             this.player.body.velocity.x = 50;
-            this.player.body.velocity.y = 350;
+            this.player.body.velocity.y = 300;
             this.player.frame = 6;
             if ((this.cursors.up.isDown && this.cursors.left.isDown) || (this.player.customParams.mustJump && this.player.customParams.leftMovement)) {
                 this.player.body.velocity.y = -650;
@@ -1777,7 +1780,7 @@ brawl.state10.prototype = {
         }
         else if (this.player.body.touching.left) {
             this.player.body.velocity.x = -50;
-            this.player.body.velocity.y = 350;
+            this.player.body.velocity.y = 300;
             this.player.frame = 12;
             if ((this.cursors.up.isDown && this.cursors.right.isDown) || (this.player.customParams.mustJump && this.player.customParams.rightMovement)) {
                 this.player.body.velocity.y = -650;
