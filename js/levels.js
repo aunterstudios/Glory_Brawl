@@ -1829,7 +1829,7 @@ brawl.state11.prototype = {
     init: function () {
         //GENERAL MAP SETTINGS 
         this.game.physics.startSystem(Phaser.Physics.ARCADE); // We're going to be using physics, so enable the Arcade Physics system
-        this.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT; //Scales our Game
+        // this.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT; //Scales our Game
     },
     preload: function () {
         this.load.image('wall', 'assets/wall.png');
@@ -1847,6 +1847,11 @@ brawl.state11.prototype = {
         this.load.spritesheet('dude', 'assets/white.png', 87.5, 93.5);
     },
     create: function () {
+
+        // Stretch to fill
+        this.game.scale.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
+
+        this.game.input.onDown.add(this.gofull, this);
 
         this.game.world.setBounds(0, 0, 1400, 2000);
 
@@ -2026,6 +2031,16 @@ brawl.state11.prototype = {
             this.player.customParams.rightMovement = false;
             this.rightArrow.alpha = 0;
         }, this);
+    },
+    gofull: function() {
+        if (this.game.scale.isFullScreen)
+        {
+            this.game.scale.stopFullScreen();
+        }
+        else
+        {
+            this.game.scale.startFullScreen(false);
+        }
     },
     update: function () {
 
