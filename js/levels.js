@@ -1829,7 +1829,7 @@ brawl.state11.prototype = {
     init: function () {
         //GENERAL MAP SETTINGS 
         this.game.physics.startSystem(Phaser.Physics.ARCADE); // We're going to be using physics, so enable the Arcade Physics system
-        // this.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT; //Scales our Game
+        this.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT; //Scales our Game
     },
     preload: function () {
         this.load.image('wall', 'assets/wall.png');
@@ -1852,6 +1852,8 @@ brawl.state11.prototype = {
         this.game.scale.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
 
         this.game.input.onDown.add(this.gofull, this);
+
+        // Setting World Stage
 
         this.game.world.setBounds(0, 0, 1400, 2000);
 
