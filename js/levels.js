@@ -1896,21 +1896,25 @@ brawl.state11.prototype = {
                 this.wallX = this.wall.create(900, 1390, 'wall');
             }
             else if (i === 5) {
-                this.wallX = this.wall.create(825, 980, 'wall');
-                this.wallX.scale.setTo(.3,.6);
+                this.wallX = this.wall.create(1260, 1280, 'wall');
             }
             else if (i === 6) {
-                this.wallX = this.wall.create(1000, 980, 'wall');
+                this.wallX = this.wall.create(1200, 880, 'wall');
                 this.wallX.scale.setTo(.3,.6);
             }
             else if (i === 7) {
+                this.wallX = this.wall.create(1325, 880, 'wall');
+                this.wallX.scale.setTo(.3,.6);
+            }
+            else if (i === 8 ) {
                 this.wallX = this.wall.create(960, 500, 'rotatedWall');
                 this.wallX.scale.setTo(1,.5);
             }
-            else if (i === 8) {
-                this.wallX = this.wall.create(900, 1390, 'wall');
+            else if (i === 9) {
+                this.wallX = this.wall.create(100, 1390, 'wall');
+                this.wallX.scale.setTo(.30, .03);
             }
-            if (0 < i && i < 5) {
+            if (0 < i && i < 6) {
                 this.wallX.scale.setTo(.30, .03);
             }
             this.wallX.anchor.setTo(.5);
@@ -1922,8 +1926,8 @@ brawl.state11.prototype = {
         this.ledge.enableBody = true;
         for (var i = 0; i < 1; i++) {
             if (i === 0) {
-                var x = 912;
-                var y = 710;
+                var x = 300;
+                var y = 1400;
             }
             this.ledgeX = this.ledge.create(x, y, 'ledge');
             this.ledgeX.body.maxVelocity.setTo(400);
@@ -1940,14 +1944,14 @@ brawl.state11.prototype = {
         this.spikes.scale.setTo(1);
         this.spikes.body.immovable = true;
 
-        // //Adding Enemy
-        // this.enemy = this.game.add.sprite(700, 100, 'enemy');
-        // this.game.physics.arcade.enable(this.enemy); 
-        // this.enemy.body.bounce.setTo(1);
-        // //this.enemy.body.gravity.y = 10;
-        // this.enemy.body.collideWorldBounds = true;
-        // //this.enemy.body.velocity.x = -500;
-        // this.enemy.body.maxVelocity.setTo(500);
+        //Adding Enemy
+        this.enemy = this.game.add.sprite(200, 900, 'enemy');
+        this.game.physics.arcade.enable(this.enemy); 
+        this.enemy.body.bounce.setTo(1);
+        //this.enemy.body.gravity.y = 10;
+        this.enemy.body.collideWorldBounds = true;
+        this.enemy.body.velocity.x = -5000;
+        this.enemy.body.maxVelocity.setTo(5000);
 
         //Adding Flag
         this.finish = this.game.add.sprite(1300, 0, 'win');
@@ -2032,10 +2036,10 @@ brawl.state11.prototype = {
 
         // //Wall/Enemy/Ledge/Spike Mechanics
         this.game.physics.arcade.collide(this.ledge,this.wall);
-        // this.game.physics.arcade.collide(this.ledge,this.enemy);
+        this.game.physics.arcade.collide(this.ledge,this.enemy);
         this.game.physics.arcade.collide(this.ledge,this.spikes);
-        // this.game.physics.arcade.collide(this.enemy,this.spikes); 
-        // this.game.physics.arcade.collide(this.enemy,this.wall); 
+        this.game.physics.arcade.collide(this.enemy,this.spikes); 
+        this.game.physics.arcade.collide(this.enemy,this.wall); 
 
         // //Spikes Dying
         // this.game.physics.arcade.overlap(this.fallingSpikes, this.ledge, deathTwo, null, this);
@@ -2061,81 +2065,81 @@ brawl.state11.prototype = {
 
         /////////////////////////////God Mode/////////////////////////////////////
 
-        this.player.body.velocity.y = 0;
+        // this.player.body.velocity.y = 0;
 
-        if (this.cursors.left.isDown || this.player.customParams.leftMovement) {
-            this.player.body.velocity.x = -400;
-            this.player.animations.play('left');
-        }
-        else if (this.cursors.right.isDown || this.player.customParams.rightMovement) {
-            this.player.body.velocity.x = 400;
-            this.player.animations.play('right');
-        }
+        // if (this.cursors.left.isDown || this.player.customParams.leftMovement) {
+        //     this.player.body.velocity.x = -400;
+        //     this.player.animations.play('left');
+        // }
+        // else if (this.cursors.right.isDown || this.player.customParams.rightMovement) {
+        //     this.player.body.velocity.x = 400;
+        //     this.player.animations.play('right');
+        // }
 
-        if (this.cursors.up.isDown || this.player.customParams.mustJump) {
-            this.player.frame = 10;
-            this.player.body.velocity.y = -650;
-            this.player.customParams.mustJump = false;
-        }
-        if (this.cursors.down.isDown) {
-            this.player.frame = 10;
-            this.player.body.velocity.y = 650;
-            this.player.customParams.mustJump = false;
-        }
-
-        ////////////////////////////////Actual Controls///////////////////////////////////
-
-        //Player Movement and Wall-Jump Mechanics
-        // if (this.player.body.touching.down) {
-        //     if (this.cursors.left.isDown || this.player.customParams.leftMovement) {
-        //         this.player.body.velocity.x = -400;
-        //         this.player.animations.play('left');
-        //     }
-        //     else if (this.cursors.right.isDown || this.player.customParams.rightMovement) {
-        //         this.player.body.velocity.x = 400;
-        //         this.player.animations.play('right');
-        //     }
-        //     else {
-        //         this.player.animations.stop();
-        //         this.player.frame = 8;
-        //     }
-        // }
-        // else if (this.player.body.touching.right) {
-        //     this.player.body.velocity.x = 50;
-        //     this.player.body.velocity.y = 300;
-        //     this.player.frame = 6;
-        //     if ((this.cursors.up.isDown && this.cursors.left.isDown) || (this.player.customParams.mustJump && this.player.customParams.leftMovement)) {
-        //         this.player.body.velocity.y = -650;
-        //         this.player.body.velocity.x = -1000;
-        //     }
-        // }
-        // else if (this.player.body.touching.left) {
-        //     this.player.body.velocity.x = -50;
-        //     this.player.body.velocity.y = 300;
-        //     this.player.frame = 12;
-        //     if ((this.cursors.up.isDown && this.cursors.right.isDown) || (this.player.customParams.mustJump && this.player.customParams.rightMovement)) {
-        //         this.player.body.velocity.y = -650;
-        //         this.player.body.velocity.x = 1000;
-        //     }
-        // }
-        // if (this.player.body.touching.none) {
-        //     this.player.frame = 10;
-        //     if (this.cursors.left.isDown || this.player.customParams.leftMovement) {
-        //         this.player.body.velocity.x = -400;
-        //         this.player.customParams.rightMovement = false;
-        //     }
-        //     else if (this.cursors.right.isDown || this.player.customParams.rightMovement) {
-        //         this.player.body.velocity.x = 400;
-        //         this.player.customParams.leftMovement = false;
-        //     }
-        // }
-        
-        // //Player Jump Mechanics
-        // if ((this.cursors.up.isDown || this.player.customParams.mustJump) && this.player.body.touching.down) {
+        // if (this.cursors.up.isDown || this.player.customParams.mustJump) {
         //     this.player.frame = 10;
         //     this.player.body.velocity.y = -650;
         //     this.player.customParams.mustJump = false;
         // }
+        // if (this.cursors.down.isDown) {
+        //     this.player.frame = 10;
+        //     this.player.body.velocity.y = 650;
+        //     this.player.customParams.mustJump = false;
+        // }
+
+        ////////////////////////////////Actual Controls///////////////////////////////////
+
+        //Player Movement and Wall-Jump Mechanics
+        if (this.player.body.touching.down) {
+            if (this.cursors.left.isDown || this.player.customParams.leftMovement) {
+                this.player.body.velocity.x = -400;
+                this.player.animations.play('left');
+            }
+            else if (this.cursors.right.isDown || this.player.customParams.rightMovement) {
+                this.player.body.velocity.x = 400;
+                this.player.animations.play('right');
+            }
+            else {
+                this.player.animations.stop();
+                this.player.frame = 8;
+            }
+        }
+        else if (this.player.body.touching.right) {
+            this.player.body.velocity.x = 50;
+            this.player.body.velocity.y = 300;
+            this.player.frame = 6;
+            if ((this.cursors.up.isDown && this.cursors.left.isDown) || (this.player.customParams.mustJump && this.player.customParams.leftMovement)) {
+                this.player.body.velocity.y = -650;
+                this.player.body.velocity.x = -1000;
+            }
+        }
+        else if (this.player.body.touching.left) {
+            this.player.body.velocity.x = -50;
+            this.player.body.velocity.y = 300;
+            this.player.frame = 12;
+            if ((this.cursors.up.isDown && this.cursors.right.isDown) || (this.player.customParams.mustJump && this.player.customParams.rightMovement)) {
+                this.player.body.velocity.y = -650;
+                this.player.body.velocity.x = 1000;
+            }
+        }
+        if (this.player.body.touching.none) {
+            this.player.frame = 10;
+            if (this.cursors.left.isDown || this.player.customParams.leftMovement) {
+                this.player.body.velocity.x = -400;
+                this.player.customParams.rightMovement = false;
+            }
+            else if (this.cursors.right.isDown || this.player.customParams.rightMovement) {
+                this.player.body.velocity.x = 400;
+                this.player.customParams.leftMovement = false;
+            }
+        }
+        
+        //Player Jump Mechanics
+        if ((this.cursors.up.isDown || this.player.customParams.mustJump) && this.player.body.touching.down) {
+            this.player.frame = 10;
+            this.player.body.velocity.y = -650;
+            this.player.customParams.mustJump = false;
+        }
 
     }
 };
