@@ -28,7 +28,7 @@ var ghettoLoopMechanic = 11;
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "Version Platformer-31",
+  "Version Platformer-32",
   "Welcome to Glory Brawl."
 ];
 

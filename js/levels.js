@@ -467,7 +467,7 @@ brawl.state5.prototype = {
         }
         else if (this.player.body.touching.right) {
             this.player.body.velocity.x = 50;
-            this.player.body.velocity.y = 300;
+            this.player.body.velocity.y = 100;
             this.player.frame = 6;
             if ((this.cursors.up.isDown && this.cursors.left.isDown) || (this.player.customParams.mustJump && this.player.customParams.leftMovement)) {
                 this.player.body.velocity.y = -650;
@@ -476,7 +476,7 @@ brawl.state5.prototype = {
         }
         else if (this.player.body.touching.left) {
             this.player.body.velocity.x = -50;
-            this.player.body.velocity.y = 300;
+            this.player.body.velocity.y = 100;
             this.player.frame = 12;
             if ((this.cursors.up.isDown && this.cursors.right.isDown) || (this.player.customParams.mustJump && this.player.customParams.rightMovement)) {
                 this.player.body.velocity.y = -650;
@@ -698,7 +698,7 @@ brawl.state6.prototype = {
         }
         else if (this.player.body.touching.right) {
             this.player.body.velocity.x = 50;
-            this.player.body.velocity.y = 300;
+            this.player.body.velocity.y = 100;
             this.player.frame = 6;
             if ((this.cursors.up.isDown && this.cursors.left.isDown) || (this.player.customParams.mustJump && this.player.customParams.leftMovement)) {
                 this.player.body.velocity.y = -650;
@@ -707,7 +707,7 @@ brawl.state6.prototype = {
         }
         else if (this.player.body.touching.left) {
             this.player.body.velocity.x = -50;
-            this.player.body.velocity.y = 300;
+            this.player.body.velocity.y = 100;
             this.player.frame = 12;
             if ((this.cursors.up.isDown && this.cursors.right.isDown) || (this.player.customParams.mustJump && this.player.customParams.rightMovement)) {
                 this.player.body.velocity.y = -650;
@@ -817,13 +817,13 @@ brawl.state7.prototype = {
         for (var i = 0; i < 2; i++) {
             if (i === 0) {
                 this.trumpImage = this.enemy.create(400, 300, 'enemy');
-                this.trumpImage.body.velocity.x = 500;
+                this.trumpImage.body.velocity.x = 800;
             }
             else {
                 this.trumpImage = this.enemy.create(900, 200, 'enemy');
-                this.trumpImage.body.velocity.x = -500;
+                this.trumpImage.body.velocity.x = -800;
             }
-            this.trumpImage.body.maxVelocity.setTo(550);
+            this.trumpImage.body.maxVelocity.setTo(800);
             this.trumpImage.body.bounce.setTo(1);
             this.trumpImage.body.collideWorldBounds = true;
         }
@@ -945,7 +945,7 @@ brawl.state7.prototype = {
         }
         else if (this.player.body.touching.right) {
             this.player.body.velocity.x = 50;
-            this.player.body.velocity.y = 300;
+            this.player.body.velocity.y = 100;
             this.player.frame = 6;
             if ((this.cursors.up.isDown && this.cursors.left.isDown) || (this.player.customParams.mustJump && this.player.customParams.leftMovement)) {
                 this.player.body.velocity.y = -650;
@@ -954,7 +954,7 @@ brawl.state7.prototype = {
         }
         else if (this.player.body.touching.left) {
             this.player.body.velocity.x = -50;
-            this.player.body.velocity.y = 300;
+            this.player.body.velocity.y = 100;
             this.player.frame = 12;
             if ((this.cursors.up.isDown && this.cursors.right.isDown) || (this.player.customParams.mustJump && this.player.customParams.rightMovement)) {
                 this.player.body.velocity.y = -650;
@@ -993,7 +993,6 @@ brawl.state7.prototype = {
             this.player.body.velocity.y = -650;
             this.player.customParams.mustJump = false;
         }
-
 
     }
 };
@@ -1204,7 +1203,7 @@ brawl.state8.prototype = {
         }
         else if (this.player.body.touching.right) {
             this.player.body.velocity.x = 50;
-            this.player.body.velocity.y = 300;
+            this.player.body.velocity.y = 100;
             this.player.frame = 6;
             if ((this.cursors.up.isDown && this.cursors.left.isDown) || (this.player.customParams.mustJump && this.player.customParams.leftMovement)) {
                 this.player.body.velocity.y = -650;
@@ -1213,7 +1212,7 @@ brawl.state8.prototype = {
         }
         else if (this.player.body.touching.left) {
             this.player.body.velocity.x = -50;
-            this.player.body.velocity.y = 300;
+            this.player.body.velocity.y = 100;
             this.player.frame = 12;
             if ((this.cursors.up.isDown && this.cursors.right.isDown) || (this.player.customParams.mustJump && this.player.customParams.rightMovement)) {
                 this.player.body.velocity.y = -650;
@@ -1457,7 +1456,7 @@ brawl.state9.prototype = {
         }
         else if (this.player.body.touching.right) {
             this.player.body.velocity.x = 50;
-            this.player.body.velocity.y = 300;
+            this.player.body.velocity.y = 100;
             this.player.frame = 6;
             if ((this.cursors.up.isDown && this.cursors.left.isDown) || (this.player.customParams.mustJump && this.player.customParams.leftMovement)) {
                 this.player.body.velocity.y = -650;
@@ -1466,7 +1465,7 @@ brawl.state9.prototype = {
         }
         else if (this.player.body.touching.left) {
             this.player.body.velocity.x = -50;
-            this.player.body.velocity.y = 300;
+            this.player.body.velocity.y = 100;
             this.player.frame = 12;
             if ((this.cursors.up.isDown && this.cursors.right.isDown) || (this.player.customParams.mustJump && this.player.customParams.rightMovement)) {
                 this.player.body.velocity.y = -650;
@@ -1771,7 +1770,7 @@ brawl.state10.prototype = {
         }
         else if (this.player.body.touching.right) {
             this.player.body.velocity.x = 50;
-            this.player.body.velocity.y = 300;
+            this.player.body.velocity.y = 100;
             this.player.frame = 6;
             if ((this.cursors.up.isDown && this.cursors.left.isDown) || (this.player.customParams.mustJump && this.player.customParams.leftMovement)) {
                 this.player.body.velocity.y = -650;
@@ -1780,7 +1779,7 @@ brawl.state10.prototype = {
         }
         else if (this.player.body.touching.left) {
             this.player.body.velocity.x = -50;
-            this.player.body.velocity.y = 300;
+            this.player.body.velocity.y = 100;
             this.player.frame = 12;
             if ((this.cursors.up.isDown && this.cursors.right.isDown) || (this.player.customParams.mustJump && this.player.customParams.rightMovement)) {
                 this.player.body.velocity.y = -650;
@@ -1931,10 +1930,14 @@ brawl.state11.prototype = {
         //Adding Ledge
         this.ledge = this.game.add.group();
         this.ledge.enableBody = true;
-        for (var i = 0; i < 1; i++) {
+        for (var i = 0; i < 2; i++) {
             if (i === 0) {
                 var x = 300;
-                var y = 1400;
+                var y = 1200;
+            }
+            else {
+                var x = 600;
+                var y = 1200;
             }
             this.ledgeX = this.ledge.create(x, y, 'ledge');
             this.ledgeX.body.maxVelocity.setTo(400);
@@ -2106,7 +2109,7 @@ brawl.state11.prototype = {
 
         ////////////////////////////////Actual Controls///////////////////////////////////
 
-        //Player Movement and Wall-Jump Mechanics
+        ///Player Movement and Wall-Jump Mechanics
         if (this.player.body.touching.down) {
             if (this.cursors.left.isDown || this.player.customParams.leftMovement) {
                 this.player.body.velocity.x = -400;
@@ -2123,7 +2126,7 @@ brawl.state11.prototype = {
         }
         else if (this.player.body.touching.right) {
             this.player.body.velocity.x = 50;
-            this.player.body.velocity.y = 300;
+            this.player.body.velocity.y = 100;
             this.player.frame = 6;
             if ((this.cursors.up.isDown && this.cursors.left.isDown) || (this.player.customParams.mustJump && this.player.customParams.leftMovement)) {
                 this.player.body.velocity.y = -650;
@@ -2132,7 +2135,7 @@ brawl.state11.prototype = {
         }
         else if (this.player.body.touching.left) {
             this.player.body.velocity.x = -50;
-            this.player.body.velocity.y = 300;
+            this.player.body.velocity.y = 100;
             this.player.frame = 12;
             if ((this.cursors.up.isDown && this.cursors.right.isDown) || (this.player.customParams.mustJump && this.player.customParams.rightMovement)) {
                 this.player.body.velocity.y = -650;
@@ -2151,13 +2154,26 @@ brawl.state11.prototype = {
             }
         }
         
-        //Player Jump Mechanics
+        /* MORE FOR INSTANTANEOUS REACTION */
+        // if (this.player.body.wasTouching.none) {
+        //     console.log("wasTouching")
+        //     this.player.frame = 10;
+        //     if (this.cursors.left.isDown || this.player.customParams.leftMovement) {
+        //         this.player.body.velocity.x = -400;
+        //         this.player.customParams.rightMovement = false;
+        //     }
+        //     else if (this.cursors.right.isDown || this.player.customParams.rightMovement) {
+        //         this.player.body.velocity.x = 400;
+        //         this.player.customParams.leftMovement = false;
+        //     }
+        // }
+
+        ////Player Jump Mechanics
         if ((this.cursors.up.isDown || this.player.customParams.mustJump) && this.player.body.touching.down) {
             this.player.frame = 10;
             this.player.body.velocity.y = -650;
             this.player.customParams.mustJump = false;
         }
-
     }
 };
 
