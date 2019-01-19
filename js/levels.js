@@ -1847,11 +1847,6 @@ brawl.state11.prototype = {
     },
     create: function () {
 
-        // Stretch to fill
-        this.game.scale.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
-
-        this.game.input.onDown.add(this.gofull, this);
-
         // Setting World Stage
 
         this.game.world.setBounds(0, 0, 1400, 2000);
