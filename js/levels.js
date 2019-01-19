@@ -1847,6 +1847,13 @@ brawl.state11.prototype = {
     },
     create: function () {
 
+        // Stretch to fill (Full Screen Mode)
+        this.game.scale.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
+
+        this.spacebar = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+
+        this.spacebar.onDown.add(this.gofull, this);
+
         // Setting World Stage
 
         this.game.world.setBounds(0, 0, 1400, 2000);
@@ -1908,7 +1915,7 @@ brawl.state11.prototype = {
                 this.wallX.scale.setTo(.3,.6);
             }
             else if (i === 8 ) {
-                this.wallX = this.wall.create(960, 500, 'rotatedWall');
+                this.wallX = this.wall.create(960, 300, 'rotatedWall');
                 this.wallX.scale.setTo(1,.5);
             }
             else if (i === 9) {
@@ -1955,8 +1962,8 @@ brawl.state11.prototype = {
         this.enemy.body.bounce.setTo(1);
         //this.enemy.body.gravity.y = 10;
         this.enemy.body.collideWorldBounds = true;
-        this.enemy.body.velocity.x = -5000;
-        this.enemy.body.maxVelocity.setTo(5000);
+        this.enemy.body.velocity.x = -1000;
+        this.enemy.body.maxVelocity.setTo(1000);
 
         //Adding Flag
         this.finish = this.game.add.sprite(1300, 0, 'win');
