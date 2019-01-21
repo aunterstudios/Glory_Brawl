@@ -1544,7 +1544,7 @@ brawl.state10.prototype = {
         this.fallingSpikes = game.add.group();
         this.fallingSpikes.enableBody = true;
 
-        this.game.time.events.repeat(Phaser.Timer.SECOND * 2, Infinity, spikesFalling, this);
+        this.game.time.events.loop(Phaser.Timer.SECOND * 2, spikesFalling, this);
 
         function spikesFalling() {
             for (var i = 0; i < 4; i++) {
@@ -1560,10 +1560,10 @@ brawl.state10.prototype = {
                 else {
                     var spikesX = 1750;
                 }
-                this.spikeFall = this.fallingSpikes.create(spikesX, this.game.world.height - 1000, 'fallingSpikes');
+                this.spikeFall = this.fallingSpikes.getFirstDead(true,spikesX,-100,'fallingSpikes');
                 this.spikeFall.checkWorldBounds = true;
                 this.spikeFall.outOfBoundsKill = true;
-                this.spikeFall.body.gravity.y = 410;
+                this.spikeFall.body.gravity.y = 710;
             }
         }
 
@@ -1832,6 +1832,7 @@ brawl.state11.prototype = {
         this.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT; //Scales our Game
     },
     preload: function () {
+        this.game.forceSingleUpdate = true;
         this.load.image('wall', 'assets/wall.png');
         this.load.image('rotatedWall', 'assets/rotatedWall.png');
         this.load.image('fallingSpikes', 'assets/newSpikes.png');
@@ -1866,7 +1867,7 @@ brawl.state11.prototype = {
         this.fallingSpikes = game.add.group();
         this.fallingSpikes.enableBody = true;
 
-        this.game.time.events.repeat(Phaser.Timer.SECOND * 4, Infinity, spikesFalling, this);
+        this.game.time.events.loop(Phaser.Timer.SECOND * 4, spikesFalling, this);
 
         function spikesFalling() {
             for (var i = 0; i < 3; i++) {
@@ -1879,12 +1880,6 @@ brawl.state11.prototype = {
                 else {
                     var spikesX = 1200;
                 }
-                // if (this.fallingSpikes.getFirstDead(false)) {
-                //     this.spikeFall = this.fallingSpikes.create(spikesX, -10, 'fallingSpikes');
-                // }
-                // else {
-                //     this.spikeFall = this.fallingSpikes.getFirstDead(false,spikesX,-10,'fallingSpikes');
-                // }
                 this.spikeFall = this.fallingSpikes.getFirstDead(true,spikesX,-10,'fallingSpikes');
                 this.spikeFall.checkWorldBounds = true;
                 this.spikeFall.outOfBoundsKill = true;
@@ -1930,8 +1925,8 @@ brawl.state11.prototype = {
                 this.wallX.scale.setTo(1,.5);
             }
             else if (i === 9) {
-                this.wallX = this.wall.create(100, 1390, 'wall');
-                this.wallX.scale.setTo(.30, .03);
+                this.wallX = this.wall.create(100, 1390, 'brownPlatform');
+                this.wallX.scale.setTo(.5);
             }
             if (0 < i && i < 6) {
                 this.wallX.scale.setTo(.30, .03);
