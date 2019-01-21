@@ -1879,7 +1879,13 @@ brawl.state11.prototype = {
                 else {
                     var spikesX = 1200;
                 }
-                this.spikeFall = this.fallingSpikes.create(spikesX, -10, 'fallingSpikes');
+                // if (this.fallingSpikes.getFirstDead(false)) {
+                //     this.spikeFall = this.fallingSpikes.create(spikesX, -10, 'fallingSpikes');
+                // }
+                // else {
+                //     this.spikeFall = this.fallingSpikes.getFirstDead(false,spikesX,-10,'fallingSpikes');
+                // }
+                this.spikeFall = this.fallingSpikes.getFirstDead(true,spikesX,-10,'fallingSpikes');
                 this.spikeFall.checkWorldBounds = true;
                 this.spikeFall.outOfBoundsKill = true;
                 this.spikeFall.body.gravity.y = 600;
