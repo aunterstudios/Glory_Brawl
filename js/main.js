@@ -117,7 +117,7 @@ function deathTwo(victim, killer) {
 }
 
 function deathThree(killer, victim) {
-  victim.revive();
+  victim.kill();
 }
 ///////////////////////////////////////////Function Mechanics////////////////////////////////////////////
 

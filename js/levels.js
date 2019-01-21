@@ -1561,6 +1561,8 @@ brawl.state10.prototype = {
                     var spikesX = 1750;
                 }
                 this.spikeFall = this.fallingSpikes.create(spikesX, this.game.world.height - 1000, 'fallingSpikes');
+                this.spikeFall.checkWorldBounds = true;
+                this.spikeFall.outOfBoundsKill = true;
                 this.spikeFall.body.gravity.y = 410;
             }
         }
@@ -1734,7 +1736,6 @@ brawl.state10.prototype = {
 
         //Spikes Dying
         this.game.physics.arcade.overlap(this.fallingSpikes, this.ledge, deathTwo, null, this);
-        this.game.physics.arcade.overlap(this.spikes, this.fallingSpikes, deathThree, null, this);
         this.game.physics.arcade.overlap(this.fallingSpikes, this.wall, deathTwo, null, this);
 
         //Flag Moving Mechanics
@@ -1879,8 +1880,12 @@ brawl.state11.prototype = {
                     var spikesX = 1200;
                 }
                 this.spikeFall = this.fallingSpikes.create(spikesX, -10, 'fallingSpikes');
+                this.spikeFall.checkWorldBounds = true;
+                this.spikeFall.outOfBoundsKill = true;
                 this.spikeFall.body.gravity.y = 600;
             }
+            console.log("Living: " + this.fallingSpikes.countLiving());
+            console.log("Dead: " + this.fallingSpikes.countDead());
         }
 
         //Adding the Wall
@@ -2065,7 +2070,6 @@ brawl.state11.prototype = {
 
         // //Spikes Dying
         // this.game.physics.arcade.overlap(this.fallingSpikes, this.ledge, deathTwo, null, this);
-        // this.game.physics.arcade.overlap(this.spikes, this.fallingSpikes, deathThree, null, this);
         // this.game.physics.arcade.overlap(this.fallingSpikes, this.wall, deathTwo, null, this);
 
         // //Flag Moving Mechanics
@@ -2080,7 +2084,6 @@ brawl.state11.prototype = {
         // this.game.physics.arcade.overlap(this.player, this.enemy, deathOne, null, this);
         // this.game.physics.arcade.overlap(this.player, this.spikes, deathOne, null, this);
         // this.game.physics.arcade.overlap(this.player, this.fallingSpikes, deathOne, null, this);
-        
 
         //Player Standing Still
         this.player.body.velocity.x = 0;
