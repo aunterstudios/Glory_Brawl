@@ -990,6 +990,7 @@ brawl.state7.prototype = {
         this.game.physics.arcade.collide(this.ledge, this.enemy, enemyLedge);
         this.game.physics.arcade.collide(this.enemy, this.wall);
         this.game.physics.arcade.collide(this.enemy, this.spikes);
+        this.game.physics.arcade.collide(this.enemy, this.enemy);
         this.game.physics.arcade.collide(this.finish, this.ledge);
         this.game.physics.arcade.collide(this.finish, this.wall);
         this.game.physics.arcade.collide(this.finish, this.spikes);
@@ -1531,6 +1532,7 @@ brawl.state9.prototype = {
         this.game.physics.arcade.collide(this.ledge, this.enemy, enemyLedge);
         this.game.physics.arcade.collide(this.spikes, this.ledge);
         this.game.physics.arcade.collide(this.enemy, this.spikes);
+        this.game.physics.arcade.collide(this.enemy, this.enemy);
 
         //Ball Mechanics
         this.game.physics.arcade.collide(this.ball, this.brownLedge);
