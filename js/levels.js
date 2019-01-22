@@ -2011,7 +2011,7 @@ brawl.state11.prototype = {
                     var spikesY = 335;
                 }
                 else {
-                    var spikesX = 1100;
+                    var spikesX = 1125;
                     var spikesY = 335
                 }
                 this.spikeFall = this.fallingSpikes.getFirstDead(true, spikesX, spikesY, 'fallingSpikes');
@@ -2019,8 +2019,6 @@ brawl.state11.prototype = {
                 this.spikeFall.outOfBoundsKill = true;
                 this.spikeFall.body.gravity.y = 600;
             }
-            console.log("Living: " + this.fallingSpikes.countLiving());
-            console.log("Living: " + this.fallingSpikes.countDead());
         }
 
         //Adding the Wall

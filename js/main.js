@@ -21,8 +21,6 @@ game.state.start('levelEight');
 var runFastX = false;
 var jumpHigherX = false;
 
-// Life Mechanic for Entire Game
-var lives = 1000;
 // To Allow Re-Use of Death State and Ruleset States.
 var ghettoLoopMechanic = 3;
 
