@@ -728,7 +728,7 @@ brawl.state6.prototype = {
 
         //Collision Physics
         this.game.physics.arcade.collide(this.player, this.wall);
-        this.game.physics.arcade.collide(this.player, this.ledge, ledgeUpMiddle);
+        this.game.physics.arcade.collide(this.player, this.ledge, ledgeUp);
 
         this.game.physics.arcade.collide(this.wall, this.ledge);
         this.game.physics.arcade.collide(this.spikes, this.ledge);
@@ -981,7 +981,7 @@ brawl.state7.prototype = {
     update: function () {
 
         //Collision Physics
-        this.game.physics.arcade.collide(this.player, this.ledge, ledgeUpFast);
+        this.game.physics.arcade.collide(this.player, this.ledge, ledgeUp);
         this.game.physics.arcade.collide(this.player, this.wall);
 
         // Object Collisions
@@ -1253,7 +1253,7 @@ brawl.state8.prototype = {
         this.game.physics.arcade.collide(this.player, this.ball);
         this.game.physics.arcade.collide(this.player, this.wall);
         this.game.physics.arcade.collide(this.player, this.ground);
-        this.game.physics.arcade.collide(this.player, this.ledge, ledgeUpFast);
+        this.game.physics.arcade.collide(this.player, this.ledge, ledgeUp);
 
         //Wall and Ledge Mechanics
         this.game.physics.arcade.collide(this.wall, this.ledge);
@@ -1522,7 +1522,7 @@ brawl.state9.prototype = {
 
         //Player Mechanics
         this.game.physics.arcade.collide(this.player, this.brownLedge);
-        this.game.physics.arcade.collide(this.player, this.ledge, ledgeNormal);
+        this.game.physics.arcade.collide(this.player, this.ledge, ledgeUp);
         this.game.physics.arcade.collide(this.player, this.ball);
 
         //Ledge/Ground/Mechanics
@@ -1848,7 +1848,7 @@ brawl.state10.prototype = {
 
         //Player Mechanics
         this.game.physics.arcade.collide(this.player, this.wall);
-        this.game.physics.arcade.collide(this.player, this.ledge, ledgeUpMiddle);
+        this.game.physics.arcade.collide(this.player, this.ledge, ledgeUp);
 
         //Wall/Enemy/Ledge/Spike Mechanics
         this.game.physics.arcade.collide(this.ledge, this.wall);
@@ -2208,7 +2208,7 @@ brawl.state11.prototype = {
         //Player Mechanics
 
         this.game.physics.arcade.collide(this.player, this.wall);
-        this.game.physics.arcade.collide(this.player, this.ledge, ledgeUpMiddle);
+        this.game.physics.arcade.collide(this.player, this.ledge, ledgeUp);
 
         // //Wall/Enemy/Ledge/Spike Mechanics
         this.game.physics.arcade.collide(this.ledge, this.wall);

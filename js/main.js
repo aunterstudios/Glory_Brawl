@@ -13,8 +13,8 @@ game.state.add('levelSix', brawl.state9);
 game.state.add('levelSeven', brawl.state10);
 game.state.add('levelEight', brawl.state11);
 //////////////////////////////////////////////////Starting States//////////////////////////////////////////////
-//game.state.start('mainMenu');
-game.state.start('levelEight');
+game.state.start('mainMenu');
+//game.state.start('levelEight');
 //////////////////////////////////////////////////Global Variables//////////////////////////////////////////////
 
 // Variables that Hold Cumlative Power-Up Booleans
@@ -124,7 +124,7 @@ function deathThree(killer, victim) {
 //Ledge Mechanics
 
 
-function ledgeUp(player, ledge) {
+function ledgeUp (player, ledge) {
   if (ledge.body.touching.up) {
     ledge.body.velocity.y = -500;
     ledge.body.velocity.x = 0;

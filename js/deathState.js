@@ -59,7 +59,7 @@ brawl.state2.prototype = {
             else if (ghettoLoopMechanic === 4) {
                 this.game.state.start('levelSeven');
             }
-            else if (ghettoLoopMechanic === 4) {
+            else if (ghettoLoopMechanic === 3) {
                 this.game.state.start('levelEight');
             }
         }
