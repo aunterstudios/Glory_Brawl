@@ -2,7 +2,7 @@
 brawl.state3 = function () { };
 brawl.state3.prototype = {
     init: function () {
-        this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL; //Scales our Game
+        this.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT; //Scales our Game
         this.game.world.setBounds(0, 0, 1400, 800);
     },
     preload: function () {
@@ -10,7 +10,8 @@ brawl.state3.prototype = {
     },
     create: function () {
 
-        //Full-Screen Scaling
+        // Stretch to fill (Full Screen Mode)
+        this.game.scale.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
 
         this.spacebar = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 
@@ -64,6 +65,16 @@ brawl.state3.prototype = {
         this.text2.fontWeight = 'bold';
 
     },
+    gofull: function() {
+        if (this.game.scale.isFullScreen)
+        {
+            this.game.scale.stopFullScreen();
+        }
+        else
+        {
+            this.game.scale.startFullScreen(false);
+        }
+    },
     update: function () {
         if (this.game.input.activePointer.isDown) {
             if (ghettoLoopMechanic === 10) {
@@ -115,7 +126,9 @@ brawl.state4.prototype = {
     },
     create: function () {
 
-        //Full Screen-Scaling
+        // Stretch to fill (Full Screen Mode)
+        this.game.scale.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
+
         this.spacebar = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 
         this.spacebar.onDown.add(this.gofull, this);
@@ -350,7 +363,9 @@ brawl.state5.prototype = {
     },
     create: function () {
 
-        //Full Screen Scaling
+        // Stretch to fill (Full Screen Mode)
+        this.game.scale.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
+
         this.spacebar = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 
         this.spacebar.onDown.add(this.gofull, this);
@@ -577,7 +592,9 @@ brawl.state6.prototype = {
     },
     create: function () {
 
-        //Full Screen Scaling
+        // Stretch to fill (Full Screen Mode)
+        this.game.scale.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
+
         this.spacebar = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 
         this.spacebar.onDown.add(this.gofull, this);
@@ -824,7 +841,9 @@ brawl.state7.prototype = {
     },
     create: function () {
 
-        //Full Screen Scaling
+        // Stretch to fill (Full Screen Mode)
+        this.game.scale.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
+
         this.spacebar = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 
         this.spacebar.onDown.add(this.gofull, this);
@@ -1088,7 +1107,9 @@ brawl.state8.prototype = {
     },
     create: function () {
 
-        //Full Screen Scaling
+        // Stretch to fill (Full Screen Mode)
+        this.game.scale.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
+
         this.spacebar = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 
         this.spacebar.onDown.add(this.gofull, this);
@@ -1358,7 +1379,9 @@ brawl.state9.prototype = {
     },
     create: function () {
 
-        //Full Screen Scaling
+        // Stretch to fill (Full Screen Mode)
+        this.game.scale.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
+
         this.spacebar = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 
         this.spacebar.onDown.add(this.gofull, this);
@@ -1635,6 +1658,9 @@ brawl.state10.prototype = {
         this.game.world.setBounds(0, 0, 2000, 800);
 
         //Full Screen Scaling
+        // Stretch to fill (Full Screen Mode)
+        this.game.scale.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
+
         this.spacebar = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 
         this.spacebar.onDown.add(this.gofull, this);
@@ -1944,7 +1970,7 @@ brawl.state11.prototype = {
         this.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT; //Scales our Game
     },
     preload: function () {
-        this.game.forceSingleUpdate = true;
+        //this.game.forceSingleUpdate = true;
         this.load.image('wall', 'assets/wall.png');
         this.load.image('rotatedWall', 'assets/rotatedWall.png');
         this.load.image('fallingSpikes', 'assets/newSpikes.png');
