@@ -123,32 +123,11 @@ function deathThree(killer, victim) {
 
 //Ledge Mechanics
 
-function ledgeNormal(player, ledge) {
-  if (ledge.body.touching.up) {
-    ledge.body.velocity.y = -300;
-  }
-}
 
-function ledgeUpMiddle(player, ledge) {
+function ledgeUp(player, ledge) {
   if (ledge.body.touching.up) {
     ledge.body.velocity.y = -500;
-  }
-}
-
-function ledgeUpFast(player, ledge) {
-  if (ledge.body.touching.up) {
-    ledge.body.velocity.y = -500;
-    player.body.velocity.x = ledge.body.velocity.x;
-    ledge.body.velocity.x = player.body.velocity.x;
-  }
-  else if (ledge.body.touching.right) {
-    ledge.body.velocity.x = -500;
-  }
-  else if (ledge.body.touching.left) {
-    ledge.body.velocity.x = 500;
-  }
-  else if (ledge.body.touching.down) {
-    ledge.body.velocity.x = 500;
+    ledge.body.velocity.x = 0;
   }
 }
 
