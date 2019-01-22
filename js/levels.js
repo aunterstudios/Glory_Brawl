@@ -2061,14 +2061,18 @@ brawl.state11.prototype = {
         //Adding Ledge
         this.ledge = this.game.add.group();
         this.ledge.enableBody = true;
-        for (var i = 0; i < 2; i++) {
+        for (var i = 0; i < 3; i++) {
             if (i === 0) {
                 var x = 400;
                 var y = 1100;
             }
-            else {
+            else if (i === 1) {
                 var x = 700;
                 var y = 1100;
+            }
+            else {
+                var x = 100;
+                var y = 1200;
             }
             this.ledgeX = this.ledge.create(x, y, 'ledge');
             // this.ledgeX.body.mass = 10;
@@ -2091,31 +2095,22 @@ brawl.state11.prototype = {
 
         this.enemy = game.add.group();
         this.enemy.enableBody = true;
-        for (var i = 0; i < 8; i++) {
+        for (var i = 0; i < 5; i++) {
             if (i === 0) {
-                this.trumpImage = this.enemy.create(200, 900, 'enemy');
+                this.trumpImage = this.enemy.create(100, 900, 'enemy');
                 this.trumpImage.body.velocity.x = -1000;
             }
             else if (i === 1) {
-                this.trumpImage = this.enemy.create(20, 269, 'enemy');
+                this.trumpImage = this.enemy.create(75, 269, 'enemy');
             }
             else if (i === 2) {
-                this.trumpImage = this.enemy.create(95, 269, 'enemy');
+                this.trumpImage = this.enemy.create(175, 269, 'enemy');
             }
             else if (i === 3) {
-                this.trumpImage = this.enemy.create(170, 269, 'enemy');
-            }
-            else if (i === 4) {
-                this.trumpImage = this.enemy.create(245, 269, 'enemy');
-            }
-            else if (i === 5) {
-                this.trumpImage = this.enemy.create(320, 269, 'enemy');
-            }
-            else if (i === 6) {
-                this.trumpImage = this.enemy.create(395, 269, 'enemy');
+                this.trumpImage = this.enemy.create(275, 269, 'enemy');
             }
             else {
-                this.trumpImage = this.enemy.create(470, 269, 'enemy');
+                this.trumpImage = this.enemy.create(375, 269, 'enemy');
             }
             // this.trumpImage.body.gravity.y = 10;
             this.trumpImage.body.maxVelocity.setTo(1000);
@@ -2317,20 +2312,6 @@ brawl.state11.prototype = {
             this.player.body.velocity.y = -650;
             this.player.customParams.mustJump = false;
         }
-
-        /* MORE FOR INSTANTANEOUS REACTION */
-        // if (this.player.body.wasTouching.none) {
-        //     console.log("wasTouching")
-        //     this.player.frame = 10;
-        //     if (this.cursors.left.isDown || this.player.customParams.leftMovement) {
-        //         this.player.body.velocity.x = -400;
-        //         this.player.customParams.rightMovement = false;
-        //     }
-        //     else if (this.cursors.right.isDown || this.player.customParams.rightMovement) {
-        //         this.player.body.velocity.x = 400;
-        //         this.player.customParams.leftMovement = false;
-        //     }
-        // }
     }
 };
 

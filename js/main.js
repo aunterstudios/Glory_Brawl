@@ -286,6 +286,21 @@ this.player.body.velocity.x = -100;
 this.player.body.acceleration.y = -10000;
 this.player.body.acceleration.x = -10000;
 
+/////////////////////Instantaneous Reaction
+/* MORE FOR INSTANTANEOUS REACTION 
+        // if (this.player.body.wasTouching.none) {
+        //     console.log("wasTouching")
+        //     this.player.frame = 10;
+        //     if (this.cursors.left.isDown || this.player.customParams.leftMovement) {
+        //         this.player.body.velocity.x = -400;
+        //         this.player.customParams.rightMovement = false;
+        //     }
+        //     else if (this.cursors.right.isDown || this.player.customParams.rightMovement) {
+        //         this.player.body.velocity.x = 400;
+        //         this.player.customParams.leftMovement = false;
+        //     }
+        // }
+
 
 
 */
