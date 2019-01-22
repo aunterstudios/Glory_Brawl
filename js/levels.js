@@ -65,13 +65,11 @@ brawl.state3.prototype = {
         this.text2.fontWeight = 'bold';
 
     },
-    gofull: function() {
-        if (this.game.scale.isFullScreen)
-        {
+    gofull: function () {
+        if (this.game.scale.isFullScreen) {
             this.game.scale.stopFullScreen();
         }
-        else
-        {
+        else {
             this.game.scale.startFullScreen(false);
         }
     },
@@ -252,13 +250,11 @@ brawl.state4.prototype = {
 
 
     },
-    gofull: function() {
-        if (this.game.scale.isFullScreen)
-        {
+    gofull: function () {
+        if (this.game.scale.isFullScreen) {
             this.game.scale.stopFullScreen();
         }
-        else
-        {
+        else {
             this.game.scale.startFullScreen(false);
         }
     },
@@ -315,7 +311,7 @@ brawl.state4.prototype = {
                 this.player.customParams.leftMovement = false;
             }
         }
-        
+
         /* MORE FOR INSTANTANEOUS REACTION */
         // if (this.player.body.wasTouching.none) {
         //     console.log("wasTouching")
@@ -475,13 +471,11 @@ brawl.state5.prototype = {
             this.rightArrow.alpha = 0;
         }, this);
     },
-    gofull: function() {
-        if (this.game.scale.isFullScreen)
-        {
+    gofull: function () {
+        if (this.game.scale.isFullScreen) {
             this.game.scale.stopFullScreen();
         }
-        else
-        {
+        else {
             this.game.scale.startFullScreen(false);
         }
     },
@@ -545,7 +539,7 @@ brawl.state5.prototype = {
                 this.player.customParams.leftMovement = false;
             }
         }
-        
+
         /* MORE FOR INSTANTANEOUS REACTION */
         // if (this.player.body.wasTouching.none) {
         //     console.log("wasTouching")
@@ -721,13 +715,11 @@ brawl.state6.prototype = {
             this.rightArrow.alpha = 0;
         }, this);
     },
-    gofull: function() {
-        if (this.game.scale.isFullScreen)
-        {
+    gofull: function () {
+        if (this.game.scale.isFullScreen) {
             this.game.scale.stopFullScreen();
         }
-        else
-        {
+        else {
             this.game.scale.startFullScreen(false);
         }
     },
@@ -793,7 +785,7 @@ brawl.state6.prototype = {
                 this.player.customParams.leftMovement = false;
             }
         }
-        
+
         /* MORE FOR INSTANTANEOUS REACTION */
         // if (this.player.body.wasTouching.none) {
         //     console.log("wasTouching")
@@ -978,13 +970,11 @@ brawl.state7.prototype = {
             this.rightArrow.alpha = 0;
         }, this);
     },
-    gofull: function() {
-        if (this.game.scale.isFullScreen)
-        {
+    gofull: function () {
+        if (this.game.scale.isFullScreen) {
             this.game.scale.stopFullScreen();
         }
-        else
-        {
+        else {
             this.game.scale.startFullScreen(false);
         }
     },
@@ -994,9 +984,10 @@ brawl.state7.prototype = {
         this.game.physics.arcade.collide(this.player, this.ledge, ledgeUpFast);
         this.game.physics.arcade.collide(this.player, this.wall);
 
+        // Object Collisions
         this.game.physics.arcade.collide(this.spikes, this.ledge, spikeLedge);
         this.game.physics.arcade.collide(this.wall, this.ledge);
-        this.game.physics.arcade.collide(this.enemy, this.ledge);
+        this.game.physics.arcade.collide(this.ledge, this.enemy, enemyLedge);
         this.game.physics.arcade.collide(this.enemy, this.wall);
         this.game.physics.arcade.collide(this.enemy, this.spikes);
         this.game.physics.arcade.collide(this.finish, this.ledge);
@@ -1057,7 +1048,7 @@ brawl.state7.prototype = {
                 this.player.customParams.leftMovement = false;
             }
         }
-        
+
         /* MORE FOR INSTANTANEOUS REACTION */
         // if (this.player.body.wasTouching.none) {
         //     console.log("wasTouching")
@@ -1249,13 +1240,11 @@ brawl.state8.prototype = {
             this.rightArrow.alpha = 0;
         }, this);
     },
-    gofull: function() {
-        if (this.game.scale.isFullScreen)
-        {
+    gofull: function () {
+        if (this.game.scale.isFullScreen) {
             this.game.scale.stopFullScreen();
         }
-        else
-        {
+        else {
             this.game.scale.startFullScreen(false);
         }
     },
@@ -1332,7 +1321,7 @@ brawl.state8.prototype = {
                 this.player.customParams.leftMovement = false;
             }
         }
-        
+
         /* MORE FOR INSTANTANEOUS REACTION */
         // if (this.player.body.wasTouching.none) {
         //     console.log("wasTouching")
@@ -1517,13 +1506,11 @@ brawl.state9.prototype = {
             this.rightArrow.alpha = 0;
         }, this);
     },
-    gofull: function() {
-        if (this.game.scale.isFullScreen)
-        {
+    gofull: function () {
+        if (this.game.scale.isFullScreen) {
             this.game.scale.stopFullScreen();
         }
-        else
-        {
+        else {
             this.game.scale.startFullScreen(false);
         }
     },
@@ -1541,7 +1528,7 @@ brawl.state9.prototype = {
         //Ledge/Ground/Mechanics
         this.game.physics.arcade.collide(this.brownLedge, this.ledge);
         this.game.physics.arcade.collide(this.brownLedge, this.enemy);
-        this.game.physics.arcade.collide(this.enemy, this.ledge);
+        this.game.physics.arcade.collide(this.ledge, this.enemy, enemyLedge);
         this.game.physics.arcade.collide(this.spikes, this.ledge);
         this.game.physics.arcade.collide(this.enemy, this.spikes);
 
@@ -1602,7 +1589,7 @@ brawl.state9.prototype = {
                 this.player.customParams.leftMovement = false;
             }
         }
-        
+
         /* MORE FOR INSTANTANEOUS REACTION */
         // if (this.player.body.wasTouching.none) {
         //     console.log("wasTouching")
@@ -1688,7 +1675,7 @@ brawl.state10.prototype = {
                 else {
                     var spikesX = 1750;
                 }
-                this.spikeFall = this.fallingSpikes.getFirstDead(true,spikesX,-100,'fallingSpikes');
+                this.spikeFall = this.fallingSpikes.getFirstDead(true, spikesX, -100, 'fallingSpikes');
                 this.spikeFall.checkWorldBounds = true;
                 this.spikeFall.outOfBoundsKill = true;
                 this.spikeFall.body.gravity.y = 710;
@@ -1849,13 +1836,11 @@ brawl.state10.prototype = {
             this.rightArrow.alpha = 0;
         }, this);
     },
-    gofull: function() {
-        if (this.game.scale.isFullScreen)
-        {
+    gofull: function () {
+        if (this.game.scale.isFullScreen) {
             this.game.scale.stopFullScreen();
         }
-        else
-        {
+        else {
             this.game.scale.startFullScreen(false);
         }
     },
@@ -1867,7 +1852,7 @@ brawl.state10.prototype = {
 
         //Wall/Enemy/Ledge/Spike Mechanics
         this.game.physics.arcade.collide(this.ledge, this.wall);
-        this.game.physics.arcade.collide(this.ledge, this.enemy);
+        this.game.physics.arcade.collide(this.enemy, this.ledge, enemyLedgeSprite);
         this.game.physics.arcade.collide(this.ledge, this.spikes);
         this.game.physics.arcade.collide(this.enemy, this.spikes);
         this.game.physics.arcade.collide(this.enemy, this.wall);
@@ -1936,7 +1921,7 @@ brawl.state10.prototype = {
                 this.player.customParams.leftMovement = false;
             }
         }
-        
+
         /* MORE FOR INSTANTANEOUS REACTION */
         // if (this.player.body.wasTouching.none) {
         //     console.log("wasTouching")
@@ -1970,7 +1955,7 @@ brawl.state11.prototype = {
         this.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT; //Scales our Game
     },
     preload: function () {
-        //this.game.forceSingleUpdate = true;
+        this.game.forceSingleUpdate = true;
         this.load.image('wall', 'assets/wall.png');
         this.load.image('rotatedWall', 'assets/rotatedWall.png');
         this.load.image('fallingSpikes', 'assets/newSpikes.png');
@@ -2018,7 +2003,7 @@ brawl.state11.prototype = {
                 else {
                     var spikesX = 1200;
                 }
-                this.spikeFall = this.fallingSpikes.getFirstDead(true,spikesX,-10,'fallingSpikes');
+                this.spikeFall = this.fallingSpikes.getFirstDead(true, spikesX, -10, 'fallingSpikes');
                 this.spikeFall.checkWorldBounds = true;
                 this.spikeFall.outOfBoundsKill = true;
                 this.spikeFall.body.gravity.y = 600;
@@ -2050,15 +2035,15 @@ brawl.state11.prototype = {
             }
             else if (i === 6) {
                 this.wallX = this.wall.create(1200, 880, 'wall');
-                this.wallX.scale.setTo(.3,.6);
+                this.wallX.scale.setTo(.3, .6);
             }
             else if (i === 7) {
                 this.wallX = this.wall.create(1325, 880, 'wall');
-                this.wallX.scale.setTo(.3,.6);
+                this.wallX.scale.setTo(.3, .6);
             }
-            else if (i === 8 ) {
+            else if (i === 8) {
                 this.wallX = this.wall.create(960, 300, 'rotatedWall');
-                this.wallX.scale.setTo(1,.5);
+                this.wallX.scale.setTo(1, .5);
             }
             else if (i === 9) {
                 this.wallX = this.wall.create(100, 1390, 'brownPlatform');
@@ -2210,29 +2195,28 @@ brawl.state11.prototype = {
             this.rightArrow.alpha = 0;
         }, this);
     },
-    gofull: function() {
-        if (this.game.scale.isFullScreen)
-        {
+    gofull: function () {
+        if (this.game.scale.isFullScreen) {
             this.game.scale.stopFullScreen();
         }
-        else
-        {
+        else {
             this.game.scale.startFullScreen(false);
         }
     },
     update: function () {
 
         //Player Mechanics
-        
+
         this.game.physics.arcade.collide(this.player, this.wall);
-        this.game.physics.arcade.collide(this.player,this.ledge,ledgeUpMiddle);
+        this.game.physics.arcade.collide(this.player, this.ledge, ledgeUpMiddle);
 
         // //Wall/Enemy/Ledge/Spike Mechanics
-        this.game.physics.arcade.collide(this.ledge,this.wall);
-        this.game.physics.arcade.collide(this.ledge,this.enemy);
-        this.game.physics.arcade.collide(this.ledge,this.spikes);
-        this.game.physics.arcade.collide(this.enemy,this.spikes); 
-        this.game.physics.arcade.collide(this.enemy,this.wall); 
+        this.game.physics.arcade.collide(this.ledge, this.wall);
+        this.game.physics.arcade.collide(this.ledge, this.enemy, enemyLedge);
+        this.game.physics.arcade.collide(this.ledge, this.spikes);
+        this.game.physics.arcade.collide(this.enemy, this.spikes);
+        this.game.physics.arcade.collide(this.enemy, this.wall);
+        this.game.physics.arcade.collide(this.enemy, this.enemy);
 
         // //Spikes Dying
         // this.game.physics.arcade.overlap(this.fallingSpikes, this.ledge, deathTwo, null, this);
@@ -2324,7 +2308,7 @@ brawl.state11.prototype = {
         //         this.player.customParams.leftMovement = false;
         //     }
         // }
-        
+
         // ////Player Jump Mechanics
         // if ((this.cursors.up.isDown || this.player.customParams.mustJump) && this.player.body.touching.down) {
         //     this.player.frame = 10;
