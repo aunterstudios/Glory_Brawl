@@ -1663,7 +1663,7 @@ brawl.state10.prototype = {
         this.cursors = this.game.input.keyboard.createCursorKeys();
 
         //Falling Spikes
-        this.fallingSpikes = game.add.group();
+        this.fallingSpikes = this.game.add.group();
         this.fallingSpikes.enableBody = true;
 
         this.game.time.events.loop(Phaser.Timer.SECOND * 2, spikesFalling, this);
@@ -1995,7 +1995,7 @@ brawl.state11.prototype = {
         this.cursors = this.game.input.keyboard.createCursorKeys();
 
         //Falling Spikes
-        this.fallingSpikes = game.add.group();
+        this.fallingSpikes = this.game.add.group();
         this.fallingSpikes.enableBody = true;
 
         this.game.time.events.loop(Phaser.Timer.SECOND * 4, spikesFalling, this);
@@ -2011,7 +2011,7 @@ brawl.state11.prototype = {
                 else {
                     var spikesX = 1200;
                 }
-                this.spikeFall = this.fallingSpikes.getFirstDead(true, spikesX, -10, 'fallingSpikes');
+                this.spikeFall = this.fallingSpikes.getFirstDead(true, spikesX, spikesY, 'fallingSpikes');
                 this.spikeFall.checkWorldBounds = true;
                 this.spikeFall.outOfBoundsKill = true;
                 this.spikeFall.body.gravity.y = 600;
@@ -2098,10 +2098,12 @@ brawl.state11.prototype = {
         this.spikes.scale.setTo(1);
         this.spikes.body.immovable = true;
 
+        this.spikes = 
+
 
         //Adding Enemy
 
-        this.enemy = game.add.group();
+        this.enemy = this.game.add.group();
         this.enemy.enableBody = true;
         for (var i = 0; i < 5; i++) {
             if (i === 0) {
