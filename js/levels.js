@@ -1972,7 +1972,7 @@ brawl.state11.prototype = {
         this.load.image('brownPlatform', 'assets/platform2.png');
         this.load.image('ledge', 'assets/platformY.png');
         this.load.image('spikes', 'assets/invisibleFloorSpikes.png');
-        this.load.image('invertedSpikes','assets/invertedSpikesTrue.png')
+        this.load.image('invertedSpikes', 'assets/invertedSpikesTrue.png')
         this.load.image('joystick', 'assets/joystick.png');
         this.load.image('joystick2', 'assets/joystickR.png');
         this.load.image('action', 'assets/action.png');
@@ -2019,8 +2019,8 @@ brawl.state11.prototype = {
                 this.spikeFall.outOfBoundsKill = true;
                 this.spikeFall.body.gravity.y = 600;
             }
-            console.log("Living: "+ this.fallingSpikes.countLiving());
-            console.log("Living: "+ this.fallingSpikes.countDead());
+            console.log("Living: " + this.fallingSpikes.countLiving());
+            console.log("Living: " + this.fallingSpikes.countDead());
         }
 
         //Adding the Wall
@@ -2105,11 +2105,11 @@ brawl.state11.prototype = {
         this.spikes.enableBody = true;
         for (var i = 0; i < 2; i++) {
             if (i == 0) {
-                this.spikesSprite = this.spikes.create(0,1850,'spikes');
+                this.spikesSprite = this.spikes.create(0, 1850, 'spikes');
                 this.spikesSprite.scale.setTo(1);
             }
             else {
-                this.spikesSprite = this.spikes.create(540,330,'invertedSpikes');
+                this.spikesSprite = this.spikes.create(540, 330, 'invertedSpikes');
                 this.spikesSprite.scale.setTo(.6);
             }
             this.spikesSprite.body.immovable = true;
@@ -2120,7 +2120,7 @@ brawl.state11.prototype = {
 
         this.enemy = this.game.add.group();
         this.enemy.enableBody = true;
-        for (var i = 0; i < 5; i++) {
+        for (var i = 0; i < 6; i++) {
             if (i === 0) {
                 this.trumpImage = this.enemy.create(100, 900, 'enemy');
                 this.trumpImage.body.velocity.x = -1000;
@@ -2134,8 +2134,12 @@ brawl.state11.prototype = {
             else if (i === 3) {
                 this.trumpImage = this.enemy.create(275, 269, 'enemy');
             }
-            else {
+            else if (i === 4) {
                 this.trumpImage = this.enemy.create(375, 269, 'enemy');
+            }
+            else {
+                this.trumpImage = this.enemy.create(1000, 50, 'enemy');
+                this.trumpImage.body.velocity.y = -1000;
             }
             // this.trumpImage.body.gravity.y = 10;
             this.trumpImage.body.maxVelocity.setTo(1000);
@@ -2246,9 +2250,9 @@ brawl.state11.prototype = {
         this.game.physics.arcade.overlap(this.fallingSpikes, this.wall, deathTwo, null, this);
 
         //Flag Moving Mechanics
-        this.game.physics.arcade.collide(this.finish,this.wall);
-        this.game.physics.arcade.collide(this.finish,this.ledge);
-        this.game.physics.arcade.collide(this.finish,this.spikes);
+        this.game.physics.arcade.collide(this.finish, this.wall);
+        this.game.physics.arcade.collide(this.finish, this.ledge);
+        this.game.physics.arcade.collide(this.finish, this.spikes);
 
         //Win
         this.game.physics.arcade.overlap(this.player, this.finish, nextLevel, null, this);
@@ -2263,81 +2267,81 @@ brawl.state11.prototype = {
 
         /////////////////////////////God Mode/////////////////////////////////////
 
-        this.player.body.velocity.y = 0;
+        // this.player.body.velocity.y = 0;
 
-        if (this.cursors.left.isDown || this.player.customParams.leftMovement) {
-            this.player.body.velocity.x = -400;
-            this.player.animations.play('left');
-        }
-        else if (this.cursors.right.isDown || this.player.customParams.rightMovement) {
-            this.player.body.velocity.x = 400;
-            this.player.animations.play('right');
-        }
-
-        if (this.cursors.up.isDown || this.player.customParams.mustJump) {
-            this.player.frame = 10;
-            this.player.body.velocity.y = -650;
-            this.player.customParams.mustJump = false;
-        }
-        if (this.cursors.down.isDown) {
-            this.player.frame = 10;
-            this.player.body.velocity.y = 650;
-            this.player.customParams.mustJump = false;
-        }
-
-        ////////////////////////////////Actual Controls///////////////////////////////////
-
-        // ////Player Movement and Wall-Jump Mechanics
-        // if (this.player.body.touching.down) {
-        //     if (this.cursors.left.isDown || this.player.customParams.leftMovement) {
-        //         this.player.body.velocity.x = -400;
-        //         this.player.animations.play('left');
-        //     }
-        //     else if (this.cursors.right.isDown || this.player.customParams.rightMovement) {
-        //         this.player.body.velocity.x = 400;
-        //         this.player.animations.play('right');
-        //     }
-        //     else {
-        //         this.player.animations.stop();
-        //         this.player.frame = 8;
-        //     }
+        // if (this.cursors.left.isDown || this.player.customParams.leftMovement) {
+        //     this.player.body.velocity.x = -400;
+        //     this.player.animations.play('left');
         // }
-        // else if (this.player.body.touching.right) {
-        //     this.player.body.velocity.x = 50;
-        //     this.player.body.velocity.y = 100;
-        //     this.player.frame = 6;
-        //     if ((this.cursors.up.isDown && this.cursors.left.isDown) || (this.player.customParams.mustJump && this.player.customParams.leftMovement)) {
-        //         this.player.body.velocity.y = -650;
-        //         this.player.body.velocity.x = -1000;
-        //     }
-        // }
-        // else if (this.player.body.touching.left) {
-        //     this.player.body.velocity.x = -50;
-        //     this.player.body.velocity.y = 100;
-        //     this.player.frame = 12;
-        //     if ((this.cursors.up.isDown && this.cursors.right.isDown) || (this.player.customParams.mustJump && this.player.customParams.rightMovement)) {
-        //         this.player.body.velocity.y = -650;
-        //         this.player.body.velocity.x = 1000;
-        //     }
-        // }
-        // if (this.player.body.touching.none) {
-        //     this.player.frame = 10;
-        //     if (this.cursors.left.isDown || this.player.customParams.leftMovement) {
-        //         this.player.body.velocity.x = -400;
-        //         this.player.customParams.rightMovement = false;
-        //     }
-        //     else if (this.cursors.right.isDown || this.player.customParams.rightMovement) {
-        //         this.player.body.velocity.x = 400;
-        //         this.player.customParams.leftMovement = false;
-        //     }
+        // else if (this.cursors.right.isDown || this.player.customParams.rightMovement) {
+        //     this.player.body.velocity.x = 400;
+        //     this.player.animations.play('right');
         // }
 
-        // ////Player Jump Mechanics
-        // if ((this.cursors.up.isDown || this.player.customParams.mustJump) && this.player.body.touching.down) {
+        // if (this.cursors.up.isDown || this.player.customParams.mustJump) {
         //     this.player.frame = 10;
         //     this.player.body.velocity.y = -650;
         //     this.player.customParams.mustJump = false;
         // }
+        // if (this.cursors.down.isDown) {
+        //     this.player.frame = 10;
+        //     this.player.body.velocity.y = 650;
+        //     this.player.customParams.mustJump = false;
+        // }
+
+        ////////////////////////////////Actual Controls///////////////////////////////////
+
+        ////Player Movement and Wall-Jump Mechanics
+        if (this.player.body.touching.down) {
+            if (this.cursors.left.isDown || this.player.customParams.leftMovement) {
+                this.player.body.velocity.x = -400;
+                this.player.animations.play('left');
+            }
+            else if (this.cursors.right.isDown || this.player.customParams.rightMovement) {
+                this.player.body.velocity.x = 400;
+                this.player.animations.play('right');
+            }
+            else {
+                this.player.animations.stop();
+                this.player.frame = 8;
+            }
+        }
+        else if (this.player.body.touching.right) {
+            this.player.body.velocity.x = 50;
+            this.player.body.velocity.y = 100;
+            this.player.frame = 6;
+            if ((this.cursors.up.isDown && this.cursors.left.isDown) || (this.player.customParams.mustJump && this.player.customParams.leftMovement)) {
+                this.player.body.velocity.y = -650;
+                this.player.body.velocity.x = -1000;
+            }
+        }
+        else if (this.player.body.touching.left) {
+            this.player.body.velocity.x = -50;
+            this.player.body.velocity.y = 100;
+            this.player.frame = 12;
+            if ((this.cursors.up.isDown && this.cursors.right.isDown) || (this.player.customParams.mustJump && this.player.customParams.rightMovement)) {
+                this.player.body.velocity.y = -650;
+                this.player.body.velocity.x = 1000;
+            }
+        }
+        if (this.player.body.touching.none) {
+            this.player.frame = 10;
+            if (this.cursors.left.isDown || this.player.customParams.leftMovement) {
+                this.player.body.velocity.x = -400;
+                this.player.customParams.rightMovement = false;
+            }
+            else if (this.cursors.right.isDown || this.player.customParams.rightMovement) {
+                this.player.body.velocity.x = 400;
+                this.player.customParams.leftMovement = false;
+            }
+        }
+
+        ////Player Jump Mechanics
+        if ((this.cursors.up.isDown || this.player.customParams.mustJump) && this.player.body.touching.down) {
+            this.player.frame = 10;
+            this.player.body.velocity.y = -650;
+            this.player.customParams.mustJump = false;
+        }
     }
 };
 
