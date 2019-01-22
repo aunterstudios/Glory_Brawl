@@ -10,6 +10,12 @@ brawl.state3.prototype = {
     },
     create: function () {
 
+        //Full-Screen Scaling
+
+        this.spacebar = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+
+        this.spacebar.onDown.add(this.gofull, this);
+
         //Push Levels of Game Forward
         --ghettoLoopMechanic;
 
@@ -108,6 +114,11 @@ brawl.state4.prototype = {
         this.load.spritesheet('dude', 'assets/white.png', 87.5, 93.5);
     },
     create: function () {
+
+        //Full Screen-Scaling
+        this.spacebar = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+
+        this.spacebar.onDown.add(this.gofull, this);
 
         //Keyboard Controls
         this.cursors = this.game.input.keyboard.createCursorKeys();
@@ -228,6 +239,16 @@ brawl.state4.prototype = {
 
 
     },
+    gofull: function() {
+        if (this.game.scale.isFullScreen)
+        {
+            this.game.scale.stopFullScreen();
+        }
+        else
+        {
+            this.game.scale.startFullScreen(false);
+        }
+    },
     update: function () {
 
         this.game.physics.arcade.collide(this.player, this.wall);
@@ -328,6 +349,11 @@ brawl.state5.prototype = {
         this.load.spritesheet('dude', 'assets/white.png', 87.5, 93.5);
     },
     create: function () {
+
+        //Full Screen Scaling
+        this.spacebar = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+
+        this.spacebar.onDown.add(this.gofull, this);
 
         //Keyboard Controls
         this.cursors = this.game.input.keyboard.createCursorKeys();
@@ -433,6 +459,16 @@ brawl.state5.prototype = {
             this.player.customParams.rightMovement = false;
             this.rightArrow.alpha = 0;
         }, this);
+    },
+    gofull: function() {
+        if (this.game.scale.isFullScreen)
+        {
+            this.game.scale.stopFullScreen();
+        }
+        else
+        {
+            this.game.scale.startFullScreen(false);
+        }
     },
     update: function () {
 
@@ -540,6 +576,11 @@ brawl.state6.prototype = {
         this.load.spritesheet('dude', 'assets/white.png', 87.5, 93.5);
     },
     create: function () {
+
+        //Full Screen Scaling
+        this.spacebar = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+
+        this.spacebar.onDown.add(this.gofull, this);
 
         //Keyboard Controls
         this.cursors = this.game.input.keyboard.createCursorKeys();
@@ -663,6 +704,16 @@ brawl.state6.prototype = {
             this.rightArrow.alpha = 0;
         }, this);
     },
+    gofull: function() {
+        if (this.game.scale.isFullScreen)
+        {
+            this.game.scale.stopFullScreen();
+        }
+        else
+        {
+            this.game.scale.startFullScreen(false);
+        }
+    },
     update: function () {
 
 
@@ -772,6 +823,11 @@ brawl.state7.prototype = {
         this.load.spritesheet('dude', 'assets/white.png', 87.5, 93.5);
     },
     create: function () {
+
+        //Full Screen Scaling
+        this.spacebar = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+
+        this.spacebar.onDown.add(this.gofull, this);
 
         //Keyboard Controls
         this.cursors = this.game.input.keyboard.createCursorKeys();
@@ -903,6 +959,16 @@ brawl.state7.prototype = {
             this.rightArrow.alpha = 0;
         }, this);
     },
+    gofull: function() {
+        if (this.game.scale.isFullScreen)
+        {
+            this.game.scale.stopFullScreen();
+        }
+        else
+        {
+            this.game.scale.startFullScreen(false);
+        }
+    },
     update: function () {
 
         //Collision Physics
@@ -1021,6 +1087,11 @@ brawl.state8.prototype = {
         this.load.spritesheet('dude', 'assets/white.png', 87.5, 93.5);
     },
     create: function () {
+
+        //Full Screen Scaling
+        this.spacebar = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+
+        this.spacebar.onDown.add(this.gofull, this);
 
         //Keyboard Controls
         this.cursors = this.game.input.keyboard.createCursorKeys();
@@ -1157,6 +1228,16 @@ brawl.state8.prototype = {
             this.rightArrow.alpha = 0;
         }, this);
     },
+    gofull: function() {
+        if (this.game.scale.isFullScreen)
+        {
+            this.game.scale.stopFullScreen();
+        }
+        else
+        {
+            this.game.scale.startFullScreen(false);
+        }
+    },
     update: function () {
 
         this.game.physics.arcade.collide(this.player, this.ball);
@@ -1276,6 +1357,11 @@ brawl.state9.prototype = {
         this.load.spritesheet('dude', 'assets/white.png', 87.5, 93.5);
     },
     create: function () {
+
+        //Full Screen Scaling
+        this.spacebar = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+
+        this.spacebar.onDown.add(this.gofull, this);
 
         //Keyboard Controls
         this.cursors = this.game.input.keyboard.createCursorKeys();
@@ -1408,6 +1494,16 @@ brawl.state9.prototype = {
             this.rightArrow.alpha = 0;
         }, this);
     },
+    gofull: function() {
+        if (this.game.scale.isFullScreen)
+        {
+            this.game.scale.stopFullScreen();
+        }
+        else
+        {
+            this.game.scale.startFullScreen(false);
+        }
+    },
     update: function () {
 
         if (this.enemy.countDead() === 6) {
@@ -1535,7 +1631,13 @@ brawl.state10.prototype = {
     },
     create: function () {
 
+        //World-Setting Bounds
         this.game.world.setBounds(0, 0, 2000, 800);
+
+        //Full Screen Scaling
+        this.spacebar = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+
+        this.spacebar.onDown.add(this.gofull, this);
 
         //Keyboard Controls
         this.cursors = this.game.input.keyboard.createCursorKeys();
@@ -1721,6 +1823,16 @@ brawl.state10.prototype = {
             this.rightArrow.alpha = 0;
         }, this);
     },
+    gofull: function() {
+        if (this.game.scale.isFullScreen)
+        {
+            this.game.scale.stopFullScreen();
+        }
+        else
+        {
+            this.game.scale.startFullScreen(false);
+        }
+    },
     update: function () {
 
         //Player Mechanics
@@ -1885,8 +1997,6 @@ brawl.state11.prototype = {
                 this.spikeFall.outOfBoundsKill = true;
                 this.spikeFall.body.gravity.y = 600;
             }
-            console.log("Living: " + this.fallingSpikes.countLiving());
-            console.log("Dead: " + this.fallingSpikes.countDead());
         }
 
         //Adding the Wall
@@ -1940,12 +2050,12 @@ brawl.state11.prototype = {
         this.ledge.enableBody = true;
         for (var i = 0; i < 2; i++) {
             if (i === 0) {
-                var x = 300;
-                var y = 1200;
+                var x = 200;
+                var y = 1100;
             }
             else {
-                var x = 600;
-                var y = 1200;
+                var x = 500;
+                var y = 1100;
             }
             this.ledgeX = this.ledge.create(x, y, 'ledge');
             this.ledgeX.body.maxVelocity.setTo(400);
