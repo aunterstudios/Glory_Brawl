@@ -21,13 +21,16 @@ game.state.start('levelEight');
 var runFastX = false;
 var jumpHigherX = false;
 
+//Death Total in Game
+var deaths = 0;
+
 // To Allow Re-Use of Death State and Ruleset States.
 var ghettoLoopMechanic = 3;
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
   "Version Platformer-32",
-  "Welcome to Glory Brawl."
+  "Welcome to Glory Brawl"
 ];
 
 var line = [];

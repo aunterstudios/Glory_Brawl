@@ -10,13 +10,15 @@ brawl.state2.prototype = {
     },
     create: function () {
 
+        //Increase Death Total
+        ++deaths;
 
         //Art
         this.trump = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY, 'background-three');
         this.trump.anchor.setTo(.5);
         //this.trump.scale.setTo(.75);
 
-        this.text = this.game.add.text(this.game.world.centerX-300, 200, "Try Again Prisoner");
+        this.text = this.game.add.text(this.game.world.centerX-300, 200, "Try Again Prisoner \n Deaths: "+deaths);
         this.text.anchor.setTo(0.5);
         this.text.align = 'center';
 
