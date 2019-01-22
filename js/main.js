@@ -24,7 +24,7 @@ var jumpHigherX = false;
 // Life Mechanic for Entire Game
 var lives = 1000;
 // To Allow Re-Use of Death State and Ruleset States.
-var ghettoLoopMechanic = 11;
+var ghettoLoopMechanic = 3;
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [

@@ -726,11 +726,13 @@ brawl.state6.prototype = {
     update: function () {
 
 
-        //Collision Physics
+        //Collision Physics of Player
         this.game.physics.arcade.collide(this.player, this.wall);
         this.game.physics.arcade.collide(this.player, this.ledge, ledgeUp);
 
+        // Object Physics
         this.game.physics.arcade.collide(this.wall, this.ledge);
+        this.game.physics.arcade.collide(this.ledge, this.ledge);
         this.game.physics.arcade.collide(this.spikes, this.ledge);
 
         //Death of Player and Objects
@@ -987,6 +989,7 @@ brawl.state7.prototype = {
         // Object Collisions
         this.game.physics.arcade.collide(this.spikes, this.ledge, spikeLedge);
         this.game.physics.arcade.collide(this.wall, this.ledge);
+        this.game.physics.arcade.collide(this.ledge, this.ledge);
         this.game.physics.arcade.collide(this.ledge, this.enemy, enemyLedge);
         this.game.physics.arcade.collide(this.enemy, this.wall);
         this.game.physics.arcade.collide(this.enemy, this.spikes);
@@ -1259,6 +1262,7 @@ brawl.state8.prototype = {
         //Wall and Ledge Mechanics
         this.game.physics.arcade.collide(this.wall, this.ledge);
         this.game.physics.arcade.collide(this.ground, this.ledge);
+        this.game.physics.arcade.collide(this.ledge, this.ledge);
 
         //Ball Mechanics
         this.game.physics.arcade.collide(this.ball, this.wall);
@@ -1528,6 +1532,7 @@ brawl.state9.prototype = {
 
         //Ledge/Ground/Mechanics
         this.game.physics.arcade.collide(this.brownLedge, this.ledge);
+        this.game.physics.arcade.collide(this.ledge, this.ledge);
         this.game.physics.arcade.collide(this.brownLedge, this.enemy);
         this.game.physics.arcade.collide(this.ledge, this.enemy, enemyLedge);
         this.game.physics.arcade.collide(this.spikes, this.ledge);
@@ -1854,6 +1859,7 @@ brawl.state10.prototype = {
 
         //Wall/Enemy/Ledge/Spike Mechanics
         this.game.physics.arcade.collide(this.ledge, this.wall);
+        this.game.physics.arcade.collide(this.ledge, this.ledge);
         this.game.physics.arcade.collide(this.enemy, this.ledge, enemyLedgeSprite);
         this.game.physics.arcade.collide(this.ledge, this.spikes);
         this.game.physics.arcade.collide(this.enemy, this.spikes);
@@ -2010,6 +2016,8 @@ brawl.state11.prototype = {
                 this.spikeFall.outOfBoundsKill = true;
                 this.spikeFall.body.gravity.y = 600;
             }
+            console.log("Living: "+ this.fallingSpikes.countLiving());
+            console.log("Living: "+ this.fallingSpikes.countDead());
         }
 
         //Adding the Wall
@@ -2209,28 +2217,29 @@ brawl.state11.prototype = {
 
         // //Wall/Enemy/Ledge/Spike Mechanics
         this.game.physics.arcade.collide(this.ledge, this.wall);
+        this.game.physics.arcade.collide(this.ledge, this.ledge);
         this.game.physics.arcade.collide(this.ledge, this.enemy, enemyLedge);
         this.game.physics.arcade.collide(this.ledge, this.spikes);
         this.game.physics.arcade.collide(this.enemy, this.spikes);
         this.game.physics.arcade.collide(this.enemy, this.wall);
         this.game.physics.arcade.collide(this.enemy, this.enemy);
 
-        // //Spikes Dying
-        // this.game.physics.arcade.overlap(this.fallingSpikes, this.ledge, deathTwo, null, this);
-        // this.game.physics.arcade.overlap(this.fallingSpikes, this.wall, deathTwo, null, this);
+        //Spikes Dying
+        this.game.physics.arcade.overlap(this.fallingSpikes, this.ledge, deathTwo, null, this);
+        this.game.physics.arcade.overlap(this.fallingSpikes, this.wall, deathTwo, null, this);
 
-        // //Flag Moving Mechanics
-        // this.game.physics.arcade.collide(this.finish,this.wall);
-        // this.game.physics.arcade.collide(this.finish,this.ledge);
-        // this.game.physics.arcade.collide(this.finish,this.spikes);
+        //Flag Moving Mechanics
+        this.game.physics.arcade.collide(this.finish,this.wall);
+        this.game.physics.arcade.collide(this.finish,this.ledge);
+        this.game.physics.arcade.collide(this.finish,this.spikes);
 
-        // //Win
-        // this.game.physics.arcade.overlap(this.player, this.finish, nextLevel, null, this);
+        //Win
+        this.game.physics.arcade.overlap(this.player, this.finish, nextLevel, null, this);
 
-        // //Death Mechanics
-        // this.game.physics.arcade.overlap(this.player, this.enemy, deathOne, null, this);
-        // this.game.physics.arcade.overlap(this.player, this.spikes, deathOne, null, this);
-        // this.game.physics.arcade.overlap(this.player, this.fallingSpikes, deathOne, null, this);
+        //Death Mechanics
+        this.game.physics.arcade.overlap(this.player, this.enemy, deathOne, null, this);
+        this.game.physics.arcade.overlap(this.player, this.spikes, deathOne, null, this);
+        this.game.physics.arcade.overlap(this.player, this.fallingSpikes, deathOne, null, this);
 
         //Player Standing Still
         this.player.body.velocity.x = 0;
