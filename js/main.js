@@ -13,8 +13,8 @@ game.state.add('levelSix', brawl.state9);
 game.state.add('levelSeven', brawl.state10);
 game.state.add('levelEight', brawl.state11);
 //////////////////////////////////////////////////Starting States//////////////////////////////////////////////
-game.state.start('mainMenu');
-//game.state.start('levelEight');
+//game.state.start('mainMenu');
+game.state.start('levelEight');
 //////////////////////////////////////////////////Global Variables//////////////////////////////////////////////
 
 // Variables that Hold Cumlative Power-Up Booleans
@@ -154,31 +154,31 @@ function ledgeUpFast(player, ledge) {
 
 function enemyLedge (ledge,enemy) {
   if (ledge.body.touching.up) {
-    enemy.body.velocity.y = -300;
+    enemy.body.velocity.y = -400;
   }
   else if (ledge.body.touching.down) {
-    enemy.body.velocity.y = 300;
+    enemy.body.velocity.y = 400;
   }
   else if (ledge.body.touching.left) {
-    enemy.body.velocity.x = -300;
+    enemy.body.velocity.x = -400;
   }
   else if (ledge.body.touching.right) {
-    enemy.body.velocity.x = 300;
+    enemy.body.velocity.x = 400;
   }
 }
 
 function enemyLedgeSprite (enemy,ledge) {
   if (ledge.body.touching.up) {
-    enemy.body.velocity.y = -300;
+    enemy.body.velocity.y = -400;
   }
   else if (ledge.body.touching.down) {
-    enemy.body.velocity.y = 300;
+    enemy.body.velocity.y = 400;
   }
   else if (ledge.body.touching.left) {
-    enemy.body.velocity.x = -300;
+    enemy.body.velocity.x = -400;
   }
   else if (ledge.body.touching.right) {
-    enemy.body.velocity.x = 300;
+    enemy.body.velocity.x = 400;
   }
 }
 
