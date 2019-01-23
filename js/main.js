@@ -130,6 +130,9 @@ function ledgeUp (player, ledge) {
     ledge.body.velocity.y = -500;
     ledge.body.velocity.x = 0;
   }
+  else if (ledge.body.touching.down) {
+    ledge.body.stop();
+  }
 }
 
 function enemyLedge (ledge,enemy) {
