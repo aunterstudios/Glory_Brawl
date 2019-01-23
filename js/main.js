@@ -14,7 +14,7 @@ game.state.add('levelSeven', brawl.state10);
 game.state.add('levelEight', brawl.state11);
 //////////////////////////////////////////////////Starting States//////////////////////////////////////////////
 //game.state.start('mainMenu');
-game.state.start('levelEight');
+game.state.start('levelFive');
 //////////////////////////////////////////////////Global Variables//////////////////////////////////////////////
 
 // Variables that Hold Cumlative Power-Up Booleans
@@ -25,7 +25,7 @@ var jumpHigherX = false;
 var deaths = 0;
 
 // To Allow Re-Use of Death State and Ruleset States.
-var ghettoLoopMechanic = 3;
+var ghettoLoopMechanic = 6;
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
@@ -174,17 +174,8 @@ function spikeLedge(spikes, ledge) {
 //Ball Mechanics
 
 function ballMover(player, ball) {
-  if (ball.body.touching.left) {
-    ball.body.velocity.x = 300;
-  }
-  else if (ball.body.touching.right) {
-    ball.body.velocity.x = -300;
-  }
-  else if (ball.body.touching.up) {
-    ball.body.velocity.y = 300;
-  }
-  else if (ball.body.touching.down) {
-    ball.body.velocity.y = -300;
+  if (ball.body.touching.up) {
+    ball.body.stop();
   }
 }
 
@@ -306,6 +297,9 @@ this.player.body.acceleration.x = -10000;
         // }
 
 
+///////////////////////////////////////Angular Velocity
+ball.body.angularVelocity = 0;
+    game.physics.arcade.velocityFromAngle(ball.angle, 300, ball.body.velocity);
 
 */
 
