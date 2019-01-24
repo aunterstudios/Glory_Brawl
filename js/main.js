@@ -14,7 +14,7 @@ game.state.add('levelSeven', brawl.state10);
 game.state.add('levelEight', brawl.state11);
 //////////////////////////////////////////////////Starting States//////////////////////////////////////////////
 //game.state.start('mainMenu');
-game.state.start('levelFive');
+game.state.start('levelSix');
 //////////////////////////////////////////////////Global Variables//////////////////////////////////////////////
 
 // Variables that Hold Cumlative Power-Up Booleans
@@ -25,7 +25,7 @@ var jumpHigherX = false;
 var deaths = 0;
 
 // To Allow Re-Use of Death State and Ruleset States.
-var ghettoLoopMechanic = 6;
+var ghettoLoopMechanic = 5;
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
@@ -131,38 +131,56 @@ function ledgeUp (player, ledge) {
     ledge.body.velocity.x = 0;
   }
   else if (ledge.body.touching.down) {
-    ledge.body.stop();
+    ledge.body.velocity.x = 0;
+  }
+  else if (ledge.body.touching.left || ledge.body.touching.right) {
+    ledge.body.velocity.y = 0;
   }
 }
 
 function enemyLedge (ledge,enemy) {
   if (ledge.body.touching.up) {
-    enemy.body.velocity.y = -400;
+    enemy.body.stop();
+    enemy.body.velocity.y = -125;
+    ledge.body.velocity.y = 200;
   }
   else if (ledge.body.touching.down) {
-    enemy.body.velocity.y = 400;
+    enemy.body.stop();
+    enemy.body.velocity.y = 125;
+    ledge.body.velocity.y = -200;
   }
   else if (ledge.body.touching.left) {
-    enemy.body.velocity.x = -400;
+    enemy.body.stop();
+    enemy.body.velocity.x = -125;
+    ledge.body.velocity.x = 200;
   }
   else if (ledge.body.touching.right) {
-    enemy.body.velocity.x = 400;
+    enemy.body.stop();
+    enemy.body.velocity.x = 125;
+    ledge.body.velocity.x = -200;
   }
 }
 
 function enemyLedgeSprite (enemy,ledge) {
   if (ledge.body.touching.up) {
-    enemy.body.velocity.y = -400;
+    enemy.body.stop();
+    enemy.body.velocity.y = -125;
+    ledge.body.velocity.y = 200;
   }
   else if (ledge.body.touching.down) {
-    enemy.body.velocity.y = 400;
+    enemy.body.stop();
+    enemy.body.velocity.y = 125;
+    ledge.body.velocity.y = -200;
   }
   else if (ledge.body.touching.left) {
-    enemy.body.velocity.x = -400;
+    enemy.body.stop();
+    enemy.body.velocity.x = -125;
+    ledge.body.velocity.x = 200;
   }
   else if (ledge.body.touching.right) {
-    enemy.body.velocity.x = 400;
-  }
+    enemy.body.stop();
+    enemy.body.velocity.x = 125;
+    ledge.body.velocity.x = -200;
 }
 
 function spikeLedge(spikes, ledge) {
@@ -173,11 +191,12 @@ function spikeLedge(spikes, ledge) {
 
 //Ball Mechanics
 
-function ballMover(player, ball) {
-  if (ball.body.touching.up) {
-    ball.body.stop();
-  }
-}
+// function ballMover(player, ball) {
+//   if (ball.body.touching.up) {
+//     ball.body.stop();
+//     ball.body.velocity.y = 50;
+//   }
+// }
 
 //Wall Mechanics
 
@@ -300,6 +319,16 @@ this.player.body.acceleration.x = -10000;
 ///////////////////////////////////////Angular Velocity
 ball.body.angularVelocity = 0;
     game.physics.arcade.velocityFromAngle(ball.angle, 300, ball.body.velocity);
+
+
+
+
+
+
+
+
+////////////////////////////////Setting Size
+this.player.body.setSize(60,84,11,6);
 
 */
 

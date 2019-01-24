@@ -1116,7 +1116,8 @@ brawl.state8.prototype = {
         this.ball = this.game.add.sprite(250, this.game.world.centerY - 120, 'ball');
         this.ball.anchor.setTo(.5);
         this.game.physics.arcade.enable(this.ball); //enables physics for ball
-        this.ball.body.mass = 1.5;
+        this.ball.body.setCircle(50);
+        this.ball.body.mass = 2;
         this.ball.scale.setTo(.5);
         this.ball.body.collideWorldBounds = true;
         this.ball.body.bounce.setTo(.8);
@@ -1254,7 +1255,7 @@ brawl.state8.prototype = {
     },
     update: function () {
 
-        this.game.physics.arcade.collide(this.player, this.ball, ballMover);
+        this.game.physics.arcade.collide(this.player, this.ball);
         this.game.physics.arcade.collide(this.player, this.wall);
         this.game.physics.arcade.collide(this.player, this.ground);
         this.game.physics.arcade.collide(this.player, this.ledge, ledgeUp);
@@ -1387,7 +1388,8 @@ brawl.state9.prototype = {
         this.ball = this.game.add.sprite(this.game.world.centerX, 550, 'ball');
         this.ball.anchor.setTo(.5);
         this.game.physics.arcade.enable(this.ball); //enables physics for ball
-        this.ball.body.mass = 1.5;
+        this.ball.body.setCircle(50);
+        this.ball.body.mass = 2;
         this.ball.scale.setTo(.5);
         this.ball.body.collideWorldBounds = true;
         this.ball.body.bounce.setTo(.8);
@@ -1528,7 +1530,7 @@ brawl.state9.prototype = {
         //Player Mechanics
         this.game.physics.arcade.collide(this.player, this.brownLedge);
         this.game.physics.arcade.collide(this.player, this.ledge, ledgeUp);
-        this.game.physics.arcade.collide(this.player, this.ball, ballMover);
+        this.game.physics.arcade.collide(this.player, this.ball);
 
         //Ledge/Ground/Mechanics
         this.game.physics.arcade.collide(this.brownLedge, this.ledge);
