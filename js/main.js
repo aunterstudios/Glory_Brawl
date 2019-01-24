@@ -181,6 +181,7 @@ function enemyLedgeSprite (enemy,ledge) {
     enemy.body.stop();
     enemy.body.velocity.x = 125;
     ledge.body.velocity.x = -200;
+  }
 }
 
 function spikeLedge(spikes, ledge) {
