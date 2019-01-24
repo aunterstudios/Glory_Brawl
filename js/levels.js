@@ -158,7 +158,7 @@ brawl.state4.prototype = {
         this.player = this.game.add.sprite(500, 100, 'dude');
         this.game.physics.arcade.enable(this.player); //enables physics for player
         this.player.scale.setTo(.75);
-        this.player.body.setSize(75,84,5,6);
+        this.player.body.setSize(75, 84, 5, 6);
         this.player.body.bounce.y = 0;
         this.player.body.gravity.y = 1500;
         this.player.body.collideWorldBounds = true;
@@ -417,7 +417,7 @@ brawl.state5.prototype = {
         this.player = this.game.add.sprite(0, 500, 'dude');
         this.game.physics.arcade.enable(this.player); //enables physics for player
         this.player.scale.setTo(.75);
-        this.player.body.setSize(75,84,5,6);
+        this.player.body.setSize(75, 84, 5, 6);
         this.player.body.bounce.y = 0;
         this.player.body.gravity.y = 1500;
         this.player.body.collideWorldBounds = true;
@@ -661,7 +661,7 @@ brawl.state6.prototype = {
         this.player = this.game.add.sprite(0, -50, 'dude');
         this.game.physics.arcade.enable(this.player); //enables physics for player
         this.player.scale.setTo(.75);
-        this.player.body.setSize(75,84,5,6);
+        this.player.body.setSize(75, 84, 5, 6);
         this.player.body.bounce.y = 0;
         this.player.body.gravity.y = 1500;
         this.player.body.collideWorldBounds = true;
@@ -919,7 +919,7 @@ brawl.state7.prototype = {
         this.game.physics.arcade.enable(this.player); //enables physics for player
         this.player.anchor.setTo(.5);
         this.player.scale.setTo(.75);
-        this.player.body.setSize(75,84,5,6);
+        this.player.body.setSize(75, 84, 5, 6);
         this.player.body.bounce.y = 0;
         this.player.body.gravity.y = 1500;
         this.player.body.collideWorldBounds = true;
@@ -1192,7 +1192,7 @@ brawl.state8.prototype = {
         this.game.physics.arcade.enable(this.player); //enables physics for player
         this.player.anchor.setTo(.5);
         this.player.scale.setTo(.75);
-        this.player.body.setSize(75,84,5,6);
+        this.player.body.setSize(75, 84, 5, 6);
         this.player.body.bounce.y = 0;
         this.player.body.gravity.y = 1500;
         this.player.body.collideWorldBounds = true;
@@ -1461,7 +1461,7 @@ brawl.state9.prototype = {
         this.game.physics.arcade.enable(this.player); //enables physics for player
         this.player.anchor.setTo(.5);
         this.player.scale.setTo(.75);
-        this.player.body.setSize(75,84,5,6);
+        this.player.body.setSize(75, 84, 5, 6);
         this.player.body.bounce.y = 0;
         this.player.body.gravity.y = 1500;
         //this.player.body.allowDrag = false;
@@ -1788,7 +1788,7 @@ brawl.state10.prototype = {
         this.game.physics.arcade.enable(this.player); //enables physics for player
         this.player.anchor.setTo(.5);
         this.player.scale.setTo(.60);
-        this.player.body.setSize(75,84,5,6);
+        this.player.body.setSize(75, 84, 5, 6);
         this.player.body.bounce.y = 0;
         this.player.body.gravity.y = 1500;
         //this.player.body.allowDrag = false;
@@ -2051,7 +2051,7 @@ brawl.state11.prototype = {
                 this.wallX = this.wall.create(880, 1390, 'wall');
             }
             else if (i === 5) {
-                this.wallX = this.wall.create(1240, 1280, 'wall');
+                this.wallX = this.wall.create(1260, 1280, 'wall');
             }
             else if (i === 6) {
                 this.wallX = this.wall.create(1200, 880, 'wall');
@@ -2165,7 +2165,7 @@ brawl.state11.prototype = {
         this.game.physics.arcade.enable(this.player); //enables physics for player
         this.player.anchor.setTo(.5);
         this.player.scale.setTo(.60);
-        this.player.body.setSize(75,84,5,6);
+        this.player.body.setSize(75, 84, 5, 6);
         this.player.body.bounce.y = 0;
         this.player.body.gravity.y = 1500;
         //this.player.body.allowDrag = false;
