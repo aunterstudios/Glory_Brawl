@@ -14,7 +14,7 @@ game.state.add('levelSeven', brawl.state10);
 game.state.add('levelEight', brawl.state11);
 //////////////////////////////////////////////////Starting States//////////////////////////////////////////////
 //game.state.start('mainMenu');
-game.state.start('levelSix');
+game.state.start('levelEight');
 //////////////////////////////////////////////////Global Variables//////////////////////////////////////////////
 
 // Variables that Hold Cumlative Power-Up Booleans
@@ -25,7 +25,7 @@ var jumpHigherX = false;
 var deaths = 0;
 
 // To Allow Re-Use of Death State and Ruleset States.
-var ghettoLoopMechanic = 5;
+var ghettoLoopMechanic = 3;
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
@@ -330,6 +330,11 @@ ball.body.angularVelocity = 0;
 
 ////////////////////////////////Setting Size
 this.player.body.setSize(60,84,11,6);
+
+////////////////////Debugging
+render: function () {
+        this.game.debug.body(this.player);
+    }
 
 */
 
