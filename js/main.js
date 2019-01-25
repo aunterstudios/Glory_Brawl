@@ -14,7 +14,7 @@ game.state.add('levelSeven', brawl.state10);
 game.state.add('levelEight', brawl.state11);
 //////////////////////////////////////////////////Starting States//////////////////////////////////////////////
 //game.state.start('mainMenu');
-game.state.start('levelEight');
+game.state.start('levelSix');
 //////////////////////////////////////////////////Global Variables//////////////////////////////////////////////
 
 // Variables that Hold Cumlative Power-Up Booleans
@@ -25,7 +25,7 @@ var jumpHigherX = false;
 var deaths = 0;
 
 // To Allow Re-Use of Death State and Ruleset States.
-var ghettoLoopMechanic = 3;
+var ghettoLoopMechanic = 5;
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
@@ -141,21 +141,25 @@ function ledgeUp (player, ledge) {
 function enemyLedge (ledge,enemy) {
   if (ledge.body.touching.up) {
     enemy.body.stop();
+    ledge.body.stop();
     enemy.body.velocity.y = -125;
     ledge.body.velocity.y = 200;
   }
   else if (ledge.body.touching.down) {
     enemy.body.stop();
+    ledge.body.stop();
     enemy.body.velocity.y = 125;
     ledge.body.velocity.y = -200;
   }
   else if (ledge.body.touching.left) {
     enemy.body.stop();
+    ledge.body.stop();
     enemy.body.velocity.x = -125;
     ledge.body.velocity.x = 200;
   }
   else if (ledge.body.touching.right) {
     enemy.body.stop();
+    ledge.body.stop();
     enemy.body.velocity.x = 125;
     ledge.body.velocity.x = -200;
   }
