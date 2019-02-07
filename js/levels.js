@@ -2032,13 +2032,15 @@ brawl.state11.prototype = {
 
         //ball
         this.ball = this.game.add.sprite(500, 600, 'ball');
+        this.ball.tint = Phaser.Color.YELLOW;
         this.ball.anchor.setTo(.5);
         this.game.physics.arcade.enable(this.ball); //enables physics for ball
         this.ball.body.setCircle(50);
         this.ball.body.mass = 2;
         this.ball.scale.setTo(.5);
         this.ball.body.collideWorldBounds = true;
-        this.ball.body.bounce.setTo(.8);
+        this.ball.body.maxVelocity.setTo(700);
+        this.ball.body.bounce.setTo(1.5);
 
         //Adding the Wall
         this.wall = this.game.add.group();
@@ -2167,10 +2169,11 @@ brawl.state11.prototype = {
         }
 
         //Adding Flag
-        this.finish = this.game.add.sprite(1300, 0, 'win');
+        this.finish = this.game.add.sprite(1300, 40, 'win');
         this.game.physics.arcade.enable(this.finish);
         this.finish.body.collideWorldBounds = true;
         this.finish.body.bounce.setTo(1);
+        this.finish.body.maxVelocity.setTo(100);
 
         //Adding Player
         this.player = this.game.add.sprite(100, 1750, 'dude');
@@ -2280,6 +2283,7 @@ brawl.state11.prototype = {
         this.game.physics.arcade.collide(this.finish, this.wall);
         this.game.physics.arcade.collide(this.finish, this.ledge);
         this.game.physics.arcade.collide(this.finish, this.spikes);
+        this.game.physics.arcade.collide(this.finish, this.ball);
 
         //Win
         this.game.physics.arcade.overlap(this.player, this.finish, nextLevel, null, this);
