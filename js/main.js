@@ -13,8 +13,8 @@ game.state.add('levelSix', brawl.state9);
 game.state.add('levelSeven', brawl.state10);
 game.state.add('levelEight', brawl.state11);
 //////////////////////////////////////////////////Starting States//////////////////////////////////////////////
-game.state.start('mainMenu');
-//game.state.start('levelEight');
+//game.state.start('mainMenu');
+game.state.start('levelSix');
 //////////////////////////////////////////////////Global Variables//////////////////////////////////////////////
 
 // Variables that Hold Cumlative Power-Up Booleans
@@ -25,7 +25,7 @@ var jumpHigherX = false;
 var deaths = 0;
 
 // To Allow Re-Use of Death State and Ruleset States.
-var ghettoLoopMechanic = 11;
+var ghettoLoopMechanic = 5;
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
@@ -125,20 +125,30 @@ function deathThree(killer, victim) {
 //Ledge Mechanics
 
 
-function ledgeUp (player, ledge) {
+function ledgeUp(player, ledge) {
+  //When You're On Top of the Ledge
   if (ledge.body.touching.up) {
     ledge.body.velocity.y = -500;
     ledge.body.velocity.x = 0;
   }
-  else if (ledge.body.touching.down) {
-    ledge.body.velocity.x = 0;
-  }
-  else if (ledge.body.touching.left || ledge.body.touching.right) {
+  // When You're Hitting the Edge from the Sides (Right and Left)
+  if (ledge.body.touching.left || ledge.body.touching.right) {
     ledge.body.velocity.y = 0;
+    ledge.body.velocity.x = player.body.velocity.x;
+  }
+  // Hitting the Ledge from the Bottom
+  if (ledge.body.touching.down && player.body.velocity.y === 0) {
+    console.log("register");
+    ledge.body.stop();
+    player.body.velocity.y = -1;
+  }
+  else if (ledge.body.touching.down && player.body.velocity.y < -1) {
+    console.log("moving!");
+    ledge.body.velocity.x = 0;
   }
 }
 
-function enemyLedge (ledge,enemy) {
+function enemyLedge(ledge, enemy) {
   if (ledge.body.touching.up) {
     enemy.body.stop();
     ledge.body.stop();
@@ -165,7 +175,7 @@ function enemyLedge (ledge,enemy) {
   }
 }
 
-function enemyLedgeSprite (enemy,ledge) {
+function enemyLedgeSprite(enemy, ledge) {
   if (ledge.body.touching.up) {
     enemy.body.stop();
     enemy.body.velocity.y = -125;
@@ -227,8 +237,8 @@ this.scale.pageAlignHorizontally = true;
 this.scale.pageAlignVertically = true;
 
 //////////Sprite Velocity Constrainment
-function constrainVelocity(sprite, maxVelocity) {  
-  var body = sprite.body  
+function constrainVelocity(sprite, maxVelocity) {
+  var body = sprite.body
   var angle, currVelocitySqr, vx, vy;  vx = body.data.velocity[0];  vy = body.data.velocity[1];  currVelocitySqr = vx * vx + vy * vy;  if (currVelocitySqr > maxVelocity * maxVelocity) {    angle = Math.atan2(vy, vx);    vx = Math.cos(angle) * maxVelocity;    vy = Math.sin(angle) * maxVelocity;    body.data.velocity[0] = vx;    body.data.velocity[1] = vy;    console.log('limited speed to: '+maxVelocity);  }
 }
 
@@ -306,7 +316,7 @@ this.player.body.acceleration.y = -10000;
 this.player.body.acceleration.x = -10000;
 
 /////////////////////Instantaneous Reaction
-/* MORE FOR INSTANTANEOUS REACTION 
+/* MORE FOR INSTANTANEOUS REACTION
         // if (this.player.body.wasTouching.none) {
         //     console.log("wasTouching")
         //     this.player.frame = 10;
