@@ -12,9 +12,11 @@ game.state.add('levelFive', brawl.state8);
 game.state.add('levelSix', brawl.state9);
 game.state.add('levelSeven', brawl.state10);
 game.state.add('levelEight', brawl.state11);
+game.state.add('rogueTest', brawl.state12);
 //////////////////////////////////////////////////Starting States//////////////////////////////////////////////
 //game.state.start('mainMenu');
-game.state.start('levelSix');
+//game.state.start('levelEight');
+game.state.start('rogueTest');
 //////////////////////////////////////////////////Global Variables//////////////////////////////////////////////
 
 // Variables that Hold Cumlative Power-Up Booleans
@@ -128,6 +130,7 @@ function deathThree(killer, victim) {
 function ledgeUp(player, ledge) {
   //When You're On Top of the Ledge
   if (ledge.body.touching.up) {
+    ledge.body.stop();
     ledge.body.velocity.y = -500;
     ledge.body.velocity.x = 0;
   }
@@ -138,14 +141,12 @@ function ledgeUp(player, ledge) {
   }
   // Hitting the Ledge from the Bottom
   if (ledge.body.touching.down && player.body.velocity.y === 0) {
-    console.log("register");
     ledge.body.stop();
     player.body.velocity.y = -1;
   }
-  else if (ledge.body.touching.down && player.body.velocity.y < -1) {
-    console.log("moving!");
-    ledge.body.velocity.x = 0;
-  }
+  // else if (ledge.body.touching.down && player.body.velocity.y < -1) {
+  //   ledge.body.velocity.x = 0;
+  // }
 }
 
 function enemyLedge(ledge, enemy) {
