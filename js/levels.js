@@ -2417,177 +2417,12 @@ brawl.state12.prototype = {
         //Keyboard Controls
         this.cursors = this.game.input.keyboard.createCursorKeys();
 
-        //Falling Spikes
-        this.fallingSpikes = this.game.add.group();
-        this.fallingSpikes.enableBody = true;
-
-        this.game.time.events.loop(Phaser.Timer.SECOND * 4, spikesFalling, this);
-
-        function spikesFalling() {
-            for (var i = 0; i < 3; i++) {
-                if (i === 0) {
-                    var spikesX = 100;
-                    var spikesY = -10;
-                }
-                else if (i === 1) {
-                    var spikesX = 700;
-                    var spikesY = 335;
-                }
-                else {
-                    var spikesX = 1125;
-                    var spikesY = 335
-                }
-                this.spikeFall = this.fallingSpikes.getFirstDead(true, spikesX, spikesY, 'fallingSpikes');
-                this.spikeFall.checkWorldBounds = true;
-                this.spikeFall.outOfBoundsKill = true;
-                this.spikeFall.body.gravity.y = 600;
-            }
-        }
-
-        //ball
-        this.ball = this.game.add.sprite(500, 600, 'ball');
-        this.ball.tint = Phaser.Color.YELLOW;
-        this.ball.anchor.setTo(.5);
-        this.game.physics.arcade.enable(this.ball); //enables physics for ball
-        this.ball.body.setCircle(50);
-        this.ball.body.mass = 2;
-        this.ball.scale.setTo(.5);
-        this.ball.body.collideWorldBounds = true;
-        this.ball.body.maxVelocity.setTo(700);
-        this.ball.body.bounce.setTo(1.5);
-
         //Adding the Wall
         this.wall = this.game.add.group();
         this.wall.enableBody = true; //enables physics for wall
-        for (var i = 0; i < 12; i++) {
-            if (i === 0) {
-                this.wallX = this.wall.create(100, 1800, 'brownPlatform');
-                this.wallX.scale.setTo(.5);
-            }
-            else if (i === 1) {
-                this.wallX = this.wall.create(530, 1700, 'wall');
-            }
-            else if (i === 2) {
-                this.wallX = this.wall.create(880, 1600, 'wall');
-            }
-            else if (i === 3) {
-                this.wallX = this.wall.create(1240, 1500, 'wall');
-            }
-            else if (i === 4) {
-                this.wallX = this.wall.create(905, 1390, 'wall');
-            }
-            else if (i === 5) {
-                this.wallX = this.wall.create(1255, 1280, 'wall');
-            }
-            //Double-Walls
-            else if (i === 6) {
-                this.wallX = this.wall.create(1200, 880, 'wall');
-                this.wallX.scale.setTo(.3, .6);
-            }
-            else if (i === 7) {
-                this.wallX = this.wall.create(1325, 880, 'wall');
-                this.wallX.scale.setTo(.3, .6);
-            }
-            //
-            else if (i === 8) {
-                this.wallX = this.wall.create(960, 300, 'rotatedWall');
-                this.wallX.scale.setTo(1, .5);
-            }
-            else if (i === 9) {
-                this.wallX = this.wall.create(100, 1390, 'brownPlatform');
-                this.wallX.scale.setTo(.5);
-            }
-            if (0 < i && i < 6) {
-                this.wallX.scale.setTo(.30, .03);
-            }
-            this.wallX.anchor.setTo(.5);
-            this.wallX.body.immovable = true;
-        }
-
         //Adding Ledge
         this.ledge = this.game.add.group();
         this.ledge.enableBody = true;
-        for (var i = 0; i < 3; i++) {
-            if (i === 0) {
-                var x = 400;
-                var y = 1100;
-            }
-            else if (i === 1) {
-                var x = 700;
-                var y = 1100;
-            }
-            else {
-                var x = 100;
-                var y = 1200;
-            }
-            this.ledgeX = this.ledge.create(x, y, 'ledge');
-            // this.ledgeX.body.mass = 10;
-            this.ledgeX.body.maxVelocity.setTo(400);
-            this.ledgeX.anchor.setTo(.5);
-            this.ledgeX.scale.setTo(.5);
-            this.ledgeX.body.collideWorldBounds = true;
-            this.ledgeX.body.bounce.setTo(1);
-        }
-
-        // //Adding Spikes
-        // this.spikes = this.game.add.sprite(0, 1850, 'spikes');
-        // this.game.physics.arcade.enable(this.spikes);
-        // //this.spikes.anchor.setTo(.5);
-        // this.spikes.scale.setTo(1);
-        // this.spikes.body.immovable = true;
-
-        this.spikes = this.game.add.group();
-        this.spikes.enableBody = true;
-        for (var i = 0; i < 2; i++) {
-            if (i == 0) {
-                this.spikesSprite = this.spikes.create(0, 1850, 'spikes');
-                this.spikesSprite.scale.setTo(1);
-            }
-            else {
-                this.spikesSprite = this.spikes.create(540, 330, 'invertedSpikes');
-                this.spikesSprite.scale.setTo(.6);
-            }
-            this.spikesSprite.body.immovable = true;
-        }
-
-
-        //Adding Enemy
-
-        this.enemy = this.game.add.group();
-        this.enemy.enableBody = true;
-        for (var i = 0; i < 6; i++) {
-            if (i === 0) {
-                this.trumpImage = this.enemy.create(100, 900, 'enemy');
-                this.trumpImage.body.velocity.x = -1000;
-            }
-            else if (i === 1) {
-                this.trumpImage = this.enemy.create(75, 269, 'enemy');
-            }
-            else if (i === 2) {
-                this.trumpImage = this.enemy.create(175, 269, 'enemy');
-            }
-            else if (i === 3) {
-                this.trumpImage = this.enemy.create(275, 269, 'enemy');
-            }
-            else if (i === 4) {
-                this.trumpImage = this.enemy.create(375, 269, 'enemy');
-            }
-            else {
-                this.trumpImage = this.enemy.create(1000, 50, 'enemy');
-                this.trumpImage.body.velocity.y = -1000;
-            }
-            // this.trumpImage.body.gravity.y = 10;
-            this.trumpImage.body.maxVelocity.setTo(1000);
-            this.trumpImage.body.bounce.setTo(1);
-            this.trumpImage.body.collideWorldBounds = true;
-        }
-
-        //Adding Flag
-        this.finish = this.game.add.sprite(1300, 40, 'win');
-        this.game.physics.arcade.enable(this.finish);
-        this.finish.body.collideWorldBounds = true;
-        this.finish.body.bounce.setTo(1);
-        this.finish.body.maxVelocity.setTo(100);
 
         //Adding Player
         this.player = this.game.add.sprite(100, 1750, 'dude');
@@ -2600,63 +2435,73 @@ brawl.state12.prototype = {
         //this.player.body.allowDrag = false;
         this.player.body.collideWorldBounds = true;
 
-        this.player.customParams = {};
-        this.createOnscreenControls();
-
         // PLAYER ANIMATIONS
         this.player.animations.add('left', [0, 1, 2, 3, 4, 5, 6, 7], 10, true);
         this.player.animations.add('right', [9, 10, 11, 12, 13, 14, 15], 10, true);
 
+        //Array's Containing Different Keys for Images
+        var wallArray = ['brownPlatform', 'wall', 'rotatedWall'];
+
+        //Functions to shorten code
+        function wallbanger (x,y) {
+            this.wallX = wall.create(x, y, wallArray[Math.floor(Math.random() * wallArray.length)]);
+            this.wallX.scale.setTo(.5);
+            this.wallX.body.immovable = true;
+            console.log("wall1");
+        }
+
+        //////////////////Grid System Creation////////////////
+        for (var i = 0; i < 20; i++) {
+            
+            //Create Randomness in Each Grid
+            var gridSystemGenesis = this.game.rnd.integerInRange(0, 1);
+            ////////////The X-Axis Block///////////
+            var block1x = this.game.rnd.realInRange(0, 350);
+            var block2x = this.game.rnd.realInRange(351, 700);
+            var block3x = this.game.rnd.realInRange(701, 1050);
+            var block4x = this.game.rnd.realInRange(1051, 1400);
+            ////////////The Y-Axis Block///////////
+            var block1y = this.game.rnd.realInRange(0, 400);
+            var block2y = this.game.rnd.realInRange(401, 800);
+            var block3y = this.game.rnd.realInRange(801, 1200);
+            var block4y = this.game.rnd.realInRange(1201, 1600);
+            var block5y = this.game.rnd.realInRange(1601, 2000);
+
+            //block 1
+            if (i === 0) {
+                if (gridSystemGenesis === 0) {
+                    wallbanger(block1x,block5y);
+                }
+                else {
+                    this.ledgeX = this.ledge.create(block1x, block5y, 'ledge');
+                    this.ledgeX.body.maxVelocity.setTo(400);
+                    this.ledgeX.anchor.setTo(.5);
+                    this.ledgeX.scale.setTo(.5);
+                    this.ledgeX.body.collideWorldBounds = true;
+                    this.ledgeX.body.bounce.setTo(1);
+                    console.log("ledge1");
+                }
+            }
+            if (i === 1) {
+                if (gridSystemGenesis === 0) {
+                    this.wallX = this.wall.create(block2x, block5y, wallArray[Math.floor(Math.random() * wallArray.length)]);
+                    this.wallX.scale.setTo(.5);
+                    this.wallX.body.immovable = true;
+                    console.log("wall2");
+                }
+                else {
+                    this.ledgeX = this.ledge.create(block2x, block5y, 'ledge');
+                    this.ledgeX.body.maxVelocity.setTo(400);
+                    this.ledgeX.scale.setTo(.5);
+                    this.ledgeX.body.collideWorldBounds = true;
+                    this.ledgeX.body.bounce.setTo(1);
+                    console.log("ledge2");
+                }
+            }
+        }
+
         this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_PLATFORMER);
 
-    },
-    createOnscreenControls: function () {
-
-        this.leftArrow = this.add.button(0, 0, 'joystick');
-        this.rightArrow = this.add.button(231, 0, 'joystick2');
-        this.actionButton = this.add.button(1050, 0, 'action');
-
-        this.leftArrow.alpha = 0;
-        this.rightArrow.alpha = 0;
-        this.actionButton.alpha = 0;
-
-        this.leftArrow.fixedToCamera = true;
-        this.rightArrow.fixedToCamera = true;
-        this.actionButton.fixedToCamera = true;
-
-        //Jumping
-        this.actionButton.events.onInputDown.add(function () {
-            this.player.customParams.mustJump = true;
-            this.actionButton.alpha = .05;
-        }, this);
-
-        this.actionButton.events.onInputUp.add(function () {
-            this.player.customParams.mustJump = false;
-            this.actionButton.alpha = 0;
-        }, this);
-
-        //Left Movement
-        this.leftArrow.events.onInputDown.add(function () {
-            this.player.customParams.leftMovement = true;
-            this.leftArrow.alpha = .05;
-        }, this);
-
-        this.leftArrow.events.onInputUp.add(function () {
-            this.player.customParams.leftMovement = false;
-            this.leftArrow.alpha = 0;
-        }, this);
-
-        //Right Movement
-
-        this.rightArrow.events.onInputDown.add(function () {
-            this.player.customParams.rightMovement = true;
-            this.rightArrow.alpha = .05;
-        }, this);
-
-        this.rightArrow.events.onInputUp.add(function () {
-            this.player.customParams.rightMovement = false;
-            this.rightArrow.alpha = 0;
-        }, this);
     },
     gofull: function () {
         if (this.game.scale.isFullScreen) {
@@ -2668,124 +2513,28 @@ brawl.state12.prototype = {
     },
     update: function () {
 
-        //Player Mechanics
-
-        this.game.physics.arcade.collide(this.player, this.wall);
-        this.game.physics.arcade.collide(this.player, this.ledge, ledgeUp);
-        this.game.physics.arcade.collide(this.player, this.ball);
-
-        // Ball Mechanics
-        this.game.physics.arcade.collide(this.ball, this.wall);
-        this.game.physics.arcade.collide(this.ball, this.spikes);
-        this.game.physics.arcade.collide(this.ball, this.ledge);
-        this.game.physics.arcade.overlap(this.ball, this.enemy, deathThree);
-
-        // //Wall/Enemy/Ledge/Spike Mechanics
-        this.game.physics.arcade.collide(this.ledge, this.wall);
-        this.game.physics.arcade.collide(this.ledge, this.ledge);
-        this.game.physics.arcade.collide(this.ledge, this.enemy, enemyLedge);
-        this.game.physics.arcade.collide(this.ledge, this.spikes);
-        this.game.physics.arcade.collide(this.enemy, this.spikes);
-        this.game.physics.arcade.collide(this.enemy, this.wall);
-        this.game.physics.arcade.collide(this.enemy, this.enemy);
-
-        //Spikes Dying
-        this.game.physics.arcade.overlap(this.fallingSpikes, this.ledge, deathTwo, null, this);
-        this.game.physics.arcade.overlap(this.fallingSpikes, this.wall, deathTwo, null, this);
-
-        //Flag Moving Mechanics
-        this.game.physics.arcade.collide(this.finish, this.wall);
-        this.game.physics.arcade.collide(this.finish, this.ledge);
-        this.game.physics.arcade.collide(this.finish, this.spikes);
-        this.game.physics.arcade.collide(this.finish, this.ball);
-
-        //Win
-        this.game.physics.arcade.overlap(this.player, this.finish, nextLevel, null, this);
-
-        //Death Mechanics
-        this.game.physics.arcade.overlap(this.player, this.enemy, deathOne, null, this);
-        this.game.physics.arcade.overlap(this.player, this.spikes, deathOne, null, this);
-        this.game.physics.arcade.overlap(this.player, this.fallingSpikes, deathOne, null, this);
-
         //Player Standing Still
         this.player.body.velocity.x = 0;
 
         /////////////////////////////God Mode/////////////////////////////////////
 
-        // this.player.body.velocity.y = 0;
+        this.player.body.velocity.y = 0;
 
-        // if (this.cursors.left.isDown || this.player.customParams.leftMovement) {
-        //     this.player.body.velocity.x = -400;
-        //     this.player.animations.play('left');
-        // }
-        // else if (this.cursors.right.isDown || this.player.customParams.rightMovement) {
-        //     this.player.body.velocity.x = 400;
-        //     this.player.animations.play('right');
-        // }
-
-        // if (this.cursors.up.isDown || this.player.customParams.mustJump) {
-        //     this.player.frame = 10;
-        //     this.player.body.velocity.y = -650;
-        //     this.player.customParams.mustJump = false;
-        // }
-        // if (this.cursors.down.isDown) {
-        //     this.player.frame = 10;
-        //     this.player.body.velocity.y = 650;
-        //     this.player.customParams.mustJump = false;
-        // }
-
-        ////////////////////////////////Actual Controls///////////////////////////////////
-
-        //Player Movement and Wall-Jump Mechanics
-        if (this.player.body.touching.down) {
-            if (this.cursors.left.isDown || this.player.customParams.leftMovement) {
-                this.player.body.velocity.x = -400;
-                this.player.animations.play('left');
-            }
-            else if (this.cursors.right.isDown || this.player.customParams.rightMovement) {
-                this.player.body.velocity.x = 400;
-                this.player.animations.play('right');
-            }
-            else {
-                this.player.animations.stop();
-                this.player.frame = 8;
-            }
+        if (this.cursors.left.isDown) {
+            this.player.body.velocity.x = -400;
+            this.player.animations.play('left');
         }
-        else if (this.player.body.touching.right) {
-            this.player.body.velocity.x = 50;
-            this.player.body.velocity.y = 100;
-            this.player.frame = 6;
-            if ((this.cursors.up.isDown && this.cursors.left.isDown) || (this.player.customParams.mustJump && this.player.customParams.leftMovement)) {
-                this.player.body.velocity.y = -650;
-                this.player.body.velocity.x = -1000;
-            }
+        else if (this.cursors.right.isDown) {
+            this.player.body.velocity.x = 400;
+            this.player.animations.play('right');
         }
-        else if (this.player.body.touching.left) {
-            this.player.body.velocity.x = -50;
-            this.player.body.velocity.y = 100;
-            this.player.frame = 12;
-            if ((this.cursors.up.isDown && this.cursors.right.isDown) || (this.player.customParams.mustJump && this.player.customParams.rightMovement)) {
-                this.player.body.velocity.y = -650;
-                this.player.body.velocity.x = 1000;
-            }
-        }
-        if (this.player.body.touching.none) {
-            this.player.frame = 10;
-            if (this.cursors.left.isDown || this.player.customParams.leftMovement) {
-                this.player.body.velocity.x = -400;
-                this.player.customParams.rightMovement = false;
-            }
-            else if (this.cursors.right.isDown || this.player.customParams.rightMovement) {
-                this.player.body.velocity.x = 400;
-                this.player.customParams.leftMovement = false;
-            }
-        }
-
-        ////Player Jump Mechanics
-        if ((this.cursors.up.isDown || this.player.customParams.mustJump) && this.player.body.touching.down) {
+        if (this.cursors.up.isDown) {
             this.player.frame = 10;
             this.player.body.velocity.y = -650;
-            this.player.customParams.mustJump = false;
+        }
+        else if (this.cursors.down.isDown) {
+            this.player.frame = 10;
+            this.player.body.velocity.y = 650;
         }
     }
 };
