@@ -48,7 +48,7 @@ brawl.state12.prototype = {
         //Adding Enemies
         this.enemy = this.game.add.group();
         this.enemy.enableBody = true;
-        
+
         //Adding Player
         this.player = this.game.add.sprite(100, 1750, 'dude');
         this.game.physics.arcade.enable(this.player); //enables physics for player
@@ -64,18 +64,12 @@ brawl.state12.prototype = {
         this.player.animations.add('left', [0, 1, 2, 3, 4, 5, 6, 7], 10, true);
         this.player.animations.add('right', [9, 10, 11, 12, 13, 14, 15], 10, true);
 
-        //Array's Containing Different Keys for Images
-        var wallArray = ['brownPlatform', 'wall', 'rotatedWall'];
-
-
         //////////////////Grid System Creation////////////////
         for (var i = 0; i < 20; i++) {
-            
+
             // var xMaxWidth = 350;
             // var yMaxLength = 400;
 
-            //Create Randomness in Each Grid
-            var gridSystemGenesis = this.game.rnd.integerInRange(0, 2);
             ////////////The X-Axis Block///////////
             var block1x = this.game.rnd.realInRange(0, 350);
             var block2x = this.game.rnd.realInRange(351, 700);
@@ -90,418 +84,50 @@ brawl.state12.prototype = {
 
             //block 1
             if (i === 0) {
-                if (gridSystemGenesis === 0) {
-                    this.wallX = this.wall.create(block1x, block5y, wallArray[Math.floor(Math.random() * wallArray.length)]);
-                    this.wallX.scale.setTo(.5);
-                    this.wallX.body.immovable = true;
-                    console.log("wall1");
-                }
-                else if (gridSystemGenesis === 1) {
-                    this.trumpImage = this.enemy.create(block1x, block5y, 'enemy');
-                    //this.trumpImage.body.velocity.x = -1000;
-                    // this.trumpImage.body.gravity.y = 10;
-                    this.trumpImage.body.maxVelocity.setTo(1000);
-                    this.trumpImage.body.bounce.setTo(1);
-                    this.trumpImage.body.collideWorldBounds = true;
-                }
-                else {
-                    this.ledgeX = this.ledge.create(block1x, block5y, 'ledge');
-                    this.ledgeX.body.maxVelocity.setTo(400);
-                    this.ledgeX.anchor.setTo(.5);
-                    this.ledgeX.scale.setTo(.5);
-                    this.ledgeX.body.collideWorldBounds = true;
-                    this.ledgeX.body.bounce.setTo(1);
-                    console.log("ledge1");
-                }
-                
+                this.gridSystem(block1x, block5y);
             }
             else if (i === 1) {
-                if (gridSystemGenesis === 0) {
-                    this.wallX = this.wall.create(block2x, block5y, wallArray[Math.floor(Math.random() * wallArray.length)]);
-                    this.wallX.scale.setTo(.5);
-                    this.wallX.body.immovable = true;
-                    console.log("wall2");
-                }
-                else if (gridSystemGenesis === 1) {
-                    this.trumpImage = this.enemy.create(block2x, block5y, 'enemy');
-                    //this.trumpImage.body.velocity.x = -1000;
-                    // this.trumpImage.body.gravity.y = 10;
-                    this.trumpImage.body.maxVelocity.setTo(1000);
-                    this.trumpImage.body.bounce.setTo(1);
-                    this.trumpImage.body.collideWorldBounds = true;
-                }
-                else {
-                    this.ledgeX = this.ledge.create(block2x, block5y, 'ledge');
-                    this.ledgeX.body.maxVelocity.setTo(400);
-                    this.ledgeX.scale.setTo(.5);
-                    this.ledgeX.body.collideWorldBounds = true;
-                    this.ledgeX.body.bounce.setTo(1);
-                    console.log("ledge2");
-                }
-            }
-            else if (i === 2) {
-                if (gridSystemGenesis === 0) {
-                    this.wallX = this.wall.create(block3x, block5y, wallArray[Math.floor(Math.random() * wallArray.length)]);
-                    this.wallX.scale.setTo(.5);
-                    this.wallX.body.immovable = true;
-                    console.log("wall3");
-                }
-                else if (gridSystemGenesis === 1) {
-                    this.trumpImage = this.enemy.create(block3x, block5y, 'enemy');
-                    //this.trumpImage.body.velocity.x = -1000;
-                    // this.trumpImage.body.gravity.y = 10;
-                    this.trumpImage.body.maxVelocity.setTo(1000);
-                    this.trumpImage.body.bounce.setTo(1);
-                    this.trumpImage.body.collideWorldBounds = true;
-                }
-                else {
-                    this.ledgeX = this.ledge.create(block3x, block5y, 'ledge');
-                    this.ledgeX.body.maxVelocity.setTo(400);
-                    this.ledgeX.scale.setTo(.5);
-                    this.ledgeX.body.collideWorldBounds = true;
-                    this.ledgeX.body.bounce.setTo(1);
-                    console.log("ledge3");
-                }
-            }
-            else if (i === 3) {
-                if (gridSystemGenesis === 0) {
-                    this.wallX = this.wall.create(block4x, block5y, wallArray[Math.floor(Math.random() * wallArray.length)]);
-                    this.wallX.scale.setTo(.5);
-                    this.wallX.body.immovable = true;
-                    console.log("wall4");
-                }
-                else if (gridSystemGenesis === 1) {
-                    this.trumpImage = this.enemy.create(block4x, block5y, 'enemy');
-                    //this.trumpImage.body.velocity.x = -1000;
-                    // this.trumpImage.body.gravity.y = 10;
-                    this.trumpImage.body.maxVelocity.setTo(1000);
-                    this.trumpImage.body.bounce.setTo(1);
-                    this.trumpImage.body.collideWorldBounds = true;
-                }
-                else {
-                    this.ledgeX = this.ledge.create(block4x, block5y, 'ledge');
-                    this.ledgeX.body.maxVelocity.setTo(400);
-                    this.ledgeX.scale.setTo(.5);
-                    this.ledgeX.body.collideWorldBounds = true;
-                    this.ledgeX.body.bounce.setTo(1);
-                    console.log("ledge4");
-                }
-            }
-            else if (i === 4) {
-                if (gridSystemGenesis === 0) {
-                    this.wallX = this.wall.create(block1x, block4y, wallArray[Math.floor(Math.random() * wallArray.length)]);
-                    this.wallX.scale.setTo(.5);
-                    this.wallX.body.immovable = true;
-                    console.log("wall4");
-                }
-                else if (gridSystemGenesis === 1) {
-                    this.trumpImage = this.enemy.create(block1x, block4y, 'enemy');
-                    //this.trumpImage.body.velocity.x = -1000;
-                    // this.trumpImage.body.gravity.y = 10;
-                    this.trumpImage.body.maxVelocity.setTo(1000);
-                    this.trumpImage.body.bounce.setTo(1);
-                    this.trumpImage.body.collideWorldBounds = true;
-                }
-                else {
-                    this.ledgeX = this.ledge.create(block1x, block4y, 'ledge');
-                    this.ledgeX.body.maxVelocity.setTo(400);
-                    this.ledgeX.scale.setTo(.5);
-                    this.ledgeX.body.collideWorldBounds = true;
-                    this.ledgeX.body.bounce.setTo(1);
-                    console.log("ledge4");
-                }
-            }
-            else if (i === 5) {
-                if (gridSystemGenesis === 0) {
-                    this.wallX = this.wall.create(block2x, block4y, wallArray[Math.floor(Math.random() * wallArray.length)]);
-                    this.wallX.scale.setTo(.5);
-                    this.wallX.body.immovable = true;
-                    console.log("wall4");
-                }
-                else if (gridSystemGenesis === 1) {
-                    this.trumpImage = this.enemy.create(block2x, block4y, 'enemy');
-                    //this.trumpImage.body.velocity.x = -1000;
-                    // this.trumpImage.body.gravity.y = 10;
-                    this.trumpImage.body.maxVelocity.setTo(1000);
-                    this.trumpImage.body.bounce.setTo(1);
-                    this.trumpImage.body.collideWorldBounds = true;
-                }
-                else {
-                    this.ledgeX = this.ledge.create(block2x, block4y, 'ledge');
-                    this.ledgeX.body.maxVelocity.setTo(400);
-                    this.ledgeX.scale.setTo(.5);
-                    this.ledgeX.body.collideWorldBounds = true;
-                    this.ledgeX.body.bounce.setTo(1);
-                    console.log("ledge4");
-                }
-            }
-            else if (i === 6) {
-                if (gridSystemGenesis === 0) {
-                    this.wallX = this.wall.create(block3x, block4y, wallArray[Math.floor(Math.random() * wallArray.length)]);
-                    this.wallX.scale.setTo(.5);
-                    this.wallX.body.immovable = true;
-                    console.log("wall4");
-                }
-                else if (gridSystemGenesis === 1) {
-                    this.trumpImage = this.enemy.create(block3x, block4y, 'enemy');
-                    //this.trumpImage.body.velocity.x = -1000;
-                    // this.trumpImage.body.gravity.y = 10;
-                    this.trumpImage.body.maxVelocity.setTo(1000);
-                    this.trumpImage.body.bounce.setTo(1);
-                    this.trumpImage.body.collideWorldBounds = true;
-                }
-                else {
-                    this.ledgeX = this.ledge.create(block3x, block4y, 'ledge');
-                    this.ledgeX.body.maxVelocity.setTo(400);
-                    this.ledgeX.scale.setTo(.5);
-                    this.ledgeX.body.collideWorldBounds = true;
-                    this.ledgeX.body.bounce.setTo(1);
-                    console.log("ledge4");
-                }
-            }
-            else if (i === 7) {
-                if (gridSystemGenesis === 0) {
-                    this.wallX = this.wall.create(block4x, block4y, wallArray[Math.floor(Math.random() * wallArray.length)]);
-                    this.wallX.scale.setTo(.5);
-                    this.wallX.body.immovable = true;
-                    console.log("wall4");
-                }
-                else if (gridSystemGenesis === 1) {
-                    this.trumpImage = this.enemy.create(block4x, block4y, 'enemy');
-                    //this.trumpImage.body.velocity.x = -1000;
-                    // this.trumpImage.body.gravity.y = 10;
-                    this.trumpImage.body.maxVelocity.setTo(1000);
-                    this.trumpImage.body.bounce.setTo(1);
-                    this.trumpImage.body.collideWorldBounds = true;
-                }
-                else {
-                    this.ledgeX = this.ledge.create(block4x, block4y, 'ledge');
-                    this.ledgeX.body.maxVelocity.setTo(400);
-                    this.ledgeX.scale.setTo(.5);
-                    this.ledgeX.body.collideWorldBounds = true;
-                    this.ledgeX.body.bounce.setTo(1);
-                    console.log("ledge4");
-                }
-            }
-            else if (i === 8) {
-                if (gridSystemGenesis === 0) {
-                    this.wallX = this.wall.create(block1x, block3y, wallArray[Math.floor(Math.random() * wallArray.length)]);
-                    this.wallX.scale.setTo(.5);
-                    this.wallX.body.immovable = true;
-                    console.log("wall4");
-                }
-                else if (gridSystemGenesis === 1) {
-                    this.trumpImage = this.enemy.create(block1x, block3y, 'enemy');
-                    //this.trumpImage.body.velocity.x = -1000;
-                    // this.trumpImage.body.gravity.y = 10;
-                    this.trumpImage.body.maxVelocity.setTo(1000);
-                    this.trumpImage.body.bounce.setTo(1);
-                    this.trumpImage.body.collideWorldBounds = true;
-                }
-                else {
-                    this.ledgeX = this.ledge.create(block1x, block3y, 'ledge');
-                    this.ledgeX.body.maxVelocity.setTo(400);
-                    this.ledgeX.scale.setTo(.5);
-                    this.ledgeX.body.collideWorldBounds = true;
-                    this.ledgeX.body.bounce.setTo(1);
-                    console.log("ledge4");
-                }
-            }
-            else if (i === 9) {
-                if (gridSystemGenesis === 0) {
-                    this.wallX = this.wall.create(block2x, block3y, wallArray[Math.floor(Math.random() * wallArray.length)]);
-                    this.wallX.scale.setTo(.5);
-                    this.wallX.body.immovable = true;
-                    console.log("wall4");
-                }
-                else if (gridSystemGenesis === 1) {
-                    this.trumpImage = this.enemy.create(block2x, block3y, 'enemy');
-                    //this.trumpImage.body.velocity.x = -1000;
-                    // this.trumpImage.body.gravity.y = 10;
-                    this.trumpImage.body.maxVelocity.setTo(1000);
-                    this.trumpImage.body.bounce.setTo(1);
-                    this.trumpImage.body.collideWorldBounds = true;
-                }
-                else {
-                    this.ledgeX = this.ledge.create(block2x, block3y, 'ledge');
-                    this.ledgeX.body.maxVelocity.setTo(400);
-                    this.ledgeX.scale.setTo(.5);
-                    this.ledgeX.body.collideWorldBounds = true;
-                    this.ledgeX.body.bounce.setTo(1);
-                    console.log("ledge4");
-                }
-            }
-            else if (i === 10) {
-                if (gridSystemGenesis === 0) {
-                    this.wallX = this.wall.create(block2x, block3y, wallArray[Math.floor(Math.random() * wallArray.length)]);
-                    this.wallX.scale.setTo(.5);
-                    this.wallX.body.immovable = true;
-                    console.log("wall4");
-                }
-                else if (gridSystemGenesis === 1) {
-                    this.trumpImage = this.enemy.create(block2x, block3y, 'enemy');
-                    //this.trumpImage.body.velocity.x = -1000;
-                    // this.trumpImage.body.gravity.y = 10;
-                    this.trumpImage.body.maxVelocity.setTo(1000);
-                    this.trumpImage.body.bounce.setTo(1);
-                    this.trumpImage.body.collideWorldBounds = true;
-                }
-                else {
-                    this.ledgeX = this.ledge.create(block2x, block3y, 'ledge');
-                    this.ledgeX.body.maxVelocity.setTo(400);
-                    this.ledgeX.scale.setTo(.5);
-                    this.ledgeX.body.collideWorldBounds = true;
-                    this.ledgeX.body.bounce.setTo(1);
-                    console.log("ledge4");
-                }
-            }
-            else if (i === 11) {
-                if (gridSystemGenesis === 0) {
-                    this.wallX = this.wall.create(block3x, block3y, wallArray[Math.floor(Math.random() * wallArray.length)]);
-                    this.wallX.scale.setTo(.5);
-                    this.wallX.body.immovable = true;
-                    console.log("wall4");
-                }
-                else if (gridSystemGenesis === 1) {
-                    this.trumpImage = this.enemy.create(block3x, block3y, 'enemy');
-                    //this.trumpImage.body.velocity.x = -1000;
-                    // this.trumpImage.body.gravity.y = 10;
-                    this.trumpImage.body.maxVelocity.setTo(1000);
-                    this.trumpImage.body.bounce.setTo(1);
-                    this.trumpImage.body.collideWorldBounds = true;
-                }
-                else {
-                    this.ledgeX = this.ledge.create(block3x, block3y, 'ledge');
-                    this.ledgeX.body.maxVelocity.setTo(400);
-                    this.ledgeX.scale.setTo(.5);
-                    this.ledgeX.body.collideWorldBounds = true;
-                    this.ledgeX.body.bounce.setTo(1);
-                    console.log("ledge4");
-                }
-            }
-            else if (i === 12) {
-                if (gridSystemGenesis === 0) {
-                    this.wallX = this.wall.create(block4x, block3y, wallArray[Math.floor(Math.random() * wallArray.length)]);
-                    this.wallX.scale.setTo(.5);
-                    this.wallX.body.immovable = true;
-                    console.log("wall4");
-                }
-                else if (gridSystemGenesis === 1) {
-                    this.trumpImage = this.enemy.create(block4x, block3y, 'enemy');
-                    //this.trumpImage.body.velocity.x = -1000;
-                    // this.trumpImage.body.gravity.y = 10;
-                    this.trumpImage.body.maxVelocity.setTo(1000);
-                    this.trumpImage.body.bounce.setTo(1);
-                    this.trumpImage.body.collideWorldBounds = true;
-                }
-                else {
-                    this.ledgeX = this.ledge.create(block4x, block3y, 'ledge');
-                    this.ledgeX.body.maxVelocity.setTo(400);
-                    this.ledgeX.scale.setTo(.5);
-                    this.ledgeX.body.collideWorldBounds = true;
-                    this.ledgeX.body.bounce.setTo(1);
-                    console.log("ledge4");
-                }
-            }
-            else if (i === 13) {
-                if (gridSystemGenesis === 0) {
-                    this.wallX = this.wall.create(block1x, block4y, wallArray[Math.floor(Math.random() * wallArray.length)]);
-                    this.wallX.scale.setTo(.5);
-                    this.wallX.body.immovable = true;
-                    console.log("wall4");
-                }
-                else if (gridSystemGenesis === 1) {
-                    this.trumpImage = this.enemy.create(block1x, block4y, 'enemy');
-                    //this.trumpImage.body.velocity.x = -1000;
-                    // this.trumpImage.body.gravity.y = 10;
-                    this.trumpImage.body.maxVelocity.setTo(1000);
-                    this.trumpImage.body.bounce.setTo(1);
-                    this.trumpImage.body.collideWorldBounds = true;
-                }
-                else {
-                    this.ledgeX = this.ledge.create(block1x, block4y, 'ledge');
-                    this.ledgeX.body.maxVelocity.setTo(400);
-                    this.ledgeX.scale.setTo(.5);
-                    this.ledgeX.body.collideWorldBounds = true;
-                    this.ledgeX.body.bounce.setTo(1);
-                    console.log("ledge4");
-                }
-            }
-            else if (i === 14) {
-                if (gridSystemGenesis === 0) {
-                    this.wallX = this.wall.create(block2x, block4y, wallArray[Math.floor(Math.random() * wallArray.length)]);
-                    this.wallX.scale.setTo(.5);
-                    this.wallX.body.immovable = true;
-                    console.log("wall4");
-                }
-                else if (gridSystemGenesis === 1) {
-                    this.trumpImage = this.enemy.create(block2x, block4y, 'enemy');
-                    //this.trumpImage.body.velocity.x = -1000;
-                    // this.trumpImage.body.gravity.y = 10;
-                    this.trumpImage.body.maxVelocity.setTo(1000);
-                    this.trumpImage.body.bounce.setTo(1);
-                    this.trumpImage.body.collideWorldBounds = true;
-                }
-                else {
-                    this.ledgeX = this.ledge.create(block2x, block4y, 'ledge');
-                    this.ledgeX.body.maxVelocity.setTo(400);
-                    this.ledgeX.scale.setTo(.5);
-                    this.ledgeX.body.collideWorldBounds = true;
-                    this.ledgeX.body.bounce.setTo(1);
-                    console.log("ledge4");
-                }
-            }
-            else if (i === 14) {
-                if (gridSystemGenesis === 0) {
-                    this.wallX = this.wall.create(block3x, block4y, wallArray[Math.floor(Math.random() * wallArray.length)]);
-                    this.wallX.scale.setTo(.5);
-                    this.wallX.body.immovable = true;
-                    console.log("wall4");
-                }
-                else if (gridSystemGenesis === 1) {
-                    this.trumpImage = this.enemy.create(block3x, block4y, 'enemy');
-                    //this.trumpImage.body.velocity.x = -1000;
-                    // this.trumpImage.body.gravity.y = 10;
-                    this.trumpImage.body.maxVelocity.setTo(1000);
-                    this.trumpImage.body.bounce.setTo(1);
-                    this.trumpImage.body.collideWorldBounds = true;
-                }
-                else {
-                    this.ledgeX = this.ledge.create(block3x, block4y, 'ledge');
-                    this.ledgeX.body.maxVelocity.setTo(400);
-                    this.ledgeX.scale.setTo(.5);
-                    this.ledgeX.body.collideWorldBounds = true;
-                    this.ledgeX.body.bounce.setTo(1);
-                    console.log("ledge4");
-                }
-            }
-            else if (i === 15) {
-                if (gridSystemGenesis === 0) {
-                    this.wallX = this.wall.create(block4x, block4y, wallArray[Math.floor(Math.random() * wallArray.length)]);
-                    this.wallX.scale.setTo(.5);
-                    this.wallX.body.immovable = true;
-                    console.log("wall4");
-                }
-                else if (gridSystemGenesis === 1) {
-                    this.trumpImage = this.enemy.create(block4x, block4y, 'enemy');
-                    //this.trumpImage.body.velocity.x = -1000;
-                    // this.trumpImage.body.gravity.y = 10;
-                    this.trumpImage.body.maxVelocity.setTo(1000);
-                    this.trumpImage.body.bounce.setTo(1);
-                    this.trumpImage.body.collideWorldBounds = true;
-                }
-                else {
-                    this.ledgeX = this.ledge.create(block4x, block4y, 'ledge');
-                    this.ledgeX.body.maxVelocity.setTo(400);
-                    this.ledgeX.scale.setTo(.5);
-                    this.ledgeX.body.collideWorldBounds = true;
-                    this.ledgeX.body.bounce.setTo(1);
-                    console.log("ledge4");
-                }
+                this.gridSystem(block2x, block5y);
             }
         }
         this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_PLATFORMER);
 
+    },
+    gridSystem: function (x, y) {
+        console.log("thisworks?")
+        //Create Randomness in Each Grid
+        var gridSystemGenesis = this.game.rnd.integerInRange(0, 2);
+        if (gridSystemGenesis === 0) {
+            this.wallSpawn(x, y);
+        }
+        else if (gridSystemGenesis === 1) {
+            this.enemySpawn(x, y);
+        }
+        else {
+            this.ledgeSpawn(x, y);
+        }
+    },
+    wallSpawn: function (x, y) {
+        var wallArray = ['brownPlatform', 'wall', 'rotatedWall'];
+        this.wallX = this.wall.create(x, y, wallArray[Math.floor(Math.random() * wallArray.length)]);
+        this.wallX.scale.setTo(.5);
+        this.wallX.body.immovable = true;
+    },
+    enemySpawn: function (x, y) {
+        this.trumpImage = this.enemy.create(x, y, 'enemy');
+        //this.trumpImage.body.velocity.x = -1000;
+        // this.trumpImage.body.gravity.y = 10;
+        this.trumpImage.body.maxVelocity.setTo(1000);
+        this.trumpImage.body.bounce.setTo(1);
+        this.trumpImage.body.collideWorldBounds = true;
+    },
+    ledgeSpawn: function (x, y) {
+        this.ledgeX = this.ledge.create(x, y, 'ledge');
+        this.ledgeX.body.maxVelocity.setTo(400);
+        this.ledgeX.anchor.setTo(.5);
+        this.ledgeX.scale.setTo(.5);
+        this.ledgeX.body.collideWorldBounds = true;
+        this.ledgeX.body.bounce.setTo(1);
     },
     gofull: function () {
         if (this.game.scale.isFullScreen) {
@@ -510,9 +136,6 @@ brawl.state12.prototype = {
         else {
             this.game.scale.startFullScreen(false);
         }
-    },
-    objectSpawn: function () {
-
     },
     update: function () {
 
