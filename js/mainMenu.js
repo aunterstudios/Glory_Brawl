@@ -21,15 +21,15 @@ brawl.state1.prototype= {
         this.trumpBackground.anchor.setTo(.5);
 
         //Adding Cool Looking Text
-        text = this.game.add.text(40, 50, '', { font: "50px Arial", fill: "#19de65" });
+        text = this.game.add.text(40, 50, '', { font: "25px Arial", fill: "#19de65" });
         nextLine();
         
         //Skip Written Already.
-        this.text2 = game.add.text(700,300,"Tap Screen to Skip/Play.\nSpacebar to go Full-Screen");
+        this.text2 = game.add.text(800,300,"Press the Button to Login/Register.\nSpacebar to go Full-Screen");
 
         //	Font style
         this.text2.font = 'Arial';
-        this.text2.fontSize = 35;
+        this.text2.fontSize = 30;
         this.text2.fill= "#19de65";
         this.text2.fontWeight = 'bold';
 
@@ -47,7 +47,7 @@ brawl.state1.prototype= {
     update: function (){
        if (this.game.input.activePointer.isDown)
       {
-        this.game.state.start('ruleSets');
+        this.game.state.start('rogueTest');
       }
     }
 };

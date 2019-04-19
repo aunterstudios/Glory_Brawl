@@ -1,0 +1,543 @@
+///////////////////////////////////////////Rogue Test//////////////////////////////////////////
+brawl.state12 = function () { };
+brawl.state12.prototype = {
+    init: function () {
+        //GENERAL MAP SETTINGS 
+        this.game.physics.startSystem(Phaser.Physics.ARCADE); // We're going to be using physics, so enable the Arcade Physics system
+        this.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT; //Scales our Game
+    },
+    preload: function () {
+        this.game.forceSingleUpdate = true;
+        this.load.image('wall', 'assets/wall.png');
+        this.load.image('ball', 'assets/ball.png')
+        this.load.image('rotatedWall', 'assets/rotatedWall.png');
+        this.load.image('fallingSpikes', 'assets/newSpikes.png');
+        this.load.image('win', 'assets/flag.png');
+        this.load.image('enemy', 'assets/trumpface.png');
+        this.load.image('brownPlatform', 'assets/platform2.png');
+        this.load.image('ledge', 'assets/platformY.png');
+        this.load.image('spikes', 'assets/invisibleFloorSpikes.png');
+        this.load.image('invertedSpikes', 'assets/invertedSpikesTrue.png')
+        this.load.image('joystick', 'assets/joystick.png');
+        this.load.image('joystick2', 'assets/joystickR.png');
+        this.load.image('action', 'assets/action.png');
+        this.load.spritesheet('dude', 'assets/white.png', 87.5, 93.5);
+    },
+    create: function () {
+
+        // Stretch to fill (Full Screen Mode)
+        this.game.scale.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
+
+        this.spacebar = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+
+        this.spacebar.onDown.add(this.gofull, this);
+
+        // Setting World Stage
+
+        this.game.world.setBounds(0, 0, 1400, 2000);
+
+        //Keyboard Controls
+        this.cursors = this.game.input.keyboard.createCursorKeys();
+
+        //Adding the Wall
+        this.wall = this.game.add.group();
+        this.wall.enableBody = true; //enables physics for wall
+        //Adding Ledge
+        this.ledge = this.game.add.group();
+        this.ledge.enableBody = true;
+        //Adding Enemies
+        this.enemy = this.game.add.group();
+        this.enemy.enableBody = true;
+        
+        //Adding Player
+        this.player = this.game.add.sprite(100, 1750, 'dude');
+        this.game.physics.arcade.enable(this.player); //enables physics for player
+        this.player.anchor.setTo(.5);
+        this.player.scale.setTo(.60);
+        this.player.body.setSize(75, 84, 5, 6);
+        this.player.body.bounce.y = 0;
+        this.player.body.gravity.y = 1500;
+        //this.player.body.allowDrag = false;
+        this.player.body.collideWorldBounds = true;
+
+        // PLAYER ANIMATIONS
+        this.player.animations.add('left', [0, 1, 2, 3, 4, 5, 6, 7], 10, true);
+        this.player.animations.add('right', [9, 10, 11, 12, 13, 14, 15], 10, true);
+
+        //Array's Containing Different Keys for Images
+        var wallArray = ['brownPlatform', 'wall', 'rotatedWall'];
+
+
+        //////////////////Grid System Creation////////////////
+        for (var i = 0; i < 20; i++) {
+            
+            // var xMaxWidth = 350;
+            // var yMaxLength = 400;
+
+            //Create Randomness in Each Grid
+            var gridSystemGenesis = this.game.rnd.integerInRange(0, 2);
+            ////////////The X-Axis Block///////////
+            var block1x = this.game.rnd.realInRange(0, 350);
+            var block2x = this.game.rnd.realInRange(351, 700);
+            var block3x = this.game.rnd.realInRange(701, 1050);
+            var block4x = this.game.rnd.realInRange(1051, 1400);
+            ////////////The Y-Axis Block///////////
+            var block1y = this.game.rnd.realInRange(0, 400);
+            var block2y = this.game.rnd.realInRange(401, 800);
+            var block3y = this.game.rnd.realInRange(801, 1200);
+            var block4y = this.game.rnd.realInRange(1201, 1600);
+            var block5y = this.game.rnd.realInRange(1601, 2000);
+
+            //block 1
+            if (i === 0) {
+                if (gridSystemGenesis === 0) {
+                    this.wallX = this.wall.create(block1x, block5y, wallArray[Math.floor(Math.random() * wallArray.length)]);
+                    this.wallX.scale.setTo(.5);
+                    this.wallX.body.immovable = true;
+                    console.log("wall1");
+                }
+                else if (gridSystemGenesis === 1) {
+                    this.trumpImage = this.enemy.create(block1x, block5y, 'enemy');
+                    //this.trumpImage.body.velocity.x = -1000;
+                    // this.trumpImage.body.gravity.y = 10;
+                    this.trumpImage.body.maxVelocity.setTo(1000);
+                    this.trumpImage.body.bounce.setTo(1);
+                    this.trumpImage.body.collideWorldBounds = true;
+                }
+                else {
+                    this.ledgeX = this.ledge.create(block1x, block5y, 'ledge');
+                    this.ledgeX.body.maxVelocity.setTo(400);
+                    this.ledgeX.anchor.setTo(.5);
+                    this.ledgeX.scale.setTo(.5);
+                    this.ledgeX.body.collideWorldBounds = true;
+                    this.ledgeX.body.bounce.setTo(1);
+                    console.log("ledge1");
+                }
+                
+            }
+            else if (i === 1) {
+                if (gridSystemGenesis === 0) {
+                    this.wallX = this.wall.create(block2x, block5y, wallArray[Math.floor(Math.random() * wallArray.length)]);
+                    this.wallX.scale.setTo(.5);
+                    this.wallX.body.immovable = true;
+                    console.log("wall2");
+                }
+                else if (gridSystemGenesis === 1) {
+                    this.trumpImage = this.enemy.create(block2x, block5y, 'enemy');
+                    //this.trumpImage.body.velocity.x = -1000;
+                    // this.trumpImage.body.gravity.y = 10;
+                    this.trumpImage.body.maxVelocity.setTo(1000);
+                    this.trumpImage.body.bounce.setTo(1);
+                    this.trumpImage.body.collideWorldBounds = true;
+                }
+                else {
+                    this.ledgeX = this.ledge.create(block2x, block5y, 'ledge');
+                    this.ledgeX.body.maxVelocity.setTo(400);
+                    this.ledgeX.scale.setTo(.5);
+                    this.ledgeX.body.collideWorldBounds = true;
+                    this.ledgeX.body.bounce.setTo(1);
+                    console.log("ledge2");
+                }
+            }
+            else if (i === 2) {
+                if (gridSystemGenesis === 0) {
+                    this.wallX = this.wall.create(block3x, block5y, wallArray[Math.floor(Math.random() * wallArray.length)]);
+                    this.wallX.scale.setTo(.5);
+                    this.wallX.body.immovable = true;
+                    console.log("wall3");
+                }
+                else if (gridSystemGenesis === 1) {
+                    this.trumpImage = this.enemy.create(block3x, block5y, 'enemy');
+                    //this.trumpImage.body.velocity.x = -1000;
+                    // this.trumpImage.body.gravity.y = 10;
+                    this.trumpImage.body.maxVelocity.setTo(1000);
+                    this.trumpImage.body.bounce.setTo(1);
+                    this.trumpImage.body.collideWorldBounds = true;
+                }
+                else {
+                    this.ledgeX = this.ledge.create(block3x, block5y, 'ledge');
+                    this.ledgeX.body.maxVelocity.setTo(400);
+                    this.ledgeX.scale.setTo(.5);
+                    this.ledgeX.body.collideWorldBounds = true;
+                    this.ledgeX.body.bounce.setTo(1);
+                    console.log("ledge3");
+                }
+            }
+            else if (i === 3) {
+                if (gridSystemGenesis === 0) {
+                    this.wallX = this.wall.create(block4x, block5y, wallArray[Math.floor(Math.random() * wallArray.length)]);
+                    this.wallX.scale.setTo(.5);
+                    this.wallX.body.immovable = true;
+                    console.log("wall4");
+                }
+                else if (gridSystemGenesis === 1) {
+                    this.trumpImage = this.enemy.create(block4x, block5y, 'enemy');
+                    //this.trumpImage.body.velocity.x = -1000;
+                    // this.trumpImage.body.gravity.y = 10;
+                    this.trumpImage.body.maxVelocity.setTo(1000);
+                    this.trumpImage.body.bounce.setTo(1);
+                    this.trumpImage.body.collideWorldBounds = true;
+                }
+                else {
+                    this.ledgeX = this.ledge.create(block4x, block5y, 'ledge');
+                    this.ledgeX.body.maxVelocity.setTo(400);
+                    this.ledgeX.scale.setTo(.5);
+                    this.ledgeX.body.collideWorldBounds = true;
+                    this.ledgeX.body.bounce.setTo(1);
+                    console.log("ledge4");
+                }
+            }
+            else if (i === 4) {
+                if (gridSystemGenesis === 0) {
+                    this.wallX = this.wall.create(block1x, block4y, wallArray[Math.floor(Math.random() * wallArray.length)]);
+                    this.wallX.scale.setTo(.5);
+                    this.wallX.body.immovable = true;
+                    console.log("wall4");
+                }
+                else if (gridSystemGenesis === 1) {
+                    this.trumpImage = this.enemy.create(block1x, block4y, 'enemy');
+                    //this.trumpImage.body.velocity.x = -1000;
+                    // this.trumpImage.body.gravity.y = 10;
+                    this.trumpImage.body.maxVelocity.setTo(1000);
+                    this.trumpImage.body.bounce.setTo(1);
+                    this.trumpImage.body.collideWorldBounds = true;
+                }
+                else {
+                    this.ledgeX = this.ledge.create(block1x, block4y, 'ledge');
+                    this.ledgeX.body.maxVelocity.setTo(400);
+                    this.ledgeX.scale.setTo(.5);
+                    this.ledgeX.body.collideWorldBounds = true;
+                    this.ledgeX.body.bounce.setTo(1);
+                    console.log("ledge4");
+                }
+            }
+            else if (i === 5) {
+                if (gridSystemGenesis === 0) {
+                    this.wallX = this.wall.create(block2x, block4y, wallArray[Math.floor(Math.random() * wallArray.length)]);
+                    this.wallX.scale.setTo(.5);
+                    this.wallX.body.immovable = true;
+                    console.log("wall4");
+                }
+                else if (gridSystemGenesis === 1) {
+                    this.trumpImage = this.enemy.create(block2x, block4y, 'enemy');
+                    //this.trumpImage.body.velocity.x = -1000;
+                    // this.trumpImage.body.gravity.y = 10;
+                    this.trumpImage.body.maxVelocity.setTo(1000);
+                    this.trumpImage.body.bounce.setTo(1);
+                    this.trumpImage.body.collideWorldBounds = true;
+                }
+                else {
+                    this.ledgeX = this.ledge.create(block2x, block4y, 'ledge');
+                    this.ledgeX.body.maxVelocity.setTo(400);
+                    this.ledgeX.scale.setTo(.5);
+                    this.ledgeX.body.collideWorldBounds = true;
+                    this.ledgeX.body.bounce.setTo(1);
+                    console.log("ledge4");
+                }
+            }
+            else if (i === 6) {
+                if (gridSystemGenesis === 0) {
+                    this.wallX = this.wall.create(block3x, block4y, wallArray[Math.floor(Math.random() * wallArray.length)]);
+                    this.wallX.scale.setTo(.5);
+                    this.wallX.body.immovable = true;
+                    console.log("wall4");
+                }
+                else if (gridSystemGenesis === 1) {
+                    this.trumpImage = this.enemy.create(block3x, block4y, 'enemy');
+                    //this.trumpImage.body.velocity.x = -1000;
+                    // this.trumpImage.body.gravity.y = 10;
+                    this.trumpImage.body.maxVelocity.setTo(1000);
+                    this.trumpImage.body.bounce.setTo(1);
+                    this.trumpImage.body.collideWorldBounds = true;
+                }
+                else {
+                    this.ledgeX = this.ledge.create(block3x, block4y, 'ledge');
+                    this.ledgeX.body.maxVelocity.setTo(400);
+                    this.ledgeX.scale.setTo(.5);
+                    this.ledgeX.body.collideWorldBounds = true;
+                    this.ledgeX.body.bounce.setTo(1);
+                    console.log("ledge4");
+                }
+            }
+            else if (i === 7) {
+                if (gridSystemGenesis === 0) {
+                    this.wallX = this.wall.create(block4x, block4y, wallArray[Math.floor(Math.random() * wallArray.length)]);
+                    this.wallX.scale.setTo(.5);
+                    this.wallX.body.immovable = true;
+                    console.log("wall4");
+                }
+                else if (gridSystemGenesis === 1) {
+                    this.trumpImage = this.enemy.create(block4x, block4y, 'enemy');
+                    //this.trumpImage.body.velocity.x = -1000;
+                    // this.trumpImage.body.gravity.y = 10;
+                    this.trumpImage.body.maxVelocity.setTo(1000);
+                    this.trumpImage.body.bounce.setTo(1);
+                    this.trumpImage.body.collideWorldBounds = true;
+                }
+                else {
+                    this.ledgeX = this.ledge.create(block4x, block4y, 'ledge');
+                    this.ledgeX.body.maxVelocity.setTo(400);
+                    this.ledgeX.scale.setTo(.5);
+                    this.ledgeX.body.collideWorldBounds = true;
+                    this.ledgeX.body.bounce.setTo(1);
+                    console.log("ledge4");
+                }
+            }
+            else if (i === 8) {
+                if (gridSystemGenesis === 0) {
+                    this.wallX = this.wall.create(block1x, block3y, wallArray[Math.floor(Math.random() * wallArray.length)]);
+                    this.wallX.scale.setTo(.5);
+                    this.wallX.body.immovable = true;
+                    console.log("wall4");
+                }
+                else if (gridSystemGenesis === 1) {
+                    this.trumpImage = this.enemy.create(block1x, block3y, 'enemy');
+                    //this.trumpImage.body.velocity.x = -1000;
+                    // this.trumpImage.body.gravity.y = 10;
+                    this.trumpImage.body.maxVelocity.setTo(1000);
+                    this.trumpImage.body.bounce.setTo(1);
+                    this.trumpImage.body.collideWorldBounds = true;
+                }
+                else {
+                    this.ledgeX = this.ledge.create(block1x, block3y, 'ledge');
+                    this.ledgeX.body.maxVelocity.setTo(400);
+                    this.ledgeX.scale.setTo(.5);
+                    this.ledgeX.body.collideWorldBounds = true;
+                    this.ledgeX.body.bounce.setTo(1);
+                    console.log("ledge4");
+                }
+            }
+            else if (i === 9) {
+                if (gridSystemGenesis === 0) {
+                    this.wallX = this.wall.create(block2x, block3y, wallArray[Math.floor(Math.random() * wallArray.length)]);
+                    this.wallX.scale.setTo(.5);
+                    this.wallX.body.immovable = true;
+                    console.log("wall4");
+                }
+                else if (gridSystemGenesis === 1) {
+                    this.trumpImage = this.enemy.create(block2x, block3y, 'enemy');
+                    //this.trumpImage.body.velocity.x = -1000;
+                    // this.trumpImage.body.gravity.y = 10;
+                    this.trumpImage.body.maxVelocity.setTo(1000);
+                    this.trumpImage.body.bounce.setTo(1);
+                    this.trumpImage.body.collideWorldBounds = true;
+                }
+                else {
+                    this.ledgeX = this.ledge.create(block2x, block3y, 'ledge');
+                    this.ledgeX.body.maxVelocity.setTo(400);
+                    this.ledgeX.scale.setTo(.5);
+                    this.ledgeX.body.collideWorldBounds = true;
+                    this.ledgeX.body.bounce.setTo(1);
+                    console.log("ledge4");
+                }
+            }
+            else if (i === 10) {
+                if (gridSystemGenesis === 0) {
+                    this.wallX = this.wall.create(block2x, block3y, wallArray[Math.floor(Math.random() * wallArray.length)]);
+                    this.wallX.scale.setTo(.5);
+                    this.wallX.body.immovable = true;
+                    console.log("wall4");
+                }
+                else if (gridSystemGenesis === 1) {
+                    this.trumpImage = this.enemy.create(block2x, block3y, 'enemy');
+                    //this.trumpImage.body.velocity.x = -1000;
+                    // this.trumpImage.body.gravity.y = 10;
+                    this.trumpImage.body.maxVelocity.setTo(1000);
+                    this.trumpImage.body.bounce.setTo(1);
+                    this.trumpImage.body.collideWorldBounds = true;
+                }
+                else {
+                    this.ledgeX = this.ledge.create(block2x, block3y, 'ledge');
+                    this.ledgeX.body.maxVelocity.setTo(400);
+                    this.ledgeX.scale.setTo(.5);
+                    this.ledgeX.body.collideWorldBounds = true;
+                    this.ledgeX.body.bounce.setTo(1);
+                    console.log("ledge4");
+                }
+            }
+            else if (i === 11) {
+                if (gridSystemGenesis === 0) {
+                    this.wallX = this.wall.create(block3x, block3y, wallArray[Math.floor(Math.random() * wallArray.length)]);
+                    this.wallX.scale.setTo(.5);
+                    this.wallX.body.immovable = true;
+                    console.log("wall4");
+                }
+                else if (gridSystemGenesis === 1) {
+                    this.trumpImage = this.enemy.create(block3x, block3y, 'enemy');
+                    //this.trumpImage.body.velocity.x = -1000;
+                    // this.trumpImage.body.gravity.y = 10;
+                    this.trumpImage.body.maxVelocity.setTo(1000);
+                    this.trumpImage.body.bounce.setTo(1);
+                    this.trumpImage.body.collideWorldBounds = true;
+                }
+                else {
+                    this.ledgeX = this.ledge.create(block3x, block3y, 'ledge');
+                    this.ledgeX.body.maxVelocity.setTo(400);
+                    this.ledgeX.scale.setTo(.5);
+                    this.ledgeX.body.collideWorldBounds = true;
+                    this.ledgeX.body.bounce.setTo(1);
+                    console.log("ledge4");
+                }
+            }
+            else if (i === 12) {
+                if (gridSystemGenesis === 0) {
+                    this.wallX = this.wall.create(block4x, block3y, wallArray[Math.floor(Math.random() * wallArray.length)]);
+                    this.wallX.scale.setTo(.5);
+                    this.wallX.body.immovable = true;
+                    console.log("wall4");
+                }
+                else if (gridSystemGenesis === 1) {
+                    this.trumpImage = this.enemy.create(block4x, block3y, 'enemy');
+                    //this.trumpImage.body.velocity.x = -1000;
+                    // this.trumpImage.body.gravity.y = 10;
+                    this.trumpImage.body.maxVelocity.setTo(1000);
+                    this.trumpImage.body.bounce.setTo(1);
+                    this.trumpImage.body.collideWorldBounds = true;
+                }
+                else {
+                    this.ledgeX = this.ledge.create(block4x, block3y, 'ledge');
+                    this.ledgeX.body.maxVelocity.setTo(400);
+                    this.ledgeX.scale.setTo(.5);
+                    this.ledgeX.body.collideWorldBounds = true;
+                    this.ledgeX.body.bounce.setTo(1);
+                    console.log("ledge4");
+                }
+            }
+            else if (i === 13) {
+                if (gridSystemGenesis === 0) {
+                    this.wallX = this.wall.create(block1x, block4y, wallArray[Math.floor(Math.random() * wallArray.length)]);
+                    this.wallX.scale.setTo(.5);
+                    this.wallX.body.immovable = true;
+                    console.log("wall4");
+                }
+                else if (gridSystemGenesis === 1) {
+                    this.trumpImage = this.enemy.create(block1x, block4y, 'enemy');
+                    //this.trumpImage.body.velocity.x = -1000;
+                    // this.trumpImage.body.gravity.y = 10;
+                    this.trumpImage.body.maxVelocity.setTo(1000);
+                    this.trumpImage.body.bounce.setTo(1);
+                    this.trumpImage.body.collideWorldBounds = true;
+                }
+                else {
+                    this.ledgeX = this.ledge.create(block1x, block4y, 'ledge');
+                    this.ledgeX.body.maxVelocity.setTo(400);
+                    this.ledgeX.scale.setTo(.5);
+                    this.ledgeX.body.collideWorldBounds = true;
+                    this.ledgeX.body.bounce.setTo(1);
+                    console.log("ledge4");
+                }
+            }
+            else if (i === 14) {
+                if (gridSystemGenesis === 0) {
+                    this.wallX = this.wall.create(block2x, block4y, wallArray[Math.floor(Math.random() * wallArray.length)]);
+                    this.wallX.scale.setTo(.5);
+                    this.wallX.body.immovable = true;
+                    console.log("wall4");
+                }
+                else if (gridSystemGenesis === 1) {
+                    this.trumpImage = this.enemy.create(block2x, block4y, 'enemy');
+                    //this.trumpImage.body.velocity.x = -1000;
+                    // this.trumpImage.body.gravity.y = 10;
+                    this.trumpImage.body.maxVelocity.setTo(1000);
+                    this.trumpImage.body.bounce.setTo(1);
+                    this.trumpImage.body.collideWorldBounds = true;
+                }
+                else {
+                    this.ledgeX = this.ledge.create(block2x, block4y, 'ledge');
+                    this.ledgeX.body.maxVelocity.setTo(400);
+                    this.ledgeX.scale.setTo(.5);
+                    this.ledgeX.body.collideWorldBounds = true;
+                    this.ledgeX.body.bounce.setTo(1);
+                    console.log("ledge4");
+                }
+            }
+            else if (i === 14) {
+                if (gridSystemGenesis === 0) {
+                    this.wallX = this.wall.create(block3x, block4y, wallArray[Math.floor(Math.random() * wallArray.length)]);
+                    this.wallX.scale.setTo(.5);
+                    this.wallX.body.immovable = true;
+                    console.log("wall4");
+                }
+                else if (gridSystemGenesis === 1) {
+                    this.trumpImage = this.enemy.create(block3x, block4y, 'enemy');
+                    //this.trumpImage.body.velocity.x = -1000;
+                    // this.trumpImage.body.gravity.y = 10;
+                    this.trumpImage.body.maxVelocity.setTo(1000);
+                    this.trumpImage.body.bounce.setTo(1);
+                    this.trumpImage.body.collideWorldBounds = true;
+                }
+                else {
+                    this.ledgeX = this.ledge.create(block3x, block4y, 'ledge');
+                    this.ledgeX.body.maxVelocity.setTo(400);
+                    this.ledgeX.scale.setTo(.5);
+                    this.ledgeX.body.collideWorldBounds = true;
+                    this.ledgeX.body.bounce.setTo(1);
+                    console.log("ledge4");
+                }
+            }
+            else if (i === 15) {
+                if (gridSystemGenesis === 0) {
+                    this.wallX = this.wall.create(block4x, block4y, wallArray[Math.floor(Math.random() * wallArray.length)]);
+                    this.wallX.scale.setTo(.5);
+                    this.wallX.body.immovable = true;
+                    console.log("wall4");
+                }
+                else if (gridSystemGenesis === 1) {
+                    this.trumpImage = this.enemy.create(block4x, block4y, 'enemy');
+                    //this.trumpImage.body.velocity.x = -1000;
+                    // this.trumpImage.body.gravity.y = 10;
+                    this.trumpImage.body.maxVelocity.setTo(1000);
+                    this.trumpImage.body.bounce.setTo(1);
+                    this.trumpImage.body.collideWorldBounds = true;
+                }
+                else {
+                    this.ledgeX = this.ledge.create(block4x, block4y, 'ledge');
+                    this.ledgeX.body.maxVelocity.setTo(400);
+                    this.ledgeX.scale.setTo(.5);
+                    this.ledgeX.body.collideWorldBounds = true;
+                    this.ledgeX.body.bounce.setTo(1);
+                    console.log("ledge4");
+                }
+            }
+        }
+        this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_PLATFORMER);
+
+    },
+    gofull: function () {
+        if (this.game.scale.isFullScreen) {
+            this.game.scale.stopFullScreen();
+        }
+        else {
+            this.game.scale.startFullScreen(false);
+        }
+    },
+    objectSpawn: function () {
+
+    },
+    update: function () {
+
+        //Player Standing Still
+        this.player.body.velocity.x = 0;
+
+        /////////////////////////////God Mode/////////////////////////////////////
+
+        this.player.body.velocity.y = 0;
+
+        if (this.cursors.left.isDown) {
+            this.player.body.velocity.x = -400;
+            this.player.animations.play('left');
+        }
+        else if (this.cursors.right.isDown) {
+            this.player.body.velocity.x = 400;
+            this.player.animations.play('right');
+        }
+        if (this.cursors.up.isDown) {
+            this.player.frame = 10;
+            this.player.body.velocity.y = -650;
+        }
+        else if (this.cursors.down.isDown) {
+            this.player.frame = 10;
+            this.player.body.velocity.y = 650;
+        }
+    }
+};

@@ -31,8 +31,17 @@ var ghettoLoopMechanic = 5;
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "Version Platformer-32",
-  "Welcome to Glory Brawl"
+  "Rogue Version-0",
+  "You are a Prisoner of God.",
+  "Given a sentence to experience eternal death and revival.",
+  "To compete in an ever changing obstacle course game show.",
+  "One designed to break you.",
+  "Nor to be fair.",
+  "It's not supposed to be fun.",
+  "But remember.",
+  "This is for the entertainment and subjugation of the masses.",
+  "Welcome to Glory Brawl.",
+  "Survive 1000 rounds in a row without dying."
 ];
 
 var line = [];
