@@ -16,7 +16,7 @@ game.state.add('rogueTest', brawl.state12);
 //////////////////////////////////////////////////Starting States//////////////////////////////////////////////
 //game.state.start('mainMenu');
 //game.state.start('levelEight');
-game.state.start('rogueTest');
+game.state.start('mainMenu');
 //////////////////////////////////////////////////Global Variables//////////////////////////////////////////////
 
 // Variables that Hold Cumlative Power-Up Booleans
@@ -109,7 +109,7 @@ function jumpHigher(player, wing) {
 
 //Next Level
 function nextLevel(player, door) {
-  game.state.start('ruleSets');
+  game.state.start('rogueTest');
 }
 
 ///End Game
@@ -139,19 +139,21 @@ function deathThree(killer, victim) {
 function ledgeUp(player, ledge) {
   //When You're On Top of the Ledge
   if (ledge.body.touching.up) {
-    ledge.body.stop();
-    ledge.body.velocity.y = -500;
-    ledge.body.velocity.x = 0;
+    ledge.body.velocity.y = -200;
+    if (player.body.velocity.x > 0) {
+      ledge.body.velocity.x = player.body.velocity.x - 100;
+    }
+    else if (player.body.velocity.x < 0) {
+      ledge.body.velocity.x = player.body.velocity.x + 100;
+    }
+    else {
+      ledge.body.velocity.x = 0;
+    }
   }
   // When You're Hitting the Edge from the Sides (Right and Left)
   if (ledge.body.touching.left || ledge.body.touching.right) {
     ledge.body.velocity.y = 0;
     ledge.body.velocity.x = player.body.velocity.x;
-  }
-  // Hitting the Ledge from the Bottom
-  if (ledge.body.touching.down && player.body.velocity.y === 0) {
-    ledge.body.stop();
-    player.body.velocity.y = -1;
   }
   // else if (ledge.body.touching.down && player.body.velocity.y < -1) {
   //   ledge.body.velocity.x = 0;

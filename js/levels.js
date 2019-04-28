@@ -2296,6 +2296,9 @@ brawl.state11.prototype = {
         //Player Standing Still
         this.player.body.velocity.x = 0;
 
+        //Player Out of Bounds
+        
+
         /////////////////////////////God Mode/////////////////////////////////////
 
         // this.player.body.velocity.y = 0;

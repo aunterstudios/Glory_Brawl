@@ -31,31 +31,7 @@ brawl.state2.prototype = {
     },
     update: function () {
         if (this.game.input.activePointer.isDown) {
-
-            if (ghettoLoopMechanic === 10) {
-                this.game.state.start('levelOne');
-            }
-            else if (ghettoLoopMechanic === 9) {
-                this.game.state.start('levelTwo');
-            }
-            else if (ghettoLoopMechanic === 8) {
-                this.game.state.start('levelThree');
-            }
-            else if (ghettoLoopMechanic === 7) {
-                this.game.state.start('levelFour');
-            }
-            else if (ghettoLoopMechanic === 6) {
-                this.game.state.start('levelFive');
-            }
-            else if (ghettoLoopMechanic === 5) {
-                this.game.state.start('levelSix');
-            }
-            else if (ghettoLoopMechanic === 4) {
-                this.game.state.start('levelSeven');
-            }
-            else if (ghettoLoopMechanic === 3) {
-                this.game.state.start('levelEight');
-            }
+            this.game.state.start('rogueTest');
         }
 
     }
