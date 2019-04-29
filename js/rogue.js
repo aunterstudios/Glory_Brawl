@@ -440,7 +440,7 @@ brawl.state12.prototype = {
         //Downward Mechanics
         if (this.cursors.down.isDown) {
             this.player.frame = 10;
-            this.player.body.velocity.y = 300;
+            this.player.body.velocity.y = 500;
         }
     }
 };
