@@ -266,7 +266,7 @@ brawl.state12.prototype = {
     },
     enemySpawn: function (x, y) {
         this.trumpX = this.enemy.create(x, y, 'enemy');
-        //this.trumpX.body.velocity.x = -1000;
+        this.trumpX.body.velocity.x = this.game.rnd.realInRange(-1000, 1000)
         // this.trumpX.body.gravity.y = 10;
         this.trumpX.body.maxVelocity.setTo(1000);
         this.trumpX.body.bounce.setTo(1);

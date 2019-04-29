@@ -41,7 +41,8 @@ var content = [
   "But remember.",
   "This is for the entertainment and subjugation of the masses.",
   "Welcome to Glory Brawl.",
-  "Survive 1000 rounds in a row without dying."
+  "Survive 1000 rounds in a row without dying.",
+  "Use All Arrow Keys to Move."
 ];
 
 var line = [];
