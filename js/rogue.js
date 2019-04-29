@@ -34,7 +34,7 @@ brawl.state12.prototype = {
 
         // Setting World Stage
 
-        this.game.world.setBounds(0, 0, 1400, 2400);
+        this.game.world.setBounds(0, 0, 1400, 3200);
 
         //Keyboard Controls
         this.cursors = this.game.input.keyboard.createCursorKeys();
@@ -58,7 +58,7 @@ brawl.state12.prototype = {
 
 
         //Adding Player
-        this.player = this.game.add.sprite(700, 2200, 'dude');
+        this.player = this.game.add.sprite(700, 3000, 'dude');
         this.game.physics.arcade.enable(this.player); //enables physics for player
         this.player.anchor.setTo(.5);
         this.player.scale.setTo(.60);
@@ -89,7 +89,7 @@ brawl.state12.prototype = {
         // }
 
 
-        for (var i = 0; i < 22; i++) {
+        for (var i = 0; i < 30; i++) {
 
             ////////////The X-Axis Block///////////
             var block1x = this.game.rnd.realInRange(0, 350);
@@ -102,27 +102,24 @@ brawl.state12.prototype = {
             var block3y = this.game.rnd.realInRange(801, 1200);
             var block4y = this.game.rnd.realInRange(1201, 1600);
             var block5y = this.game.rnd.realInRange(1601, 2000);
+            var block6y = this.game.rnd.realInRange(2001, 2400);
+            var block7y = this.game.rnd.realInRange(2401, 2600);
 
             //block 1
             if (i === 0) {
                 this.gridSystem(block1x, block5y);
-                console.log(block1x, block5y);
             }
             else if (i === 1) {
                 this.gridSystem(block2x, block5y);
-                console.log(block2x, block5y);
             }
             else if (i === 2) {
                 this.gridSystem(block3x, block5y);
-                console.log(block3x, block5y);
             }
             else if (i === 3) {
                 this.gridSystem(block4x, block5y);
-                console.log(block4x, block5y);
             }
             else if (i === 4) {
                 this.gridSystem(block1x, block4y);
-                console.log(block1x, block4y);
             }
             else if (i === 5) {
                 this.gridSystem(block2x, block4y);
@@ -173,10 +170,34 @@ brawl.state12.prototype = {
                 console.log("Itworks");
                 this.baseCamp()
             }
+            else if (i === 21) {
+                this.gridSystem(block1x, block6y);
+            }
+            else if (i === 22) {
+                this.gridSystem(block2x, block6y);
+            }
+            else if (i === 23) {
+                this.gridSystem(block3x, block6y);
+            }
+            else if (i === 24) {
+                this.gridSystem(block4x, block6y);
+            }
+            else if (i === 25) {
+                this.gridSystem(block1x, block7y);
+            }
+            else if (i === 26) {
+                this.gridSystem(block2x, block7y);
+            }
+            else if (i === 27) {
+                this.gridSystem(block3x, block7y);
+            }
+            else if (i === 28) {
+                this.gridSystem(block4x, block7y);
+            }
             else {
                 //Adding Flag
                 var finishX = this.game.rnd.integerInRange(0, 1400);
-                var finishY = this.game.rnd.integerInRange(0, 400)
+                var finishY = this.game.rnd.integerInRange(0, 350)
                 this.finish = this.game.add.sprite(finishX, finishY, 'win');
                 this.game.physics.arcade.enable(this.finish);
                 this.finish.body.collideWorldBounds = true;
@@ -191,7 +212,7 @@ brawl.state12.prototype = {
         this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_LOCKON);
 
         //Streak
-        this.text = this.game.add.text(200, 2300, "Streak: "+ streak, { font: "32px Arial", fill: "#ffffff", align: "center" });
+        this.text = this.game.add.text(200, 3300, "Streak: " + streak, { font: "32px Arial", fill: "#ffffff", align: "center" });
         this.text.fixedToCamera = true;
         this.text.cameraOffset.setTo(100, 750);
 
@@ -211,16 +232,16 @@ brawl.state12.prototype = {
     gridSystem: function (x, y) {
         //Create Randomness in Each Grid
         var gridSystemGenesis = this.game.rnd.integerInRange(0, 100);
-        if (gridSystemGenesis >= 0 && gridSystemGenesis <= 35) {
+        if (gridSystemGenesis >= 0 && gridSystemGenesis <= 40) {
             this.wallSpawn(x, y);
         }
-        else if (gridSystemGenesis >= 36 && gridSystemGenesis <= 60) {
+        else if (gridSystemGenesis >= 41 && gridSystemGenesis <= 60) {
             this.enemySpawn(x, y);
         }
         else if (gridSystemGenesis >= 61 && gridSystemGenesis <= 71) {
             this.ledgeSpawn(x, y);
         }
-        else if (gridSystemGenesis >= 72 && gridSystemGenesis <= 90) {
+        else if (gridSystemGenesis >= 72 && gridSystemGenesis <= 90 ) {
             this.ballSpawn(x, y);
         }
         else if (gridSystemGenesis >= 91 && gridSystemGenesis <= 100) {
@@ -231,9 +252,9 @@ brawl.state12.prototype = {
 
         //create ledge
         for (var i = 1; i < 5; i++) {
-            var iteratorX = i * 250;
+            var iteratorX = i * 290;
             var iteratorY = i * 50;
-            this.ledgeX = this.ledge.create(iteratorX, iteratorY + 2100, 'ledge');
+            this.ledgeX = this.ledge.create(iteratorX, iteratorY + 2900, 'ledge');
             this.ledgeX.body.maxVelocity.setTo(400);
             this.ledgeX.anchor.setTo(.5);
             this.ledgeX.scale.setTo(.5);
@@ -242,13 +263,13 @@ brawl.state12.prototype = {
         }
 
         //create wall
-        this.wallX = this.wall.create(700, 2300, 'rotatedWall');
+        this.wallX = this.wall.create(700, 3100, 'rotatedWall');
         this.wallX.anchor.setTo(.5);
         this.wallX.scale.setTo(.5);
         this.wallX.body.immovable = true;
 
         //create ball
-        this.ballX = this.ball.create(1100, 2300, 'ball');
+        this.ballX = this.ball.create(1100, 3000, 'ball');
         this.ballX.anchor.setTo(.5);
         this.ballX.scale.setTo(.5);
         this.ballX.body.setCircle(50);
@@ -257,7 +278,7 @@ brawl.state12.prototype = {
         this.ballX.body.bounce.setTo(.8);
 
         //creating spikes
-        this.spikesX = this.spikes.create(0, 2320, 'spikes');
+        this.spikesX = this.spikes.create(0, 3125, 'spikes');
         this.spikesX.scale.setTo(1);
         this.spikesX.body.immovable = true;
 
