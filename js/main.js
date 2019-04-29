@@ -35,7 +35,7 @@ var ghettoLoopMechanic = 5;
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "Rogue Version-4",
+  "Rogue Version-Ball Mover",
   "You are a Prisoner of God.",
   "Given a sentence to experience eternal death and revival.",
   "To compete in an ever changing obstacle course game show.",
@@ -233,10 +233,10 @@ function ballMover(player, ball) {
     player.body.velocity.y = -1500;
   }
   else if (player.body.touching.right) {
-    player.body.velocity.x = -1500;
+    player.body.velocity.y = -1500;
   }
   else if (player.body.touching.left) {
-    player.body.velocity.x = 1500;
+    player.body.velocity.y= 1500;
   }
   else if (player.body.touching.up) {
     player.body.velocity.y = 1500;
