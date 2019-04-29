@@ -190,6 +190,11 @@ brawl.state12.prototype = {
         // this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_PLATFORMER);
         this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_LOCKON);
 
+        //Streak
+        this.text = this.game.add.text(200, 2300, "Streak: "+ streak, { font: "32px Arial", fill: "#ffffff", align: "center" });
+        this.text.fixedToCamera = true;
+        this.text.cameraOffset.setTo(100, 750);
+
     },
     playerOut: function () {
         if (this.player.x >= 1400) {
@@ -443,5 +448,8 @@ brawl.state12.prototype = {
             this.player.frame = 10;
             this.player.body.velocity.y = 500;
         }
+    },
+    render: function () {
+
     }
 };

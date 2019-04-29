@@ -26,6 +26,10 @@ var jumpHigherX = false;
 //Death Total in Game
 var deaths = 0;
 
+//Total Streak
+var streak = 0;
+var longestStreak = 0;
+
 // To Allow Re-Use of Death State and Ruleset States.
 var ghettoLoopMechanic = 5;
 
@@ -110,6 +114,7 @@ function jumpHigher(player, wing) {
 
 //Next Level
 function nextLevel(player, door) {
+  ++streak
   game.state.start('rogueTest');
 }
 
@@ -121,6 +126,10 @@ function endgame(player, door) {
 ///Deathgame State
 function deathOne(victim, killer) {
   victim.kill();
+  if (streak > longestStreak) {
+    longestStreak = streak;
+  }
+  streak = 0;
   game.state.start('deathState');
 }
 
