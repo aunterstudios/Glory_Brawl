@@ -35,7 +35,7 @@ var ghettoLoopMechanic = 5;
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "Rogue Version-3",
+  "Rogue Version-4",
   "You are a Prisoner of God.",
   "Given a sentence to experience eternal death and revival.",
   "To compete in an ever changing obstacle course game show.",
@@ -228,12 +228,20 @@ function spikeLedge(spikes, ledge) {
 
 //Ball Mechanics
 
-// function ballMover(player, ball) {
-//   if (ball.body.touching.up) {
-//     ball.body.stop();
-//     ball.body.velocity.y = 50;
-//   }
-// }
+function ballMover(player, ball) {
+  if (player.body.touching.down) {
+    player.body.velocity.y = -1500;
+  }
+  else if (player.body.touching.right) {
+    player.body.velocity.x = -1500;
+  }
+  else if (player.body.touching.left) {
+    player.body.velocity.x = 1500;
+  }
+  else if (player.body.touching.up) {
+    player.body.velocity.y = 1500;
+  }
+}
 
 //Wall Mechanics
 

@@ -320,7 +320,7 @@ brawl.state12.prototype = {
 
         this.game.physics.arcade.collide(this.player, this.wall);
         this.game.physics.arcade.collide(this.player, this.ledge, ledgeUp);
-        this.game.physics.arcade.collide(this.player, this.ball);
+        this.game.physics.arcade.collide(this.player, this.ball, ballMover);
 
         // Ball Mechanics
         this.game.physics.arcade.collide(this.ball, this.wall);
