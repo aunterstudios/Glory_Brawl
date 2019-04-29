@@ -180,6 +180,7 @@ brawl.state12.prototype = {
                 this.finish = this.game.add.sprite(finishX, finishY, 'win');
                 this.game.physics.arcade.enable(this.finish);
                 this.finish.body.collideWorldBounds = true;
+                // this.finish.body.velocity.x = 1;
                 this.finish.body.bounce.setTo(1);
                 this.finish.body.maxVelocity.setTo(100);
             }
@@ -196,7 +197,6 @@ brawl.state12.prototype = {
             this.player.body.velocity.x = 400;
         }
         else if (0 >= this.player.x) {
-            console.log(this.player.x + ' ' + "This One:");
             this.player.reset(1400, this.player.y)
             this.player.body.velocity.x = -400;
         }
@@ -310,7 +310,6 @@ brawl.state12.prototype = {
     update: function () {
 
         ////////////////////////Physics////////////////////////
-        console.log(this.player.x);
         //Player Mechanics
 
         this.game.physics.arcade.collide(this.player, this.wall);
@@ -438,5 +437,10 @@ brawl.state12.prototype = {
             this.player.body.velocity.y = 200;
         }
 
+        //Downward Mechanics
+        if (this.cursors.down.isDown) {
+            this.player.frame = 10;
+            this.player.body.velocity.y = 300;
+        }
     }
 };
