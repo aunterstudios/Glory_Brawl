@@ -180,7 +180,7 @@ brawl.state12.prototype = {
                 this.finish = this.game.add.sprite(finishX, finishY, 'win');
                 this.game.physics.arcade.enable(this.finish);
                 this.finish.body.collideWorldBounds = true;
-                // this.finish.body.velocity.x = 1;
+                this.finish.body.velocity.x = 20;
                 this.finish.body.bounce.setTo(1);
                 this.finish.body.maxVelocity.setTo(100);
             }
@@ -206,16 +206,16 @@ brawl.state12.prototype = {
     gridSystem: function (x, y) {
         //Create Randomness in Each Grid
         var gridSystemGenesis = this.game.rnd.integerInRange(0, 100);
-        if (gridSystemGenesis >= 0 && gridSystemGenesis <= 40) {
+        if (gridSystemGenesis >= 0 && gridSystemGenesis <= 35) {
             this.wallSpawn(x, y);
         }
-        else if (gridSystemGenesis >= 41 && gridSystemGenesis <= 60) {
+        else if (gridSystemGenesis >= 36 && gridSystemGenesis <= 60) {
             this.enemySpawn(x, y);
         }
-        else if (gridSystemGenesis >= 61 && gridSystemGenesis <= 80) {
+        else if (gridSystemGenesis >= 61 && gridSystemGenesis <= 71) {
             this.ledgeSpawn(x, y);
         }
-        else if (gridSystemGenesis >= 81 && gridSystemGenesis <= 90) {
+        else if (gridSystemGenesis >= 72 && gridSystemGenesis <= 90) {
             this.ballSpawn(x, y);
         }
         else if (gridSystemGenesis >= 91 && gridSystemGenesis <= 100) {
