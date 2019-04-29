@@ -288,6 +288,7 @@ brawl.state12.prototype = {
         this.ballX.body.setCircle(50);
         this.ballX.body.mass = 2;
         this.ballX.body.collideWorldBounds = true;
+        this.ballX.body.velocity.x = this.game.rnd.realInRange(-1000, 1000)
         this.ballX.body.bounce.setTo(.8);
     },
     spikeSpawn: function (x, y) {

@@ -31,7 +31,7 @@ var ghettoLoopMechanic = 5;
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "Rogue Version-0",
+  "Rogue Version-Harder Enemies",
   "You are a Prisoner of God.",
   "Given a sentence to experience eternal death and revival.",
   "To compete in an ever changing obstacle course game show.",
