@@ -97,7 +97,7 @@ brawl.state12.prototype = {
         // }
 
 
-        for (var i = 0; i < 31; i++) {
+        for (var i = 0; i < 30; i++) {
 
             ////////////The X-Axis Block///////////
             var block1x = this.game.rnd.realInRange(0, 350);
@@ -146,6 +146,7 @@ brawl.state12.prototype = {
             }
             else if (i === 10) {
                 this.gridSystem(block3x, block3y);
+                this.ledgeSpawn(this.game.rnd.realInRange(701, 1050),this.game.rnd.realInRange(801, 1200));
             }
             else if (i === 11) {
                 this.gridSystem(block4x, block3y);
@@ -200,9 +201,6 @@ brawl.state12.prototype = {
             }
             else if (i === 28) {
                 this.gridSystem(block4x, block7y);
-            }
-            else if (i === 29) {
-                this.ballSpawn(this.game.rnd.realInRange(0,1400),this.game.rnd.realInRange(1500,3000));
             }
             else {
                 //Adding Flag
@@ -282,19 +280,15 @@ brawl.state12.prototype = {
         this.wallX.body.immovable = true;
 
         //create ball
-        this.ballX = this.ball.create(1100, 3000, 'ball');
-        this.ballX.anchor.setTo(.5);
-        this.ballX.scale.setTo(.5);
-        this.ballX.body.setCircle(50);
-        this.ballX.body.mass = 2;
-        this.ballX.body.collideWorldBounds = true;
-        this.ballX.body.bounce.setTo(.9);
-
+        this.ballSpawn(700, 2900);
+        
         //creating spikes
-        this.spikesX = this.spikes.create(0, 3125, 'spikes');
-        this.spikesX.scale.setTo(1);
-        this.spikesX.body.immovable = true;
-
+        for (var i = 0; i < 2; i++) {
+            var iteratorSpikes = i*300;
+            this.spikesX = this.spikes.create(0, iteratorSpikes+3125, 'spikes');
+            this.spikesX.scale.setTo(1);
+            this.spikesX.body.immovable = true;
+        }
     },
     // Creating Game Objects
     wallSpawn: function (x, y) {
@@ -332,7 +326,7 @@ brawl.state12.prototype = {
         this.ledgeSideways.anchor.setTo(.5);
         this.ledgeSideways.scale.setTo(.5);
         this.ledgeSideways.body.immovable = true;
-        this.ledgeSideways.body.velocity.x = this.game.rnd.realInRange(-1000, 1000)
+        this.ledgeSideways.body.velocity.x = this.game.rnd.realInRange(-500, 500);
         this.ledgeSideways.body.collideWorldBounds = true;
         this.ledgeSideways.body.bounce.setTo(1);
     },
@@ -342,11 +336,11 @@ brawl.state12.prototype = {
         this.ballX.anchor.setTo(.5);
         this.ballX.scale.setTo(.5);
         this.ballX.body.setCircle(50);
-        this.ballX.body.mass = 2;
+        this.ballX.body.mass = 7;
         this.ballX.body.collideWorldBounds = true;
-        this.ballX.body.maxVelocity.setTo(1000);
-        this.ballX.body.velocity.x = this.game.rnd.realInRange(-1000, 1000)
-        this.ballX.body.bounce.setTo(1.0);
+        this.ballX.body.maxVelocity.setTo(150);
+        this.ballX.body.velocity.x = this.game.rnd.realInRange(-100, 100)
+        this.ballX.body.bounce.setTo(.5);
     },
     spikeSpawn: function (x, y) {
         var spikeArray = ['invertedSpikes', 'spikes'];
@@ -373,13 +367,13 @@ brawl.state12.prototype = {
         this.game.physics.arcade.collide(this.player, this.wall);
         this.game.physics.arcade.collide(this.player, this.ledge, ledgeUp);
         this.game.physics.arcade.collide(this.player, this.ledgeDown, ledgeDownS);
-        this.game.physics.arcade.collide(this.player, this.ledgeSide);
+        this.game.physics.arcade.collide(this.player, this.ledgeSide, ledgeSideX);
         this.game.physics.arcade.collide(this.player, this.ball, ballMover);
 
         // Ball Mechanics
         this.game.physics.arcade.collide(this.ball, this.ball)
         this.game.physics.arcade.collide(this.ball, this.wall);
-        this.game.physics.arcade.collide(this.ball, this.spikes);
+        this.game.physics.arcade.collide(this.ball, this.spikes,deathThree);
         this.game.physics.arcade.collide(this.ball, this.ledge);
         this.game.physics.arcade.collide(this.ball, this.ledgeDown);
         this.game.physics.arcade.collide(this.ball, this.ledgeSide);

@@ -97,19 +97,6 @@ function nextWord() {
 
 }
 
-//////////////////////////////////////////////////Power-Ups//////////////////////////////////////////////
-
-
-function runFaster(player, shield) {
-  runFastX = true;
-  shield.kill();
-}
-
-function jumpHigher(player, wing) {
-  jumpHigherX = true;
-  wing.kill();
-}
-
 //////////////////////////////////////////////////Changing Game States//////////////////////////////////////////////
 
 //Next Level
@@ -195,7 +182,12 @@ function ledgeDownS(player, ledge) {
 }
 
 function ledgeSideX(player, ledge) {
-  console.log('yo');
+  if (ledge.body.velocity.x > 0) {
+    ledge.body.velocity.x = 800;
+  }
+  else if  (ledge.body.velocity.x < 0) {
+    ledge.body.velocity.x = -800;
+  }
 }
 
 function enemyLedge(ledge, enemy) {
