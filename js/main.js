@@ -35,7 +35,7 @@ var ghettoLoopMechanic = 5;
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "Rogue Version-FixingBugs",
+  "Rogue Version-FixingMechanicsAC",
   "You are a Prisoner of God.",
   "Given a sentence to experience eternal death and revival.",
   "To compete in an ever changing obstacle course game show.",
@@ -46,7 +46,7 @@ var content = [
   "This is for the entertainment and subjugation of the masses.",
   "Welcome to Glory Brawl.",
   "Survive 1000 rounds in a row without dying.",
-  "Use All Arrow Keys to Move."
+  "Arrow Keys to Move (Downward Key Pushes Your Velocity Down)."
 ];
 
 var line = [];
@@ -251,7 +251,19 @@ function preventPhysicsBug (ledge,spike) {
 //Ball Mechanics
 
 function ballMover(player, ball) {
-  ball.body.velocity.y = -1000;
+  // ball.body.stop();
+  if (ball.body.touching.down) {
+    ball.body.velocity.y= -100;
+  }
+  else if (ball.body.touching.up) {
+    ball.body.velocity.y = 100;
+  }
+  else if (ball.body.touching.right) {
+    ball.body.velocity.x = -100;
+  }
+  else if (ball.body.touching.left) {
+    ball.body.velocity.x = 100;
+  }
 }
 
 //Wall Mechanics

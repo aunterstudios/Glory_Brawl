@@ -30,9 +30,9 @@ brawl.state12.prototype = {
         // Stretch to fill (Full Screen Mode)
         this.game.scale.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
 
-        this.spacebar = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+        this.fullSize = this.game.input.keyboard.addKey(Phaser.Keyboard.F);
 
-        this.spacebar.onDown.add(this.gofull, this);
+        this.fullSize.onDown.add(this.gofull, this);
 
         // Setting World Stage
 
@@ -240,16 +240,16 @@ brawl.state12.prototype = {
     gridSystem: function (x, y) {
         //Create Randomness in Each Grid
         var gridSystemGenesis = this.game.rnd.integerInRange(0, 100);
-        if (gridSystemGenesis >= 0 && gridSystemGenesis <= 47) {
+        if (gridSystemGenesis >= 0 && gridSystemGenesis <= 45) {
             this.wallSpawn(x, y);
         }
-        else if (gridSystemGenesis >= 48 && gridSystemGenesis <= 68) {
+        else if (gridSystemGenesis >= 46 && gridSystemGenesis <= 67) {
             this.enemySpawn(x, y);
         }
-        else if (gridSystemGenesis >= 69 && gridSystemGenesis <= 74) {
+        else if (gridSystemGenesis >= 68 && gridSystemGenesis <= 73) {
             this.ledgeSideSpawn(x, y);
         }
-        else if (gridSystemGenesis >= 75 && gridSystemGenesis <= 79 ) {
+        else if (gridSystemGenesis >= 74 && gridSystemGenesis <= 79 ) {
             this.ledgeDownSpawn(x, y);
         }
         else if (gridSystemGenesis >= 80 && gridSystemGenesis <= 100) {
@@ -332,12 +332,12 @@ brawl.state12.prototype = {
         this.ballX = this.ball.create(x, y, 'ball');
         this.ballX.anchor.setTo(.5);
         this.ballX.scale.setTo(.5);
-        this.ballX.body.setCircle(50);
-        this.ballX.body.mass = 7;
+        // this.ballX.body.setCircle(50);
+        this.ballX.body.mass = 5;
         this.ballX.body.collideWorldBounds = true;
         this.ballX.body.maxVelocity.setTo(150);
         this.ballX.body.velocity.x = this.game.rnd.realInRange(-100, 100)
-        this.ballX.body.bounce.setTo(.5);
+        this.ballX.body.bounce.setTo(1.0);
     },
     spikeSpawn: function (x, y) {
         var spikeArray = ['invertedSpikes', 'spikes'];
@@ -400,6 +400,7 @@ brawl.state12.prototype = {
 
         //Flag Moving Mechanics
         this.game.physics.arcade.collide(this.finish, this.wall);
+        this.game.physics.arcade.collide(this.finish, this.enemy);
         this.game.physics.arcade.collide(this.finish, this.ledge);
         this.game.physics.arcade.collide(this.finish, this.ledgeDown);
         this.game.physics.arcade.collide(this.finish, this.ledgeSide);
