@@ -240,23 +240,20 @@ brawl.state12.prototype = {
     gridSystem: function (x, y) {
         //Create Randomness in Each Grid
         var gridSystemGenesis = this.game.rnd.integerInRange(0, 100);
-        if (gridSystemGenesis >= 0 && gridSystemGenesis <= 40) {
+        if (gridSystemGenesis >= 0 && gridSystemGenesis <= 47) {
             this.wallSpawn(x, y);
         }
-        else if (gridSystemGenesis >= 41 && gridSystemGenesis <= 60) {
+        else if (gridSystemGenesis >= 48 && gridSystemGenesis <= 68) {
             this.enemySpawn(x, y);
         }
-        else if (gridSystemGenesis >= 61 && gridSystemGenesis <= 65) {
+        else if (gridSystemGenesis >= 69 && gridSystemGenesis <= 74) {
             this.ledgeSideSpawn(x, y);
         }
-        else if (gridSystemGenesis >= 66 && gridSystemGenesis <= 75 ) {
+        else if (gridSystemGenesis >= 75 && gridSystemGenesis <= 79 ) {
             this.ledgeDownSpawn(x, y);
         }
-        else if (gridSystemGenesis >= 76 && gridSystemGenesis <= 98) {
+        else if (gridSystemGenesis >= 80 && gridSystemGenesis <= 100) {
             this.spikeSpawn(x, y);
-        }
-        else if (gridSystemGenesis >= 99 && gridSystemGenesis <= 100 ) {
-            this.ledgeSpawn(x, y);
         }
     },
     baseCamp: function () {
@@ -514,8 +511,5 @@ brawl.state12.prototype = {
             this.player.frame = 10;
             this.player.body.velocity.y = 500;
         }
-    },
-    render: function () {
-
     }
 };

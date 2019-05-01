@@ -251,15 +251,7 @@ function preventPhysicsBug (ledge,spike) {
 //Ball Mechanics
 
 function ballMover(player, ball) {
-  // if (player.body.velocity.x && player.body.velocity.y > 0) {
-  //   ball.body.velocity.x = player.body.velocity.x - 50;
-  // }
-  // else if (player.body.velocity.x < 0) {
-  //   ball.body.velocity.x = player.body.velocity.x + 50;
-  // }
-  // else {
-  //   ball.body.velocity.x = 0;
-  // }
+  ball.body.velocity.y = -1000;
 }
 
 //Wall Mechanics
