@@ -21,6 +21,8 @@ brawl.state12.prototype = {
         this.load.image('joystick', 'assets/joystick.png');
         this.load.image('joystick2', 'assets/joystickR.png');
         this.load.image('action', 'assets/action.png');
+        this.load.image('ledgeDown','assets/platformX.png');
+        this.load.image('ledgeSide','assets/platformSide.png');
         this.load.spritesheet('dude', 'assets/white.png', 87.5, 93.5);
     },
     create: function () {
@@ -43,9 +45,15 @@ brawl.state12.prototype = {
         //Adding the Wall
         this.wall = this.game.add.group();
         this.wall.enableBody = true; //enables physics for wall
-        //Adding Ledge
+        //Adding Upwards Ledge
         this.ledge = this.game.add.group();
         this.ledge.enableBody = true;
+        //Adding Downward Ledge
+        this.ledgeDown = this.game.add.group();
+        this.ledgeDown.enableBody = true;
+        //Adding Sidewards Ledge
+        this.ledgeSide = this.game.add.group();
+        this.ledgeSide.enableBody = true;
         //Adding Enemies
         this.enemy = this.game.add.group();
         this.enemy.enableBody = true;
@@ -61,7 +69,7 @@ brawl.state12.prototype = {
         this.player = this.game.add.sprite(700, 3000, 'dude');
         this.game.physics.arcade.enable(this.player); //enables physics for player
         this.player.anchor.setTo(.5);
-        this.player.scale.setTo(.60);
+        this.player.scale.setTo(.6);
         this.player.body.setSize(75, 84, 5, 6);
         this.player.body.bounce.y = 0;
         this.player.body.gravity.y = 1500;
@@ -167,7 +175,6 @@ brawl.state12.prototype = {
                 this.gridSystem(block4x, block1y);
             }
             else if (i === 20) {
-                console.log("Itworks");
                 this.baseCamp()
             }
             else if (i === 21) {
@@ -238,13 +245,16 @@ brawl.state12.prototype = {
         else if (gridSystemGenesis >= 41 && gridSystemGenesis <= 60) {
             this.enemySpawn(x, y);
         }
-        else if (gridSystemGenesis >= 61 && gridSystemGenesis <= 71) {
-            this.ledgeSpawn(x, y);
+        else if (gridSystemGenesis >= 61 && gridSystemGenesis <= 65) {
+            this.ledgeSideSpawn(x, y);
         }
-        else if (gridSystemGenesis >= 72 && gridSystemGenesis <= 90 ) {
+        else if (gridSystemGenesis >= 65 && gridSystemGenesis <= 70 ) {
             this.ballSpawn(x, y);
         }
-        else if (gridSystemGenesis >= 91 && gridSystemGenesis <= 100) {
+        else if (gridSystemGenesis >= 71 && gridSystemGenesis <= 75 ) {
+            this.ledgeDownSpawn(x, y);
+        }
+        else if (gridSystemGenesis >= 76 && gridSystemGenesis <= 100) {
             this.spikeSpawn(x, y);
         }
     },
@@ -275,7 +285,7 @@ brawl.state12.prototype = {
         this.ballX.body.setCircle(50);
         this.ballX.body.mass = 2;
         this.ballX.body.collideWorldBounds = true;
-        this.ballX.body.bounce.setTo(.8);
+        this.ballX.body.bounce.setTo(.9);
 
         //creating spikes
         this.spikesX = this.spikes.create(0, 3125, 'spikes');
@@ -306,6 +316,23 @@ brawl.state12.prototype = {
         this.ledgeX.body.collideWorldBounds = true;
         this.ledgeX.body.bounce.setTo(1);
     },
+    ledgeDownSpawn: function (x,y) {
+        this.ledgeY = this.ledgeDown.create(x, y, 'ledgeDown');
+        this.ledgeY.body.maxVelocity.setTo(400);
+        this.ledgeY.anchor.setTo(.5);
+        this.ledgeY.scale.setTo(.5);
+        this.ledgeY.body.collideWorldBounds = true;
+        this.ledgeY.body.bounce.setTo(1);
+    },
+    ledgeSideSpawn: function (x,y) {
+        this.ledgeSideways = this.ledgeSide.create(x, y, 'ledgeSide');
+        this.ledgeSideways.anchor.setTo(.5);
+        this.ledgeSideways.scale.setTo(.5);
+        this.ledgeSideways.body.immovable = true;
+        this.ledgeSideways.body.velocity.x = this.game.rnd.realInRange(-1000, 1000)
+        this.ledgeSideways.body.collideWorldBounds = true;
+        this.ledgeSideways.body.bounce.setTo(1);
+    },
     ballSpawn: function (x, y) {
         //Adding Ball
         this.ballX = this.ball.create(x, y, 'ball');
@@ -314,8 +341,9 @@ brawl.state12.prototype = {
         this.ballX.body.setCircle(50);
         this.ballX.body.mass = 2;
         this.ballX.body.collideWorldBounds = true;
+        this.ballX.body.maxVelocity.setTo(1000);
         this.ballX.body.velocity.x = this.game.rnd.realInRange(-1000, 1000)
-        this.ballX.body.bounce.setTo(.8);
+        this.ballX.body.bounce.setTo(.9);
     },
     spikeSpawn: function (x, y) {
         var spikeArray = ['invertedSpikes', 'spikes'];
@@ -341,19 +369,37 @@ brawl.state12.prototype = {
 
         this.game.physics.arcade.collide(this.player, this.wall);
         this.game.physics.arcade.collide(this.player, this.ledge, ledgeUp);
+        this.game.physics.arcade.collide(this.player, this.ledgeDown, ledgeDownS);
+        this.game.physics.arcade.collide(this.player, this.ledgeSide);
         this.game.physics.arcade.collide(this.player, this.ball, ballMover);
 
         // Ball Mechanics
+        this.game.physics.arcade.collide(this.ball, this.ball)
         this.game.physics.arcade.collide(this.ball, this.wall);
         this.game.physics.arcade.collide(this.ball, this.spikes);
         this.game.physics.arcade.collide(this.ball, this.ledge);
+        this.game.physics.arcade.collide(this.ball, this.ledgeDown);
+        this.game.physics.arcade.collide(this.ball, this.ledgeSide);
         this.game.physics.arcade.overlap(this.ball, this.enemy, deathThree);
 
-        // //Wall/Enemy/Ledge/Spike Mechanics
-        this.game.physics.arcade.collide(this.ledge, this.wall);
+        //Ledge vs. Ledge Mechanics
         this.game.physics.arcade.collide(this.ledge, this.ledge);
+        this.game.physics.arcade.collide(this.ledgeDown, this.ledgeDown);
+        this.game.physics.arcade.collide(this.ledge, this.ledgeDown);
+        this.game.physics.arcade.collide(this.ledge, this.ledgeSide);
+        this.game.physics.arcade.collide(this.ledgeDown, this.ledgeSide);
+
+        //Ledge vs. Other Objects
+        this.game.physics.arcade.collide(this.ledge, this.wall);
         this.game.physics.arcade.collide(this.ledge, this.enemy, enemyLedge);
         this.game.physics.arcade.collide(this.ledge, this.spikes);
+        this.game.physics.arcade.collide(this.ledgeDown, this.wall);
+        this.game.physics.arcade.collide(this.ledgeDown, this.enemy, enemyLedge);
+        this.game.physics.arcade.collide(this.ledgeDown, this.spikes);
+        this.game.physics.arcade.collide(this.ledgeSide, this.wall);
+        this.game.physics.arcade.collide(this.ledgeSide , this.enemy);
+
+        //Enemy Mechanics
         this.game.physics.arcade.collide(this.enemy, this.spikes);
         this.game.physics.arcade.collide(this.enemy, this.wall);
         this.game.physics.arcade.collide(this.enemy, this.enemy);
@@ -361,6 +407,8 @@ brawl.state12.prototype = {
         //Flag Moving Mechanics
         this.game.physics.arcade.collide(this.finish, this.wall);
         this.game.physics.arcade.collide(this.finish, this.ledge);
+        this.game.physics.arcade.collide(this.finish, this.ledgeDown);
+        this.game.physics.arcade.collide(this.finish, this.ledgeSide);
         this.game.physics.arcade.collide(this.finish, this.spikes);
         this.game.physics.arcade.collide(this.finish, this.ball);
 

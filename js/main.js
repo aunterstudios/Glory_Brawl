@@ -35,7 +35,7 @@ var ghettoLoopMechanic = 5;
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "Rogue Version-LongerLevels",
+  "Rogue Version-NewMechanics",
   "You are a Prisoner of God.",
   "Given a sentence to experience eternal death and revival.",
   "To compete in an ever changing obstacle course game show.",
@@ -170,6 +170,34 @@ function ledgeUp(player, ledge) {
   // }
 }
 
+function ledgeDownS(player, ledge) {
+  //When You're On Top of the Ledge
+  if (ledge.body.touching.up) {
+    ledge.body.velocity.y = 200;
+    if (player.body.velocity.x > 0) {
+      ledge.body.velocity.x = player.body.velocity.x - 100;
+    }
+    else if (player.body.velocity.x < 0) {
+      ledge.body.velocity.x = player.body.velocity.x + 100;
+    }
+    else {
+      ledge.body.velocity.x = 0;
+    }
+  }
+  // When You're Hitting the Edge from the Sides (Right and Left)
+  if (ledge.body.touching.left || ledge.body.touching.right) {
+    ledge.body.velocity.y = 0;
+    ledge.body.velocity.x = player.body.velocity.x;
+  }
+  // else if (ledge.body.touching.down && player.body.velocity.y < -1) {
+  //   ledge.body.velocity.x = 0;
+  // }
+}
+
+function ledgeSideX(player, ledge) {
+  console.log('yo');
+}
+
 function enemyLedge(ledge, enemy) {
   if (ledge.body.touching.up) {
     enemy.body.stop();
@@ -229,18 +257,15 @@ function spikeLedge(spikes, ledge) {
 //Ball Mechanics
 
 function ballMover(player, ball) {
-  if (player.body.touching.down) {
-    player.body.velocity.y = -1500;
-  }
-  else if (player.body.touching.right) {
-    player.body.velocity.y = -1500;
-  }
-  else if (player.body.touching.left) {
-    player.body.velocity.y= 1500;
-  }
-  else if (player.body.touching.up) {
-    player.body.velocity.y = 1500;
-  }
+  // if (player.body.velocity.x && player.body.velocity.y > 0) {
+  //   ball.body.velocity.x = player.body.velocity.x - 50;
+  // }
+  // else if (player.body.velocity.x < 0) {
+  //   ball.body.velocity.x = player.body.velocity.x + 50;
+  // }
+  // else {
+  //   ball.body.velocity.x = 0;
+  // }
 }
 
 //Wall Mechanics
