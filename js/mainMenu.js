@@ -9,9 +9,9 @@ brawl.state1.prototype= {
         //Full Screen-Scaling
         this.game.scale.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
 
-        this.spacebar = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+        this.fullSize = this.game.input.keyboard.addKey(Phaser.Keyboard.F);
 
-        this.spacebar.onDown.add(this.gofull, this);
+        this.fullSize.onDown.add(this.gofull, this);
 
         //Scaling V.2
         this.game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
