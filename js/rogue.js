@@ -97,7 +97,7 @@ brawl.state12.prototype = {
         // }
 
 
-        for (var i = 0; i < 30; i++) {
+        for (var i = 0; i < 31; i++) {
 
             ////////////The X-Axis Block///////////
             var block1x = this.game.rnd.realInRange(0, 350);
@@ -201,6 +201,9 @@ brawl.state12.prototype = {
             else if (i === 28) {
                 this.gridSystem(block4x, block7y);
             }
+            else if (i === 29) {
+                this.ballSpawn(this.game.rnd.realInRange(0,1400),this.game.rnd.realInRange(1500,3000));
+            }
             else {
                 //Adding Flag
                 var finishX = this.game.rnd.integerInRange(0, 1400);
@@ -249,7 +252,7 @@ brawl.state12.prototype = {
             this.ledgeSideSpawn(x, y);
         }
         else if (gridSystemGenesis >= 65 && gridSystemGenesis <= 70 ) {
-            this.ballSpawn(x, y);
+            this.ledgeSpawn(x, y);
         }
         else if (gridSystemGenesis >= 71 && gridSystemGenesis <= 75 ) {
             this.ledgeDownSpawn(x, y);
@@ -343,7 +346,7 @@ brawl.state12.prototype = {
         this.ballX.body.collideWorldBounds = true;
         this.ballX.body.maxVelocity.setTo(1000);
         this.ballX.body.velocity.x = this.game.rnd.realInRange(-1000, 1000)
-        this.ballX.body.bounce.setTo(.9);
+        this.ballX.body.bounce.setTo(1.0);
     },
     spikeSpawn: function (x, y) {
         var spikeArray = ['invertedSpikes', 'spikes'];
