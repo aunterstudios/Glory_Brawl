@@ -35,7 +35,7 @@ var ghettoLoopMechanic = 5;
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "Rogue Version-01",
+  "Rogue Version-02",
   "You are a Prisoner of God.",
   "Given a sentence to experience eternal death and revival.",
   "To compete in an ever changing obstacle course game show.",
@@ -160,6 +160,7 @@ function ledgeUp(player, ledge) {
 function ledgeDownS(player, ledge) {
   //When You're On Top of the Ledge
   if (ledge.body.touching.up) {
+    player.body.velocity.y = -1500;
     ledge.body.velocity.y = 200;
     if (player.body.velocity.x > 0) {
       ledge.body.velocity.x = player.body.velocity.x - 100;
@@ -240,9 +241,10 @@ function enemyLedgeSprite(enemy, ledge) {
   }
 }
 
-function spikeLedge(spikes, ledge) {
+//Preventing Physics Bugs
+function preventPhysicsBug (ledge,spike) {
   if (ledge.body.touching.down) {
-    ledge.body.angularVelocity = 200;
+    ledge.body.velocity.y=-1000;
   }
 }
 

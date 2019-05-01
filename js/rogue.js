@@ -249,14 +249,14 @@ brawl.state12.prototype = {
         else if (gridSystemGenesis >= 61 && gridSystemGenesis <= 65) {
             this.ledgeSideSpawn(x, y);
         }
-        else if (gridSystemGenesis >= 65 && gridSystemGenesis <= 70 ) {
-            this.ledgeSpawn(x, y);
-        }
-        else if (gridSystemGenesis >= 71 && gridSystemGenesis <= 75 ) {
+        else if (gridSystemGenesis >= 66 && gridSystemGenesis <= 75 ) {
             this.ledgeDownSpawn(x, y);
         }
-        else if (gridSystemGenesis >= 76 && gridSystemGenesis <= 100) {
+        else if (gridSystemGenesis >= 76 && gridSystemGenesis <= 98) {
             this.spikeSpawn(x, y);
+        }
+        else if (gridSystemGenesis >= 99 && gridSystemGenesis <= 100 ) {
+            this.ledgeSpawn(x, y);
         }
     },
     baseCamp: function () {
@@ -380,19 +380,19 @@ brawl.state12.prototype = {
         this.game.physics.arcade.overlap(this.ball, this.enemy, deathThree);
 
         //Ledge vs. Ledge Mechanics
-        this.game.physics.arcade.collide(this.ledge, this.ledge);
-        this.game.physics.arcade.collide(this.ledgeDown, this.ledgeDown);
+        // this.game.physics.arcade.collide(this.ledge, this.ledge);
+        // this.game.physics.arcade.collide(this.ledgeDown, this.ledgeDown);
         this.game.physics.arcade.collide(this.ledge, this.ledgeDown);
         this.game.physics.arcade.collide(this.ledge, this.ledgeSide);
         this.game.physics.arcade.collide(this.ledgeDown, this.ledgeSide);
 
         //Ledge vs. Other Objects
-        this.game.physics.arcade.collide(this.ledge, this.wall);
+        this.game.physics.arcade.collide(this.ledge, this.wall,preventPhysicsBug);
         this.game.physics.arcade.collide(this.ledge, this.enemy, enemyLedge);
-        this.game.physics.arcade.collide(this.ledge, this.spikes);
-        this.game.physics.arcade.collide(this.ledgeDown, this.wall);
+        this.game.physics.arcade.collide(this.ledge, this.spikes,preventPhysicsBug);
+        this.game.physics.arcade.collide(this.ledgeDown, this.wall,preventPhysicsBug);
         this.game.physics.arcade.collide(this.ledgeDown, this.enemy, enemyLedge);
-        this.game.physics.arcade.collide(this.ledgeDown, this.spikes);
+        this.game.physics.arcade.collide(this.ledgeDown, this.spikes,preventPhysicsBug);
         this.game.physics.arcade.collide(this.ledgeSide, this.wall);
         this.game.physics.arcade.collide(this.ledgeSide , this.enemy);
 
