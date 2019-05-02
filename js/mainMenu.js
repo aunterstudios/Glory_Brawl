@@ -25,7 +25,7 @@ brawl.state1.prototype= {
         nextLine();
         
         //Skip Written Already.
-        this.text2 = game.add.text(800,300,"Press Enter to Play.\nPress F to go Full-Screen");
+        this.text2 = game.add.text(800,300,"Press SPACEBAR to Play.\nPress F to go Full-Screen");
 
         //	Font style
         this.text2.font = 'Arial';
@@ -45,7 +45,7 @@ brawl.state1.prototype= {
         }
     },
     update: function (){
-       if (this.game.input.keyboard.isDown(Phaser.Keyboard.ENTER))
+       if (this.game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR))
       {
         this.game.state.start('rogueTest');
       }
