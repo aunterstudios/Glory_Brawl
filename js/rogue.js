@@ -464,7 +464,7 @@ brawl.state12.prototype = {
         var onNone = this.player.body.touching.none;
 
         // If the player is touching the ground, let him have 2 jumps
-        if (onTheGround || onTheLeftSide || onTheRightSide) {
+        if (onTheGround || onTheLeftSide || onTheRightSide || onUpsideDown) {
             this.jumps = 2;
             this.jumping = false;
         }
@@ -503,7 +503,7 @@ brawl.state12.prototype = {
             this.player.body.velocity.y = 100;
             this.player.frame = 6;
             if (this.cursors.left.isDown) {
-                // this.player.body.velocity.y = -650;
+                this.player.body.velocity.y = -500;
                 this.player.body.velocity.x = -1000;
             }
         }
@@ -512,7 +512,7 @@ brawl.state12.prototype = {
             this.player.body.velocity.y = 100;
             this.player.frame = 12;
             if (this.cursors.right.isDown) {
-                // this.player.body.velocity.y = -650;
+                this.player.body.velocity.y = -500;
                 this.player.body.velocity.x = 1000;
             }
         }
