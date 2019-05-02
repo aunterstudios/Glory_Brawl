@@ -498,7 +498,7 @@ brawl.state12.prototype = {
         }
 
         ////Player Jump Mechanics
-        if (this.cursors.up.isDown && this.player.body.touching.down) {
+        if (this.game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR) && this.player.body.touching.down) {
             this.player.frame = 10;
             this.player.body.velocity.y = -650;
         }

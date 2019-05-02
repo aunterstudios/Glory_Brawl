@@ -18,7 +18,7 @@ brawl.state2.prototype = {
         this.trump.anchor.setTo(.5);
         //this.trump.scale.setTo(.75);
 
-        this.text = this.game.add.text(this.game.world.centerX-350, 300, "Try Again Prisoner \n Deaths: "+deaths + "\n Longest Streak: "+ longestStreak);
+        this.text = this.game.add.text(this.game.world.centerX - 325, 300, "ENTER to Try Again Prisoner \n Deaths: " + deaths + "\n Longest Streak: " + longestStreak);
         this.text.anchor.setTo(0.5);
         this.text.align = 'center';
 
@@ -30,7 +30,7 @@ brawl.state2.prototype = {
 
     },
     update: function () {
-        if (this.game.input.activePointer.isDown) {
+        if (this.game.input.keyboard.isDown(Phaser.Keyboard.ENTER)) {
             this.game.state.start('rogueTest');
         }
 

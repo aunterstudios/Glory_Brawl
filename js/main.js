@@ -3,25 +3,12 @@ var game = new Phaser.Game(1400, 800, Phaser.CANVAS);
 //////////////////////////////////////////////////Game States//////////////////////////////////////////////
 game.state.add('mainMenu', brawl.state1);
 game.state.add('deathState', brawl.state2);
-game.state.add('ruleSets', brawl.state3);
-game.state.add('levelOne', brawl.state4);
-game.state.add('levelTwo', brawl.state5);
-game.state.add('levelThree', brawl.state6);
-game.state.add('levelFour', brawl.state7);
-game.state.add('levelFive', brawl.state8);
-game.state.add('levelSix', brawl.state9);
-game.state.add('levelSeven', brawl.state10);
-game.state.add('levelEight', brawl.state11);
 game.state.add('rogueTest', brawl.state12);
 //////////////////////////////////////////////////Starting States//////////////////////////////////////////////
 //game.state.start('mainMenu');
 //game.state.start('levelEight');
 game.state.start('mainMenu');
 //////////////////////////////////////////////////Global Variables//////////////////////////////////////////////
-
-// Variables that Hold Cumlative Power-Up Booleans
-var runFastX = false;
-var jumpHigherX = false;
 
 //Death Total in Game
 var deaths = 0;
@@ -30,12 +17,9 @@ var deaths = 0;
 var streak = 0;
 var longestStreak = 0;
 
-// To Allow Re-Use of Death State and Ruleset States.
-var ghettoLoopMechanic = 5;
-
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "Rogue Version-ZeroTwo",
+  "Rogue Version-CleanCode",
   "You are a Prisoner of God.",
   "Given a sentence to experience eternal death and revival.",
   "To compete in an ever changing obstacle course game show.",
@@ -137,6 +121,7 @@ function ledgeUp(player, ledge) {
   //When You're On Top of the Ledge
   if (ledge.body.touching.up) {
     ledge.body.velocity.y = -200;
+    player.body.velocity.y = -200;
     if (player.body.velocity.x > 0) {
       ledge.body.velocity.x = player.body.velocity.x - 100;
     }
