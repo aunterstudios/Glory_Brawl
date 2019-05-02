@@ -34,6 +34,11 @@ brawl.state12.prototype = {
 
         this.fullSize.onDown.add(this.gofull, this);
 
+        //Pause Menu
+        this.pause = this.game.input.keyboard.addKey(Phaser.Keyboard.P);
+
+        this.pause.onDown.add(this.goPause, this);
+
         // Setting World Stage
 
         this.game.world.setBounds(0, 0, 1400, 3200);
@@ -89,10 +94,10 @@ brawl.state12.prototype = {
 
         for (var x = 0; x < 5; x++) {
             for (var y = 0; y < 6; y++) {
-                var xRandom = this.game.rnd.realInRange((x*xBlockSize)+1, (x+1)*xBlockSize);
-                var yRandom = this.game.rnd.realInRange((y*yBlockSize)+1, (y+1)*yBlockSize);
-                this.gridSystem(xRandom,yRandom);
-                console.log(x+ ' ' + y+ ' ' +xRandom + ' ' + yRandom);
+                var xRandom = this.game.rnd.realInRange((x * xBlockSize) + 1, (x + 1) * xBlockSize);
+                var yRandom = this.game.rnd.realInRange((y * yBlockSize) + 1, (y + 1) * yBlockSize);
+                this.gridSystem(xRandom, yRandom);
+                console.log(x + ' ' + y + ' ' + xRandom + ' ' + yRandom);
             }
         }
 
@@ -269,10 +274,10 @@ brawl.state12.prototype = {
     baseCamp: function () {
 
         //Spawning Ledges
-        this.ledgeSpawn(400,3000);
-        this.ledgeSpawn(1000,3000);
-        this.ledgeDownSpawn(600,3000);
-        this.ledgeDownSpawn(800,3000);
+        this.ledgeSpawn(400, 3000);
+        this.ledgeSpawn(1000, 3000);
+        this.ledgeDownSpawn(600, 3000);
+        this.ledgeDownSpawn(800, 3000);
 
         //create wall
         this.wallX = this.wall.create(700, 3100, 'rotatedWall');
@@ -359,20 +364,34 @@ brawl.state12.prototype = {
             this.game.scale.startFullScreen(false);
         }
     },
-    upInputReleased: function() {
+    //Pausing the Game
+    goPause: function () {
+        if (this.game.paused) {
+            this.game.paused = false;
+        }
+        else {
+
+            this.game.paused = true;
+            //Streak
+            // this.pauseText = this.game.add.text(this.player.x, this.player.y, "PAUSE", { font: "32px Arial", fill: "#ffffff", align: "center" });
+            // this.pauseText.fixedToCamera = true;
+            // this.pauseText.cameraOffset.setTo(1200, 750);
+        }
+    },
+    upInputReleased: function () {
         var released = false;
-    
+
         released = this.input.keyboard.upDuration(Phaser.Keyboard.UP);
         released |= this.input.keyboard.upDuration(Phaser.Keyboard.SPACEBAR)
-  
+
         return released;
     },
-    upInputIsActive: function(duration) {
+    upInputIsActive: function (duration) {
         var isActive = false;
-    
+
         isActive = this.input.keyboard.downDuration(Phaser.Keyboard.UP, duration);
         isActive |= this.input.keyboard.downDuration(Phaser.Keyboard.SPACEBAR, duration);
-            
+
         return isActive;
     },
     //How Game Updates Real-Time

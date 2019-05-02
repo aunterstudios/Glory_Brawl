@@ -7,6 +7,7 @@ game.state.add('rogueTest', brawl.state12);
 game.state.add('controlScreen', brawl.stateControls);
 //////////////////////////////////////////////////Starting States//////////////////////////////////////////////
 game.state.start('mainMenu');
+// game.state.start('controlScreen');
 //////////////////////////////////////////////////Global Variables//////////////////////////////////////////////
 
 //Death Total in Game
@@ -18,7 +19,7 @@ var longestStreak = 0;
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "Rogue Version-HarderGame",
+  "Rogue Version-ControlsAndPause",
   "You are a Prisoner of God.",
   "Given a sentence to experience eternal death and revival.",
   "To compete in an ever changing obstacle course game show.",
