@@ -18,13 +18,13 @@ brawl.state2.prototype = {
         this.trump.anchor.setTo(.5);
         //this.trump.scale.setTo(.75);
 
-        this.text = this.game.add.text(this.game.world.centerX - 325, 300, "SPACEBAR to Try Again Prisoner \n Deaths: " + deaths + "\n Longest Streak: " + longestStreak);
+        this.text = this.game.add.text(this.game.world.centerX - 300, 300, "SPACEBAR to Try Again Prisoner \n Deaths: " + deaths + "\n Longest Streak: " + longestStreak);
         this.text.anchor.setTo(0.5);
         this.text.align = 'center';
 
         //	Font style
         this.text.font = 'Arial Black';
-        this.text.fontSize = 45;
+        this.text.fontSize = 35;
         this.text.fill = "#000000";
         this.text.fontWeight = 'bold';
 

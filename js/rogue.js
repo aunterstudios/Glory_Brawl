@@ -458,9 +458,13 @@ brawl.state12.prototype = {
         //Jump
         // Set a variable that is true when the player is touching the ground
         var onTheGround = this.player.body.touching.down;
+        var onTheRightSide = this.player.body.touching.right;
+        var onTheLeftSide = this.player.body.touching.left;
+        var onUpsideDown = this.player.body.touching.up;
+        var onNone = this.player.body.touching.none;
 
         // If the player is touching the ground, let him have 2 jumps
-        if (onTheGround) {
+        if (onTheGround || onTheLeftSide || onTheRightSide) {
             this.jumps = 2;
             this.jumping = false;
         }
@@ -480,7 +484,7 @@ brawl.state12.prototype = {
         //Player Standing Still
         this.player.body.velocity.x = 0;
 
-        if (this.player.body.touching.down) {
+        if (onTheGround) {
             if (this.cursors.left.isDown) {
                 this.player.body.velocity.x = -400;
                 this.player.animations.play('left');
@@ -494,25 +498,25 @@ brawl.state12.prototype = {
                 this.player.frame = 8;
             }
         }
-        else if (this.player.body.touching.right) {
+        else if (onTheRightSide) {
             this.player.body.velocity.x = 50;
             this.player.body.velocity.y = 100;
             this.player.frame = 6;
             if (this.cursors.left.isDown) {
-                this.player.body.velocity.y = -650;
+                // this.player.body.velocity.y = -650;
                 this.player.body.velocity.x = -1000;
             }
         }
-        else if (this.player.body.touching.left) {
+        else if (onTheLeftSide) {
             this.player.body.velocity.x = -50;
             this.player.body.velocity.y = 100;
             this.player.frame = 12;
             if (this.cursors.right.isDown) {
-                this.player.body.velocity.y = -650;
+                // this.player.body.velocity.y = -650;
                 this.player.body.velocity.x = 1000;
             }
         }
-        else if (this.player.body.touching.up) {
+        else if (onUpsideDown) {
             this.player.animations.stop();
             this.player.frame = 8;
             this.player.body.velocity.y = -100;
@@ -525,7 +529,7 @@ brawl.state12.prototype = {
                 this.player.animations.play('right');
             }
         }
-        if (this.player.body.touching.none) {
+        if (onNone) {
             this.player.frame = 10;
             if (this.cursors.left.isDown) {
                 this.player.body.velocity.x = -400;
@@ -540,7 +544,7 @@ brawl.state12.prototype = {
         //     this.player.frame = 10;
         //     this.player.body.velocity.y = -650;
         // }
-        if (this.cursors.down.isDown && this.player.body.touching.up) {
+        if (this.cursors.down.isDown && onUpsideDown) {
             this.player.frame = 10;
             this.player.body.velocity.y = 200;
         }
