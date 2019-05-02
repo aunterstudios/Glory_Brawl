@@ -21,8 +21,8 @@ brawl.state12.prototype = {
         this.load.image('joystick', 'assets/joystick.png');
         this.load.image('joystick2', 'assets/joystickR.png');
         this.load.image('action', 'assets/action.png');
-        this.load.image('ledgeDown','assets/platformX.png');
-        this.load.image('ledgeSide','assets/platformSide.png');
+        this.load.image('ledgeDown', 'assets/platformX.png');
+        this.load.image('ledgeSide', 'assets/platformSide.png');
         this.load.spritesheet('dude', 'assets/white.png', 87.5, 93.5);
     },
     create: function () {
@@ -146,7 +146,7 @@ brawl.state12.prototype = {
             }
             else if (i === 10) {
                 this.gridSystem(block3x, block3y);
-                this.ledgeSpawn(this.game.rnd.realInRange(701, 1050),this.game.rnd.realInRange(801, 1200));
+                this.ledgeSpawn(this.game.rnd.realInRange(701, 1050), this.game.rnd.realInRange(801, 1200));
             }
             else if (i === 11) {
                 this.gridSystem(block4x, block3y);
@@ -249,7 +249,7 @@ brawl.state12.prototype = {
         else if (gridSystemGenesis >= 68 && gridSystemGenesis <= 73) {
             this.ledgeSideSpawn(x, y);
         }
-        else if (gridSystemGenesis >= 74 && gridSystemGenesis <= 79 ) {
+        else if (gridSystemGenesis >= 74 && gridSystemGenesis <= 79) {
             this.ledgeDownSpawn(x, y);
         }
         else if (gridSystemGenesis >= 80 && gridSystemGenesis <= 100) {
@@ -278,11 +278,11 @@ brawl.state12.prototype = {
 
         //create ball
         this.ballSpawn(700, 2900);
-        
+
         //creating spikes
         for (var i = 0; i < 2; i++) {
-            var iteratorSpikes = i*300;
-            this.spikesX = this.spikes.create(0, iteratorSpikes+3125, 'spikes');
+            var iteratorSpikes = i * 300;
+            this.spikesX = this.spikes.create(0, iteratorSpikes + 3125, 'spikes');
             this.spikesX.scale.setTo(1);
             this.spikesX.body.immovable = true;
         }
@@ -310,7 +310,7 @@ brawl.state12.prototype = {
         this.ledgeX.body.collideWorldBounds = true;
         this.ledgeX.body.bounce.setTo(1);
     },
-    ledgeDownSpawn: function (x,y) {
+    ledgeDownSpawn: function (x, y) {
         this.ledgeY = this.ledgeDown.create(x, y, 'ledgeDown');
         this.ledgeY.body.maxVelocity.setTo(400);
         this.ledgeY.anchor.setTo(.5);
@@ -318,7 +318,7 @@ brawl.state12.prototype = {
         this.ledgeY.body.collideWorldBounds = true;
         this.ledgeY.body.bounce.setTo(1);
     },
-    ledgeSideSpawn: function (x,y) {
+    ledgeSideSpawn: function (x, y) {
         this.ledgeSideways = this.ledgeSide.create(x, y, 'ledgeSide');
         this.ledgeSideways.anchor.setTo(.5);
         this.ledgeSideways.scale.setTo(.5);
@@ -355,6 +355,22 @@ brawl.state12.prototype = {
             this.game.scale.startFullScreen(false);
         }
     },
+    upInputReleased: function() {
+        var released = false;
+    
+        released = this.input.keyboard.upDuration(Phaser.Keyboard.UP);
+        released |= this.input.keyboard.upDuration(Phaser.Keyboard.SPACEBAR)
+  
+        return released;
+    },
+    upInputIsActive: function(duration) {
+        var isActive = false;
+    
+        isActive = this.input.keyboard.downDuration(Phaser.Keyboard.UP, duration);
+        isActive |= this.input.keyboard.downDuration(Phaser.Keyboard.SPACEBAR, duration);
+            
+        return isActive;
+    },
     //How Game Updates Real-Time
     update: function () {
 
@@ -370,7 +386,7 @@ brawl.state12.prototype = {
         // Ball Mechanics
         this.game.physics.arcade.collide(this.ball, this.ball);
         this.game.physics.arcade.collide(this.ball, this.wall);
-        this.game.physics.arcade.overlap(this.ball, this.spikes,deathThree);
+        this.game.physics.arcade.overlap(this.ball, this.spikes, deathThree);
         this.game.physics.arcade.collide(this.ball, this.ledge);
         this.game.physics.arcade.collide(this.ball, this.ledgeDown);
         this.game.physics.arcade.collide(this.ball, this.ledgeSide);
@@ -384,14 +400,14 @@ brawl.state12.prototype = {
         this.game.physics.arcade.collide(this.ledgeDown, this.ledgeSide);
 
         //Ledge vs. Other Objects
-        this.game.physics.arcade.collide(this.ledge, this.wall,preventPhysicsBug);
+        this.game.physics.arcade.collide(this.ledge, this.wall, preventPhysicsBug);
         this.game.physics.arcade.collide(this.ledge, this.enemy, enemyLedge);
-        this.game.physics.arcade.collide(this.ledge, this.spikes,preventPhysicsBug);
-        this.game.physics.arcade.collide(this.ledgeDown, this.wall,preventPhysicsBug);
+        this.game.physics.arcade.collide(this.ledge, this.spikes, preventPhysicsBug);
+        this.game.physics.arcade.collide(this.ledgeDown, this.wall, preventPhysicsBug);
         this.game.physics.arcade.collide(this.ledgeDown, this.enemy, enemyLedge);
-        this.game.physics.arcade.collide(this.ledgeDown, this.spikes,preventPhysicsBug);
+        this.game.physics.arcade.collide(this.ledgeDown, this.spikes, preventPhysicsBug);
         this.game.physics.arcade.collide(this.ledgeSide, this.wall);
-        this.game.physics.arcade.collide(this.ledgeSide , this.enemy);
+        this.game.physics.arcade.collide(this.ledgeSide, this.enemy);
 
         //Enemy Mechanics
         this.game.physics.arcade.collide(this.enemy, this.spikes);
@@ -438,6 +454,28 @@ brawl.state12.prototype = {
         // }
 
         ////////////////////////////////Actual Controls////////////////////////////////
+
+        //Jump
+        // Set a variable that is true when the player is touching the ground
+        var onTheGround = this.player.body.touching.down;
+
+        // If the player is touching the ground, let him have 2 jumps
+        if (onTheGround) {
+            this.jumps = 2;
+            this.jumping = false;
+        }
+
+        // Jump!
+        if (this.jumps > 0 && this.upInputIsActive(5)) {
+            this.player.body.velocity.y = -650;
+            this.jumping = true;
+        }
+
+        // Reduce the number of available jumps if the jump input is released
+        if (this.jumping && this.upInputReleased()) {
+            this.jumps--;
+            this.jumping = false;
+        }
 
         //Player Standing Still
         this.player.body.velocity.x = 0;
@@ -498,11 +536,11 @@ brawl.state12.prototype = {
         }
 
         ////Player Jump Mechanics
-        if ((this.game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR) || this.cursors.up.isDown) && this.player.body.touching.down) {
-            this.player.frame = 10;
-            this.player.body.velocity.y = -650;
-        }
-        else if (this.cursors.down.isDown && this.player.body.touching.up) {
+        // if ((this.game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR) || this.cursors.up.isDown) && this.player.body.touching.down) {
+        //     this.player.frame = 10;
+        //     this.player.body.velocity.y = -650;
+        // }
+        if (this.cursors.down.isDown && this.player.body.touching.up) {
             this.player.frame = 10;
             this.player.body.velocity.y = 200;
         }
