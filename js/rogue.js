@@ -70,7 +70,7 @@ brawl.state12.prototype = {
         this.game.physics.arcade.enable(this.player); //enables physics for player
         this.player.anchor.setTo(.5);
         this.player.scale.setTo(.6);
-        this.player.body.setSize(75, 84, 5, 6);
+        this.player.body.setSize(63, 84, 5, 6);
         this.player.body.bounce.y = 0;
         this.player.body.gravity.y = 1500;
         //this.player.body.allowDrag = false;
@@ -84,136 +84,149 @@ brawl.state12.prototype = {
 
         //////////////////Grid System Creation////////////////
 
-        // var xBlockSize = 350;
-        // var yBlockSize = 400;
+        var xBlockSize = 280;
+        var yBlockSize = 450;
 
-        // for (var x = 0; x < 4; x++) {
-        //     for (var y = 0; y < 5; y++) {
-        //         var xRandom = this.game.rnd.realInRange((x*xBlockSize)+1, (x+1)*xBlockSize);
-        //         var yRandom = this.game.rnd.realInRange((y*yBlockSize)+1, (y+1)*yBlockSize);
-        //         this.gridSystem(xRandom,yRandom);
-        //         console.log(x+ ' ' + y+ ' ' +xRandom + ' ' + yRandom);
+        for (var x = 0; x < 5; x++) {
+            for (var y = 0; y < 6; y++) {
+                var xRandom = this.game.rnd.realInRange((x*xBlockSize)+1, (x+1)*xBlockSize);
+                var yRandom = this.game.rnd.realInRange((y*yBlockSize)+1, (y+1)*yBlockSize);
+                this.gridSystem(xRandom,yRandom);
+                console.log(x+ ' ' + y+ ' ' +xRandom + ' ' + yRandom);
+            }
+        }
+
+
+        // for (var i = 0; i < 30; i++) {
+
+        //     ////////////The X-Axis Block///////////
+        //     var block1x = this.game.rnd.realInRange(0, 350);
+        //     var block2x = this.game.rnd.realInRange(351, 700);
+        //     var block3x = this.game.rnd.realInRange(701, 1050);
+        //     var block4x = this.game.rnd.realInRange(1051, 1400);
+        //     ////////////The Y-Axis Block///////////
+        //     var block1y = this.game.rnd.realInRange(0, 400);
+        //     var block2y = this.game.rnd.realInRange(401, 800);
+        //     var block3y = this.game.rnd.realInRange(801, 1200);
+        //     var block4y = this.game.rnd.realInRange(1201, 1600);
+        //     var block5y = this.game.rnd.realInRange(1601, 2000);
+        //     var block6y = this.game.rnd.realInRange(2001, 2400);
+        //     var block7y = this.game.rnd.realInRange(2401, 2600);
+
+        //     //block 1
+        //     if (i === 0) {
+        //         this.gridSystem(block1x, block5y);
+        //     }
+        //     else if (i === 1) {
+        //         this.gridSystem(block2x, block5y);
+        //     }
+        //     else if (i === 2) {
+        //         this.gridSystem(block3x, block5y);
+        //     }
+        //     else if (i === 3) {
+        //         this.gridSystem(block4x, block5y);
+        //     }
+        //     else if (i === 4) {
+        //         this.gridSystem(block1x, block4y);
+        //     }
+        //     else if (i === 5) {
+        //         this.gridSystem(block2x, block4y);
+        //     }
+        //     else if (i === 6) {
+        //         this.gridSystem(block3x, block4y);
+        //     }
+        //     else if (i === 7) {
+        //         this.gridSystem(block4x, block4y);
+        //     }
+        //     else if (i === 8) {
+        //         this.gridSystem(block1x, block3y);
+        //     }
+        //     else if (i === 9) {
+        //         this.gridSystem(block2x, block3y);
+        //     }
+        //     else if (i === 10) {
+        //         this.gridSystem(block3x, block3y);
+        //         this.ledgeSpawn(this.game.rnd.realInRange(701, 1050), this.game.rnd.realInRange(801, 1200));
+        //     }
+        //     else if (i === 11) {
+        //         this.gridSystem(block4x, block3y);
+        //     }
+        //     else if (i === 12) {
+        //         this.gridSystem(block1x, block2y);
+        //     }
+        //     else if (i === 13) {
+        //         this.gridSystem(block2x, block2y);
+        //     }
+        //     else if (i === 14) {
+        //         this.gridSystem(block3x, block2y);
+        //     }
+        //     else if (i === 15) {
+        //         this.gridSystem(block4x, block2y);
+        //     }
+        //     else if (i === 16) {
+        //         this.gridSystem(block1x, block1y);
+        //     }
+        //     else if (i === 17) {
+        //         this.gridSystem(block2x, block1y);
+        //     }
+        //     else if (i === 18) {
+        //         this.gridSystem(block3x, block1y);
+        //     }
+        //     else if (i === 19) {
+        //         this.gridSystem(block4x, block1y);
+        //     }
+        //     else if (i === 20) {
+        //         this.baseCamp()
+        //     }
+        //     else if (i === 21) {
+        //         this.gridSystem(block1x, block6y);
+        //     }
+        //     else if (i === 22) {
+        //         this.gridSystem(block2x, block6y);
+        //     }
+        //     else if (i === 23) {
+        //         this.gridSystem(block3x, block6y);
+        //     }
+        //     else if (i === 24) {
+        //         this.gridSystem(block4x, block6y);
+        //     }
+        //     else if (i === 25) {
+        //         this.gridSystem(block1x, block7y);
+        //     }
+        //     else if (i === 26) {
+        //         this.gridSystem(block2x, block7y);
+        //     }
+        //     else if (i === 27) {
+        //         this.gridSystem(block3x, block7y);
+        //     }
+        //     else if (i === 28) {
+        //         this.gridSystem(block4x, block7y);
+        //     }
+        //     else {
+        //         //Adding Flag
+        //         var finishX = this.game.rnd.integerInRange(0, 1400);
+        //         var finishY = this.game.rnd.integerInRange(0, 350)
+        //         this.finish = this.game.add.sprite(finishX, finishY, 'win');
+        //         this.game.physics.arcade.enable(this.finish);
+        //         this.finish.body.collideWorldBounds = true;
+        //         this.finish.body.velocity.x = 20;
+        //         this.finish.body.bounce.setTo(1);
+        //         this.finish.body.maxVelocity.setTo(100);
         //     }
         // }
 
+        //Base Camp (Starting Area);
+        this.baseCamp();
 
-        for (var i = 0; i < 30; i++) {
-
-            ////////////The X-Axis Block///////////
-            var block1x = this.game.rnd.realInRange(0, 350);
-            var block2x = this.game.rnd.realInRange(351, 700);
-            var block3x = this.game.rnd.realInRange(701, 1050);
-            var block4x = this.game.rnd.realInRange(1051, 1400);
-            ////////////The Y-Axis Block///////////
-            var block1y = this.game.rnd.realInRange(0, 400);
-            var block2y = this.game.rnd.realInRange(401, 800);
-            var block3y = this.game.rnd.realInRange(801, 1200);
-            var block4y = this.game.rnd.realInRange(1201, 1600);
-            var block5y = this.game.rnd.realInRange(1601, 2000);
-            var block6y = this.game.rnd.realInRange(2001, 2400);
-            var block7y = this.game.rnd.realInRange(2401, 2600);
-
-            //block 1
-            if (i === 0) {
-                this.gridSystem(block1x, block5y);
-            }
-            else if (i === 1) {
-                this.gridSystem(block2x, block5y);
-            }
-            else if (i === 2) {
-                this.gridSystem(block3x, block5y);
-            }
-            else if (i === 3) {
-                this.gridSystem(block4x, block5y);
-            }
-            else if (i === 4) {
-                this.gridSystem(block1x, block4y);
-            }
-            else if (i === 5) {
-                this.gridSystem(block2x, block4y);
-            }
-            else if (i === 6) {
-                this.gridSystem(block3x, block4y);
-            }
-            else if (i === 7) {
-                this.gridSystem(block4x, block4y);
-            }
-            else if (i === 8) {
-                this.gridSystem(block1x, block3y);
-            }
-            else if (i === 9) {
-                this.gridSystem(block2x, block3y);
-            }
-            else if (i === 10) {
-                this.gridSystem(block3x, block3y);
-                this.ledgeSpawn(this.game.rnd.realInRange(701, 1050), this.game.rnd.realInRange(801, 1200));
-            }
-            else if (i === 11) {
-                this.gridSystem(block4x, block3y);
-            }
-            else if (i === 12) {
-                this.gridSystem(block1x, block2y);
-            }
-            else if (i === 13) {
-                this.gridSystem(block2x, block2y);
-            }
-            else if (i === 14) {
-                this.gridSystem(block3x, block2y);
-            }
-            else if (i === 15) {
-                this.gridSystem(block4x, block2y);
-            }
-            else if (i === 16) {
-                this.gridSystem(block1x, block1y);
-            }
-            else if (i === 17) {
-                this.gridSystem(block2x, block1y);
-            }
-            else if (i === 18) {
-                this.gridSystem(block3x, block1y);
-            }
-            else if (i === 19) {
-                this.gridSystem(block4x, block1y);
-            }
-            else if (i === 20) {
-                this.baseCamp()
-            }
-            else if (i === 21) {
-                this.gridSystem(block1x, block6y);
-            }
-            else if (i === 22) {
-                this.gridSystem(block2x, block6y);
-            }
-            else if (i === 23) {
-                this.gridSystem(block3x, block6y);
-            }
-            else if (i === 24) {
-                this.gridSystem(block4x, block6y);
-            }
-            else if (i === 25) {
-                this.gridSystem(block1x, block7y);
-            }
-            else if (i === 26) {
-                this.gridSystem(block2x, block7y);
-            }
-            else if (i === 27) {
-                this.gridSystem(block3x, block7y);
-            }
-            else if (i === 28) {
-                this.gridSystem(block4x, block7y);
-            }
-            else {
-                //Adding Flag
-                var finishX = this.game.rnd.integerInRange(0, 1400);
-                var finishY = this.game.rnd.integerInRange(0, 350)
-                this.finish = this.game.add.sprite(finishX, finishY, 'win');
-                this.game.physics.arcade.enable(this.finish);
-                this.finish.body.collideWorldBounds = true;
-                this.finish.body.velocity.x = 20;
-                this.finish.body.bounce.setTo(1);
-                this.finish.body.maxVelocity.setTo(100);
-            }
-        }
+        //Adding Flag (Win Game)
+        var finishX = this.game.rnd.integerInRange(0, 1400);
+        var finishY = this.game.rnd.integerInRange(0, 350)
+        this.finish = this.game.add.sprite(finishX, finishY, 'win');
+        this.game.physics.arcade.enable(this.finish);
+        this.finish.body.collideWorldBounds = true;
+        this.finish.body.velocity.x = 20;
+        this.finish.body.bounce.setTo(1);
+        this.finish.body.maxVelocity.setTo(100);
 
 
         // this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_PLATFORMER);
@@ -246,11 +259,8 @@ brawl.state12.prototype = {
         else if (gridSystemGenesis >= 46 && gridSystemGenesis <= 67) {
             this.enemySpawn(x, y);
         }
-        else if (gridSystemGenesis >= 68 && gridSystemGenesis <= 73) {
+        else if (gridSystemGenesis >= 68 && gridSystemGenesis <= 79) {
             this.ledgeSideSpawn(x, y);
-        }
-        else if (gridSystemGenesis >= 74 && gridSystemGenesis <= 79) {
-            this.ledgeDownSpawn(x, y);
         }
         else if (gridSystemGenesis >= 80 && gridSystemGenesis <= 100) {
             this.spikeSpawn(x, y);
@@ -258,17 +268,11 @@ brawl.state12.prototype = {
     },
     baseCamp: function () {
 
-        //create ledge
-        for (var i = 1; i < 5; i++) {
-            var iteratorX = i * 290;
-            var iteratorY = i * 50;
-            this.ledgeX = this.ledge.create(iteratorX, iteratorY + 2900, 'ledge');
-            this.ledgeX.body.maxVelocity.setTo(400);
-            this.ledgeX.anchor.setTo(.5);
-            this.ledgeX.scale.setTo(.5);
-            this.ledgeX.body.collideWorldBounds = true;
-            this.ledgeX.body.bounce.setTo(1);
-        }
+        //Spawning Ledges
+        this.ledgeSpawn(400,3000);
+        this.ledgeSpawn(1000,3000);
+        this.ledgeDownSpawn(600,3000);
+        this.ledgeDownSpawn(800,3000);
 
         //create wall
         this.wallX = this.wall.create(700, 3100, 'rotatedWall');
@@ -455,8 +459,8 @@ brawl.state12.prototype = {
 
         ////////////////////////////////Actual Controls////////////////////////////////
 
-        //Jump
-        // Set a variable that is true when the player is touching the ground
+        //Jump Mechanics
+        // Set a variable that is true when the player is a surface the ground or not a surface
         var onTheGround = this.player.body.touching.down;
         var onTheRightSide = this.player.body.touching.right;
         var onTheLeftSide = this.player.body.touching.left;
@@ -471,7 +475,7 @@ brawl.state12.prototype = {
 
         // Jump!
         if (this.jumps > 0 && this.upInputIsActive(5)) {
-            this.player.body.velocity.y = -650;
+            this.player.body.velocity.y = -600;
             this.jumping = true;
         }
 
@@ -539,11 +543,7 @@ brawl.state12.prototype = {
             }
         }
 
-        ////Player Jump Mechanics
-        // if ((this.game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR) || this.cursors.up.isDown) && this.player.body.touching.down) {
-        //     this.player.frame = 10;
-        //     this.player.body.velocity.y = -650;
-        // }
+        //////////Downwards Mechanics
         if (this.cursors.down.isDown && onUpsideDown) {
             this.player.frame = 10;
             this.player.body.velocity.y = 200;
@@ -554,5 +554,8 @@ brawl.state12.prototype = {
             this.player.frame = 10;
             this.player.body.velocity.y = 500;
         }
-    }
+    },
+    // render: function () {
+    //     this.game.debug.body(this.player);
+    // }
 };

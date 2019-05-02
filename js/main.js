@@ -4,9 +4,8 @@ var game = new Phaser.Game(1400, 800, Phaser.CANVAS);
 game.state.add('mainMenu', brawl.state1);
 game.state.add('deathState', brawl.state2);
 game.state.add('rogueTest', brawl.state12);
+game.state.add('controlScreen', brawl.stateControls);
 //////////////////////////////////////////////////Starting States//////////////////////////////////////////////
-//game.state.start('mainMenu');
-//game.state.start('levelEight');
 game.state.start('mainMenu');
 //////////////////////////////////////////////////Global Variables//////////////////////////////////////////////
 
@@ -19,7 +18,7 @@ var longestStreak = 0;
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "Rogue Version-NewGame",
+  "Rogue Version-HarderGame",
   "You are a Prisoner of God.",
   "Given a sentence to experience eternal death and revival.",
   "To compete in an ever changing obstacle course game show.",
@@ -87,11 +86,6 @@ function nextWord() {
 function nextLevel(player, door) {
   ++streak
   game.state.start('rogueTest');
-}
-
-///End Game
-function endgame(player, door) {
-  location.reload();
 }
 
 ///Deathgame State
@@ -250,145 +244,6 @@ function ballMover(player, ball) {
     ball.body.velocity.x = 100;
   }
 }
-
-//Wall Mechanics
-
-/*
-function wallFalse (player,wall) {
-  if (wall.body.touching.up) {
-    wall.body.checkCollision.up = false;
-    wall.body.checkCollision.down = false;
-  }
-  else if (wall.body.touching.down) {
-    wall.body.checkCollision.up = false;
-    wall.body.checkCollision.down = false;
-  }
-}
-*/
-
-
-///////////////////////////////////////////Back-Up Code////////////////////////////////////////////
-/*
-
-///////////Page Settings
-this.scale.pageAlignHorizontally = true;
-this.scale.pageAlignVertically = true;
-
-//////////Sprite Velocity Constrainment
-function constrainVelocity(sprite, maxVelocity) {
-  var body = sprite.body
-  var angle, currVelocitySqr, vx, vy;  vx = body.data.velocity[0];  vy = body.data.velocity[1];  currVelocitySqr = vx * vx + vy * vy;  if (currVelocitySqr > maxVelocity * maxVelocity) {    angle = Math.atan2(vy, vx);    vx = Math.cos(angle) * maxVelocity;    vy = Math.sin(angle) * maxVelocity;    body.data.velocity[0] = vx;    body.data.velocity[1] = vy;    console.log('limited speed to: '+maxVelocity);  }
-}
-
-///////////////////////////Filter
-this.fragmentSrc = [
-            "precision mediump float;",
-            "uniform vec2      resolution;",
-            "uniform float     time;",
-
-            "void main( void )",
-            "{",
-            "vec2 p = ( gl_FragCoord.xy / resolution.xy ) * 2.0 - 1.0;",
-
-            "vec3 c = vec3( 0.0 );",
-
-            "float amplitude = 0.50;",
-            "float glowT = sin(time) * 0.5 + 0.5;",
-            "float glowFactor = mix( 0.15, 0.35, glowT );",
-
-            "c += vec3(0.02, 0.03, 0.13) * ( glowFactor * abs( 1.0 / sin(p.x + sin( p.y + time ) * amplitude ) ));",
-            "c += vec3(0.02, 0.10, 0.03) * ( glowFactor * abs( 1.0 / sin(p.x + cos( p.y + time+1.00 ) * amplitude+0.1 ) ));",
-            "c += vec3(0.15, 0.05, 0.20) * ( glowFactor * abs( 1.0 / sin(p.y + sin( p.x + time+1.30 ) * amplitude+0.15 ) ));",
-            "c += vec3(0.20, 0.05, 0.05) * ( glowFactor * abs( 1.0 / sin(p.y + cos( p.x + time+3.00 ) * amplitude+0.3 ) ));",
-            "c += vec3(0.17, 0.17, 0.05) * ( glowFactor * abs( 1.0 / sin(p.y + cos( p.x + time+5.00 ) * amplitude+0.2 ) ));",
-
-            "gl_FragColor = vec4( c, 1.0 );",
-            "}"
-        ];
-
-        this.filter = new Phaser.Filter(this.game, null, this.fragmentSrc);
-        this.filter.setResolution(1400, 800);
-
-        this.sprite = this.game.add.sprite();
-        this.sprite.width = 1400;
-        this.sprite.height = 800;
-
-        this.sprite.filters = [this.filter];
-
-        this.filter.update();
-*/
-
-////////////Weird Glitchy Physics
-/*
-this.player.rotation = this.game.physics.arcade.angleBetween(this.player,this.enemy);
-*/
-
-
-/////////////Control Settings?
-/*
-        this.leftArrow.events.onInputOver.add(function () {
-            this.player.customParams.leftMovement = true;
-            this.leftArrow.alpha = .5;
-        }, this);
-
-        this.leftArrow.events.onInputOut.add(function () {
-            this.player.customParams.leftMovement = false;
-            this.leftArrow.alpha = .05;
-        }, this);
-*/
-
-
-///////////Potential Super Bounce
-/*
-
-
-this.player.body.acceleration.y = -5000;
-this.player.body.acceleration.x = -5000;
-this.player.body.velocity.y = -5000;
-this.player.body.velocity.x = -1000;
-
-/////////////Better Variation of Super  Bounce
-this.player.body.velocity.y = -500;
-this.player.body.velocity.x = -100;
-this.player.body.acceleration.y = -10000;
-this.player.body.acceleration.x = -10000;
-
-/////////////////////Instantaneous Reaction
-/* MORE FOR INSTANTANEOUS REACTION
-        // if (this.player.body.wasTouching.none) {
-        //     console.log("wasTouching")
-        //     this.player.frame = 10;
-        //     if (this.cursors.left.isDown || this.player.customParams.leftMovement) {
-        //         this.player.body.velocity.x = -400;
-        //         this.player.customParams.rightMovement = false;
-        //     }
-        //     else if (this.cursors.right.isDown || this.player.customParams.rightMovement) {
-        //         this.player.body.velocity.x = 400;
-        //         this.player.customParams.leftMovement = false;
-        //     }
-        // }
-
-
-///////////////////////////////////////Angular Velocity
-ball.body.angularVelocity = 0;
-    game.physics.arcade.velocityFromAngle(ball.angle, 300, ball.body.velocity);
-
-
-
-
-
-
-
-
-////////////////////////////////Setting Size
-this.player.body.setSize(60,84,11,6);
-
-////////////////////Debugging
-render: function () {
-        this.game.debug.body(this.player);
-    }
-
-*/
 
 
 
