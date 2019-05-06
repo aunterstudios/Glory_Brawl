@@ -41,7 +41,8 @@ brawl.state12.prototype = {
 
         // Setting World Stage
 
-        this.game.world.setBounds(0, 0, 1400, 3200);
+        //3200
+        this.game.world.setBounds(0, 0, 1400, 6400);
 
         //Keyboard Controls
         this.cursors = this.game.input.keyboard.createCursorKeys();
@@ -71,7 +72,8 @@ brawl.state12.prototype = {
 
 
         //Adding Player
-        this.player = this.game.add.sprite(700, 3000, 'dude');
+        //3000
+        this.player = this.game.add.sprite(700, 6180, 'dude');
         this.game.physics.arcade.enable(this.player); //enables physics for player
         this.player.anchor.setTo(.5);
         this.player.scale.setTo(.6);
@@ -92,8 +94,9 @@ brawl.state12.prototype = {
         var xBlockSize = 280;
         var yBlockSize = 450;
 
+        //6
         for (var x = 0; x < 5; x++) {
-            for (var y = 0; y < 6; y++) {
+            for (var y = 0; y < 13; y++) {
                 var xRandom = this.game.rnd.realInRange((x * xBlockSize) + 1, (x + 1) * xBlockSize);
                 var yRandom = this.game.rnd.realInRange((y * yBlockSize) + 1, (y + 1) * yBlockSize);
                 this.gridSystem(xRandom, yRandom);
@@ -238,7 +241,8 @@ brawl.state12.prototype = {
         this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_LOCKON);
 
         //Streak
-        this.text = this.game.add.text(200, 3300, "Streak: " + streak, { font: "32px Arial", fill: "#ffffff", align: "center" });
+        //3300
+        this.text = this.game.add.text(200, 6208, "Streak: " + streak, { font: "32px Arial", fill: "#ffffff", align: "center" });
         this.text.fixedToCamera = true;
         this.text.cameraOffset.setTo(100, 750);
 
@@ -278,22 +282,22 @@ brawl.state12.prototype = {
 
         //Spawning Ledges
         for (var i = 0; i<2; i++) {
-            this.ledgeSpawn((i*600)+400,3000);
+            this.ledgeSpawn((i*600)+400,6200);
         }
 
         //create wall
-        this.wallX = this.wall.create(700, 3100, 'rotatedWall');
+        this.wallX = this.wall.create(700, 6250, 'rotatedWall');
         this.wallX.anchor.setTo(.5);
         this.wallX.scale.setTo(.5);
         this.wallX.body.immovable = true;
 
         //create ball
-        this.ballSpawn(700, 2900);
+        this.ballSpawn(700, 6000);
 
         //creating spikes
         for (var i = 0; i < 2; i++) {
             var iteratorSpikes = i * 300;
-            this.spikesX = this.spikes.create(0, iteratorSpikes + 3125, 'spikes');
+            this.spikesX = this.spikes.create(0, iteratorSpikes + 6300, 'spikes');
             this.spikesX.scale.setTo(1);
             this.spikesX.body.immovable = true;
         }
@@ -302,6 +306,7 @@ brawl.state12.prototype = {
     wallSpawn: function (x, y) {
         var wallArray = ['brownPlatform', 'wall', 'rotatedWall'];
         this.wallX = this.wall.create(x, y, wallArray[Math.floor(Math.random() * wallArray.length)]);
+        this.wallX.anchor.setTo(.5);
         this.wallX.scale.setTo(.5);
         this.wallX.body.immovable = true;
     },
@@ -355,6 +360,7 @@ brawl.state12.prototype = {
         var spikeArray = ['invertedSpikes', 'spikes'];
         var spikeLength = [.2, .3, .4, .5];
         this.spikesX = this.spikes.create(x, y, spikeArray[Math.floor(Math.random() * spikeArray.length)]);
+        this.spikesX.anchor.setTo(.5);
         this.spikesX.scale.setTo(spikeLength[Math.floor(Math.random() * spikeLength.length)]);
         this.spikesX.body.immovable = true;
     },
