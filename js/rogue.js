@@ -104,125 +104,6 @@ brawl.state12.prototype = {
             }
         }
 
-
-        // for (var i = 0; i < 30; i++) {
-
-        //     ////////////The X-Axis Block///////////
-        //     var block1x = this.game.rnd.realInRange(0, 350);
-        //     var block2x = this.game.rnd.realInRange(351, 700);
-        //     var block3x = this.game.rnd.realInRange(701, 1050);
-        //     var block4x = this.game.rnd.realInRange(1051, 1400);
-        //     ////////////The Y-Axis Block///////////
-        //     var block1y = this.game.rnd.realInRange(0, 400);
-        //     var block2y = this.game.rnd.realInRange(401, 800);
-        //     var block3y = this.game.rnd.realInRange(801, 1200);
-        //     var block4y = this.game.rnd.realInRange(1201, 1600);
-        //     var block5y = this.game.rnd.realInRange(1601, 2000);
-        //     var block6y = this.game.rnd.realInRange(2001, 2400);
-        //     var block7y = this.game.rnd.realInRange(2401, 2600);
-
-        //     //block 1
-        //     if (i === 0) {
-        //         this.gridSystem(block1x, block5y);
-        //     }
-        //     else if (i === 1) {
-        //         this.gridSystem(block2x, block5y);
-        //     }
-        //     else if (i === 2) {
-        //         this.gridSystem(block3x, block5y);
-        //     }
-        //     else if (i === 3) {
-        //         this.gridSystem(block4x, block5y);
-        //     }
-        //     else if (i === 4) {
-        //         this.gridSystem(block1x, block4y);
-        //     }
-        //     else if (i === 5) {
-        //         this.gridSystem(block2x, block4y);
-        //     }
-        //     else if (i === 6) {
-        //         this.gridSystem(block3x, block4y);
-        //     }
-        //     else if (i === 7) {
-        //         this.gridSystem(block4x, block4y);
-        //     }
-        //     else if (i === 8) {
-        //         this.gridSystem(block1x, block3y);
-        //     }
-        //     else if (i === 9) {
-        //         this.gridSystem(block2x, block3y);
-        //     }
-        //     else if (i === 10) {
-        //         this.gridSystem(block3x, block3y);
-        //         this.ledgeSpawn(this.game.rnd.realInRange(701, 1050), this.game.rnd.realInRange(801, 1200));
-        //     }
-        //     else if (i === 11) {
-        //         this.gridSystem(block4x, block3y);
-        //     }
-        //     else if (i === 12) {
-        //         this.gridSystem(block1x, block2y);
-        //     }
-        //     else if (i === 13) {
-        //         this.gridSystem(block2x, block2y);
-        //     }
-        //     else if (i === 14) {
-        //         this.gridSystem(block3x, block2y);
-        //     }
-        //     else if (i === 15) {
-        //         this.gridSystem(block4x, block2y);
-        //     }
-        //     else if (i === 16) {
-        //         this.gridSystem(block1x, block1y);
-        //     }
-        //     else if (i === 17) {
-        //         this.gridSystem(block2x, block1y);
-        //     }
-        //     else if (i === 18) {
-        //         this.gridSystem(block3x, block1y);
-        //     }
-        //     else if (i === 19) {
-        //         this.gridSystem(block4x, block1y);
-        //     }
-        //     else if (i === 20) {
-        //         this.baseCamp()
-        //     }
-        //     else if (i === 21) {
-        //         this.gridSystem(block1x, block6y);
-        //     }
-        //     else if (i === 22) {
-        //         this.gridSystem(block2x, block6y);
-        //     }
-        //     else if (i === 23) {
-        //         this.gridSystem(block3x, block6y);
-        //     }
-        //     else if (i === 24) {
-        //         this.gridSystem(block4x, block6y);
-        //     }
-        //     else if (i === 25) {
-        //         this.gridSystem(block1x, block7y);
-        //     }
-        //     else if (i === 26) {
-        //         this.gridSystem(block2x, block7y);
-        //     }
-        //     else if (i === 27) {
-        //         this.gridSystem(block3x, block7y);
-        //     }
-        //     else if (i === 28) {
-        //         this.gridSystem(block4x, block7y);
-        //     }
-        //     else {
-        //         //Adding Flag
-        //         var finishX = this.game.rnd.integerInRange(0, 1400);
-        //         var finishY = this.game.rnd.integerInRange(0, 350)
-        //         this.finish = this.game.add.sprite(finishX, finishY, 'win');
-        //         this.game.physics.arcade.enable(this.finish);
-        //         this.finish.body.collideWorldBounds = true;
-        //         this.finish.body.velocity.x = 20;
-        //         this.finish.body.bounce.setTo(1);
-        //         this.finish.body.maxVelocity.setTo(100);
-        //     }
-        // }
-
         //Base Camp (Starting Area);
         this.baseCamp();
 
@@ -281,8 +162,8 @@ brawl.state12.prototype = {
     baseCamp: function () {
 
         //Spawning Ledges
-        for (var i = 0; i<2; i++) {
-            this.ledgeSpawn((i*600)+400,6200);
+        for (var i = 0; i<4; i++) {
+            this.ledgeSpawn((i*350)+200,6200);
         }
 
         //create wall
