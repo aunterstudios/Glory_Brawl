@@ -258,13 +258,16 @@ brawl.state12.prototype = {
     gridSystem: function (x, y) {
         //Create Randomness in Each Grid
         var gridSystemGenesis = this.game.rnd.integerInRange(0, 100);
-        if (gridSystemGenesis >= 0 && gridSystemGenesis <= 45) {
+        if (gridSystemGenesis >= 0 && gridSystemGenesis <= 46) {
             this.wallSpawn(x, y);
         }
-        else if (gridSystemGenesis >= 46 && gridSystemGenesis <= 67) {
+        else if (gridSystemGenesis >= 47 && gridSystemGenesis <= 61) {
             this.enemySpawn(x, y);
         }
-        else if (gridSystemGenesis >= 68 && gridSystemGenesis <= 79) {
+        else if (gridSystemGenesis >= 62 && gridSystemGenesis <= 72) {
+            this.ledgeDownSpawn(x,y);
+        }
+        else if (gridSystemGenesis >= 73 && gridSystemGenesis <= 79) {
             this.ledgeSideSpawn(x, y);
         }
         else if (gridSystemGenesis >= 80 && gridSystemGenesis <= 100) {
@@ -274,10 +277,11 @@ brawl.state12.prototype = {
     baseCamp: function () {
 
         //Spawning Ledges
-        this.ledgeSpawn(400, 3000);
-        this.ledgeSpawn(1000, 3000);
-        this.ledgeDownSpawn(600, 3000);
-        this.ledgeDownSpawn(800, 3000);
+        // this.ledgeDownSpawn(600, 3000);
+        // this.ledgeDownSpawn(800, 3000);
+        for (var i = 0; i<2; i++) {
+            this.ledgeSpawn((i*600)+400,3000);
+        }
 
         //create wall
         this.wallX = this.wall.create(700, 3100, 'rotatedWall');
@@ -321,10 +325,11 @@ brawl.state12.prototype = {
     },
     ledgeDownSpawn: function (x, y) {
         this.ledgeY = this.ledgeDown.create(x, y, 'ledgeDown');
-        this.ledgeY.body.maxVelocity.setTo(400);
+        // this.ledgeY.body.maxVelocity.setTo(400);
         this.ledgeY.anchor.setTo(.5);
         this.ledgeY.scale.setTo(.5);
         this.ledgeY.body.collideWorldBounds = true;
+        this.ledgeY.body.immovable = true;
         this.ledgeY.body.bounce.setTo(1);
     },
     ledgeSideSpawn: function (x, y) {
@@ -370,7 +375,6 @@ brawl.state12.prototype = {
             this.game.paused = false;
         }
         else {
-
             this.game.paused = true;
             //Streak
             // this.pauseText = this.game.add.text(this.player.x, this.player.y, "PAUSE", { font: "32px Arial", fill: "#ffffff", align: "center" });
@@ -426,9 +430,11 @@ brawl.state12.prototype = {
         this.game.physics.arcade.collide(this.ledge, this.wall, preventPhysicsBug);
         this.game.physics.arcade.collide(this.ledge, this.enemy, enemyLedge);
         this.game.physics.arcade.collide(this.ledge, this.spikes, preventPhysicsBug);
-        this.game.physics.arcade.collide(this.ledgeDown, this.wall, preventPhysicsBug);
-        this.game.physics.arcade.collide(this.ledgeDown, this.enemy, enemyLedge);
-        this.game.physics.arcade.collide(this.ledgeDown, this.spikes, preventPhysicsBug);
+        // this.game.physics.arcade.collide(this.ledgeDown, this.wall, preventPhysicsBug);
+        // this.game.physics.arcade.collide(this.ledgeDown, this.enemy, enemyLedge);
+        this.game.physics.arcade.collide(this.ledgeDown, this.enemy);
+        // this.game.physics.arcade.collide(this.ledgeDown, this.spikes, preventPhysicsBug);
+        this.game.physics.arcade.collide(this.ledgeDown, this.spikes);
         this.game.physics.arcade.collide(this.ledgeSide, this.wall);
         this.game.physics.arcade.collide(this.ledgeSide, this.enemy);
 
@@ -491,6 +497,19 @@ brawl.state12.prototype = {
             this.jumps = 2;
             this.jumping = false;
         }
+
+        // if (onTheGround) {
+        //     this.jumps = 2;
+        //     this.jumping = false;
+        // }
+
+        // if (onTheLeftSide || onTheRightSide || onUpsideDown) {
+        //     this.jumps = 0;
+        //     this.jumping = false;
+        // }
+
+
+        
 
         // Jump!
         if (this.jumps > 0 && this.upInputIsActive(5)) {
