@@ -256,16 +256,16 @@ function preventPhysicsBug(ledge, spike) {
 function ballMover(player, ball) {
   // ball.body.stop();
   if (ball.body.touching.down) {
-    ball.body.velocity.y = -300;
+    ball.body.velocity.y = -150;
   }
   else if (ball.body.touching.up) {
-    ball.body.velocity.y = 300;
+    ball.body.velocity.y = 150;
   }
   else if (ball.body.touching.right) {
-    ball.body.velocity.x = -300;
+    ball.body.velocity.x = -150;
   }
   else if (ball.body.touching.left) {
-    ball.body.velocity.x = 300;
+    ball.body.velocity.x = 150;
   }
 }
 
