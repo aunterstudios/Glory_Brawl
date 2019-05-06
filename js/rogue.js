@@ -233,7 +233,7 @@ brawl.state12.prototype = {
         // this.ballX.body.setCircle(50);
         this.ballX.body.mass = 5;
         this.ballX.body.collideWorldBounds = true;
-        this.ballX.body.maxVelocity.setTo(150);
+        this.ballX.body.maxVelocity.setTo(300);
         this.ballX.body.velocity.x = this.game.rnd.realInRange(-100, 100)
         this.ballX.body.bounce.setTo(1.0);
     },

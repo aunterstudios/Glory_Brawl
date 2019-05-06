@@ -269,6 +269,10 @@ function ballMover(player, ball) {
   }
 }
 
+// function ballStopper (ball,wall) {
+//   ball.body.stop();
+// }
+
 
 
 
