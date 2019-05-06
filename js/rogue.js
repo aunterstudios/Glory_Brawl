@@ -277,8 +277,6 @@ brawl.state12.prototype = {
     baseCamp: function () {
 
         //Spawning Ledges
-        // this.ledgeDownSpawn(600, 3000);
-        // this.ledgeDownSpawn(800, 3000);
         for (var i = 0; i<2; i++) {
             this.ledgeSpawn((i*600)+400,3000);
         }
@@ -509,9 +507,6 @@ brawl.state12.prototype = {
         //     this.jumping = false;
         // }
 
-
-        
-
         // Jump!
         if (this.jumps > 0 && this.upInputIsActive(5)) {
             this.player.body.velocity.y = -600;
@@ -526,6 +521,9 @@ brawl.state12.prototype = {
 
         //Player Standing Still
         this.player.body.velocity.x = 0;
+
+        //Player Angle Still
+        this.player.angle = 0;
 
         if (onTheGround) {
             if (this.cursors.left.isDown) {
@@ -566,6 +564,7 @@ brawl.state12.prototype = {
         else if (onUpsideDown) {
             this.player.animations.stop();
             this.player.frame = 8;
+            this.player.angle = 180;
             this.player.body.velocity.y = -100;
             if (this.cursors.left.isDown) {
                 this.player.body.velocity.x = -400;
