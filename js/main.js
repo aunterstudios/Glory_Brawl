@@ -19,7 +19,7 @@ var longestStreak = 0;
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "Rogue Version-MoreLedges",
+  "Rogue Version-StrongerBall",
   "You are a Prisoner of God.",
   "Given a sentence to experience eternal death and revival.",
   "To compete in an ever changing obstacle course game show.",
@@ -256,16 +256,16 @@ function preventPhysicsBug(ledge, spike) {
 function ballMover(player, ball) {
   // ball.body.stop();
   if (ball.body.touching.down) {
-    ball.body.velocity.y = -100;
+    ball.body.velocity.y = -300;
   }
   else if (ball.body.touching.up) {
-    ball.body.velocity.y = 100;
+    ball.body.velocity.y = 300;
   }
   else if (ball.body.touching.right) {
-    ball.body.velocity.x = -100;
+    ball.body.velocity.x = -300;
   }
   else if (ball.body.touching.left) {
-    ball.body.velocity.x = 100;
+    ball.body.velocity.x = 300;
   }
 }
 
