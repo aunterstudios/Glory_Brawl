@@ -97,7 +97,7 @@ brawl.state12.prototype = {
                 var xRandom = this.game.rnd.realInRange((x * xBlockSize) + 1, (x + 1) * xBlockSize);
                 var yRandom = this.game.rnd.realInRange((y * yBlockSize) + 1, (y + 1) * yBlockSize);
                 this.gridSystem(xRandom, yRandom);
-                console.log(x + ' ' + y + ' ' + xRandom + ' ' + yRandom);
+                // console.log(x + ' ' + y + ' ' + xRandom + ' ' + yRandom);
             }
         }
 
@@ -404,10 +404,10 @@ brawl.state12.prototype = {
         ////////////////////////Physics////////////////////////
         //Player Mechanics
 
-        this.game.physics.arcade.collide(this.player, this.wall);
-        this.game.physics.arcade.collide(this.player, this.ledge, ledgeUp);
-        this.game.physics.arcade.collide(this.player, this.ledgeDown, ledgeDownS);
-        this.game.physics.arcade.collide(this.player, this.ledgeSide, ledgeSideX);
+        var onWall = this.game.physics.arcade.collide(this.player, this.wall);
+        var onLedgeGrey = this.game.physics.arcade.collide(this.player, this.ledge, ledgeUp);
+        var onLedgeGreen = this.game.physics.arcade.collide(this.player, this.ledgeDown, ledgeDownS);
+        var onLedgeBlue = this.game.physics.arcade.collide(this.player, this.ledgeSide, ledgeSideX);
         this.game.physics.arcade.collide(this.player, this.ball, ballMover);
 
         // Ball Mechanics
@@ -485,19 +485,20 @@ brawl.state12.prototype = {
         ////////////////////////////////Actual Controls////////////////////////////////
 
         //Jump Mechanics
-        // Set a variable that is true when the player is a surface the ground or not a surface
+        // Set a variable that is true when the player is a surface the ground (or different sides) or not a surface
         var onTheGround = this.player.body.touching.down;
         var onTheRightSide = this.player.body.touching.right;
         var onTheLeftSide = this.player.body.touching.left;
         var onUpsideDown = this.player.body.touching.up;
         var onNone = this.player.body.touching.none;
 
-        // If the player is touching the ground, let him have 2 jumps
+        // If the player is touching a surface, let him have 2 jumps
         if (onTheGround || onTheLeftSide || onTheRightSide || onUpsideDown) {
             this.jumps = 2;
             this.jumping = false;
         }
 
+        //////////////////////////Double Jump Only from the ground/////////////////
         // if (onTheGround) {
         //     this.jumps = 2;
         //     this.jumping = false;
@@ -543,7 +544,9 @@ brawl.state12.prototype = {
         else if (onTheRightSide) {
             this.player.body.velocity.x = 50;
             this.player.body.velocity.y = 100;
-            this.player.frame = 6;
+            if (onWall || onLedgeBlue || onLedgeGreen || onLedgeGrey) {
+                this.player.frame = 6;
+            }
             if (this.cursors.left.isDown) {
                 this.player.body.velocity.y = -500;
                 this.player.body.velocity.x = -1000;
@@ -552,7 +555,9 @@ brawl.state12.prototype = {
         else if (onTheLeftSide) {
             this.player.body.velocity.x = -50;
             this.player.body.velocity.y = 100;
-            this.player.frame = 12;
+            if (onWall || onLedgeBlue || onLedgeGreen || onLedgeGrey) {
+                this.player.frame = 12;
+            }
             if (this.cursors.right.isDown) {
                 this.player.body.velocity.y = -500;
                 this.player.body.velocity.x = 1000;
@@ -583,13 +588,13 @@ brawl.state12.prototype = {
 
         //////////Downwards Mechanics
         if (this.cursors.down.isDown && onUpsideDown) {
-            this.player.frame = 10;
+            this.player.frame = 13;
             this.player.body.velocity.y = 200;
         }
 
         //Downward Mechanics
         if (this.cursors.down.isDown) {
-            this.player.frame = 10;
+            this.player.frame = 13;
             this.player.body.velocity.y = 500;
         }
     },
