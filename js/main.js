@@ -19,7 +19,7 @@ var longestStreak = 0;
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "Rogue Version-FixPhysicsBugs2",
+  "Rogue Version-FixPhysicsBugs3",
   "You are a Prisoner of God.",
   "Given a sentence to experience eternal death and revival.",
   "To compete in an ever changing obstacle course game show.",
@@ -265,7 +265,7 @@ function preventPhysicsBug2(sprite1, sprite2) {
   }
   else if (sprite1.body.touching.up) {
     sprite1.body.stop();
-    sprite1.body.velocity.y = 1000;
+    sprite1.body.velocity.y = 50;
   }
 }
 
