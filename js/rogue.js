@@ -293,11 +293,12 @@ brawl.state12.prototype = {
         var onLedgeGrey = this.game.physics.arcade.collide(this.player, this.ledge, ledgeUp);
         var onLedgeGreen = this.game.physics.arcade.collide(this.player, this.ledgeDown, ledgeDownS);
         var onLedgeBlue = this.game.physics.arcade.collide(this.player, this.ledgeSide, ledgeSideX);
+        // this.game.physics.arcade.collide(this.player, this.ball, ballMover, ballGround);
         this.game.physics.arcade.collide(this.player, this.ball, ballMover);
 
         // Ball Mechanics
         this.game.physics.arcade.collide(this.ball, this.ball);
-        this.game.physics.arcade.collide(this.ball, this.wall);
+        this.game.physics.arcade.collide(this.ball, this.wall, preventPhysicsBug);
         this.game.physics.arcade.overlap(this.ball, this.spikes, deathThree);
         this.game.physics.arcade.collide(this.ball, this.ledge);
         this.game.physics.arcade.collide(this.ball, this.ledgeDown);

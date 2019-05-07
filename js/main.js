@@ -19,7 +19,7 @@ var longestStreak = 0;
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "Rogue Version-StrongerBall",
+  "Rogue Version-FixPhysicsBugs",
   "You are a Prisoner of God.",
   "Given a sentence to experience eternal death and revival.",
   "To compete in an ever changing obstacle course game show.",
@@ -136,8 +136,7 @@ function ledgeUp(player, ledge) {
   //   player.body.velocity.y = -100;
   // }
   else if (ledge.body.touching.down) {
-    ledge.body.velocity.y = -100;
-    player.body.velocity.y = -10;
+    ledge.body.velocity.y = -300;
   }
 }
 
@@ -255,11 +254,12 @@ function preventPhysicsBug(ledge, spike) {
 
 function ballMover(player, ball) {
   // ball.body.stop();
-  if (ball.body.touching.down) {
-    ball.body.velocity.y = -150;
+  if (ball.body.touching.up) {
+    ball.body.velocity.y = 200;
   }
-  else if (ball.body.touching.up) {
-    ball.body.velocity.y = 150;
+  else if (ball.body.touching.down) {
+    ball.body.velocity.y = -200;
+    player.body.velocity.y = -50;
   }
   else if (ball.body.touching.right) {
     ball.body.velocity.x = -150;
@@ -269,9 +269,16 @@ function ballMover(player, ball) {
   }
 }
 
-// function ballStopper (ball,wall) {
-//   ball.body.stop();
-// }
+//Process Callbacks to Fix Physics Bugs
+
+function ballGround (player, ball) {
+  if (ball.body.touching.up) {
+    return false;
+  }
+  else {
+    return true;
+  }
+}
 
 
 
