@@ -19,7 +19,7 @@ var longestStreak = 0;
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "Rogue Version-FixPhysicsBugs",
+  "Rogue Version-FixPhysicsBugs2",
   "You are a Prisoner of God.",
   "Given a sentence to experience eternal death and revival.",
   "To compete in an ever changing obstacle course game show.",
@@ -116,7 +116,7 @@ function ledgeUp(player, ledge) {
   //When You're On Top of the Ledge
   if (ledge.body.touching.up) {
     ledge.body.velocity.y = -200;
-    player.body.velocity.y = -200;
+    player.body.velocity.y = -200 //Here to Prevent Going through walls
     if (player.body.velocity.x > 0) {
       ledge.body.velocity.x = player.body.velocity.x - 100;
     }
@@ -132,6 +132,15 @@ function ledgeUp(player, ledge) {
     ledge.body.velocity.y = 0;
     ledge.body.velocity.x = player.body.velocity.x;
   }
+  /////////////////////////////////In Case Want to Change Side Ledge Velocity///////////
+  // else if (ledge.body.touching.left) {
+  //   ledge.body.velocity.y = 0;
+  //   ledge.body.velocity.x = 300;
+  // }
+  // else if (ledge.body.touching.right) {
+  //   ledge.body.velocity.y = 0;
+  //   ledge.body.velocity.x = -300;
+  // }
   // else if (ledge.body.touching.down && player.body.velocity.y < -1) {
   //   player.body.velocity.y = -100;
   // }
@@ -244,9 +253,19 @@ function enemyLedgeSprite(enemy, ledge) {
 }
 
 //Preventing Physics Bugs
-function preventPhysicsBug(ledge, spike) {
-  if (ledge.body.touching.down) {
-    ledge.body.velocity.y = -1000;
+function preventPhysicsBug(sprite1, sprite2) {
+  if (sprite1.body.touching.down) {
+    sprite1.body.velocity.y = -1000;
+  }
+}
+
+function preventPhysicsBug2(sprite1, sprite2) {
+  if (sprite1.body.touching.down) {
+    sprite1.body.velocity.y = -1000;
+  }
+  else if (sprite1.body.touching.up) {
+    sprite1.body.stop();
+    sprite1.body.velocity.y = 1000;
   }
 }
 
@@ -259,7 +278,7 @@ function ballMover(player, ball) {
   }
   else if (ball.body.touching.down) {
     ball.body.velocity.y = -200;
-    player.body.velocity.y = -50;
+    player.body.velocity.y = 500;
   }
   else if (ball.body.touching.right) {
     ball.body.velocity.x = -150;
