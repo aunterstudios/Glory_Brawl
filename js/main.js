@@ -19,7 +19,7 @@ var longestStreak = 0;
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "Rogue Version-FixPhysicsBugs3",
+  "Rogue Version-FixPhysicsBugs5",
   "You are a Prisoner of God.",
   "Given a sentence to experience eternal death and revival.",
   "To compete in an ever changing obstacle course game show.",
@@ -146,6 +146,7 @@ function ledgeUp(player, ledge) {
   // }
   else if (ledge.body.touching.down) {
     ledge.body.velocity.y = -300;
+    player.body.velocity.y = -100;
   }
 }
 
@@ -259,26 +260,27 @@ function preventPhysicsBug(sprite1, sprite2) {
   }
 }
 
-function preventPhysicsBug2(sprite1, sprite2) {
-  if (sprite1.body.touching.down) {
-    sprite1.body.velocity.y = -1000;
-  }
-  else if (sprite1.body.touching.up) {
-    sprite1.body.stop();
-    sprite1.body.velocity.y = 50;
-  }
-}
+// function preventPhysicsBug2(sprite1, sprite2) {
+//   if (sprite1.body.touching.down) {
+//     sprite1.body.velocity.y = -1000;
+//   }
+//   else if (sprite1.body.touching.up) {
+//     sprite1.body.stop();
+//     sprite1.body.velocity.y = 50;
+//   }
+// }
 
 //Ball Mechanics
 
 function ballMover(player, ball) {
   // ball.body.stop();
   if (ball.body.touching.up) {
-    ball.body.velocity.y = 200;
+    ball.body.velocity.y = 150;
+    player.body.velocity.y = -300;
   }
   else if (ball.body.touching.down) {
-    ball.body.velocity.y = -200;
-    player.body.velocity.y = 500;
+    ball.body.velocity.y = -150;
+    player.body.velocity.y = 300;
   }
   else if (ball.body.touching.right) {
     ball.body.velocity.x = -150;

@@ -78,7 +78,7 @@ brawl.state12.prototype = {
         this.player.anchor.setTo(.5);
         this.player.scale.setTo(.6);
         this.player.body.setSize(63, 84, 5, 6);
-        this.player.body.bounce.y = 0;
+        // this.player.body.bounce.y = 0;
         this.player.body.gravity.y = 1500;
         //this.player.body.allowDrag = false;
         // this.player.body.collideWorldBounds = true;
@@ -298,7 +298,7 @@ brawl.state12.prototype = {
 
         // Ball Mechanics
         this.game.physics.arcade.collide(this.ball, this.ball);
-        this.game.physics.arcade.collide(this.ball, this.wall, preventPhysicsBug2);
+        this.game.physics.arcade.collide(this.ball, this.wall);
         this.game.physics.arcade.overlap(this.ball, this.spikes, deathThree);
         this.game.physics.arcade.collide(this.ball, this.ledge);
         this.game.physics.arcade.collide(this.ball, this.ledgeDown);
