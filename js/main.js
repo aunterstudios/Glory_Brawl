@@ -288,20 +288,17 @@ function preventPhysicsBug(sprite1, sprite2) {
 
 function ballMover(player, ball) {
   if (ball.body.touching.up) {
-    ball.body.velocity.y= 200;
-    player.body.velocity.y = -300;
+    ball.body.velocity.y= 100;
   }
   else if (ball.body.touching.down) {
-    ball.body.velocity.y = -200;
-    player.body.velocity.y = -150;
+    ball.body.velocity.y = -100;
+    player.body.velocity.y = -50;
   }
   else if (ball.body.touching.left) {
-    ball.body.velocity.x = 200;
-    player.body.velocity.x = -100;
+    ball.body.velocity.x = 100;
   }
   else if (ball.body.touching.right) {
-    ball.body.velocity.x = -200;
-    player.body.velocity.x = 100;
+    ball.body.velocity.x = -100;
   }
 }
 
