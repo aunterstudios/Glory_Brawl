@@ -140,18 +140,18 @@ brawl.state12.prototype = {
         }
 
     },
-    ledgeOut: function (ledge) {
-        if (ledge.x >= 1400) {
-            ledge.reset(0, ledge.y)
-            ledge.body.velocity.x = 400;
-        }
-        else if (0 >= ledge.x) {
-            ledge.reset(1400, ledge.y)
-            ledge.body.velocity.x = -400;
-        }
-        // console.log(this.ledgeX.x + ' ' + this.ledgeX.y);
+    // ledgeOut: function (ledge) {
+    //     if (ledge.x >= 1400) {
+    //         ledge.reset(0, ledge.y)
+    //         ledge.body.velocity.x = 400;
+    //     }
+    //     else if (0 >= ledge.x) {
+    //         ledge.reset(1400, ledge.y)
+    //         ledge.body.velocity.x = -400;
+    //     }
+    //     // console.log(this.ledgeX.x + ' ' + this.ledgeX.y);
 
-    },
+    // },
     //Creation of the Grid System (objects Spawning)
     gridSystem: function (x, y) {
         //Create Randomness in Each Grid
@@ -219,9 +219,10 @@ brawl.state12.prototype = {
         this.ledgeX.body.maxVelocity.setTo(400);
         this.ledgeX.anchor.setTo(.5);
         this.ledgeX.scale.setTo(.5);
-        // this.ledgeX.body.collideWorldBounds = true;
-        this.ledgeX.checkWorldBounds = true;
-        this.ledgeX.events.onOutOfBounds.add(this.ledgeOut, this);
+        this.ledgeX.body.collideWorldBounds = true;
+        //////////////////////Ledge Out of Bounds/////////////////////
+        // this.ledgeX.checkWorldBounds = true;
+        // this.ledgeX.events.onOutOfBounds.add(this.ledgeOut, this);
         this.ledgeX.body.bounce.setTo(1);
     },
     ledgeDownSpawn: function (x, y) {
