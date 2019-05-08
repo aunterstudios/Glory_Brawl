@@ -331,7 +331,7 @@ brawl.state12.prototype = {
         this.game.physics.arcade.collide(this.ledgeDown, this.ledgeSide);
 
         //Ledge vs. Other Objects
-        this.game.physics.arcade.collide(this.ledge, this.wall, preventPhysicsBug);
+        // this.game.physics.arcade.collide(this.ledge, this.wall, preventPhysicsBug);
         this.game.physics.arcade.collide(this.ledge, this.enemy, enemyLedge);
         this.game.physics.arcade.collide(this.ledge, this.spikes, preventPhysicsBug);
         // this.game.physics.arcade.collide(this.ledgeDown, this.wall, preventPhysicsBug);

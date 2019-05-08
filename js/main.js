@@ -19,7 +19,7 @@ var longestStreak = 0;
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "Rogue Version-FiXOutofBoundsv2",
+  "Rogue Version-FixLedges",
   "You are a Prisoner of God.",
   "Given a sentence to experience eternal death and revival.",
   "To compete in an ever changing obstacle course game show.",
@@ -151,6 +151,16 @@ function ledgeUp(player, ledge) {
   }
 }
 
+// function ledgeWall (ledge,wall) {
+//   if (wall.body.wasTouching) {
+//     ledge.body.checkCollision.up = false;
+// 	  ledge.body.checkCollision.down = false;
+//   }
+//   else {
+//     ledge.body.checkCollision.up = true;
+// 	  ledge.body.checkCollision.down = true;
+//   }
+// }
 //////////////ledgeFunctionChange
 // function ledgeDownS(player, ledge) {
 //   //When You're On Top of the Ledge
