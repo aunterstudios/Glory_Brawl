@@ -128,15 +128,28 @@ brawl.state12.prototype = {
         this.text.cameraOffset.setTo(100, 750);
 
     },
-    playerOut: function () {
-        if (this.player.x >= 1400) {
-            this.player.reset(0, this.player.y)
-            this.player.body.velocity.x = 400;
+    ////////////////////////Out of Bounds Events//////////////////////////
+    playerOut: function (player) {
+        if (player.x >= 1400) {
+            player.reset(0, player.y)
+            player.body.velocity.x = 400;
         }
-        else if (0 >= this.player.x) {
-            this.player.reset(1400, this.player.y)
-            this.player.body.velocity.x = -400;
+        else if (0 >= player.x) {
+            player.reset(1400, player.y)
+            player.body.velocity.x = -400;
         }
+
+    },
+    ledgeOut: function (ledge) {
+        if (ledge.x >= 1400) {
+            ledge.reset(0, ledge.y)
+            ledge.body.velocity.x = 400;
+        }
+        else if (0 >= ledge.x) {
+            ledge.reset(1400, ledge.y)
+            ledge.body.velocity.x = -400;
+        }
+        // console.log(this.ledgeX.x + ' ' + this.ledgeX.y);
 
     },
     //Creation of the Grid System (objects Spawning)
@@ -150,7 +163,7 @@ brawl.state12.prototype = {
             this.enemySpawn(x, y);
         }
         else if (gridSystemGenesis >= 62 && gridSystemGenesis <= 72) {
-            this.ledgeDownSpawn(x,y);
+            this.ledgeDownSpawn(x, y);
         }
         else if (gridSystemGenesis >= 73 && gridSystemGenesis <= 79) {
             this.ledgeSideSpawn(x, y);
@@ -161,9 +174,10 @@ brawl.state12.prototype = {
     },
     baseCamp: function () {
 
+        /////////////////////////////////Starting Point of The Map////////////////////////////////
         //Spawning Ledges
-        for (var i = 0; i<4; i++) {
-            this.ledgeSpawn((i*350)+200,6200);
+        for (var i = 0; i < 4; i++) {
+            this.ledgeSpawn((i * 350) + 200, 6200);
         }
 
         //create wall
@@ -177,7 +191,7 @@ brawl.state12.prototype = {
 
         //creating spikes
         for (var i = 0; i < 2; i++) {
-            var iteratorSpikes = i * 300;
+            var iteratorSpikes = i * 250;
             this.spikesX = this.spikes.create(0, iteratorSpikes + 6300, 'spikes');
             this.spikesX.scale.setTo(1);
             this.spikesX.body.immovable = true;
@@ -195,6 +209,7 @@ brawl.state12.prototype = {
         this.trumpX = this.enemy.create(x, y, 'enemy');
         this.trumpX.body.velocity.x = this.game.rnd.realInRange(-1000, 1000)
         // this.trumpX.body.gravity.y = 10;
+        this.trumpX.anchor.setTo(.5);
         this.trumpX.body.maxVelocity.setTo(1000);
         this.trumpX.body.bounce.setTo(1);
         this.trumpX.body.collideWorldBounds = true;
@@ -204,7 +219,9 @@ brawl.state12.prototype = {
         this.ledgeX.body.maxVelocity.setTo(400);
         this.ledgeX.anchor.setTo(.5);
         this.ledgeX.scale.setTo(.5);
-        this.ledgeX.body.collideWorldBounds = true;
+        // this.ledgeX.body.collideWorldBounds = true;
+        this.ledgeX.checkWorldBounds = true;
+        this.ledgeX.events.onOutOfBounds.add(this.ledgeOut, this);
         this.ledgeX.body.bounce.setTo(1);
     },
     ledgeDownSpawn: function (x, y) {
@@ -300,7 +317,7 @@ brawl.state12.prototype = {
         this.game.physics.arcade.collide(this.ball, this.ball);
         this.game.physics.arcade.collide(this.ball, this.wall);
         this.game.physics.arcade.overlap(this.ball, this.spikes, deathThree);
-        this.game.physics.arcade.collide(this.ball, this.ledge);
+        this.game.physics.arcade.collide(this.ball, this.ledge, ballLedge);
         this.game.physics.arcade.collide(this.ball, this.ledgeDown);
         this.game.physics.arcade.collide(this.ball, this.ledgeSide);
         this.game.physics.arcade.overlap(this.ball, this.enemy, deathThree);

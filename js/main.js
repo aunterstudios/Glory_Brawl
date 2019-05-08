@@ -19,7 +19,7 @@ var longestStreak = 0;
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "Rogue Version-FixPhysicsBugs5",
+  "Rogue Version-FiXOutofBounds",
   "You are a Prisoner of God.",
   "Given a sentence to experience eternal death and revival.",
   "To compete in an ever changing obstacle course game show.",
@@ -91,6 +91,7 @@ function nextLevel(player, door) {
 
 ///Deathgame State
 function deathOne(victim, killer) {
+  // console.log(victim.body.x + ' '+ victim.body.y);
   victim.kill();
   if (streak > longestStreak) {
     longestStreak = streak;
@@ -287,6 +288,22 @@ function ballMover(player, ball) {
   }
   else if (ball.body.touching.left) {
     ball.body.velocity.x = 150;
+  }
+}
+
+function ballLedge(ball,ledge) {
+  // if (ledge.body.touching.up) {
+  //   ball.body.velocity.y = -200;
+  // }
+  // else if (ledge.body.touching.down) {
+  //   ball.body.velocity.y = 200;
+  // }
+  if (ball.body.touching.up) {
+    ball.body.velocity.y = 200;
+  }
+  else if (ball.body.touching.down) {
+    ball.body.velocity.y = -200;
+    ledge.body.velocity.y = -200;
   }
 }
 
