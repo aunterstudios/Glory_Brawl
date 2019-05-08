@@ -100,7 +100,7 @@ brawl.stateControls.prototype = {
             else {
                 var xText = 1000;
                 var yText = 700;
-                var textInput = "Press Spacebar to Play";
+                var textInput = "Press Enter to Play";
                 var fontFill = "#ffffff";
                 var fontSize = 20;
             }
@@ -112,7 +112,7 @@ brawl.stateControls.prototype = {
         }
     },
     update: function () {
-        if (this.game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
+        if (this.game.input.keyboard.isDown(Phaser.Keyboard.ENTER)) {
             this.game.state.start('rogueTest');
         }
 
