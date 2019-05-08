@@ -203,6 +203,9 @@ function ledgeDownS(player, ledge) {
   if (ledge.body.touching.up || player.body.touching.down) {
     player.body.velocity.y = -1200;
   }
+  else if (ledge.body.touching.down || player.body.touching.up) {
+    player.body.stop();
+  }
 }
 
 function ledgeSideX(player, ledge) {
@@ -284,30 +287,21 @@ function preventPhysicsBug(sprite1, sprite2) {
 //Ball Mechanics
 
 function ballMover(player, ball) {
-  // ball.body.stop();
   if (ball.body.touching.up) {
-    ball.body.stop();
-    ball.body.velocity.x = player.body.velocity.x;
+    ball.body.velocity.y= 200;
     player.body.velocity.y = -300;
-    ball.body.velocity.y = 150;
   }
   else if (ball.body.touching.down) {
-    ball.body.stop();
-    ball.body.velocity.x = player.body.velocity.x;
-    player.body.velocity.y = -100;
-    ball.body.velocity.y = -150;
-  }
-  else if (ball.body.touching.right) {
-    ball.body.stop();
-    ball.body.velocity.x = player.body.velocity.x;
-    player.body.velocity.x = 150;
-    ball.body.velocity.x = -150;
+    ball.body.velocity.y = -200;
+    player.body.velocity.y = -150;
   }
   else if (ball.body.touching.left) {
-    ball.body.stop();
-    ball.body.velocity.x = player.body.velocity.x;
-    player.body.velocity.x = -150;
-    ball.body.velocity.x = 150;
+    ball.body.velocity.x = 200;
+    player.body.velocity.x = -100;
+  }
+  else if (ball.body.touching.right) {
+    ball.body.velocity.x = -200;
+    player.body.velocity.x = 100;
   }
 }
 
