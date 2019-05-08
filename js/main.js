@@ -19,7 +19,7 @@ var longestStreak = 0;
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "Rogue Version-FixLedgesNewGameNSV",
+  "Rogue Version-NewBallWhoThis?",
   "You are a Prisoner of God.",
   "Given a sentence to experience eternal death and revival.",
   "To compete in an ever changing obstacle course game show.",
@@ -310,9 +310,12 @@ function ballLedge(ball,ledge) {
   //   ball.body.velocity.y = 200;
   // }
   if (ball.body.touching.up) {
+    ledge.body.stop();
     ball.body.velocity.y = 200;
+    ledge.body.velocity.y = 200;
   }
   else if (ball.body.touching.down) {
+    ball.body.stop();
     ball.body.velocity.y = -200;
     ledge.body.velocity.y = -200;
   }
