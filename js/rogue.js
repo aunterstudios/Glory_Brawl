@@ -34,8 +34,8 @@ brawl.state12.prototype = {
 
         this.fullSize.onDown.add(this.gofull, this);
 
-        //Pause Menu
-        this.pause = this.game.input.keyboard.addKey(Phaser.Keyboard.P);
+        //Pause Menu (Freeze TIME LOL)
+        this.pause = this.game.input.keyboard.addKey(Phaser.Keyboard.CONTROL);
 
         this.pause.onDown.add(this.goPause, this);
 
@@ -319,7 +319,7 @@ brawl.state12.prototype = {
         this.game.physics.arcade.collide(this.ball, this.wall);
         this.game.physics.arcade.overlap(this.ball, this.spikes, deathThree);
         this.game.physics.arcade.collide(this.ball, this.ledge, ballLedge);
-        this.game.physics.arcade.collide(this.ball, this.ledgeDown);
+        this.game.physics.arcade.collide(this.ball, this.ledgeDown, ballLedgeDown);
         this.game.physics.arcade.collide(this.ball, this.ledgeSide);
         this.game.physics.arcade.overlap(this.ball, this.enemy, deathThree);
 

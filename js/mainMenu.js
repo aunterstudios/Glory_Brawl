@@ -76,7 +76,7 @@ brawl.stateControls.prototype = {
             if (i === 0) {
                 var xText = 10;
                 var yText = 100;
-                var textInput = " Spacebar or Up Arrow Key to Jump (Tap Twice to Double Jump) \n\n Down Arrow Key to Move or Push Downwards \n\n Left Arrow Key to Move Left \n\n Right Arrow Key to Move Right \n\n P to Pause";
+                var textInput = " Spacebar or Up Arrow Key to Jump (Tap Twice to Double Jump) \n\n Down Arrow Key to Move or Push Downwards \n\n Left Arrow Key to Move Left \n\n Right Arrow Key to Move Right \n\n CTRL to Freeze Time";
                 var fontFill = "#19de65";
                 var fontSize = 25;
             }
