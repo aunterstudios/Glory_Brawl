@@ -19,7 +19,7 @@ var longestStreak = 0;
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "Rogue Version-NeWMinds",
+  "Rogue Version-NeWBall",
   "You are a Prisoner of God.",
   "Given a sentence to experience eternal death and revival.",
   "To compete in an ever changing obstacle course game show.",
@@ -129,6 +129,7 @@ function ledgeUp(player, ledge) {
     //   ledge.body.velocity.x = 0;
     // }
     ledge.body.velocity.x = player.body.velocity.x;
+    player.body.velocity.x = ledge.body.velocity.x;
   }
   // When You're Hitting the Edge from the Sides (Right and Left)
   else if (ledge.body.touching.left || ledge.body.touching.right) {
@@ -217,17 +218,17 @@ function preventPhysicsBug(sprite1, sprite2) {
 function ballMover(player, ball) {
   ball.body.stop();
   if (ball.body.touching.up) {
-    ball.body.velocity.y= 100;
+    ball.body.velocity.y= 500;
   }
   else if (ball.body.touching.down) {
-    ball.body.velocity.y = -100;
+    ball.body.velocity.y = -500;
     player.body.velocity.y = -50;
   }
   else if (ball.body.touching.left) {
-    ball.body.velocity.x = 100;
+    ball.body.velocity.x = 500;
   }
   else if (ball.body.touching.right) {
-    ball.body.velocity.x = -100;
+    ball.body.velocity.x = -500;
   }
 }
 
