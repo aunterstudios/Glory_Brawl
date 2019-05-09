@@ -19,7 +19,7 @@ var longestStreak = 0;
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "Rogue Version-Ergh?",
+  "Rogue Version-Wut?",
   "You are a Prisoner of God.",
   "Given a sentence to experience eternal death and revival.",
   "To compete in an ever changing obstacle course game show.",
@@ -118,15 +118,16 @@ function ledgeUp(player, ledge) {
   if (ledge.body.touching.up) {
     ledge.body.velocity.y = -200;
     player.body.velocity.y = -200 //Here to Prevent Going through walls
-    if (player.body.velocity.x > 0) {
-      ledge.body.velocity.x = player.body.velocity.x - 100;
-    }
-    else if (player.body.velocity.x < 0) {
-      ledge.body.velocity.x = player.body.velocity.x + 100;
-    }
-    else {
-      ledge.body.velocity.x = 0;
-    }
+    // if (player.body.velocity.x > 0) {
+    //   ledge.body.velocity.x = player.body.velocity.x - 100;
+    // }
+    // else if (player.body.velocity.x < 0) {
+    //   ledge.body.velocity.x = player.body.velocity.x + 100;
+    // }
+    // else {
+    //   ledge.body.velocity.x = 0;
+    // }
+    ledge.body.velocity.x = player.body.velocity.x;
   }
   // When You're Hitting the Edge from the Sides (Right and Left)
   else if (ledge.body.touching.left || ledge.body.touching.right) {
