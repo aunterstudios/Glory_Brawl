@@ -92,11 +92,12 @@ brawl.state12.prototype = {
         //////////////////Grid System Creation////////////////
 
         var xBlockSize = 280;
-        var yBlockSize = 450;
+        // var yBlockSize = 450;
+        var yBlockSize = 325;
 
         //6
         for (var x = 0; x < 5; x++) {
-            for (var y = 0; y < 13; y++) {
+            for (var y = 0; y < 18; y++) {
                 var xRandom = this.game.rnd.realInRange((x * xBlockSize) + 1, (x + 1) * xBlockSize);
                 var yRandom = this.game.rnd.realInRange((y * yBlockSize) + 1, (y + 1) * yBlockSize);
                 this.gridSystem(xRandom, yRandom);
