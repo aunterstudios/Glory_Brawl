@@ -19,7 +19,7 @@ var longestStreak = 0;
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "Rogue Version-NewBall?",
+  "Rogue Version-Ergh?",
   "You are a Prisoner of God.",
   "Given a sentence to experience eternal death and revival.",
   "To compete in an ever changing obstacle course game show.",
@@ -279,30 +279,41 @@ function ballMover(player, ball) {
 }
 
 function ballLedge(ball,ledge) {
-  // if (ledge.body.touching.up) {
-  //   ball.body.velocity.y = -200;
-  // }
-  // else if (ledge.body.touching.down) {
-  //   ball.body.velocity.y = 200;
-  // }
   if (ball.body.touching.up) {
     ledge.body.stop();
     ball.body.stop();
     ball.body.velocity.y = 200;
-    ledge.body.velocity.y = 200;
+    ledge.body.velocity.y = -200;
   }
   else if (ball.body.touching.down) {
     ledge.body.stop();
     ball.body.stop();
     ball.body.velocity.y = -200;
-    ledge.body.velocity.y = -200;
-    console.log("this is happening?");
+    ledge.body.velocity.y = 100;
+  }
+}
+
+function ballWall (ball,wall) {
+  if (ball.body.touching.up) {
+    ball.body.velocity.y = 100;
+  }
+  else if (ball.body.touching.down) {
+    ball.body.velocity.y = -100;
+  }
+  else if (ball.body.touching.left) {
+    ball.body.velocity.x = 100;
+  }
+  else if (ball.body.touching.right) {
+    ball.body.velocity.x = -100;
   }
 }
 
 function ballLedgeDown (ball,ledge) {
   if (ledge.body.touching.up) {
     ball.body.velocity.y = -1000;
+  }
+  else if (ledge.body.touching.down) {
+    ball.body.velocity.y = 1000;
   }
 }
 
