@@ -19,7 +19,7 @@ var longestStreak = 0;
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "Rogue Version-Wut?",
+  "Rogue Version-FixAllTheBugs",
   "You are a Prisoner of God.",
   "Given a sentence to experience eternal death and revival.",
   "To compete in an ever changing obstacle course game show.",
@@ -110,7 +110,7 @@ function deathThree(killer, victim) {
 }
 ///////////////////////////////////////////Function Mechanics////////////////////////////////////////////
 
-//Ledge Mechanics
+////////////////////////////////////Ledge Mechanics//////////////////////////////////////
 
 
 function ledgeUp(player, ledge) {
@@ -152,60 +152,10 @@ function ledgeUp(player, ledge) {
   }
 }
 
-// function ledgeWall (ledge,wall) {
-//   if (wall.body.wasTouching) {
-//     ledge.body.checkCollision.up = false;
-// 	  ledge.body.checkCollision.down = false;
-//   }
-//   else {
-//     ledge.body.checkCollision.up = true;
-// 	  ledge.body.checkCollision.down = true;
-//   }
-// }
-//////////////ledgeFunctionChange
-// function ledgeDownS(player, ledge) {
-//   //When You're On Top of the Ledge
-//   if (ledge.body.touching.up) {
-//     ledge.body.velocity.y = -200;
-//     player.body.velocity.y = -700;
-//     if (player.body.velocity.x > 0) {
-//       ledge.body.velocity.x = player.body.velocity.x - 100;
-//     }
-//     else if (player.body.velocity.x < 0) {
-//       ledge.body.velocity.x = player.body.velocity.x + 100;
-//     }
-//     else {
-//       ledge.body.velocity.x = 0;
-//     }
-//   }
-//   // When You're Hitting the Edge from the Sides (Right and Left)
-//   else if (ledge.body.touching.left || ledge.body.touching.right) {
-//     ledge.body.velocity.y = 0;
-//     ledge.body.velocity.x = player.body.velocity.x;
-//   }
-//   // else if (ledge.body.touching.down && player.body.velocity.y < -1) {
-//   //   ledge.body.velocity.x = 0;
-//   // }
-//   // else if (ledge.body.touching.down) {
-//   //   ledge.body.velocity.y = -75;
-//   // }
-//   // else if (ledge.body.touching.down) {
-//   //   ledge.body.stop();
-//   //   player.body.velocity.y = -2000;
-//   // }
-//   else if (ledge.body.touching.down) {
-//     ledge.body.velocity.y = -50;
-//     player.body.velocity.y = -100;
-//   }
-// }
-
 function ledgeDownS(player, ledge) {
   //When You're On Top of the Ledge
   if (ledge.body.touching.up || player.body.touching.down) {
     player.body.velocity.y = -1200;
-  }
-  else if (ledge.body.touching.down || player.body.touching.up) {
-    player.body.stop();
   }
 }
 
@@ -261,7 +211,7 @@ function preventPhysicsBug(sprite1, sprite2) {
 //   }
 // }
 
-//Ball Mechanics
+////////////////////////////Ball Mechanics////////////////////////////////////
 
 function ballMover(player, ball) {
   if (ball.body.touching.up) {
@@ -317,18 +267,6 @@ function ballLedgeDown (ball,ledge) {
     ball.body.velocity.y = 1000;
   }
 }
-
-//Process Callbacks to Fix Physics Bugs
-
-function ballGround (player, ball) {
-  if (ball.body.touching.up) {
-    return false;
-  }
-  else {
-    return true;
-  }
-}
-
 
 
 

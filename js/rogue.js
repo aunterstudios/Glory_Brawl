@@ -153,7 +153,7 @@ brawl.state12.prototype = {
     //     // console.log(this.ledgeX.x + ' ' + this.ledgeX.y);
 
     // },
-    //Creation of the Grid System (objects Spawning)
+    ////////////////Creation of the Grid System (objects Spawning)/////////////////
     gridSystem: function (x, y) {
         //Create Randomness in Each Grid
         var gridSystemGenesis = this.game.rnd.integerInRange(0, 100);
@@ -205,6 +205,7 @@ brawl.state12.prototype = {
         this.wallX.anchor.setTo(.5);
         this.wallX.scale.setTo(.5);
         this.wallX.body.immovable = true;
+        this.wallX.body.moves = false;
     },
     enemySpawn: function (x, y) {
         this.trumpX = this.enemy.create(x, y, 'enemy');
@@ -286,6 +287,7 @@ brawl.state12.prototype = {
             // this.pauseText.cameraOffset.setTo(1200, 750);
         }
     },
+    ///////////////////////Handling Jump Events (Double-Jump)//////////////////
     upInputReleased: function () {
         var released = false;
 
@@ -327,7 +329,7 @@ brawl.state12.prototype = {
         //Ledge vs. Ledge Mechanics
         // this.game.physics.arcade.collide(this.ledge, this.ledge);
         // this.game.physics.arcade.collide(this.ledgeDown, this.ledgeDown);
-        this.game.physics.arcade.collide(this.ledge, this.ledgeDown,preventPhysicsBug);
+        this.game.physics.arcade.collide(this.ledge, this.ledgeDown, preventPhysicsBug);
         this.game.physics.arcade.collide(this.ledge, this.ledgeSide);
         this.game.physics.arcade.collide(this.ledgeDown, this.ledgeSide);
 
@@ -481,6 +483,7 @@ brawl.state12.prototype = {
                 this.player.body.velocity.x = 400;
                 this.player.animations.play('right');
             }
+
         }
         if (onNone) {
             this.player.frame = 10;
