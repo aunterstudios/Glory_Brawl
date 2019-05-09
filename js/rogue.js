@@ -42,6 +42,7 @@ brawl.state12.prototype = {
         // Setting World Stage
 
         //3200
+        //1400X
         this.game.world.setBounds(0, 0, 1400, 6400);
 
         //Keyboard Controls
@@ -93,11 +94,12 @@ brawl.state12.prototype = {
 
         var xBlockSize = 280;
         // var yBlockSize = 450;
-        var yBlockSize = 325;
+        var yBlockSize = 390;
 
         //6
+        //5850
         for (var x = 0; x < 5; x++) {
-            for (var y = 0; y < 18; y++) {
+            for (var y = 0; y < 15; y++) {
                 var xRandom = this.game.rnd.realInRange((x * xBlockSize) + 1, (x + 1) * xBlockSize);
                 var yRandom = this.game.rnd.realInRange((y * yBlockSize) + 1, (y + 1) * yBlockSize);
                 this.gridSystem(xRandom, yRandom);
@@ -253,7 +255,7 @@ brawl.state12.prototype = {
         // this.ballX.body.setCircle(50);
         // this.ballX.body.mass = 5;
         this.ballX.body.collideWorldBounds = true;
-        this.ballX.body.maxVelocity.setTo(300);
+        this.ballX.body.maxVelocity.setTo(200);
         this.ballX.body.velocity.x = this.game.rnd.realInRange(-100, 100)
         this.ballX.body.bounce.setTo(1.0);
     },
@@ -315,7 +317,7 @@ brawl.state12.prototype = {
         var onLedgeGreen = this.game.physics.arcade.collide(this.player, this.ledgeDown, ledgeDownS);
         var onLedgeBlue = this.game.physics.arcade.collide(this.player, this.ledgeSide, ledgeSideX);
         // this.game.physics.arcade.collide(this.player, this.ball, ballMover, ballGround);
-        this.game.physics.arcade.collide(this.player, this.ball, ballMover);
+        var onBall = this.game.physics.arcade.collide(this.player, this.ball, ballMover);
 
         // Ball Mechanics
         this.game.physics.arcade.collide(this.ball, this.ball);

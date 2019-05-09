@@ -19,7 +19,7 @@ var longestStreak = 0;
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "Rogue Version-FixAllTheBugs",
+  "Rogue Version-NeWMinds",
   "You are a Prisoner of God.",
   "Given a sentence to experience eternal death and revival.",
   "To compete in an ever changing obstacle course game show.",
@@ -115,6 +115,7 @@ function deathThree(killer, victim) {
 
 function ledgeUp(player, ledge) {
   //When You're On Top of the Ledge
+  ledge.body.stop();
   if (ledge.body.touching.up) {
     ledge.body.velocity.y = -200;
     player.body.velocity.y = -200 //Here to Prevent Going through walls
@@ -214,6 +215,7 @@ function preventPhysicsBug(sprite1, sprite2) {
 ////////////////////////////Ball Mechanics////////////////////////////////////
 
 function ballMover(player, ball) {
+  ball.body.stop();
   if (ball.body.touching.up) {
     ball.body.velocity.y= 100;
   }
