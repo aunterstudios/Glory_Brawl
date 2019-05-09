@@ -19,7 +19,7 @@ var longestStreak = 0;
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "Rogue Version-EnterToPlay?",
+  "Rogue Version-NewBall?",
   "You are a Prisoner of God.",
   "Given a sentence to experience eternal death and revival.",
   "To compete in an ever changing obstacle course game show.",
@@ -243,30 +243,6 @@ function enemyLedge(ledge, enemy) {
     ledge.body.velocity.x = -200;
   }
 }
-
-function enemyLedgeSprite(enemy, ledge) {
-  if (ledge.body.touching.up) {
-    enemy.body.stop();
-    enemy.body.velocity.y = -125;
-    ledge.body.velocity.y = 200;
-  }
-  else if (ledge.body.touching.down) {
-    enemy.body.stop();
-    enemy.body.velocity.y = 125;
-    ledge.body.velocity.y = -200;
-  }
-  else if (ledge.body.touching.left) {
-    enemy.body.stop();
-    enemy.body.velocity.x = -125;
-    ledge.body.velocity.x = 200;
-  }
-  else if (ledge.body.touching.right) {
-    enemy.body.stop();
-    enemy.body.velocity.x = 125;
-    ledge.body.velocity.x = -200;
-  }
-}
-
 //Preventing Physics Bugs
 function preventPhysicsBug(sprite1, sprite2) {
   if (sprite1.body.touching.down) {
@@ -311,19 +287,22 @@ function ballLedge(ball,ledge) {
   // }
   if (ball.body.touching.up) {
     ledge.body.stop();
+    ball.body.stop();
     ball.body.velocity.y = 200;
     ledge.body.velocity.y = 200;
   }
   else if (ball.body.touching.down) {
+    ledge.body.stop();
     ball.body.stop();
     ball.body.velocity.y = -200;
     ledge.body.velocity.y = -200;
+    console.log("this is happening?");
   }
 }
 
 function ballLedgeDown (ball,ledge) {
   if (ledge.body.touching.up) {
-    ball.body.velocity.y = -500;
+    ball.body.velocity.y = -1000;
   }
 }
 
