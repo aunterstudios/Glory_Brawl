@@ -39,10 +39,10 @@ brawl.state12.prototype = {
 
         this.pause.onDown.add(this.goPause, this);
 
-        // Setting World Stage
+        //Overlap Bias to Prevent Sprite Tunneling
+        this.game.physics.arcade.OVERLAP_BIAS = 10;
 
-        //3200
-        //1400X
+        ////////////////////Game World Size//////////////////////
         this.game.world.setBounds(0, 0, 5600, 6400);
 
         //Keyboard Controls
@@ -73,7 +73,6 @@ brawl.state12.prototype = {
 
 
         //Adding Player
-        //3000
         this.player = this.game.add.sprite(2800, 6180, 'dude');
         this.game.physics.arcade.enable(this.player); //enables physics for player
         this.player.anchor.setTo(.5);
@@ -111,7 +110,7 @@ brawl.state12.prototype = {
         this.baseCamp();
 
         //Adding Flag (Win Game)
-        var finishX = this.game.rnd.integerInRange(0, 1400);
+        var finishX = this.game.rnd.integerInRange(0, 5600);
         var finishY = this.game.rnd.integerInRange(0, 350)
         this.finish = this.game.add.sprite(finishX, finishY, 'win');
         this.game.physics.arcade.enable(this.finish);
@@ -169,7 +168,7 @@ brawl.state12.prototype = {
             this.ledgeDownSpawn(x, y);
         }
         else if (gridSystemGenesis >= 73 && gridSystemGenesis <= 79) {
-            this.ledgeSideSpawn(x, y);
+            this.ballSpawn(x, y);
         }
         else if (gridSystemGenesis >= 80 && gridSystemGenesis <= 100) {
             this.spikeSpawn(x, y);
@@ -190,7 +189,7 @@ brawl.state12.prototype = {
         this.wallX.body.immovable = true;
 
         //create ball
-        this.ballSpawn(2800, 6200);
+        this.ballSpawn(2800, 6100);
 
         //creating spikes
         for (var i = 0; i < 4; i++) {

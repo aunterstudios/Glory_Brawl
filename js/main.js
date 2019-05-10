@@ -118,18 +118,7 @@ function ledgeUp(player, ledge) {
   ledge.body.stop();
   if (ledge.body.touching.up) {
     ledge.body.velocity.y = -200;
-    player.body.velocity.y = -200 //Here to Prevent Going through walls
-    // if (player.body.velocity.x > 0) {
-    //   ledge.body.velocity.x = player.body.velocity.x - 100;
-    // }
-    // else if (player.body.velocity.x < 0) {
-    //   ledge.body.velocity.x = player.body.velocity.x + 100;
-    // }
-    // else {
-    //   ledge.body.velocity.x = 0;
-    // }
-    ledge.body.velocity.x = player.body.velocity.x;
-    player.body.velocity.x = ledge.body.velocity.x;
+    player.body.velocity.y = -200 
   }
   // When You're Hitting the Edge from the Sides (Right and Left)
   else if (ledge.body.touching.left || ledge.body.touching.right) {
