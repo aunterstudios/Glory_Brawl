@@ -100,7 +100,7 @@ brawl.stateControls.prototype = {
             else {
                 var xText = 1000;
                 var yText = 700;
-                var textInput = "Press Enter to Play";
+                var textInput = "Press Enter to Play. Find the Flag";
                 var fontFill = "#ffffff";
                 var fontSize = 20;
             }

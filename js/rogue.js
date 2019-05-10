@@ -27,9 +27,6 @@ brawl.state12.prototype = {
     },
     create: function () {
 
-        ///////////////////Prevent Sprite Tunneling//////////////
-        this.game.physics.arcade.OVERLAP_BIAS = 8;
-
         // Stretch to fill (Full Screen Mode)
         this.game.scale.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
 
@@ -46,7 +43,7 @@ brawl.state12.prototype = {
 
         //3200
         //1400X
-        this.game.world.setBounds(0, 0, 1400, 6400);
+        this.game.world.setBounds(0, 0, 5600, 6400);
 
         //Keyboard Controls
         this.cursors = this.game.input.keyboard.createCursorKeys();
@@ -73,10 +70,11 @@ brawl.state12.prototype = {
         //Adding Spikes
         this.spikes = this.game.add.group();
         this.spikes.enableBody = true;
-        
+
+
         //Adding Player
         //3000
-        this.player = this.game.add.sprite(700, 6180, 'dude');
+        this.player = this.game.add.sprite(2800, 6180, 'dude');
         this.game.physics.arcade.enable(this.player); //enables physics for player
         this.player.anchor.setTo(.5);
         this.player.scale.setTo(.6);
@@ -84,9 +82,9 @@ brawl.state12.prototype = {
         // this.player.body.bounce.y = 0;
         this.player.body.gravity.y = 1500;
         //this.player.body.allowDrag = false;
-        // this.player.body.collideWorldBounds = true;
-        this.player.checkWorldBounds = true;
-        this.player.events.onOutOfBounds.add(this.playerOut, this);
+        this.player.body.collideWorldBounds = true;
+        // this.player.checkWorldBounds = true;
+        // this.player.events.onOutOfBounds.add(this.playerOut, this);
 
         // PLAYER ANIMATIONS
         this.player.animations.add('left', [0, 1, 2, 3, 4, 5, 6, 7], 10, true);
@@ -96,12 +94,12 @@ brawl.state12.prototype = {
 
         var xBlockSize = 280;
         // var yBlockSize = 450;
-        var yBlockSize = 390;
+        var yBlockSize = 375;
 
         //6
         //5850
-        for (var x = 0; x < 5; x++) {
-            for (var y = 0; y < 15; y++) {
+        for (var x = 0; x < 20; x++) {
+            for (var y = 0; y < 16; y++) {
                 var xRandom = this.game.rnd.realInRange((x * xBlockSize) + 1, (x + 1) * xBlockSize);
                 var yRandom = this.game.rnd.realInRange((y * yBlockSize) + 1, (y + 1) * yBlockSize);
                 this.gridSystem(xRandom, yRandom);
@@ -133,30 +131,30 @@ brawl.state12.prototype = {
         this.text.cameraOffset.setTo(100, 750);
 
     },
-    ////////////////////////Out of Bounds Events//////////////////////////
-    playerOut: function (player) {
-        if (player.x >= 1400) {
-            player.reset(0, player.y)
-            player.body.velocity.x = 400;
-        }
-        else if (0 >= player.x) {
-            player.reset(1400, player.y)
-            player.body.velocity.x = -400;
-        }
-
-    },
-    // ledgeOut: function (ledge) {
-    //     if (ledge.x >= 1400) {
-    //         ledge.reset(0, ledge.y)
-    //         ledge.body.velocity.x = 400;
+    // ////////////////////////Out of Bounds Events//////////////////////////
+    // playerOut: function (player) {
+    //     if (player.x >= 1400) {
+    //         player.reset(0, player.y)
+    //         player.body.velocity.x = 400;
     //     }
-    //     else if (0 >= ledge.x) {
-    //         ledge.reset(1400, ledge.y)
-    //         ledge.body.velocity.x = -400;
+    //     else if (0 >= player.x) {
+    //         player.reset(1400, player.y)
+    //         player.body.velocity.x = -400;
     //     }
-    //     // console.log(this.ledgeX.x + ' ' + this.ledgeX.y);
 
     // },
+    // // ledgeOut: function (ledge) {
+    // //     if (ledge.x >= 1400) {
+    // //         ledge.reset(0, ledge.y)
+    // //         ledge.body.velocity.x = 400;
+    // //     }
+    // //     else if (0 >= ledge.x) {
+    // //         ledge.reset(1400, ledge.y)
+    // //         ledge.body.velocity.x = -400;
+    // //     }
+    // //     // console.log(this.ledgeX.x + ' ' + this.ledgeX.y);
+
+    // // },
     ////////////////Creation of the Grid System (objects Spawning)/////////////////
     gridSystem: function (x, y) {
         //Create Randomness in Each Grid
@@ -181,23 +179,22 @@ brawl.state12.prototype = {
 
         /////////////////////////////////Starting Point of The Map////////////////////////////////
         //Spawning Ledges
-        for (var i = 0; i < 4; i++) {
-            this.ledgeSpawn((i * 350) + 200, 6200);
+        for (var i = 0; i < 2; i++) {
+            this.ledgeSpawn((i * 400) + 2600, 6200);
         }
 
         //create wall
-        this.wallX = this.wall.create(700, 6250, 'rotatedWall');
+        this.wallX = this.wall.create(2800, 6300, 'rotatedWall');
         this.wallX.anchor.setTo(.5);
         this.wallX.scale.setTo(.5);
         this.wallX.body.immovable = true;
 
         //create ball
-        this.ballSpawn(700, 6000);
+        this.ballSpawn(2800, 6200);
 
         //creating spikes
-        for (var i = 0; i < 2; i++) {
-            var iteratorSpikes = i * 250;
-            this.spikesX = this.spikes.create(0, iteratorSpikes + 6300, 'spikes');
+        for (var i = 0; i < 4; i++) {
+            this.spikesX = this.spikes.create(i*1400, 6300, 'spikes');
             this.spikesX.scale.setTo(1);
             this.spikesX.body.immovable = true;
         }

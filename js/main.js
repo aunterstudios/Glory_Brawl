@@ -19,7 +19,7 @@ var longestStreak = 0;
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "Rogue Version-OVERLAP_BIAS",
+  "Rogue Version-OVERLAP_BIAS-LongerLevels-DontFUPCODE",
   "You are a Prisoner of God.",
   "Given a sentence to experience eternal death and revival.",
   "To compete in an ever changing obstacle course game show.",
@@ -30,7 +30,7 @@ var content = [
   "This is for the entertainment and subjugation of the masses.",
   "Welcome to Glory Brawl.",
   "Survive 1000 rounds in a row without dying.",
-  "Arrow Keys to Move (Downward Key Pushes Your Velocity Down)."
+  "Find the Flag Somewhere at the Top."
 ];
 
 var line = [];
