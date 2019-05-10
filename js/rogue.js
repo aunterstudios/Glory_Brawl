@@ -27,6 +27,9 @@ brawl.state12.prototype = {
     },
     create: function () {
 
+        ///////////////////Prevent Sprite Tunneling//////////////
+        this.game.physics.arcade.OVERLAP_BIAS = 8;
+
         // Stretch to fill (Full Screen Mode)
         this.game.scale.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
 
@@ -70,8 +73,7 @@ brawl.state12.prototype = {
         //Adding Spikes
         this.spikes = this.game.add.group();
         this.spikes.enableBody = true;
-
-
+        
         //Adding Player
         //3000
         this.player = this.game.add.sprite(700, 6180, 'dude');
