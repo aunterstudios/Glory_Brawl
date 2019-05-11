@@ -19,9 +19,9 @@ var longestStreak = 0;
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "Rogue Version-OVERLAP_BIAS-LongerLevels-DontFUPCODE",
-  "You are a Prisoner of God.",
-  "Given a sentence to experience eternal death and revival.",
+  "Rogue Version-OVERLAP_BIAS-LongerLevels-Change Mechanics-NewFinishLine",
+  "You are a Prisoner.",
+  "Given a sentence to experience eternal death and revival by President Trump.",
   "To compete in an ever changing obstacle course game show.",
   "One designed to break you.",
   "Nor to be fair.",
@@ -29,8 +29,8 @@ var content = [
   "But remember.",
   "This is for the entertainment and subjugation of the masses.",
   "Welcome to Glory Brawl.",
-  "Survive 1000 rounds in a row without dying.",
-  "Find the Flag Somewhere at the Top."
+  "Get to the Top.",
+  "Survive 1000 rounds in a row without dying."
 ];
 
 var line = [];
@@ -118,7 +118,16 @@ function ledgeUp(player, ledge) {
   ledge.body.stop();
   if (ledge.body.touching.up) {
     ledge.body.velocity.y = -200;
-    player.body.velocity.y = -200 
+    player.body.velocity.y = -200
+    // if (player.body.velocity.x < 0) {
+    //   ledge.body.velocity.x = player.body.velocity.x - 100;
+    // }
+    // else if (player.body.velocity.x > 0) {
+    //   ledge.body.velocity.x = player.body.velocity.x + 100;
+    // }
+    // else {
+    //   ledge.body.velocity.x = 0;
+    // }
   }
   // When You're Hitting the Edge from the Sides (Right and Left)
   else if (ledge.body.touching.left || ledge.body.touching.right) {
@@ -205,6 +214,7 @@ function preventPhysicsBug(sprite1, sprite2) {
 ////////////////////////////Ball Mechanics////////////////////////////////////
 
 function ballMover(player, ball) {
+  ///////////////////GOOOFY/////////////
   ball.body.stop();
   if (ball.body.touching.up) {
     ball.body.velocity.y= 200;
@@ -219,6 +229,33 @@ function ballMover(player, ball) {
   else if (ball.body.touching.right) {
     ball.body.velocity.x = -200;
   }
+  //////////////////Natural///////////////
+  // if (ball.body.touching.up) {
+  //   ball.body.velocity.y = 200;
+  // }
+  // else if (ball.body.touching.down) {
+  //   ball.body.velocity.y = -200;
+  //   player.body.velocity.y = -75;
+  // }
+  // else if (ball.body.touching.left) {
+  //   ball.body.velocity.x = 200;
+  // }
+  // else if (ball.body.touching.right) {
+  //   ball.body.velocity.x = -200;
+  // }
+  //////////////Control////////////
+  // if (ball.body.touching.up) {
+  //   ball.body.velocity.y = player.body.velocity.y;
+  // }
+  // else if (ball.body.touching.down) {
+  //   ball.body.velocity.y = player.body.velocity.y;
+  // }
+  // else if (ball.body.touching.left) {
+  //   ball.body.velocity.x = player.body.velocity.x;
+  // }
+  // else if (ball.body.touching.right) {
+  //   ball.body.velocity.x = player.body.velocity.x;
+  // }
 }
 
 function ballLedge(ball,ledge) {

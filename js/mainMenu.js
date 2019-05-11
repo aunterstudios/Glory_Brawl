@@ -92,7 +92,7 @@ brawl.stateControls.prototype = {
             else if (i === 2) {
                 var xText = 10;
                 var yText = 600;
-                var textInput = "Hints: \n 1. Once You Hit a Surface You Can Double-Jump Again \n 2. When You Go Out of Bounds You End Up on the Otherside \n 3. You Can Stick to the Bottom of Surfaces";
+                var textInput = "Hints: \n 1. Once You Hit a Surface You Can Double-Jump Again. (Use the Ball) \n 2. The Ball is Your Best Friend \n 3. You Can Stick to the Bottom of Surfaces";
                 var fontFill = "#19de65";
                 var fontSize = 25;
             }
@@ -100,7 +100,7 @@ brawl.stateControls.prototype = {
             else {
                 var xText = 1000;
                 var yText = 700;
-                var textInput = "Press Enter to Play. Find the Flag";
+                var textInput = "Press Enter to Play. Get to the Top";
                 var fontFill = "#ffffff";
                 var fontSize = 20;
             }

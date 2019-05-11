@@ -12,7 +12,7 @@ brawl.state12.prototype = {
         this.load.image('ball', 'assets/ball.png')
         this.load.image('rotatedWall', 'assets/rotatedWall.png');
         this.load.image('fallingSpikes', 'assets/newSpikes.png');
-        this.load.image('win', 'assets/flag.png');
+        this.load.image('win', 'assets/finishLine.png');
         this.load.image('enemy', 'assets/trumpface.png');
         this.load.image('brownPlatform', 'assets/platform2.png');
         this.load.image('ledge', 'assets/platformY.png');
@@ -110,14 +110,8 @@ brawl.state12.prototype = {
         this.baseCamp();
 
         //Adding Flag (Win Game)
-        var finishX = this.game.rnd.integerInRange(0, 5600);
-        var finishY = this.game.rnd.integerInRange(0, 350)
-        this.finish = this.game.add.sprite(finishX, finishY, 'win');
+        this.finish = this.game.add.sprite(0, 0, 'win');
         this.game.physics.arcade.enable(this.finish);
-        this.finish.body.collideWorldBounds = true;
-        this.finish.body.velocity.x = 20;
-        this.finish.body.bounce.setTo(1);
-        this.finish.body.maxVelocity.setTo(100);
 
 
         // this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_PLATFORMER);
@@ -350,14 +344,14 @@ brawl.state12.prototype = {
         this.game.physics.arcade.collide(this.enemy, this.wall);
         this.game.physics.arcade.collide(this.enemy, this.enemy);
 
-        //Flag Moving Mechanics
-        this.game.physics.arcade.collide(this.finish, this.wall);
-        this.game.physics.arcade.collide(this.finish, this.enemy);
-        this.game.physics.arcade.collide(this.finish, this.ledge);
-        this.game.physics.arcade.collide(this.finish, this.ledgeDown);
-        this.game.physics.arcade.collide(this.finish, this.ledgeSide);
-        this.game.physics.arcade.collide(this.finish, this.spikes);
-        this.game.physics.arcade.collide(this.finish, this.ball);
+        // //Flag Moving Mechanics
+        // this.game.physics.arcade.collide(this.finish, this.wall);
+        // this.game.physics.arcade.collide(this.finish, this.enemy);
+        // this.game.physics.arcade.collide(this.finish, this.ledge);
+        // this.game.physics.arcade.collide(this.finish, this.ledgeDown);
+        // this.game.physics.arcade.collide(this.finish, this.ledgeSide);
+        // this.game.physics.arcade.collide(this.finish, this.spikes);
+        // this.game.physics.arcade.collide(this.finish, this.ball);
 
         //Win
         this.game.physics.arcade.overlap(this.player, this.finish, nextLevel, null, this);
