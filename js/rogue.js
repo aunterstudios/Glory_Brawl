@@ -152,17 +152,23 @@ brawl.state12.prototype = {
     gridSystem: function (x, y) {
         //Create Randomness in Each Grid
         var gridSystemGenesis = this.game.rnd.integerInRange(0, 100);
-        if (gridSystemGenesis >= 0 && gridSystemGenesis <= 46) {
+        if (gridSystemGenesis >= 0 && gridSystemGenesis <= 41) {
             this.wallSpawn(x, y);
         }
-        else if (gridSystemGenesis >= 47 && gridSystemGenesis <= 61) {
+        else if (gridSystemGenesis >= 42 && gridSystemGenesis <= 56) {
             this.enemySpawn(x, y);
         }
-        else if (gridSystemGenesis >= 62 && gridSystemGenesis <= 72) {
+        else if (gridSystemGenesis >= 57 && gridSystemGenesis <= 61) {
+            this.ledgeSpawn(x,y);
+        }
+        else if (gridSystemGenesis >= 62 && gridSystemGenesis <= 66) {
             this.ledgeDownSpawn(x, y);
         }
-        else if (gridSystemGenesis >= 73 && gridSystemGenesis <= 79) {
+        else if (gridSystemGenesis >= 67 && gridSystemGenesis <= 74) {
             this.ballSpawn(x, y);
+        }
+        else if (gridSystemGenesis >= 75 && gridSystemGenesis <= 79){
+            this.ledgeSideSpawn(x,y);
         }
         else if (gridSystemGenesis >= 80 && gridSystemGenesis <= 100) {
             this.spikeSpawn(x, y);
@@ -336,7 +342,7 @@ brawl.state12.prototype = {
         this.game.physics.arcade.collide(this.ledgeDown, this.enemy);
         // this.game.physics.arcade.collide(this.ledgeDown, this.spikes, preventPhysicsBug);
         this.game.physics.arcade.collide(this.ledgeDown, this.spikes);
-        this.game.physics.arcade.collide(this.ledgeSide, this.wall);
+        // this.game.physics.arcade.collide(this.ledgeSide, this.wall, preventPhysicsBug);
         this.game.physics.arcade.collide(this.ledgeSide, this.enemy);
 
         //Enemy Mechanics

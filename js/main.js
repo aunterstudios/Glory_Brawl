@@ -19,7 +19,7 @@ var longestStreak = 0;
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "Rogue Version-OVERLAP_BIAS-LongerLevels-Change Mechanics-NewFinishLine",
+  "Rogue Version-OVERLAP_BIAS-LongerLevels-Change Mechanics-NewObstacles",
   "You are a Prisoner.",
   "Given a sentence to experience eternal death and revival by President Trump.",
   "To compete in an ever changing obstacle course game show.",
@@ -161,10 +161,10 @@ function ledgeDownS(player, ledge) {
 
 function ledgeSideX(player, ledge) {
   if (ledge.body.velocity.x > 0) {
-    ledge.body.velocity.x = 800;
+    ledge.body.velocity.x = 500;
   }
   else if (ledge.body.velocity.x < 0) {
-    ledge.body.velocity.x = -800;
+    ledge.body.velocity.x = -500;
   }
 }
 
@@ -215,27 +215,13 @@ function preventPhysicsBug(sprite1, sprite2) {
 
 function ballMover(player, ball) {
   ///////////////////GOOOFY/////////////
-  ball.body.stop();
-  if (ball.body.touching.up) {
-    ball.body.velocity.y= 200;
-  }
-  else if (ball.body.touching.down) {
-    ball.body.velocity.y = -200;
-    player.body.velocity.y = -50;
-  }
-  else if (ball.body.touching.left) {
-    ball.body.velocity.x = 200;
-  }
-  else if (ball.body.touching.right) {
-    ball.body.velocity.x = -200;
-  }
-  //////////////////Natural///////////////
+  // ball.body.stop();
   // if (ball.body.touching.up) {
-  //   ball.body.velocity.y = 200;
+  //   ball.body.velocity.y= 200;
   // }
   // else if (ball.body.touching.down) {
   //   ball.body.velocity.y = -200;
-  //   player.body.velocity.y = -75;
+  //   player.body.velocity.y = -50;
   // }
   // else if (ball.body.touching.left) {
   //   ball.body.velocity.x = 200;
@@ -243,6 +229,20 @@ function ballMover(player, ball) {
   // else if (ball.body.touching.right) {
   //   ball.body.velocity.x = -200;
   // }
+  //////////////////Natural///////////////
+  if (ball.body.touching.up) {
+    ball.body.velocity.y = 200;
+  }
+  else if (ball.body.touching.down) {
+    ball.body.velocity.y = -200;
+    player.body.velocity.y = -75;
+  }
+  else if (ball.body.touching.left) {
+    ball.body.velocity.x = 200;
+  }
+  else if (ball.body.touching.right) {
+    ball.body.velocity.x = -200;
+  }
   //////////////Control////////////
   // if (ball.body.touching.up) {
   //   ball.body.velocity.y = player.body.velocity.y;
