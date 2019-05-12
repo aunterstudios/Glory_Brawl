@@ -87,6 +87,7 @@ brawl.state12.prototype = {
         this.player = this.game.add.sprite(2800, 6180, 'dude');
         this.game.physics.arcade.enable(this.player); //enables physics for player
         this.player.anchor.setTo(.5);
+        // this.player.scale.setTo(.6);
         this.player.scale.setTo(.6);
         this.player.body.setSize(63, 84, 5, 6);
         // this.player.body.bounce.y = 0;
@@ -102,20 +103,103 @@ brawl.state12.prototype = {
 
         //////////////////Grid System Creation////////////////
 
-        var xBlockSize = 280;
-        // var yBlockSize = 450;
-        var yBlockSize = 375;
+        ///////////Alpha Build One///////////
+        // var xBlockSize = 280;
+        // // var yBlockSize = 450;
+        // var yBlockSize = 375;
+
+        // //6
+        // //5850
+        // for (var x = 0; x < 20; x++) {
+        //     for (var y = 0; y < 16; y++) {
+        //         var xRandom = this.game.rnd.realInRange((x * xBlockSize) + 1, (x + 1) * xBlockSize);
+        //         var yRandom = this.game.rnd.realInRange((y * yBlockSize) + 1, (y + 1) * yBlockSize);
+        //         this.gridSystem(xRandom, yRandom);
+        //         // console.log(x + ' ' + y + ' ' + xRandom + ' ' + yRandom);
+        //     }
+        // }
+
+        /////////////Alpha Build Two/////////////
+        // var xBlockSize = 1170;
+        // var yBlockSize = 600;
+
+        // //6
+        // //5850
+        // for (var x = 0; x < ; x++) {
+        //     for (var y = 0; y < 8; y++) {
+        //         var xRandom = this.game.rnd.realInRange((x * xBlockSize) + 1, (x + 1) * xBlockSize);
+        //         var yRandom = this.game.rnd.realInRange((y * yBlockSize) + 1, (y + 1) * yBlockSize);
+        //         this.gridSystem(xRandom, yRandom);
+        //         // console.log(x + ' ' + y + ' ' + xRandom + ' ' + yRandom);
+        //     }
+        // }
+
+        //////////Alpha Build Three//////////////
+        // var xBlockSize = 560;
+        // var yBlockSize = 400;
+
+        // //6
+        // //5850
+        // for (var x = 0; x <10 ; x++) {
+        //     for (var y = 0; y < 15; y++) {
+        //         var xRandom = this.game.rnd.realInRange((x * xBlockSize) + 1, (x + 1) * xBlockSize);
+        //         var yRandom = this.game.rnd.realInRange((y * yBlockSize) + 1, (y + 1) * yBlockSize);
+        //         this.gridSystem(xRandom, yRandom);
+        //         // console.log(x + ' ' + y + ' ' + xRandom + ' ' + yRandom);
+        //     }
+        // }
+
+        /////Alpha Build Four////////////
+
+        // for (var x = 0; x <10 ; x++) {
+        //     for (var y = 0; y < 15; y++) {
+        //         this.gridSystem((i*70)+350,(i*100)+400);
+        //         // console.log(x + ' ' + y + ' ' + xRandom + ' ' + yRandom);
+        //     }
+        // }
+
+        ////////Alpha Build Five/////////
+        // var xBlockSize = 450;
+        // // var yBlockSize = 450;
+        // var yBlockSize = 600;
 
         //6
         //5850
-        for (var x = 0; x < 20; x++) {
-            for (var y = 0; y < 16; y++) {
-                var xRandom = this.game.rnd.realInRange((x * xBlockSize) + 1, (x + 1) * xBlockSize);
-                var yRandom = this.game.rnd.realInRange((y * yBlockSize) + 1, (y + 1) * yBlockSize);
-                this.gridSystem(xRandom, yRandom);
-                // console.log(x + ' ' + y + ' ' + xRandom + ' ' + yRandom);
+        // for (var x = 0; x < 12; x++) {
+        //     for (var y = 0; y < 10; y++) {
+        //         ////////////X Grid System///////////
+        //         var rect = new Phaser.Rectangle(100, 50, 600, 500);
+
+        //         var xRandomLower = ((x + 1) * xBlockSize) - 250;
+        //         var xRandomHigher = ((x + 1) * xBlockSize) - 200;
+        //         var xInGrid = this.game.rnd.realInRange(xRandomLower, xRandomHigher);
+        //         ///////////Y Grid System////////////
+        //         var yRandomLower = ((y + 1) * yBlockSize) - 300;
+        //         var yRandomHigher = ((y + 1) * yBlockSize) - 250;
+        //         var yInGrid = this.game.rnd.realInRange(yRandomLower, yRandomHigher);
+        //         //////////Initializing Grid System///////////
+        //         this.gridSystem(xInGrid, yInGrid);
+        //         console.log("X Loop: " + x + ' ' + "Y Loop: " + y + ' ' + "X Random: " + xInGrid + ' ' + "Y Random: " + yInGrid);
+        //     }
+        // }
+
+        /////////Alpha Build Six//////////
+        for (var x = 0; x < 12; x++) {
+            for (var y = 0; y < 10; y++) {
+                var xOfSprite = (x*450)+100;
+                var yOfSprite = (y*600)-300;
+                ////////////X Grid System///////////
+                var rect = new Phaser.Rectangle(x * 450, y * 600, 450, 600);
+                console.log(rect);
+                var TopLeft = Phaser.TOP_LEFT;
+                var TopCenter= Phaser.TOP_CENTER;
+                var BottomRight= Phaser.BOTTOM_RIGHT;
+                this.gridSystem(xOfSprite, yOfSprite, rect, TopLeft);
+                this.gridSystem(xOfSprite, yOfSprite, rect, TopCenter);
+                this.gridSystem(xOfSprite, yOfSprite, rect, BottomRight);
             }
         }
+
 
         //Base Camp (Starting Area);
         this.baseCamp();
@@ -155,100 +239,112 @@ brawl.state12.prototype = {
 
     // // },
     ////////////////Creation of the Grid System (objects Spawning)/////////////////
-    gridSystem: function (x, y) {
+    gridSystem: function (x, y, rect, positionInRectangle) {
         //Create Randomness in Each Grid
         var gridSystemGenesis = this.game.rnd.integerInRange(0, 100);
+        //Create Random Pattern Within Each Grid
+        // var randomPattern = this.game.rnd.integerInRange(0, 100);
+        //Alpha One Build:
         if (gridSystemGenesis >= 0 && gridSystemGenesis <= 41) {
-            this.wallSpawn(x, y);
+            this.wallSpawn(x, y, rect, positionInRectangle);
         }
         else if (gridSystemGenesis >= 42 && gridSystemGenesis <= 56) {
-            this.enemySpawn(x, y);
+            this.enemySpawn(x, y, rect, positionInRectangle);
         }
         else if (gridSystemGenesis >= 57 && gridSystemGenesis <= 61) {
-            this.ledgeSpawn(x, y);
+            this.ledgeSpawn(x, y, rect, positionInRectangle);
         }
         else if (gridSystemGenesis >= 62 && gridSystemGenesis <= 66) {
-            this.ledgeDownSpawn(x, y);
+            this.ledgeDownSpawn(x, y, rect, positionInRectangle);
         }
         else if (gridSystemGenesis >= 67 && gridSystemGenesis <= 74) {
-            this.ballSpawn(x, y);
+            this.ballSpawn(x, y, rect, positionInRectangle);
         }
         else if (gridSystemGenesis >= 75 && gridSystemGenesis <= 84) {
-            this.ledgeSideSpawn(x, y);
+            this.ledgeSideSpawn(x, y, rect, positionInRectangle);
         }
         else if (gridSystemGenesis >= 85 && gridSystemGenesis <= 100) {
-            this.spikeSpawn(x, y);
+            this.spikeSpawn(x, y, rect, positionInRectangle);
         }
     },
     baseCamp: function () {
 
         /////////////////////////////////Starting Point of The Map////////////////////////////////
-        //Spawning Ledges
-        for (var i = 0; i < 2; i++) {
-            this.ledgeSpawn((i * 400) + 2600, 6200);
-        }
 
         //create wall
         this.wallX = this.wall.create(2800, 6300, 'rotatedWall');
         this.wallX.anchor.setTo(.5);
-        this.wallX.scale.setTo(.5);
+        this.wallX.scale.setTo(.4);
         this.wallX.body.immovable = true;
 
-        //create ball
-        this.ballSpawn(2800, 6100);
     },
     // Creating Game Objects
-    wallSpawn: function (x, y) {
+    wallSpawn: function (x, y, rect, positionInRectangle) {
         var wallArray = ['brownPlatform', 'wall', 'rotatedWall'];
         this.wallX = this.wall.create(x, y, wallArray[Math.floor(Math.random() * wallArray.length)]);
         this.wallX.anchor.setTo(.5);
-        this.wallX.scale.setTo(.5);
+        // this.wallX.scale.setTo(.5);
+        // this.wallX.scale.setTo(.5);
+        var wallLength = [.2, .3, , .4];
+        this.wallX.scale.setTo(wallLength[Math.floor(Math.random() * wallLength.length)]);
+        this.wallX.scale.setTo(.4);
+        this.wallX.alignIn(rect, positionInRectangle)
         this.wallX.body.immovable = true;
         this.wallX.body.moves = false;
     },
-    enemySpawn: function (x, y) {
+    enemySpawn: function (x, y, rect, positionInRectangle) {
         this.trumpX = this.enemy.create(x, y, 'enemy');
         this.trumpX.body.velocity.x = this.game.rnd.realInRange(-1000, 1000)
         // this.trumpX.body.gravity.y = 10;
         this.trumpX.anchor.setTo(.5);
+        this.trumpX.scale.setTo(.4)
+        this.trumpX.alignIn(rect, positionInRectangle);
         this.trumpX.body.maxVelocity.setTo(1000);
         this.trumpX.body.bounce.setTo(1);
         this.trumpX.body.collideWorldBounds = true;
     },
-    ledgeSpawn: function (x, y) {
+    ledgeSpawn: function (x, y, rect, positionInRectangle) {
         this.ledgeX = this.ledge.create(x, y, 'ledge');
         this.ledgeX.body.maxVelocity.setTo(400);
         this.ledgeX.anchor.setTo(.5);
-        this.ledgeX.scale.setTo(.5);
+        // this.ledgeX.scale.setTo(.5);
+        this.ledgeX.scale.setTo(.4);
+        this.ledgeX.alignIn(rect, positionInRectangle);
         this.ledgeX.body.collideWorldBounds = true;
         //////////////////////Ledge Out of Bounds/////////////////////
         // this.ledgeX.checkWorldBounds = true;
         // this.ledgeX.events.onOutOfBounds.add(this.ledgeOut, this);
         this.ledgeX.body.bounce.setTo(1);
     },
-    ledgeDownSpawn: function (x, y) {
+    ledgeDownSpawn: function (x, y, rect, positionInRectangle) {
         this.ledgeY = this.ledgeDown.create(x, y, 'ledgeDown');
         // this.ledgeY.body.maxVelocity.setTo(400);
         this.ledgeY.anchor.setTo(.5);
-        this.ledgeY.scale.setTo(.5);
+        // this.ledgeY.scale.setTo(.5);
+        this.ledgeY.scale.setTo(.4);
+        this.ledgeY.alignIn(rect, positionInRectangle);
         this.ledgeY.body.collideWorldBounds = true;
         this.ledgeY.body.immovable = true;
         this.ledgeY.body.bounce.setTo(1);
     },
-    ledgeSideSpawn: function (x, y) {
+    ledgeSideSpawn: function (x, y, rect, positionInRectangle) {
         this.ledgeSideways = this.ledgeSide.create(x, y, 'ledgeSide');
         this.ledgeSideways.anchor.setTo(.5);
-        this.ledgeSideways.scale.setTo(.5);
+        // this.ledgeSideways.scale.setTo(.5);
+        this.ledgeSideways.scale.setTo(.4);
+        this.ledgeSideways.alignIn(rect, positionInRectangle);
         this.ledgeSideways.body.immovable = true;
         this.ledgeSideways.body.velocity.x = this.game.rnd.realInRange(-300, 300);
         this.ledgeSideways.body.collideWorldBounds = true;
         this.ledgeSideways.body.bounce.setTo(1);
     },
-    ballSpawn: function (x, y) {
+    ballSpawn: function (x, y, rect, positionInRectangle) {
         //Adding Ball
         this.ballX = this.ball.create(x, y, 'ball');
         this.ballX.anchor.setTo(.5);
-        this.ballX.scale.setTo(.5);
+        // this.ballX.scale.setTo(.5);
+        this.ballX.scale.setTo(.4);
+        this.ballX.alignIn(rect, positionInRectangle);
         this.ballX.body.setCircle(50);
         // this.ballX.body.mass = 5;
         this.ballX.body.collideWorldBounds = true;
@@ -256,12 +352,14 @@ brawl.state12.prototype = {
         this.ballX.body.velocity.x = this.game.rnd.realInRange(-100, 100)
         this.ballX.body.bounce.setTo(1.0);
     },
-    spikeSpawn: function (x, y) {
+    spikeSpawn: function (x, y, rect, positionInRectangle) {
         var spikeArray = ['invertedSpikes', 'spikes'];
-        var spikeLength = [.2, .3, .4, .5];
+        // var spikeLength = [.2, .3, .4, .5];
+        var spikeLength = [.2, .3,];
         this.spikesX = this.spikes.create(x, y, spikeArray[Math.floor(Math.random() * spikeArray.length)]);
         this.spikesX.anchor.setTo(.5);
         this.spikesX.scale.setTo(spikeLength[Math.floor(Math.random() * spikeLength.length)]);
+        this.spikesX.alignIn(rect, positionInRectangle);
         this.spikesX.body.immovable = true;
     },
     //Put the Game on Full Screen Mode
