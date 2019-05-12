@@ -70,6 +70,17 @@ brawl.state12.prototype = {
         //Adding Spikes
         this.spikes = this.game.add.group();
         this.spikes.enableBody = true;
+        //Adding Flag (Win Game)
+        this.finish = this.game.add.sprite(0, 0, 'win');
+        this.game.physics.arcade.enable(this.finish);
+        //Adding This Undeniable Death
+        this.death = this.game.add.group();
+        this.death.enableBody = true;
+        for (var i = 0; i < 4; i++) {
+            this.deathX = this.death.create(i * 1400, 6300, 'spikes');
+            this.deathX.scale.setTo(1);
+            this.deathX.body.immovable = true;
+        }
 
 
         //Adding Player
@@ -108,11 +119,6 @@ brawl.state12.prototype = {
 
         //Base Camp (Starting Area);
         this.baseCamp();
-
-        //Adding Flag (Win Game)
-        this.finish = this.game.add.sprite(0, 0, 'win');
-        this.game.physics.arcade.enable(this.finish);
-
 
         // this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_PLATFORMER);
         this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_LOCKON);
@@ -159,7 +165,7 @@ brawl.state12.prototype = {
             this.enemySpawn(x, y);
         }
         else if (gridSystemGenesis >= 57 && gridSystemGenesis <= 61) {
-            this.ledgeSpawn(x,y);
+            this.ledgeSpawn(x, y);
         }
         else if (gridSystemGenesis >= 62 && gridSystemGenesis <= 66) {
             this.ledgeDownSpawn(x, y);
@@ -167,10 +173,10 @@ brawl.state12.prototype = {
         else if (gridSystemGenesis >= 67 && gridSystemGenesis <= 74) {
             this.ballSpawn(x, y);
         }
-        else if (gridSystemGenesis >= 75 && gridSystemGenesis <= 79){
-            this.ledgeSideSpawn(x,y);
+        else if (gridSystemGenesis >= 75 && gridSystemGenesis <= 84) {
+            this.ledgeSideSpawn(x, y);
         }
-        else if (gridSystemGenesis >= 80 && gridSystemGenesis <= 100) {
+        else if (gridSystemGenesis >= 85 && gridSystemGenesis <= 100) {
             this.spikeSpawn(x, y);
         }
     },
@@ -190,13 +196,6 @@ brawl.state12.prototype = {
 
         //create ball
         this.ballSpawn(2800, 6100);
-
-        //creating spikes
-        for (var i = 0; i < 4; i++) {
-            this.spikesX = this.spikes.create(i*1400, 6300, 'spikes');
-            this.spikesX.scale.setTo(1);
-            this.spikesX.body.immovable = true;
-        }
     },
     // Creating Game Objects
     wallSpawn: function (x, y) {
@@ -241,7 +240,7 @@ brawl.state12.prototype = {
         this.ledgeSideways.anchor.setTo(.5);
         this.ledgeSideways.scale.setTo(.5);
         this.ledgeSideways.body.immovable = true;
-        this.ledgeSideways.body.velocity.x = this.game.rnd.realInRange(-500, 500);
+        this.ledgeSideways.body.velocity.x = this.game.rnd.realInRange(-300, 300);
         this.ledgeSideways.body.collideWorldBounds = true;
         this.ledgeSideways.body.bounce.setTo(1);
     },
@@ -250,7 +249,7 @@ brawl.state12.prototype = {
         this.ballX = this.ball.create(x, y, 'ball');
         this.ballX.anchor.setTo(.5);
         this.ballX.scale.setTo(.5);
-        // this.ballX.body.setCircle(50);
+        this.ballX.body.setCircle(50);
         // this.ballX.body.mass = 5;
         this.ballX.body.collideWorldBounds = true;
         this.ballX.body.maxVelocity.setTo(500);
@@ -317,6 +316,7 @@ brawl.state12.prototype = {
         // this.game.physics.arcade.collide(this.player, this.ball, ballMover, ballGround);
         var onBall = this.game.physics.arcade.collide(this.player, this.ball, ballMover);
 
+
         // Ball Mechanics
         this.game.physics.arcade.collide(this.ball, this.ball);
         this.game.physics.arcade.collide(this.ball, this.wall, ballWall);
@@ -365,6 +365,7 @@ brawl.state12.prototype = {
         //Death Mechanics
         this.game.physics.arcade.overlap(this.player, this.enemy, deathOne, null, this);
         this.game.physics.arcade.overlap(this.player, this.spikes, deathOne, null, this);
+        this.game.physics.arcade.overlap(this.player, this.death, deathOne, null, this);
 
         /////////////////////////////God Mode/////////////////////////////////////
 
