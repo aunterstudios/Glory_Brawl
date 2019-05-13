@@ -19,7 +19,7 @@ var longestStreak = 0;
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "Rogue Version-OVERLAP_BIAS-LongerLevels-Change Mechanics-NewObstaclesNewBall",
+  "Rogue Version-OVERLAP_BIAS-NewGrid",
   "You are a Prisoner.",
   "Given a sentence to experience eternal death and revival by President Trump.",
   "To compete in an ever changing obstacle course game show.",

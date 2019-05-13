@@ -40,7 +40,7 @@ brawl.state12.prototype = {
         this.pause.onDown.add(this.goPause, this);
 
         //Overlap Bias to Prevent Sprite Tunneling
-        this.game.physics.arcade.OVERLAP_BIAS = 10;
+        this.game.physics.arcade.OVERLAP_BIAS = 12;
 
         ////////////////////Game World Size//////////////////////
         this.game.world.setBounds(0, 0, 5600, 6400);
@@ -102,6 +102,18 @@ brawl.state12.prototype = {
         this.player.animations.add('right', [9, 10, 11, 12, 13, 14, 15], 10, true);
 
         //////////////////Grid System Creation////////////////
+        ///Top Positions
+        var topCenter = Phaser.TOP_CENTER;
+        var topLeft = Phaser.TOP_LEFT;
+        var topRight = Phaser.TOP_RIGHT;
+        //Center Positions
+        var center = Phaser.CENTER;
+        var centerLeft = Phaser.LEFT_CENTER;
+        var centerRight = Phaser.Right_CENTER;
+        //Bottom Positions
+        var bottomCenter = Phaser.BOTTOM_CENTER;
+        var bottomLeft = Phaser.BOTTOM_LEFT;
+        var bottomRight = Phaser.BOTTOM_RIGHT;
 
         ///////////Alpha Build One///////////
         // var xBlockSize = 280;
@@ -116,70 +128,6 @@ brawl.state12.prototype = {
         //         var yRandom = this.game.rnd.realInRange((y * yBlockSize) + 1, (y + 1) * yBlockSize);
         //         this.gridSystem(xRandom, yRandom);
         //         // console.log(x + ' ' + y + ' ' + xRandom + ' ' + yRandom);
-        //     }
-        // }
-
-        /////////////Alpha Build Two/////////////
-        // var xBlockSize = 1170;
-        // var yBlockSize = 600;
-
-        // //6
-        // //5850
-        // for (var x = 0; x < ; x++) {
-        //     for (var y = 0; y < 8; y++) {
-        //         var xRandom = this.game.rnd.realInRange((x * xBlockSize) + 1, (x + 1) * xBlockSize);
-        //         var yRandom = this.game.rnd.realInRange((y * yBlockSize) + 1, (y + 1) * yBlockSize);
-        //         this.gridSystem(xRandom, yRandom);
-        //         // console.log(x + ' ' + y + ' ' + xRandom + ' ' + yRandom);
-        //     }
-        // }
-
-        //////////Alpha Build Three//////////////
-        // var xBlockSize = 560;
-        // var yBlockSize = 400;
-
-        // //6
-        // //5850
-        // for (var x = 0; x <10 ; x++) {
-        //     for (var y = 0; y < 15; y++) {
-        //         var xRandom = this.game.rnd.realInRange((x * xBlockSize) + 1, (x + 1) * xBlockSize);
-        //         var yRandom = this.game.rnd.realInRange((y * yBlockSize) + 1, (y + 1) * yBlockSize);
-        //         this.gridSystem(xRandom, yRandom);
-        //         // console.log(x + ' ' + y + ' ' + xRandom + ' ' + yRandom);
-        //     }
-        // }
-
-        /////Alpha Build Four////////////
-
-        // for (var x = 0; x <10 ; x++) {
-        //     for (var y = 0; y < 15; y++) {
-        //         this.gridSystem((i*70)+350,(i*100)+400);
-        //         // console.log(x + ' ' + y + ' ' + xRandom + ' ' + yRandom);
-        //     }
-        // }
-
-        ////////Alpha Build Five/////////
-        // var xBlockSize = 450;
-        // // var yBlockSize = 450;
-        // var yBlockSize = 600;
-
-        //6
-        //5850
-        // for (var x = 0; x < 12; x++) {
-        //     for (var y = 0; y < 10; y++) {
-        //         ////////////X Grid System///////////
-        //         var rect = new Phaser.Rectangle(100, 50, 600, 500);
-
-        //         var xRandomLower = ((x + 1) * xBlockSize) - 250;
-        //         var xRandomHigher = ((x + 1) * xBlockSize) - 200;
-        //         var xInGrid = this.game.rnd.realInRange(xRandomLower, xRandomHigher);
-        //         ///////////Y Grid System////////////
-        //         var yRandomLower = ((y + 1) * yBlockSize) - 300;
-        //         var yRandomHigher = ((y + 1) * yBlockSize) - 250;
-        //         var yInGrid = this.game.rnd.realInRange(yRandomLower, yRandomHigher);
-        //         //////////Initializing Grid System///////////
-        //         this.gridSystem(xInGrid, yInGrid);
-        //         console.log("X Loop: " + x + ' ' + "Y Loop: " + y + ' ' + "X Random: " + xInGrid + ' ' + "Y Random: " + yInGrid);
         //     }
         // }
 
@@ -202,24 +150,11 @@ brawl.state12.prototype = {
                 var yOfSprite4 = this.game.rnd.realInRange((y * yBlockSize) + 200, ((y + 1) * yBlockSize) - 200);
                 ////////Creation of Rectangle
                 var rect = new Phaser.Rectangle(x * xBlockSize, y * yBlockSize, xBlockSize, yBlockSize);
-                console.log(rect);
-                ///Top Positions
-                var topCenter = Phaser.TOP_CENTER;
-                var topLeft = Phaser.TOP_LEFT;
-                var topRight = Phaser.TOP_RIGHT;
-                //Center Positions
-                var center = Phaser.CENTER;
-                var centerLeft = Phaser.LEFT_CENTER;
-                var centerRight = Phaser.Right_CENTER;
-                //Bottom Positions
-                var bottomCenter = Phaser.BOTTOM_CENTER;
-                var bottomLeft = Phaser.BOTTOM_LEFT;
-                var bottomRight = Phaser.BOTTOM_RIGHT;
 
                 ////////////Random Array to Scramble Positions//////////
                 // var positionArray = [topCenter, topLeft, topRight, center, centerLeft, centerRight, bottomCenter, bottomLeft, bottomRight];
                 var positionArray = [];
-                var randomGeneratorForArray = this.game.rnd.integerInRange(0,100);
+                var randomGeneratorForArray = this.game.rnd.integerInRange(0, 100);
                 if (randomGeneratorForArray >= 0 && randomGeneratorForArray <= 25) {
                     positionArray.push(topCenter);
                     positionArray.push(bottomLeft);
@@ -350,9 +285,8 @@ brawl.state12.prototype = {
         this.wallX = this.wall.create(x, y, wallArray[Math.floor(Math.random() * wallArray.length)]);
         this.wallX.anchor.setTo(.5);
         // this.wallX.scale.setTo(.5);
-        // this.wallX.scale.setTo(.5);
-        var wallLength = [.2, .3, , .4];
-        this.wallX.scale.setTo(wallLength[Math.floor(Math.random() * wallLength.length)]);
+        // var wallLength = [.2, .3, .4];
+        // this.wallX.scale.setTo(wallLength[Math.floor(Math.random() * wallLength.length)]);
         this.wallX.scale.setTo(.4);
         this.wallX.alignIn(rect, positionInRectangle)
         this.wallX.body.immovable = true;
@@ -363,7 +297,7 @@ brawl.state12.prototype = {
         this.trumpX.body.velocity.x = this.game.rnd.realInRange(-400, 400);
         // this.trumpX.body.gravity.y = 10;
         this.trumpX.anchor.setTo(.5);
-        this.trumpX.scale.setTo(.45)
+        this.trumpX.scale.setTo(.6);
         this.trumpX.alignIn(rect, positionInRectangle);
         this.trumpX.body.maxVelocity.setTo(400);
         this.trumpX.body.bounce.setTo(1);
@@ -673,6 +607,25 @@ brawl.state12.prototype = {
         }
     },
     // render: function () {
-    //     this.game.debug.body(this.player);
+    //     function getRandomColor() {
+    //         var letters = '0123456789ABCDEF';
+    //         var color = '#';
+    //         for (var i = 0; i < 6; i++) {
+    //             color += letters[Math.floor(Math.random() * 16)];
+    //         }
+    //         return color;
+    //     }
+
+    //     for (var i = 0; i < this.testingArray.length; i++) {
+    //         if (this.testingArray[i].flagged) {
+    //             this.game.debug.geom(this.testingArray[i], getRandomColor());
+    //         }
+    //         else {
+    //             this.game.debug.geom(this.testingArray[i]);
+    //         }
+
+    //         this.game.debug.text(this.testingArray[i].id, this.testingArray[i].x + 4, this.testingArray[i].y + 16);
+    //     }
+
     // }
 };
