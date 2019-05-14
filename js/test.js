@@ -43,7 +43,7 @@ brawl.testing.prototype = {
         this.game.physics.arcade.OVERLAP_BIAS = 12;
 
         ////////////////////Game World Size//////////////////////
-        this.game.world.setBounds(0, 0, 5600, 6400);
+        this.game.world.setBounds(0, 0, 5600, 6300);
 
         //Keyboard Controls
         this.cursors = this.game.input.keyboard.createCursorKeys();
@@ -84,7 +84,7 @@ brawl.testing.prototype = {
 
 
         //Adding Player
-        this.player = this.game.add.sprite(2800, 6180, 'dude');
+        this.player = this.game.add.sprite(200, 6100, 'dude');
         this.game.physics.arcade.enable(this.player); //enables physics for player
         this.player.anchor.setTo(.5);
         // this.player.scale.setTo(.6);
@@ -115,81 +115,147 @@ brawl.testing.prototype = {
         var bottomLeft = Phaser.BOTTOM_LEFT;
         var bottomRight = Phaser.BOTTOM_RIGHT;
 
-        ///////////Alpha Build One///////////
-        // var xBlockSize = 280;
-        // // var yBlockSize = 450;
-        // var yBlockSize = 375;
+        ////////////X Grid System///////////
+        // var xBlockSize = 300;
+        // var yBlockSize = 500;
+        // var xRectangle = 600;
+        // var yRectangle = 800;
+        // for (var x = 0; x < 13; x++) {
+        //     for (var y = 0; y < 9; y++) {
+        //         ////////Creation of Rectangle////////////
 
-        // //6
-        // //5850
-        // for (var x = 0; x < 20; x++) {
-        //     for (var y = 0; y < 16; y++) {
-        //         var xRandom = this.game.rnd.realInRange((x * xBlockSize) + 1, (x + 1) * xBlockSize);
-        //         var yRandom = this.game.rnd.realInRange((y * yBlockSize) + 1, (y + 1) * yBlockSize);
-        //         this.gridSystem(xRandom, yRandom);
-        //         // console.log(x + ' ' + y + ' ' + xRandom + ' ' + yRandom);
+        //         // var rect = new Phaser.Rectangle(x * xBlockSize, (y * yBlockSize) + 600, xBlockSize, yBlockSize);
+        //         var rect = new Phaser.Rectangle(x*xRectangle, y*yRectangle, xBlockSize, yBlockSize);
+        //         var xOfSprite = rect.x + 100;
+        //         var yOfSprite = rect.y + 100;
+        //         console.log(rect);
+        //         console.log("X Iterator: " + x + " " + xOfSprite + " Y Iterator: " + y + " " + yOfSprite);
+        //         ////////////Random Array to Scramble Positions//////////
+        //         // var positionArray = [topCenter, topLeft, topRight, center, centerLeft, centerRight, bottomCenter, bottomLeft, bottomRight];
+        //         var positionArray = [];
+        //         var randomGeneratorForArray = this.game.rnd.integerInRange(0, 100);
+        //         if (randomGeneratorForArray >= 0 && randomGeneratorForArray <= 25) {
+        //             positionArray.push(topCenter);
+        //             positionArray.push(bottomLeft);
+        //             positionArray.push(centerRight);
+        //             positionArray.push(topLeft);
+        //         }
+        //         else if (randomGeneratorForArray >= 26 && randomGeneratorForArray <= 50) {
+        //             positionArray.push(topLeft);
+        //             positionArray.push(bottomCenter);
+        //             positionArray.push(centerLeft);
+        //             positionArray.push(centerRight);
+        //         }
+        //         else if (randomGeneratorForArray >= 51 && randomGeneratorForArray <= 75) {
+        //             positionArray.push(topRight);
+        //             positionArray.push(center);
+        //             positionArray.push(bottomRight);
+        //             positionArray.push(bottomLeft);
+        //         }
+        //         else if (randomGeneratorForArray >= 76 && randomGeneratorForArray <= 100) {
+        //             positionArray.push(topCenter);
+        //             positionArray.push(bottomCenter);
+        //             positionArray.push(centerLeft);
+        //             positionArray.push(topRight);
+        //         }
+
+        //         console.log(positionArray);
+        //         //////Sprites//////
+        //         this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[0]);
+        //         this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[1]);
+        //         this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[2]);
+        //         this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[3]);
+
         //     }
         // }
 
-        /////////Alpha Build Six//////////
-        var xBlockSize = 400;
-        var yBlockSize = 550;
-        for (var x = 0; x < 12; x++) {
-            for (var y = 0; y < 10; y++) {
-                // Phaser.TOP_LEFT, Phaser.TOP_CENTER, Phaser.TOP_RIGHT, Phaser.LEFT_CENTER, Phaser.CENTER, Phaser.RIGHT_CENTER, Phaser.BOTTOM_LEFT, Phaser.BOTTOM_CENTER and Phaser.BOTTOM_RIGHT.
-                ////////////X Grid System///////////
-
-                var xOfSprite = (x * xBlockSize) + 225;
-                var yOfSprite = (y * yBlockSize) + 300;
-                console.log("X Iterator: " + x + " " + xOfSprite + " Y Iterator: " + y + " " + yOfSprite);
-
+        this.testingArray = [];
+        /////////////////////////Test Grid///////////////////////
+        var xBlockSize = 650;
+        var yBlockSize = 650;
+        var xRectangle = 700;
+        var yRectangle = 700;
+        for (var x = 0; x < 8; x++) {
+            for (var y = 0; y < 9; y++) {
                 ////////Creation of Rectangle////////////
 
                 // var rect = new Phaser.Rectangle(x * xBlockSize, (y * yBlockSize) + 600, xBlockSize, yBlockSize);
-                var rect = new Phaser.Rectangle(x*600, y*750, xBlockSize, yBlockSize);
+                var rect = new Phaser.Rectangle(x * xRectangle, y * yRectangle, xBlockSize, yBlockSize);
+                var xOfSprite = rect.x
+                var yOfSprite = rect.y
                 console.log(rect);
+                this.testingArray.push(rect);
+                this.text = this.game.add.text(rect.x + 100, rect.y + 100, "Rectangle " + x + y, { font: "32px Arial", fill: "#ffffff", align: "center" });
+                console.log("Rectangle " + x + y);
                 ////////////Random Array to Scramble Positions//////////
                 // var positionArray = [topCenter, topLeft, topRight, center, centerLeft, centerRight, bottomCenter, bottomLeft, bottomRight];
-                var positionArray = [];
-                var randomGeneratorForArray = this.game.rnd.integerInRange(0, 100);
-                if (randomGeneratorForArray >= 0 && randomGeneratorForArray <= 25) {
-                    positionArray.push(topCenter);
-                    positionArray.push(bottomLeft);
-                    positionArray.push(centerRight);
-                    positionArray.push(topLeft);
+                if (x === 0 && y === 8) {
+                    console.log("-----------------------------------");
+                    console.log("BaseCamp");
+                    //create wall
+                    this.wallX = this.wall.create(xOfSprite, yOfSprite, 'rotatedWall');
+                    this.wallX.anchor.setTo(.5);
+                    this.wallX.scale.setTo(.4);
+                    this.wallX.alignIn(rect, bottomCenter);
+                    this.wallX.body.immovable = true;
+                    this.wallX.body.moves = false;
+                    this.ledgeSpawn(xOfSprite, yOfSprite, rect, bottomLeft);
+                    this.ledgeSpawn(xOfSprite, yOfSprite, rect, bottomRight);
+                    this.ballSpawn(xOfSprite, yOfSprite, rect, centerLeft);
+                    this.ballSpawn(xOfSprite, yOfSprite, rect, centerRight);
+                    console.log("-----------------------------------");
                 }
-                else if (randomGeneratorForArray >= 26 && randomGeneratorForArray <= 50) {
-                    positionArray.push(topLeft);
-                    positionArray.push(bottomCenter);
-                    positionArray.push(centerLeft);
-                    positionArray.push(centerRight);
-                }
-                else if (randomGeneratorForArray >= 51 && randomGeneratorForArray <= 75) {
-                    positionArray.push(topRight);
-                    positionArray.push(center);
-                    positionArray.push(bottomRight);
-                    positionArray.push(bottomLeft);
-                }
-                else if (randomGeneratorForArray >= 76 && randomGeneratorForArray <= 100) {
-                    positionArray.push(topCenter);
-                    positionArray.push(bottomCenter);
-                    positionArray.push(centerLeft);
-                    positionArray.push(topRight);
-                }
+                else {
+                    var positionArray = [];
+                    var randomGeneratorForArray = this.game.rnd.integerInRange(0, 100);
+                    if (randomGeneratorForArray >= 0 && randomGeneratorForArray <= 25) {
+                        // positionArray.push(topCenter);
+                        // positionArray.push(bottomLeft);
+                        // positionArray.push(centerRight);
+                        // positionArray.push(topLeft);
+                        positionArray.push(topLeft);
+                        positionArray.push(center);
+                        positionArray.push(bottomRight);
+                        positionArray.push(bottomLeft);
+                        positionArray.push(topRight);
+                        console.log("Formation1");
+                    }
+                    else if (randomGeneratorForArray >= 26 && randomGeneratorForArray <= 50) {
+                        positionArray.push(topRight);
+                        positionArray.push(center);
+                        positionArray.push(bottomLeft);
+                        positionArray.push(bottomRight);
+                        positionArray.push(bottomCenter);
+                        console.log("Formation2");
+                    }
+                    else if (randomGeneratorForArray >= 51 && randomGeneratorForArray <= 75) {
+                        positionArray.push(topRight);
+                        positionArray.push(topLeft);
+                        positionArray.push(bottomRight);
+                        positionArray.push(centerLeft);
+                        positionArray.push(bottomLeft);
+                        console.log("Formation3");
+                    }
+                    else if (randomGeneratorForArray >= 76 && randomGeneratorForArray <= 100) {
+                        positionArray.push(centerLeft);
+                        positionArray.push(bottomCenter);
+                        positionArray.push(centerRight);
+                        positionArray.push(bottomRight);
+                        positionArray.push(topLeft);
+                        console.log("Formation4");
+                    }
 
-                console.log(positionArray);
-                //////Sprites//////
-                this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[0]);
-                this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[1]);
-                this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[2]);
-                this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[3]);
-
+                    console.log(positionArray);
+                    //////Sprites//////
+                    this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[0]);
+                    this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[1]);
+                    this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[2]);
+                    this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[3]);
+                    this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[4]);
+                    console.log("---------------------------------------------------");
+                }
             }
         }
-
-
-        //Base Camp (Starting Area);
-        this.baseCamp();
 
         // this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_PLATFORMER);
         this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_LOCKON);
@@ -241,10 +307,10 @@ brawl.testing.prototype = {
         else if (gridSystemGenesis >= 57 && gridSystemGenesis <= 61) {
             this.ledgeSpawn(x, y, rect, positionInRectangle);
         }
-        else if (gridSystemGenesis >= 62 && gridSystemGenesis <= 66) {
+        else if (gridSystemGenesis >= 62 && gridSystemGenesis <= 70) {
             this.ledgeDownSpawn(x, y, rect, positionInRectangle);
         }
-        else if (gridSystemGenesis >= 67 && gridSystemGenesis <= 74) {
+        else if (gridSystemGenesis >= 71 && gridSystemGenesis <= 74) {
             this.ballSpawn(x, y, rect, positionInRectangle);
         }
         else if (gridSystemGenesis >= 75 && gridSystemGenesis <= 84) {
@@ -259,13 +325,13 @@ brawl.testing.prototype = {
         /////////////////////////////////Starting Point of The Map////////////////////////////////
 
         //create wall
-        this.wallX = this.wall.create(2800, 6300, 'rotatedWall');
+        this.wallX = this.wall.create(this.game.world.centerX, 1700, 'rotatedWall');
         this.wallX.anchor.setTo(.5);
         this.wallX.scale.setTo(.4);
         this.wallX.body.immovable = true;
 
         //Create Ledge
-        this.ledgeX = this.ledge.create(2800, 6200, 'ledge');
+        this.ledgeX = this.ledge.create(this.game.world.centerX, 1700, 'ledge');
         this.ledgeX.body.maxVelocity.setTo(400);
         this.ledgeX.anchor.setTo(.5);
         // this.ledgeX.scale.setTo(.5);
@@ -285,7 +351,7 @@ brawl.testing.prototype = {
         // this.wallX.scale.setTo(.5);
         // var wallLength = [.2, .3, .4];
         // this.wallX.scale.setTo(wallLength[Math.floor(Math.random() * wallLength.length)]);
-        this.wallX.scale.setTo(.4);
+        this.wallX.scale.setTo(.35);
         this.wallX.alignIn(rect, positionInRectangle)
         this.wallX.body.immovable = true;
         this.wallX.body.moves = false;
@@ -353,7 +419,7 @@ brawl.testing.prototype = {
     spikeSpawn: function (x, y, rect, positionInRectangle) {
         var spikeArray = ['invertedSpikes', 'spikes'];
         // var spikeLength = [.2, .3, .4, .5];
-        var spikeLength = [.2, .3,];
+        var spikeLength = [.2];
         this.spikesX = this.spikes.create(x, y, spikeArray[Math.floor(Math.random() * spikeArray.length)]);
         this.spikesX.anchor.setTo(.5);
         this.spikesX.scale.setTo(spikeLength[Math.floor(Math.random() * spikeLength.length)]);
@@ -405,12 +471,12 @@ brawl.testing.prototype = {
         ////////////////////////Physics////////////////////////
         //Player Mechanics
 
-        var onWall = this.game.physics.arcade.collide(this.player, this.wall);
-        var onLedgeGrey = this.game.physics.arcade.collide(this.player, this.ledge, ledgeUp);
-        var onLedgeGreen = this.game.physics.arcade.collide(this.player, this.ledgeDown, ledgeDownS);
-        var onLedgeBlue = this.game.physics.arcade.collide(this.player, this.ledgeSide, ledgeSideX);
-        // this.game.physics.arcade.collide(this.player, this.ball, ballMover, ballGround);
-        var onBall = this.game.physics.arcade.collide(this.player, this.ball, ballMover);
+        // var onWall = this.game.physics.arcade.collide(this.player, this.wall);
+        // var onLedgeGrey = this.game.physics.arcade.collide(this.player, this.ledge, ledgeUp);
+        // var onLedgeGreen = this.game.physics.arcade.collide(this.player, this.ledgeDown, ledgeDownS);
+        // var onLedgeBlue = this.game.physics.arcade.collide(this.player, this.ledgeSide, ledgeSideX);
+        // // this.game.physics.arcade.collide(this.player, this.ball, ballMover, ballGround);
+        // var onBall = this.game.physics.arcade.collide(this.player, this.ball, ballMover);
 
 
         // Ball Mechanics
@@ -456,174 +522,170 @@ brawl.testing.prototype = {
         // this.game.physics.arcade.collide(this.finish, this.ball);
 
         //Win
-        this.game.physics.arcade.overlap(this.player, this.finish, nextLevel, null, this);
+        // this.game.physics.arcade.overlap(this.player, this.finish, nextLevel, null, this);
 
         //Death Mechanics
-        this.game.physics.arcade.overlap(this.player, this.enemy, deathOne, null, this);
-        this.game.physics.arcade.overlap(this.player, this.spikes, deathOne, null, this);
-        this.game.physics.arcade.overlap(this.player, this.death, deathOne, null, this);
+        // this.game.physics.arcade.overlap(this.player, this.enemy, deathOne, null, this);
+        // this.game.physics.arcade.overlap(this.player, this.spikes, deathOne, null, this);
+        // this.game.physics.arcade.overlap(this.player, this.death, deathOne, null, this);
 
         /////////////////////////////God Mode/////////////////////////////////////
 
-        //////////Player Standing Still//////////////
-        // this.player.body.velocity.y = 0;
-        // this.player.body.velocity.x = 0;
+        ////////Player Standing Still//////////////
+        this.player.body.velocity.y = 0;
+        this.player.body.velocity.x = 0;
 
-        // if (this.cursors.left.isDown) {
-        //     this.player.body.velocity.x = -400;
-        //     this.player.animations.play('left');
-        // }
-        // else if (this.cursors.right.isDown) {
-        //     this.player.body.velocity.x = 400;
-        //     this.player.animations.play('right');
-        // }
-        // if (this.cursors.up.isDown) {
-        //     this.player.frame = 10;
-        //     this.player.body.velocity.y = -650;
-        // }
-        // else if (this.cursors.down.isDown) {
-        //     this.player.frame = 10;
-        //     this.player.body.velocity.y = 650;
-        // }
+        if (this.cursors.left.isDown) {
+            this.player.body.velocity.x = -400;
+            this.player.animations.play('left');
+        }
+        else if (this.cursors.right.isDown) {
+            this.player.body.velocity.x = 400;
+            this.player.animations.play('right');
+        }
+        if (this.cursors.up.isDown) {
+            this.player.frame = 10;
+            this.player.body.velocity.y = -650;
+        }
+        else if (this.cursors.down.isDown) {
+            this.player.frame = 10;
+            this.player.body.velocity.y = 650;
+        }
 
         ////////////////////////////////Actual Controls////////////////////////////////
 
-        //Jump Mechanics
-        // Set a variable that is true when the player is a surface the ground (or different sides) or not a surface
-        var onTheGround = this.player.body.touching.down;
-        var onTheRightSide = this.player.body.touching.right;
-        var onTheLeftSide = this.player.body.touching.left;
-        var onUpsideDown = this.player.body.touching.up;
-        var onNone = this.player.body.touching.none;
+        // //Jump Mechanics
+        // // Set a variable that is true when the player is a surface the ground (or different sides) or not a surface
+        // var onTheGround = this.player.body.touching.down;
+        // var onTheRightSide = this.player.body.touching.right;
+        // var onTheLeftSide = this.player.body.touching.left;
+        // var onUpsideDown = this.player.body.touching.up;
+        // var onNone = this.player.body.touching.none;
 
-        // If the player is touching a surface, let him have 2 jumps
-        if (onTheGround || onTheLeftSide || onTheRightSide || onUpsideDown) {
-            this.jumps = 2;
-            this.jumping = false;
-        }
-
-        //////////////////////////Double Jump Only from the ground/////////////////
-        // if (onTheGround) {
+        // // If the player is touching a surface, let him have 2 jumps
+        // if (onTheGround || onTheLeftSide || onTheRightSide || onUpsideDown) {
         //     this.jumps = 2;
         //     this.jumping = false;
         // }
 
-        // if (onTheLeftSide || onTheRightSide || onUpsideDown) {
-        //     this.jumps = 0;
+        // //////////////////////////Double Jump Only from the ground/////////////////
+        // // if (onTheGround) {
+        // //     this.jumps = 2;
+        // //     this.jumping = false;
+        // // }
+
+        // // if (onTheLeftSide || onTheRightSide || onUpsideDown) {
+        // //     this.jumps = 0;
+        // //     this.jumping = false;
+        // // }
+
+        // // Jump!
+        // if (this.jumps > 0 && this.upInputIsActive(5)) {
+        //     this.player.body.velocity.y = -600;
+        //     this.jumping = true;
+        // }
+
+        // // Reduce the number of available jumps if the jump input is released
+        // if (this.jumping && this.upInputReleased()) {
+        //     this.jumps--;
         //     this.jumping = false;
         // }
 
-        // Jump!
-        if (this.jumps > 0 && this.upInputIsActive(5)) {
-            this.player.body.velocity.y = -600;
-            this.jumping = true;
-        }
+        // //Player Standing Still
+        // this.player.body.velocity.x = 0;
 
-        // Reduce the number of available jumps if the jump input is released
-        if (this.jumping && this.upInputReleased()) {
-            this.jumps--;
-            this.jumping = false;
-        }
+        // //Player Angle Still
+        // this.player.angle = 0;
 
-        //Player Standing Still
-        this.player.body.velocity.x = 0;
+        // if (onTheGround) {
+        //     if (this.cursors.left.isDown) {
+        //         this.player.body.velocity.x = -400;
+        //         this.player.animations.play('left');
+        //     }
+        //     else if (this.cursors.right.isDown) {
+        //         this.player.body.velocity.x = 400;
+        //         this.player.animations.play('right');
+        //     }
+        //     else {
+        //         this.player.animations.stop();
+        //         this.player.frame = 8;
+        //     }
+        // }
+        // else if (onTheRightSide) {
+        //     this.player.body.velocity.x = 50;
+        //     this.player.body.velocity.y = 100;
+        //     if (onWall || onLedgeBlue || onLedgeGreen || onLedgeGrey) {
+        //         this.player.frame = 6;
+        //     }
+        //     if (this.cursors.left.isDown) {
+        //         this.player.body.velocity.y = -500;
+        //         this.player.body.velocity.x = -1000;
+        //     }
+        // }
+        // else if (onTheLeftSide) {
+        //     this.player.body.velocity.x = -50;
+        //     this.player.body.velocity.y = 100;
+        //     if (onWall || onLedgeBlue || onLedgeGreen || onLedgeGrey) {
+        //         this.player.frame = 12;
+        //     }
+        //     if (this.cursors.right.isDown) {
+        //         this.player.body.velocity.y = -500;
+        //         this.player.body.velocity.x = 1000;
+        //     }
+        // }
+        // else if (onUpsideDown) {
+        //     this.player.animations.stop();
+        //     this.player.frame = 8;
+        //     this.player.angle = 180;
+        //     this.player.body.velocity.y = -100;
+        //     if (this.cursors.left.isDown) {
+        //         this.player.body.velocity.x = -400;
+        //         this.player.animations.play('left');
+        //     }
+        //     else if (this.cursors.right.isDown) {
+        //         this.player.body.velocity.x = 400;
+        //         this.player.animations.play('right');
+        //     }
 
-        //Player Angle Still
-        this.player.angle = 0;
+        // }
+        // if (onNone) {
+        //     this.player.frame = 10;
+        //     if (this.cursors.left.isDown) {
+        //         this.player.body.velocity.x = -400;
+        //     }
+        //     else if (this.cursors.right.isDown) {
+        //         this.player.body.velocity.x = 400;
+        //     }
+        // }
 
-        if (onTheGround) {
-            if (this.cursors.left.isDown) {
-                this.player.body.velocity.x = -400;
-                this.player.animations.play('left');
-            }
-            else if (this.cursors.right.isDown) {
-                this.player.body.velocity.x = 400;
-                this.player.animations.play('right');
-            }
-            else {
-                this.player.animations.stop();
-                this.player.frame = 8;
-            }
-        }
-        else if (onTheRightSide) {
-            this.player.body.velocity.x = 50;
-            this.player.body.velocity.y = 100;
-            if (onWall || onLedgeBlue || onLedgeGreen || onLedgeGrey) {
-                this.player.frame = 6;
-            }
-            if (this.cursors.left.isDown) {
-                this.player.body.velocity.y = -500;
-                this.player.body.velocity.x = -1000;
-            }
-        }
-        else if (onTheLeftSide) {
-            this.player.body.velocity.x = -50;
-            this.player.body.velocity.y = 100;
-            if (onWall || onLedgeBlue || onLedgeGreen || onLedgeGrey) {
-                this.player.frame = 12;
-            }
-            if (this.cursors.right.isDown) {
-                this.player.body.velocity.y = -500;
-                this.player.body.velocity.x = 1000;
-            }
-        }
-        else if (onUpsideDown) {
-            this.player.animations.stop();
-            this.player.frame = 8;
-            this.player.angle = 180;
-            this.player.body.velocity.y = -100;
-            if (this.cursors.left.isDown) {
-                this.player.body.velocity.x = -400;
-                this.player.animations.play('left');
-            }
-            else if (this.cursors.right.isDown) {
-                this.player.body.velocity.x = 400;
-                this.player.animations.play('right');
-            }
+        // //////////Downwards Mechanics
+        // if (this.cursors.down.isDown && onUpsideDown) {
+        //     this.player.frame = 13;
+        //     this.player.body.velocity.y = 200;
+        // }
 
-        }
-        if (onNone) {
-            this.player.frame = 10;
-            if (this.cursors.left.isDown) {
-                this.player.body.velocity.x = -400;
-            }
-            else if (this.cursors.right.isDown) {
-                this.player.body.velocity.x = 400;
-            }
-        }
-
-        //////////Downwards Mechanics
-        if (this.cursors.down.isDown && onUpsideDown) {
-            this.player.frame = 13;
-            this.player.body.velocity.y = 200;
-        }
-
-        //Downward Mechanics
-        if (this.cursors.down.isDown) {
-            this.player.frame = 13;
-            this.player.body.velocity.y = 500;
-        }
+        // //Downward Mechanics
+        // if (this.cursors.down.isDown) {
+        //     this.player.frame = 13;
+        //     this.player.body.velocity.y = 500;
+        // }
     },
     // render: function () {
-    //     function getRandomColor() {
-    //         var letters = '0123456789ABCDEF';
-    //         var color = '#';
-    //         for (var i = 0; i < 6; i++) {
-    //             color += letters[Math.floor(Math.random() * 16)];
-    //         }
-    //         return color;
-    //     }
-
+    //     ///Debugging Tools For Each Individual Rectangle Grid
     //     for (var i = 0; i < this.testingArray.length; i++) {
-    //         if (this.testingArray[i].flagged) {
-    //             this.game.debug.geom(this.testingArray[i], getRandomColor());
-    //         }
-    //         else {
-    //             this.game.debug.geom(this.testingArray[i]);
-    //         }
+    //         this.game.debug.rectangle(this.testingArray[i], '#ffffff', false);
+    //         this.game.debug.geom(this.testingArray[i].getPoint(Phaser.TOP_LEFT), '#ff00ff');
+    //         this.game.debug.geom(this.testingArray[i].getPoint(Phaser.TOP_CENTER), '#ff00ff');
+    //         this.game.debug.geom(this.testingArray[i].getPoint(Phaser.TOP_RIGHT), '#ff00ff');
 
-    //         this.game.debug.text(this.testingArray[i].id, this.testingArray[i].x + 4, this.testingArray[i].y + 16);
+    //         this.game.debug.geom(this.testingArray[i].getPoint(Phaser.LEFT_CENTER), '#ff00ff');
+    //         this.game.debug.geom(this.testingArray[i].getPoint(Phaser.CENTER), '#ff00ff');
+    //         this.game.debug.geom(this.testingArray[i].getPoint(Phaser.RIGHT_CENTER), '#ff00ff');
+
+    //         this.game.debug.geom(this.testingArray[i].getPoint(Phaser.BOTTOM_LEFT), '#ff00ff');
+    //         this.game.debug.geom(this.testingArray[i].getPoint(Phaser.BOTTOM_CENTER), '#ff00ff');
+    //         this.game.debug.geom(this.testingArray[i].getPoint(Phaser.BOTTOM_RIGHT), '#ff00ff');
+
     //     }
-
     // }
 };
