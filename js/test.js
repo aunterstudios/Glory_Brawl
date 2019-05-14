@@ -132,29 +132,21 @@ brawl.testing.prototype = {
         // }
 
         /////////Alpha Build Six//////////
-        var xBlockSize = 450;
-        var yBlockSize = 600;
+        var xBlockSize = 400;
+        var yBlockSize = 550;
         for (var x = 0; x < 12; x++) {
             for (var y = 0; y < 10; y++) {
                 // Phaser.TOP_LEFT, Phaser.TOP_CENTER, Phaser.TOP_RIGHT, Phaser.LEFT_CENTER, Phaser.CENTER, Phaser.RIGHT_CENTER, Phaser.BOTTOM_LEFT, Phaser.BOTTOM_CENTER and Phaser.BOTTOM_RIGHT.
                 ////////////X Grid System///////////
-                ///////////Code1
-                // var xOfSprite = this.game.rnd.realInRange(x * xBlockSize, (x + 1) * xBlockSize);
-                // var yOfSprite = this.game.rnd.realInRange(y * yBlockSize, (y + 1) * yBlockSize);
-                ///////////Code2
-                // var xOfSprite = ((x+1)*xBlockSize)/(x*xBlockSize);
-                // var yOfSprite = ((y+1)*yBlockSize)/(y*yBlockSize);
+
                 var xOfSprite = (x * xBlockSize) + 225;
                 var yOfSprite = (y * yBlockSize) + 300;
-                console.log("X Iterator: " + x + " " + xOfSprite + " Y Iterator: " + y + " "+ yOfSprite);
+                console.log("X Iterator: " + x + " " + xOfSprite + " Y Iterator: " + y + " " + yOfSprite);
 
-                // var xOfSprite = this.game.rnd.realInRange(x * xBlockSize, (x + 1) * xBlockSize);
-                // var yOfSprite = this.game.rnd.realInRange(y * yBlockSize, (y + 1) * yBlockSize);
                 ////////Creation of Rectangle////////////
-                // var rect = new Phaser.Rectangle(x * xBlockSize, y * yBlockSize, xBlockSize, yBlockSize);
 
-                // var rect = new Phaser.Rectangle((x * xBlockSize) + 200, (y * yBlockSize) + 100, xBlockSize, yBlockSize);
-                var rect = new Phaser.Rectangle((x * xBlockSize) + 300, (y * yBlockSize) + 100, xBlockSize, yBlockSize);
+                // var rect = new Phaser.Rectangle(x * xBlockSize, (y * yBlockSize) + 600, xBlockSize, yBlockSize);
+                var rect = new Phaser.Rectangle(x*600, y*750, xBlockSize, yBlockSize);
                 console.log(rect);
                 ////////////Random Array to Scramble Positions//////////
                 // var positionArray = [topCenter, topLeft, topRight, center, centerLeft, centerRight, bottomCenter, bottomLeft, bottomRight];
