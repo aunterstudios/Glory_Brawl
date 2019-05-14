@@ -1,6 +1,6 @@
-///////////////////////////////////////////Rogue Main Version//////////////////////////////////////////
-brawl.rogue = function () { };
-brawl.rogue.prototype = {
+///////////////////////////////////////////Testing Environment//////////////////////////////////////////
+brawl.testing = function () { };
+brawl.testing.prototype = {
     init: function () {
         //GENERAL MAP SETTINGS 
         this.game.physics.startSystem(Phaser.Physics.ARCADE); // We're going to be using physics, so enable the Arcade Physics system
@@ -9,7 +9,7 @@ brawl.rogue.prototype = {
     preload: function () {
         this.game.forceSingleUpdate = true;
         this.load.image('wall', 'assets/wall.png');
-        this.load.image('ball', 'assets/ball.png')
+        this.load.image('ball', 'assets/ball.png');
         this.load.image('rotatedWall', 'assets/rotatedWall.png');
         this.load.image('fallingSpikes', 'assets/newSpikes.png');
         this.load.image('win', 'assets/finishLine.png');

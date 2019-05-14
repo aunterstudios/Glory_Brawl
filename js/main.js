@@ -3,11 +3,14 @@ var game = new Phaser.Game(1400, 800, Phaser.CANVAS);
 //////////////////////////////////////////////////Game States//////////////////////////////////////////////
 game.state.add('mainMenu', brawl.state1);
 game.state.add('deathState', brawl.state2);
-game.state.add('rogueTest', brawl.state12);
+game.state.add('rogueTest', brawl.rogue);
+game.state.add('test', brawl.testing);
 game.state.add('controlScreen', brawl.stateControls);
 //////////////////////////////////////////////////Starting States//////////////////////////////////////////////
-game.state.start('mainMenu');
+// game.state.start('mainMenu');
 // game.state.start('controlScreen');
+// game.state.start('test');
+game.state.start('mainMenu');
 //////////////////////////////////////////////////Global Variables//////////////////////////////////////////////
 
 //Death Total in Game
