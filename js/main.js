@@ -196,6 +196,11 @@ function enemyLedge(ledge, enemy) {
     ledge.body.velocity.x = -200;
   }
 }
+
+function enemyLedgeBlue(ledge, enemy) {
+  enemy.body.stop();
+  enemy.body.velocity.y = -100;
+}
 //Preventing Physics Bugs
 function preventPhysicsBug(sprite1, sprite2) {
   if (sprite1.body.touching.down) {
@@ -233,17 +238,17 @@ function ballMover(player, ball) {
   // }
   //////////////////Natural///////////////
   if (ball.body.touching.up) {
-    ball.body.velocity.y = 200;
+    ball.body.velocity.y = 50;
   }
   else if (ball.body.touching.down) {
-    ball.body.velocity.y = -200;
+    ball.body.velocity.y = -50;
     player.body.velocity.y = -75;
   }
   else if (ball.body.touching.left) {
-    ball.body.velocity.x = 200;
+    ball.body.velocity.x = 50;
   }
   else if (ball.body.touching.right) {
-    ball.body.velocity.x = -200;
+    ball.body.velocity.x = -50;
   }
   //////////////Control////////////
   // if (ball.body.touching.up) {
