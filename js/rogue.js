@@ -205,20 +205,7 @@ brawl.rogue.prototype = {
                 ////////////Random Array to Scramble Positions//////////
                 // var positionArray = [topCenter, topLeft, topRight, center, centerLeft, centerRight, bottomCenter, bottomLeft, bottomRight];
                 if (x === 0 && y === 8) {
-                    console.log("-----------------------------------");
-                    console.log("BaseCamp");
-                    //create wall
-                    this.wallX = this.wall.create(xOfSprite, yOfSprite, 'rotatedWall');
-                    this.wallX.anchor.setTo(.5);
-                    this.wallX.scale.setTo(.4);
-                    this.wallX.alignIn(rect, bottomCenter);
-                    this.wallX.body.immovable = true;
-                    this.wallX.body.moves = false;
-                    this.ledgeSpawn(xOfSprite, yOfSprite, rect, bottomLeft);
-                    this.ledgeSpawn(xOfSprite, yOfSprite, rect, bottomRight);
-                    this.ballSpawn(xOfSprite, yOfSprite, rect, centerLeft);
-                    this.ballSpawn(xOfSprite, yOfSprite, rect, centerRight);
-                    console.log("-----------------------------------");
+                    this.baseCamp(xOfSprite, yOfSprite, rect, bottomCenter, bottomLeft, bottomRight, centerLeft, centerRight);
                 }
                 else {
                     var positionArray = [];
@@ -262,12 +249,10 @@ brawl.rogue.prototype = {
 
                     // console.log(positionArray);
                     //////Sprites//////
-                    this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[0]);
-                    this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[1]);
-                    this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[2]);
-                    this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[3]);
-                    this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[4]);
-                    console.log("---------------------------------------------------");
+                    for (var i = 0; i < 5; i++) {
+                        this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[i]);
+                        console.log("---------------------------------------------------");
+                    }
                 }
             }
         }
@@ -338,27 +323,24 @@ brawl.rogue.prototype = {
             this.spikeSpawn(x, y, rect, positionInRectangle);
         }
     },
-    baseCamp: function () {
+    baseCamp: function (x, y, rect, positionInRectangle1, positionInRectangle2, positionInRectangle3, positionInRectangle4, positionInRectangle5) {
 
         /////////////////////////////////Starting Point of The Map////////////////////////////////
 
+        console.log("-----------------------------------");
+        console.log("BaseCamp");
         //create wall
-        this.wallX = this.wall.create(2800, 6300, 'rotatedWall');
+        this.wallX = this.wall.create(x, y, 'rotatedWall');
         this.wallX.anchor.setTo(.5);
         this.wallX.scale.setTo(.4);
+        this.wallX.alignIn(rect, positionInRectangle1);
         this.wallX.body.immovable = true;
-
-        //Create Ledge
-        this.ledgeX = this.ledge.create(2800, 6200, 'ledge');
-        this.ledgeX.body.maxVelocity.setTo(400);
-        this.ledgeX.anchor.setTo(.5);
-        // this.ledgeX.scale.setTo(.5);
-        this.ledgeX.scale.setTo(.4);
-        this.ledgeX.body.collideWorldBounds = true;
-        //////////////////////Ledge Out of Bounds/////////////////////
-        // this.ledgeX.checkWorldBounds = true;
-        // this.ledgeX.events.onOutOfBounds.add(this.ledgeOut, this);
-        this.ledgeX.body.bounce.setTo(1);
+        this.wallX.body.moves = false;
+        this.ledgeSpawn(x, y, rect, positionInRectangle2);
+        this.ledgeSpawn(x, y, rect, positionInRectangle3);
+        this.ballSpawn(x, y, rect, positionInRectangle4);
+        this.ballSpawn(x, y, rect, positionInRectangle5);
+        console.log("-----------------------------------");
 
     },
     // Creating Game Objects
@@ -546,30 +528,6 @@ brawl.rogue.prototype = {
         this.game.physics.arcade.overlap(this.player, this.enemy, deathOne, null, this);
         this.game.physics.arcade.overlap(this.player, this.spikes, deathOne, null, this);
         this.game.physics.arcade.overlap(this.player, this.death, deathOne, null, this);
-
-        /////////////////////////////God Mode/////////////////////////////////////
-
-        //////////Player Standing Still//////////////
-        // this.player.body.velocity.y = 0;
-        // this.player.body.velocity.x = 0;
-
-        // if (this.cursors.left.isDown) {
-        //     this.player.body.velocity.x = -400;
-        //     this.player.animations.play('left');
-        // }
-        // else if (this.cursors.right.isDown) {
-        //     this.player.body.velocity.x = 400;
-        //     this.player.animations.play('right');
-        // }
-        // if (this.cursors.up.isDown) {
-        //     this.player.frame = 10;
-        //     this.player.body.velocity.y = -650;
-        // }
-        // else if (this.cursors.down.isDown) {
-        //     this.player.frame = 10;
-        //     this.player.body.velocity.y = 650;
-        // }
-
         ////////////////////////////////Actual Controls////////////////////////////////
 
         //Jump Mechanics
@@ -687,27 +645,5 @@ brawl.rogue.prototype = {
             this.player.frame = 13;
             this.player.body.velocity.y = 500;
         }
-    },
-    // render: function () {
-    //     function getRandomColor() {
-    //         var letters = '0123456789ABCDEF';
-    //         var color = '#';
-    //         for (var i = 0; i < 6; i++) {
-    //             color += letters[Math.floor(Math.random() * 16)];
-    //         }
-    //         return color;
-    //     }
-
-    //     for (var i = 0; i < this.testingArray.length; i++) {
-    //         if (this.testingArray[i].flagged) {
-    //             this.game.debug.geom(this.testingArray[i], getRandomColor());
-    //         }
-    //         else {
-    //             this.game.debug.geom(this.testingArray[i]);
-    //         }
-
-    //         this.game.debug.text(this.testingArray[i].id, this.testingArray[i].x + 4, this.testingArray[i].y + 16);
-    //     }
-
-    // }
+    }
 };
