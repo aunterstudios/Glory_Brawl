@@ -77,14 +77,14 @@ brawl.rogue.prototype = {
         this.death = this.game.add.group();
         this.death.enableBody = true;
         for (var i = 0; i < 4; i++) {
-            this.deathX = this.death.create(i * 1400, 6300, 'spikes');
+            this.deathX = this.death.create(i * 1400, 6250, 'spikes');
             this.deathX.scale.setTo(1);
             this.deathX.body.immovable = true;
         }
 
 
         //Adding Player
-        this.player = this.game.add.sprite(2800, 6180, 'dude');
+        this.player = this.game.add.sprite(200, 6100, 'dude');
         this.game.physics.arcade.enable(this.player); //enables physics for player
         this.player.anchor.setTo(.5);
         // this.player.scale.setTo(.6);
@@ -130,64 +130,150 @@ brawl.rogue.prototype = {
 
         /////////Alpha Build Six//////////
         /////////Alpha Build Six//////////
-        var xBlockSize = 300;
-        var yBlockSize = 500;
-        for (var x = 0; x < 14; x++) {
-            for (var y = 0; y < 10; y++) {
-                // Phaser.TOP_LEFT, Phaser.TOP_CENTER, Phaser.TOP_RIGHT, Phaser.LEFT_CENTER, Phaser.CENTER, Phaser.RIGHT_CENTER, Phaser.BOTTOM_LEFT, Phaser.BOTTOM_CENTER and Phaser.BOTTOM_RIGHT.
-                ////////////X Grid System///////////
+        // var xBlockSize = 300;
+        // var yBlockSize = 500;
+        // for (var x = 0; x < 14; x++) {
+        //     for (var y = 0; y < 10; y++) {
+        //         // Phaser.TOP_LEFT, Phaser.TOP_CENTER, Phaser.TOP_RIGHT, Phaser.LEFT_CENTER, Phaser.CENTER, Phaser.RIGHT_CENTER, Phaser.BOTTOM_LEFT, Phaser.BOTTOM_CENTER and Phaser.BOTTOM_RIGHT.
+        //         ////////////X Grid System///////////
 
-                var xOfSprite = (x * xBlockSize) + 225;
-                var yOfSprite = (y * yBlockSize) + 300;
-                console.log("X Iterator: " + x + " " + xOfSprite + " Y Iterator: " + y + " " + yOfSprite);
+        //         var xOfSprite = (x * xBlockSize) + 225;
+        //         var yOfSprite = (y * yBlockSize) + 300;
+        //         console.log("X Iterator: " + x + " " + xOfSprite + " Y Iterator: " + y + " " + yOfSprite);
 
+        //         ////////Creation of Rectangle////////////
+
+        //         // var rect = new Phaser.Rectangle(x * xBlockSize, (y * yBlockSize) + 600, xBlockSize, yBlockSize);
+        //         var rect = new Phaser.Rectangle(x*400, y*600, xBlockSize, yBlockSize);
+        //         console.log(rect);
+        //         ////////////Random Array to Scramble Positions//////////
+        //         // var positionArray = [topCenter, topLeft, topRight, center, centerLeft, centerRight, bottomCenter, bottomLeft, bottomRight];
+        //         var positionArray = [];
+        //         var randomGeneratorForArray = this.game.rnd.integerInRange(0, 100);
+        //         if (randomGeneratorForArray >= 0 && randomGeneratorForArray <= 25) {
+        //             positionArray.push(topCenter);
+        //             positionArray.push(bottomLeft);
+        //             positionArray.push(centerRight);
+        //             positionArray.push(topLeft);
+        //         }
+        //         else if (randomGeneratorForArray >= 26 && randomGeneratorForArray <= 50) {
+        //             positionArray.push(topLeft);
+        //             positionArray.push(bottomCenter);
+        //             positionArray.push(centerLeft);
+        //             positionArray.push(centerRight);
+        //         }
+        //         else if (randomGeneratorForArray >= 51 && randomGeneratorForArray <= 75) {
+        //             positionArray.push(topRight);
+        //             positionArray.push(center);
+        //             positionArray.push(bottomRight);
+        //             positionArray.push(bottomLeft);
+        //         }
+        //         else if (randomGeneratorForArray >= 76 && randomGeneratorForArray <= 100) {
+        //             positionArray.push(topCenter);
+        //             positionArray.push(bottomCenter);
+        //             positionArray.push(centerLeft);
+        //             positionArray.push(topRight);
+        //         }
+
+        //         console.log(positionArray);
+        //         //////Sprites//////
+        //         this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[0]);
+        //         this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[1]);
+        //         this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[2]);
+        //         this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[3]);
+
+        //     }
+        // }
+
+        /////////////////////////Test Grid///////////////////////
+        var xBlockSize = 650;
+        var yBlockSize = 650;
+        var xRectangle = 700;
+        var yRectangle = 700;
+        for (var x = 0; x < 8; x++) {
+            for (var y = 0; y < 9; y++) {
                 ////////Creation of Rectangle////////////
 
                 // var rect = new Phaser.Rectangle(x * xBlockSize, (y * yBlockSize) + 600, xBlockSize, yBlockSize);
-                var rect = new Phaser.Rectangle(x*400, y*600, xBlockSize, yBlockSize);
-                console.log(rect);
+                var rect = new Phaser.Rectangle(x * xRectangle, y * yRectangle, xBlockSize, yBlockSize);
+                var xOfSprite = rect.x
+                var yOfSprite = rect.y
+                // console.log(rect);
+                // this.testingArray.push(rect);
+                // this.text = this.game.add.text(rect.x + 100, rect.y + 100, "Rectangle " + x + y, { font: "32px Arial", fill: "#ffffff", align: "center" });
+                // console.log("Rectangle " + x + y);
                 ////////////Random Array to Scramble Positions//////////
                 // var positionArray = [topCenter, topLeft, topRight, center, centerLeft, centerRight, bottomCenter, bottomLeft, bottomRight];
-                var positionArray = [];
-                var randomGeneratorForArray = this.game.rnd.integerInRange(0, 100);
-                if (randomGeneratorForArray >= 0 && randomGeneratorForArray <= 25) {
-                    positionArray.push(topCenter);
-                    positionArray.push(bottomLeft);
-                    positionArray.push(centerRight);
-                    positionArray.push(topLeft);
+                if (x === 0 && y === 8) {
+                    console.log("-----------------------------------");
+                    console.log("BaseCamp");
+                    //create wall
+                    this.wallX = this.wall.create(xOfSprite, yOfSprite, 'rotatedWall');
+                    this.wallX.anchor.setTo(.5);
+                    this.wallX.scale.setTo(.4);
+                    this.wallX.alignIn(rect, bottomCenter);
+                    this.wallX.body.immovable = true;
+                    this.wallX.body.moves = false;
+                    this.ledgeSpawn(xOfSprite, yOfSprite, rect, bottomLeft);
+                    this.ledgeSpawn(xOfSprite, yOfSprite, rect, bottomRight);
+                    this.ballSpawn(xOfSprite, yOfSprite, rect, centerLeft);
+                    this.ballSpawn(xOfSprite, yOfSprite, rect, centerRight);
+                    console.log("-----------------------------------");
                 }
-                else if (randomGeneratorForArray >= 26 && randomGeneratorForArray <= 50) {
-                    positionArray.push(topLeft);
-                    positionArray.push(bottomCenter);
-                    positionArray.push(centerLeft);
-                    positionArray.push(centerRight);
-                }
-                else if (randomGeneratorForArray >= 51 && randomGeneratorForArray <= 75) {
-                    positionArray.push(topRight);
-                    positionArray.push(center);
-                    positionArray.push(bottomRight);
-                    positionArray.push(bottomLeft);
-                }
-                else if (randomGeneratorForArray >= 76 && randomGeneratorForArray <= 100) {
-                    positionArray.push(topCenter);
-                    positionArray.push(bottomCenter);
-                    positionArray.push(centerLeft);
-                    positionArray.push(topRight);
-                }
+                else {
+                    var positionArray = [];
+                    var randomGeneratorForArray = this.game.rnd.integerInRange(0, 100);
+                    if (randomGeneratorForArray >= 0 && randomGeneratorForArray <= 25) {
+                        // positionArray.push(topCenter);
+                        // positionArray.push(bottomLeft);
+                        // positionArray.push(centerRight);
+                        // positionArray.push(topLeft);
+                        positionArray.push(topLeft);
+                        positionArray.push(center);
+                        positionArray.push(bottomRight);
+                        positionArray.push(bottomLeft);
+                        positionArray.push(topRight);
+                        console.log("Formation1");
+                    }
+                    else if (randomGeneratorForArray >= 26 && randomGeneratorForArray <= 50) {
+                        positionArray.push(topRight);
+                        positionArray.push(center);
+                        positionArray.push(bottomLeft);
+                        positionArray.push(bottomRight);
+                        positionArray.push(bottomCenter);
+                        console.log("Formation2");
+                    }
+                    else if (randomGeneratorForArray >= 51 && randomGeneratorForArray <= 75) {
+                        positionArray.push(topRight);
+                        positionArray.push(topLeft);
+                        positionArray.push(bottomRight);
+                        positionArray.push(centerLeft);
+                        positionArray.push(bottomLeft);
+                        console.log("Formation3");
+                    }
+                    else if (randomGeneratorForArray >= 76 && randomGeneratorForArray <= 100) {
+                        positionArray.push(centerLeft);
+                        positionArray.push(bottomCenter);
+                        positionArray.push(centerRight);
+                        positionArray.push(bottomRight);
+                        positionArray.push(topLeft);
+                        console.log("Formation4");
+                    }
 
-                console.log(positionArray);
-                //////Sprites//////
-                this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[0]);
-                this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[1]);
-                this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[2]);
-                this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[3]);
-
+                    // console.log(positionArray);
+                    //////Sprites//////
+                    this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[0]);
+                    this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[1]);
+                    this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[2]);
+                    this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[3]);
+                    this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[4]);
+                    console.log("---------------------------------------------------");
+                }
             }
         }
 
-
-        //Base Camp (Starting Area);
-        this.baseCamp();
+        // //Base Camp (Starting Area);
+        // this.baseCamp();
 
         // this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_PLATFORMER);
         this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_LOCKON);
@@ -239,10 +325,10 @@ brawl.rogue.prototype = {
         else if (gridSystemGenesis >= 57 && gridSystemGenesis <= 61) {
             this.ledgeSpawn(x, y, rect, positionInRectangle);
         }
-        else if (gridSystemGenesis >= 62 && gridSystemGenesis <= 66) {
+        else if (gridSystemGenesis >= 62 && gridSystemGenesis <= 69) {
             this.ledgeDownSpawn(x, y, rect, positionInRectangle);
         }
-        else if (gridSystemGenesis >= 67 && gridSystemGenesis <= 74) {
+        else if (gridSystemGenesis >= 70 && gridSystemGenesis <= 74) {
             this.ballSpawn(x, y, rect, positionInRectangle);
         }
         else if (gridSystemGenesis >= 75 && gridSystemGenesis <= 84) {
@@ -283,7 +369,7 @@ brawl.rogue.prototype = {
         // this.wallX.scale.setTo(.5);
         // var wallLength = [.2, .3, .4];
         // this.wallX.scale.setTo(wallLength[Math.floor(Math.random() * wallLength.length)]);
-        this.wallX.scale.setTo(.4);
+        this.wallX.scale.setTo(.35);
         this.wallX.alignIn(rect, positionInRectangle)
         this.wallX.body.immovable = true;
         this.wallX.body.moves = false;
