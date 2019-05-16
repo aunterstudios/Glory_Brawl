@@ -304,5 +304,16 @@ function ballLedgeDown (ball,ledge) {
   }
 }
 
+function weaponBall (weapon,ball) {
+  if (ball.body.touching.left) {
+    ball.body.velocity.x = 100;
+  }
+  if (ball.body.touching.down) {
+    ball.body.velocity.y = -100;
+  }
+  // ball.body.velocity.y = -100;
+  weapon.kill();
+}
+
 
 

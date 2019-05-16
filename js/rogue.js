@@ -23,6 +23,7 @@ brawl.rogue.prototype = {
         this.load.image('action', 'assets/action.png');
         this.load.image('ledgeDown', 'assets/platformX.png');
         this.load.image('ledgeSide', 'assets/platformSide.png');
+        this.load.image('bullet', 'assets/bullet09.png');
         this.load.spritesheet('dude', 'assets/white.png', 87.5, 93.5);
     },
     create: function () {
@@ -35,7 +36,7 @@ brawl.rogue.prototype = {
         this.fullSize.onDown.add(this.gofull, this);
 
         //Pause Menu (Freeze TIME LOL)
-        this.pause = this.game.input.keyboard.addKey(Phaser.Keyboard.CONTROL);
+        this.pause = this.game.input.keyboard.addKey(Phaser.Keyboard.P);
 
         this.pause.onDown.add(this.goPause, this);
 
@@ -83,7 +84,7 @@ brawl.rogue.prototype = {
         }
 
 
-        //Adding Player
+        ////////////////////Adding Player//////////////////////
         this.player = this.game.add.sprite(200, 6100, 'dude');
         this.game.physics.arcade.enable(this.player); //enables physics for player
         this.player.anchor.setTo(.5);
@@ -101,6 +102,33 @@ brawl.rogue.prototype = {
         this.player.animations.add('left', [0, 1, 2, 3, 4, 5, 6, 7], 10, true);
         this.player.animations.add('right', [9, 10, 11, 12, 13, 14, 15], 10, true);
 
+        //////////////////Adding Weapons////////////////////
+        //  Creates 30 bullets, using the 'bullet' graphic
+        this.weapon = this.game.add.weapon(30, 'bullet');
+
+        //  The bullet will be automatically killed when it leaves the camera bounds
+        this.weapon.bulletKillType = Phaser.Weapon.KILL_CAMERA_BOUNDS;
+
+        //  Because our bullet is drawn facing up, we need to offset its rotation:
+        this.weapon.bulletAngleOffset = 90;
+
+        //  The speed at which the bullet is fired
+        this.weapon.bulletSpeed = 400;
+
+        //  Speed-up the rate of fire, allowing them to shoot 1 bullet every 60ms
+        this.weapon.fireRate = 60;
+
+        //Match Your Velocity?
+        this.weapon.bulletRotateToVelocity = true;
+
+        // Track Player
+        this.weapon.trackSprite(this.player, 0, 0, true);
+
+        // Firing Weapon
+        this.fireButton = this.game.input.keyboard.addKey(Phaser.Keyboard.CONTROL);
+
+        
+
         //////////////////Grid System Creation////////////////
         ///Top Positions
         var topCenter = Phaser.TOP_CENTER;
@@ -114,76 +142,6 @@ brawl.rogue.prototype = {
         var bottomCenter = Phaser.BOTTOM_CENTER;
         var bottomLeft = Phaser.BOTTOM_LEFT;
         var bottomRight = Phaser.BOTTOM_RIGHT;
-
-        ///////////Alpha Build One///////////
-        // var xBlockSize = 280;
-        // var yBlockSize = 375;
-
-        // for (var x = 0; x < 20; x++) {
-        //     for (var y = 0; y < 16; y++) {
-        //         var xRandom = this.game.rnd.realInRange((x * xBlockSize) + 1, (x + 1) * xBlockSize);
-        //         var yRandom = this.game.rnd.realInRange((y * yBlockSize) + 1, (y + 1) * yBlockSize);
-        //         this.gridSystem(xRandom, yRandom);
-        //         // console.log(x + ' ' + y + ' ' + xRandom + ' ' + yRandom);
-        //     }
-        // }
-
-        /////////Alpha Build Six//////////
-        /////////Alpha Build Six//////////
-        // var xBlockSize = 300;
-        // var yBlockSize = 500;
-        // for (var x = 0; x < 14; x++) {
-        //     for (var y = 0; y < 10; y++) {
-        //         // Phaser.TOP_LEFT, Phaser.TOP_CENTER, Phaser.TOP_RIGHT, Phaser.LEFT_CENTER, Phaser.CENTER, Phaser.RIGHT_CENTER, Phaser.BOTTOM_LEFT, Phaser.BOTTOM_CENTER and Phaser.BOTTOM_RIGHT.
-        //         ////////////X Grid System///////////
-
-        //         var xOfSprite = (x * xBlockSize) + 225;
-        //         var yOfSprite = (y * yBlockSize) + 300;
-        //         console.log("X Iterator: " + x + " " + xOfSprite + " Y Iterator: " + y + " " + yOfSprite);
-
-        //         ////////Creation of Rectangle////////////
-
-        //         // var rect = new Phaser.Rectangle(x * xBlockSize, (y * yBlockSize) + 600, xBlockSize, yBlockSize);
-        //         var rect = new Phaser.Rectangle(x*400, y*600, xBlockSize, yBlockSize);
-        //         console.log(rect);
-        //         ////////////Random Array to Scramble Positions//////////
-        //         // var positionArray = [topCenter, topLeft, topRight, center, centerLeft, centerRight, bottomCenter, bottomLeft, bottomRight];
-        //         var positionArray = [];
-        //         var randomGeneratorForArray = this.game.rnd.integerInRange(0, 100);
-        //         if (randomGeneratorForArray >= 0 && randomGeneratorForArray <= 25) {
-        //             positionArray.push(topCenter);
-        //             positionArray.push(bottomLeft);
-        //             positionArray.push(centerRight);
-        //             positionArray.push(topLeft);
-        //         }
-        //         else if (randomGeneratorForArray >= 26 && randomGeneratorForArray <= 50) {
-        //             positionArray.push(topLeft);
-        //             positionArray.push(bottomCenter);
-        //             positionArray.push(centerLeft);
-        //             positionArray.push(centerRight);
-        //         }
-        //         else if (randomGeneratorForArray >= 51 && randomGeneratorForArray <= 75) {
-        //             positionArray.push(topRight);
-        //             positionArray.push(center);
-        //             positionArray.push(bottomRight);
-        //             positionArray.push(bottomLeft);
-        //         }
-        //         else if (randomGeneratorForArray >= 76 && randomGeneratorForArray <= 100) {
-        //             positionArray.push(topCenter);
-        //             positionArray.push(bottomCenter);
-        //             positionArray.push(centerLeft);
-        //             positionArray.push(topRight);
-        //         }
-
-        //         console.log(positionArray);
-        //         //////Sprites//////
-        //         this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[0]);
-        //         this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[1]);
-        //         this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[2]);
-        //         this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[3]);
-
-        //     }
-        // }
 
         /////////////////////////Test Grid///////////////////////
         var xBlockSize = 650;
@@ -478,6 +436,15 @@ brawl.rogue.prototype = {
         // this.game.physics.arcade.collide(this.player, this.ball, ballMover, ballGround);
         var onBall = this.game.physics.arcade.collide(this.player, this.ball, ballMover);
 
+        //Weapon Mechanics
+        this.game.physics.arcade.overlap(this.weapon.bullets, this.ball, weaponBall);
+        this.game.physics.arcade.overlap(this.weapon.bullets, this.wall);
+        this.game.physics.arcade.overlap(this.weapon.bullets, this.spikes);
+        this.game.physics.arcade.overlap(this.weapon.bullets, this.ledge);
+        this.game.physics.arcade.overlap(this.weapon.bullets, this.ledgeDown);
+        this.game.physics.arcade.overlap(this.weapon.bullets, this.ledgeSide);
+        this.game.physics.arcade.overlap(this.weapon.bullets, this.enemy);
+        // this.game.physics.arcade.overlap(this.ball, this.enemy, deathThree);
 
         // Ball Mechanics
         this.game.physics.arcade.collide(this.ball, this.ball);
@@ -645,5 +612,14 @@ brawl.rogue.prototype = {
             this.player.frame = 13;
             this.player.body.velocity.y = 500;
         }
-    }
+
+        //Weapon Mechanics
+
+        if (this.fireButton.isDown) {
+            this.weapon.fire();
+        }
+    },
+    // render: function () {
+    //     this.weapon.debug();
+    // }
 };
