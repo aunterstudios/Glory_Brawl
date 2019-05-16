@@ -306,10 +306,10 @@ function ballLedgeDown (ball,ledge) {
 
 function weaponBall (weapon,ball) {
   if (ball.body.touching.left) {
-    ball.body.velocity.x = 100;
+    ball.body.stop();
   }
   if (ball.body.touching.down) {
-    ball.body.velocity.y = -100;
+    ball.body.stop();
   }
   // ball.body.velocity.y = -100;
   weapon.kill();

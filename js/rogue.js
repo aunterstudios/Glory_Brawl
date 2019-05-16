@@ -122,7 +122,7 @@ brawl.rogue.prototype = {
         this.weapon.bulletRotateToVelocity = true;
 
         // Track Player
-        this.weapon.trackSprite(this.player, 0, 0, true);
+        this.weapon.trackSprite(this.player, 0, 0);
 
         // Firing Weapon
         this.fireButton = this.game.input.keyboard.addKey(Phaser.Keyboard.CONTROL);
