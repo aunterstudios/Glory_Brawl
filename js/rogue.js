@@ -74,7 +74,7 @@ brawl.rogue.prototype = {
         //Adding Flag (Win Game)
         this.finish = this.game.add.sprite(0, 0, 'win');
         this.game.physics.arcade.enable(this.finish);
-        //Adding This Undeniable Death
+        //Adding This Undeniable Death At the Bottom
         this.death = this.game.add.group();
         this.death.enableBody = true;
         for (var i = 0; i < 4; i++) {
@@ -126,6 +126,15 @@ brawl.rogue.prototype = {
 
         // Firing Weapon
         this.fireButton = this.game.input.keyboard.addKey(Phaser.Keyboard.CONTROL);
+
+        //Angle Weapon Fire
+        this.fireUpButton = this.game.input.keyboard.addKey(Phaser.Keyboard.W);
+        this.fireDownButton = this.game.input.keyboard.addKey(Phaser.Keyboard.S);
+        this.fireLeftButton = this.game.input.keyboard.addKey(Phaser.Keyboard.A);
+        this.fireRightButton = this.game.input.keyboard.addKey(Phaser.Keyboard.D);
+
+        ///////////////Keyboard Weapon//////////
+        console.log(this.game.input.keyboard.lastKey);
 
         
 
@@ -617,6 +626,24 @@ brawl.rogue.prototype = {
 
         if (this.fireButton.isDown) {
             this.weapon.fire();
+        }
+
+        //Angle Weapon Fire
+        this.fireUpButton = this.game.input.keyboard.addKey(Phaser.Keyboard.W);
+        this.fireDownButton = this.game.input.keyboard.addKey(Phaser.Keyboard.S);
+        this.fireLeftButton = this.game.input.keyboard.addKey(Phaser.Keyboard.A);
+        this.fireRightButton = this.game.input.keyboard.addKey(Phaser.Keyboard.D);
+        if (this.fireUpButton.isDown) {
+            this.weapon.fireAngle = 270;
+        }
+        else if (this.fireDownButton.isDown) {
+            this.weapon.fireAngle = 90;
+        }
+        else if (this.fireLeftButton.isDown) {
+            this.weapon.fireAngle = 180;
+        }
+        else if (this.fireRightButton.isDown) {
+            this.weapon.fireAngle = 0;
         }
     },
     // render: function () {
