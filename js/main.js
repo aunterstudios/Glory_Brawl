@@ -124,31 +124,31 @@ function ledgeUp(player, ledge) {
     // if (player.body.velocity.x < 0) {
     //   ledge.body.velocity.x = player.body.velocity.x - 100;
     // }
-    // else if (player.body.velocity.x > 0) {
+    // if (player.body.velocity.x > 0) {
     //   ledge.body.velocity.x = player.body.velocity.x + 100;
     // }
-    // else {
+    // {
     //   ledge.body.velocity.x = 0;
     // }
   }
   // When You're Hitting the Edge from the Sides (Right and Left)
-  else if (ledge.body.touching.left || ledge.body.touching.right) {
+  if (ledge.body.touching.left || ledge.body.touching.right) {
     ledge.body.velocity.y = 0;
     ledge.body.velocity.x = player.body.velocity.x;
   }
   /////////////////////////////////In Case Want to Change Side Ledge Velocity///////////
-  // else if (ledge.body.touching.left) {
+  // if (ledge.body.touching.left) {
   //   ledge.body.velocity.y = 0;
   //   ledge.body.velocity.x = 300;
   // }
-  // else if (ledge.body.touching.right) {
+  // if (ledge.body.touching.right) {
   //   ledge.body.velocity.y = 0;
   //   ledge.body.velocity.x = -300;
   // }
-  // else if (ledge.body.touching.down && player.body.velocity.y < -1) {
+  // if (ledge.body.touching.down && player.body.velocity.y < -1) {
   //   player.body.velocity.y = -100;
   // }
-  else if (ledge.body.touching.down) {
+  if (ledge.body.touching.down) {
     ledge.body.velocity.y = -300;
     player.body.velocity.y = -100;
   }
@@ -165,7 +165,7 @@ function ledgeSideX(player, ledge) {
   if (ledge.body.velocity.x > 0) {
     ledge.body.velocity.x = 300;
   }
-  else if (ledge.body.velocity.x < 0) {
+  if (ledge.body.velocity.x < 0) {
     ledge.body.velocity.x = -300;
   }
 }
@@ -177,19 +177,19 @@ function enemyLedge(ledge, enemy) {
     enemy.body.velocity.y = -125;
     ledge.body.velocity.y = 200;
   }
-  else if (ledge.body.touching.down) {
+  if (ledge.body.touching.down) {
     enemy.body.stop();
     ledge.body.stop();
     enemy.body.velocity.y = 125;
     ledge.body.velocity.y = -200;
   }
-  else if (ledge.body.touching.left) {
+  if (ledge.body.touching.left) {
     enemy.body.stop();
     ledge.body.stop();
     enemy.body.velocity.x = -125;
     ledge.body.velocity.x = 200;
   }
-  else if (ledge.body.touching.right) {
+  if (ledge.body.touching.right) {
     enemy.body.stop();
     ledge.body.stop();
     enemy.body.velocity.x = 125;
@@ -212,7 +212,7 @@ function preventPhysicsBug(sprite1, sprite2) {
 //   if (sprite1.body.touching.down) {
 //     sprite1.body.velocity.y = -1000;
 //   }
-//   else if (sprite1.body.touching.up) {
+//   if (sprite1.body.touching.up) {
 //     sprite1.body.stop();
 //     sprite1.body.velocity.y = 50;
 //   }
@@ -226,41 +226,41 @@ function ballMover(player, ball) {
   // if (ball.body.touching.up) {
   //   ball.body.velocity.y= 200;
   // }
-  // else if (ball.body.touching.down) {
+  // if (ball.body.touching.down) {
   //   ball.body.velocity.y = -200;
   //   player.body.velocity.y = -50;
   // }
-  // else if (ball.body.touching.left) {
+  // if (ball.body.touching.left) {
   //   ball.body.velocity.x = 200;
   // }
-  // else if (ball.body.touching.right) {
+  // if (ball.body.touching.right) {
   //   ball.body.velocity.x = -200;
   // }
   //////////////////Natural///////////////
   if (ball.body.touching.up) {
     ball.body.velocity.y = 50;
   }
-  else if (ball.body.touching.down) {
+  if (ball.body.touching.down) {
     ball.body.velocity.y = -50;
     player.body.velocity.y = -75;
   }
-  else if (ball.body.touching.left) {
+  if (ball.body.touching.left) {
     ball.body.velocity.x = 50;
   }
-  else if (ball.body.touching.right) {
+  if (ball.body.touching.right) {
     ball.body.velocity.x = -50;
   }
   //////////////Control////////////
   // if (ball.body.touching.up) {
   //   ball.body.velocity.y = player.body.velocity.y;
   // }
-  // else if (ball.body.touching.down) {
+  // if (ball.body.touching.down) {
   //   ball.body.velocity.y = player.body.velocity.y;
   // }
-  // else if (ball.body.touching.left) {
+  // if (ball.body.touching.left) {
   //   ball.body.velocity.x = player.body.velocity.x;
   // }
-  // else if (ball.body.touching.right) {
+  // if (ball.body.touching.right) {
   //   ball.body.velocity.x = player.body.velocity.x;
   // }
 }
@@ -272,7 +272,7 @@ function ballLedge(ball, ledge) {
     ball.body.velocity.y = 200;
     ledge.body.velocity.y = -200;
   }
-  else if (ball.body.touching.down) {
+  if (ball.body.touching.down) {
     ledge.body.stop();
     ball.body.stop();
     ball.body.velocity.y = -200;
@@ -284,13 +284,13 @@ function ballWall(ball, wall) {
   if (ball.body.touching.up) {
     ball.body.velocity.y = 100;
   }
-  else if (ball.body.touching.down) {
+  if (ball.body.touching.down) {
     ball.body.velocity.y = -100;
   }
-  else if (ball.body.touching.left) {
+  if (ball.body.touching.left) {
     ball.body.velocity.x = 100;
   }
-  else if (ball.body.touching.right) {
+  if (ball.body.touching.right) {
     ball.body.velocity.x = -100;
   }
 }
@@ -299,7 +299,7 @@ function ballLedgeDown(ball, ledge) {
   if (ledge.body.touching.up) {
     ball.body.velocity.y = -1000;
   }
-  else if (ledge.body.touching.down) {
+  if (ledge.body.touching.down) {
     ball.body.velocity.y = 1000;
   }
 }
@@ -312,41 +312,104 @@ function ballLedgeDown(ball, ledge) {
 // this.game.physics.arcade.overlap(this.weapon.bullets, this.ledgeSide, weaponSideLedge);
 // this.game.physics.arcade.overlap(this.weapon.bullets, this.enemy, weaponEnemy);
 function weaponBall(weapon, ball) {
-  if (ball.body.touching.left) {
-    ball.body.stop();
-  }
-  if (ball.body.touching.down) {
-    ball.body.stop();
-  }
+  ball.body.stop();
   // ball.body.velocity.y = -100;
   weapon.kill();
 }
 
-function weaponWall (weapon,wall) {
-  wall.body.velocity.y = 100;
+function weaponWall(weapon, wall) {
+  if (wall.body.touching.up) {
+    wall.body.velocity.y = -100;
+    console.log("It's happening up");
+    weapon.kill();
+  }
+  if (wall.body.touching.down) {
+    wall.body.velocity.y = 100;
+    console.log("It's happening down");
+    weapon.kill();
+  }
+  if (wall.body.touching.left) {
+    wall.body.velocity.x = -100;
+    console.log("It's happening left");
+    weapon.kill();
+  }
+  if (wall.body.touching.right) {
+    wall.body.velocity.x = 100;
+    console.log("It's happening right");
+    weapon.kill();
+  }
+}
+
+function weaponSpikes(weapon, spikes) {
   weapon.kill();
 }
 
-function weaponSpikes (weapon,spikes) {
+function weaponLedge(weapon, ledge) {
+  if (ledge.body.touching.up) {
+    ledge.body.velocity.y = -100;
+  }
+  if (ledge.body.touching.down) {
+    ledge.body.velocity.y = 100;
+  }
+  if (ledge.body.touching.left) {
+    ledge.body.velocity.x = -100;
+  }
+  if (ledge.body.touching.right) {
+    ledge.body.velocity.x = 100;
+  }
   weapon.kill();
 }
 
-function weaponLedge (weapon,ledge) {
-  ledge.body.velocity.y = 100;
+function weaponDownLedge(weapon, ledge) {
+  if (ledge.body.touching.up) {
+    ledge.body.velocity.y = 100;
+  }
+  if (ledge.body.touching.down) {
+    ledge.body.velocity.y = -100;
+  }
+  if (ledge.body.touching.left) {
+    ledge.body.velocity.x = -100;
+  }
+  if (ledge.body.touching.right) {
+    ledge.body.velocity.x = 100;
+  }
   weapon.kill();
 }
 
-function weaponDownLedge (weapon,ledge) {
-  ledge.body.velocity.y = -50;
+function weaponSideLedge(weapon, ledge) {
+  if (ledge.body.touching.up) {
+    ledge.body.velocity.y = 100;
+  }
+  if (ledge.body.touching.down) {
+    ledge.body.velocity.y = -100;
+  }
+  if (ledge.body.touching.left || ledge.body.touching.right) {
+    ledge.body.stop();
+  }
   weapon.kill();
 }
 
-function weaponSideLedge (weapon,ledge) {
-  ledge.body.velocity.y = -100;
+function weaponEnemy(weapon, enemy) {
+  if (enemy.body.touching.up) {
+    enemy.body.velocity.y = 100;
+  }
+  if (enemy.body.touching.down) {
+    enemy.body.velocity.y = -100;
+  }
+  if (enemy.body.touching.left) {
+    enemy.body.velocity.x = 100;
+  }
+  if (enemy.body.touching.right) {
+    enemy.body.velocity.x = -100;
+  }
   weapon.kill();
 }
 
-function weaponEnemy (weapon, enemy) {
-  enemy.body.stop();
-  weapon.kill();
+/////////////////////////Undeniable Death Mechanics///////////////////////
+//Prevent Sprites from Just Staying at the Bottom
+
+function deathOverlap(death, spriteBody) {
+  if (death.body.touching.up) {
+    spriteBody.body.velocity.y = -100;
+  }
 }

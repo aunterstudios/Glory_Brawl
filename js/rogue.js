@@ -104,7 +104,7 @@ brawl.rogue.prototype = {
 
         //////////////////Adding Weapons////////////////////
         //  Creates 30 bullets, using the 'bullet' graphic
-        this.weapon = this.game.add.weapon(30, 'bullet');
+        this.weapon = this.game.add.weapon(60, 'bullet');
 
         //  The bullet will be automatically killed when it leaves the camera bounds
         this.weapon.bulletKillType = Phaser.Weapon.KILL_CAMERA_BOUNDS;
@@ -114,29 +114,26 @@ brawl.rogue.prototype = {
 
         //  The speed at which the bullet is fired
         this.weapon.bulletSpeed = 400;
+        //400 previous value
 
         //  Speed-up the rate of fire, allowing them to shoot 1 bullet every 60ms
         this.weapon.fireRate = 60;
+        //60 previous value
 
         //Match Your Velocity?
-        this.weapon.bulletRotateToVelocity = true;
+        // this.weapon.bulletRotateToVelocity = true;
 
         // Track Player
-        this.weapon.trackSprite(this.player, 0, 0);
+        this.weapon.trackSprite(this.player, 0, -50);
 
         // Firing Weapon
-        this.fireButton = this.game.input.keyboard.addKey(Phaser.Keyboard.CONTROL);
+        this.fireButton = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 
-        // //Angle Weapon Fire
-        // this.fireUpButton = this.game.input.keyboard.addKey(Phaser.Keyboard.W);
-        // this.fireDownButton = this.game.input.keyboard.addKey(Phaser.Keyboard.S);
-        // this.fireLeftButton = this.game.input.keyboard.addKey(Phaser.Keyboard.A);
-        // this.fireRightButton = this.game.input.keyboard.addKey(Phaser.Keyboard.D);
-
-        ///////////////Keyboard Weapon//////////
-        console.log(this.game.input.keyboard.lastKey);
-
-        
+        //Angle Weapon Fire
+        this.fireUpButton = this.game.input.keyboard.addKey(Phaser.Keyboard.W);
+        this.fireDownButton = this.game.input.keyboard.addKey(Phaser.Keyboard.S);
+        this.fireLeftButton = this.game.input.keyboard.addKey(Phaser.Keyboard.A);
+        this.fireRightButton = this.game.input.keyboard.addKey(Phaser.Keyboard.D);
 
         //////////////////Grid System Creation////////////////
         ///Top Positions
@@ -319,6 +316,7 @@ brawl.rogue.prototype = {
         // var wallLength = [.2, .3, .4];
         // this.wallX.scale.setTo(wallLength[Math.floor(Math.random() * wallLength.length)]);
         this.wallX.scale.setTo(.35);
+        this.wallX.body.collideWorldBounds = true;
         this.wallX.alignIn(rect, positionInRectangle)
         this.wallX.body.immovable = true;
         // this.wallX.body.moves = false;
@@ -420,7 +418,6 @@ brawl.rogue.prototype = {
         var released = false;
 
         released = this.input.keyboard.upDuration(Phaser.Keyboard.UP);
-        released |= this.input.keyboard.upDuration(Phaser.Keyboard.SPACEBAR)
 
         return released;
     },
@@ -428,7 +425,6 @@ brawl.rogue.prototype = {
         var isActive = false;
 
         isActive = this.input.keyboard.downDuration(Phaser.Keyboard.UP, duration);
-        isActive |= this.input.keyboard.downDuration(Phaser.Keyboard.SPACEBAR, duration);
 
         return isActive;
     },
@@ -446,13 +442,13 @@ brawl.rogue.prototype = {
         var onBall = this.game.physics.arcade.collide(this.player, this.ball, ballMover);
 
         //Weapon Mechanics
-        this.game.physics.arcade.overlap(this.weapon.bullets, this.ball, weaponBall);
-        this.game.physics.arcade.overlap(this.weapon.bullets, this.wall, weaponWall);
-        this.game.physics.arcade.overlap(this.weapon.bullets, this.spikes, weaponSpikes);
-        this.game.physics.arcade.overlap(this.weapon.bullets, this.ledge, weaponLedge);
-        this.game.physics.arcade.overlap(this.weapon.bullets, this.ledgeDown, weaponDownLedge);
-        this.game.physics.arcade.overlap(this.weapon.bullets, this.ledgeSide, weaponSideLedge);
-        this.game.physics.arcade.overlap(this.weapon.bullets, this.enemy, weaponEnemy);
+        this.game.physics.arcade.overlap(this.weapon.bullets, this.ball, weaponBall, null, this);
+        this.game.physics.arcade.overlap(this.weapon.bullets, this.wall, weaponWall, null, this);
+        this.game.physics.arcade.overlap(this.weapon.bullets, this.spikes, weaponSpikes, null, this);
+        this.game.physics.arcade.overlap(this.weapon.bullets, this.ledge, weaponLedge, null, this);
+        this.game.physics.arcade.overlap(this.weapon.bullets, this.ledgeDown, weaponDownLedge, null, this);
+        this.game.physics.arcade.overlap(this.weapon.bullets, this.ledgeSide, weaponSideLedge, null, this);
+        this.game.physics.arcade.overlap(this.weapon.bullets, this.enemy, weaponEnemy, null, this);
         // this.game.physics.arcade.overlap(this.ball, this.enemy, deathThree);
 
         // Ball Mechanics
@@ -627,24 +623,18 @@ brawl.rogue.prototype = {
         if (this.fireButton.isDown) {
             this.weapon.fire();
         }
-
-        // //Angle Weapon Fire
-        // this.fireUpButton = this.game.input.keyboard.addKey(Phaser.Keyboard.W);
-        // this.fireDownButton = this.game.input.keyboard.addKey(Phaser.Keyboard.S);
-        // this.fireLeftButton = this.game.input.keyboard.addKey(Phaser.Keyboard.A);
-        // this.fireRightButton = this.game.input.keyboard.addKey(Phaser.Keyboard.D);
-        // if (this.fireUpButton.isDown) {
-        //     this.weapon.fireAngle = 270;
-        // }
-        // else if (this.fireDownButton.isDown) {
-        //     this.weapon.fireAngle = 90;
-        // }
-        // else if (this.fireLeftButton.isDown) {
-        //     this.weapon.fireAngle = 180;
-        // }
-        // else if (this.fireRightButton.isDown) {
-        //     this.weapon.fireAngle = 0;
-        // }
+        if (this.fireUpButton.isDown) {
+            this.weapon.fireAngle = 270;
+        }
+        else if (this.fireDownButton.isDown) {
+            this.weapon.fireAngle = 90;
+        }
+        else if (this.fireLeftButton.isDown) {
+            this.weapon.fireAngle = 180;
+        }
+        else if (this.fireRightButton.isDown) {
+            this.weapon.fireAngle = 0;
+        }
     },
     // render: function () {
     //     this.weapon.debug();

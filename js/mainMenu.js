@@ -76,7 +76,7 @@ brawl.stateControls.prototype = {
             if (i === 0) {
                 var xText = 10;
                 var yText = 100;
-                var textInput = " Spacebar or Up Arrow Key to Jump (Tap Twice to Double Jump) \n\n Down Arrow Key to Move or Push Downwards \n\n Left Arrow Key to Move Left \n\n Right Arrow Key to Move Right \n\n CTRL to Freeze Time";
+                var textInput = " Up Arrow Key to Jump (Tap Twice to Double Jump) \n\n Down Arrow Key to Move or Push Downwards \n\n Left Arrow Key to Move Left \n\n Right Arrow Key to Move Right \n\n Spacebar to Shoot \n\n WASD to Change Shooting Angle";
                 var fontFill = "#19de65";
                 var fontSize = 25;
             }
@@ -92,7 +92,7 @@ brawl.stateControls.prototype = {
             else if (i === 2) {
                 var xText = 10;
                 var yText = 600;
-                var textInput = "Hints: \n 1. Once You Hit a Surface You Can Double-Jump Again. (Use the Ball) \n 2. The Ball is Your Best Friend \n 3. You Can Stick to the Bottom of Surfaces";
+                var textInput = "Hints: \n 1. Once You Hit a Surface You Can Double-Jump Again.\n 2. Use Your Weapon to Manipulate the Environment \n 3. You Can Stick to the Bottom of Surfaces";
                 var fontFill = "#19de65";
                 var fontSize = 25;
             }
@@ -100,7 +100,7 @@ brawl.stateControls.prototype = {
             else {
                 var xText = 1000;
                 var yText = 700;
-                var textInput = "Press Enter to Play. Get to the Top";
+                var textInput = "Press Z to Play. Get to the Top";
                 var fontFill = "#ffffff";
                 var fontSize = 20;
             }
@@ -112,7 +112,7 @@ brawl.stateControls.prototype = {
         }
     },
     update: function () {
-        if (this.game.input.keyboard.isDown(Phaser.Keyboard.ENTER)) {
+        if (this.game.input.keyboard.isDown(Phaser.Keyboard.Z)) {
             this.game.state.start('rogueTest');
         }
 
