@@ -127,11 +127,11 @@ brawl.rogue.prototype = {
         // Firing Weapon
         this.fireButton = this.game.input.keyboard.addKey(Phaser.Keyboard.CONTROL);
 
-        //Angle Weapon Fire
-        this.fireUpButton = this.game.input.keyboard.addKey(Phaser.Keyboard.W);
-        this.fireDownButton = this.game.input.keyboard.addKey(Phaser.Keyboard.S);
-        this.fireLeftButton = this.game.input.keyboard.addKey(Phaser.Keyboard.A);
-        this.fireRightButton = this.game.input.keyboard.addKey(Phaser.Keyboard.D);
+        // //Angle Weapon Fire
+        // this.fireUpButton = this.game.input.keyboard.addKey(Phaser.Keyboard.W);
+        // this.fireDownButton = this.game.input.keyboard.addKey(Phaser.Keyboard.S);
+        // this.fireLeftButton = this.game.input.keyboard.addKey(Phaser.Keyboard.A);
+        // this.fireRightButton = this.game.input.keyboard.addKey(Phaser.Keyboard.D);
 
         ///////////////Keyboard Weapon//////////
         console.log(this.game.input.keyboard.lastKey);
@@ -321,7 +321,7 @@ brawl.rogue.prototype = {
         this.wallX.scale.setTo(.35);
         this.wallX.alignIn(rect, positionInRectangle)
         this.wallX.body.immovable = true;
-        this.wallX.body.moves = false;
+        // this.wallX.body.moves = false;
     },
     enemySpawn: function (x, y, rect, positionInRectangle) {
         this.trumpX = this.enemy.create(x, y, 'enemy');
@@ -447,12 +447,12 @@ brawl.rogue.prototype = {
 
         //Weapon Mechanics
         this.game.physics.arcade.overlap(this.weapon.bullets, this.ball, weaponBall);
-        this.game.physics.arcade.overlap(this.weapon.bullets, this.wall);
-        this.game.physics.arcade.overlap(this.weapon.bullets, this.spikes);
-        this.game.physics.arcade.overlap(this.weapon.bullets, this.ledge);
-        this.game.physics.arcade.overlap(this.weapon.bullets, this.ledgeDown);
-        this.game.physics.arcade.overlap(this.weapon.bullets, this.ledgeSide);
-        this.game.physics.arcade.overlap(this.weapon.bullets, this.enemy);
+        this.game.physics.arcade.overlap(this.weapon.bullets, this.wall, weaponWall);
+        this.game.physics.arcade.overlap(this.weapon.bullets, this.spikes, weaponSpikes);
+        this.game.physics.arcade.overlap(this.weapon.bullets, this.ledge, weaponLedge);
+        this.game.physics.arcade.overlap(this.weapon.bullets, this.ledgeDown, weaponDownLedge);
+        this.game.physics.arcade.overlap(this.weapon.bullets, this.ledgeSide, weaponSideLedge);
+        this.game.physics.arcade.overlap(this.weapon.bullets, this.enemy, weaponEnemy);
         // this.game.physics.arcade.overlap(this.ball, this.enemy, deathThree);
 
         // Ball Mechanics
@@ -628,23 +628,23 @@ brawl.rogue.prototype = {
             this.weapon.fire();
         }
 
-        //Angle Weapon Fire
-        this.fireUpButton = this.game.input.keyboard.addKey(Phaser.Keyboard.W);
-        this.fireDownButton = this.game.input.keyboard.addKey(Phaser.Keyboard.S);
-        this.fireLeftButton = this.game.input.keyboard.addKey(Phaser.Keyboard.A);
-        this.fireRightButton = this.game.input.keyboard.addKey(Phaser.Keyboard.D);
-        if (this.fireUpButton.isDown) {
-            this.weapon.fireAngle = 270;
-        }
-        else if (this.fireDownButton.isDown) {
-            this.weapon.fireAngle = 90;
-        }
-        else if (this.fireLeftButton.isDown) {
-            this.weapon.fireAngle = 180;
-        }
-        else if (this.fireRightButton.isDown) {
-            this.weapon.fireAngle = 0;
-        }
+        // //Angle Weapon Fire
+        // this.fireUpButton = this.game.input.keyboard.addKey(Phaser.Keyboard.W);
+        // this.fireDownButton = this.game.input.keyboard.addKey(Phaser.Keyboard.S);
+        // this.fireLeftButton = this.game.input.keyboard.addKey(Phaser.Keyboard.A);
+        // this.fireRightButton = this.game.input.keyboard.addKey(Phaser.Keyboard.D);
+        // if (this.fireUpButton.isDown) {
+        //     this.weapon.fireAngle = 270;
+        // }
+        // else if (this.fireDownButton.isDown) {
+        //     this.weapon.fireAngle = 90;
+        // }
+        // else if (this.fireLeftButton.isDown) {
+        //     this.weapon.fireAngle = 180;
+        // }
+        // else if (this.fireRightButton.isDown) {
+        //     this.weapon.fireAngle = 0;
+        // }
     },
     // render: function () {
     //     this.weapon.debug();

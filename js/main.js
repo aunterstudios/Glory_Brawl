@@ -21,7 +21,7 @@ var longestStreak = 0;
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "Rogue Version-OVERLAP_BIAS-Adding Weapons",
+  "Rogue Version-OVERLAP_BIAS-WeaponAffectsEnvironment",
   "You are a Prisoner.",
   "Given a sentence to experience eternal death and revival by President Trump.",
   "To compete in an ever changing obstacle course game show.",
@@ -265,7 +265,7 @@ function ballMover(player, ball) {
   // }
 }
 
-function ballLedge(ball,ledge) {
+function ballLedge(ball, ledge) {
   if (ball.body.touching.up) {
     ledge.body.stop();
     ball.body.stop();
@@ -280,7 +280,7 @@ function ballLedge(ball,ledge) {
   }
 }
 
-function ballWall (ball,wall) {
+function ballWall(ball, wall) {
   if (ball.body.touching.up) {
     ball.body.velocity.y = 100;
   }
@@ -295,7 +295,7 @@ function ballWall (ball,wall) {
   }
 }
 
-function ballLedgeDown (ball,ledge) {
+function ballLedgeDown(ball, ledge) {
   if (ledge.body.touching.up) {
     ball.body.velocity.y = -1000;
   }
@@ -304,7 +304,14 @@ function ballLedgeDown (ball,ledge) {
   }
 }
 
-function weaponBall (weapon,ball) {
+////////////////////////////Weapon Mechanics///////////
+// this.game.physics.arcade.overlap(this.weapon.bullets, this.wall, weaponWall);
+// this.game.physics.arcade.overlap(this.weapon.bullets, this.spikes, weaponSpikes);
+// this.game.physics.arcade.overlap(this.weapon.bullets, this.ledge, weaponLedge);
+// this.game.physics.arcade.overlap(this.weapon.bullets, this.ledgeDown, weaponDownLedge);
+// this.game.physics.arcade.overlap(this.weapon.bullets, this.ledgeSide, weaponSideLedge);
+// this.game.physics.arcade.overlap(this.weapon.bullets, this.enemy, weaponEnemy);
+function weaponBall(weapon, ball) {
   if (ball.body.touching.left) {
     ball.body.stop();
   }
@@ -315,5 +322,31 @@ function weaponBall (weapon,ball) {
   weapon.kill();
 }
 
+function weaponWall (weapon,wall) {
+  wall.body.velocity.y = 100;
+  weapon.kill();
+}
 
+function weaponSpikes (weapon,spikes) {
+  weapon.kill();
+}
 
+function weaponLedge (weapon,ledge) {
+  ledge.body.velocity.y = 100;
+  weapon.kill();
+}
+
+function weaponDownLedge (weapon,ledge) {
+  ledge.body.velocity.y = -50;
+  weapon.kill();
+}
+
+function weaponSideLedge (weapon,ledge) {
+  ledge.body.velocity.y = -100;
+  weapon.kill();
+}
+
+function weaponEnemy (weapon, enemy) {
+  enemy.body.stop();
+  weapon.kill();
+}
