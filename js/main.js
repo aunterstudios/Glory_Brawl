@@ -19,6 +19,11 @@ var deaths = 0;
 var streak = 0;
 var longestStreak = 0;
 
+//Weapon Variables to Change Bullet Type
+var pullBoolean = false;
+var pushBoolean = false;
+var killBoolean = false;
+
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
   "Rogue Version-OVERLAP_BIAS-WeaponAffectsEnvironmentBetterXXXXXX",
@@ -114,7 +119,9 @@ function deathThree(killer, victim) {
 
 ////////////////////////////////////////Wall Mechanics//////////////////////////////////////////
 function playerWall (player,wall) {
-  wall.body.stop();
+  if (wall.body.touching.up) {
+    wall.body.stop();
+  }
 }
 
 ////////////////////////////////////Ledge Mechanics//////////////////////////////////////
@@ -327,26 +334,46 @@ function weaponBall(weapon, ball) {
 }
 
 function weaponWall(weapon, wall) {
-  if (wall.body.touching.up) {
-    wall.body.velocity.y = -100;
-    console.log("It's happening up");
-    weapon.kill();
+  if (pullBoolean) {
+    if (wall.body.touching.up) {
+      wall.body.velocity.y = -100;
+      console.log("It's happening up");
+    }
+    if (wall.body.touching.down) {
+      wall.body.velocity.y = 100;
+      console.log("It's happening down");
+    }
+    if (wall.body.touching.left) {
+      wall.body.velocity.x = -100;
+      console.log("It's happening left");
+    }
+    if (wall.body.touching.right) {
+      wall.body.velocity.x = 100;
+      console.log("It's happening right");
+    }
   }
-  if (wall.body.touching.down) {
-    wall.body.velocity.y = 100;
-    console.log("It's happening down");
-    weapon.kill();
+  else if (pushBoolean) {
+    if (wall.body.touching.up) {
+      wall.body.velocity.y = 100;
+      console.log("It's happening up");
+    }
+    if (wall.body.touching.down) {
+      wall.body.velocity.y = -100;
+      console.log("It's happening down");
+    }
+    if (wall.body.touching.left) {
+      wall.body.velocity.x = 100;
+      console.log("It's happening left");
+    }
+    if (wall.body.touching.right) {
+      wall.body.velocity.x = -100;
+      console.log("It's happening right");
+    }
   }
-  if (wall.body.touching.left) {
-    wall.body.velocity.x = -100;
-    console.log("It's happening left");
-    weapon.kill();
+  else if (killBoolean) {
+    wall.kill()
   }
-  if (wall.body.touching.right) {
-    wall.body.velocity.x = 100;
-    console.log("It's happening right");
-    weapon.kill();
-  }
+  weapon.kill();
 }
 
 function weaponSpikes(weapon, spikes) {
