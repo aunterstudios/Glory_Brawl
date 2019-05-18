@@ -141,6 +141,9 @@ brawl.rogue.prototype = {
         this.player.animations.add('right', [9, 10, 11, 12, 13, 14, 15], 10, true);
 
         //////////////////Adding Weapons////////////////////
+        //Set Pull as Default for Weapons;
+        pullBoolean= true;
+        console.log(pullBoolean + "pullBoolean Status");
         var bulletImageHolder;
         if (pullBoolean) {
             bulletImageHolder = 'bullet';
@@ -181,10 +184,10 @@ brawl.rogue.prototype = {
         this.fireButton = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
 
         //Angle Weapon Fire
-        this.fireUpButton = this.game.input.keyboard.addKey(Phaser.Keyboard.W);
-        this.fireDownButton = this.game.input.keyboard.addKey(Phaser.Keyboard.S);
-        this.fireLeftButton = this.game.input.keyboard.addKey(Phaser.Keyboard.A);
-        this.fireRightButton = this.game.input.keyboard.addKey(Phaser.Keyboard.D);
+        this.directionalFire = this.game.input.keyboard.addKey(Phaser.Keyboard.SHIFT);
+        // this.fireDownButton = this.game.input.keyboard.addKey(Phaser.Keyboard.S);
+        // this.fireLeftButton = this.game.input.keyboard.addKey(Phaser.Keyboard.A);
+        // this.fireRightButton = this.game.input.keyboard.addKey(Phaser.Keyboard.D);
 
         //Change Weapon Fire Type
         this.pullBullet = this.game.input.keyboard.addKey(Phaser.Keyboard.ONE);
@@ -194,10 +197,6 @@ brawl.rogue.prototype = {
         this.pullBullet.onDown.add(this.goPull, this);
         this.pushBullet.onDown.add(this.goPush, this);
         this.killBullet.onDown.add(this.goKill, this);
-
-        //Set Pull as Default;
-        pullBoolean= true;
-        console.log(pullBoolean + "pullBoolean Status");
 
         //////////////////Grid System Creation////////////////
         ///Top Positions
@@ -284,8 +283,6 @@ brawl.rogue.prototype = {
                 }
             }
         }
-
-        console.log(this.weapon.bullets.tint + "Tint");
 
         // //Base Camp (Starting Area);
         // this.baseCamp();
@@ -717,16 +714,16 @@ brawl.rogue.prototype = {
         if (this.fireButton.isDown) {
             this.weapon.fire();
         }
-        if (this.fireUpButton.isDown) {
+        if (this.directionalFire.isDown && this.cursors.up.isDown) {
             this.weapon.fireAngle = 270;
         }
-        else if (this.fireDownButton.isDown) {
+        else if (this.directionalFire.isDown && this.cursors.down.isDown) {
             this.weapon.fireAngle = 90;
         }
-        else if (this.fireLeftButton.isDown) {
+        else if (this.directionalFire.isDown && this.cursors.left.isDown) {
             this.weapon.fireAngle = 180;
         }
-        else if (this.fireRightButton.isDown) {
+        else if (this.directionalFire.isDown && this.cursors.right.isDown) {
             this.weapon.fireAngle = 0;
         }
     },
