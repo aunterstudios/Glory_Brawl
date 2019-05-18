@@ -24,6 +24,7 @@ brawl.rogue.prototype = {
         this.load.image('ledgeDown', 'assets/platformX.png');
         this.load.image('ledgeSide', 'assets/platformSide.png');
         this.load.image('bullet', 'assets/bullet09.png');
+        this.load.image('boundary', 'assets/worldBounds.png');
         this.load.spritesheet('dude', 'assets/white.png', 87.5, 93.5);
     },
     create: function () {
@@ -82,6 +83,41 @@ brawl.rogue.prototype = {
             this.deathX.scale.setTo(1);
             this.deathX.body.immovable = true;
         }
+        //Adding World Boundaries
+        this.boundary = this.game.add.group();
+        this.boundary.enableBody = true;
+        for (var i = 0; i < 4; i++) {
+            if (i <= 1) {
+                var boundaryKey = 'boundary';
+                var xCoordinate = 5590;
+                var yCoordinate = 0;
+                console.log("ayo");
+            }
+            else {
+                var boundaryKey = 'win';
+                var xCoordinate = 0;
+                if (i === 3) {
+                    var yCoordinate = -40;
+                }
+                else {
+                    var yCoordinate = 6290;
+                }
+                console.log('thefuck');
+            }
+            this.boundaryX = this.boundary.create(xCoordinate*i, yCoordinate, boundaryKey);
+            //5600x
+            //6400y
+        }
+
+        // this.wallX = this.wall.create(x, y, wallArray[Math.floor(Math.random() * wallArray.length)]);
+        // this.wallX.anchor.setTo(.5);
+        // // this.wallX.scale.setTo(.5);
+        // // var wallLength = [.2, .3, .4];
+        // // this.wallX.scale.setTo(wallLength[Math.floor(Math.random() * wallLength.length)]);
+        // this.wallX.scale.setTo(.35);
+        // this.wallX.body.collideWorldBounds = true;
+        // this.wallX.alignIn(rect, positionInRectangle)
+        // this.wallX.body.immovable = true;
 
 
         ////////////////////Adding Player//////////////////////
@@ -529,7 +565,7 @@ brawl.rogue.prototype = {
 
         // Jump!
         if (this.jumps > 0 && this.upInputIsActive(5)) {
-            this.player.body.velocity.y = -600;
+            this.player.body.velocity.y = -400;
             this.jumping = true;
         }
 

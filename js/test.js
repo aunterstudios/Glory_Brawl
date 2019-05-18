@@ -23,6 +23,7 @@ brawl.testing.prototype = {
         this.load.image('action', 'assets/action.png');
         this.load.image('ledgeDown', 'assets/platformX.png');
         this.load.image('ledgeSide', 'assets/platformSide.png');
+        this.load.image('boundary', 'assets/worldBounds.png');
         this.load.spritesheet('dude', 'assets/white.png', 87.5, 93.5);
     },
     create: function () {
@@ -70,21 +71,47 @@ brawl.testing.prototype = {
         //Adding Spikes
         this.spikes = this.game.add.group();
         this.spikes.enableBody = true;
-        //Adding Flag (Win Game)
-        this.finish = this.game.add.sprite(0, 0, 'win');
-        this.game.physics.arcade.enable(this.finish);
+        // //Adding Flag (Win Game)
+        // this.finish = this.game.add.sprite(0, 0, 'win');
+        // this.game.physics.arcade.enable(this.finish);
         //Adding This Undeniable Death
-        this.death = this.game.add.group();
-        this.death.enableBody = true;
+        // this.death = this.game.add.group();
+        // this.death.enableBody = true;
+        // for (var i = 0; i < 4; i++) {
+        //     this.deathX = this.death.create(i * 1400, 6300, 'spikes');
+        //     this.deathX.scale.setTo(1);
+        //     this.deathX.body.immovable = true;
+        // }
+
+        //Adding World Boundaries
+        this.boundary = this.game.add.group();
+        this.boundary.enableBody = true;
         for (var i = 0; i < 4; i++) {
-            this.deathX = this.death.create(i * 1400, 6300, 'spikes');
-            this.deathX.scale.setTo(1);
-            this.deathX.body.immovable = true;
+            if (i <= 1) {
+                var boundaryKey = 'boundary';
+                var xCoordinate = 5590;
+                var yCoordinate = 0;
+                console.log("ayo");
+            }
+            else {
+                var boundaryKey = 'win';
+                var xCoordinate = 0;
+                if (i === 3) {
+                    var yCoordinate = -40;
+                }
+                else {
+                    var yCoordinate = 6290;
+                }
+                console.log('thefuck');
+            }
+            this.boundaryX = this.boundary.create(xCoordinate*i, yCoordinate, boundaryKey);
+            //5600x
+            //6400y
         }
 
 
         //Adding Player
-        this.player = this.game.add.sprite(200, 6100, 'dude');
+        this.player = this.game.add.sprite(0, 0, 'dude');
         this.game.physics.arcade.enable(this.player); //enables physics for player
         this.player.anchor.setTo(.5);
         // this.player.scale.setTo(.6);
@@ -183,10 +210,10 @@ brawl.testing.prototype = {
                 var rect = new Phaser.Rectangle(x * xRectangle, y * yRectangle, xBlockSize, yBlockSize);
                 var xOfSprite = rect.x
                 var yOfSprite = rect.y
-                console.log(rect);
+                // console.log(rect);
                 this.testingArray.push(rect);
                 this.text = this.game.add.text(rect.x + 100, rect.y + 100, "Rectangle " + x + y, { font: "32px Arial", fill: "#ffffff", align: "center" });
-                console.log("Rectangle " + x + y);
+                // console.log("Rectangle " + x + y);
                 ////////////Random Array to Scramble Positions//////////
                 // var positionArray = [topCenter, topLeft, topRight, center, centerLeft, centerRight, bottomCenter, bottomLeft, bottomRight];
                 if (x === 0 && y === 8) {
@@ -218,7 +245,7 @@ brawl.testing.prototype = {
                         positionArray.push(bottomRight);
                         positionArray.push(bottomLeft);
                         positionArray.push(topRight);
-                        console.log("Formation1");
+                        // console.log("Formation1");
                     }
                     else if (randomGeneratorForArray >= 26 && randomGeneratorForArray <= 50) {
                         positionArray.push(topRight);
@@ -226,7 +253,7 @@ brawl.testing.prototype = {
                         positionArray.push(bottomLeft);
                         positionArray.push(bottomRight);
                         positionArray.push(bottomCenter);
-                        console.log("Formation2");
+                        // console.log("Formation2");
                     }
                     else if (randomGeneratorForArray >= 51 && randomGeneratorForArray <= 75) {
                         positionArray.push(topRight);
@@ -234,7 +261,7 @@ brawl.testing.prototype = {
                         positionArray.push(bottomRight);
                         positionArray.push(centerLeft);
                         positionArray.push(bottomLeft);
-                        console.log("Formation3");
+                        // console.log("Formation3");
                     }
                     else if (randomGeneratorForArray >= 76 && randomGeneratorForArray <= 100) {
                         positionArray.push(centerLeft);
@@ -242,10 +269,10 @@ brawl.testing.prototype = {
                         positionArray.push(centerRight);
                         positionArray.push(bottomRight);
                         positionArray.push(topLeft);
-                        console.log("Formation4");
+                        // console.log("Formation4");
                     }
 
-                    console.log(positionArray);
+                    // console.log(positionArray);
                     //////Sprites//////
                     this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[0]);
                     this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[1]);
@@ -480,37 +507,37 @@ brawl.testing.prototype = {
 
 
         // Ball Mechanics
-        this.game.physics.arcade.collide(this.ball, this.ball);
-        this.game.physics.arcade.collide(this.ball, this.wall, ballWall);
-        this.game.physics.arcade.overlap(this.ball, this.spikes, deathThree);
-        this.game.physics.arcade.collide(this.ball, this.ledge, ballLedge);
-        this.game.physics.arcade.collide(this.ball, this.ledgeDown, ballLedgeDown);
-        this.game.physics.arcade.collide(this.ball, this.ledgeSide);
-        this.game.physics.arcade.overlap(this.ball, this.enemy, deathThree);
+        // this.game.physics.arcade.collide(this.ball, this.ball);
+        // this.game.physics.arcade.collide(this.ball, this.wall, ballWall);
+        // this.game.physics.arcade.overlap(this.ball, this.spikes, deathThree);
+        // this.game.physics.arcade.collide(this.ball, this.ledge, ballLedge);
+        // this.game.physics.arcade.collide(this.ball, this.ledgeDown, ballLedgeDown);
+        // this.game.physics.arcade.collide(this.ball, this.ledgeSide);
+        // this.game.physics.arcade.overlap(this.ball, this.enemy, deathThree);
 
-        //Ledge vs. Ledge Mechanics
-        // this.game.physics.arcade.collide(this.ledge, this.ledge);
-        // this.game.physics.arcade.collide(this.ledgeDown, this.ledgeDown);
-        this.game.physics.arcade.collide(this.ledge, this.ledgeDown, preventPhysicsBug);
-        this.game.physics.arcade.collide(this.ledge, this.ledgeSide);
-        this.game.physics.arcade.collide(this.ledgeDown, this.ledgeSide);
+        // //Ledge vs. Ledge Mechanics
+        // // this.game.physics.arcade.collide(this.ledge, this.ledge);
+        // // this.game.physics.arcade.collide(this.ledgeDown, this.ledgeDown);
+        // this.game.physics.arcade.collide(this.ledge, this.ledgeDown, preventPhysicsBug);
+        // this.game.physics.arcade.collide(this.ledge, this.ledgeSide);
+        // this.game.physics.arcade.collide(this.ledgeDown, this.ledgeSide);
 
-        //Ledge vs. Other Objects
-        // this.game.physics.arcade.collide(this.ledge, this.wall, preventPhysicsBug);
-        this.game.physics.arcade.collide(this.ledge, this.enemy, enemyLedge);
-        this.game.physics.arcade.collide(this.ledge, this.spikes, preventPhysicsBug);
-        // this.game.physics.arcade.collide(this.ledgeDown, this.wall, preventPhysicsBug);
-        // this.game.physics.arcade.collide(this.ledgeDown, this.enemy, enemyLedge);
-        this.game.physics.arcade.collide(this.ledgeDown, this.enemy);
-        // this.game.physics.arcade.collide(this.ledgeDown, this.spikes, preventPhysicsBug);
-        this.game.physics.arcade.collide(this.ledgeDown, this.spikes);
-        // this.game.physics.arcade.collide(this.ledgeSide, this.wall, preventPhysicsBug);
-        this.game.physics.arcade.collide(this.ledgeSide, this.enemy);
+        // //Ledge vs. Other Objects
+        // // this.game.physics.arcade.collide(this.ledge, this.wall, preventPhysicsBug);
+        // this.game.physics.arcade.collide(this.ledge, this.enemy, enemyLedge);
+        // this.game.physics.arcade.collide(this.ledge, this.spikes, preventPhysicsBug);
+        // // this.game.physics.arcade.collide(this.ledgeDown, this.wall, preventPhysicsBug);
+        // // this.game.physics.arcade.collide(this.ledgeDown, this.enemy, enemyLedge);
+        // this.game.physics.arcade.collide(this.ledgeDown, this.enemy);
+        // // this.game.physics.arcade.collide(this.ledgeDown, this.spikes, preventPhysicsBug);
+        // this.game.physics.arcade.collide(this.ledgeDown, this.spikes);
+        // // this.game.physics.arcade.collide(this.ledgeSide, this.wall, preventPhysicsBug);
+        // this.game.physics.arcade.collide(this.ledgeSide, this.enemy);
 
-        //Enemy Mechanics
-        this.game.physics.arcade.collide(this.enemy, this.spikes);
-        this.game.physics.arcade.collide(this.enemy, this.wall);
-        this.game.physics.arcade.collide(this.enemy, this.enemy);
+        // //Enemy Mechanics
+        // this.game.physics.arcade.collide(this.enemy, this.spikes);
+        // this.game.physics.arcade.collide(this.enemy, this.wall);
+        // this.game.physics.arcade.collide(this.enemy, this.enemy);
 
         // //Flag Moving Mechanics
         // this.game.physics.arcade.collide(this.finish, this.wall);
