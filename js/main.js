@@ -7,9 +7,9 @@ game.state.add('rogueTest', brawl.rogue);
 game.state.add('test', brawl.testing);
 game.state.add('controlScreen', brawl.stateControls);
 //////////////////////////////////////////////////Starting States//////////////////////////////////////////////
-// game.state.start('mainMenu');
+game.state.start('mainMenu');
 // game.state.start('controlScreen');
-game.state.start('test');
+// game.state.start('test');
 //////////////////////////////////////////////////Global Variables//////////////////////////////////////////////
 
 //Death Total in Game
@@ -112,6 +112,11 @@ function deathThree(killer, victim) {
 }
 ///////////////////////////////////////////Function Mechanics////////////////////////////////////////////
 
+////////////////////////////////////////Wall Mechanics//////////////////////////////////////////
+function playerWall (player,wall) {
+  wall.body.stop();
+}
+
 ////////////////////////////////////Ledge Mechanics//////////////////////////////////////
 
 
@@ -156,7 +161,7 @@ function ledgeUp(player, ledge) {
 
 function ledgeDownS(player, ledge) {
   //When You're On Top of the Ledge
-  if (ledge.body.touching.up || player.body.touching.down) {
+  if (ledge.body.touching.up) {
     player.body.velocity.y = -1200;
   }
 }
@@ -167,6 +172,10 @@ function ledgeSideX(player, ledge) {
   }
   if (ledge.body.velocity.x < 0) {
     ledge.body.velocity.x = -300;
+  }
+  if (ledge.body.velocity.y >= 0 || ledge.body.velocity.y < 0) {
+    ledge.body.stop();
+    ledge.body.velocity.x = 300;
   }
 }
 
@@ -405,11 +414,21 @@ function weaponEnemy(weapon, enemy) {
   weapon.kill();
 }
 
-/////////////////////////Undeniable Death Mechanics///////////////////////
+/////////////////////////Undeniable Boundary Mechanics///////////////////////
 //Prevent Sprites from Just Staying at the Bottom
 
-function deathOverlap(death, spriteBody) {
-  if (death.body.touching.up) {
-    spriteBody.body.velocity.y = -100;
+function boundaryCollisionCheck (boundary,collision) {
+  if (collision.body.touching.up) {
+    collision.body.velocity.y = 100;
+  }
+  if (collision.body.touching.down) {
+    collision.body.velocity.y = -100;
+  }
+  if (collision.body.touching.left) {
+    collision.body.velocity.x = 100;
+  }
+  if (collision.body.touching.right) {
+    collision.body.velocity.x = -100;
   }
 }
+///////////////////////////////////////

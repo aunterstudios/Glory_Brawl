@@ -83,31 +83,31 @@ brawl.rogue.prototype = {
             this.deathX.scale.setTo(1);
             this.deathX.body.immovable = true;
         }
-        //Adding World Boundaries
-        this.boundary = this.game.add.group();
-        this.boundary.enableBody = true;
-        for (var i = 0; i < 4; i++) {
-            if (i <= 1) {
-                var boundaryKey = 'boundary';
-                var xCoordinate = 5590;
-                var yCoordinate = 0;
-                console.log("ayo");
-            }
-            else {
-                var boundaryKey = 'win';
-                var xCoordinate = 0;
-                if (i === 3) {
-                    var yCoordinate = -40;
-                }
-                else {
-                    var yCoordinate = 6290;
-                }
-                console.log('thefuck');
-            }
-            this.boundaryX = this.boundary.create(xCoordinate*i, yCoordinate, boundaryKey);
-            //5600x
-            //6400y
-        }
+        // //Adding World Boundaries
+        // this.boundary = this.game.add.group();
+        // this.boundary.enableBody = true;
+        // for (var i = 0; i < 4; i++) {
+        //     if (i <= 1) {
+        //         var boundaryKey = 'boundary';
+        //         var xCoordinate = 5590;
+        //         var yCoordinate = 0;
+        //         console.log("ayo");
+        //     }
+        //     else {
+        //         var boundaryKey = 'win';
+        //         var xCoordinate = 0;
+        //         if (i === 3) {
+        //             var yCoordinate = -40;
+        //         }
+        //         else {
+        //             var yCoordinate = 6390;
+        //         }
+        //         console.log('thefuck');
+        //     }
+        //     this.boundaryX = this.boundary.create(xCoordinate * i, yCoordinate, boundaryKey);
+        //     //5600x
+        //     //6400y
+        // }
 
         // this.wallX = this.wall.create(x, y, wallArray[Math.floor(Math.random() * wallArray.length)]);
         // this.wallX.anchor.setTo(.5);
@@ -149,7 +149,7 @@ brawl.rogue.prototype = {
         this.weapon.bulletAngleOffset = 90;
 
         //  The speed at which the bullet is fired
-        this.weapon.bulletSpeed = 400;
+        this.weapon.bulletSpeed = 300;
         //400 previous value
 
         //  Speed-up the rate of fire, allowing them to shoot 1 bullet every 60ms
@@ -160,7 +160,7 @@ brawl.rogue.prototype = {
         // this.weapon.bulletRotateToVelocity = true;
 
         // Track Player
-        this.weapon.trackSprite(this.player, 0, -50);
+        this.weapon.trackSprite(this.player, 0, -20);
 
         // Firing Weapon
         this.fireButton = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
@@ -335,7 +335,7 @@ brawl.rogue.prototype = {
         this.wallX.scale.setTo(.4);
         this.wallX.alignIn(rect, positionInRectangle1);
         this.wallX.body.immovable = true;
-        this.wallX.body.moves = false;
+        // this.wallX.body.moves = false;
         this.ledgeSpawn(x, y, rect, positionInRectangle2);
         this.ledgeSpawn(x, y, rect, positionInRectangle3);
         this.ballSpawn(x, y, rect, positionInRectangle4);
@@ -353,6 +353,7 @@ brawl.rogue.prototype = {
         // this.wallX.scale.setTo(wallLength[Math.floor(Math.random() * wallLength.length)]);
         this.wallX.scale.setTo(.35);
         this.wallX.body.collideWorldBounds = true;
+        this.wallX.body.bounce.setTo(1);
         this.wallX.alignIn(rect, positionInRectangle)
         this.wallX.body.immovable = true;
         // this.wallX.body.moves = false;
@@ -470,7 +471,7 @@ brawl.rogue.prototype = {
         ////////////////////////Physics////////////////////////
         //Player Mechanics
 
-        var onWall = this.game.physics.arcade.collide(this.player, this.wall);
+        var onWall = this.game.physics.arcade.collide(this.player, this.wall, playerWall);
         var onLedgeGrey = this.game.physics.arcade.collide(this.player, this.ledge, ledgeUp);
         var onLedgeGreen = this.game.physics.arcade.collide(this.player, this.ledgeDown, ledgeDownS);
         var onLedgeBlue = this.game.physics.arcade.collide(this.player, this.ledgeSide, ledgeSideX);
@@ -486,6 +487,11 @@ brawl.rogue.prototype = {
         this.game.physics.arcade.overlap(this.weapon.bullets, this.ledgeSide, weaponSideLedge, null, this);
         this.game.physics.arcade.overlap(this.weapon.bullets, this.enemy, weaponEnemy, null, this);
         // this.game.physics.arcade.overlap(this.ball, this.enemy, deathThree);
+
+        //Boundary Mechanics
+        // this.game.physics.arcade.overlap(this.boundary, this.wall, boundaryCollisionCheck, null, this);
+        // this.game.physics.arcade.overlap(this.boundary, this.ledgeDown, boundaryCollisionCheck, null, this);
+        // this.game.physics.arcade.overlap(this.boundary, this.ledgeSide, boundaryCollisionCheck, null, this);
 
         // Ball Mechanics
         this.game.physics.arcade.collide(this.ball, this.ball);
