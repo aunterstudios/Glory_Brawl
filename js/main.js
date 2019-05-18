@@ -362,10 +362,10 @@ function weaponLedge(weapon, ledge) {
 
 function weaponDownLedge(weapon, ledge) {
   if (ledge.body.touching.up) {
-    ledge.body.velocity.y = 100;
+    ledge.body.velocity.y = -100;
   }
   if (ledge.body.touching.down) {
-    ledge.body.velocity.y = -100;
+    ledge.body.velocity.y = 100;
   }
   if (ledge.body.touching.left) {
     ledge.body.velocity.x = -100;
@@ -378,10 +378,10 @@ function weaponDownLedge(weapon, ledge) {
 
 function weaponSideLedge(weapon, ledge) {
   if (ledge.body.touching.up) {
-    ledge.body.velocity.y = 100;
+    ledge.body.velocity.y = -100;
   }
   if (ledge.body.touching.down) {
-    ledge.body.velocity.y = -100;
+    ledge.body.velocity.y = 100;
   }
   if (ledge.body.touching.left || ledge.body.touching.right) {
     ledge.body.stop();
