@@ -328,8 +328,45 @@ function ballLedgeDown(ball, ledge) {
 // this.game.physics.arcade.overlap(this.weapon.bullets, this.ledgeSide, weaponSideLedge);
 // this.game.physics.arcade.overlap(this.weapon.bullets, this.enemy, weaponEnemy);
 function weaponBall(weapon, ball) {
-  ball.body.stop();
-  // ball.body.velocity.y = -100;
+  if (pullBoolean) {
+    if (ball.body.touching.up) {
+      ball.body.velocity.y = -100;
+      console.log("It's happening up");
+    }
+    if (ball.body.touching.down) {
+      ball.body.velocity.y = 100;
+      console.log("It's happening down");
+    }
+    if (ball.body.touching.left) {
+      ball.body.velocity.x = -100;
+      console.log("It's happening left");
+    }
+    if (ball.body.touching.right) {
+      ball.body.velocity.x = 100;
+      console.log("It's happening right");
+    }
+  }
+  else if (pushBoolean) {
+    if (ball.body.touching.up) {
+      ball.body.velocity.y = 100;
+      console.log("It's happening up");
+    }
+    if (ball.body.touching.down) {
+      ball.body.velocity.y = -100;
+      console.log("It's happening down");
+    }
+    if (ball.body.touching.left) {
+      ball.body.velocity.x = 100;
+      console.log("It's happening left");
+    }
+    if (ball.body.touching.right) {
+      ball.body.velocity.x = -100;
+      console.log("It's happening right");
+    }
+  }
+  else if (killBoolean) {
+    ball.kill()
+  }
   weapon.kill();
 }
 
@@ -381,62 +418,173 @@ function weaponSpikes(weapon, spikes) {
 }
 
 function weaponLedge(weapon, ledge) {
-  if (ledge.body.touching.up) {
-    ledge.body.velocity.y = -100;
+  if (pullBoolean) {
+    if (ledge.body.touching.up) {
+      ledge.body.velocity.y = -100;
+      console.log("It's happening up");
+    }
+    if (ledge.body.touching.down) {
+      ledge.body.velocity.y = 100;
+      console.log("It's happening down");
+    }
+    if (ledge.body.touching.left) {
+      ledge.body.velocity.x = -100;
+      console.log("It's happening left");
+    }
+    if (ledge.body.touching.right) {
+      ledge.body.velocity.x = 100;
+      console.log("It's happening right");
+    }
   }
-  if (ledge.body.touching.down) {
-    ledge.body.velocity.y = 100;
+  else if (pushBoolean) {
+    if (ledge.body.touching.up) {
+      ledge.body.velocity.y = 100;
+      console.log("It's happening up");
+    }
+    if (ledge.body.touching.down) {
+      ledge.body.velocity.y = -100;
+      console.log("It's happening down");
+    }
+    if (ledge.body.touching.left) {
+      ledge.body.velocity.x = 100;
+      console.log("It's happening left");
+    }
+    if (ledge.body.touching.right) {
+      ledge.body.velocity.x = -100;
+      console.log("It's happening right");
+    }
   }
-  if (ledge.body.touching.left) {
-    ledge.body.velocity.x = -100;
-  }
-  if (ledge.body.touching.right) {
-    ledge.body.velocity.x = 100;
+  else if (killBoolean) {
+    ledge.kill()
   }
   weapon.kill();
 }
 
 function weaponDownLedge(weapon, ledge) {
-  if (ledge.body.touching.up) {
-    ledge.body.velocity.y = -100;
+  if (pullBoolean) {
+    if (ledge.body.touching.up) {
+      ledge.body.velocity.y = -100;
+      console.log("It's happening up");
+    }
+    if (ledge.body.touching.down) {
+      ledge.body.velocity.y = 100;
+      console.log("It's happening down");
+    }
+    if (ledge.body.touching.left) {
+      ledge.body.velocity.x = -100;
+      console.log("It's happening left");
+    }
+    if (ledge.body.touching.right) {
+      ledge.body.velocity.x = 100;
+      console.log("It's happening right");
+    }
   }
-  if (ledge.body.touching.down) {
-    ledge.body.velocity.y = 100;
+  else if (pushBoolean) {
+    if (ledge.body.touching.up) {
+      ledge.body.velocity.y = 100;
+      console.log("It's happening up");
+    }
+    if (ledge.body.touching.down) {
+      ledge.body.velocity.y = -100;
+      console.log("It's happening down");
+    }
+    if (ledge.body.touching.left) {
+      ledge.body.velocity.x = 100;
+      console.log("It's happening left");
+    }
+    if (ledge.body.touching.right) {
+      ledge.body.velocity.x = -100;
+      console.log("It's happening right");
+    }
   }
-  if (ledge.body.touching.left) {
-    ledge.body.velocity.x = -100;
-  }
-  if (ledge.body.touching.right) {
-    ledge.body.velocity.x = 100;
+  else if (killBoolean) {
+    ledge.kill()
   }
   weapon.kill();
 }
 
 function weaponSideLedge(weapon, ledge) {
-  if (ledge.body.touching.up) {
-    ledge.body.velocity.y = -100;
+  if (pullBoolean) {
+    if (ledge.body.touching.up) {
+      ledge.body.velocity.y = -100;
+      console.log("It's happening up");
+    }
+    if (ledge.body.touching.down) {
+      ledge.body.velocity.y = 100;
+      console.log("It's happening down");
+    }
+    if (ledge.body.touching.left) {
+      ledge.body.velocity.x = -100;
+      console.log("It's happening left");
+    }
+    if (ledge.body.touching.right) {
+      ledge.body.velocity.x = 100;
+      console.log("It's happening right");
+    }
   }
-  if (ledge.body.touching.down) {
-    ledge.body.velocity.y = 100;
+  else if (pushBoolean) {
+    if (ledge.body.touching.up) {
+      ledge.body.velocity.y = 100;
+      console.log("It's happening up");
+    }
+    if (ledge.body.touching.down) {
+      ledge.body.velocity.y = -100;
+      console.log("It's happening down");
+    }
+    if (ledge.body.touching.left) {
+      ledge.body.velocity.x = 100;
+      console.log("It's happening left");
+    }
+    if (ledge.body.touching.right) {
+      ledge.body.velocity.x = -100;
+      console.log("It's happening right");
+    }
   }
-  if (ledge.body.touching.left || ledge.body.touching.right) {
-    ledge.body.stop();
+  else if (killBoolean) {
+    ledge.kill()
   }
   weapon.kill();
 }
 
 function weaponEnemy(weapon, enemy) {
-  if (enemy.body.touching.up) {
-    enemy.body.velocity.y = 100;
+  if (pullBoolean) {
+    if (enemy.body.touching.up) {
+      enemy.body.velocity.y = -100;
+      console.log("It's happening up");
+    }
+    if (enemy.body.touching.down) {
+      enemy.body.velocity.y = 100;
+      console.log("It's happening down");
+    }
+    if (enemy.body.touching.left) {
+      enemy.body.velocity.x = -100;
+      console.log("It's happening left");
+    }
+    if (enemy.body.touching.right) {
+      enemy.body.velocity.x = 100;
+      console.log("It's happening right");
+    }
   }
-  if (enemy.body.touching.down) {
-    enemy.body.velocity.y = -100;
+  else if (pushBoolean) {
+    if (enemy.body.touching.up) {
+      enemy.body.velocity.y = 100;
+      console.log("It's happening up");
+    }
+    if (enemy.body.touching.down) {
+      enemy.body.velocity.y = -100;
+      console.log("It's happening down");
+    }
+    if (enemy.body.touching.left) {
+      enemy.body.velocity.x = 100;
+      console.log("It's happening left");
+    }
+    if (enemy.body.touching.right) {
+      enemy.body.velocity.x = -100;
+      console.log("It's happening right");
+    }
   }
-  if (enemy.body.touching.left) {
-    enemy.body.velocity.x = 100;
-  }
-  if (enemy.body.touching.right) {
-    enemy.body.velocity.x = -100;
+  else if (killBoolean) {
+    enemy.kill()
   }
   weapon.kill();
 }

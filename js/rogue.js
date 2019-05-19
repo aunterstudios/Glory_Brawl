@@ -190,9 +190,9 @@ brawl.rogue.prototype = {
         // this.fireRightButton = this.game.input.keyboard.addKey(Phaser.Keyboard.D);
 
         //Change Weapon Fire Type
-        this.pullBullet = this.game.input.keyboard.addKey(Phaser.Keyboard.ONE);
-        this.pushBullet = this.game.input.keyboard.addKey(Phaser.Keyboard.TWO);
-        this.killBullet = this.game.input.keyboard.addKey(Phaser.Keyboard.THREE);
+        this.pullBullet = this.game.input.keyboard.addKey(Phaser.Keyboard.Q);
+        this.pushBullet = this.game.input.keyboard.addKey(Phaser.Keyboard.W);
+        this.killBullet = this.game.input.keyboard.addKey(Phaser.Keyboard.E);
 
         this.pullBullet.onDown.add(this.goPull, this);
         this.pushBullet.onDown.add(this.goPush, this);
