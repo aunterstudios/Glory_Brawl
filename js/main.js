@@ -22,7 +22,7 @@ var longestStreak = 0;
 //Weapon Variables to Change Bullet Type
 var pullBoolean = false;
 var pushBoolean = false;
-var killBoolean = false;
+var stopBoolean = false;
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
@@ -364,8 +364,8 @@ function weaponBall(weapon, ball) {
       console.log("It's happening right");
     }
   }
-  else if (killBoolean) {
-    ball.kill()
+  else if (stopBoolean) {
+    ball.body.stop()
   }
   weapon.kill();
 }
@@ -407,8 +407,8 @@ function weaponWall(weapon, wall) {
       console.log("It's happening right");
     }
   }
-  else if (killBoolean) {
-    wall.kill()
+  else if (stopBoolean) {
+    wall.body.stop()
   }
   weapon.kill();
 }
@@ -454,8 +454,8 @@ function weaponLedge(weapon, ledge) {
       console.log("It's happening right");
     }
   }
-  else if (killBoolean) {
-    ledge.kill()
+  else if (stopBoolean) {
+    ledge.body.stop();
   }
   weapon.kill();
 }
@@ -497,8 +497,8 @@ function weaponDownLedge(weapon, ledge) {
       console.log("It's happening right");
     }
   }
-  else if (killBoolean) {
-    ledge.kill()
+  else if (stopBoolean) {
+    ledge.body.stop();
   }
   weapon.kill();
 }
@@ -540,8 +540,8 @@ function weaponSideLedge(weapon, ledge) {
       console.log("It's happening right");
     }
   }
-  else if (killBoolean) {
-    ledge.kill()
+  else if (stopBoolean) {
+    ledge.body.stop();
   }
   weapon.kill();
 }
@@ -583,8 +583,8 @@ function weaponEnemy(weapon, enemy) {
       console.log("It's happening right");
     }
   }
-  else if (killBoolean) {
-    enemy.kill()
+  else if (stopBoolean) {
+    enemy.body.stop();
   }
   weapon.kill();
 }

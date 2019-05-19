@@ -159,7 +159,7 @@ brawl.rogue.prototype = {
         else if (pushBoolean) {
             bulletImageHolder = "bullet2";
         }
-        else if (killBoolean) {
+        else if (stopBoolean) {
             bulletImageHolder = "bullet3";
         }
         //  Creates 30 bullets, using the 'bullet' graphic
@@ -514,25 +514,25 @@ brawl.rogue.prototype = {
         console.log("1");
         pullBoolean = true;
         pushBoolean = false;
-        killBoolean = false;
+        stopBoolean = false;
         this.weaponType = "PULL"
-        console.log("Pull: " + pullBoolean + " Push: " + pushBoolean + " Kill: " + killBoolean);
+        console.log("Pull: " + pullBoolean + " Push: " + pushBoolean + " Kill: " + stopBoolean);
     },
     goPush: function () {
         console.log("2");
         pullBoolean = false;
         pushBoolean = true;
-        killBoolean = false;
+        stopBoolean = false;
         this.weaponType = "PUSH"
-        console.log("Pull: " + pullBoolean + " Push: " + pushBoolean + " Kill: " + killBoolean);
+        console.log("Pull: " + pullBoolean + " Push: " + pushBoolean + " Kill: " + stopBoolean);
     },
     goKill: function () {
         console.log("3");
         pullBoolean = false;
         pushBoolean = false;
-        killBoolean = true;
+        stopBoolean = true;
         this.weaponType = "KILL"
-        console.log("Pull: " + pullBoolean + " Push: " + pushBoolean + " Kill: " + killBoolean);
+        console.log("Pull: " + pullBoolean + " Push: " + pushBoolean + " Kill: " + stopBoolean);
     },
     //How Game Updates Real-Time
     update: function () {
@@ -821,7 +821,7 @@ brawl.rogue.prototype = {
         else if (pushBoolean) {
             this.weaponType = "Push"
         }
-        else if (killBoolean) {
+        else if (stopBoolean) {
             this.weaponType = "Kill"
         }
 
