@@ -637,11 +637,11 @@ brawl.rogue.prototype = {
         this.player.angle = 0;
 
         if (onTheGround) {
-            if (this.cursors.left.isDown && !this.directionalFire.isDown) {
+            if (this.cursors.left.isDown) {
                 this.player.body.velocity.x = -400;
                 this.player.animations.play('left');
             }
-            else if (this.cursors.right.isDown && !this.directionalFire.isDown) {
+            else if (this.cursors.right.isDown) {
                 this.player.body.velocity.x = 400;
                 this.player.animations.play('right');
             }
@@ -656,7 +656,7 @@ brawl.rogue.prototype = {
             if (onWall || onLedgeBlue || onLedgeGreen || onLedgeGrey) {
                 this.player.frame = 6;
             }
-            if (this.cursors.left.isDown && !this.directionalFire.isDown) {
+            if (this.cursors.left.isDown) {
                 this.player.body.velocity.y = -500;
                 this.player.body.velocity.x = -1000;
             }
@@ -667,7 +667,7 @@ brawl.rogue.prototype = {
             if (onWall || onLedgeBlue || onLedgeGreen || onLedgeGrey) {
                 this.player.frame = 12;
             }
-            if (this.cursors.right.isDown && !this.directionalFire.isDown) {
+            if (this.cursors.right.isDown) {
                 this.player.body.velocity.y = -500;
                 this.player.body.velocity.x = 1000;
             }
@@ -677,11 +677,11 @@ brawl.rogue.prototype = {
             this.player.frame = 8;
             this.player.angle = 180;
             this.player.body.velocity.y = -100;
-            if (this.cursors.left.isDown && !this.directionalFire.isDown) {
+            if (this.cursors.left.isDown) {
                 this.player.body.velocity.x = -400;
                 this.player.animations.play('left');
             }
-            else if (this.cursors.right.isDown && !this.directionalFire.isDown) {
+            else if (this.cursors.right.isDown) {
                 this.player.body.velocity.x = 400;
                 this.player.animations.play('right');
             }
@@ -689,22 +689,22 @@ brawl.rogue.prototype = {
         }
         if (onNone) {
             this.player.frame = 10;
-            if (this.cursors.left.isDown && !this.directionalFire.isDown) {
+            if (this.cursors.left.isDown) {
                 this.player.body.velocity.x = -400;
             }
-            else if (this.cursors.right.isDown && !this.directionalFire.isDown) {
+            else if (this.cursors.right.isDown) {
                 this.player.body.velocity.x = 400;
             }
         }
 
         //////////Downwards Mechanics
-        if (this.cursors.down.isDown && onUpsideDown && !this.directionalFire.isDown) {
+        if (this.cursors.down.isDown && onUpsideDown) {
             this.player.frame = 13;
             this.player.body.velocity.y = 200;
         }
 
         //Downward Mechanics
-        if (this.cursors.down.isDown && !this.directionalFire.isDown) {
+        if (this.cursors.down.isDown) {
             this.player.frame = 13;
             this.player.body.velocity.y = 500;
         }
