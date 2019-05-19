@@ -144,13 +144,13 @@ brawl.rogue.prototype = {
         //Player Movement (WASD);
         //Angle Weapon Fire
         this.movementUp = this.game.input.keyboard.addKey(Phaser.Keyboard.W);
-        this.movementDown = this.game.input.keyboard.addKey(Phaser.Keyboard.A);
-        this.movementLeft = this.game.input.keyboard.addKey(Phaser.Keyboard.S);
+        this.movementDown = this.game.input.keyboard.addKey(Phaser.Keyboard.S);
+        this.movementLeft = this.game.input.keyboard.addKey(Phaser.Keyboard.A);
         this.movementRight = this.game.input.keyboard.addKey(Phaser.Keyboard.D)
 
         //////////////////Adding Weapons////////////////////
         //Set Pull as Default for Weapons;
-        pullBoolean= true;
+        pullBoolean = true;
         console.log(pullBoolean + "pullBoolean Status");
         var bulletImageHolder;
         if (pullBoolean) {
@@ -189,18 +189,19 @@ brawl.rogue.prototype = {
         this.weapon.trackSprite(this.player, 0, -20);
 
         // Firing Weapon
-        this.fireButton = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+        // this.fireButton = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+        // this.fireButton = this.game.input.activePointer.leftButton.isDown
 
         //Angle Weapon Fire
-        this.directionalFire = this.game.input.keyboard.addKey(Phaser.Keyboard.SHIFT);
+        // this.directionalFire = this.game.input.keyboard.addKey(Phaser.Keyboard.SHIFT);
         // this.fireDownButton = this.game.input.keyboard.addKey(Phaser.Keyboard.S);
         // this.fireLeftButton = this.game.input.keyboard.addKey(Phaser.Keyboard.A);
         // this.fireRightButton = this.game.input.keyboard.addKey(Phaser.Keyboard.D);
 
         //Change Weapon Fire Type
         this.pullBullet = this.game.input.keyboard.addKey(Phaser.Keyboard.Q);
-        this.pushBullet = this.game.input.keyboard.addKey(Phaser.Keyboard.W);
-        this.killBullet = this.game.input.keyboard.addKey(Phaser.Keyboard.E);
+        this.pushBullet = this.game.input.keyboard.addKey(Phaser.Keyboard.E);
+        this.killBullet = this.game.input.keyboard.addKey(Phaser.Keyboard.R);
 
         this.pullBullet.onDown.add(this.goPull, this);
         this.pushBullet.onDown.add(this.goPush, this);
@@ -303,6 +304,10 @@ brawl.rogue.prototype = {
         this.text = this.game.add.text(200, 6208, "Streak: " + streak, { font: "32px Arial", fill: "#ffffff", align: "center" });
         this.text.fixedToCamera = true;
         this.text.cameraOffset.setTo(100, 750);
+
+        this.text2 = this.game.add.text(1200, 6208, "Weapon Type: " + this.weaponType);
+        this.text2.fixedToCamera = true;
+        this.text2.cameraOffset.setTo(100, 750);
 
     },
     // ////////////////////////Out of Bounds Events//////////////////////////
@@ -489,14 +494,14 @@ brawl.rogue.prototype = {
     upInputReleased: function () {
         var released = false;
 
-        released = this.input.keyboard.upDuration(Phaser.Keyboard.UP);
+        released = this.input.keyboard.upDuration(Phaser.Keyboard.W);
 
         return released;
     },
     upInputIsActive: function (duration) {
         var isActive = false;
 
-        isActive = this.input.keyboard.downDuration(Phaser.Keyboard.UP, duration);
+        isActive = this.input.keyboard.downDuration(Phaser.Keyboard.W, duration);
 
         return isActive;
     },
@@ -506,21 +511,24 @@ brawl.rogue.prototype = {
         pullBoolean = true;
         pushBoolean = false;
         killBoolean = false;
-        console.log("Pull: "+ pullBoolean + " Push: " + pushBoolean + " Kill: " + killBoolean);
+        this.weaponType = "PULL"
+        console.log("Pull: " + pullBoolean + " Push: " + pushBoolean + " Kill: " + killBoolean);
     },
     goPush: function () {
         console.log("2");
         pullBoolean = false;
         pushBoolean = true;
         killBoolean = false;
-        console.log("Pull: "+ pullBoolean + " Push: " + pushBoolean + " Kill: " + killBoolean);
+        this.weaponType = "PUSH"
+        console.log("Pull: " + pullBoolean + " Push: " + pushBoolean + " Kill: " + killBoolean);
     },
     goKill: function () {
         console.log("3");
         pullBoolean = false;
         pushBoolean = false;
         killBoolean = true;
-        console.log("Pull: "+ pullBoolean + " Push: " + pushBoolean + " Kill: " + killBoolean);
+        this.weaponType = "KILL"
+        console.log("Pull: " + pullBoolean + " Push: " + pushBoolean + " Kill: " + killBoolean);
     },
     //How Game Updates Real-Time
     update: function () {
@@ -644,12 +652,85 @@ brawl.rogue.prototype = {
         //Player Angle Still
         this.player.angle = 0;
 
+        //////////////////Default Cursor Key Controls///////////////////
+        // if (onTheGround) {
+        //     if (this.cursors.left.isDown) {
+        //         this.player.body.velocity.x = -400;
+        //         this.player.animations.play('left');
+        //     }
+        //     else if (this.cursors.right.isDown) {
+        //         this.player.body.velocity.x = 400;
+        //         this.player.animations.play('right');
+        //     }
+        //     else {
+        //         this.player.animations.stop();
+        //         this.player.frame = 8;
+        //     }
+        // }
+        // else if (onTheRightSide) {
+        //     this.player.body.velocity.x = 50;
+        //     this.player.body.velocity.y = 100;
+        //     if (onWall || onLedgeBlue || onLedgeGreen || onLedgeGrey) {
+        //         this.player.frame = 6;
+        //     }
+        //     if (this.cursors.left.isDown) {
+        //         this.player.body.velocity.y = -500;
+        //         this.player.body.velocity.x = -1000;
+        //     }
+        // }
+        // else if (onTheLeftSide) {
+        //     this.player.body.velocity.x = -50;
+        //     this.player.body.velocity.y = 100;
+        //     if (onWall || onLedgeBlue || onLedgeGreen || onLedgeGrey) {
+        //         this.player.frame = 12;
+        //     }
+        //     if (this.cursors.right.isDown) {
+        //         this.player.body.velocity.y = -500;
+        //         this.player.body.velocity.x = 1000;
+        //     }
+        // }
+        // else if (onUpsideDown) {
+        //     this.player.animations.stop();
+        //     this.player.frame = 8;
+        //     this.player.angle = 180;
+        //     this.player.body.velocity.y = -100;
+        //     if (this.cursors.left.isDown) {
+        //         this.player.body.velocity.x = -400;
+        //         this.player.animations.play('left');
+        //     }
+        //     else if (this.cursors.right.isDown) {
+        //         this.player.body.velocity.x = 400;
+        //         this.player.animations.play('right');
+        //     }
+
+        // }
+        // if (onNone) {
+        //     this.player.frame = 10;
+        //     if (this.cursors.left.isDown) {
+        //         this.player.body.velocity.x = -400;
+        //     }
+        //     else if (this.cursors.right.isDown) {
+        //         this.player.body.velocity.x = 400;
+        //     }
+        // }
+
+        // //////////Downwards Mechanics
+        // if (this.cursors.down.isDown && onUpsideDown) {
+        //     this.player.frame = 13;
+        //     this.player.body.velocity.y = 200;
+        // }
+
+        // //Downward Mechanics
+        // if (this.cursors.down.isDown) {
+        //     this.player.frame = 13;
+        //     this.player.body.velocity.y = 500;
+        // }
         if (onTheGround) {
-            if (this.cursors.left.isDown) {
+            if (this.movementLeft.isDown) {
                 this.player.body.velocity.x = -400;
                 this.player.animations.play('left');
             }
-            else if (this.cursors.right.isDown) {
+            else if (this.movementRight.isDown) {
                 this.player.body.velocity.x = 400;
                 this.player.animations.play('right');
             }
@@ -664,7 +745,7 @@ brawl.rogue.prototype = {
             if (onWall || onLedgeBlue || onLedgeGreen || onLedgeGrey) {
                 this.player.frame = 6;
             }
-            if (this.cursors.left.isDown) {
+            if (this.movementLeft.isDown) {
                 this.player.body.velocity.y = -500;
                 this.player.body.velocity.x = -1000;
             }
@@ -675,7 +756,7 @@ brawl.rogue.prototype = {
             if (onWall || onLedgeBlue || onLedgeGreen || onLedgeGrey) {
                 this.player.frame = 12;
             }
-            if (this.cursors.right.isDown) {
+            if (this.movementRight.isDown) {
                 this.player.body.velocity.y = -500;
                 this.player.body.velocity.x = 1000;
             }
@@ -685,11 +766,11 @@ brawl.rogue.prototype = {
             this.player.frame = 8;
             this.player.angle = 180;
             this.player.body.velocity.y = -100;
-            if (this.cursors.left.isDown) {
+            if (this.movementLeft.isDown) {
                 this.player.body.velocity.x = -400;
                 this.player.animations.play('left');
             }
-            else if (this.cursors.right.isDown) {
+            else if (this.movementRight.isDown) {
                 this.player.body.velocity.x = 400;
                 this.player.animations.play('right');
             }
@@ -697,32 +778,50 @@ brawl.rogue.prototype = {
         }
         if (onNone) {
             this.player.frame = 10;
-            if (this.cursors.left.isDown) {
+            if (this.movementLeft.isDown) {
                 this.player.body.velocity.x = -400;
             }
-            else if (this.cursors.right.isDown) {
+            else if (this.movementRight.isDown) {
                 this.player.body.velocity.x = 400;
             }
         }
 
         //////////Downwards Mechanics
-        if (this.cursors.down.isDown && onUpsideDown) {
+        if (this.movementDown.isDown && onUpsideDown) {
             this.player.frame = 13;
             this.player.body.velocity.y = 200;
         }
 
         //Downward Mechanics
-        if (this.cursors.down.isDown) {
+        if (this.movementDown.isDown) {
             this.player.frame = 13;
             this.player.body.velocity.y = 500;
         }
 
         //Weapon Mechanics
 
-        if (this.fireButton.isDown) {
+        // if (this.fireButton.isDown) {
+        //     this.weapon.fireAtPointer();
+        //     this.weapon.fire();
+        // }
+
+        if (this.game.input.activePointer.leftButton.isDown) {
             this.weapon.fireAtPointer();
             this.weapon.fire();
         }
+
+        ///Type of Weapon
+        if (pullBoolean) {
+            this.weaponType = "Pull"
+        }
+        else if (pushBoolean) {
+            this.weaponType = "Push"
+        }
+        else if (killBoolean) {
+            this.weaponType = "Kill"
+        }
+
+
         //Angle with Shift + Directional
         // if (this.directionalFire.isDown && this.cursors.up.isDown) {
         //     this.weapon.fireAngle = 270;
@@ -752,6 +851,7 @@ brawl.rogue.prototype = {
         // }
     },
     // render: function () {
-    //     this.weapon.debug();
+    //     // this.weapon.debug();
+    //     this.game.debug.text(this.weaponType, 0, 0);
     // }
 };
