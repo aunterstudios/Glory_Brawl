@@ -305,9 +305,11 @@ brawl.rogue.prototype = {
         this.text.fixedToCamera = true;
         this.text.cameraOffset.setTo(100, 750);
 
+        //Debugging Weapons
+        this.weaponType = "Pull";
         this.text2 = this.game.add.text(1200, 6208, "Weapon Type: " + this.weaponType);
         this.text2.fixedToCamera = true;
-        this.text2.cameraOffset.setTo(100, 750);
+        this.text2.cameraOffset.setTo(1000, 750);
 
     },
     // ////////////////////////Out of Bounds Events//////////////////////////
@@ -495,6 +497,7 @@ brawl.rogue.prototype = {
         var released = false;
 
         released = this.input.keyboard.upDuration(Phaser.Keyboard.W);
+        released |= this.input.keyboard.upDuration(Phaser.Keyboard.SPACEBAR);
 
         return released;
     },
@@ -502,6 +505,7 @@ brawl.rogue.prototype = {
         var isActive = false;
 
         isActive = this.input.keyboard.downDuration(Phaser.Keyboard.W, duration);
+        isActive |= this.input.keyboard.downDuration(Phaser.Keyboard.SPACEBAR, duration);
 
         return isActive;
     },
