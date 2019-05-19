@@ -203,9 +203,13 @@ brawl.rogue.prototype = {
         this.pushBullet = this.game.input.keyboard.addKey(Phaser.Keyboard.TWO);
         this.killBullet = this.game.input.keyboard.addKey(Phaser.Keyboard.THREE);
 
+        //Booleans to Trigger Different Weapon Types
         this.pullBullet.onDown.add(this.goPull, this);
         this.pushBullet.onDown.add(this.goPush, this);
         this.killBullet.onDown.add(this.goKill, this);
+
+        //Fire from Keyboard
+        this.shiftFire = this.game.input.keyboard.addKey(Phaser.Keyboard.SHIFT);
 
         //////////////////Grid System Creation////////////////
         ///Top Positions
@@ -497,7 +501,7 @@ brawl.rogue.prototype = {
         var released = false;
 
         released = this.input.keyboard.upDuration(Phaser.Keyboard.W);
-        released |=this.input.keyboard.upDuration(Phaser.Keyboard.SPACEBAR);
+        released |= this.input.keyboard.upDuration(Phaser.Keyboard.SPACEBAR);
 
         return released;
     },
@@ -548,7 +552,7 @@ brawl.rogue.prototype = {
         var onBall = this.game.physics.arcade.collide(this.player, this.ball, ballMover);
 
         //Weapon Mechanics
-        this.game.physics.arcade.overlap(this.weapon.bullets, this.ball, weaponBall, null, this);
+        this.game.physics.arcade.collide(this.weapon.bullets, this.ball, weaponBall, null, this);
         this.game.physics.arcade.overlap(this.weapon.bullets, this.wall, weaponWall, null, this);
         this.game.physics.arcade.overlap(this.weapon.bullets, this.spikes, weaponSpikes, null, this);
         this.game.physics.arcade.overlap(this.weapon.bullets, this.ledge, weaponLedge, null, this);
@@ -809,7 +813,7 @@ brawl.rogue.prototype = {
         //     this.weapon.fire();
         // }
 
-        if (this.game.input.activePointer.leftButton.isDown) {
+        if (this.game.input.activePointer.leftButton.isDown || this.shiftFire.isDown) {
             this.weapon.fireAtPointer();
             this.weapon.fire();
         }
@@ -853,9 +857,9 @@ brawl.rogue.prototype = {
         // else if (this.cursors.right.isDown) {
         //     this.weapon.fireAngle = 0;
         // }
-    },
+    }
     // render: function () {
-    //     // this.weapon.debug();
-    //     this.game.debug.text(this.weaponType, 0, 0);
+    //     this.game.debug.physicsGroup(this.wall);
+    //     this.game.debug.physicsGroup(this.weapon);
     // }
 };
