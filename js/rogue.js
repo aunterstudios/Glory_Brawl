@@ -497,7 +497,7 @@ brawl.rogue.prototype = {
         var released = false;
 
         released = this.input.keyboard.upDuration(Phaser.Keyboard.W);
-        released |= this.input.keyboard.upDuration(Phaser.Keyboard.SPACEBAR);
+        released |=this.input.keyboard.upDuration(Phaser.Keyboard.SPACEBAR);
 
         return released;
     },
@@ -744,7 +744,7 @@ brawl.rogue.prototype = {
             }
         }
         else if (onTheRightSide) {
-            this.player.body.velocity.x = 50;
+            this.player.body.velocity.x = 200;
             this.player.body.velocity.y = 100;
             if (onWall || onLedgeBlue || onLedgeGreen || onLedgeGrey) {
                 this.player.frame = 6;
@@ -755,7 +755,7 @@ brawl.rogue.prototype = {
             }
         }
         else if (onTheLeftSide) {
-            this.player.body.velocity.x = -50;
+            this.player.body.velocity.x = -200;
             this.player.body.velocity.y = 100;
             if (onWall || onLedgeBlue || onLedgeGreen || onLedgeGrey) {
                 this.player.frame = 12;
