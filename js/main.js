@@ -26,7 +26,7 @@ var stopBoolean = false;
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "Rogue Version-OVERLAP_BIAS-WeaponAffectsEnvironmentBetterXXXXXX",
+  "Rogue Version-OVERLAP_BIAS-ShootingGame",
   "You are a Prisoner.",
   "Given a sentence to experience eternal death and revival by President Trump.",
   "To compete in an ever changing obstacle course game show.",
