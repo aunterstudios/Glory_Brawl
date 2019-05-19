@@ -136,9 +136,17 @@ brawl.rogue.prototype = {
         // this.player.checkWorldBounds = true;
         // this.player.events.onOutOfBounds.add(this.playerOut, this);
 
+
         // PLAYER ANIMATIONS
         this.player.animations.add('left', [0, 1, 2, 3, 4, 5, 6, 7], 10, true);
         this.player.animations.add('right', [9, 10, 11, 12, 13, 14, 15], 10, true);
+
+        //Player Movement (WASD);
+        //Angle Weapon Fire
+        this.movementUp = this.game.input.keyboard.addKey(Phaser.Keyboard.W);
+        this.movementDown = this.game.input.keyboard.addKey(Phaser.Keyboard.A);
+        this.movementLeft = this.game.input.keyboard.addKey(Phaser.Keyboard.S);
+        this.movementRight = this.game.input.keyboard.addKey(Phaser.Keyboard.D)
 
         //////////////////Adding Weapons////////////////////
         //Set Pull as Default for Weapons;
@@ -712,21 +720,36 @@ brawl.rogue.prototype = {
         //Weapon Mechanics
 
         if (this.fireButton.isDown) {
+            this.weapon.fireAtPointer();
             this.weapon.fire();
         }
         //Angle with Shift + Directional
-        if (this.directionalFire.isDown && this.cursors.up.isDown) {
-            this.weapon.fireAngle = 270;
-        }
-        else if (this.directionalFire.isDown && this.cursors.down.isDown) {
-            this.weapon.fireAngle = 90;
-        }
-        else if (this.directionalFire.isDown && this.cursors.left.isDown) {
-            this.weapon.fireAngle = 180;
-        }
-        else if (this.directionalFire.isDown && this.cursors.right.isDown) {
-            this.weapon.fireAngle = 0;
-        }
+        // if (this.directionalFire.isDown && this.cursors.up.isDown) {
+        //     this.weapon.fireAngle = 270;
+        // }
+        // else if (this.directionalFire.isDown && this.cursors.down.isDown) {
+        //     this.weapon.fireAngle = 90;
+        // }
+        // else if (this.directionalFire.isDown && this.cursors.left.isDown) {
+        //     this.weapon.fireAngle = 180;
+        // }
+        // else if (this.directionalFire.isDown && this.cursors.right.isDown) {
+        //     this.weapon.fireAngle = 0;
+        // }
+
+        // //Without Shift + Directional
+        // if (this.cursors.up.isDown) {
+        //     this.weapon.fireAngle = 270;
+        // }
+        // else if (this.cursors.down.isDown) {
+        //     this.weapon.fireAngle = 90;
+        // }
+        // else if (this.cursors.left.isDown) {
+        //     this.weapon.fireAngle = 180;
+        // }
+        // else if (this.cursors.right.isDown) {
+        //     this.weapon.fireAngle = 0;
+        // }
     },
     // render: function () {
     //     this.weapon.debug();
