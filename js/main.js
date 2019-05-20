@@ -142,7 +142,7 @@ function ledgeUp(player, ledge) {
     // }
   }
   // When You're Hitting the Edge from the Sides (Right and Left)
-  if (ledge.body.touching.left || ledge.body.touching.right) {
+  else if (ledge.body.touching.left || ledge.body.touching.right) {
     ledge.body.velocity.y = 0;
     ledge.body.velocity.x = player.body.velocity.x;
   }
@@ -158,7 +158,7 @@ function ledgeUp(player, ledge) {
   // if (ledge.body.touching.down && player.body.velocity.y < -1) {
   //   player.body.velocity.y = -100;
   // }
-  if (ledge.body.touching.down) {
+  else if (ledge.body.touching.down) {
     ledge.body.velocity.y = -300;
     player.body.velocity.y = -100;
   }
@@ -175,10 +175,10 @@ function ledgeSideX(player, ledge) {
   if (ledge.body.velocity.x > 0) {
     ledge.body.velocity.x = 300;
   }
-  if (ledge.body.velocity.x < 0) {
+  else if (ledge.body.velocity.x < 0) {
     ledge.body.velocity.x = -300;
   }
-  if (ledge.body.velocity.y >= 0 || ledge.body.velocity.y < 0) {
+  else if (ledge.body.velocity.y >= 0 || ledge.body.velocity.y < 0) {
     ledge.body.stop();
     ledge.body.velocity.x = 300;
   }
@@ -191,19 +191,19 @@ function enemyLedge(ledge, enemy) {
     enemy.body.velocity.y = -125;
     ledge.body.velocity.y = 200;
   }
-  if (ledge.body.touching.down) {
+  else if (ledge.body.touching.down) {
     enemy.body.stop();
     ledge.body.stop();
     enemy.body.velocity.y = 125;
     ledge.body.velocity.y = -200;
   }
-  if (ledge.body.touching.left) {
+  else if (ledge.body.touching.left) {
     enemy.body.stop();
     ledge.body.stop();
     enemy.body.velocity.x = -125;
     ledge.body.velocity.x = 200;
   }
-  if (ledge.body.touching.right) {
+  else if (ledge.body.touching.right) {
     enemy.body.stop();
     ledge.body.stop();
     enemy.body.velocity.x = 125;
@@ -254,14 +254,14 @@ function ballMover(player, ball) {
   if (ball.body.touching.up) {
     ball.body.velocity.y = 50;
   }
-  if (ball.body.touching.down) {
+  else if (ball.body.touching.down) {
     ball.body.velocity.y = -50;
     player.body.velocity.y = -75;
   }
-  if (ball.body.touching.left) {
+  else if (ball.body.touching.left) {
     ball.body.velocity.x = 50;
   }
-  if (ball.body.touching.right) {
+  else if (ball.body.touching.right) {
     ball.body.velocity.x = -50;
   }
   //////////////Control////////////
@@ -286,7 +286,7 @@ function ballLedge(ball, ledge) {
     ball.body.velocity.y = 200;
     ledge.body.velocity.y = -200;
   }
-  if (ball.body.touching.down) {
+  else if (ball.body.touching.down) {
     ledge.body.stop();
     ball.body.stop();
     ball.body.velocity.y = -200;
@@ -298,13 +298,13 @@ function ballWall(ball, wall) {
   if (ball.body.touching.up) {
     ball.body.velocity.y = 100;
   }
-  if (ball.body.touching.down) {
+  else if (ball.body.touching.down) {
     ball.body.velocity.y = -100;
   }
-  if (ball.body.touching.left) {
+  else if (ball.body.touching.left) {
     ball.body.velocity.x = 100;
   }
-  if (ball.body.touching.right) {
+  else if (ball.body.touching.right) {
     ball.body.velocity.x = -100;
   }
 }
@@ -313,7 +313,7 @@ function ballLedgeDown(ball, ledge) {
   if (ledge.body.touching.up) {
     ball.body.velocity.y = -1000;
   }
-  if (ledge.body.touching.down) {
+  else if (ledge.body.touching.down) {
     ball.body.velocity.y = 1000;
   }
 }
@@ -331,13 +331,13 @@ function weaponBall(weapon, ball) {
     if (ball.body.touching.up) {
       ball.body.velocity.y = -100;
     }
-    if (ball.body.touching.down) {
+    else if (ball.body.touching.down) {
       ball.body.velocity.y = 100;
     }
-    if (ball.body.touching.left) {
+    else if (ball.body.touching.left) {
       ball.body.velocity.x = -100;
     }
-    if (ball.body.touching.right) {
+    else if (ball.body.touching.right) {
       ball.body.velocity.x = 100;
     }
   }
@@ -345,24 +345,19 @@ function weaponBall(weapon, ball) {
     if (ball.body.touching.up) {
       ball.body.velocity.y = 100;
     }
-    if (ball.body.touching.down) {
+    else if (ball.body.touching.down) {
       ball.body.velocity.y = -100;
     }
-    if (ball.body.touching.left) {
+    else if (ball.body.touching.left) {
       ball.body.velocity.x = 100;
     }
-    if (ball.body.touching.right) {
+    else if (ball.body.touching.right) {
       ball.body.velocity.x = -100;
     }
   }
   else if (stopBoolean) {
     ball.body.stop()
   }
-  console.log("U" + weapon.body.touching.up);
-  console.log("D" + weapon.body.touching.down);
-  console.log("L" + weapon.body.touching.left);
-  console.log("R" + weapon.body.touching.right);
-  console.log("------------------------------------");
   weapon.kill();
 }
 
@@ -371,37 +366,28 @@ function weaponWall(weapon, wall) {
   if (pullBoolean) {
     if (wall.body.touching.up) {
       wall.body.velocity.y = -100;
-      console.log("Up");
     }
     if (wall.body.touching.down) {
       wall.body.velocity.y = 100;
-      console.log("Down");
     }
     if (wall.body.touching.left) {
       wall.body.velocity.x = -100;
-      console.log("Left");
     }
     if (wall.body.touching.right) {
       wall.body.velocity.x = 100;
-      console.log("Right");
     }
-    console.log("U" + weapon.body.touching.up);
-    console.log("D" + weapon.body.touching.down);
-    console.log("L" + weapon.body.touching.left);
-    console.log("R" + weapon.body.touching.right);
-    console.log("------------------------------------");
   }
   else if (pushBoolean) {
     if (wall.body.touching.up) {
       wall.body.velocity.y = 100;
     }
-    if (wall.body.touching.down) {
+    else if (wall.body.touching.down) {
       wall.body.velocity.y = -100;
     }
-    if (wall.body.touching.left) {
+    else if (wall.body.touching.left) {
       wall.body.velocity.x = 100;
     }
-    if (wall.body.touching.right) {
+    else if (wall.body.touching.right) {
       wall.body.velocity.x = -100;
     }
   }
@@ -421,13 +407,13 @@ function weaponLedge(weapon, ledge) {
     if (ledge.body.touching.up) {
       ledge.body.velocity.y = -100;
     }
-    if (ledge.body.touching.down) {
+    else if (ledge.body.touching.down) {
       ledge.body.velocity.y = 100;
     }
-    if (ledge.body.touching.left) {
+    else if (ledge.body.touching.left) {
       ledge.body.velocity.x = -100;
     }
-    if (ledge.body.touching.right) {
+    else if (ledge.body.touching.right) {
       ledge.body.velocity.x = 100;
     }
   }
@@ -435,13 +421,13 @@ function weaponLedge(weapon, ledge) {
     if (ledge.body.touching.up) {
       ledge.body.velocity.y = 100;
     }
-    if (ledge.body.touching.down) {
+    else if (ledge.body.touching.down) {
       ledge.body.velocity.y = -100;
     }
-    if (ledge.body.touching.left) {
+    else if (ledge.body.touching.left) {
       ledge.body.velocity.x = 100;
     }
-    if (ledge.body.touching.right) {
+    else if (ledge.body.touching.right) {
       ledge.body.velocity.x = -100;
     }
   }
@@ -456,13 +442,13 @@ function weaponDownLedge(weapon, ledge) {
     if (ledge.body.touching.up) {
       ledge.body.velocity.y = -100;
     }
-    if (ledge.body.touching.down) {
+    else if (ledge.body.touching.down) {
       ledge.body.velocity.y = 100;
     }
-    if (ledge.body.touching.left) {
+    else if (ledge.body.touching.left) {
       ledge.body.velocity.x = -100;
     }
-    if (ledge.body.touching.right) {
+    else if (ledge.body.touching.right) {
       ledge.body.velocity.x = 100;
     }
   }
@@ -470,13 +456,13 @@ function weaponDownLedge(weapon, ledge) {
     if (ledge.body.touching.up) {
       ledge.body.velocity.y = 100;
     }
-    if (ledge.body.touching.down) {
+    else if (ledge.body.touching.down) {
       ledge.body.velocity.y = -100;
     }
-    if (ledge.body.touching.left) {
+    else if (ledge.body.touching.left) {
       ledge.body.velocity.x = 100;
     }
-    if (ledge.body.touching.right) {
+    else if (ledge.body.touching.right) {
       ledge.body.velocity.x = -100;
     }
   }
@@ -492,13 +478,13 @@ function weaponSideLedge(weapon, ledge) {
     if (ledge.body.touching.up) {
       ledge.body.velocity.y = -100;
     }
-    if (ledge.body.touching.down) {
+    else if (ledge.body.touching.down) {
       ledge.body.velocity.y = 100;
     }
-    if (ledge.body.touching.left) {
+    else if (ledge.body.touching.left) {
       ledge.body.velocity.x = -100;
     }
-    if (ledge.body.touching.right) {
+    else if (ledge.body.touching.right) {
       ledge.body.velocity.x = 100;
     }
   }
@@ -506,13 +492,13 @@ function weaponSideLedge(weapon, ledge) {
     if (ledge.body.touching.up) {
       ledge.body.velocity.y = 100;
     }
-    if (ledge.body.touching.down) {
+    else if (ledge.body.touching.down) {
       ledge.body.velocity.y = -100;
     }
-    if (ledge.body.touching.left) {
+    else if (ledge.body.touching.left) {
       ledge.body.velocity.x = 100;
     }
-    if (ledge.body.touching.right) {
+    else if (ledge.body.touching.right) {
       ledge.body.velocity.x = -100;
     }
   }
@@ -528,13 +514,13 @@ function weaponEnemy(weapon, enemy) {
     if (enemy.body.touching.up) {
       enemy.body.velocity.y = -100;
     }
-    if (enemy.body.touching.down) {
+    else if (enemy.body.touching.down) {
       enemy.body.velocity.y = 100;
     }
-    if (enemy.body.touching.left) {
+    else if (enemy.body.touching.left) {
       enemy.body.velocity.x = -100;
     }
-    if (enemy.body.touching.right) {
+    else if (enemy.body.touching.right) {
       enemy.body.velocity.x = 100;
     }
   }
@@ -542,13 +528,13 @@ function weaponEnemy(weapon, enemy) {
     if (enemy.body.touching.up) {
       enemy.body.velocity.y = 100;
     }
-    if (enemy.body.touching.down) {
+    else if (enemy.body.touching.down) {
       enemy.body.velocity.y = -100;
     }
-    if (enemy.body.touching.left) {
+    else if (enemy.body.touching.left) {
       enemy.body.velocity.x = 100;
     }
-    if (enemy.body.touching.right) {
+    else if (enemy.body.touching.right) {
       enemy.body.velocity.x = -100;
     }
   }

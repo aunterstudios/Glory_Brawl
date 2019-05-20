@@ -151,7 +151,7 @@ brawl.rogue.prototype = {
         //////////////////Adding Weapons////////////////////
         //Set Pull as Default for Weapons;
         pullBoolean = true;
-        console.log(pullBoolean + "pullBoolean Status");
+        // console.log(pullBoolean + "pullBoolean Status");
         var bulletImageHolder;
         if (pullBoolean) {
             bulletImageHolder = 'bullet';
@@ -260,7 +260,7 @@ brawl.rogue.prototype = {
                         positionArray.push(bottomRight);
                         positionArray.push(bottomLeft);
                         positionArray.push(topRight);
-                        console.log("Formation1");
+                        // console.log("Formation1");
                     }
                     else if (randomGeneratorForArray >= 26 && randomGeneratorForArray <= 50) {
                         positionArray.push(topRight);
@@ -268,7 +268,7 @@ brawl.rogue.prototype = {
                         positionArray.push(bottomLeft);
                         positionArray.push(bottomRight);
                         positionArray.push(bottomCenter);
-                        console.log("Formation2");
+                        // console.log("Formation2");
                     }
                     else if (randomGeneratorForArray >= 51 && randomGeneratorForArray <= 75) {
                         positionArray.push(topRight);
@@ -276,7 +276,7 @@ brawl.rogue.prototype = {
                         positionArray.push(bottomRight);
                         positionArray.push(centerLeft);
                         positionArray.push(bottomLeft);
-                        console.log("Formation3");
+                        // console.log("Formation3");
                     }
                     else if (randomGeneratorForArray >= 76 && randomGeneratorForArray <= 100) {
                         positionArray.push(centerLeft);
@@ -284,14 +284,14 @@ brawl.rogue.prototype = {
                         positionArray.push(centerRight);
                         positionArray.push(bottomRight);
                         positionArray.push(topLeft);
-                        console.log("Formation4");
+                        // console.log("Formation4");
                     }
 
                     // console.log(positionArray);
                     //////Sprites//////
                     for (var i = 0; i < 5; i++) {
                         this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[i]);
-                        console.log("---------------------------------------------------");
+                        // console.log("---------------------------------------------------");
                     }
                 }
             }
@@ -437,7 +437,7 @@ brawl.rogue.prototype = {
         this.ledgeY.scale.setTo(.4);
         this.ledgeY.alignIn(rect, positionInRectangle);
         this.ledgeY.body.collideWorldBounds = true;
-        this.ledgeY.body.immovable = true;
+        // this.ledgeY.body.immovable = true;
         this.ledgeY.body.bounce.setTo(1);
     },
     ledgeSideSpawn: function (x, y, rect, positionInRectangle) {
@@ -446,7 +446,7 @@ brawl.rogue.prototype = {
         // this.ledgeSideways.scale.setTo(.5);
         this.ledgeSideways.scale.setTo(.4);
         this.ledgeSideways.alignIn(rect, positionInRectangle);
-        this.ledgeSideways.body.immovable = true;
+        // this.ledgeSideways.body.immovable = true;
         this.ledgeSideways.body.velocity.x = this.game.rnd.realInRange(-300, 300);
         this.ledgeSideways.body.collideWorldBounds = true;
         this.ledgeSideways.body.bounce.setTo(1);
@@ -552,15 +552,17 @@ brawl.rogue.prototype = {
         // this.game.physics.arcade.collide(this.player, this.ball, ballMover, ballGround);
         var onBall = this.game.physics.arcade.collide(this.player, this.ball, ballMover);
 
-        //Weapon Mechanics
+        //Weapon One Mechanics
         this.game.physics.arcade.collide(this.weapon.bullets, this.ball, weaponBall, null, this);
-        this.game.physics.arcade.overlap(this.weapon.bullets, this.wall, weaponWall, null, this);
-        this.game.physics.arcade.overlap(this.weapon.bullets, this.spikes, weaponSpikes, null, this);
-        this.game.physics.arcade.overlap(this.weapon.bullets, this.ledge, weaponLedge, null, this);
-        this.game.physics.arcade.overlap(this.weapon.bullets, this.ledgeDown, weaponDownLedge, null, this);
-        this.game.physics.arcade.overlap(this.weapon.bullets, this.ledgeSide, weaponSideLedge, null, this);
-        this.game.physics.arcade.overlap(this.weapon.bullets, this.enemy, weaponEnemy, null, this);
+        this.game.physics.arcade.collide(this.weapon.bullets, this.wall, weaponWall, null, this);
+        this.game.physics.arcade.collide(this.weapon.bullets, this.spikes, weaponSpikes, null, this);
+        this.game.physics.arcade.collide(this.weapon.bullets, this.ledge, weaponLedge, null, this);
+        this.game.physics.arcade.collide(this.weapon.bullets, this.ledgeDown, weaponDownLedge, null, this);
+        this.game.physics.arcade.collide(this.weapon.bullets, this.ledgeSide, weaponSideLedge, null, this);
+        this.game.physics.arcade.collide(this.weapon.bullets, this.enemy, weaponEnemy, null, this);
         // this.game.physics.arcade.overlap(this.ball, this.enemy, deathThree);
+
+        //Weapon Two Mechanics
 
         //Boundary Mechanics
         // this.game.physics.arcade.overlap(this.boundary, this.wall, boundaryCollisionCheck, null, this);
