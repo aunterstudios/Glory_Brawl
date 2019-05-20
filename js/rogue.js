@@ -813,10 +813,10 @@ brawl.rogue.prototype = {
         //     this.weapon.fire();
         // }
 
-        if (this.game.input.activePointer.leftButton.isDown || this.shiftFire.isDown) {
-            this.weapon.fireAtPointer();
-            this.weapon.fire();
-        }
+        // if (this.game.input.activePointer.leftButton.isDown || this.shiftFire.isDown) {
+        //     this.weapon.fireAtPointer();
+        //     this.weapon.fire();
+        // }
 
         ///Type of Weapon
         if (pullBoolean) {
@@ -844,19 +844,23 @@ brawl.rogue.prototype = {
         //     this.weapon.fireAngle = 0;
         // }
 
-        // //Without Shift + Directional
-        // if (this.cursors.up.isDown) {
-        //     this.weapon.fireAngle = 270;
-        // }
-        // else if (this.cursors.down.isDown) {
-        //     this.weapon.fireAngle = 90;
-        // }
-        // else if (this.cursors.left.isDown) {
-        //     this.weapon.fireAngle = 180;
-        // }
-        // else if (this.cursors.right.isDown) {
-        //     this.weapon.fireAngle = 0;
-        // }
+        //Without Shift + Directional
+        if (this.cursors.up.isDown) {
+            this.weapon.fireAngle = 270;
+            this.weapon.fire();
+        }
+        else if (this.cursors.down.isDown) {
+            this.weapon.fireAngle = 90;
+            this.weapon.fire();
+        }
+        else if (this.cursors.left.isDown) {
+            this.weapon.fireAngle = 180;
+            this.weapon.fire();
+        }
+        else if (this.cursors.right.isDown) {
+            this.weapon.fireAngle = 0;
+            this.weapon.fire();
+        }
     }
     // render: function () {
     //     this.game.debug.physicsGroup(this.wall);
