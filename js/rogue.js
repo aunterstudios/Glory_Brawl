@@ -439,6 +439,7 @@ brawl.rogue.prototype = {
         this.ledgeY.body.collideWorldBounds = true;
         // this.ledgeY.body.immovable = true;
         this.ledgeY.body.bounce.setTo(1);
+        this.ledgeY.body.mass = 200;
     },
     ledgeSideSpawn: function (x, y, rect, positionInRectangle) {
         this.ledgeSideways = this.ledgeSide.create(x, y, 'ledgeSide');

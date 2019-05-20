@@ -120,6 +120,9 @@ function deathThree(killer, victim) {
 ////////////////////////////////////////Wall Mechanics//////////////////////////////////////////
 function playerWall(player, wall) {
   wall.body.stop();
+  if (wall.body.touching.down) {
+    wall.body.velocity.y = 100;
+  }
 }
 
 ////////////////////////////////////Ledge Mechanics//////////////////////////////////////
@@ -172,16 +175,20 @@ function ledgeDownS(player, ledge) {
 }
 
 function ledgeSideX(player, ledge) {
-  if (ledge.body.velocity.x > 0) {
-    ledge.body.velocity.x = 300;
-  }
-  else if (ledge.body.velocity.x < 0) {
-    ledge.body.velocity.x = -300;
-  }
-  else if (ledge.body.velocity.y >= 0 || ledge.body.velocity.y < 0) {
-    ledge.body.stop();
-    ledge.body.velocity.x = 300;
-  }
+  ////////////////Old Controls////////////////////
+  // if (ledge.body.velocity.x > 0) {
+  //   ledge.body.velocity.x = 300;
+  // }
+  // else if (ledge.body.velocity.x < 0) {
+  //   ledge.body.velocity.x = -300;
+  // }
+  // else if (ledge.body.velocity.y >= 0 || ledge.body.velocity.y < 0) {
+  //   ledge.body.stop();
+  //   ledge.body.velocity.x = 300;
+  // }
+  ledge.body.stop();
+  ledge.body.velocity.y = 200;
+  ledge.body.velocity.x = player.body.velocity.x;
 }
 
 function enemyLedge(ledge, enemy) {
