@@ -401,7 +401,8 @@ brawl.rogue.prototype = {
         this.wallX.body.collideWorldBounds = true;
         this.wallX.body.bounce.setTo(1);
         this.wallX.alignIn(rect, positionInRectangle)
-        this.wallX.body.immovable = true;
+        // this.wallX.body.immovable = true;
+        this.wallX.body.mass = 200;
         // this.wallX.body.moves = false;
     },
     enemySpawn: function (x, y, rect, positionInRectangle) {
@@ -748,7 +749,7 @@ brawl.rogue.prototype = {
             }
         }
         else if (onTheRightSide) {
-            this.player.body.velocity.x = 200;
+            this.player.body.velocity.x = 100;
             this.player.body.velocity.y = 100;
             if (onWall || onLedgeBlue || onLedgeGreen || onLedgeGrey) {
                 this.player.frame = 6;
@@ -759,7 +760,7 @@ brawl.rogue.prototype = {
             }
         }
         else if (onTheLeftSide) {
-            this.player.body.velocity.x = -200;
+            this.player.body.velocity.x = -100;
             this.player.body.velocity.y = 100;
             if (onWall || onLedgeBlue || onLedgeGreen || onLedgeGrey) {
                 this.player.frame = 12;
