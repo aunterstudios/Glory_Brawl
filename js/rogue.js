@@ -27,6 +27,7 @@ brawl.rogue.prototype = {
         this.load.image('bullet2', 'assets/bullet254.png');
         this.load.image('bullet3', 'assets/bullet255.png');
         this.load.image('boundary', 'assets/worldBounds.png');
+        this.load.image('crosshair', 'assets/shield2.png');
         this.load.spritesheet('dude', 'assets/white.png', 87.5, 93.5);
     },
     create: function () {
@@ -148,7 +149,20 @@ brawl.rogue.prototype = {
         this.movementLeft = this.game.input.keyboard.addKey(Phaser.Keyboard.A);
         this.movementRight = this.game.input.keyboard.addKey(Phaser.Keyboard.D)
 
+
+        /////////////////////////////////////Adding Mouse Events for PointerLock on Canvas////////////////////////
+
         //////////////////Adding Weapons////////////////////
+
+        /////Adding Crosshair////
+        this.crosshair = this.game.add.sprite(200, 6100, 'crosshair');
+        // this.game.physics.arcade.enable(this.crosshair);
+        //Adding PointerLock on Canvas
+        // game.canvas.addEventListener('mousedown', this.requestLock);
+        // game.input.addMoveCallback(this.move, this);;
+        this.pointerLock = this.game.input.keyboard.addKey(Phaser.Keyboard.Q);
+        this.pointerLock.onDown.add(this.pointerHold, this);
+
         //Set Pull as Default for Weapons;
         pullBoolean = true;
         // console.log(pullBoolean + "pullBoolean Status");
@@ -340,7 +354,21 @@ brawl.rogue.prototype = {
     // //     // console.log(this.ledgeX.x + ' ' + this.ledgeX.y);
 
     // // },
-    ////////////////Creation of the Grid System (objects Spawning)/////////////////
+    ////////////////Pointer Lock and Aim/////////////////
+    // requestLock: function () {
+    //     game.input.pointerLock.request();
+    // },
+    // move: function (pointer, x, y, click) {
+    //     // if (game.input.mouse.locked && !click)
+    //     // {
+    //     //     this.crosshair.x += this.game.input.mouse.event.movementX;
+    //     //     this.crosshair.y += this.game.input.mouse.event.movementY;
+    //     // }
+    //     this.crosshair.x += this.game.input.mouse.event.movementX;
+    //     this.crosshair.y += this.game.input.mouse.event.movementY;
+
+    // },
+    //////////////Creation of the Grid System (Objects Spawning)///////////////
     gridSystem: function (x, y, rect, positionInRectangle) {
         //Create Randomness in Each Grid
         var gridSystemGenesis = this.game.rnd.integerInRange(0, 100);
@@ -368,6 +396,9 @@ brawl.rogue.prototype = {
         else if (gridSystemGenesis >= 85 && gridSystemGenesis <= 100) {
             this.spikeSpawn(x, y, rect, positionInRectangle);
         }
+    },
+    pointerHold: function () {
+        game.input.pointerLock.request();
     },
     baseCamp: function (x, y, rect, positionInRectangle1, positionInRectangle2, positionInRectangle3, positionInRectangle4, positionInRectangle5) {
 
@@ -403,6 +434,7 @@ brawl.rogue.prototype = {
         this.wallX.alignIn(rect, positionInRectangle)
         // this.wallX.body.immovable = true;
         this.wallX.body.mass = 200;
+        this.wallX.body.velocity.setTo(this.game.rnd.integerInRange(-50,50),this.game.rnd.integerInRange(-50,50));
         // this.wallX.body.moves = false;
     },
     enemySpawn: function (x, y, rect, positionInRectangle) {
@@ -810,17 +842,8 @@ brawl.rogue.prototype = {
             this.player.body.velocity.y = 500;
         }
 
-        //Weapon Mechanics
+        ///////////////////////Weapon Mechanics////////////
 
-        // if (this.fireButton.isDown) {
-        //     this.weapon.fireAtPointer();
-        //     this.weapon.fire();
-        // }
-
-        // if (this.game.input.activePointer.leftButton.isDown || this.shiftFire.isDown) {
-        //     this.weapon.fireAtPointer();
-        //     this.weapon.fire();
-        // }
 
         ///Type of Weapon
         if (pullBoolean) {
@@ -833,22 +856,13 @@ brawl.rogue.prototype = {
             this.weaponType = "Kill"
         }
 
+        //Shoot from Mouse
+        if (this.game.input.activePointer.leftButton.isDown || this.shiftFire.isDown) {
+            this.weapon.fireAtPointer();
+            this.weapon.fire();
+        }
 
-        //Angle with Shift + Directional
-        // if (this.directionalFire.isDown && this.cursors.up.isDown) {
-        //     this.weapon.fireAngle = 270;
-        // }
-        // else if (this.directionalFire.isDown && this.cursors.down.isDown) {
-        //     this.weapon.fireAngle = 90;
-        // }
-        // else if (this.directionalFire.isDown && this.cursors.left.isDown) {
-        //     this.weapon.fireAngle = 180;
-        // }
-        // else if (this.directionalFire.isDown && this.cursors.right.isDown) {
-        //     this.weapon.fireAngle = 0;
-        // }
-
-        //Without Shift + Directional
+        //Shoot from Cursor Keys
         if (this.cursors.up.isDown) {
             this.weapon.fireAngle = 270;
             this.weapon.fire();
