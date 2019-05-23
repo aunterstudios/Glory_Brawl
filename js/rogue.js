@@ -7,7 +7,7 @@ brawl.rogue.prototype = {
         this.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT; //Scales our Game
     },
     preload: function () {
-        this.game.forceSingleUpdate = true;
+        // this.game.forceSingleUpdate = true;
         this.load.image('wall', 'assets/wall.png');
         this.load.image('ball', 'assets/ball.png')
         this.load.image('rotatedWall', 'assets/rotatedWall.png');
@@ -23,14 +23,19 @@ brawl.rogue.prototype = {
         this.load.image('action', 'assets/action.png');
         this.load.image('ledgeDown', 'assets/platformX.png');
         this.load.image('ledgeSide', 'assets/platformSide.png');
-        this.load.image('bullet', 'assets/bullet09.png');
+        this.load.image('bullet3', 'assets/bullet09.png');
         this.load.image('bullet2', 'assets/bullet254.png');
-        this.load.image('bullet3', 'assets/bullet255.png');
+        this.load.image('bullet1', 'assets/bullet255.png');
         this.load.image('boundary', 'assets/worldBounds.png');
         this.load.image('crosshair', 'assets/shield2.png');
         this.load.spritesheet('dude', 'assets/white.png', 87.5, 93.5);
     },
     create: function () {
+
+        //Desired FPS of game
+        this.game.time.desiredFps = 60;
+
+        // this.game.time.advancedTiming = true;
 
         // Stretch to fill (Full Screen Mode)
         this.game.scale.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
@@ -157,7 +162,7 @@ brawl.rogue.prototype = {
         pullBoolean = true;
         // console.log(pullBoolean + "pullBoolean Status");
         //  Creates 30 bullets, using the 'bullet' graphic
-        this.weapon1 = this.game.add.weapon(60, 'bullet');
+        this.weapon1 = this.game.add.weapon(60, 'bullet1');
         //  The bullet will be automatically killed when it leaves the camera bounds
         this.weapon1.bulletKillType = Phaser.Weapon.KILL_CAMERA_BOUNDS;
         //  Because our bullet is drawn facing up, we need to offset its rotation:
@@ -220,6 +225,7 @@ brawl.rogue.prototype = {
         this.killBullet.onDown.add(this.goKill, this);
 
         //Fire from Keyboard
+        this.game.input.keyboard.addKeyCapture(Phaser.Keyboard.SHIFT);
         this.shiftFire = this.game.input.keyboard.addKey(Phaser.Keyboard.SHIFT);
 
         //////////////////Grid System Creation////////////////
@@ -407,8 +413,8 @@ brawl.rogue.prototype = {
 
         /////////////////////////////////Starting Point of The Map////////////////////////////////
 
-        console.log("-----------------------------------");
-        console.log("BaseCamp");
+        // console.log("-----------------------------------");
+        // console.log("BaseCamp");
         //create wall
         this.wallX = this.wall.create(x, y, 'rotatedWall');
         this.wallX.anchor.setTo(.5);
@@ -420,7 +426,7 @@ brawl.rogue.prototype = {
         this.ledgeSpawn(x, y, rect, positionInRectangle3);
         this.ballSpawn(x, y, rect, positionInRectangle4);
         this.ballSpawn(x, y, rect, positionInRectangle5);
-        console.log("-----------------------------------");
+        // console.log("-----------------------------------");
 
     },
     // Creating Game Objects
@@ -552,29 +558,30 @@ brawl.rogue.prototype = {
     },
     ///////////////////////////Weapon Functionality/////////////////
     goPull: function () {
-        console.log("1");
+        // console.log("1");
         pullBoolean = true;
         pushBoolean = false;
         stopBoolean = false;
-        console.log("Pull: " + pullBoolean + " Push: " + pushBoolean + " Kill: " + stopBoolean);
+        // console.log("Pull: " + pullBoolean + " Push: " + pushBoolean + " Kill: " + stopBoolean);
     },
     goPush: function () {
-        console.log("2");
+        // console.log("2");
         pullBoolean = false;
         pushBoolean = true;
         stopBoolean = false;
-        console.log("Pull: " + pullBoolean + " Push: " + pushBoolean + " Kill: " + stopBoolean);
+        // console.log("Pull: " + pullBoolean + " Push: " + pushBoolean + " Kill: " + stopBoolean);
     },
     goKill: function () {
-        console.log("3");
+        // console.log("3");
         pullBoolean = false;
         pushBoolean = false;
         stopBoolean = true;
-        console.log("Pull: " + pullBoolean + " Push: " + pushBoolean + " Kill: " + stopBoolean);
+        // console.log("Pull: " + pullBoolean + " Push: " + pushBoolean + " Kill: " + stopBoolean);
     },
     //How Game Updates Real-Time
     update: function () {
 
+        // console.log(this.game.time.fps);
         ////////////////////////Physics////////////////////////
         //Player Mechanics
 
