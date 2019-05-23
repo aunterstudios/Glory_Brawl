@@ -225,7 +225,7 @@ brawl.rogue.prototype = {
         this.killBullet.onDown.add(this.goKill, this);
 
         //Fire from Keyboard
-        this.game.input.keyboard.addKeyCapture(Phaser.Keyboard.SHIFT);
+        this.game.input.keyboard.addKeyCapture([Phaser.Keyboard.SHIFT]);
         this.shiftFire = this.game.input.keyboard.addKey(Phaser.Keyboard.SHIFT);
 
         //////////////////Grid System Creation////////////////
