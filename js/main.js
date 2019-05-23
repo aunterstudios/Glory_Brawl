@@ -29,7 +29,7 @@ var stopBoolean = false;
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "Rogue Version-OVERLAP_BIAS-RemoveConsoleLogsNewWeapons",
+  "Rogue Version-OVERLAP_BIAS-RemoveConsoleLogsNewWeaponsCreateNewCommit?",
   "You are a Prisoner.",
   "Given a sentence to experience eternal death and revival by President Trump.",
   "To compete in an ever changing obstacle course game show.",
