@@ -24,6 +24,9 @@ var pullBoolean = false;
 var pushBoolean = false;
 var stopBoolean = false;
 
+// //Crosshair
+// var crosshair;
+
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
   "Rogue Version-OVERLAP_BIAS-ShootingGame",

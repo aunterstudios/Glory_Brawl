@@ -153,64 +153,61 @@ brawl.rogue.prototype = {
         /////////////////////////////////////Adding Mouse Events for PointerLock on Canvas////////////////////////
 
         //////////////////Adding Weapons////////////////////
-
-        /////Adding Crosshair////
-        this.crosshair = this.game.add.sprite(200, 6100, 'crosshair');
-        // this.game.physics.arcade.enable(this.crosshair);
-        //Adding PointerLock on Canvas
-        // game.canvas.addEventListener('mousedown', this.requestLock);
-        // game.input.addMoveCallback(this.move, this);;
-        this.pointerLock = this.game.input.keyboard.addKey(Phaser.Keyboard.Q);
-        this.pointerLock.onDown.add(this.pointerHold, this);
-
         //Set Pull as Default for Weapons;
         pullBoolean = true;
         // console.log(pullBoolean + "pullBoolean Status");
-        var bulletImageHolder;
-        if (pullBoolean) {
-            bulletImageHolder = 'bullet';
-        }
-        else if (pushBoolean) {
-            bulletImageHolder = "bullet2";
-        }
-        else if (stopBoolean) {
-            bulletImageHolder = "bullet3";
-        }
         //  Creates 30 bullets, using the 'bullet' graphic
-        this.weapon = this.game.add.weapon(60, 'bullet');
-
-        // Changing frames of bullet (the color)
-        this.weapon.bulletKey = bulletImageHolder;
-
+        this.weapon1 = this.game.add.weapon(60, 'bullet');
         //  The bullet will be automatically killed when it leaves the camera bounds
-        this.weapon.bulletKillType = Phaser.Weapon.KILL_CAMERA_BOUNDS;
-
+        this.weapon1.bulletKillType = Phaser.Weapon.KILL_CAMERA_BOUNDS;
         //  Because our bullet is drawn facing up, we need to offset its rotation:
-        this.weapon.bulletAngleOffset = 90;
-
+        this.weapon1.bulletAngleOffset = 90;
         //  The speed at which the bullet is fired
-        this.weapon.bulletSpeed = 700;
+        this.weapon1.bulletSpeed = 700;
         //400 previous value
-
         //  Speed-up the rate of fire, allowing them to shoot 1 bullet every 60ms
-        this.weapon.fireRate = 120;
+        this.weapon1.fireRate = 120;
         //60 previous value
-
         //Match Your Velocity?
         // this.weapon.bulletRotateToVelocity = true;
-
         // Track Player
-        this.weapon.trackSprite(this.player, 0, -20);
+        this.weapon1.trackSprite(this.player, 0, -20);
 
-        // Firing Weapon
-        // this.fireButton = this.game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
-        // this.fireButton = this.game.input.activePointer.leftButton.isDown
+        // console.log(pullBoolean + "pullBoolean Status");
+        //  Creates 30 bullets, using the 'bullet' graphic
+        this.weapon2 = this.game.add.weapon(60, 'bullet2');
+        //  The bullet will be automatically killed when it leaves the camera bounds
+        this.weapon2.bulletKillType = Phaser.Weapon.KILL_CAMERA_BOUNDS;
+        //  Because our bullet is drawn facing up, we need to offset its rotation:
+        this.weapon2.bulletAngleOffset = 90;
+        //  The speed at which the bullet is fired
+        this.weapon2.bulletSpeed = 700;
+        //400 previous value
+        //  Speed-up the rate of fire, allowing them to shoot 1 bullet every 60ms
+        this.weapon2.fireRate = 120;
+        //60 previous value
+        //Match Your Velocity?
+        // this.weapon2.bulletRotateToVelocity = true;
+        // Track Player
+        this.weapon2.trackSprite(this.player, 0, -20);
 
-        //Angle Weapon Fire
-        // this.directionalFire = this.game.input.keyboard.addKey(Phaser.Keyboard.SHIFT);
-        // this.fireDownButton = this.game.input.keyboard.addKey(Phaser.Keyboard.S);
-        // this.fireLeftButton = this.game.input.keyboard.addKey(Phaser.Keyboard.A);
-        // this.fireRightButton = this.game.input.keyboard.addKey(Phaser.Keyboard.D);
+        // console.log(pullBoolean + "pullBoolean Status");
+        //  Creates 30 bullets, using the 'bullet' graphic
+        this.weapon3 = this.game.add.weapon(60, 'bullet3');
+        //  The bullet will be automatically killed when it leaves the camera bounds
+        this.weapon3.bulletKillType = Phaser.Weapon.KILL_CAMERA_BOUNDS;
+        //  Because our bullet is drawn facing up, we need to offset its rotation:
+        this.weapon3.bulletAngleOffset = 90;
+        //  The speed at which the bullet is fired
+        this.weapon3.bulletSpeed = 700;
+        //400 previous value
+        //  Speed-up the rate of fire, allowing them to shoot 1 bullet every 60ms
+        this.weapon2.fireRate = 120;
+        //60 previous value
+        //Match Your Velocity?
+        // this.weapon3.bulletRotateToVelocity = true;
+        // Track Player
+        this.weapon3.trackSprite(this.player, 0, -20);
 
         //Change Weapon Fire Type
         this.pullBullet = this.game.input.keyboard.addKey(Phaser.Keyboard.ONE);
@@ -354,20 +351,6 @@ brawl.rogue.prototype = {
     // //     // console.log(this.ledgeX.x + ' ' + this.ledgeX.y);
 
     // // },
-    ////////////////Pointer Lock and Aim/////////////////
-    // requestLock: function () {
-    //     game.input.pointerLock.request();
-    // },
-    // move: function (pointer, x, y, click) {
-    //     // if (game.input.mouse.locked && !click)
-    //     // {
-    //     //     this.crosshair.x += this.game.input.mouse.event.movementX;
-    //     //     this.crosshair.y += this.game.input.mouse.event.movementY;
-    //     // }
-    //     this.crosshair.x += this.game.input.mouse.event.movementX;
-    //     this.crosshair.y += this.game.input.mouse.event.movementY;
-
-    // },
     //////////////Creation of the Grid System (Objects Spawning)///////////////
     gridSystem: function (x, y, rect, positionInRectangle) {
         //Create Randomness in Each Grid
@@ -397,9 +380,29 @@ brawl.rogue.prototype = {
             this.spikeSpawn(x, y, rect, positionInRectangle);
         }
     },
-    pointerHold: function () {
-        game.input.pointerLock.request();
-    },
+    ///////////////////////////////Mouse or PointerLock///////////////////////////
+    // pointerHold: function () {
+    //     game.input.pointerLock.request();
+    // },
+    // move: function (pointer, x, y, click) {
+    //     // if (game.input.mouse.locked && !click)
+    //     // {
+    //     //     this.crosshair.x += this.game.input.activePointer.movementX;
+    //     //     this.crosshair.y += this.game.input.activePointer.movementY;
+    //     // }
+    //     // this.crosshair.x += this.game.input.activePointer.movementX;
+    //     // this.crosshair.y += this.game.input.activePointer.movementY;
+    //     if (game.input.mouse.locked && !click) {
+    //         // console.log("locked");
+    //         // console.log(this.game.input.activePointer.movementX+"x");
+    //         // console.log(this.game.input.activePointer.movementY+"y");
+
+    //         this.crosshair.x += this.game.input.activePointer.X;
+    //         this.crosshair.y += this.game.input.activePointer.Y;
+
+
+    //     }
+    // },
     baseCamp: function (x, y, rect, positionInRectangle1, positionInRectangle2, positionInRectangle3, positionInRectangle4, positionInRectangle5) {
 
         /////////////////////////////////Starting Point of The Map////////////////////////////////
@@ -434,7 +437,7 @@ brawl.rogue.prototype = {
         this.wallX.alignIn(rect, positionInRectangle)
         // this.wallX.body.immovable = true;
         this.wallX.body.mass = 200;
-        this.wallX.body.velocity.setTo(this.game.rnd.integerInRange(-50,50),this.game.rnd.integerInRange(-50,50));
+        this.wallX.body.velocity.setTo(this.game.rnd.integerInRange(-50, 50), this.game.rnd.integerInRange(-50, 50));
         // this.wallX.body.moves = false;
     },
     enemySpawn: function (x, y, rect, positionInRectangle) {
@@ -553,7 +556,6 @@ brawl.rogue.prototype = {
         pullBoolean = true;
         pushBoolean = false;
         stopBoolean = false;
-        this.weaponType = "PULL"
         console.log("Pull: " + pullBoolean + " Push: " + pushBoolean + " Kill: " + stopBoolean);
     },
     goPush: function () {
@@ -561,7 +563,6 @@ brawl.rogue.prototype = {
         pullBoolean = false;
         pushBoolean = true;
         stopBoolean = false;
-        this.weaponType = "PUSH"
         console.log("Pull: " + pullBoolean + " Push: " + pushBoolean + " Kill: " + stopBoolean);
     },
     goKill: function () {
@@ -569,7 +570,6 @@ brawl.rogue.prototype = {
         pullBoolean = false;
         pushBoolean = false;
         stopBoolean = true;
-        this.weaponType = "KILL"
         console.log("Pull: " + pullBoolean + " Push: " + pushBoolean + " Kill: " + stopBoolean);
     },
     //How Game Updates Real-Time
@@ -586,13 +586,13 @@ brawl.rogue.prototype = {
         var onBall = this.game.physics.arcade.collide(this.player, this.ball, ballMover);
 
         //Weapon One Mechanics
-        this.game.physics.arcade.collide(this.weapon.bullets, this.ball, weaponBall, null, this);
-        this.game.physics.arcade.collide(this.weapon.bullets, this.wall, weaponWall, null, this);
-        this.game.physics.arcade.collide(this.weapon.bullets, this.spikes, weaponSpikes, null, this);
-        this.game.physics.arcade.collide(this.weapon.bullets, this.ledge, weaponLedge, null, this);
-        this.game.physics.arcade.collide(this.weapon.bullets, this.ledgeDown, weaponDownLedge, null, this);
-        this.game.physics.arcade.collide(this.weapon.bullets, this.ledgeSide, weaponSideLedge, null, this);
-        this.game.physics.arcade.collide(this.weapon.bullets, this.enemy, weaponEnemy, null, this);
+        this.game.physics.arcade.collide(this.weapon1.bullets, this.ball, weaponBall, null, this);
+        this.game.physics.arcade.collide(this.weapon1.bullets, this.wall, weaponWall, null, this);
+        this.game.physics.arcade.collide(this.weapon1.bullets, this.spikes, weaponSpikes, null, this);
+        this.game.physics.arcade.collide(this.weapon1.bullets, this.ledge, weaponLedge, null, this);
+        this.game.physics.arcade.collide(this.weapon1.bullets, this.ledgeDown, weaponDownLedge, null, this);
+        this.game.physics.arcade.collide(this.weapon1.bullets, this.ledgeSide, weaponSideLedge, null, this);
+        this.game.physics.arcade.collide(this.weapon1.bullets, this.enemy, weaponEnemy, null, this);
         // this.game.physics.arcade.overlap(this.ball, this.enemy, deathThree);
 
         //Weapon Two Mechanics
@@ -696,79 +696,7 @@ brawl.rogue.prototype = {
         //Player Angle Still
         this.player.angle = 0;
 
-        //////////////////Default Cursor Key Controls///////////////////
-        // if (onTheGround) {
-        //     if (this.cursors.left.isDown) {
-        //         this.player.body.velocity.x = -400;
-        //         this.player.animations.play('left');
-        //     }
-        //     else if (this.cursors.right.isDown) {
-        //         this.player.body.velocity.x = 400;
-        //         this.player.animations.play('right');
-        //     }
-        //     else {
-        //         this.player.animations.stop();
-        //         this.player.frame = 8;
-        //     }
-        // }
-        // else if (onTheRightSide) {
-        //     this.player.body.velocity.x = 50;
-        //     this.player.body.velocity.y = 100;
-        //     if (onWall || onLedgeBlue || onLedgeGreen || onLedgeGrey) {
-        //         this.player.frame = 6;
-        //     }
-        //     if (this.cursors.left.isDown) {
-        //         this.player.body.velocity.y = -500;
-        //         this.player.body.velocity.x = -1000;
-        //     }
-        // }
-        // else if (onTheLeftSide) {
-        //     this.player.body.velocity.x = -50;
-        //     this.player.body.velocity.y = 100;
-        //     if (onWall || onLedgeBlue || onLedgeGreen || onLedgeGrey) {
-        //         this.player.frame = 12;
-        //     }
-        //     if (this.cursors.right.isDown) {
-        //         this.player.body.velocity.y = -500;
-        //         this.player.body.velocity.x = 1000;
-        //     }
-        // }
-        // else if (onUpsideDown) {
-        //     this.player.animations.stop();
-        //     this.player.frame = 8;
-        //     this.player.angle = 180;
-        //     this.player.body.velocity.y = -100;
-        //     if (this.cursors.left.isDown) {
-        //         this.player.body.velocity.x = -400;
-        //         this.player.animations.play('left');
-        //     }
-        //     else if (this.cursors.right.isDown) {
-        //         this.player.body.velocity.x = 400;
-        //         this.player.animations.play('right');
-        //     }
-
-        // }
-        // if (onNone) {
-        //     this.player.frame = 10;
-        //     if (this.cursors.left.isDown) {
-        //         this.player.body.velocity.x = -400;
-        //     }
-        //     else if (this.cursors.right.isDown) {
-        //         this.player.body.velocity.x = 400;
-        //     }
-        // }
-
-        // //////////Downwards Mechanics
-        // if (this.cursors.down.isDown && onUpsideDown) {
-        //     this.player.frame = 13;
-        //     this.player.body.velocity.y = 200;
-        // }
-
-        // //Downward Mechanics
-        // if (this.cursors.down.isDown) {
-        //     this.player.frame = 13;
-        //     this.player.body.velocity.y = 500;
-        // }
+        //////////////////////////////////////////WASD Controls//////////////////////////////////////////////
         if (onTheGround) {
             if (this.movementLeft.isDown) {
                 this.player.body.velocity.x = -400;
@@ -842,7 +770,7 @@ brawl.rogue.prototype = {
             this.player.body.velocity.y = 500;
         }
 
-        ///////////////////////Weapon Mechanics////////////
+        ///////////////////////Weapon Mechanics///////////////
 
 
         ///Type of Weapon
@@ -856,29 +784,83 @@ brawl.rogue.prototype = {
             this.weaponType = "Kill"
         }
 
+        // //Aim Mouse
+        // this.crosshair.x = this.game.input.activePointer.movementX;
+        // this.crosshair.y = this.game.input.activePointer.movementY;
+
+        // console.log(this.game.input.activePointer.x);
         //Shoot from Mouse
         if (this.game.input.activePointer.leftButton.isDown || this.shiftFire.isDown) {
-            this.weapon.fireAtPointer();
-            this.weapon.fire();
+            if (pullBoolean) {
+                this.weapon1.fireAtPointer();
+                this.weapon1.fire();
+            }
+            else if (pushBoolean) {
+                this.weapon2.fireAtPointer();
+                this.weapon2.fire();
+            }
+            else if (stopBoolean) {
+                this.weapon3.fireAtPointer();
+                this.weapon3.fire();
+            }
         }
 
-        //Shoot from Cursor Keys
-        if (this.cursors.up.isDown) {
-            this.weapon.fireAngle = 270;
-            this.weapon.fire();
+        if (pullBoolean) {
+            if (this.cursors.up.isDown) {
+                this.weapon1.fireAngle = 270;
+                this.weapon1.fire();
+            }
+            else if (this.cursors.down.isDown) {
+                this.weapon1.fireAngle = 90;
+                this.weapon1.fire();
+            }
+            else if (this.cursors.left.isDown) {
+                this.weapon1.fireAngle = 180;
+                this.weapon1.fire();
+            }
+            else if (this.cursors.right.isDown) {
+                this.weapon1.fireAngle = 0;
+                this.weapon1.fire();
+            }
         }
-        else if (this.cursors.down.isDown) {
-            this.weapon.fireAngle = 90;
-            this.weapon.fire();
+        else if (pushBoolean) {
+            if (this.cursors.up.isDown) {
+                this.weapon2.fireAngle = 270;
+                this.weapon2.fire();
+            }
+            else if (this.cursors.down.isDown) {
+                this.weapon2.fireAngle = 90;
+                this.weapon2.fire();
+            }
+            else if (this.cursors.left.isDown) {
+                this.weapon2.fireAngle = 180;
+                this.weapon2.fire();
+            }
+            else if (this.cursors.right.isDown) {
+                this.weapon2.fireAngle = 0;
+                this.weapon2.fire();
+            }
         }
-        else if (this.cursors.left.isDown) {
-            this.weapon.fireAngle = 180;
-            this.weapon.fire();
+        else if (stopBoolean) {
+            if (this.cursors.up.isDown) {
+                this.weapon3.fireAngle = 270;
+                this.weapon3.fire();
+            }
+            else if (this.cursors.down.isDown) {
+                this.weapon3.fireAngle = 90;
+                this.weapon3.fire();
+            }
+            else if (this.cursors.left.isDown) {
+                this.weapon3.fireAngle = 180;
+                this.weapon3.fire();
+            }
+            else if (this.cursors.right.isDown) {
+                this.weapon3.fireAngle = 0;
+                this.weapon3.fire();
+            }
         }
-        else if (this.cursors.right.isDown) {
-            this.weapon.fireAngle = 0;
-            this.weapon.fire();
-        }
+
+        // console.log(this.crosshair.x + ' ' + this.crosshair.y);
     }
     // render: function () {
     //     this.game.debug.physicsGroup(this.wall);
