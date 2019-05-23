@@ -595,7 +595,26 @@ brawl.rogue.prototype = {
         this.game.physics.arcade.collide(this.weapon1.bullets, this.enemy, weaponEnemy, null, this);
         // this.game.physics.arcade.overlap(this.ball, this.enemy, deathThree);
 
+
         //Weapon Two Mechanics
+        this.game.physics.arcade.collide(this.weapon2.bullets, this.ball, weaponBall, null, this);
+        this.game.physics.arcade.collide(this.weapon2.bullets, this.wall, weaponWall, null, this);
+        this.game.physics.arcade.collide(this.weapon2.bullets, this.spikes, weaponSpikes, null, this);
+        this.game.physics.arcade.collide(this.weapon2.bullets, this.ledge, weaponLedge, null, this);
+        this.game.physics.arcade.collide(this.weapon2.bullets, this.ledgeDown, weaponDownLedge, null, this);
+        this.game.physics.arcade.collide(this.weapon2.bullets, this.ledgeSide, weaponSideLedge, null, this);
+        this.game.physics.arcade.collide(this.weapon2.bullets, this.enemy, weaponEnemy, null, this);
+        // this.game.physics.arcade.overlap(this.ball, this.enemy, deathThree);
+
+        //Weapon Three Mechanics
+        this.game.physics.arcade.collide(this.weapon3.bullets, this.ball, weaponBall, null, this);
+        this.game.physics.arcade.collide(this.weapon3.bullets, this.wall, weaponWall, null, this);
+        this.game.physics.arcade.collide(this.weapon3.bullets, this.spikes, weaponSpikes, null, this);
+        this.game.physics.arcade.collide(this.weapon3.bullets, this.ledge, weaponLedge, null, this);
+        this.game.physics.arcade.collide(this.weapon3.bullets, this.ledgeDown, weaponDownLedge, null, this);
+        this.game.physics.arcade.collide(this.weapon3.bullets, this.ledgeSide, weaponSideLedge, null, this);
+        this.game.physics.arcade.collide(this.weapon3.bullets, this.enemy, weaponEnemy, null, this);
+        // this.game.physics.arcade.overlap(this.ball, this.enemy, deathThree);
 
         //Boundary Mechanics
         // this.game.physics.arcade.overlap(this.boundary, this.wall, boundaryCollisionCheck, null, this);
@@ -772,23 +791,6 @@ brawl.rogue.prototype = {
 
         ///////////////////////Weapon Mechanics///////////////
 
-
-        ///Type of Weapon
-        if (pullBoolean) {
-            this.weaponType = "Pull"
-        }
-        else if (pushBoolean) {
-            this.weaponType = "Push"
-        }
-        else if (stopBoolean) {
-            this.weaponType = "Kill"
-        }
-
-        // //Aim Mouse
-        // this.crosshair.x = this.game.input.activePointer.movementX;
-        // this.crosshair.y = this.game.input.activePointer.movementY;
-
-        // console.log(this.game.input.activePointer.x);
         //Shoot from Mouse
         if (this.game.input.activePointer.leftButton.isDown || this.shiftFire.isDown) {
             if (pullBoolean) {
@@ -805,6 +807,7 @@ brawl.rogue.prototype = {
             }
         }
 
+        //Shoot from Directional
         if (pullBoolean) {
             if (this.cursors.up.isDown) {
                 this.weapon1.fireAngle = 270;
