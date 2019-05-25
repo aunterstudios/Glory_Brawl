@@ -44,7 +44,7 @@ brawl.testing.prototype = {
         this.game.physics.arcade.OVERLAP_BIAS = 12;
 
         ////////////////////Game World Size//////////////////////
-        this.game.world.setBounds(0, 0, 5600, 6300);
+        this.game.world.setBounds(0, 0, 2800, 3200);
 
         //Keyboard Controls
         this.cursors = this.game.input.keyboard.createCursorKeys();
@@ -198,12 +198,12 @@ brawl.testing.prototype = {
 
         this.testingArray = [];
         /////////////////////////Test Grid///////////////////////
-        var xBlockSize = 650;
-        var yBlockSize = 650;
-        var xRectangle = 700;
-        var yRectangle = 700;
-        for (var x = 0; x < 8; x++) {
-            for (var y = 0; y < 9; y++) {
+        var xBlockSize = 450;
+        var yBlockSize = 450;
+        var xRectangle = 530;
+        var yRectangle = 530;
+        for (var x = 0; x < 6; x++) {
+            for (var y = 0; y < 6; y++) {
                 ////////Creation of Rectangle////////////
 
                 // var rect = new Phaser.Rectangle(x * xBlockSize, (y * yBlockSize) + 600, xBlockSize, yBlockSize);
@@ -216,7 +216,7 @@ brawl.testing.prototype = {
                 // console.log("Rectangle " + x + y);
                 ////////////Random Array to Scramble Positions//////////
                 // var positionArray = [topCenter, topLeft, topRight, center, centerLeft, centerRight, bottomCenter, bottomLeft, bottomRight];
-                if (x === 0 && y === 8) {
+                if (x === 0 && y === 5) {
                     console.log("-----------------------------------");
                     console.log("BaseCamp");
                     //create wall
