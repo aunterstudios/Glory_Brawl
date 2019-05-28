@@ -7,7 +7,7 @@ brawl.testing.prototype = {
         this.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT; //Scales our Game
     },
     preload: function () {
-        this.game.forceSingleUpdate = true;
+        // this.game.forceSingleUpdate = true;
         this.load.image('wall', 'assets/wall.png');
         this.load.image('ball', 'assets/ball.png');
         this.load.image('rotatedWall', 'assets/rotatedWall.png');
@@ -44,7 +44,7 @@ brawl.testing.prototype = {
         this.game.physics.arcade.OVERLAP_BIAS = 12;
 
         ////////////////////Game World Size//////////////////////
-        this.game.world.setBounds(0, 0, 2800, 3200);
+        this.game.world.setBounds(0, 0, 2800, 6400);
 
         //Keyboard Controls
         this.cursors = this.game.input.keyboard.createCursorKeys();
@@ -84,30 +84,30 @@ brawl.testing.prototype = {
         // }
 
         //Adding World Boundaries
-        this.boundary = this.game.add.group();
-        this.boundary.enableBody = true;
-        for (var i = 0; i < 4; i++) {
-            if (i <= 1) {
-                var boundaryKey = 'boundary';
-                var xCoordinate = 5590;
-                var yCoordinate = 0;
-                console.log("ayo");
-            }
-            else {
-                var boundaryKey = 'win';
-                var xCoordinate = 0;
-                if (i === 3) {
-                    var yCoordinate = -40;
-                }
-                else {
-                    var yCoordinate = 6290;
-                }
-                console.log('thefuck');
-            }
-            this.boundaryX = this.boundary.create(xCoordinate*i, yCoordinate, boundaryKey);
-            //5600x
-            //6400y
-        }
+        // this.boundary = this.game.add.group();
+        // this.boundary.enableBody = true;
+        // for (var i = 0; i < 4; i++) {
+        //     if (i <= 1) {
+        //         var boundaryKey = 'boundary';
+        //         var xCoordinate = 5590;
+        //         var yCoordinate = 0;
+        //         console.log("ayo");
+        //     }
+        //     else {
+        //         var boundaryKey = 'win';
+        //         var xCoordinate = 0;
+        //         if (i === 3) {
+        //             var yCoordinate = -40;
+        //         }
+        //         else {
+        //             var yCoordinate = 6290;
+        //         }
+        //         console.log('thefuck');
+        //     }
+        //     this.boundaryX = this.boundary.create(xCoordinate*i, yCoordinate, boundaryKey);
+        //     //5600x
+        //     //6400y
+        // }
 
 
         //Adding Player
@@ -198,12 +198,12 @@ brawl.testing.prototype = {
 
         this.testingArray = [];
         /////////////////////////Test Grid///////////////////////
-        var xBlockSize = 450;
-        var yBlockSize = 450;
-        var xRectangle = 530;
-        var yRectangle = 530;
-        for (var x = 0; x < 6; x++) {
-            for (var y = 0; y < 6; y++) {
+        var xBlockSize = 560;
+        var yBlockSize = 600;
+        var xRectangle = 700;
+        var yRectangle = 800;
+        for (var x = 0; x < 4; x++) {
+            for (var y = 0; y < 8; y++) {
                 ////////Creation of Rectangle////////////
 
                 // var rect = new Phaser.Rectangle(x * xBlockSize, (y * yBlockSize) + 600, xBlockSize, yBlockSize);
