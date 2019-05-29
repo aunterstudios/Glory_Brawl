@@ -44,7 +44,7 @@ brawl.testing.prototype = {
         this.game.physics.arcade.OVERLAP_BIAS = 12;
 
         ////////////////////Game World Size//////////////////////
-        this.game.world.setBounds(0, 0, 2800, 3200);
+        this.game.world.setBounds(0, 0, 3800, 3800);
 
         //Keyboard Controls
         this.cursors = this.game.input.keyboard.createCursorKeys();
@@ -198,12 +198,12 @@ brawl.testing.prototype = {
 
         this.testingArray = [];
         /////////////////////////Test Grid///////////////////////
-        var xBlockSize = 400;
-        var yBlockSize = 800;
-        var xRectangle = 560;
-        var yRectangle = 1065;
-        for (var x = 0; x < 5; x++) {
-            for (var y = 0; y < 3; y++) {
+        var xBlockSize = 900;
+        var yBlockSize = 900;
+        var xRectangle = 950;
+        var yRectangle = 950;
+        for (var x = 0; x < 4; x++) {
+            for (var y = 0; y < 4; y++) {
                 ////////Creation of Rectangle////////////
 
                 // var rect = new Phaser.Rectangle(x * xBlockSize, (y * yBlockSize) + 600, xBlockSize, yBlockSize);
@@ -223,13 +223,16 @@ brawl.testing.prototype = {
                     this.wallX = this.wall.create(xOfSprite, yOfSprite, 'rotatedWall');
                     this.wallX.anchor.setTo(.5);
                     this.wallX.scale.setTo(.4);
-                    this.wallX.alignIn(rect, bottomCenter);
+                    this.wallX.alignIn(rect, center);
                     this.wallX.body.immovable = true;
                     this.wallX.body.moves = false;
-                    this.ledgeSpawn(xOfSprite, yOfSprite, rect, bottomLeft);
-                    this.ledgeSpawn(xOfSprite, yOfSprite, rect, bottomRight);
+                    this.wallSpawn(xOfSprite, yOfSprite, rect, topLeft);
+                    this.wallSpawn(xOfSprite, yOfSprite, rect, topRight);
+                    this.wallSpawn(xOfSprite, yOfSprite, rect, topCenter);
                     this.ballSpawn(xOfSprite, yOfSprite, rect, centerLeft);
                     this.ballSpawn(xOfSprite, yOfSprite, rect, centerRight);
+                    this.ledgeSpawn(xOfSprite, yOfSprite, rect, centerLeft);
+                    this.ledgeSpawn(xOfSprite, yOfSprite, rect, centerRight);
                     console.log("-----------------------------------");
                 }
                 else {
@@ -328,7 +331,7 @@ brawl.testing.prototype = {
         // var randomPattern = this.game.rnd.integerInRange(0, 100);
         //Alpha One Build:
         if (gridSystemGenesis >= 0 && gridSystemGenesis <= 41) {
-            this.wallSpawn(x, y, rect, positionInRectangle);
+            this.spikeSpawn(x, y, rect, positionInRectangle);
         }
         else if (gridSystemGenesis >= 42 && gridSystemGenesis <= 56) {
             this.enemySpawn(x, y, rect, positionInRectangle);
@@ -340,13 +343,13 @@ brawl.testing.prototype = {
             this.ledgeDownSpawn(x, y, rect, positionInRectangle);
         }
         else if (gridSystemGenesis >= 71 && gridSystemGenesis <= 74) {
-            this.ballSpawn(x, y, rect, positionInRectangle);
+            this.ledgeSideSpawn(x, y, rect, positionInRectangle);
         }
         else if (gridSystemGenesis >= 75 && gridSystemGenesis <= 84) {
             this.ledgeSideSpawn(x, y, rect, positionInRectangle);
         }
         else if (gridSystemGenesis >= 85 && gridSystemGenesis <= 100) {
-            this.spikeSpawn(x, y, rect, positionInRectangle);
+            this.enemySpawn(x, y, rect, positionInRectangle);
         }
     },
     baseCamp: function () {
