@@ -44,7 +44,7 @@ brawl.testing.prototype = {
         this.game.physics.arcade.OVERLAP_BIAS = 12;
 
         ////////////////////Game World Size//////////////////////
-        this.game.world.setBounds(0, 0, 2800, 6400);
+        this.game.world.setBounds(0, 0, 2800, 3200);
 
         //Keyboard Controls
         this.cursors = this.game.input.keyboard.createCursorKeys();
@@ -198,12 +198,12 @@ brawl.testing.prototype = {
 
         this.testingArray = [];
         /////////////////////////Test Grid///////////////////////
-        var xBlockSize = 560;
-        var yBlockSize = 600;
-        var xRectangle = 700;
-        var yRectangle = 800;
-        for (var x = 0; x < 4; x++) {
-            for (var y = 0; y < 8; y++) {
+        var xBlockSize = 400;
+        var yBlockSize = 800;
+        var xRectangle = 560;
+        var yRectangle = 1065;
+        for (var x = 0; x < 5; x++) {
+            for (var y = 0; y < 3; y++) {
                 ////////Creation of Rectangle////////////
 
                 // var rect = new Phaser.Rectangle(x * xBlockSize, (y * yBlockSize) + 600, xBlockSize, yBlockSize);
@@ -216,7 +216,7 @@ brawl.testing.prototype = {
                 // console.log("Rectangle " + x + y);
                 ////////////Random Array to Scramble Positions//////////
                 // var positionArray = [topCenter, topLeft, topRight, center, centerLeft, centerRight, bottomCenter, bottomLeft, bottomRight];
-                if (x === 0 && y === 5) {
+                if (x === 0 && y === 0) {
                     console.log("-----------------------------------");
                     console.log("BaseCamp");
                     //create wall
@@ -236,7 +236,7 @@ brawl.testing.prototype = {
                     var positionArray = [];
                     var randomGeneratorForArray = this.game.rnd.integerInRange(0, 100);
                     if (randomGeneratorForArray >= 0 && randomGeneratorForArray <= 25) {
-                        // positionArray.push(topCenter);
+                        positionArray.push(topCenter);
                         // positionArray.push(bottomLeft);
                         // positionArray.push(centerRight);
                         // positionArray.push(topLeft);
@@ -253,6 +253,7 @@ brawl.testing.prototype = {
                         positionArray.push(bottomLeft);
                         positionArray.push(bottomRight);
                         positionArray.push(bottomCenter);
+                        positionArray.push(topCenter);
                         // console.log("Formation2");
                     }
                     else if (randomGeneratorForArray >= 51 && randomGeneratorForArray <= 75) {
@@ -261,6 +262,7 @@ brawl.testing.prototype = {
                         positionArray.push(bottomRight);
                         positionArray.push(centerLeft);
                         positionArray.push(bottomLeft);
+                        positionArray.push(topCenter);
                         // console.log("Formation3");
                     }
                     else if (randomGeneratorForArray >= 76 && randomGeneratorForArray <= 100) {
@@ -270,15 +272,15 @@ brawl.testing.prototype = {
                         positionArray.push(bottomRight);
                         positionArray.push(topLeft);
                         // console.log("Formation4");
+                        positionArray.push(topCenter);
                     }
 
                     // console.log(positionArray);
                     //////Sprites//////
-                    this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[0]);
-                    this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[1]);
-                    this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[2]);
-                    this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[3]);
-                    this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[4]);
+                    for (var i = 0; i < 6; i++) {
+                        this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[i]);
+                        // console.log("---------------------------------------------------");
+                    }
                     console.log("---------------------------------------------------");
                 }
             }
