@@ -53,7 +53,7 @@ brawl.rogue.prototype = {
         this.game.physics.arcade.OVERLAP_BIAS = 12;
 
         ////////////////////Game World Size//////////////////////
-        this.game.world.setBounds(0, 0, 5600, 6400);
+        this.game.world.setBounds(0, 0, 3800, 3800);
 
         //Keyboard Controls
         this.cursors = this.game.input.keyboard.createCursorKeys();
@@ -86,8 +86,8 @@ brawl.rogue.prototype = {
         //Adding This Undeniable Death At the Bottom
         this.death = this.game.add.group();
         this.death.enableBody = true;
-        for (var i = 0; i < 4; i++) {
-            this.deathX = this.death.create(i * 1400, 6250, 'spikes');
+        for (var i = 0; i < 3; i++) {
+            this.deathX = this.death.create(i * 1400, 3700, 'spikes');
             this.deathX.scale.setTo(1);
             this.deathX.body.immovable = true;
         }
@@ -129,7 +129,7 @@ brawl.rogue.prototype = {
 
 
         ////////////////////Adding Player//////////////////////
-        this.player = this.game.add.sprite(200, 6100, 'dude');
+        this.player = this.game.add.sprite(500, 700, 'dude');
         this.game.physics.arcade.enable(this.player); //enables physics for player
         this.player.anchor.setTo(.5);
         // this.player.scale.setTo(.6);
@@ -243,12 +243,12 @@ brawl.rogue.prototype = {
         var bottomRight = Phaser.BOTTOM_RIGHT;
 
         /////////////////////////Test Grid///////////////////////
-        var xBlockSize = 650;
-        var yBlockSize = 650;
-        var xRectangle = 700;
-        var yRectangle = 700;
-        for (var x = 0; x < 8; x++) {
-            for (var y = 0; y < 9; y++) {
+        var xBlockSize = 900;
+        var yBlockSize = 900;
+        var xRectangle = 950;
+        var yRectangle = 950;
+        for (var x = 0; x < 4; x++) {
+            for (var y = 0; y < 4; y++) {
                 ////////Creation of Rectangle////////////
 
                 // var rect = new Phaser.Rectangle(x * xBlockSize, (y * yBlockSize) + 600, xBlockSize, yBlockSize);
@@ -261,7 +261,7 @@ brawl.rogue.prototype = {
                 // console.log("Rectangle " + x + y);
                 ////////////Random Array to Scramble Positions//////////
                 // var positionArray = [topCenter, topLeft, topRight, center, centerLeft, centerRight, bottomCenter, bottomLeft, bottomRight];
-                if (x === 0 && y === 8) {
+                if (x === 0 && y === 0) {
                     this.baseCamp(xOfSprite, yOfSprite, rect, bottomCenter, bottomLeft, bottomRight, centerLeft, centerRight);
                 }
                 else {
