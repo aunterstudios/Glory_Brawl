@@ -53,7 +53,7 @@ brawl.rogue.prototype = {
         this.game.physics.arcade.OVERLAP_BIAS = 12;
 
         ////////////////////Game World Size//////////////////////
-        this.game.world.setBounds(0, 0, 3800, 3800);
+        this.game.world.setBounds(0, 0, 2000, 2000);
 
         //Keyboard Controls
         this.cursors = this.game.input.keyboard.createCursorKeys();
@@ -87,7 +87,7 @@ brawl.rogue.prototype = {
         this.death = this.game.add.group();
         this.death.enableBody = true;
         for (var i = 0; i < 3; i++) {
-            this.deathX = this.death.create(i * 1400, 3700, 'spikes');
+            this.deathX = this.death.create(i * 1400, 1900, 'spikes');
             this.deathX.scale.setTo(1);
             this.deathX.body.immovable = true;
         }
@@ -243,10 +243,10 @@ brawl.rogue.prototype = {
         var bottomRight = Phaser.BOTTOM_RIGHT;
 
         /////////////////////////Test Grid///////////////////////
-        var xBlockSize = 900;
-        var yBlockSize = 900;
-        var xRectangle = 950;
-        var yRectangle = 950;
+        var xBlockSize = 400;
+        var yBlockSize = 400;
+        var xRectangle = 500;
+        var yRectangle = 500;
         for (var x = 0; x < 4; x++) {
             for (var y = 0; y < 4; y++) {
                 ////////Creation of Rectangle////////////
@@ -272,7 +272,7 @@ brawl.rogue.prototype = {
                         // positionArray.push(bottomLeft);
                         // positionArray.push(centerRight);
                         // positionArray.push(topLeft);
-                        positionArray.push(topLeft);
+                        // positionArray.push(topLeft);
                         positionArray.push(center);
                         positionArray.push(bottomRight);
                         positionArray.push(bottomLeft);
@@ -283,7 +283,7 @@ brawl.rogue.prototype = {
                         positionArray.push(topRight);
                         positionArray.push(center);
                         positionArray.push(bottomLeft);
-                        positionArray.push(bottomRight);
+                        // positionArray.push(bottomRight);
                         positionArray.push(bottomCenter);
                         // console.log("Formation2");
                     }
@@ -291,13 +291,13 @@ brawl.rogue.prototype = {
                         positionArray.push(topRight);
                         positionArray.push(topLeft);
                         positionArray.push(bottomRight);
-                        positionArray.push(centerLeft);
+                        // positionArray.push(centerLeft);
                         positionArray.push(bottomLeft);
                         // console.log("Formation3");
                     }
                     else if (randomGeneratorForArray >= 76 && randomGeneratorForArray <= 100) {
                         positionArray.push(centerLeft);
-                        positionArray.push(bottomCenter);
+                        // positionArray.push(bottomCenter);
                         positionArray.push(centerRight);
                         positionArray.push(bottomRight);
                         positionArray.push(topLeft);
@@ -306,7 +306,7 @@ brawl.rogue.prototype = {
 
                     // console.log(positionArray);
                     //////Sprites//////
-                    for (var i = 0; i < 5; i++) {
+                    for (var i = 0; i < 4; i++) {
                         this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[i]);
                         // console.log("---------------------------------------------------");
                     }
