@@ -175,12 +175,12 @@ brawl.testing.prototype = {
         this.shiftFire = this.game.input.keyboard.addKey(Phaser.Keyboard.SHIFT);
 
         /////////////////////////World Creation Initialization Grid///////////////////////
-        //Reference Point worldCreator: function (playerX, playerY, deathX, deathY, xBlockSizeF, yBlockSizeF, xRectangleF, yRectangleF, iteratorX, iteratorY, baseCampX, baseCampY)
+        //Reference Point worldCreator: function (playerX, playerY, deathIterator, deathX, deathY, xBlockSizeF, yBlockSizeF, xRectangleF, yRectangleF, iteratorX, iteratorY, baseCampX, baseCampY, amountOfSpritesInGrid)
         if (randomGeneratorForWorld < 50) {
-            this.worldCreator(500, 700, 4, 1400, 1900, 400, 400, 500, 500, 4, 4, 0, 0);
+            this.worldCreator(500, 700, 4, 1400, 1900, 400, 400, 500, 500, 4, 4, 0, 0, 3);
         }
         else {
-            this.worldCreator(100, 100, 2, 1400, 1900, 200, 200, 250, 250, 5, 5, 0, 0);
+            this.worldCreator(200, 200, 2, 1400, 1900, 200, 200, 250, 250, 5, 7, 0, 0, 2);
         }
 
         // this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_PLATFORMER);
@@ -218,14 +218,14 @@ brawl.testing.prototype = {
 
     // // },
     //////////////Creation of the Grid System (Objects Spawning)///////////////
-    worldCreator: function (playerX, playerY, deathIterator, deathX, deathY, xBlockSizeF, yBlockSizeF, xRectangleF, yRectangleF, iteratorX, iteratorY, baseCampX, baseCampY) {
+    worldCreator: function (playerX, playerY, deathIterator, deathX, deathY, xBlockSizeF, yBlockSizeF, xRectangleF, yRectangleF, iteratorX, iteratorY, baseCampX, baseCampY, amountOfSpritesInGrid) {
         //////////////////Player Position////////////////
         ////////////////////Adding Player//////////////////////
         this.player = this.game.add.sprite(playerX, playerY, 'dude');
         this.game.physics.arcade.enable(this.player); //enables physics for player
         this.player.anchor.setTo(.5);
         // this.player.scale.setTo(.6);
-        this.player.scale.setTo(.45);
+        this.player.scale.setTo(.35);
         this.player.body.setSize(63, 84, 5, 6);
         // this.player.body.bounce.y = 0;
         this.player.body.gravity.y = 1500;
@@ -274,7 +274,7 @@ brawl.testing.prototype = {
 
                 //Testing Purposes of Rectangle
                 this.testingArray.push(rect);
-                this.text = this.game.add.text(rect.x + 100, rect.y + 100, "Rectangle " + x + " x "+ y + " y ", { font: "32px Arial", fill: "#ffffff", align: "center" });
+                this.text = this.game.add.text(rect.x + 100, rect.y + 100, "Rectangle " + x + " x " + y + " y ", { font: "32px Arial", fill: "#ffffff", align: "center" });
                 ////////////Random Array to Scramble Positions//////////
                 // var positionArray = [topCenter, topLeft, topRight, center, centerLeft, centerRight, bottomCenter, bottomLeft, bottomRight];
                 if (x === baseCampX && y === baseCampY) {
@@ -284,45 +284,53 @@ brawl.testing.prototype = {
                     var positionArray = [];
                     var randomGeneratorForArray = this.game.rnd.integerInRange(0, 100);
                     if (randomGeneratorForArray >= 0 && randomGeneratorForArray <= 25) {
-                        // positionArray.push(topCenter);
-                        // positionArray.push(bottomLeft);
-                        // positionArray.push(centerRight);
-                        // positionArray.push(topLeft);
-                        // positionArray.push(topLeft);
-                        positionArray.push(center);
-                        positionArray.push(bottomRight);
-                        positionArray.push(bottomLeft);
-                        positionArray.push(topRight);
-                        // console.log("Formation1");
+                        if (amountOfSpritesInGrid === 3) {
+                            positionArray.push(center);
+                            positionArray.push(bottomLeft);
+                            positionArray.push(topRight);
+                        }
+                        else {
+                            positionArray.push(center);
+                            positionArray.push(topRight);
+                        }
                     }
                     else if (randomGeneratorForArray >= 26 && randomGeneratorForArray <= 50) {
-                        positionArray.push(topRight);
-                        positionArray.push(center);
-                        positionArray.push(bottomLeft);
-                        // positionArray.push(bottomRight);
-                        positionArray.push(bottomCenter);
-                        // console.log("Formation2");
+                        if (amountOfSpritesInGrid === 3) {
+                            positionArray.push(center);
+                            positionArray.push(bottomLeft);
+                            positionArray.push(topRight);
+                        }
+                        else {
+                            positionArray.push(center);
+                            positionArray.push(topRight);
+                        }
                     }
                     else if (randomGeneratorForArray >= 51 && randomGeneratorForArray <= 75) {
-                        positionArray.push(topRight);
-                        positionArray.push(topLeft);
-                        positionArray.push(bottomRight);
-                        // positionArray.push(centerLeft);
-                        positionArray.push(bottomLeft);
-                        // console.log("Formation3");
+                        if (amountOfSpritesInGrid === 3) {
+                            positionArray.push(center);
+                            positionArray.push(bottomLeft);
+                            positionArray.push(topRight);
+                        }
+                        else {
+                            positionArray.push(center);
+                            positionArray.push(topRight);
+                        }
                     }
                     else if (randomGeneratorForArray >= 76 && randomGeneratorForArray <= 100) {
-                        positionArray.push(centerLeft);
-                        // positionArray.push(bottomCenter);
-                        positionArray.push(centerRight);
-                        positionArray.push(bottomRight);
-                        positionArray.push(topLeft);
-                        // console.log("Formation4");
+                        if (amountOfSpritesInGrid === 3) {
+                            positionArray.push(center);
+                            positionArray.push(bottomLeft);
+                            positionArray.push(topRight);
+                        }
+                        else {
+                            positionArray.push(center);
+                            positionArray.push(topRight);
+                        }
                     }
 
                     // console.log(positionArray);
                     //////Sprites//////
-                    for (var i = 0; i < 4; i++) {
+                    for (var i = 0; i < amountOfSpritesInGrid; i++) {
                         this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[i]);
                         // console.log("---------------------------------------------------");
                     }
