@@ -180,7 +180,7 @@ brawl.testing.prototype = {
             this.worldCreator(500, 700, 4, 1400, 1900, 400, 400, 500, 500, 4, 4, 0, 0);
         }
         else {
-            this.worldCreator(100, 100, 2, 1400, 1900, 200, 200, 250, 250, 4, 4, 0, 0);
+            this.worldCreator(100, 100, 2, 1400, 1900, 200, 200, 250, 250, 5, 5, 0, 0);
         }
 
         // this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_PLATFORMER);
