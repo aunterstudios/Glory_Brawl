@@ -29,18 +29,12 @@ var stopBoolean = false;
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "Rogue Version-OVERLAP_BIAS-RemoveConsoleLogsNewWeaponsCreateNewCommit?",
-  "You are a Prisoner.",
-  "Given a sentence to experience eternal death and revival by President Trump.",
-  "To compete in an ever changing obstacle course game show.",
-  "One designed to break you.",
-  "Nor to be fair.",
-  "It's not supposed to be fun.",
-  "But remember.",
-  "This is for the entertainment and subjugation of the masses.",
-  "Welcome to Glory Brawl.",
-  "Get to the Top.",
-  "Survive 1000 rounds in a row without dying."
+  "Rogue Version-OVERLAP_BIAS-BLAME!",
+  "You have no name and no memory.",
+  "Trapped in an unknown ever-changing world.",
+  "All you know is the name of the world",
+  "Glory Brawl",
+  "Survive 1000 rooms in a row without dying to escape."
 ];
 
 var line = [];
@@ -337,7 +331,7 @@ function ballLedgeDown(ball, ledge) {
 // this.game.physics.arcade.overlap(this.weapon.bullets, this.enemy, weaponEnemy);
 function weaponBall(weapon, ball) {
   // ball.body.stop();
-  
+
   if (pullBoolean) {
     if (ball.body.touching.up) {
       ball.body.velocity.y = -100;
@@ -576,4 +570,76 @@ function boundaryCollisionCheck(boundary, collision) {
     collision.body.velocity.x = -100;
   }
 }
-///////////////////////////////////////
+///////////////////////////////////////Reference Code/////////////////////////////
+/*
+// var xBlockSize = 400;
+            // var yBlockSize = 400;
+            // var xRectangle = 500;
+            // var yRectangle = 500;
+            // for (var x = 0; x < 4; x++) {
+            //     for (var y = 0; y < 4; y++) {
+            //         ////////Creation of Rectangle////////////
+
+            //         // var rect = new Phaser.Rectangle(x * xBlockSize, (y * yBlockSize) + 600, xBlockSize, yBlockSize);
+            //         var rect = new Phaser.Rectangle(x * xRectangle, y * yRectangle, xBlockSize, yBlockSize);
+            //         var xOfSprite = rect.x
+            //         var yOfSprite = rect.y
+            //         // console.log(rect);
+            //         // this.testingArray.push(rect);
+            //         // this.text = this.game.add.text(rect.x + 100, rect.y + 100, "Rectangle " + x + y, { font: "32px Arial", fill: "#ffffff", align: "center" });
+            //         // console.log("Rectangle " + x + y);
+            //         ////////////Random Array to Scramble Positions//////////
+            //         // var positionArray = [topCenter, topLeft, topRight, center, centerLeft, centerRight, bottomCenter, bottomLeft, bottomRight];
+            //         if (x === 0 && y === 0) {
+            //             this.baseCamp(xOfSprite, yOfSprite, rect, bottomCenter, bottomLeft, bottomRight, centerLeft, centerRight);
+            //         }
+            //         else {
+            //             var positionArray = [];
+            //             var randomGeneratorForArray = this.game.rnd.integerInRange(0, 100);
+            //             if (randomGeneratorForArray >= 0 && randomGeneratorForArray <= 25) {
+            //                 // positionArray.push(topCenter);
+            //                 // positionArray.push(bottomLeft);
+            //                 // positionArray.push(centerRight);
+            //                 // positionArray.push(topLeft);
+            //                 // positionArray.push(topLeft);
+            //                 positionArray.push(center);
+            //                 positionArray.push(bottomRight);
+            //                 positionArray.push(bottomLeft);
+            //                 positionArray.push(topRight);
+            //                 // console.log("Formation1");
+            //             }
+            //             else if (randomGeneratorForArray >= 26 && randomGeneratorForArray <= 50) {
+            //                 positionArray.push(topRight);
+            //                 positionArray.push(center);
+            //                 positionArray.push(bottomLeft);
+            //                 // positionArray.push(bottomRight);
+            //                 positionArray.push(bottomCenter);
+            //                 // console.log("Formation2");
+            //             }
+            //             else if (randomGeneratorForArray >= 51 && randomGeneratorForArray <= 75) {
+            //                 positionArray.push(topRight);
+            //                 positionArray.push(topLeft);
+            //                 positionArray.push(bottomRight);
+            //                 // positionArray.push(centerLeft);
+            //                 positionArray.push(bottomLeft);
+            //                 // console.log("Formation3");
+            //             }
+            //             else if (randomGeneratorForArray >= 76 && randomGeneratorForArray <= 100) {
+            //                 positionArray.push(centerLeft);
+            //                 // positionArray.push(bottomCenter);
+            //                 positionArray.push(centerRight);
+            //                 positionArray.push(bottomRight);
+            //                 positionArray.push(topLeft);
+            //                 // console.log("Formation4");
+            //             }
+
+            //             // console.log(positionArray);
+            //             //////Sprites//////
+            //             for (var i = 0; i < 4; i++) {
+            //                 this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[i]);
+            //                 // console.log("---------------------------------------------------");
+            //             }
+            //         }
+            //     }
+            // }
+*/

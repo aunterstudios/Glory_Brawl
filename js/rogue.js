@@ -53,7 +53,16 @@ brawl.rogue.prototype = {
         this.game.physics.arcade.OVERLAP_BIAS = 12;
 
         ////////////////////Game World Size//////////////////////
-        this.game.world.setBounds(0, 0, 2000, 2000);
+        var randomGeneratorForWorld = this.game.rnd.integerInRange(0, 100);
+        if (randomGeneratorForWorld < 50) {
+            this.game.world.setBounds(0, 0, 2000, 2000);
+            console.log("2000");
+        }
+        else {
+            this.game.world.setBounds(0, 0, 1000, 2000);
+            console.log("1000");
+        }
+        // this.game.world.setBounds(0, 0, 2000, 2000);
 
         //Keyboard Controls
         this.cursors = this.game.input.keyboard.createCursorKeys();
@@ -228,7 +237,54 @@ brawl.rogue.prototype = {
         this.game.input.keyboard.addKeyCapture([Phaser.Keyboard.SHIFT]);
         this.shiftFire = this.game.input.keyboard.addKey(Phaser.Keyboard.SHIFT);
 
-        //////////////////Grid System Creation////////////////
+        /////////////////////////World Creation Initialization Grid///////////////////////
+        if (randomGeneratorForWorld < 50) {
+            //Reference Point worldCreator: function (xBlockSizeF, yBlockSizeF, xRectangleF, yRectangleF, iteratorX, iteratorY, baseCampX, baseCampY)
+
+            this.worldCreator(400, 400, 500, 500, 4, 4, 0, 0);
+        }
+        else {
+            this.worldCreator(200, 200, 250, 250, 2, 2, 0, 0);
+        }
+
+        // this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_PLATFORMER);
+        this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_LOCKON);
+
+        //Streak
+        //3300
+        this.text = this.game.add.text(200, 6208, "Streak: " + streak, { font: "32px Arial", fill: "#ffffff", align: "center" });
+        this.text.fixedToCamera = true;
+        this.text.cameraOffset.setTo(100, 750);
+
+
+    },
+    // ////////////////////////Out of Bounds Events//////////////////////////
+    // playerOut: function (player) {
+    //     if (player.x >= 1400) {
+    //         player.reset(0, player.y)
+    //         player.body.velocity.x = 400;
+    //     }
+    //     else if (0 >= player.x) {
+    //         player.reset(1400, player.y)
+    //         player.body.velocity.x = -400;
+    //     }
+
+    // },
+    // // ledgeOut: function (ledge) {
+    // //     if (ledge.x >= 1400) {
+    // //         ledge.reset(0, ledge.y)
+    // //         ledge.body.velocity.x = 400;
+    // //     }
+    // //     else if (0 >= ledge.x) {
+    // //         ledge.reset(1400, ledge.y)
+    // //         ledge.body.velocity.x = -400;
+    // //     }
+    // //     // console.log(this.ledgeX.x + ' ' + this.ledgeX.y);
+
+    // // },
+    //////////////Creation of the Grid System (Objects Spawning)///////////////
+    worldCreator: function (xBlockSizeF, yBlockSizeF, xRectangleF, yRectangleF, iteratorX, iteratorY, baseCampX, baseCampY) {
+        //////////////////Item Positions Within Rectangle///////////////
         ///Top Positions
         var topCenter = Phaser.TOP_CENTER;
         var topLeft = Phaser.TOP_LEFT;
@@ -242,26 +298,20 @@ brawl.rogue.prototype = {
         var bottomLeft = Phaser.BOTTOM_LEFT;
         var bottomRight = Phaser.BOTTOM_RIGHT;
 
-        /////////////////////////Test Grid///////////////////////
-        var xBlockSize = 400;
-        var yBlockSize = 400;
-        var xRectangle = 500;
-        var yRectangle = 500;
-        for (var x = 0; x < 4; x++) {
-            for (var y = 0; y < 4; y++) {
-                ////////Creation of Rectangle////////////
-
-                // var rect = new Phaser.Rectangle(x * xBlockSize, (y * yBlockSize) + 600, xBlockSize, yBlockSize);
+        //Block and Rectangle Sizes
+        var xBlockSize = xBlockSizeF;
+        var yBlockSize = yBlockSizeF;
+        var xRectangle = xRectangleF;
+        var yRectangle = yRectangleF;
+        for (var x = 0; x < iteratorX; x++) {
+            for (var y = 0; y < iteratorY; y++) {
+                ////////Creation of Rectangle////////////;
                 var rect = new Phaser.Rectangle(x * xRectangle, y * yRectangle, xBlockSize, yBlockSize);
                 var xOfSprite = rect.x
                 var yOfSprite = rect.y
-                // console.log(rect);
-                // this.testingArray.push(rect);
-                // this.text = this.game.add.text(rect.x + 100, rect.y + 100, "Rectangle " + x + y, { font: "32px Arial", fill: "#ffffff", align: "center" });
-                // console.log("Rectangle " + x + y);
                 ////////////Random Array to Scramble Positions//////////
                 // var positionArray = [topCenter, topLeft, topRight, center, centerLeft, centerRight, bottomCenter, bottomLeft, bottomRight];
-                if (x === 0 && y === 0) {
+                if (x === baseCampX && y === baseCampY) {
                     this.baseCamp(xOfSprite, yOfSprite, rect, bottomCenter, bottomLeft, bottomRight, centerLeft, centerRight);
                 }
                 else {
@@ -313,46 +363,7 @@ brawl.rogue.prototype = {
                 }
             }
         }
-
-        // //Base Camp (Starting Area);
-        // this.baseCamp();
-
-        // this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_PLATFORMER);
-        this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_LOCKON);
-
-        //Streak
-        //3300
-        this.text = this.game.add.text(200, 6208, "Streak: " + streak, { font: "32px Arial", fill: "#ffffff", align: "center" });
-        this.text.fixedToCamera = true;
-        this.text.cameraOffset.setTo(100, 750);
-
-
     },
-    // ////////////////////////Out of Bounds Events//////////////////////////
-    // playerOut: function (player) {
-    //     if (player.x >= 1400) {
-    //         player.reset(0, player.y)
-    //         player.body.velocity.x = 400;
-    //     }
-    //     else if (0 >= player.x) {
-    //         player.reset(1400, player.y)
-    //         player.body.velocity.x = -400;
-    //     }
-
-    // },
-    // // ledgeOut: function (ledge) {
-    // //     if (ledge.x >= 1400) {
-    // //         ledge.reset(0, ledge.y)
-    // //         ledge.body.velocity.x = 400;
-    // //     }
-    // //     else if (0 >= ledge.x) {
-    // //         ledge.reset(1400, ledge.y)
-    // //         ledge.body.velocity.x = -400;
-    // //     }
-    // //     // console.log(this.ledgeX.x + ' ' + this.ledgeX.y);
-
-    // // },
-    //////////////Creation of the Grid System (Objects Spawning)///////////////
     gridSystem: function (x, y, rect, positionInRectangle) {
         //Create Randomness in Each Grid
         var gridSystemGenesis = this.game.rnd.integerInRange(0, 100);
