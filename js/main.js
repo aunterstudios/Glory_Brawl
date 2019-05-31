@@ -336,7 +336,7 @@ function ballLedgeDown(ball, ledge) {
 // this.game.physics.arcade.overlap(this.weapon.bullets, this.ledgeSide, weaponSideLedge);
 // this.game.physics.arcade.overlap(this.weapon.bullets, this.enemy, weaponEnemy);
 function weaponBall(weapon, ball) {
-  ball.body.stop();
+  // ball.body.stop();
   if (pullBoolean) {
     if (ball.body.touching.up) {
       ball.body.velocity.y = -100;
@@ -375,16 +375,16 @@ function weaponWall(weapon, wall) {
   wall.body.stop();
   if (pullBoolean) {
     if (wall.body.touching.up) {
-      wall.body.velocity.y = -100;
+      wall.body.velocity.y = wall.body.velocity.y - 200;
     }
     if (wall.body.touching.down) {
-      wall.body.velocity.y = 100;
+      wall.body.velocity.y = wall.body.velocity.y + 200;
     }
     if (wall.body.touching.left) {
-      wall.body.velocity.x = -100;
+      wall.body.velocity.x = wall.body.velocity.x - 200;
     }
     if (wall.body.touching.right) {
-      wall.body.velocity.x = 100;
+      wall.body.velocity.x = wall.body.velocity.x + 200;
     }
   }
   else if (pushBoolean) {
@@ -412,7 +412,7 @@ function weaponSpikes(weapon, spikes) {
 }
 
 function weaponLedge(weapon, ledge) {
-  ledge.body.stop();
+  // ledge.body.stop();
   if (pullBoolean) {
     if (ledge.body.touching.up) {
       ledge.body.velocity.y = -100;
@@ -483,7 +483,7 @@ function weaponDownLedge(weapon, ledge) {
 }
 
 function weaponSideLedge(weapon, ledge) {
-  ledge.body.stop();
+  // ledge.body.stop();
   if (pullBoolean) {
     if (ledge.body.touching.up) {
       ledge.body.velocity.y = -100;
@@ -519,7 +519,7 @@ function weaponSideLedge(weapon, ledge) {
 }
 
 function weaponEnemy(weapon, enemy) {
-  enemy.body.stop();
+  // enemy.body.stop();
   if (pullBoolean) {
     if (enemy.body.touching.up) {
       enemy.body.velocity.y = -100;

@@ -133,7 +133,7 @@ brawl.rogue.prototype = {
         this.game.physics.arcade.enable(this.player); //enables physics for player
         this.player.anchor.setTo(.5);
         // this.player.scale.setTo(.6);
-        this.player.scale.setTo(.45);
+        this.player.scale.setTo(.2);
         this.player.body.setSize(63, 84, 5, 6);
         // this.player.body.bounce.y = 0;
         this.player.body.gravity.y = 1500;
@@ -326,12 +326,6 @@ brawl.rogue.prototype = {
         this.text.fixedToCamera = true;
         this.text.cameraOffset.setTo(100, 750);
 
-        //Debugging Weapons
-        this.weaponType = "Pull";
-        this.text2 = this.game.add.text(1200, 6208, "Weapon Type: " + this.weaponType);
-        this.text2.fixedToCamera = true;
-        this.text2.cameraOffset.setTo(1000, 750);
-
     },
     // ////////////////////////Out of Bounds Events//////////////////////////
     // playerOut: function (player) {
@@ -437,7 +431,7 @@ brawl.rogue.prototype = {
         // this.wallX.scale.setTo(.5);
         // var wallLength = [.2, .3, .4];
         // this.wallX.scale.setTo(wallLength[Math.floor(Math.random() * wallLength.length)]);
-        this.wallX.scale.setTo(.35);
+        this.wallX.scale.setTo(.2);
         this.wallX.body.collideWorldBounds = true;
         this.wallX.body.bounce.setTo(1);
         this.wallX.alignIn(rect, positionInRectangle)
@@ -451,7 +445,7 @@ brawl.rogue.prototype = {
         this.trumpX.body.velocity.x = this.game.rnd.realInRange(-400, 400);
         // this.trumpX.body.gravity.y = 10;
         this.trumpX.anchor.setTo(.5);
-        this.trumpX.scale.setTo(.6);
+        this.trumpX.scale.setTo(.5);
         this.trumpX.alignIn(rect, positionInRectangle);
         this.trumpX.body.maxVelocity.setTo(400);
         this.trumpX.body.bounce.setTo(1);
@@ -462,7 +456,7 @@ brawl.rogue.prototype = {
         this.ledgeX.body.maxVelocity.setTo(400);
         this.ledgeX.anchor.setTo(.5);
         // this.ledgeX.scale.setTo(.5);
-        this.ledgeX.scale.setTo(.4);
+        this.ledgeX.scale.setTo(.2);
         this.ledgeX.alignIn(rect, positionInRectangle);
         this.ledgeX.body.collideWorldBounds = true;
         //////////////////////Ledge Out of Bounds/////////////////////
@@ -475,7 +469,7 @@ brawl.rogue.prototype = {
         // this.ledgeY.body.maxVelocity.setTo(400);
         this.ledgeY.anchor.setTo(.5);
         // this.ledgeY.scale.setTo(.5);
-        this.ledgeY.scale.setTo(.4);
+        this.ledgeY.scale.setTo(.2);
         this.ledgeY.alignIn(rect, positionInRectangle);
         this.ledgeY.body.collideWorldBounds = true;
         // this.ledgeY.body.immovable = true;
@@ -486,7 +480,7 @@ brawl.rogue.prototype = {
         this.ledgeSideways = this.ledgeSide.create(x, y, 'ledgeSide');
         this.ledgeSideways.anchor.setTo(.5);
         // this.ledgeSideways.scale.setTo(.5);
-        this.ledgeSideways.scale.setTo(.4);
+        this.ledgeSideways.scale.setTo(.2);
         this.ledgeSideways.alignIn(rect, positionInRectangle);
         // this.ledgeSideways.body.immovable = true;
         this.ledgeSideways.body.velocity.x = this.game.rnd.realInRange(-300, 300);
@@ -498,7 +492,7 @@ brawl.rogue.prototype = {
         this.ballX = this.ball.create(x, y, 'ball');
         this.ballX.anchor.setTo(.5);
         // this.ballX.scale.setTo(.5);
-        this.ballX.scale.setTo(.5);
+        this.ballX.scale.setTo(.2);
         this.ballX.alignIn(rect, positionInRectangle);
         // this.ballX.body.setCircle(50);
         // this.ballX.body.mass = 5;
