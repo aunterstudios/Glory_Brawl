@@ -374,6 +374,7 @@ function weaponBall(weapon, ball) {
 function weaponWall(weapon, wall) {
   wall.body.stop();
   if (pullBoolean) {
+    wall.body.immovable = false;
     if (wall.body.touching.up) {
       wall.body.velocity.y = wall.body.velocity.y - 200;
     }
@@ -388,6 +389,7 @@ function weaponWall(weapon, wall) {
     }
   }
   else if (pushBoolean) {
+    wall.body.immovable = false;
     if (wall.body.touching.up) {
       wall.body.velocity.y = 100;
     }
@@ -402,7 +404,7 @@ function weaponWall(weapon, wall) {
     }
   }
   else if (stopBoolean) {
-    wall.body.stop()
+    wall.body.immovable = true;
   }
   weapon.kill();
 }
