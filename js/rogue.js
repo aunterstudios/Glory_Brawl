@@ -59,11 +59,9 @@ brawl.rogue.prototype = {
             console.log("2000");
         }
         else {
-            this.game.world.setBounds(0, 0, 1000, 2000);
+            this.game.world.setBounds(0, 0, 1400, 2000);
             console.log("1000");
         }
-        // this.game.world.setBounds(0, 0, 2000, 2000);
-
         //Keyboard Controls
         this.cursors = this.game.input.keyboard.createCursorKeys();
 
@@ -95,69 +93,8 @@ brawl.rogue.prototype = {
         //Adding This Undeniable Death At the Bottom
         this.death = this.game.add.group();
         this.death.enableBody = true;
-        for (var i = 0; i < 3; i++) {
-            this.deathX = this.death.create(i * 1400, 1900, 'spikes');
-            this.deathX.scale.setTo(1);
-            this.deathX.body.immovable = true;
-        }
-        // //Adding World Boundaries
-        // this.boundary = this.game.add.group();
-        // this.boundary.enableBody = true;
-        // for (var i = 0; i < 4; i++) {
-        //     if (i <= 1) {
-        //         var boundaryKey = 'boundary';
-        //         var xCoordinate = 5590;
-        //         var yCoordinate = 0;
-        //         console.log("ayo");
-        //     }
-        //     else {
-        //         var boundaryKey = 'win';
-        //         var xCoordinate = 0;
-        //         if (i === 3) {
-        //             var yCoordinate = -40;
-        //         }
-        //         else {
-        //             var yCoordinate = 6390;
-        //         }
-        //         console.log('thefuck');
-        //     }
-        //     this.boundaryX = this.boundary.create(xCoordinate * i, yCoordinate, boundaryKey);
-        //     //5600x
-        //     //6400y
-        // }
-
-        // this.wallX = this.wall.create(x, y, wallArray[Math.floor(Math.random() * wallArray.length)]);
-        // this.wallX.anchor.setTo(.5);
-        // // this.wallX.scale.setTo(.5);
-        // // var wallLength = [.2, .3, .4];
-        // // this.wallX.scale.setTo(wallLength[Math.floor(Math.random() * wallLength.length)]);
-        // this.wallX.scale.setTo(.35);
-        // this.wallX.body.collideWorldBounds = true;
-        // this.wallX.alignIn(rect, positionInRectangle)
-        // this.wallX.body.immovable = true;
-
-
-        ////////////////////Adding Player//////////////////////
-        this.player = this.game.add.sprite(500, 700, 'dude');
-        this.game.physics.arcade.enable(this.player); //enables physics for player
-        this.player.anchor.setTo(.5);
-        // this.player.scale.setTo(.6);
-        this.player.scale.setTo(.45);
-        this.player.body.setSize(63, 84, 5, 6);
-        // this.player.body.bounce.y = 0;
-        this.player.body.gravity.y = 1500;
-        //this.player.body.allowDrag = false;
-        this.player.body.collideWorldBounds = true;
-        // this.player.checkWorldBounds = true;
-        // this.player.events.onOutOfBounds.add(this.playerOut, this);
-
-
-        // PLAYER ANIMATIONS
-        this.player.animations.add('left', [0, 1, 2, 3, 4, 5, 6, 7], 10, true);
-        this.player.animations.add('right', [9, 10, 11, 12, 13, 14, 15], 10, true);
 
         //Player Movement (WASD);
-        //Angle Weapon Fire
         this.movementUp = this.game.input.keyboard.addKey(Phaser.Keyboard.W);
         this.movementDown = this.game.input.keyboard.addKey(Phaser.Keyboard.S);
         this.movementLeft = this.game.input.keyboard.addKey(Phaser.Keyboard.A);
@@ -238,20 +175,18 @@ brawl.rogue.prototype = {
         this.shiftFire = this.game.input.keyboard.addKey(Phaser.Keyboard.SHIFT);
 
         /////////////////////////World Creation Initialization Grid///////////////////////
+        //Reference Point worldCreator: function (playerX, playerY, deathX, deathY, xBlockSizeF, yBlockSizeF, xRectangleF, yRectangleF, iteratorX, iteratorY, baseCampX, baseCampY)
         if (randomGeneratorForWorld < 50) {
-            //Reference Point worldCreator: function (xBlockSizeF, yBlockSizeF, xRectangleF, yRectangleF, iteratorX, iteratorY, baseCampX, baseCampY)
-
-            this.worldCreator(400, 400, 500, 500, 4, 4, 0, 0);
+            this.worldCreator(500, 700, 4, 1400, 900, 400, 400, 500, 500, 4, 4, 0, 0);
         }
         else {
-            this.worldCreator(200, 200, 250, 250, 2, 2, 0, 0);
+            this.worldCreator(100, 100, 2, 1400, 900, 200, 200, 250, 250, 4, 4, 0, 0);
         }
 
         // this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_PLATFORMER);
         this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_LOCKON);
 
         //Streak
-        //3300
         this.text = this.game.add.text(200, 6208, "Streak: " + streak, { font: "32px Arial", fill: "#ffffff", align: "center" });
         this.text.fixedToCamera = true;
         this.text.cameraOffset.setTo(100, 750);
@@ -283,7 +218,32 @@ brawl.rogue.prototype = {
 
     // // },
     //////////////Creation of the Grid System (Objects Spawning)///////////////
-    worldCreator: function (xBlockSizeF, yBlockSizeF, xRectangleF, yRectangleF, iteratorX, iteratorY, baseCampX, baseCampY) {
+    worldCreator: function (playerX, playerY, deathIterator, deathX, deathY, xBlockSizeF, yBlockSizeF, xRectangleF, yRectangleF, iteratorX, iteratorY, baseCampX, baseCampY) {
+        //////////////////Player Position////////////////
+        ////////////////////Adding Player//////////////////////
+        this.player = this.game.add.sprite(playerX, playerY, 'dude');
+        this.game.physics.arcade.enable(this.player); //enables physics for player
+        this.player.anchor.setTo(.5);
+        // this.player.scale.setTo(.6);
+        this.player.scale.setTo(.45);
+        this.player.body.setSize(63, 84, 5, 6);
+        // this.player.body.bounce.y = 0;
+        this.player.body.gravity.y = 1500;
+        //this.player.body.allowDrag = false;
+        this.player.body.collideWorldBounds = true;
+        // this.player.checkWorldBounds = true;
+        // this.player.events.onOutOfBounds.add(this.playerOut, this);
+
+        // PLAYER ANIMATIONS
+        this.player.animations.add('left', [0, 1, 2, 3, 4, 5, 6, 7], 10, true);
+        this.player.animations.add('right', [9, 10, 11, 12, 13, 14, 15], 10, true);
+
+        //Adding Undeniable Death
+        for (var i = 0; i < deathIterator; i++) {
+            this.deathX = this.death.create(i * deathX, deathY, 'spikes');
+            this.deathX.scale.setTo(1);
+            this.deathX.body.immovable = true;
+        }
         //////////////////Item Positions Within Rectangle///////////////
         ///Top Positions
         var topCenter = Phaser.TOP_CENTER;
