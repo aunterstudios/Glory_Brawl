@@ -7,9 +7,9 @@ game.state.add('rogueTest', brawl.rogue);
 game.state.add('test', brawl.testing);
 game.state.add('controlScreen', brawl.stateControls);
 //////////////////////////////////////////////////Starting States//////////////////////////////////////////////
-game.state.start('mainMenu');
+// game.state.start('mainMenu');
 // game.state.start('controlScreen');
-// game.state.start('test');
+game.state.start('test');
 //////////////////////////////////////////////////Global Variables//////////////////////////////////////////////
 
 //Death Total in Game
@@ -642,4 +642,32 @@ function boundaryCollisionCheck(boundary, collision) {
             //         }
             //     }
             // }
+
+            this.testingArray = [];
+        this.testingArray.push(rect);
+        this.text = this.game.add.text(rect.x + 100, rect.y + 100, "Rectangle " + x + y, { font: "32px Arial", fill: "#ffffff", align: "center" });
+
+        /////////////////////////////God Mode/////////////////////////////////////
+
+        // ////////Player Standing Still//////////////
+        // this.player.body.velocity.y = 0;
+        // this.player.body.velocity.x = 0;
+
+        // if (this.cursors.left.isDown) {
+        //     this.player.body.velocity.x = -400;
+        //     this.player.animations.play('left');
+        // }
+        // else if (this.cursors.right.isDown) {
+        //     this.player.body.velocity.x = 400;
+        //     this.player.animations.play('right');
+        // }
+        // if (this.cursors.up.isDown) {
+        //     this.player.frame = 10;
+        //     this.player.body.velocity.y = -650;
+        // }
+        // else if (this.cursors.down.isDown) {
+        //     this.player.frame = 10;
+        //     this.player.body.velocity.y = 650;
+        // }
+
 */
