@@ -100,66 +100,6 @@ brawl.testing.prototype = {
         this.movementLeft = this.game.input.keyboard.addKey(Phaser.Keyboard.A);
         this.movementRight = this.game.input.keyboard.addKey(Phaser.Keyboard.D)
 
-
-        /////////////////////////////////////Adding Mouse Events for PointerLock on Canvas////////////////////////
-
-        //////////////////Adding Weapons////////////////////
-        //Set Pull as Default for Weapons;
-        pullBoolean = true;
-        // console.log(pullBoolean + "pullBoolean Status");
-        //  Creates 30 bullets, using the 'bullet' graphic
-        this.weapon1 = this.game.add.weapon(60, 'bullet1');
-        //  The bullet will be automatically killed when it leaves the camera bounds
-        this.weapon1.bulletKillType = Phaser.Weapon.KILL_CAMERA_BOUNDS;
-        //  Because our bullet is drawn facing up, we need to offset its rotation:
-        this.weapon1.bulletAngleOffset = 90;
-        //  The speed at which the bullet is fired
-        this.weapon1.bulletSpeed = 700;
-        //400 previous value
-        //  Speed-up the rate of fire, allowing them to shoot 1 bullet every 60ms
-        this.weapon1.fireRate = 120;
-        //60 previous value
-        //Match Your Velocity?
-        // this.weapon.bulletRotateToVelocity = true;
-        // Track Player
-        this.weapon1.trackSprite(this.player, 0, -20);
-
-        // console.log(pullBoolean + "pullBoolean Status");
-        //  Creates 30 bullets, using the 'bullet' graphic
-        this.weapon2 = this.game.add.weapon(60, 'bullet2');
-        //  The bullet will be automatically killed when it leaves the camera bounds
-        this.weapon2.bulletKillType = Phaser.Weapon.KILL_CAMERA_BOUNDS;
-        //  Because our bullet is drawn facing up, we need to offset its rotation:
-        this.weapon2.bulletAngleOffset = 90;
-        //  The speed at which the bullet is fired
-        this.weapon2.bulletSpeed = 700;
-        //400 previous value
-        //  Speed-up the rate of fire, allowing them to shoot 1 bullet every 60ms
-        this.weapon2.fireRate = 120;
-        //60 previous value
-        //Match Your Velocity?
-        // this.weapon2.bulletRotateToVelocity = true;
-        // Track Player
-        this.weapon2.trackSprite(this.player, 0, -20);
-
-        // console.log(pullBoolean + "pullBoolean Status");
-        //  Creates 30 bullets, using the 'bullet' graphic
-        this.weapon3 = this.game.add.weapon(60, 'bullet3');
-        //  The bullet will be automatically killed when it leaves the camera bounds
-        this.weapon3.bulletKillType = Phaser.Weapon.KILL_CAMERA_BOUNDS;
-        //  Because our bullet is drawn facing up, we need to offset its rotation:
-        this.weapon3.bulletAngleOffset = 90;
-        //  The speed at which the bullet is fired
-        this.weapon3.bulletSpeed = 700;
-        //400 previous value
-        //  Speed-up the rate of fire, allowing them to shoot 1 bullet every 60ms
-        this.weapon2.fireRate = 120;
-        //60 previous value
-        //Match Your Velocity?
-        // this.weapon3.bulletRotateToVelocity = true;
-        // Track Player
-        this.weapon3.trackSprite(this.player, 0, -20);
-
         //Change Weapon Fire Type
         this.pullBullet = this.game.input.keyboard.addKey(Phaser.Keyboard.ONE);
         this.pushBullet = this.game.input.keyboard.addKey(Phaser.Keyboard.TWO);
@@ -219,6 +159,7 @@ brawl.testing.prototype = {
     // // },
     //////////////Creation of the Grid System (Objects Spawning)///////////////
     worldCreator: function (playerX, playerY, deathIterator, deathX, deathY, xBlockSizeF, yBlockSizeF, xRectangleF, yRectangleF, iteratorX, iteratorY, baseCampX, baseCampY, amountOfSpritesInGrid) {
+        console.log("amount of Sprites"+ amountOfSpritesInGrid);
         //////////////////Player Position////////////////
         ////////////////////Adding Player//////////////////////
         this.player = this.game.add.sprite(playerX, playerY, 'dude');
@@ -237,6 +178,63 @@ brawl.testing.prototype = {
         // PLAYER ANIMATIONS
         this.player.animations.add('left', [0, 1, 2, 3, 4, 5, 6, 7], 10, true);
         this.player.animations.add('right', [9, 10, 11, 12, 13, 14, 15], 10, true);
+
+        //////////////////Adding Weapons////////////////////
+        //Set Pull as Default for Weapons;
+        pullBoolean = true;
+        // console.log(pullBoolean + "pullBoolean Status");
+        //  Creates 30 bullets, using the 'bullet' graphic
+        this.weapon1 = this.game.add.weapon(60, 'bullet1');
+        //  The bullet will be automatically killed when it leaves the camera bounds
+        this.weapon1.bulletKillType = Phaser.Weapon.KILL_CAMERA_BOUNDS;
+        //  Because our bullet is drawn facing up, we need to offset its rotation:
+        this.weapon1.bulletAngleOffset = 90;
+        //  The speed at which the bullet is fired
+        this.weapon1.bulletSpeed = 700;
+        //400 previous value
+        //  Speed-up the rate of fire, allowing them to shoot 1 bullet every 60ms
+        this.weapon1.fireRate = 120;
+        //60 previous value
+        //Match Your Velocity?
+        // this.weapon.bulletRotateToVelocity = true;
+        // Track Player
+        this.weapon1.trackSprite(this.player, 0, -20);
+
+        // console.log(pullBoolean + "pullBoolean Status");
+        //  Creates 30 bullets, using the 'bullet' graphic
+        this.weapon2 = this.game.add.weapon(60, 'bullet2');
+        //  The bullet will be automatically killed when it leaves the camera bounds
+        this.weapon2.bulletKillType = Phaser.Weapon.KILL_CAMERA_BOUNDS;
+        //  Because our bullet is drawn facing up, we need to offset its rotation:
+        this.weapon2.bulletAngleOffset = 90;
+        //  The speed at which the bullet is fired
+        this.weapon2.bulletSpeed = 700;
+        //400 previous value
+        //  Speed-up the rate of fire, allowing them to shoot 1 bullet every 60ms
+        this.weapon2.fireRate = 120;
+        //60 previous value
+        //Match Your Velocity?
+        // this.weapon2.bulletRotateToVelocity = true;
+        // Track Player
+        this.weapon2.trackSprite(this.player, 0, -20);
+
+        // console.log(pullBoolean + "pullBoolean Status");
+        //  Creates 30 bullets, using the 'bullet' graphic
+        this.weapon3 = this.game.add.weapon(60, 'bullet3');
+        //  The bullet will be automatically killed when it leaves the camera bounds
+        this.weapon3.bulletKillType = Phaser.Weapon.KILL_CAMERA_BOUNDS;
+        //  Because our bullet is drawn facing up, we need to offset its rotation:
+        this.weapon3.bulletAngleOffset = 90;
+        //  The speed at which the bullet is fired
+        this.weapon3.bulletSpeed = 700;
+        //400 previous value
+        //  Speed-up the rate of fire, allowing them to shoot 1 bullet every 60ms
+        this.weapon2.fireRate = 120;
+        //60 previous value
+        //Match Your Velocity?
+        // this.weapon3.bulletRotateToVelocity = true;
+        // Track Player
+        this.weapon3.trackSprite(this.player, 0, -20);
 
         //Adding Undeniable Death
         for (var i = 0; i < deathIterator; i++) {
