@@ -670,4 +670,20 @@ function boundaryCollisionCheck(boundary, collision) {
         //     this.player.body.velocity.y = 650;
         // }
 
+        ///////////Alpha Build One///////////
+        // var xBlockSize = 280;
+        // // var yBlockSize = 450;
+        // var yBlockSize = 375;
+
+        // //6
+        // //5850
+        // for (var x = 0; x < 20; x++) {
+        //     for (var y = 0; y < 16; y++) {
+        //         var xRandom = this.game.rnd.realInRange((x * xBlockSize) + 1, (x + 1) * xBlockSize);
+        //         var yRandom = this.game.rnd.realInRange((y * yBlockSize) + 1, (y + 1) * yBlockSize);
+        //         this.gridSystem(xRandom, yRandom);
+        //         // console.log(x + ' ' + y + ' ' + xRandom + ' ' + yRandom);
+        //     }
+        // }
+
 */
