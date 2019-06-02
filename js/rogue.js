@@ -100,8 +100,85 @@ brawl.rogue.prototype = {
         this.movementLeft = this.game.input.keyboard.addKey(Phaser.Keyboard.A);
         this.movementRight = this.game.input.keyboard.addKey(Phaser.Keyboard.D)
 
+        //Weapon Controls
 
-        /////////////////////////////////////Adding Mouse Events for PointerLock on Canvas////////////////////////
+        //Change Weapon Fire Type
+        this.pullBullet = this.game.input.keyboard.addKey(Phaser.Keyboard.ONE);
+        this.pushBullet = this.game.input.keyboard.addKey(Phaser.Keyboard.TWO);
+        this.killBullet = this.game.input.keyboard.addKey(Phaser.Keyboard.THREE);
+
+        //Booleans to Trigger Different Weapon Types
+        this.pullBullet.onDown.add(this.goPull, this);
+        this.pushBullet.onDown.add(this.goPush, this);
+        this.killBullet.onDown.add(this.goKill, this);
+
+        //Fire from Keyboard
+        this.game.input.keyboard.addKeyCapture([Phaser.Keyboard.SHIFT]);
+        this.shiftFire = this.game.input.keyboard.addKey(Phaser.Keyboard.SHIFT);
+
+        /////////////////////////World Creation Initialization Grid///////////////////////
+        //Reference Point worldCreator: function (playerX, playerY, deathX, deathY, xBlockSizeF, yBlockSizeF, xRectangleF, yRectangleF, iteratorX, iteratorY, baseCampX, baseCampY)
+        if (randomGeneratorForWorld < 50) {
+            this.worldCreator(500, 700, 4, 1400, 1900, 400, 400, 500, 500, 4, 4, 0, 0);
+        }
+        else {
+            this.worldCreator(100, 100, 2, 1400, 1900, 200, 200, 250, 250, 4, 4, 0, 0);
+        }
+
+        // this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_PLATFORMER);
+        this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_LOCKON);
+
+        //Streak
+        this.text = this.game.add.text(200, 6208, "Streak: " + streak, { font: "32px Arial", fill: "#ffffff", align: "center" });
+        this.text.fixedToCamera = true;
+        this.text.cameraOffset.setTo(100, 750);
+
+
+    },
+    // ////////////////////////Out of Bounds Events//////////////////////////
+    // playerOut: function (player) {
+    //     if (player.x >= 1400) {
+    //         player.reset(0, player.y)
+    //         player.body.velocity.x = 400;
+    //     }
+    //     else if (0 >= player.x) {
+    //         player.reset(1400, player.y)
+    //         player.body.velocity.x = -400;
+    //     }
+
+    // },
+    // // ledgeOut: function (ledge) {
+    // //     if (ledge.x >= 1400) {
+    // //         ledge.reset(0, ledge.y)
+    // //         ledge.body.velocity.x = 400;
+    // //     }
+    // //     else if (0 >= ledge.x) {
+    // //         ledge.reset(1400, ledge.y)
+    // //         ledge.body.velocity.x = -400;
+    // //     }
+    // //     // console.log(this.ledgeX.x + ' ' + this.ledgeX.y);
+
+    // // },
+    //////////////Creation of the Grid System (Objects Spawning)///////////////
+    worldCreator: function (playerX, playerY, deathIterator, deathX, deathY, xBlockSizeF, yBlockSizeF, xRectangleF, yRectangleF, iteratorX, iteratorY, baseCampX, baseCampY) {
+        //////////////////Player Position////////////////
+        ////////////////////Adding Player//////////////////////
+        this.player = this.game.add.sprite(playerX, playerY, 'dude');
+        this.game.physics.arcade.enable(this.player); //enables physics for player
+        this.player.anchor.setTo(.5);
+        // this.player.scale.setTo(.6);
+        this.player.scale.setTo(.45);
+        this.player.body.setSize(63, 84, 5, 6);
+        // this.player.body.bounce.y = 0;
+        this.player.body.gravity.y = 1500;
+        //this.player.body.allowDrag = false;
+        this.player.body.collideWorldBounds = true;
+        // this.player.checkWorldBounds = true;
+        // this.player.events.onOutOfBounds.add(this.playerOut, this);
+
+        // PLAYER ANIMATIONS
+        this.player.animations.add('left', [0, 1, 2, 3, 4, 5, 6, 7], 10, true);
+        this.player.animations.add('right', [9, 10, 11, 12, 13, 14, 15], 10, true);
 
         //////////////////Adding Weapons////////////////////
         //Set Pull as Default for Weapons;
@@ -159,84 +236,6 @@ brawl.rogue.prototype = {
         // this.weapon3.bulletRotateToVelocity = true;
         // Track Player
         this.weapon3.trackSprite(this.player, 0, -20);
-
-        //Change Weapon Fire Type
-        this.pullBullet = this.game.input.keyboard.addKey(Phaser.Keyboard.ONE);
-        this.pushBullet = this.game.input.keyboard.addKey(Phaser.Keyboard.TWO);
-        this.killBullet = this.game.input.keyboard.addKey(Phaser.Keyboard.THREE);
-
-        //Booleans to Trigger Different Weapon Types
-        this.pullBullet.onDown.add(this.goPull, this);
-        this.pushBullet.onDown.add(this.goPush, this);
-        this.killBullet.onDown.add(this.goKill, this);
-
-        //Fire from Keyboard
-        this.game.input.keyboard.addKeyCapture([Phaser.Keyboard.SHIFT]);
-        this.shiftFire = this.game.input.keyboard.addKey(Phaser.Keyboard.SHIFT);
-
-        /////////////////////////World Creation Initialization Grid///////////////////////
-        //Reference Point worldCreator: function (playerX, playerY, deathX, deathY, xBlockSizeF, yBlockSizeF, xRectangleF, yRectangleF, iteratorX, iteratorY, baseCampX, baseCampY)
-        if (randomGeneratorForWorld < 50) {
-            this.worldCreator(500, 700, 4, 1400, 900, 400, 400, 500, 500, 4, 4, 0, 0);
-        }
-        else {
-            this.worldCreator(100, 100, 2, 1400, 900, 200, 200, 250, 250, 4, 4, 0, 0);
-        }
-
-        // this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_PLATFORMER);
-        this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_LOCKON);
-
-        //Streak
-        this.text = this.game.add.text(200, 6208, "Streak: " + streak, { font: "32px Arial", fill: "#ffffff", align: "center" });
-        this.text.fixedToCamera = true;
-        this.text.cameraOffset.setTo(100, 750);
-
-
-    },
-    // ////////////////////////Out of Bounds Events//////////////////////////
-    // playerOut: function (player) {
-    //     if (player.x >= 1400) {
-    //         player.reset(0, player.y)
-    //         player.body.velocity.x = 400;
-    //     }
-    //     else if (0 >= player.x) {
-    //         player.reset(1400, player.y)
-    //         player.body.velocity.x = -400;
-    //     }
-
-    // },
-    // // ledgeOut: function (ledge) {
-    // //     if (ledge.x >= 1400) {
-    // //         ledge.reset(0, ledge.y)
-    // //         ledge.body.velocity.x = 400;
-    // //     }
-    // //     else if (0 >= ledge.x) {
-    // //         ledge.reset(1400, ledge.y)
-    // //         ledge.body.velocity.x = -400;
-    // //     }
-    // //     // console.log(this.ledgeX.x + ' ' + this.ledgeX.y);
-
-    // // },
-    //////////////Creation of the Grid System (Objects Spawning)///////////////
-    worldCreator: function (playerX, playerY, deathIterator, deathX, deathY, xBlockSizeF, yBlockSizeF, xRectangleF, yRectangleF, iteratorX, iteratorY, baseCampX, baseCampY) {
-        //////////////////Player Position////////////////
-        ////////////////////Adding Player//////////////////////
-        this.player = this.game.add.sprite(playerX, playerY, 'dude');
-        this.game.physics.arcade.enable(this.player); //enables physics for player
-        this.player.anchor.setTo(.5);
-        // this.player.scale.setTo(.6);
-        this.player.scale.setTo(.45);
-        this.player.body.setSize(63, 84, 5, 6);
-        // this.player.body.bounce.y = 0;
-        this.player.body.gravity.y = 1500;
-        //this.player.body.allowDrag = false;
-        this.player.body.collideWorldBounds = true;
-        // this.player.checkWorldBounds = true;
-        // this.player.events.onOutOfBounds.add(this.playerOut, this);
-
-        // PLAYER ANIMATIONS
-        this.player.animations.add('left', [0, 1, 2, 3, 4, 5, 6, 7], 10, true);
-        this.player.animations.add('right', [9, 10, 11, 12, 13, 14, 15], 10, true);
 
         //Adding Undeniable Death
         for (var i = 0; i < deathIterator; i++) {
