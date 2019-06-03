@@ -131,7 +131,8 @@ brawl.testing.prototype = {
         /////////////////////////World Creation Initialization Grid///////////////////////
         //Reference Point worldCreator: function (playerX, playerY, deathIterator, deathX, deathY, xBlockSizeF, yBlockSizeF, xRectangleF, yRectangleF, iteratorX, iteratorY, baseCampX, baseCampY, amountOfSpritesInGrid)
         if (randomGeneratorForWorld === 0) {
-            this.worldCreator(500, 700, 4, 1400, 1900, 400, 400, 500, 500, 4, 4, 0, 0, 3);
+            //Traditional Platformer
+            this.worldCreator(0, 800, 1, 1400, 900, 600, 300, 700, 450, 10, 2, 0, 0, 2);
         }
         else if (randomGeneratorForWorld === 1) {
             this.worldCreator(200, 200, 2, 1400, 1900, 200, 200, 250, 250, 5, 7, 0, 0, 1);
@@ -203,9 +204,8 @@ brawl.testing.prototype = {
         this.player.animations.add('right', [9, 10, 11, 12, 13, 14, 15], 10, true);
 
         //////////////////Adding Weapons////////////////////
-        //Set Pull as Default for Weapons;
+        /////////////Pull as Default
         pullBoolean = true;
-        // console.log(pullBoolean + "pullBoolean Status");
         //  Creates 30 bullets, using the 'bullet' graphic
         this.weapon1 = this.game.add.weapon(60, 'bullet1');
         //  The bullet will be automatically killed when it leaves the camera bounds
@@ -214,16 +214,12 @@ brawl.testing.prototype = {
         this.weapon1.bulletAngleOffset = 90;
         //  The speed at which the bullet is fired
         this.weapon1.bulletSpeed = 700;
-        //400 previous value
         //  Speed-up the rate of fire, allowing them to shoot 1 bullet every 60ms
         this.weapon1.fireRate = 120;
-        //60 previous value
-        //Match Your Velocity?
-        // this.weapon.bulletRotateToVelocity = true;
         // Track Player
         this.weapon1.trackSprite(this.player, 0, -20);
 
-        // console.log(pullBoolean + "pullBoolean Status");
+        /////////////////Push
         //  Creates 30 bullets, using the 'bullet' graphic
         this.weapon2 = this.game.add.weapon(60, 'bullet2');
         //  The bullet will be automatically killed when it leaves the camera bounds
@@ -232,16 +228,13 @@ brawl.testing.prototype = {
         this.weapon2.bulletAngleOffset = 90;
         //  The speed at which the bullet is fired
         this.weapon2.bulletSpeed = 700;
-        //400 previous value
         //  Speed-up the rate of fire, allowing them to shoot 1 bullet every 60ms
         this.weapon2.fireRate = 120;
-        //60 previous value
         //Match Your Velocity?
-        // this.weapon2.bulletRotateToVelocity = true;
         // Track Player
         this.weapon2.trackSprite(this.player, 0, -20);
 
-        // console.log(pullBoolean + "pullBoolean Status");
+        ////////////////Stop
         //  Creates 30 bullets, using the 'bullet' graphic
         this.weapon3 = this.game.add.weapon(60, 'bullet3');
         //  The bullet will be automatically killed when it leaves the camera bounds
@@ -250,12 +243,8 @@ brawl.testing.prototype = {
         this.weapon3.bulletAngleOffset = 90;
         //  The speed at which the bullet is fired
         this.weapon3.bulletSpeed = 700;
-        //400 previous value
         //  Speed-up the rate of fire, allowing them to shoot 1 bullet every 60ms
         this.weapon2.fireRate = 120;
-        //60 previous value
-        //Match Your Velocity?
-        // this.weapon3.bulletRotateToVelocity = true;
         // Track Player
         this.weapon3.trackSprite(this.player, 0, -20);
 
@@ -279,17 +268,12 @@ brawl.testing.prototype = {
         var bottomLeft = Phaser.BOTTOM_LEFT;
         var bottomRight = Phaser.BOTTOM_RIGHT;
 
-        //Block and Rectangle Sizes
-        var xBlockSize = xBlockSizeF;
-        var yBlockSize = yBlockSizeF;
-        var xRectangle = xRectangleF;
-        var yRectangle = yRectangleF;
         //Block Debugging
         this.testingArray = [];
         for (var x = 0; x < iteratorX; x++) {
             for (var y = 0; y < iteratorY; y++) {
                 ////////Creation of Rectangle////////////;
-                var rect = new Phaser.Rectangle(x * xRectangle, y * yRectangle, xBlockSize, yBlockSize);
+                var rect = new Phaser.Rectangle(x * xRectangleF, y * yRectangleF, xBlockSizeF, yBlockSizeF);
                 var xOfSprite = rect.x
                 var yOfSprite = rect.y
 
@@ -319,8 +303,6 @@ brawl.testing.prototype = {
         //Create Randomness in Each Grid
         var gridSystemGenesis = this.game.rnd.integerInRange(0, 100);
         //Create Random Pattern Within Each Grid
-        // var randomPattern = this.game.rnd.integerInRange(0, 100);
-        //Alpha One Build:
         if (gridSystemGenesis >= 0 && gridSystemGenesis <= 41) {
             this.wallSpawn(x, y, rect, positionInRectangle);
         }
