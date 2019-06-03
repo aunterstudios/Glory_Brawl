@@ -53,40 +53,28 @@ brawl.testing.prototype = {
         this.game.physics.arcade.OVERLAP_BIAS = 12;
 
         ////////////////////Game World Size//////////////////////
-        /*
-        Reference Point for Different World Creation
-        if (gridSystemGenesis >= 0 && gridSystemGenesis <= 41) {
-            this.wallSpawn(x, y, rect, positionInRectangle);
+        var randomGeneratorForWorld = this.game.rnd.integerInRange(0, 4);
+        if (randomGeneratorForWorld === 0) {
+            //Traditional Platformer
+            this.game.world.setBounds(0, 0, 7000, 900);
+            console.log("Traditional Platformer");
         }
-        else if (gridSystemGenesis >= 42 && gridSystemGenesis <= 56) {
-            this.enemySpawn(x, y, rect, positionInRectangle);
-        }
-        else if (gridSystemGenesis >= 57 && gridSystemGenesis <= 61) {
-            this.ledgeSpawn(x, y, rect, positionInRectangle);
-        }
-        else if (gridSystemGenesis >= 62 && gridSystemGenesis <= 69) {
-            this.ledgeDownSpawn(x, y, rect, positionInRectangle);
-        }
-        else if (gridSystemGenesis >= 70 && gridSystemGenesis <= 74) {
-            this.ballSpawn(x, y, rect, positionInRectangle);
-        }
-        else if (gridSystemGenesis >= 75 && gridSystemGenesis <= 84) {
-            this.ledgeSideSpawn(x, y, rect, positionInRectangle);
-        }
-        else if (gridSystemGenesis >= 85 && gridSystemGenesis <= 100) {
-            this.spikeSpawn(x, y, rect, positionInRectangle);
-        }
-        */
-        var randomGeneratorForWorld = this.game.rnd.integerInRange(0, 100);
-        if (randomGeneratorForWorld >= 00 && randomGeneratorForWorld <= 50) {
-            //Standard Big World
-            this.game.world.setBounds(0, 0, 2000, 2000);
-            console.log("2000X+2000Y");
-        }
-        else {
+        else if (randomGeneratorForWorld === 1) {
             //Canvas Size but Tall?
-            this.game.world.setBounds(0, 0, 1400, 2000);
-            console.log("1400X+1400Y");
+            this.game.world.setBounds(0, 0, 1400, 6300);
+            console.log("The Mountain Climb");
+        }
+        else if (randomGeneratorForWorld === 2) {
+            this.game.world.setBounds(0, 0, 1400, 900);
+            console.log("Canvas World");
+        }
+        else if (randomGeneratorForWorld === 3) {
+            this.game.world.setBounds(0, 0, 3000, 3000);
+            console.log("THe Large World");
+        }
+        else if (randomGeneratorForWorld === 4) {
+            this.game.world.setBounds(0, 0, 2000, 2000);
+            console.log("Practice World");
         }
         //Keyboard Controls
         this.cursors = this.game.input.keyboard.createCursorKeys();
@@ -142,8 +130,17 @@ brawl.testing.prototype = {
 
         /////////////////////////World Creation Initialization Grid///////////////////////
         //Reference Point worldCreator: function (playerX, playerY, deathIterator, deathX, deathY, xBlockSizeF, yBlockSizeF, xRectangleF, yRectangleF, iteratorX, iteratorY, baseCampX, baseCampY, amountOfSpritesInGrid)
-        if (randomGeneratorForWorld < 50) {
+        if (randomGeneratorForWorld === 0) {
             this.worldCreator(500, 700, 4, 1400, 1900, 400, 400, 500, 500, 4, 4, 0, 0, 3);
+        }
+        else if (randomGeneratorForWorld === 1) {
+            this.worldCreator(200, 200, 2, 1400, 1900, 200, 200, 250, 250, 5, 7, 0, 0, 1);
+        }
+        else if (randomGeneratorForWorld === 2) {
+            this.worldCreator(200, 200, 2, 1400, 1900, 200, 200, 250, 250, 5, 7, 0, 0, 1);
+        }
+        else if (randomGeneratorForWorld === 3) {
+            this.worldCreator(200, 200, 2, 1400, 1900, 200, 200, 250, 250, 5, 7, 0, 0, 1);
         }
         else {
             this.worldCreator(200, 200, 2, 1400, 1900, 200, 200, 250, 250, 5, 7, 0, 0, 1);
@@ -305,66 +302,9 @@ brawl.testing.prototype = {
                     this.baseCamp(xOfSprite, yOfSprite, rect, bottomCenter, bottomLeft, bottomRight, centerLeft, centerRight);
                 }
                 else {
-                    var positionArray = [];
-                    var randomGeneratorForArray = this.game.rnd.integerInRange(0, 100);
-                    if (randomGeneratorForArray >= 0 && randomGeneratorForArray <= 25) {
-                        if (amountOfSpritesInGrid === 3) {
-                            positionArray.push(center);
-                            positionArray.push(bottomLeft);
-                            positionArray.push(topRight);
-                        }
-                        else if (amountOfSpritesInGrid === 2) {
-                            positionArray.push(center);
-                            positionArray.push(topRight);
-                        }
-                        else {
-                            positionArray.push(center);
-                        }
-                    }
-                    else if (randomGeneratorForArray >= 26 && randomGeneratorForArray <= 50) {
-                        if (amountOfSpritesInGrid === 3) {
-                            positionArray.push(center);
-                            positionArray.push(bottomLeft);
-                            positionArray.push(topRight);
-                        }
-                        else if (amountOfSpritesInGrid === 2) {
-                            positionArray.push(center);
-                            positionArray.push(topRight);
-                        }
-                        else {
-                            positionArray.push(center);
-                        }
-                    }
-                    else if (randomGeneratorForArray >= 51 && randomGeneratorForArray <= 75) {
-                        if (amountOfSpritesInGrid === 3) {
-                            positionArray.push(center);
-                            positionArray.push(bottomLeft);
-                            positionArray.push(topRight);
-                        }
-                        else if (amountOfSpritesInGrid === 2) {
-                            positionArray.push(center);
-                            positionArray.push(topRight);
-                        }
-                        else {
-                            positionArray.push(center);
-                        }
-                    }
-                    else if (randomGeneratorForArray >= 76 && randomGeneratorForArray <= 100) {
-                        if (amountOfSpritesInGrid === 3) {
-                            positionArray.push(center);
-                            positionArray.push(bottomLeft);
-                            positionArray.push(topRight);
-                        }
-                        else if (amountOfSpritesInGrid === 2) {
-                            positionArray.push(center);
-                            positionArray.push(topRight);
-                        }
-                        else {
-                            positionArray.push(center);
-                        }
-                    }
-
-                    // console.log(positionArray);
+                    var positionArray = [topCenter, topLeft, topRight, center, centerLeft, centerRight, bottomCenter, bottomLeft, bottomRight];
+                    shuffle(positionArray);
+                    console.log("x" + "y" + x + y + " " + positionArray)
                     //////Sprites//////
                     for (var i = 0; i < amountOfSpritesInGrid; i++) {
                         this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[i]);

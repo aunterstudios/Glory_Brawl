@@ -26,6 +26,13 @@ var stopBoolean = false;
 
 // //Crosshair
 // var crosshair;
+/////////////////////////////////////////////////Array Shuffler///////////////////////////////////////
+function shuffle(array) {
+  for (var i = array.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1)); // random index from 0 to i
+    [array[i], array[j]] = [array[j], array[i]]; // swap elements
+  }
+}
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
