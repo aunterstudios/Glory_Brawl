@@ -53,26 +53,32 @@ brawl.testing.prototype = {
         this.game.physics.arcade.OVERLAP_BIAS = 12;
 
         ////////////////////Game World Size//////////////////////
+        /*
+        wallArray[Math.floor(Math.random() * wallArray.length)]
+        */
         var randomGeneratorForWorld = this.game.rnd.integerInRange(0, 4);
         if (randomGeneratorForWorld === 0) {
             //Traditional Platformer
-            this.game.world.setBounds(0, 0, 7000, 900);
+            this.game.world.setBounds(0, 0, 7000, 800);
             console.log("Traditional Platformer");
         }
         else if (randomGeneratorForWorld === 1) {
-            //Canvas Size but Tall?
+            //Mountain Climb
             this.game.world.setBounds(0, 0, 1400, 6300);
             console.log("The Mountain Climb");
         }
         else if (randomGeneratorForWorld === 2) {
-            this.game.world.setBounds(0, 0, 1400, 900);
+            //Canvas World
+            this.game.world.setBounds(0, 0, 1400, 800);
             console.log("Canvas World");
         }
         else if (randomGeneratorForWorld === 3) {
-            this.game.world.setBounds(0, 0, 3000, 3000);
+            //The Large World
+            this.game.world.setBounds(0, 0, 4000, 4000);
             console.log("THe Large World");
         }
         else if (randomGeneratorForWorld === 4) {
+            //Practice World
             this.game.world.setBounds(0, 0, 2000, 2000);
             console.log("Practice World");
         }
@@ -102,8 +108,11 @@ brawl.testing.prototype = {
         this.spikes = this.game.add.group();
         this.spikes.enableBody = true;
         //Adding Flag (Win Game)
-        this.finish = this.game.add.sprite(0, 0, 'win');
-        this.game.physics.arcade.enable(this.finish);
+        // this.finish = this.game.add.sprite(0, 0, 'win');
+        // this.game.physics.arcade.enable(this.finish);
+        //Adding Coins (Win Game)
+        this.coin = this.game.add.group();
+        this.coin.enableBody = true;
         //Adding This Undeniable Death At the Bottom
         this.death = this.game.add.group();
         this.death.enableBody = true;
@@ -130,21 +139,31 @@ brawl.testing.prototype = {
 
         /////////////////////////World Creation Initialization Grid///////////////////////
         //Reference Point worldCreator: function (playerX, playerY, deathIterator, deathX, deathY, xBlockSizeF, yBlockSizeF, xRectangleF, yRectangleF, iteratorX, iteratorY, baseCampX, baseCampY, amountOfSpritesInGrid)
+        var worldName;
         if (randomGeneratorForWorld === 0) {
             //Traditional Platformer
             this.worldCreator(0, 800, 1, 1400, 900, 600, 300, 700, 450, 10, 2, 0, 0, 2);
+            worldName = "Traditional Platformer"
         }
         else if (randomGeneratorForWorld === 1) {
+            //The Mountain Climb
             this.worldCreator(200, 200, 2, 1400, 1900, 200, 200, 250, 250, 5, 7, 0, 0, 1);
+            worldName = "The Mountain Climb"
         }
         else if (randomGeneratorForWorld === 2) {
+            //Canvas World
             this.worldCreator(200, 200, 2, 1400, 1900, 200, 200, 250, 250, 5, 7, 0, 0, 1);
+            worldName = "Canvas World"
         }
         else if (randomGeneratorForWorld === 3) {
+            //The Large World
             this.worldCreator(200, 200, 2, 1400, 1900, 200, 200, 250, 250, 5, 7, 0, 0, 1);
+            worldName = "The Large World"
         }
         else {
+            //The Practice World
             this.worldCreator(200, 200, 2, 1400, 1900, 200, 200, 250, 250, 5, 7, 0, 0, 1);
+            worldName = "The Practice World"
         }
 
         // this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_PLATFORMER);
@@ -154,6 +173,11 @@ brawl.testing.prototype = {
         this.text = this.game.add.text(200, 6208, "Streak: " + streak, { font: "32px Arial", fill: "#ffffff", align: "center" });
         this.text.fixedToCamera = true;
         this.text.cameraOffset.setTo(100, 750);
+
+        //World
+        this.text = this.game.add.text(200, 6208, "World: " + worldName, { font: "20px Arial", fill: "#ffffff", align: "center" });
+        this.text.fixedToCamera = true;
+        this.text.cameraOffset.setTo(1100, 750);
 
 
     },
@@ -325,6 +349,7 @@ brawl.testing.prototype = {
             this.spikeSpawn(x, y, rect, positionInRectangle);
         }
     },
+    //////////////////////////////////////Starting Position of Player//////////////////////////////
     baseCamp: function (x, y, rect, positionInRectangle1, positionInRectangle2, positionInRectangle3, positionInRectangle4, positionInRectangle5) {
 
         /////////////////////////////////Starting Point of The Map////////////////////////////////
@@ -347,12 +372,8 @@ brawl.testing.prototype = {
     },
     // Creating Game Objects
     wallSpawn: function (x, y, rect, positionInRectangle) {
-        var wallArray = ['brownPlatform', 'wall', 'rotatedWall'];
         this.wallX = this.wall.create(x, y, wallArray[Math.floor(Math.random() * wallArray.length)]);
         this.wallX.anchor.setTo(.5);
-        // this.wallX.scale.setTo(.5);
-        // var wallLength = [.2, .3, .4];
-        // this.wallX.scale.setTo(wallLength[Math.floor(Math.random() * wallLength.length)]);
         this.wallX.scale.setTo(.5);
         this.wallX.body.collideWorldBounds = true;
         this.wallX.body.bounce.setTo(1);
@@ -424,9 +445,9 @@ brawl.testing.prototype = {
         this.ballX.body.bounce.setTo(1.0);
     },
     spikeSpawn: function (x, y, rect, positionInRectangle) {
-        var spikeArray = ['invertedSpikes', 'spikes'];
-        // var spikeLength = [.2, .3, .4, .5];
-        var spikeLength = [.2, .3,];
+        // var spikeArray = ['invertedSpikes', 'spikes'];
+        // // var spikeLength = [.2, .3, .4, .5];
+        // var spikeLength = [.2, .3,];
         this.spikesX = this.spikes.create(x, y, spikeArray[Math.floor(Math.random() * spikeArray.length)]);
         this.spikesX.anchor.setTo(.5);
         this.spikesX.scale.setTo(spikeLength[Math.floor(Math.random() * spikeLength.length)]);

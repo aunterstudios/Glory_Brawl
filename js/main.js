@@ -24,6 +24,13 @@ var pullBoolean = false;
 var pushBoolean = false;
 var stopBoolean = false;
 
+//Different Spike Sizes and Keys
+var spikeArray = ['invertedSpikes', 'spikes'];
+var spikeLength = [.2, .3,];
+
+//Different Wall Types
+var wallArray = ['brownPlatform', 'wall', 'rotatedWall'];
+
 // //Crosshair
 // var crosshair;
 /////////////////////////////////////////////////Array Shuffler///////////////////////////////////////
