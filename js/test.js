@@ -27,7 +27,8 @@ brawl.testing.prototype = {
         this.load.image('bullet2', 'assets/bullet254.png');
         this.load.image('bullet1', 'assets/bullet255.png');
         this.load.image('boundary', 'assets/worldBounds.png');
-        this.load.image('crosshair', 'assets/shield2.png');
+        this.load.image('coin', 'assets/shield2.png');
+        this.load.image('flag', 'assets/flag.png');
         this.load.spritesheet('dude', 'assets/white.png', 87.5, 93.5);
     },
     create: function () {
@@ -81,6 +82,16 @@ brawl.testing.prototype = {
             //Practice World
             this.game.world.setBounds(0, 0, 2000, 2000);
             console.log("Practice World");
+        }
+
+        ////////////Generator for Game Mode//////////////
+        var randomGeneratorForGameMode = this.game.rnd.integerInRange(0,1);
+        var gameModeName;
+        if (randomGeneratorForGameMode === 0) {
+            gameModeName = "Collect the Coins";
+        }
+        else {
+            gameModeName = "Capture the Flag";
         }
         //Keyboard Controls
         this.cursors = this.game.input.keyboard.createCursorKeys();
@@ -138,31 +149,31 @@ brawl.testing.prototype = {
         this.shiftFire = this.game.input.keyboard.addKey(Phaser.Keyboard.SHIFT);
 
         /////////////////////////World Creation Initialization Grid///////////////////////
-        //Reference Point worldCreator: function (playerX, playerY, deathIterator, deathX, deathY, xBlockSizeF, yBlockSizeF, xRectangleF, yRectangleF, iteratorX, iteratorY, baseCampX, baseCampY, amountOfSpritesInGrid)
+        //Reference Point worldCreator: function (playerX, playerY, deathIterator, deathX, deathY, xBlockSizeF, yBlockSizeF, xRectangleF, yRectangleF, iteratorX, iteratorY, baseCampX, baseCampY, amountOfSpritesInGrid, gameMode)
         var worldName;
         if (randomGeneratorForWorld === 0) {
             //Traditional Platformer
-            this.worldCreator(0, 800, 1, 1400, 900, 600, 300, 700, 450, 10, 2, 0, 0, 2);
+            this.worldCreator(0, 800, 1, 1400, 900, 600, 300, 700, 450, 10, 2, 0, 0, 2, randomGeneratorForGameMode);
             worldName = "Traditional Platformer"
         }
         else if (randomGeneratorForWorld === 1) {
             //The Mountain Climb
-            this.worldCreator(200, 200, 2, 1400, 1900, 200, 200, 250, 250, 5, 7, 0, 0, 1);
+            this.worldCreator(200, 200, 2, 1400, 1900, 200, 200, 250, 250, 5, 7, 0, 0, 1, randomGeneratorForGameMode);
             worldName = "The Mountain Climb"
         }
         else if (randomGeneratorForWorld === 2) {
             //Canvas World
-            this.worldCreator(200, 200, 2, 1400, 1900, 200, 200, 250, 250, 5, 7, 0, 0, 1);
+            this.worldCreator(200, 200, 2, 1400, 1900, 200, 200, 250, 250, 5, 7, 0, 0, 1, randomGeneratorForGameMode);
             worldName = "Canvas World"
         }
         else if (randomGeneratorForWorld === 3) {
             //The Large World
-            this.worldCreator(200, 200, 2, 1400, 1900, 200, 200, 250, 250, 5, 7, 0, 0, 1);
+            this.worldCreator(200, 200, 2, 1400, 1900, 200, 200, 250, 250, 5, 7, 0, 0, 1, randomGeneratorForGameMode);
             worldName = "The Large World"
         }
         else {
             //The Practice World
-            this.worldCreator(200, 200, 2, 1400, 1900, 200, 200, 250, 250, 5, 7, 0, 0, 1);
+            this.worldCreator(200, 200, 2, 1400, 1900, 200, 200, 250, 250, 5, 7, 0, 0, 1, randomGeneratorForGameMode);
             worldName = "The Practice World"
         }
 
@@ -175,9 +186,9 @@ brawl.testing.prototype = {
         this.text.cameraOffset.setTo(100, 750);
 
         //World
-        this.text = this.game.add.text(200, 6208, "World: " + worldName, { font: "20px Arial", fill: "#ffffff", align: "center" });
+        this.text = this.game.add.text(200, 6208, "World: " + worldName + "\n Game Mode: " + gameModeName, { font: "20px Arial", fill: "#ffffff", align: "center" });
         this.text.fixedToCamera = true;
-        this.text.cameraOffset.setTo(1100, 750);
+        this.text.cameraOffset.setTo(1100, 725);
 
 
     },
@@ -206,7 +217,7 @@ brawl.testing.prototype = {
 
     // // },
     //////////////Creation of the World///////////////
-    worldCreator: function (playerX, playerY, deathIterator, deathX, deathY, xBlockSizeF, yBlockSizeF, xRectangleF, yRectangleF, iteratorX, iteratorY, baseCampX, baseCampY, amountOfSpritesInGrid) {
+    worldCreator: function (playerX, playerY, deathIterator, deathX, deathY, xBlockSizeF, yBlockSizeF, xRectangleF, yRectangleF, iteratorX, iteratorY, baseCampX, baseCampY, amountOfSpritesInGrid, gameMode) {
         console.log("amount of Sprites" + amountOfSpritesInGrid);
         //////////////////Player Position////////////////
         ////////////////////Adding Player//////////////////////
@@ -292,6 +303,9 @@ brawl.testing.prototype = {
         var bottomLeft = Phaser.BOTTOM_LEFT;
         var bottomRight = Phaser.BOTTOM_RIGHT;
 
+        //Position Array
+        var positionArray = [topCenter, topLeft, topRight, center, centerLeft, centerRight, bottomCenter, bottomLeft, bottomRight];
+
         //Block Debugging
         this.testingArray = [];
         for (var x = 0; x < iteratorX; x++) {
@@ -310,12 +324,22 @@ brawl.testing.prototype = {
                     this.baseCamp(xOfSprite, yOfSprite, rect, bottomCenter, bottomLeft, bottomRight, centerLeft, centerRight);
                 }
                 else {
-                    var positionArray = [topCenter, topLeft, topRight, center, centerLeft, centerRight, bottomCenter, bottomLeft, bottomRight];
                     shuffle(positionArray);
                     console.log("x" + "y" + x + y + " " + positionArray)
                     //////Sprites//////
                     for (var i = 0; i < amountOfSpritesInGrid; i++) {
                         this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[i]);
+                        if (gameMode === 0) {
+                            this.coinSpawn(xOfSprite, yOfSprite, rect, positionArray[i + 1])
+                        }
+                        else if (gameMode === 1) {
+                            if (x === iteratorX - 1 && y === iteratorY - 1) {
+                                this.finish = this.game.add.sprite(xOfSprite, yOfSprite, 'flag');
+                                this.game.physics.arcade.enable(this.finish);
+                                this.finish.alignIn(rect, positionArray[i + 1]);
+                                console.log("Flag Initiated");
+                            }
+                        }
                         // console.log("---------------------------------------------------");
                     }
                 }
@@ -370,7 +394,13 @@ brawl.testing.prototype = {
         // console.log("-----------------------------------");
 
     },
-    // Creating Game Objects
+    //////////////////////////Creating Game Objects/////////////////////////
+    coinSpawn: function (x, y, rect, positionInRectangle) {
+        this.coinX = this.coin.create(x, y, 'coin');
+        this.coinX.anchor.setTo(.7);
+        this.coinX.scale.setTo(.7);
+        this.coinX.alignIn(rect, positionInRectangle);
+    },
     wallSpawn: function (x, y, rect, positionInRectangle) {
         this.wallX = this.wall.create(x, y, wallArray[Math.floor(Math.random() * wallArray.length)]);
         this.wallX.anchor.setTo(.5);

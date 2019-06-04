@@ -1,4 +1,4 @@
-///////////////////////////////////////////Rogue Main Version//////////////////////////////////////////
+//////////////////////////////////////////Rogue Main Game//////////////////////////////////////////
 brawl.rogue = function () { };
 brawl.rogue.prototype = {
     init: function () {
@@ -27,7 +27,8 @@ brawl.rogue.prototype = {
         this.load.image('bullet2', 'assets/bullet254.png');
         this.load.image('bullet1', 'assets/bullet255.png');
         this.load.image('boundary', 'assets/worldBounds.png');
-        this.load.image('crosshair', 'assets/shield2.png');
+        this.load.image('coin', 'assets/shield2.png');
+        this.load.image('flag', 'assets/flag.png');
         this.load.spritesheet('dude', 'assets/white.png', 87.5, 93.5);
     },
     create: function () {
@@ -53,14 +54,44 @@ brawl.rogue.prototype = {
         this.game.physics.arcade.OVERLAP_BIAS = 12;
 
         ////////////////////Game World Size//////////////////////
-        var randomGeneratorForWorld = this.game.rnd.integerInRange(0, 100);
-        if (randomGeneratorForWorld < 50) {
+        /*
+        wallArray[Math.floor(Math.random() * wallArray.length)]
+        */
+        var randomGeneratorForWorld = this.game.rnd.integerInRange(0, 4);
+        if (randomGeneratorForWorld === 0) {
+            //Traditional Platformer
+            this.game.world.setBounds(0, 0, 7000, 800);
+            console.log("Traditional Platformer");
+        }
+        else if (randomGeneratorForWorld === 1) {
+            //Mountain Climb
+            this.game.world.setBounds(0, 0, 1400, 6300);
+            console.log("The Mountain Climb");
+        }
+        else if (randomGeneratorForWorld === 2) {
+            //Canvas World
+            this.game.world.setBounds(0, 0, 1400, 800);
+            console.log("Canvas World");
+        }
+        else if (randomGeneratorForWorld === 3) {
+            //The Large World
+            this.game.world.setBounds(0, 0, 4000, 4000);
+            console.log("THe Large World");
+        }
+        else if (randomGeneratorForWorld === 4) {
+            //Practice World
             this.game.world.setBounds(0, 0, 2000, 2000);
-            console.log("2000");
+            console.log("Practice World");
+        }
+
+        ////////////Generator for Game Mode//////////////
+        var randomGeneratorForGameMode = this.game.rnd.integerInRange(0,1);
+        var gameModeName;
+        if (randomGeneratorForGameMode === 0) {
+            gameModeName = "Collect the Coins";
         }
         else {
-            this.game.world.setBounds(0, 0, 1400, 2000);
-            console.log("1000");
+            gameModeName = "Capture the Flag";
         }
         //Keyboard Controls
         this.cursors = this.game.input.keyboard.createCursorKeys();
@@ -88,8 +119,11 @@ brawl.rogue.prototype = {
         this.spikes = this.game.add.group();
         this.spikes.enableBody = true;
         //Adding Flag (Win Game)
-        this.finish = this.game.add.sprite(0, 0, 'win');
-        this.game.physics.arcade.enable(this.finish);
+        // this.finish = this.game.add.sprite(0, 0, 'win');
+        // this.game.physics.arcade.enable(this.finish);
+        //Adding Coins (Win Game)
+        this.coin = this.game.add.group();
+        this.coin.enableBody = true;
         //Adding This Undeniable Death At the Bottom
         this.death = this.game.add.group();
         this.death.enableBody = true;
@@ -99,8 +133,6 @@ brawl.rogue.prototype = {
         this.movementDown = this.game.input.keyboard.addKey(Phaser.Keyboard.S);
         this.movementLeft = this.game.input.keyboard.addKey(Phaser.Keyboard.A);
         this.movementRight = this.game.input.keyboard.addKey(Phaser.Keyboard.D)
-
-        //Weapon Controls
 
         //Change Weapon Fire Type
         this.pullBullet = this.game.input.keyboard.addKey(Phaser.Keyboard.ONE);
@@ -117,12 +149,32 @@ brawl.rogue.prototype = {
         this.shiftFire = this.game.input.keyboard.addKey(Phaser.Keyboard.SHIFT);
 
         /////////////////////////World Creation Initialization Grid///////////////////////
-        //Reference Point worldCreator: function (playerX, playerY, deathX, deathY, xBlockSizeF, yBlockSizeF, xRectangleF, yRectangleF, iteratorX, iteratorY, baseCampX, baseCampY)
-        if (randomGeneratorForWorld < 50) {
-            this.worldCreator(500, 700, 4, 1400, 1900, 400, 400, 500, 500, 4, 4, 0, 0);
+        //Reference Point worldCreator: function (playerX, playerY, deathIterator, deathX, deathY, xBlockSizeF, yBlockSizeF, xRectangleF, yRectangleF, iteratorX, iteratorY, baseCampX, baseCampY, amountOfSpritesInGrid, gameMode)
+        var worldName;
+        if (randomGeneratorForWorld === 0) {
+            //Traditional Platformer
+            this.worldCreator(0, 800, 1, 1400, 900, 600, 300, 700, 450, 10, 2, 0, 0, 2, randomGeneratorForGameMode);
+            worldName = "Traditional Platformer"
+        }
+        else if (randomGeneratorForWorld === 1) {
+            //The Mountain Climb
+            this.worldCreator(200, 200, 2, 1400, 1900, 200, 200, 250, 250, 5, 7, 0, 0, 1, randomGeneratorForGameMode);
+            worldName = "The Mountain Climb"
+        }
+        else if (randomGeneratorForWorld === 2) {
+            //Canvas World
+            this.worldCreator(200, 200, 2, 1400, 1900, 200, 200, 250, 250, 5, 7, 0, 0, 1, randomGeneratorForGameMode);
+            worldName = "Canvas World"
+        }
+        else if (randomGeneratorForWorld === 3) {
+            //The Large World
+            this.worldCreator(200, 200, 2, 1400, 1900, 200, 200, 250, 250, 5, 7, 0, 0, 1, randomGeneratorForGameMode);
+            worldName = "The Large World"
         }
         else {
-            this.worldCreator(100, 100, 2, 1400, 1900, 200, 200, 250, 250, 4, 4, 0, 0);
+            //The Practice World
+            this.worldCreator(200, 200, 2, 1400, 1900, 200, 200, 250, 250, 5, 7, 0, 0, 1, randomGeneratorForGameMode);
+            worldName = "The Practice World"
         }
 
         // this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_PLATFORMER);
@@ -132,6 +184,11 @@ brawl.rogue.prototype = {
         this.text = this.game.add.text(200, 6208, "Streak: " + streak, { font: "32px Arial", fill: "#ffffff", align: "center" });
         this.text.fixedToCamera = true;
         this.text.cameraOffset.setTo(100, 750);
+
+        //World
+        this.text = this.game.add.text(200, 6208, "World: " + worldName + "\n Game Mode: " + gameModeName, { font: "20px Arial", fill: "#ffffff", align: "center" });
+        this.text.fixedToCamera = true;
+        this.text.cameraOffset.setTo(1100, 725);
 
 
     },
@@ -159,15 +216,16 @@ brawl.rogue.prototype = {
     // //     // console.log(this.ledgeX.x + ' ' + this.ledgeX.y);
 
     // // },
-    //////////////Creation of the Grid System (Objects Spawning)///////////////
-    worldCreator: function (playerX, playerY, deathIterator, deathX, deathY, xBlockSizeF, yBlockSizeF, xRectangleF, yRectangleF, iteratorX, iteratorY, baseCampX, baseCampY) {
+    //////////////Creation of the World///////////////
+    worldCreator: function (playerX, playerY, deathIterator, deathX, deathY, xBlockSizeF, yBlockSizeF, xRectangleF, yRectangleF, iteratorX, iteratorY, baseCampX, baseCampY, amountOfSpritesInGrid, gameMode) {
+        console.log("amount of Sprites" + amountOfSpritesInGrid);
         //////////////////Player Position////////////////
         ////////////////////Adding Player//////////////////////
         this.player = this.game.add.sprite(playerX, playerY, 'dude');
         this.game.physics.arcade.enable(this.player); //enables physics for player
         this.player.anchor.setTo(.5);
         // this.player.scale.setTo(.6);
-        this.player.scale.setTo(.45);
+        this.player.scale.setTo(.35);
         this.player.body.setSize(63, 84, 5, 6);
         // this.player.body.bounce.y = 0;
         this.player.body.gravity.y = 1500;
@@ -181,9 +239,8 @@ brawl.rogue.prototype = {
         this.player.animations.add('right', [9, 10, 11, 12, 13, 14, 15], 10, true);
 
         //////////////////Adding Weapons////////////////////
-        //Set Pull as Default for Weapons;
+        /////////////Pull as Default
         pullBoolean = true;
-        // console.log(pullBoolean + "pullBoolean Status");
         //  Creates 30 bullets, using the 'bullet' graphic
         this.weapon1 = this.game.add.weapon(60, 'bullet1');
         //  The bullet will be automatically killed when it leaves the camera bounds
@@ -192,16 +249,12 @@ brawl.rogue.prototype = {
         this.weapon1.bulletAngleOffset = 90;
         //  The speed at which the bullet is fired
         this.weapon1.bulletSpeed = 700;
-        //400 previous value
         //  Speed-up the rate of fire, allowing them to shoot 1 bullet every 60ms
         this.weapon1.fireRate = 120;
-        //60 previous value
-        //Match Your Velocity?
-        // this.weapon.bulletRotateToVelocity = true;
         // Track Player
         this.weapon1.trackSprite(this.player, 0, -20);
 
-        // console.log(pullBoolean + "pullBoolean Status");
+        /////////////////Push
         //  Creates 30 bullets, using the 'bullet' graphic
         this.weapon2 = this.game.add.weapon(60, 'bullet2');
         //  The bullet will be automatically killed when it leaves the camera bounds
@@ -210,16 +263,13 @@ brawl.rogue.prototype = {
         this.weapon2.bulletAngleOffset = 90;
         //  The speed at which the bullet is fired
         this.weapon2.bulletSpeed = 700;
-        //400 previous value
         //  Speed-up the rate of fire, allowing them to shoot 1 bullet every 60ms
         this.weapon2.fireRate = 120;
-        //60 previous value
         //Match Your Velocity?
-        // this.weapon2.bulletRotateToVelocity = true;
         // Track Player
         this.weapon2.trackSprite(this.player, 0, -20);
 
-        // console.log(pullBoolean + "pullBoolean Status");
+        ////////////////Stop
         //  Creates 30 bullets, using the 'bullet' graphic
         this.weapon3 = this.game.add.weapon(60, 'bullet3');
         //  The bullet will be automatically killed when it leaves the camera bounds
@@ -228,12 +278,8 @@ brawl.rogue.prototype = {
         this.weapon3.bulletAngleOffset = 90;
         //  The speed at which the bullet is fired
         this.weapon3.bulletSpeed = 700;
-        //400 previous value
         //  Speed-up the rate of fire, allowing them to shoot 1 bullet every 60ms
         this.weapon2.fireRate = 120;
-        //60 previous value
-        //Match Your Velocity?
-        // this.weapon3.bulletRotateToVelocity = true;
         // Track Player
         this.weapon3.trackSprite(this.player, 0, -20);
 
@@ -257,78 +303,54 @@ brawl.rogue.prototype = {
         var bottomLeft = Phaser.BOTTOM_LEFT;
         var bottomRight = Phaser.BOTTOM_RIGHT;
 
-        //Block and Rectangle Sizes
-        var xBlockSize = xBlockSizeF;
-        var yBlockSize = yBlockSizeF;
-        var xRectangle = xRectangleF;
-        var yRectangle = yRectangleF;
+        //Position Array
+        var positionArray = [topCenter, topLeft, topRight, center, centerLeft, centerRight, bottomCenter, bottomLeft, bottomRight];
+
+        //Block Debugging
+        this.testingArray = [];
         for (var x = 0; x < iteratorX; x++) {
             for (var y = 0; y < iteratorY; y++) {
                 ////////Creation of Rectangle////////////;
-                var rect = new Phaser.Rectangle(x * xRectangle, y * yRectangle, xBlockSize, yBlockSize);
+                var rect = new Phaser.Rectangle(x * xRectangleF, y * yRectangleF, xBlockSizeF, yBlockSizeF);
                 var xOfSprite = rect.x
                 var yOfSprite = rect.y
+
+                //Testing Purposes of Rectangle
+                this.testingArray.push(rect);
+                this.text = this.game.add.text(rect.x + 100, rect.y + 100, "Rectangle " + x + " x " + y + " y ", { font: "32px Arial", fill: "#ffffff", align: "center" });
                 ////////////Random Array to Scramble Positions//////////
                 // var positionArray = [topCenter, topLeft, topRight, center, centerLeft, centerRight, bottomCenter, bottomLeft, bottomRight];
                 if (x === baseCampX && y === baseCampY) {
                     this.baseCamp(xOfSprite, yOfSprite, rect, bottomCenter, bottomLeft, bottomRight, centerLeft, centerRight);
                 }
                 else {
-                    var positionArray = [];
-                    var randomGeneratorForArray = this.game.rnd.integerInRange(0, 100);
-                    if (randomGeneratorForArray >= 0 && randomGeneratorForArray <= 25) {
-                        // positionArray.push(topCenter);
-                        // positionArray.push(bottomLeft);
-                        // positionArray.push(centerRight);
-                        // positionArray.push(topLeft);
-                        // positionArray.push(topLeft);
-                        positionArray.push(center);
-                        positionArray.push(bottomRight);
-                        positionArray.push(bottomLeft);
-                        positionArray.push(topRight);
-                        // console.log("Formation1");
-                    }
-                    else if (randomGeneratorForArray >= 26 && randomGeneratorForArray <= 50) {
-                        positionArray.push(topRight);
-                        positionArray.push(center);
-                        positionArray.push(bottomLeft);
-                        // positionArray.push(bottomRight);
-                        positionArray.push(bottomCenter);
-                        // console.log("Formation2");
-                    }
-                    else if (randomGeneratorForArray >= 51 && randomGeneratorForArray <= 75) {
-                        positionArray.push(topRight);
-                        positionArray.push(topLeft);
-                        positionArray.push(bottomRight);
-                        // positionArray.push(centerLeft);
-                        positionArray.push(bottomLeft);
-                        // console.log("Formation3");
-                    }
-                    else if (randomGeneratorForArray >= 76 && randomGeneratorForArray <= 100) {
-                        positionArray.push(centerLeft);
-                        // positionArray.push(bottomCenter);
-                        positionArray.push(centerRight);
-                        positionArray.push(bottomRight);
-                        positionArray.push(topLeft);
-                        // console.log("Formation4");
-                    }
-
-                    // console.log(positionArray);
+                    shuffle(positionArray);
+                    console.log("x" + "y" + x + y + " " + positionArray)
                     //////Sprites//////
-                    for (var i = 0; i < 4; i++) {
+                    for (var i = 0; i < amountOfSpritesInGrid; i++) {
                         this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[i]);
+                        if (gameMode === 0) {
+                            this.coinSpawn(xOfSprite, yOfSprite, rect, positionArray[i + 1])
+                        }
+                        else if (gameMode === 1) {
+                            if (x === iteratorX - 1 && y === iteratorY - 1) {
+                                this.finish = this.game.add.sprite(xOfSprite, yOfSprite, 'flag');
+                                this.game.physics.arcade.enable(this.finish);
+                                this.finish.alignIn(rect, positionArray[i + 1]);
+                                console.log("Flag Initiated");
+                            }
+                        }
                         // console.log("---------------------------------------------------");
                     }
                 }
             }
         }
     },
+    /////////////////////////Randomness of the Map///////////////////////////
     gridSystem: function (x, y, rect, positionInRectangle) {
         //Create Randomness in Each Grid
         var gridSystemGenesis = this.game.rnd.integerInRange(0, 100);
         //Create Random Pattern Within Each Grid
-        // var randomPattern = this.game.rnd.integerInRange(0, 100);
-        //Alpha One Build:
         if (gridSystemGenesis >= 0 && gridSystemGenesis <= 41) {
             this.wallSpawn(x, y, rect, positionInRectangle);
         }
@@ -351,29 +373,7 @@ brawl.rogue.prototype = {
             this.spikeSpawn(x, y, rect, positionInRectangle);
         }
     },
-    ///////////////////////////////Mouse or PointerLock///////////////////////////
-    // pointerHold: function () {
-    //     game.input.pointerLock.request();
-    // },
-    // move: function (pointer, x, y, click) {
-    //     // if (game.input.mouse.locked && !click)
-    //     // {
-    //     //     this.crosshair.x += this.game.input.activePointer.movementX;
-    //     //     this.crosshair.y += this.game.input.activePointer.movementY;
-    //     // }
-    //     // this.crosshair.x += this.game.input.activePointer.movementX;
-    //     // this.crosshair.y += this.game.input.activePointer.movementY;
-    //     if (game.input.mouse.locked && !click) {
-    //         // console.log("locked");
-    //         // console.log(this.game.input.activePointer.movementX+"x");
-    //         // console.log(this.game.input.activePointer.movementY+"y");
-
-    //         this.crosshair.x += this.game.input.activePointer.X;
-    //         this.crosshair.y += this.game.input.activePointer.Y;
-
-
-    //     }
-    // },
+    //////////////////////////////////////Starting Position of Player//////////////////////////////
     baseCamp: function (x, y, rect, positionInRectangle1, positionInRectangle2, positionInRectangle3, positionInRectangle4, positionInRectangle5) {
 
         /////////////////////////////////Starting Point of The Map////////////////////////////////
@@ -394,15 +394,17 @@ brawl.rogue.prototype = {
         // console.log("-----------------------------------");
 
     },
-    // Creating Game Objects
+    //////////////////////////Creating Game Objects/////////////////////////
+    coinSpawn: function (x, y, rect, positionInRectangle) {
+        this.coinX = this.coin.create(x, y, 'coin');
+        this.coinX.anchor.setTo(.7);
+        this.coinX.scale.setTo(.7);
+        this.coinX.alignIn(rect, positionInRectangle);
+    },
     wallSpawn: function (x, y, rect, positionInRectangle) {
-        var wallArray = ['brownPlatform', 'wall', 'rotatedWall'];
         this.wallX = this.wall.create(x, y, wallArray[Math.floor(Math.random() * wallArray.length)]);
         this.wallX.anchor.setTo(.5);
-        // this.wallX.scale.setTo(.5);
-        // var wallLength = [.2, .3, .4];
-        // this.wallX.scale.setTo(wallLength[Math.floor(Math.random() * wallLength.length)]);
-        this.wallX.scale.setTo(.35);
+        this.wallX.scale.setTo(.5);
         this.wallX.body.collideWorldBounds = true;
         this.wallX.body.bounce.setTo(1);
         this.wallX.alignIn(rect, positionInRectangle)
@@ -473,9 +475,9 @@ brawl.rogue.prototype = {
         this.ballX.body.bounce.setTo(1.0);
     },
     spikeSpawn: function (x, y, rect, positionInRectangle) {
-        var spikeArray = ['invertedSpikes', 'spikes'];
-        // var spikeLength = [.2, .3, .4, .5];
-        var spikeLength = [.2, .3,];
+        // var spikeArray = ['invertedSpikes', 'spikes'];
+        // // var spikeLength = [.2, .3, .4, .5];
+        // var spikeLength = [.2, .3,];
         this.spikesX = this.spikes.create(x, y, spikeArray[Math.floor(Math.random() * spikeArray.length)]);
         this.spikesX.anchor.setTo(.5);
         this.spikesX.scale.setTo(spikeLength[Math.floor(Math.random() * spikeLength.length)]);
