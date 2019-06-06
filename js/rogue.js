@@ -289,25 +289,7 @@ brawl.rogue.prototype = {
             this.deathX.scale.setTo(1);
             this.deathX.body.immovable = true;
         }
-        //////////////////Item Positions Within Rectangle///////////////
-        ///Top Positions
-        var topCenter = Phaser.TOP_CENTER;
-        var topLeft = Phaser.TOP_LEFT;
-        var topRight = Phaser.TOP_RIGHT;
-        //Center Positions
-        var center = Phaser.CENTER;
-        var centerLeft = Phaser.LEFT_CENTER;
-        var centerRight = Phaser.RIGHT_CENTER;
-        //Bottom Positions
-        var bottomCenter = Phaser.BOTTOM_CENTER;
-        var bottomLeft = Phaser.BOTTOM_LEFT;
-        var bottomRight = Phaser.BOTTOM_RIGHT;
 
-        //Position Array
-        var positionArray = [topCenter, topLeft, topRight, center, centerLeft, centerRight, bottomCenter, bottomLeft, bottomRight];
-
-        //Block Debugging
-        this.testingArray = [];
         for (var x = 0; x < iteratorX; x++) {
             for (var y = 0; y < iteratorY; y++) {
                 ////////Creation of Rectangle////////////;
@@ -315,8 +297,7 @@ brawl.rogue.prototype = {
                 var xOfSprite = rect.x
                 var yOfSprite = rect.y
 
-                //Testing Purposes of Rectangle
-                this.testingArray.push(rect);
+                //Debugging Purposes
                 this.text = this.game.add.text(rect.x + 100, rect.y + 100, "Rectangle " + x + " x " + y + " y ", { font: "32px Arial", fill: "#ffffff", align: "center" });
                 ////////////Random Array to Scramble Positions//////////
                 // var positionArray = [topCenter, topLeft, topRight, center, centerLeft, centerRight, bottomCenter, bottomLeft, bottomRight];

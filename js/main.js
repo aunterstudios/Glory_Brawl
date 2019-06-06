@@ -7,9 +7,9 @@ game.state.add('rogueTest', brawl.rogue);
 game.state.add('test', brawl.testing);
 game.state.add('controlScreen', brawl.stateControls);
 //////////////////////////////////////////////////Starting States//////////////////////////////////////////////
-game.state.start('mainMenu');
+// game.state.start('mainMenu');
 // game.state.start('controlScreen');
-// game.state.start('test');
+game.state.start('test');
 //////////////////////////////////////////////////Global Variables//////////////////////////////////////////////
 
 //Death Total in Game
@@ -23,6 +23,24 @@ var longestStreak = 0;
 var pullBoolean = false;
 var pushBoolean = false;
 var stopBoolean = false;
+
+/////////////////////////////////Position of Items Within Rectangle///////////////////////
+///Top Positions
+var topCenter = Phaser.TOP_CENTER;
+var topLeft = Phaser.TOP_LEFT;
+var topRight = Phaser.TOP_RIGHT;
+//Center Positions
+var center = Phaser.CENTER;
+var centerLeft = Phaser.LEFT_CENTER;
+var centerRight = Phaser.RIGHT_CENTER;
+//Bottom Positions
+var bottomCenter = Phaser.BOTTOM_CENTER;
+var bottomLeft = Phaser.BOTTOM_LEFT;
+var bottomRight = Phaser.BOTTOM_RIGHT;
+
+////////////////////////////Array to Scramble Positions///////////////////
+var positionArray = [topCenter, topLeft, topRight, center, centerLeft, centerRight, bottomCenter, bottomLeft, bottomRight];
+
 
 //Different Spike Sizes and Keys
 var spikeArray = ['invertedSpikes', 'spikes'];
