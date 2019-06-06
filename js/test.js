@@ -118,9 +118,6 @@ brawl.testing.prototype = {
         //Adding Spikes
         this.spikes = this.game.add.group();
         this.spikes.enableBody = true;
-        //Adding Flag (Win Game)
-        // this.finish = this.game.add.sprite(0, 0, 'win');
-        // this.game.physics.arcade.enable(this.finish);
         //Adding Coins (Win Game)
         this.coin = this.game.add.group();
         this.coin.enableBody = true;
