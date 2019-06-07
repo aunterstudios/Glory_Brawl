@@ -150,27 +150,27 @@ brawl.testing.prototype = {
         var worldName;
         if (this.randomGeneratorForWorld === 0) {
             //Traditional Platformer
-            this.worldCreator(tradtionalPlatformerArray, 1, 1400, 900, 600, 300, 700, 450, 10, 2, 2, randomGeneratorForGameMode);
+            this.worldCreator(tradtionalPlatformerArray, traditionalPlatformerValues, randomGeneratorForGameMode);
             worldName = "Traditional Platformer"
         }
         else if (this.randomGeneratorForWorld === 1) {
             //The Mountain Climb
-            this.worldCreator(tradtionalPlatformerArray, 1, 1400, 900, 600, 300, 700, 450, 10, 2, 2, randomGeneratorForGameMode);
+            this.worldCreator(tradtionalPlatformerArray, traditionalPlatformerValues, randomGeneratorForGameMode);
             worldName = "The Mountain Climb"
         }
         else if (this.randomGeneratorForWorld === 2) {
             //Canvas World
-            this.worldCreator(tradtionalPlatformerArray, 1, 1400, 900, 600, 300, 700, 450, 10, 2, 2, randomGeneratorForGameMode);
+            this.worldCreator(tradtionalPlatformerArray, traditionalPlatformerValues, randomGeneratorForGameMode);
             worldName = "Canvas World"
         }
         else if (this.randomGeneratorForWorld === 3) {
             //The Large World
-            this.worldCreator(tradtionalPlatformerArray, 1, 1400, 900, 600, 300, 700, 450, 10, 2, 2, randomGeneratorForGameMode);
+            this.worldCreator(tradtionalPlatformerArray, traditionalPlatformerValues, randomGeneratorForGameMode);
             worldName = "The Large World"
         }
         else {
             //The Practice World
-            this.worldCreator(tradtionalPlatformerArray, 1, 1400, 900, 600, 300, 700, 450, 10, 2, 2, randomGeneratorForGameMode);
+            this.worldCreator(tradtionalPlatformerArray, traditionalPlatformerValues, randomGeneratorForGameMode);
             worldName = "The Practice World"
         }
 
@@ -214,12 +214,17 @@ brawl.testing.prototype = {
 
     // // },
     //////////////Creation of the World///////////////
-    worldCreator: function (thisWorldArray, deathIterator, deathX, deathY, xBlockSizeF, yBlockSizeF, xRectangleF, yRectangleF, iteratorX, iteratorY, amountOfSpritesInGrid, gameMode) {
-        console.log("amount of Sprites in Grid " + amountOfSpritesInGrid);
-        console.log(gameMode+ " game mode");
+    worldCreator: function (thisWorldArray, thisWorldValues, gameMode) {
+        console.log("amount of Sprites in Grid " + thisWorldValues.amountOfSpritesInGrid);
+        console.log(gameMode + " game mode");
         //////////////////Shuffling Positions of Player and BaseCamp////////////////
         shuffle(thisWorldArray);
         console.log(thisWorldArray);
+
+        ///////////Making Sure the Values Are There////////////
+        console.log(thisWorldValues);
+
+        console.log(thisWorldValues.amountOfSpritesInGrid);
 
         ////////////////////Adding Player//////////////////////
         this.player = this.game.add.sprite(thisWorldArray[0].playerXBaseCamp, thisWorldArray[0].playerYBaseCamp, 'dude');
@@ -285,17 +290,17 @@ brawl.testing.prototype = {
         this.weapon3.trackSprite(this.player, 0, -20);
 
         //Adding Undeniable Death
-        for (var i = 0; i < deathIterator; i++) {
-            this.deathX = this.death.create(i * deathX, deathY, 'spikes');
+        for (var i = 0; i < thisWorldValues.deathIterator; i++) {
+            this.deathX = this.death.create(i * thisWorldValues.deathX, thisWorldValues.deathY, 'spikes');
             this.deathX.scale.setTo(1);
             this.deathX.body.immovable = true;
         }
 
         //Block Debugging
-        for (var x = 0; x < iteratorX; x++) {
-            for (var y = 0; y < iteratorY; y++) {
+        for (var x = 0; x < thisWorldValues.iteratorX; x++) {
+            for (var y = 0; y < thisWorldValues.iteratorY; y++) {
                 ////////Creation of Rectangle////////////;
-                var rect = new Phaser.Rectangle(x * xRectangleF, y * yRectangleF, xBlockSizeF, yBlockSizeF);
+                var rect = new Phaser.Rectangle(x * thisWorldValues.xRectangleF, y * thisWorldValues.yRectangleF, thisWorldValues.xBlockSizeF, thisWorldValues.yBlockSizeF);
                 var xOfSprite = rect.x
                 var yOfSprite = rect.y
 
@@ -310,35 +315,15 @@ brawl.testing.prototype = {
                     shuffle(positionArray);
                     console.log("x" + "y" + x + y + " " + positionArray)
                     //////Sprites//////
-                    for (var i = 0; i < amountOfSpritesInGrid; i++) {
+                    for (var i = 0; i < thisWorldValues.amountOfSpritesInGrid; i++) {
                         this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[i]);
-                        // if (gameMode === 0 ) {
-                        //     if (amountOfSpritesInGrid === 1) {
-                        //         this.coinSpawn(xOfSprite, yOfSprite, rect, positionArray[i + 1])
-                        //         console.log("coin initiated");
-                        //     }
-                        //     else if (i < amountOfSpritesInGrid) {
-
-                        //     }
-                        //     this.coinSpawn(xOfSprite, yOfSprite, rect, positionArray[i + 1])
-                        //     console.log("coin initiated");
-                        // }
-                        // else if (gameMode === 1 && i === amountOfSpritesInGrid - 1) {
-                        //     if (x === thisWorldArray[1].iteratorXBaseCamp  && y === thisWorldArray[1].iteratorYBaseCamp) {
-                        //         this.finish = this.game.add.sprite(xOfSprite, yOfSprite, 'flag');
-                        //         this.game.physics.arcade.enable(this.finish);
-                        //         this.finish.alignIn(rect, positionArray[i + 1]);
-                        //         console.log("Flag Initiated");
-                        //     }
-                        // }
-                        // console.log("---------------------------------------------------");
                     }
-                    if (gameMode === 0 ) {
-                        this.coinSpawn(xOfSprite, yOfSprite, rect, positionArray[amountOfSpritesInGrid])
+                    if (gameMode === 0) {
+                        this.coinSpawn(xOfSprite, yOfSprite, rect, positionArray[thisWorldValues.amountOfSpritesInGrid])
                         console.log("coin initiated");
                     }
                     else if (gameMode === 1) {
-                        if (x === thisWorldArray[1].iteratorXBaseCamp  && y === thisWorldArray[1].iteratorYBaseCamp) {
+                        if (x === thisWorldArray[1].iteratorXBaseCamp && y === thisWorldArray[1].iteratorYBaseCamp) {
                             this.finish = this.game.add.sprite(xOfSprite, yOfSprite, 'flag');
                             this.game.physics.arcade.enable(this.finish);
                             this.finish.alignIn(rect, positionArray[i + 1]);

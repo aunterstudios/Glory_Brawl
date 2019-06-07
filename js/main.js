@@ -24,13 +24,6 @@ var pullBoolean = false;
 var pushBoolean = false;
 var stopBoolean = false;
 
-///////////////////////////////////////World Generation Variablels///////////////////////////////////////
-/*
-(thisWorldArray, deathIterator, deathX, deathY, xBlockSizeF, yBlockSizeF, xRectangleF, yRectangleF, iteratorX, iteratorY, amountOfSpritesInGrid, gameMode)
-*/
-
-
-
 /////////////////////////////////Position of Items Within Rectangle///////////////////////
 ///Top Positions
 var topCenter = Phaser.TOP_CENTER;
@@ -64,6 +57,23 @@ var tradtionalPlatformerArray = [
     iteratorYBaseCamp: 1,
   }
 ]
+
+///////////////////////////////////////World Generation Variables of Each Map///////////////////////////////////////
+
+
+var traditionalPlatformerValues = {
+  xBlockSizeF: 600, //Size of Each Block
+  xRectangleF: 700, //Size of Rectangle (different than size of block to provide spacing)
+  yBlockSizeF: 300, 
+  yRectangleF: 450,
+  deathIterator: 1, //How Many Times the Spikes at the Bottom Will Loop
+  deathX: 1400, //Where the Spikes are Located
+  deathY: 900,
+  iteratorX: 10, //How Many Blocks 
+  iteratorY: 2,
+  amountOfSpritesInGrid: 2 //Amount of Sprites in Each Grid
+};
+
 
 //////////////////////////Variables that Hold Different Sizes and Animations of Sprite Groups//////////////////////
 //Different Spike Sizes and Keys
