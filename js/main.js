@@ -45,9 +45,9 @@ var positionArray = [topCenter, topLeft, topRight, center, centerLeft, centerRig
 //For the Tradtional Platformer World
 var tradtionalPlatformerArray = [
   {
-    playerXBaseCamp: 200,
+    playerXBaseCamp: 200, //Where Player Spawns
     playerYBaseCamp: 700,
-    iteratorXBaseCamp: 0, //Rectanges
+    iteratorXBaseCamp: 0, //Rectangle Where the Basecamp is held (x or Y)
     iteratorYBaseCamp: 0,
   },
   {
@@ -60,19 +60,29 @@ var tradtionalPlatformerArray = [
 
 ///////////////////////////////////////World Generation Variables of Each Map///////////////////////////////////////
 
+class worldValues {
+  constructor(xBlockSizeF, xRectangleF, yBlockSizeF, yRectangleF, deathIterator, deathX, deathY, iteratorX, iteratorY, amountOfSpritesInGrid) {
+    this.xBlockSizeF = xBlockSizeF; //Size of Each Block
+    this.xRectangleF = xRectangleF; //Size of Rectangle (different than size of block to provide spacing)
+    this.yBlockSizeF = yBlockSizeF;
+    this.yRectangleF = yRectangleF;
+    this.deathIterator = deathIterator; //How Many Times the Spikes at the Bottom Will Loop
+    this.deathX = deathX; //Where the Spikes are Located
+    this.deathY = deathY;
+    this.iteratorX = iteratorX; //How Many Blocks 
+    this.iteratorY = iteratorY;
+    this.amountOfSpritesInGrid = amountOfSpritesInGrid; //Amount of Sprites in Each Grid
+  }
+}
 
-var traditionalPlatformerValues = {
-  xBlockSizeF: 600, //Size of Each Block
-  xRectangleF: 700, //Size of Rectangle (different than size of block to provide spacing)
-  yBlockSizeF: 300, 
-  yRectangleF: 450,
-  deathIterator: 1, //How Many Times the Spikes at the Bottom Will Loop
-  deathX: 1400, //Where the Spikes are Located
-  deathY: 900,
-  iteratorX: 10, //How Many Blocks 
-  iteratorY: 2,
-  amountOfSpritesInGrid: 2 //Amount of Sprites in Each Grid
-};
+///////blocksizeX,rectangleX, blocksizeY, rectangleY, deathI, deathX, deathY, Ix,Iy, Amount of Sprites
+//For Tradtional Platformer
+var traditionalPlatformerValues = new worldValues(600, 700, 300, 450, 5, 1400, 800, 10, 2, 2);
+//For the Mountain Climb
+var mountainClimbValues = new worldValues(350, 465, 600, 700, 1, 1400, 7000, 3, 10, 2);
+//For the Canvas World
+var canvasWorldValues = new worldValues(200, 280, 350, 400, 1, 1400, 800, 5, 2, 2);
+
 
 
 //////////////////////////Variables that Hold Different Sizes and Animations of Sprite Groups//////////////////////

@@ -155,12 +155,12 @@ brawl.testing.prototype = {
         }
         else if (this.randomGeneratorForWorld === 1) {
             //The Mountain Climb
-            this.worldCreator(tradtionalPlatformerArray, traditionalPlatformerValues, randomGeneratorForGameMode);
+            this.worldCreator(tradtionalPlatformerArray, mountainClimbValues, randomGeneratorForGameMode);
             worldName = "The Mountain Climb"
         }
         else if (this.randomGeneratorForWorld === 2) {
             //Canvas World
-            this.worldCreator(tradtionalPlatformerArray, traditionalPlatformerValues, randomGeneratorForGameMode);
+            this.worldCreator(tradtionalPlatformerArray, canvasWorldValues, randomGeneratorForGameMode);
             worldName = "Canvas World"
         }
         else if (this.randomGeneratorForWorld === 3) {
@@ -223,7 +223,6 @@ brawl.testing.prototype = {
 
         ///////////Making Sure the Values Are There////////////
         console.log(thisWorldValues);
-
         console.log(thisWorldValues.amountOfSpritesInGrid);
 
         ////////////////////Adding Player//////////////////////
