@@ -24,6 +24,13 @@ var pullBoolean = false;
 var pushBoolean = false;
 var stopBoolean = false;
 
+///////////////////////////////////////World Generation Variablels///////////////////////////////////////
+/*
+(thisWorldArray, deathIterator, deathX, deathY, xBlockSizeF, yBlockSizeF, xRectangleF, yRectangleF, iteratorX, iteratorY, amountOfSpritesInGrid, gameMode)
+*/
+
+
+
 /////////////////////////////////Position of Items Within Rectangle///////////////////////
 ///Top Positions
 var topCenter = Phaser.TOP_CENTER;
@@ -41,7 +48,24 @@ var bottomRight = Phaser.BOTTOM_RIGHT;
 ////////////////////////////Array to Scramble Positions///////////////////
 var positionArray = [topCenter, topLeft, topRight, center, centerLeft, centerRight, bottomCenter, bottomLeft, bottomRight];
 
+////////////////////////////Array to Scramble Positions///////////////////
+//For the Tradtional Platformer World
+var tradtionalPlatformerArray = [
+  {
+    playerXBaseCamp: 200,
+    playerYBaseCamp: 700,
+    iteratorXBaseCamp: 0, //Rectanges
+    iteratorYBaseCamp: 0,
+  },
+  {
+    playerXBaseCamp: 6800,
+    playerYBaseCamp: 700,
+    iteratorXBaseCamp: 9, //Rectanges (Subject to Change Base on Size of Rectangles)
+    iteratorYBaseCamp: 1,
+  }
+]
 
+//////////////////////////Variables that Hold Different Sizes and Animations of Sprite Groups//////////////////////
 //Different Spike Sizes and Keys
 var spikeArray = ['invertedSpikes', 'spikes'];
 var spikeLength = [.2, .3,];
@@ -49,8 +73,6 @@ var spikeLength = [.2, .3,];
 //Different Wall Types
 var wallArray = ['brownPlatform', 'wall', 'rotatedWall'];
 
-// //Crosshair
-// var crosshair;
 /////////////////////////////////////////////////Array Shuffler///////////////////////////////////////
 function shuffle(array) {
   for (var i = array.length - 1; i > 0; i--) {
@@ -144,7 +166,7 @@ function deathTwo(victim, killer) {
 function deathThree(killer, victim) {
   victim.kill();
 }
-///////////////////////////////////////////Function Mechanics////////////////////////////////////////////
+///////////////////////////////////////////Physics Within Game Mechanics////////////////////////////////////////////
 
 ////////////////////////////////////////Wall Mechanics//////////////////////////////////////////
 function playerWall(player, wall) {
