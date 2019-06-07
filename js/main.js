@@ -58,12 +58,16 @@ var tradtionalPlatformerArray = [traditionalPlatformerPositionOne, traditionalPl
 ];
 
 //For the MountainClimb
-var mountainClimbPositionOne = new baseCampCreator(700, 0, 0, 0);
-var mountainClimbPositionTwo = new baseCampCreator(700, 6800, 9, 2);
+var mountainClimbPositionOne = new baseCampCreator(700, 0, 1, 0);
+var mountainClimbPositionTwo = new baseCampCreator(700, 6800, 1, 8);
 var mountainClimbArray = [mountainClimbPositionOne, mountainClimbPositionTwo];
 
 //For the Canvas World
 var canvasWorldPositionOne = new baseCampCreator(0,0,0,0);
+var canvasWorldPositionTwo = new baseCampCreator(0, 1800, 0, 1);
+var canvasWorldPositionThree = new baseCampCreator(1800, 0, 1, 0);
+var canvasWorldPositionFour = new baseCampCreator(1800, 1800, 0, 0);
+var canvasWorldArray = [canvasWorldPositionOne, canvasWorldPositionTwo, canvasWorldPositionThree, canvasWorldPositionFour];
 
 //For the LargeWorld
 var largeWorldPositionOne = new baseCampCreator(0, 0, 0, 0);
@@ -74,9 +78,9 @@ var largeWorldArray = [largeWorldPositionOne, largeWorldPositionTwo, largeWorldP
 
 //For the Practice World
 var practiceWorldPositionOne = new baseCampCreator(0, 0, 0, 0);
-var practiceWorldPositionTwo = new baseCampCreator(0, 3800, 0, 5);
-var practiceWorldPositionThree = new baseCampCreator(3800, 0, 5, 0);
-var practiceWorldPositionFour = new baseCampCreator(3800, 3800, 0, 0);
+var practiceWorldPositionTwo = new baseCampCreator(0, 1800, 0, 4);
+var practiceWorldPositionThree = new baseCampCreator(1800, 0, 4, 0);
+var practiceWorldPositionFour = new baseCampCreator(1800, 1800, 0, 0);
 var practiceWorldArray = [practiceWorldPositionOne, practiceWorldPositionTwo, practiceWorldPositionThree, practiceWorldPositionFour];
 
 ///////////////////////////////////////World Generation Variables of Each Map///////////////////////////////////////
@@ -106,7 +110,7 @@ var canvasWorldValues = new worldValues(200, 280, 350, 400, 1, 1400, 750, 5, 2, 
 //For the Large World
 var largeWorldValues = new worldValues(600, 700, 600, 700, 3, 1400, 4000, 6, 6, 3);
 //For the Practice World
-var practiceWorldValues = new worldValues(600, 700, 600, 700, 3, 1400, 1900, 6, 6, 3);
+var practiceWorldValues = new worldValues(400, 500, 400, 500, 3, 1400, 1900, 4, 4, 3);
 
 //////////////////////World Randomness Generator(The Conclusion)//////////////////
 
@@ -128,7 +132,7 @@ var worldGenerator = [
   {
     xOfWorld: 1400,
     yOfWorld: 800,
-    baseCamp: tradtionalPlatformerArray,
+    baseCamp: canvasWorldArray,
     world: canvasWorldValues,
     worldName: "The Canvas World"
   },
@@ -142,7 +146,7 @@ var worldGenerator = [
   {
     xOfWorld: 2000,
     yOfWorld: 2000,
-    baseCamp: tradtionalPlatformerArray,
+    baseCamp: practiceWorldArray,
     world: practiceWorldValues,
     worldName: "The Practice World"
   },
