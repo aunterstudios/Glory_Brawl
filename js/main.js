@@ -81,6 +81,50 @@ var traditionalPlatformerValues = new worldValues(600, 700, 300, 450, 5, 1400, 8
 var mountainClimbValues = new worldValues(350, 465, 600, 700, 1, 1400, 7000, 3, 10, 2);
 //For the Canvas World
 var canvasWorldValues = new worldValues(200, 280, 350, 400, 1, 1400, 800, 5, 2, 2);
+//For the Large World
+var largeWorldValues = new worldValues(600, 700, 600, 700, 3, 1400, 400, 6, 6, 3);
+//For the Practice World
+var practiceWorldValues = new worldValues(600, 700, 600, 700, 3, 1400, 400, 6, 6, 3);
+
+//////////////////////World Randomness Generator(The Conclusion)//////////////////
+
+var worldGenerator = [
+  {
+    xOfWorld: 7000,
+    yOfWorld: 800,
+    baseCamp: tradtionalPlatformerArray,
+    world: traditionalPlatformerValues,
+    worldName: "Traditional Platformer"
+  },
+  {
+    xOfWorld: 1400,
+    yOfWorld: 6300,
+    baseCamp: tradtionalPlatformerArray,
+    world: mountainClimbValues,
+    worldName: "The Mountain Climb"
+  },
+  {
+    xOfWorld: 1400,
+    yOfWorld: 800,
+    baseCamp: tradtionalPlatformerArray,
+    world: canvasWorldValues,
+    worldName: "The Canvas World"
+  },
+  {
+    xOfWorld: 4000,
+    yOfWorld: 4000,
+    baseCamp: tradtionalPlatformerArray,
+    world: largeWorldValues,
+    worldName: "The Large World"
+  },
+  {
+    xOfWorld: 2000,
+    yOfWorld: 2000,
+    baseCamp: tradtionalPlatformerArray,
+    world: practiceWorldValues,
+    worldName: "The Practice World"
+  },
+]
 
 
 

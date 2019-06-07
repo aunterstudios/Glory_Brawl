@@ -53,36 +53,11 @@ brawl.testing.prototype = {
         //Overlap Bias to Prevent Sprite Tunneling
         this.game.physics.arcade.OVERLAP_BIAS = 12;
 
+        //Initializes all the Randomness
+        var randomGeneratorForWorld = this.game.rnd.integerInRange(0, 4);
+
         ////////////////////Game World Size//////////////////////
-        /*
-        wallArray[Math.floor(Math.random() * wallArray.length)]
-        */
-        this.randomGeneratorForWorld = this.game.rnd.integerInRange(0, 4);
-        if (this.randomGeneratorForWorld === 0) {
-            //Traditional Platformer
-            this.game.world.setBounds(0, 0, 7000, 800);
-            console.log("Traditional Platformer");
-        }
-        else if (this.randomGeneratorForWorld === 1) {
-            //Mountain Climb
-            this.game.world.setBounds(0, 0, 1400, 6300);
-            console.log("The Mountain Climb");
-        }
-        else if (this.randomGeneratorForWorld === 2) {
-            //Canvas World
-            this.game.world.setBounds(0, 0, 1400, 800);
-            console.log("Canvas World");
-        }
-        else if (this.randomGeneratorForWorld === 3) {
-            //The Large World
-            this.game.world.setBounds(0, 0, 4000, 4000);
-            console.log("THe Large World");
-        }
-        else if (this.randomGeneratorForWorld === 4) {
-            //Practice World
-            this.game.world.setBounds(0, 0, 2000, 2000);
-            console.log("Practice World");
-        }
+        this.game.world.setBounds(0, 0, worldGenerator[randomGeneratorForWorld].xOfWorld, worldGenerator[randomGeneratorForWorld].yOfWorld);
 
         ////////////Generator for Game Mode//////////////
         var randomGeneratorForGameMode = this.game.rnd.integerInRange(0, 1);
@@ -125,6 +100,7 @@ brawl.testing.prototype = {
         this.death = this.game.add.group();
         this.death.enableBody = true;
 
+        ////////////////////////////////Key Control Movements/////////////////////////
         //Player Movement (WASD);
         this.movementUp = this.game.input.keyboard.addKey(Phaser.Keyboard.W);
         this.movementDown = this.game.input.keyboard.addKey(Phaser.Keyboard.S);
@@ -146,34 +122,12 @@ brawl.testing.prototype = {
         this.shiftFire = this.game.input.keyboard.addKey(Phaser.Keyboard.SHIFT);
 
         /////////////////////////World Creation Initialization Grid///////////////////////
-        //Reference Point worldCreator: function (thisWorldArray, deathIterator, deathX, deathY, xBlockSizeF, yBlockSizeF, xRectangleF, yRectangleF, iteratorX, iteratorY, amountOfSpritesInGrid, gameMode)
         var worldName;
-        if (this.randomGeneratorForWorld === 0) {
-            //Traditional Platformer
-            this.worldCreator(tradtionalPlatformerArray, traditionalPlatformerValues, randomGeneratorForGameMode);
-            worldName = "Traditional Platformer"
-        }
-        else if (this.randomGeneratorForWorld === 1) {
-            //The Mountain Climb
-            this.worldCreator(tradtionalPlatformerArray, mountainClimbValues, randomGeneratorForGameMode);
-            worldName = "The Mountain Climb"
-        }
-        else if (this.randomGeneratorForWorld === 2) {
-            //Canvas World
-            this.worldCreator(tradtionalPlatformerArray, canvasWorldValues, randomGeneratorForGameMode);
-            worldName = "Canvas World"
-        }
-        else if (this.randomGeneratorForWorld === 3) {
-            //The Large World
-            this.worldCreator(tradtionalPlatformerArray, traditionalPlatformerValues, randomGeneratorForGameMode);
-            worldName = "The Large World"
-        }
-        else {
-            //The Practice World
-            this.worldCreator(tradtionalPlatformerArray, traditionalPlatformerValues, randomGeneratorForGameMode);
-            worldName = "The Practice World"
-        }
+        this.worldCreator(worldGenerator[randomGeneratorForWorld].baseCamp, worldGenerator[randomGeneratorForWorld].world, randomGeneratorForGameMode);
 
+        worldName = worldGenerator[randomGeneratorForWorld].worldName
+
+        ////////////////////////////////////////////Camera///////////////////////////////////////////////////////////
         // this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_PLATFORMER);
         this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_LOCKON);
 
