@@ -60,7 +60,24 @@ var tradtionalPlatformerArray = [traditionalPlatformerPositionOne, traditionalPl
 //For the MountainClimb
 var mountainClimbPositionOne = new baseCampCreator(700, 0, 0, 0);
 var mountainClimbPositionTwo = new baseCampCreator(700, 6800, 9, 2);
-var mountainClimbArray = [mountainClimbPositionOne,mountainClimbPositionTwo];
+var mountainClimbArray = [mountainClimbPositionOne, mountainClimbPositionTwo];
+
+//For the Canvas World
+var canvasWorldPositionOne = new baseCampCreator(0,0,0,0);
+
+//For the LargeWorld
+var largeWorldPositionOne = new baseCampCreator(0, 0, 0, 0);
+var largeWorldPositionTwo = new baseCampCreator(0, 3800, 0, 5);
+var largeWorldPositionThree = new baseCampCreator(3800, 0, 5, 0);
+var largeWorldPositionFour = new baseCampCreator(3800, 3800, 0, 0);
+var largeWorldArray = [largeWorldPositionOne, largeWorldPositionTwo, largeWorldPositionThree, largeWorldPositionFour];
+
+//For the Practice World
+var practiceWorldPositionOne = new baseCampCreator(0, 0, 0, 0);
+var practiceWorldPositionTwo = new baseCampCreator(0, 3800, 0, 5);
+var practiceWorldPositionThree = new baseCampCreator(3800, 0, 5, 0);
+var practiceWorldPositionFour = new baseCampCreator(3800, 3800, 0, 0);
+var practiceWorldArray = [practiceWorldPositionOne, practiceWorldPositionTwo, practiceWorldPositionThree, practiceWorldPositionFour];
 
 ///////////////////////////////////////World Generation Variables of Each Map///////////////////////////////////////
 
@@ -118,7 +135,7 @@ var worldGenerator = [
   {
     xOfWorld: 4000,
     yOfWorld: 4000,
-    baseCamp: tradtionalPlatformerArray,
+    baseCamp: largeWorldArray,
     world: largeWorldValues,
     worldName: "The Large World"
   },
