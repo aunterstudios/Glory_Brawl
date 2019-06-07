@@ -39,24 +39,23 @@ var bottomLeft = Phaser.BOTTOM_LEFT;
 var bottomRight = Phaser.BOTTOM_RIGHT;
 
 ////////////////////////////Array to Scramble Positions///////////////////
+//Variables that Hold the Different Positions
 var positionArray = [topCenter, topLeft, topRight, center, centerLeft, centerRight, bottomCenter, bottomLeft, bottomRight];
 
 ////////////////////////////Array to Scramble Positions///////////////////
-//For the Tradtional Platformer World
-var tradtionalPlatformerArray = [
-  {
-    playerXBaseCamp: 200, //Where Player Spawns
-    playerYBaseCamp: 700,
-    iteratorXBaseCamp: 0, //Rectangle Where the Basecamp is held (x or Y)
-    iteratorYBaseCamp: 0,
-  },
-  {
-    playerXBaseCamp: 6800,
-    playerYBaseCamp: 700,
-    iteratorXBaseCamp: 9, //Rectanges (Subject to Change Base on Size of Rectangles)
-    iteratorYBaseCamp: 1,
+class baseCampCreator {
+  constructor(playerXBaseCamp, playerYBaseCamp, iteratorXBaseCamp, iteratorYBaseCamp) {
+    this.playerXBaseCamp = playerXBaseCamp;
+    this.playerYBaseCamp = playerYBaseCamp;
+    this.iteratorXBaseCamp = iteratorXBaseCamp;
+    this.iteratorYBaseCamp = iteratorYBaseCamp;
   }
-]
+}
+//For the Tradtional Platformer World
+var traditionalPlatformerPositionOne = new baseCampCreator(200, 700, 0, 0);
+var traditionalPlatformerPositionTwo = new baseCampCreator(6800, 700, 9, 1);
+var tradtionalPlatformerArray = [traditionalPlatformerPositionOne, traditionalPlatformerPositionTwo
+];
 
 ///////////////////////////////////////World Generation Variables of Each Map///////////////////////////////////////
 
