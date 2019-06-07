@@ -104,11 +104,11 @@ class worldValues {
 //For Tradtional Platformer
 var traditionalPlatformerValues = new worldValues(600, 700, 300, 450, 5, 1400, 700, 10, 2, 2);
 //For the Mountain Climb
-var mountainClimbValues = new worldValues(350, 465, 600, 700, 1, 1400, 6200, 3, 8, 2);
+var mountainClimbValues = new worldValues(350, 465, 600, 700, 1, 1400, 6200, 3, 9, 2);
 //For the Canvas World
 var canvasWorldValues = new worldValues(200, 280, 350, 400, 1, 1400, 700, 5, 2, 2);
 //For the Large World
-var largeWorldValues = new worldValues(600, 700, 600, 700, 3, 1400, 3900, 6, 6, 3);
+var largeWorldValues = new worldValues(500, 600, 600, 700, 3, 1400, 3900, 7, 6, 3);
 //For the Practice World
 var practiceWorldValues = new worldValues(400, 500, 400, 500, 3, 1400, 1900, 4, 4, 3);
 
@@ -161,6 +161,7 @@ var spikeLength = [.2, .3,];
 
 //Different Wall Types
 var wallArray = ['brownPlatform', 'wall', 'rotatedWall'];
+var wallLength = [.2,.3,.4,.5]
 
 /////////////////////////////////////////////////Array Shuffler///////////////////////////////////////
 function shuffle(array) {

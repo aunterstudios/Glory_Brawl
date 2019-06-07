@@ -342,7 +342,8 @@ brawl.testing.prototype = {
     wallSpawn: function (x, y, rect, positionInRectangle) {
         this.wallX = this.wall.create(x, y, wallArray[Math.floor(Math.random() * wallArray.length)]);
         this.wallX.anchor.setTo(.5);
-        this.wallX.scale.setTo(.5);
+        // this.wallX.scale.setTo(.5);
+        this.wallX.scale.setTo(wallLength[Math.floor(Math.random() * wallLength.length)]);
         this.wallX.body.collideWorldBounds = true;
         this.wallX.body.bounce.setTo(1);
         this.wallX.alignIn(rect, positionInRectangle)
