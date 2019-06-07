@@ -42,7 +42,7 @@ var bottomRight = Phaser.BOTTOM_RIGHT;
 //Variables that Hold the Different Positions
 var positionArray = [topCenter, topLeft, topRight, center, centerLeft, centerRight, bottomCenter, bottomLeft, bottomRight];
 
-////////////////////////////Array to Scramble Positions///////////////////
+////////////////////////////Creation of Starting Point///////////////////
 class baseCampCreator {
   constructor(playerXBaseCamp, playerYBaseCamp, iteratorXBaseCamp, iteratorYBaseCamp) {
     this.playerXBaseCamp = playerXBaseCamp;
@@ -56,6 +56,11 @@ var traditionalPlatformerPositionOne = new baseCampCreator(200, 700, 0, 0);
 var traditionalPlatformerPositionTwo = new baseCampCreator(6800, 700, 9, 1);
 var tradtionalPlatformerArray = [traditionalPlatformerPositionOne, traditionalPlatformerPositionTwo
 ];
+
+//For the MountainClimb
+var mountainClimbPositionOne = new baseCampCreator(700, 0, 0, 0);
+var mountainClimbPositionTwo = new baseCampCreator(700, 6800, 9, 2);
+var mountainClimbArray = [mountainClimbPositionOne,mountainClimbPositionTwo];
 
 ///////////////////////////////////////World Generation Variables of Each Map///////////////////////////////////////
 
@@ -80,11 +85,11 @@ var traditionalPlatformerValues = new worldValues(600, 700, 300, 450, 5, 1400, 8
 //For the Mountain Climb
 var mountainClimbValues = new worldValues(350, 465, 600, 700, 1, 1400, 7000, 3, 10, 2);
 //For the Canvas World
-var canvasWorldValues = new worldValues(200, 280, 350, 400, 1, 1400, 800, 5, 2, 2);
+var canvasWorldValues = new worldValues(200, 280, 350, 400, 1, 1400, 750, 5, 2, 2);
 //For the Large World
-var largeWorldValues = new worldValues(600, 700, 600, 700, 3, 1400, 400, 6, 6, 3);
+var largeWorldValues = new worldValues(600, 700, 600, 700, 3, 1400, 4000, 6, 6, 3);
 //For the Practice World
-var practiceWorldValues = new worldValues(600, 700, 600, 700, 3, 1400, 400, 6, 6, 3);
+var practiceWorldValues = new worldValues(600, 700, 600, 700, 3, 1400, 1900, 6, 6, 3);
 
 //////////////////////World Randomness Generator(The Conclusion)//////////////////
 
@@ -92,14 +97,14 @@ var worldGenerator = [
   {
     xOfWorld: 7000,
     yOfWorld: 800,
-    baseCamp: tradtionalPlatformerArray,
-    world: traditionalPlatformerValues,
+    baseCamp: tradtionalPlatformerArray, //Array
+    world: traditionalPlatformerValues, //Object
     worldName: "Traditional Platformer"
   },
   {
     xOfWorld: 1400,
     yOfWorld: 6300,
-    baseCamp: tradtionalPlatformerArray,
+    baseCamp: mountainClimbArray,
     world: mountainClimbValues,
     worldName: "The Mountain Climb"
   },
