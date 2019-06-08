@@ -71,15 +71,15 @@ var canvasWorldArray = [canvasWorldPositionOne, canvasWorldPositionTwo, canvasWo
 
 //For the LargeWorld
 var largeWorldPositionOne = new baseCampCreator(0, 0, 0, 0);
-var largeWorldPositionTwo = new baseCampCreator(0, 3800, 0, 5);
-var largeWorldPositionThree = new baseCampCreator(3800, 0, 5, 0);
+var largeWorldPositionTwo = new baseCampCreator(0, 3800, 0, 6);
+var largeWorldPositionThree = new baseCampCreator(3800, 0, 6, 0);
 var largeWorldPositionFour = new baseCampCreator(3800, 3800, 0, 0);
 var largeWorldArray = [largeWorldPositionOne, largeWorldPositionTwo, largeWorldPositionThree, largeWorldPositionFour];
 
 //For the Practice World
 var practiceWorldPositionOne = new baseCampCreator(0, 0, 0, 0);
-var practiceWorldPositionTwo = new baseCampCreator(0, 1800, 0, 4);
-var practiceWorldPositionThree = new baseCampCreator(1800, 0, 4, 0);
+var practiceWorldPositionTwo = new baseCampCreator(0, 1800, 0, 3);
+var practiceWorldPositionThree = new baseCampCreator(1800, 0, 3, 0);
 var practiceWorldPositionFour = new baseCampCreator(1800, 1800, 0, 0);
 var practiceWorldArray = [practiceWorldPositionOne, practiceWorldPositionTwo, practiceWorldPositionThree, practiceWorldPositionFour];
 
@@ -104,7 +104,7 @@ class worldValues {
 //For Tradtional Platformer
 var traditionalPlatformerValues = new worldValues(600, 700, 300, 400, 5, 1400, 700, 10, 2, 2);
 //For the Mountain Climb
-var mountainClimbValues = new worldValues(350, 465, 600, 700, 1, 1400, 6200, 3, 9, 2);
+var mountainClimbValues = new worldValues(350, 465, 400, 500, 1, 1400, 6200, 3, 12, 2);
 //For the Canvas World
 var canvasWorldValues = new worldValues(200, 280, 350, 400, 1, 1400, 700, 5, 2, 2);
 //For the Large World
