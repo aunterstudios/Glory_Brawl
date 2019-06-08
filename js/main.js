@@ -52,35 +52,35 @@ class baseCampCreator {
   }
 }
 //For the Tradtional Platformer World
-var traditionalPlatformerPositionOne = new baseCampCreator(200, 600, 0, 0);
-var traditionalPlatformerPositionTwo = new baseCampCreator(6800, 600, 9, 1);
+var traditionalPlatformerPositionOne = new baseCampCreator(350, 600, 0, 1);
+var traditionalPlatformerPositionTwo = new baseCampCreator(6650, 600, 9, 1);
 var tradtionalPlatformerArray = [traditionalPlatformerPositionOne, traditionalPlatformerPositionTwo
 ];
 
 //For the MountainClimb
-var mountainClimbPositionOne = new baseCampCreator(700, 0, 1, 0);
-var mountainClimbPositionTwo = new baseCampCreator(700, 6800, 1, 8);
+var mountainClimbPositionOne = new baseCampCreator(700, 500, 1, 0);
+var mountainClimbPositionTwo = new baseCampCreator(700, 6800, 1, 11);
 var mountainClimbArray = [mountainClimbPositionOne, mountainClimbPositionTwo];
 
 //For the Canvas World
-var canvasWorldPositionOne = new baseCampCreator(0,0,0,0);
-var canvasWorldPositionTwo = new baseCampCreator(0, 1800, 0, 1);
-var canvasWorldPositionThree = new baseCampCreator(1800, 0, 1, 0);
-var canvasWorldPositionFour = new baseCampCreator(1800, 1800, 0, 0);
+var canvasWorldPositionOne = new baseCampCreator(200,0,0,0);
+var canvasWorldPositionTwo = new baseCampCreator(200, 1800, 0, 1);
+var canvasWorldPositionThree = new baseCampCreator(1200, 0, 1, 0);
+var canvasWorldPositionFour = new baseCampCreator(1200, 600, 1, 1);
 var canvasWorldArray = [canvasWorldPositionOne, canvasWorldPositionTwo, canvasWorldPositionThree, canvasWorldPositionFour];
 
 //For the LargeWorld
-var largeWorldPositionOne = new baseCampCreator(0, 0, 0, 0);
-var largeWorldPositionTwo = new baseCampCreator(0, 3800, 0, 6);
-var largeWorldPositionThree = new baseCampCreator(3800, 0, 6, 0);
-var largeWorldPositionFour = new baseCampCreator(3800, 3800, 0, 0);
+var largeWorldPositionOne = new baseCampCreator(300, 520, 0, 0);
+var largeWorldPositionTwo = new baseCampCreator(300, 3800, 0, 5);
+var largeWorldPositionThree = new baseCampCreator(3700, 520, 6, 0);
+var largeWorldPositionFour = new baseCampCreator(3700, 3800, 6, 5);
 var largeWorldArray = [largeWorldPositionOne, largeWorldPositionTwo, largeWorldPositionThree, largeWorldPositionFour];
 
 //For the Practice World
-var practiceWorldPositionOne = new baseCampCreator(0, 0, 0, 0);
-var practiceWorldPositionTwo = new baseCampCreator(0, 1800, 0, 3);
-var practiceWorldPositionThree = new baseCampCreator(1800, 0, 3, 0);
-var practiceWorldPositionFour = new baseCampCreator(1800, 1800, 0, 0);
+var practiceWorldPositionOne = new baseCampCreator(200, 400, 0, 0);
+var practiceWorldPositionTwo = new baseCampCreator(200, 1600, 0, 3);
+var practiceWorldPositionThree = new baseCampCreator(1600, 400, 3, 0);
+var practiceWorldPositionFour = new baseCampCreator(1600, 1600, 3, 3);
 var practiceWorldArray = [practiceWorldPositionOne, practiceWorldPositionTwo, practiceWorldPositionThree, practiceWorldPositionFour];
 
 ///////////////////////////////////////World Generation Variables of Each Map///////////////////////////////////////
@@ -102,13 +102,13 @@ class worldValues {
 
 ///////blocksizeX,rectangleX, blocksizeY, rectangleY, deathI, deathX, deathY, Ix,Iy, Amount of Sprites
 //For Tradtional Platformer
-var traditionalPlatformerValues = new worldValues(600, 700, 300, 400, 5, 1400, 700, 10, 2, 2);
+var traditionalPlatformerValues = new worldValues(600, 700, 300, 375, 5, 1400, 700, 10, 2, 2);
 //For the Mountain Climb
-var mountainClimbValues = new worldValues(350, 465, 400, 500, 1, 1400, 6200, 3, 12, 2);
+var mountainClimbValues = new worldValues(350, 465, 500, 600, 1, 1400, 6200, 3, 12, 2);
 //For the Canvas World
 var canvasWorldValues = new worldValues(200, 280, 350, 400, 1, 1400, 700, 5, 2, 2);
 //For the Large World
-var largeWorldValues = new worldValues(500, 600, 600, 700, 3, 1400, 3900, 7, 6, 3);
+var largeWorldValues = new worldValues(550, 570, 600, 660, 3, 1400, 3900, 7, 6, 3);
 //For the Practice World
 var practiceWorldValues = new worldValues(400, 500, 400, 500, 3, 1400, 1900, 4, 4, 3);
 
@@ -161,7 +161,7 @@ var spikeLength = [.2, .3,];
 
 //Different Wall Types
 var wallArray = ['brownPlatform', 'wall', 'rotatedWall'];
-var wallLength = [.2,.3,.4,.5]
+var wallLength = [.4,.5,.6];
 
 /////////////////////////////////////////////////Array Shuffler///////////////////////////////////////
 function shuffle(array) {

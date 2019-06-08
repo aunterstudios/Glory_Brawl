@@ -54,7 +54,7 @@ brawl.testing.prototype = {
         this.game.physics.arcade.OVERLAP_BIAS = 12;
 
         //Initializes all the Randomness
-        var randomGeneratorForWorld = this.game.rnd.integerInRange(0, 4);
+        var randomGeneratorForWorld = this.game.rnd.integerInRange(1, 1);
 
         ////////////////////Game World Size//////////////////////
         this.game.world.setBounds(0, 0, worldGenerator[randomGeneratorForWorld].xOfWorld, worldGenerator[randomGeneratorForWorld].yOfWorld);
@@ -253,13 +253,15 @@ brawl.testing.prototype = {
                 var rect = new Phaser.Rectangle(x * thisWorldGenerator.world.xRectangleF, y * thisWorldGenerator.world.yRectangleF, thisWorldGenerator.world.xBlockSizeF, thisWorldGenerator.world.yBlockSizeF);
                 var xOfSprite = rect.x
                 var yOfSprite = rect.y
+                rect.offset(20,20);
 
                 //Debugging Purposes
                 this.text = this.game.add.text(rect.x + 100, rect.y + 100, "Rectangle " + x + " x " + y + " y ", { font: "32px Arial", fill: "#ffffff", align: "center" });
-                ////////////Random Array to Scramble Positions//////////
+
+                ////////////Random Array to Scramble Positions Within Rectangle//////////
                 // var positionArray = [topCenter, topLeft, topRight, center, centerLeft, centerRight, bottomCenter, bottomLeft, bottomRight];
                 if (x === thisWorldGenerator.baseCamp[0].iteratorXBaseCamp && y === thisWorldGenerator.baseCamp[0].iteratorYBaseCamp) {
-                    this.baseCamp(xOfSprite, yOfSprite, rect, bottomCenter, bottomLeft, bottomRight, centerLeft, centerRight);
+                    this.baseCamp(xOfSprite, yOfSprite, rect, bottomCenter, bottomLeft, bottomRight, centerLeft, centerRight,topLeft,topRight);
                 }
                 else {
                     shuffle(positionArray);
@@ -312,7 +314,7 @@ brawl.testing.prototype = {
         }
     },
     //////////////////////////////////////Starting Position of Player//////////////////////////////
-    baseCamp: function (x, y, rect, positionInRectangle1, positionInRectangle2, positionInRectangle3, positionInRectangle4, positionInRectangle5) {
+    baseCamp: function (x, y, rect, positionInRectangle1, positionInRectangle2, positionInRectangle3, positionInRectangle4, positionInRectangle5, positionInRectangle6, positionInRectangle7) {
 
         /////////////////////////////////Starting Point of The Map////////////////////////////////
 
@@ -325,6 +327,8 @@ brawl.testing.prototype = {
         this.wallX.alignIn(rect, positionInRectangle1);
         this.wallX.body.immovable = true;
         this.wallX.body.moves = false;
+        this.wallSpawn(x, y, rect, positionInRectangle6);
+        this.wallSpawn(x, y, rect, positionInRectangle7);
         this.ledgeSpawn(x, y, rect, positionInRectangle2);
         this.ledgeSpawn(x, y, rect, positionInRectangle3);
         this.ballSpawn(x, y, rect, positionInRectangle4);
