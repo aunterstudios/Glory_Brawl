@@ -348,7 +348,7 @@ brawl.testing.prototype = {
         this.wallX.body.bounce.setTo(1);
         this.wallX.alignIn(rect, positionInRectangle)
         // this.wallX.body.immovable = true;
-        this.wallX.body.mass = 200;
+        // this.wallX.body.mass = 200;
         this.wallX.body.velocity.setTo(this.game.rnd.integerInRange(-50, 50), this.game.rnd.integerInRange(-50, 50));
         // this.wallX.body.moves = false;
     },

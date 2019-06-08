@@ -52,8 +52,8 @@ class baseCampCreator {
   }
 }
 //For the Tradtional Platformer World
-var traditionalPlatformerPositionOne = new baseCampCreator(200, 700, 0, 0);
-var traditionalPlatformerPositionTwo = new baseCampCreator(6800, 700, 9, 1);
+var traditionalPlatformerPositionOne = new baseCampCreator(200, 600, 0, 0);
+var traditionalPlatformerPositionTwo = new baseCampCreator(6800, 600, 9, 1);
 var tradtionalPlatformerArray = [traditionalPlatformerPositionOne, traditionalPlatformerPositionTwo
 ];
 
@@ -102,7 +102,7 @@ class worldValues {
 
 ///////blocksizeX,rectangleX, blocksizeY, rectangleY, deathI, deathX, deathY, Ix,Iy, Amount of Sprites
 //For Tradtional Platformer
-var traditionalPlatformerValues = new worldValues(600, 700, 300, 450, 5, 1400, 700, 10, 2, 2);
+var traditionalPlatformerValues = new worldValues(600, 700, 300, 400, 5, 1400, 700, 10, 2, 2);
 //For the Mountain Climb
 var mountainClimbValues = new worldValues(350, 465, 600, 700, 1, 1400, 6200, 3, 9, 2);
 //For the Canvas World
