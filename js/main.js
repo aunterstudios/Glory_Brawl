@@ -7,9 +7,9 @@ game.state.add('rogueTest', brawl.rogue);
 game.state.add('test', brawl.testing);
 game.state.add('controlScreen', brawl.stateControls);
 //////////////////////////////////////////////////Starting States//////////////////////////////////////////////
-// game.state.start('mainMenu');
+game.state.start('mainMenu');
 // game.state.start('controlScreen');
-game.state.start('test');
+// game.state.start('test');
 //////////////////////////////////////////////////Global Variables//////////////////////////////////////////////
 
 //Death Total in Game
@@ -58,15 +58,15 @@ var tradtionalPlatformerArray = [traditionalPlatformerPositionOne, traditionalPl
 ];
 
 //For the MountainClimb
-var mountainClimbPositionOne = new baseCampCreator(700, 500, 1, 0);
-var mountainClimbPositionTwo = new baseCampCreator(700, 6800, 1, 11);
+var mountainClimbPositionOne = new baseCampCreator(1100, 500, 1, 0);
+var mountainClimbPositionTwo = new baseCampCreator(1100, 6100, 1, 8);
 var mountainClimbArray = [mountainClimbPositionOne, mountainClimbPositionTwo];
 
 //For the Canvas World
-var canvasWorldPositionOne = new baseCampCreator(200,0,0,0);
-var canvasWorldPositionTwo = new baseCampCreator(200, 1800, 0, 1);
-var canvasWorldPositionThree = new baseCampCreator(1200, 0, 1, 0);
-var canvasWorldPositionFour = new baseCampCreator(1200, 600, 1, 1);
+var canvasWorldPositionOne = new baseCampCreator(200, 200, 0, 0);
+var canvasWorldPositionTwo = new baseCampCreator(200, 625, 0, 1);
+var canvasWorldPositionThree = new baseCampCreator(1200, 200, 2, 0);
+var canvasWorldPositionFour = new baseCampCreator(1200, 625, 2, 1);
 var canvasWorldArray = [canvasWorldPositionOne, canvasWorldPositionTwo, canvasWorldPositionThree, canvasWorldPositionFour];
 
 //For the LargeWorld
@@ -104,9 +104,9 @@ class worldValues {
 //For Tradtional Platformer
 var traditionalPlatformerValues = new worldValues(600, 700, 300, 375, 5, 1400, 700, 10, 2, 2);
 //For the Mountain Climb
-var mountainClimbValues = new worldValues(350, 465, 500, 600, 1, 1400, 6200, 3, 12, 2);
+var mountainClimbValues = new worldValues(700, 700, 580, 700, 1, 1400, 6200, 2, 9, 3);
 //For the Canvas World
-var canvasWorldValues = new worldValues(200, 280, 350, 400, 1, 1400, 700, 5, 2, 2);
+var canvasWorldValues = new worldValues(465, 465, 290, 400, 1, 1400, 700, 3, 2, 3);
 //For the Large World
 var largeWorldValues = new worldValues(550, 570, 600, 660, 3, 1400, 3900, 7, 6, 3);
 //For the Practice World
@@ -161,7 +161,7 @@ var spikeLength = [.2, .3,];
 
 //Different Wall Types
 var wallArray = ['brownPlatform', 'wall', 'rotatedWall'];
-var wallLength = [.4,.5,.6];
+var wallLength = [.4, .5, .6];
 
 /////////////////////////////////////////////////Array Shuffler///////////////////////////////////////
 function shuffle(array) {

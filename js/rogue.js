@@ -53,39 +53,14 @@ brawl.rogue.prototype = {
         //Overlap Bias to Prevent Sprite Tunneling
         this.game.physics.arcade.OVERLAP_BIAS = 12;
 
-        ////////////////////Game World Size//////////////////////
-        /*
-        wallArray[Math.floor(Math.random() * wallArray.length)]
-        */
+        //Initializes all the Randomness
         var randomGeneratorForWorld = this.game.rnd.integerInRange(0, 4);
-        if (randomGeneratorForWorld === 0) {
-            //Traditional Platformer
-            this.game.world.setBounds(0, 0, 7000, 800);
-            console.log("Traditional Platformer");
-        }
-        else if (randomGeneratorForWorld === 1) {
-            //Mountain Climb
-            this.game.world.setBounds(0, 0, 1400, 6300);
-            console.log("The Mountain Climb");
-        }
-        else if (randomGeneratorForWorld === 2) {
-            //Canvas World
-            this.game.world.setBounds(0, 0, 1400, 800);
-            console.log("Canvas World");
-        }
-        else if (randomGeneratorForWorld === 3) {
-            //The Large World
-            this.game.world.setBounds(0, 0, 4000, 4000);
-            console.log("THe Large World");
-        }
-        else if (randomGeneratorForWorld === 4) {
-            //Practice World
-            this.game.world.setBounds(0, 0, 2000, 2000);
-            console.log("Practice World");
-        }
+
+        ////////////////////Game World Size//////////////////////
+        this.game.world.setBounds(0, 0, worldGenerator[randomGeneratorForWorld].xOfWorld, worldGenerator[randomGeneratorForWorld].yOfWorld);
 
         ////////////Generator for Game Mode//////////////
-        var randomGeneratorForGameMode = this.game.rnd.integerInRange(0,1);
+        var randomGeneratorForGameMode = this.game.rnd.integerInRange(0, 1);
         var gameModeName;
         if (randomGeneratorForGameMode === 0) {
             gameModeName = "Collect the Coins";
@@ -118,9 +93,6 @@ brawl.rogue.prototype = {
         //Adding Spikes
         this.spikes = this.game.add.group();
         this.spikes.enableBody = true;
-        //Adding Flag (Win Game)
-        // this.finish = this.game.add.sprite(0, 0, 'win');
-        // this.game.physics.arcade.enable(this.finish);
         //Adding Coins (Win Game)
         this.coin = this.game.add.group();
         this.coin.enableBody = true;
@@ -128,6 +100,7 @@ brawl.rogue.prototype = {
         this.death = this.game.add.group();
         this.death.enableBody = true;
 
+        ////////////////////////////////Key Control Movements/////////////////////////
         //Player Movement (WASD);
         this.movementUp = this.game.input.keyboard.addKey(Phaser.Keyboard.W);
         this.movementDown = this.game.input.keyboard.addKey(Phaser.Keyboard.S);
@@ -149,34 +122,12 @@ brawl.rogue.prototype = {
         this.shiftFire = this.game.input.keyboard.addKey(Phaser.Keyboard.SHIFT);
 
         /////////////////////////World Creation Initialization Grid///////////////////////
-        //Reference Point worldCreator: function (playerX, playerY, deathIterator, deathX, deathY, xBlockSizeF, yBlockSizeF, xRectangleF, yRectangleF, iteratorX, iteratorY, baseCampX, baseCampY, amountOfSpritesInGrid, gameMode)
         var worldName;
-        if (randomGeneratorForWorld === 0) {
-            //Traditional Platformer
-            this.worldCreator(0, 800, 1, 1400, 900, 600, 300, 700, 450, 10, 2, 0, 0, 2, randomGeneratorForGameMode);
-            worldName = "Traditional Platformer"
-        }
-        else if (randomGeneratorForWorld === 1) {
-            //The Mountain Climb
-            this.worldCreator(200, 200, 2, 1400, 1900, 200, 200, 250, 250, 5, 7, 0, 0, 1, randomGeneratorForGameMode);
-            worldName = "The Mountain Climb"
-        }
-        else if (randomGeneratorForWorld === 2) {
-            //Canvas World
-            this.worldCreator(200, 200, 2, 1400, 1900, 200, 200, 250, 250, 5, 7, 0, 0, 1, randomGeneratorForGameMode);
-            worldName = "Canvas World"
-        }
-        else if (randomGeneratorForWorld === 3) {
-            //The Large World
-            this.worldCreator(200, 200, 2, 1400, 1900, 200, 200, 250, 250, 5, 7, 0, 0, 1, randomGeneratorForGameMode);
-            worldName = "The Large World"
-        }
-        else {
-            //The Practice World
-            this.worldCreator(200, 200, 2, 1400, 1900, 200, 200, 250, 250, 5, 7, 0, 0, 1, randomGeneratorForGameMode);
-            worldName = "The Practice World"
-        }
+        this.worldCreator(worldGenerator[randomGeneratorForWorld], randomGeneratorForGameMode);
 
+        worldName = worldGenerator[randomGeneratorForWorld].worldName
+
+        ////////////////////////////////////////////Camera///////////////////////////////////////////////////////////
         // this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_PLATFORMER);
         this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_LOCKON);
 
@@ -217,11 +168,16 @@ brawl.rogue.prototype = {
 
     // // },
     //////////////Creation of the World///////////////
-    worldCreator: function (playerX, playerY, deathIterator, deathX, deathY, xBlockSizeF, yBlockSizeF, xRectangleF, yRectangleF, iteratorX, iteratorY, baseCampX, baseCampY, amountOfSpritesInGrid, gameMode) {
-        console.log("amount of Sprites" + amountOfSpritesInGrid);
-        //////////////////Player Position////////////////
+    worldCreator: function (thisWorldGenerator, gameMode) {
+        //Entire Object Fed to Integrate World Generator
+        console.log(thisWorldGenerator);
+        //////////////////Shuffling Positions of Player and BaseCamp////////////////
+
+        shuffle(thisWorldGenerator.baseCamp);
+        console.log(thisWorldGenerator.baseCamp);
+
         ////////////////////Adding Player//////////////////////
-        this.player = this.game.add.sprite(playerX, playerY, 'dude');
+        this.player = this.game.add.sprite(thisWorldGenerator.baseCamp[0].playerXBaseCamp, thisWorldGenerator.baseCamp[0].playerYBaseCamp, 'dude');
         this.game.physics.arcade.enable(this.player); //enables physics for player
         this.player.anchor.setTo(.5);
         // this.player.scale.setTo(.6);
@@ -284,44 +240,47 @@ brawl.rogue.prototype = {
         this.weapon3.trackSprite(this.player, 0, -20);
 
         //Adding Undeniable Death
-        for (var i = 0; i < deathIterator; i++) {
-            this.deathX = this.death.create(i * deathX, deathY, 'spikes');
+        for (var i = 0; i < thisWorldGenerator.world.deathIterator; i++) {
+            this.deathX = this.death.create(i * thisWorldGenerator.world.deathX, thisWorldGenerator.world.deathY, 'spikes');
             this.deathX.scale.setTo(1);
             this.deathX.body.immovable = true;
         }
 
-        for (var x = 0; x < iteratorX; x++) {
-            for (var y = 0; y < iteratorY; y++) {
+        //Block Debugging
+        for (var x = 0; x < thisWorldGenerator.world.iteratorX; x++) {
+            for (var y = 0; y < thisWorldGenerator.world.iteratorY; y++) {
                 ////////Creation of Rectangle////////////;
-                var rect = new Phaser.Rectangle(x * xRectangleF, y * yRectangleF, xBlockSizeF, yBlockSizeF);
+                var rect = new Phaser.Rectangle(x * thisWorldGenerator.world.xRectangleF, y * thisWorldGenerator.world.yRectangleF, thisWorldGenerator.world.xBlockSizeF, thisWorldGenerator.world.yBlockSizeF);
                 var xOfSprite = rect.x
                 var yOfSprite = rect.y
+                rect.offset(20,20);
 
                 //Debugging Purposes
                 this.text = this.game.add.text(rect.x + 100, rect.y + 100, "Rectangle " + x + " x " + y + " y ", { font: "32px Arial", fill: "#ffffff", align: "center" });
-                ////////////Random Array to Scramble Positions//////////
+
+                ////////////Random Array to Scramble Positions Within Rectangle//////////
                 // var positionArray = [topCenter, topLeft, topRight, center, centerLeft, centerRight, bottomCenter, bottomLeft, bottomRight];
-                if (x === baseCampX && y === baseCampY) {
-                    this.baseCamp(xOfSprite, yOfSprite, rect, bottomCenter, bottomLeft, bottomRight, centerLeft, centerRight);
+                if (x === thisWorldGenerator.baseCamp[0].iteratorXBaseCamp && y === thisWorldGenerator.baseCamp[0].iteratorYBaseCamp) {
+                    this.baseCamp(xOfSprite, yOfSprite, rect, bottomCenter, bottomLeft, bottomRight, centerLeft, centerRight,topLeft,topRight);
                 }
                 else {
                     shuffle(positionArray);
                     console.log("x" + "y" + x + y + " " + positionArray)
                     //////Sprites//////
-                    for (var i = 0; i < amountOfSpritesInGrid; i++) {
+                    for (var i = 0; i < thisWorldGenerator.world.amountOfSpritesInGrid; i++) {
                         this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[i]);
-                        if (gameMode === 0) {
-                            this.coinSpawn(xOfSprite, yOfSprite, rect, positionArray[i + 1])
+                    }
+                    if (gameMode === 0) {
+                        this.coinSpawn(xOfSprite, yOfSprite, rect, positionArray[thisWorldGenerator.world.amountOfSpritesInGrid])
+                        console.log("coin initiated");
+                    }
+                    else if (gameMode === 1) {
+                        if (x === thisWorldGenerator.baseCamp[1].iteratorXBaseCamp && y === thisWorldGenerator.baseCamp[1].iteratorYBaseCamp) {
+                            this.finish = this.game.add.sprite(xOfSprite, yOfSprite, 'flag');
+                            this.game.physics.arcade.enable(this.finish);
+                            this.finish.alignIn(rect, positionArray[i + 1]);
+                            console.log("Flag Initiated");
                         }
-                        else if (gameMode === 1) {
-                            if (x === iteratorX - 1 && y === iteratorY - 1) {
-                                this.finish = this.game.add.sprite(xOfSprite, yOfSprite, 'flag');
-                                this.game.physics.arcade.enable(this.finish);
-                                this.finish.alignIn(rect, positionArray[i + 1]);
-                                console.log("Flag Initiated");
-                            }
-                        }
-                        // console.log("---------------------------------------------------");
                     }
                 }
             }
@@ -355,7 +314,7 @@ brawl.rogue.prototype = {
         }
     },
     //////////////////////////////////////Starting Position of Player//////////////////////////////
-    baseCamp: function (x, y, rect, positionInRectangle1, positionInRectangle2, positionInRectangle3, positionInRectangle4, positionInRectangle5) {
+    baseCamp: function (x, y, rect, positionInRectangle1, positionInRectangle2, positionInRectangle3, positionInRectangle4, positionInRectangle5, positionInRectangle6, positionInRectangle7) {
 
         /////////////////////////////////Starting Point of The Map////////////////////////////////
 
@@ -368,6 +327,8 @@ brawl.rogue.prototype = {
         this.wallX.alignIn(rect, positionInRectangle1);
         this.wallX.body.immovable = true;
         this.wallX.body.moves = false;
+        this.wallSpawn(x, y, rect, positionInRectangle6);
+        this.wallSpawn(x, y, rect, positionInRectangle7);
         this.ledgeSpawn(x, y, rect, positionInRectangle2);
         this.ledgeSpawn(x, y, rect, positionInRectangle3);
         this.ballSpawn(x, y, rect, positionInRectangle4);
@@ -385,12 +346,13 @@ brawl.rogue.prototype = {
     wallSpawn: function (x, y, rect, positionInRectangle) {
         this.wallX = this.wall.create(x, y, wallArray[Math.floor(Math.random() * wallArray.length)]);
         this.wallX.anchor.setTo(.5);
-        this.wallX.scale.setTo(.5);
+        // this.wallX.scale.setTo(.5);
+        this.wallX.scale.setTo(wallLength[Math.floor(Math.random() * wallLength.length)]);
         this.wallX.body.collideWorldBounds = true;
         this.wallX.body.bounce.setTo(1);
         this.wallX.alignIn(rect, positionInRectangle)
         // this.wallX.body.immovable = true;
-        this.wallX.body.mass = 200;
+        // this.wallX.body.mass = 200;
         this.wallX.body.velocity.setTo(this.game.rnd.integerInRange(-50, 50), this.game.rnd.integerInRange(-50, 50));
         // this.wallX.body.moves = false;
     },

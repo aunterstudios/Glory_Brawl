@@ -54,7 +54,7 @@ brawl.testing.prototype = {
         this.game.physics.arcade.OVERLAP_BIAS = 12;
 
         //Initializes all the Randomness
-        var randomGeneratorForWorld = this.game.rnd.integerInRange(1, 1);
+        var randomGeneratorForWorld = this.game.rnd.integerInRange(0, 4);
 
         ////////////////////Game World Size//////////////////////
         this.game.world.setBounds(0, 0, worldGenerator[randomGeneratorForWorld].xOfWorld, worldGenerator[randomGeneratorForWorld].yOfWorld);
