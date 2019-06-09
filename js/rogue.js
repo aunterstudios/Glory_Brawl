@@ -256,7 +256,7 @@ brawl.rogue.prototype = {
                 rect.offset(20,20);
 
                 //Debugging Purposes
-                this.text = this.game.add.text(rect.x + 100, rect.y + 100, "Rectangle " + x + " x " + y + " y ", { font: "32px Arial", fill: "#ffffff", align: "center" });
+                // this.text = this.game.add.text(rect.x + 100, rect.y + 100, "Rectangle " + x + " x " + y + " y ", { font: "32px Arial", fill: "#ffffff", align: "center" });
 
                 ////////////Random Array to Scramble Positions Within Rectangle//////////
                 // var positionArray = [topCenter, topLeft, topRight, center, centerLeft, centerRight, bottomCenter, bottomLeft, bottomRight];
