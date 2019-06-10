@@ -329,12 +329,12 @@ brawl.rogue.prototype = {
         // console.log("-----------------------------------");
         // console.log("BaseCamp");
         //create wall
-        this.wallX = this.wall.create(x, y, 'rotatedWall');
-        this.wallX.anchor.setTo(.5);
-        this.wallX.scale.setTo(.4);
-        this.wallX.alignIn(rect, positionInRectangle1);
-        this.wallX.body.immovable = true;
-        this.wallX.body.moves = false;
+        this.immovableWallX = this.immovableWall.create(x, y, 'immovableRotatedWall');
+        this.immovableWallX.anchor.setTo(.5);
+        this.immovableWallX.scale.setTo(.4);
+        this.immovableWallX.alignIn(rect, positionInRectangle1);
+        this.immovableWallX.body.immovable = true;
+        this.immovableWallX.body.moves = false;
         this.wallSpawn(x, y, rect, positionInRectangle6);
         this.wallSpawn(x, y, rect, positionInRectangle7);
         this.ledgeSpawn(x, y, rect, positionInRectangle2);
@@ -368,11 +368,14 @@ brawl.rogue.prototype = {
         this.immovableWallX = this.immovableWall.create(x, y, immovableWallArray[Math.floor(Math.random() * immovableWallArray.length)]);
         this.immovableWallX.anchor.setTo(.5);
         // this.immovableWallX.scale.setTo(.5);
-        this.immovableWallX.scale.setTo(ImmovableWallLength[Math.floor(Math.random() * ImmovableWallLength.length)]);
+        this.immovableWallX.scale.setTo(immovableWallLength[Math.floor(Math.random() * immovableWallLength.length)]);
         this.immovableWallX.body.collideWorldBounds = true;
         this.immovableWallX.body.bounce.setTo(1);
         this.immovableWallX.alignIn(rect, positionInRectangle)
         this.immovableWallX.body.immovable = true;
+        if (immovableWallVelocity[Math.floor(Math.random() * immovableWallVelocity.length)] === 0 ) {
+            this.immovableWallX.body.velocity.setTo(this.game.rnd.integerInRange(-50, 50), this.game.rnd.integerInRange(-50, 50));
+        }
         // this.immovableWallX.body.mass = 200;
         //this.immovableWallX.body.velocity.setTo(this.game.rnd.integerInRange(-50, 50), this.game.rnd.integerInRange(-50, 50));
         // this.wallX.body.moves = false;
@@ -570,7 +573,7 @@ brawl.rogue.prototype = {
         this.game.physics.arcade.collide(this.immovableWall, this.ledge);
         this.game.physics.arcade.collide(this.immovableWall, this.ledgeDown);
         this.game.physics.arcade.collide(this.immovableWall, this.ledgeSide);
-        this.game.physics.arcade.overlap(this.immovableWall, this.enemy);
+        this.game.physics.arcade.collide(this.immovableWall, this.enemy);
 
         // Ball Mechanics
         this.game.physics.arcade.collide(this.ball, this.ball);

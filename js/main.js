@@ -165,8 +165,9 @@ var wallLength = [.4, .5, .6];
 
 //Different Immmovable Wall Types
 //Different Wall Types
-var immovableWallArray = ['immovableVerticalWall','immovableRotatedWall'];
-var ImmovableWallLength = [.5, .6];
+var immovableWallArray = ['immovableVerticalWall', 'immovableRotatedWall'];
+var immovableWallLength = [.5, .6];
+var immovableWallVelocity = [0, 1];
 
 /////////////////////////////////////////////////Array Shuffler///////////////////////////////////////
 function shuffle(array) {
@@ -511,7 +512,7 @@ function ballLedgeDown(ball, ledge) {
 // this.game.physics.arcade.overlap(this.weapon.bullets, this.ledgeDown, weaponDownLedge);
 // this.game.physics.arcade.overlap(this.weapon.bullets, this.ledgeSide, weaponSideLedge);
 // this.game.physics.arcade.overlap(this.weapon.bullets, this.enemy, weaponEnemy);
-function weaponImmovable(weapon,wall) {
+function weaponImmovable(weapon, wall) {
   weapon.kill();
 }
 function weaponBall(weapon, ball) {
@@ -555,18 +556,7 @@ function weaponWall(weapon, wall) {
   wall.body.stop();
   if (pullBoolean) {
     // wall.body.immovable = false;
-    if (wall.body.touching.up) {
-      wall.body.velocity.y = wall.body.velocity.y - 200;
-    }
-    if (wall.body.touching.down) {
-      wall.body.velocity.y = wall.body.velocity.y + 200;
-    }
-    if (wall.body.touching.left) {
-      wall.body.velocity.x = wall.body.velocity.x - 200;
-    }
-    if (wall.body.touching.right) {
-      wall.body.velocity.x = wall.body.velocity.x + 200;
-    }
+    wall.body.velocity.y = weapon.body.angularVelocity-100;
   }
   else if (pushBoolean) {
     // wall.body.immovable = false;
