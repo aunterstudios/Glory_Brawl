@@ -106,7 +106,7 @@ var traditionalPlatformerValues = new worldValues(600, 700, 300, 375, 5, 1400, 7
 //For the Mountain Climb
 var mountainClimbValues = new worldValues(700, 700, 580, 700, 1, 1400, 6200, 2, 9, 3);
 //For the Canvas World
-var canvasWorldValues = new worldValues(465, 465, 290, 400, 1, 1400, 700, 3, 2, 3);
+var canvasWorldValues = new worldValues(400, 465, 290, 400, 1, 1400, 700, 3, 2, 3);
 //For the Large World
 var largeWorldValues = new worldValues(550, 570, 600, 660, 3, 1400, 3900, 7, 6, 3);
 //For the Practice World
@@ -162,6 +162,11 @@ var spikeLength = [.2, .3,];
 //Different Wall Types
 var wallArray = ['brownPlatform', 'wall', 'rotatedWall'];
 var wallLength = [.4, .5, .6];
+
+//Different Immmovable Wall Types
+//Different Wall Types
+var immovableWallArray = ['immovableVerticalWall','immovableRotatedWall'];
+var ImmovableWallLength = [.5, .6];
 
 /////////////////////////////////////////////////Array Shuffler///////////////////////////////////////
 function shuffle(array) {
@@ -260,11 +265,44 @@ function deathThree(killer, victim) {
 
 ////////////////////////////////////////Wall Mechanics//////////////////////////////////////////
 function playerWall(player, wall) {
-  wall.body.stop();
-  if (wall.body.touching.down) {
-    wall.body.velocity.y = 100;
-  }
+  // wall.body.stop();
+  // if (wall.body.touching.up) {
+  //   wall.body.velocity.y = -200;
+  //   player.body.velocity.y = -200
+  //   // if (player.body.velocity.x < 0) {
+  //   //   wall.body.velocity.x = player.body.velocity.x - 100;
+  //   // }
+  //   // if (player.body.velocity.x > 0) {
+  //   //   wall.body.velocity.x = player.body.velocity.x + 100;
+  //   // }
+  //   // {
+  //   //   wall.body.velocity.x = 0;
+  //   // }
+  // }
+  // // When You're Hitting the Edge from the Sides (Right and Left)
+  // else if (wall.body.touching.left || wall.body.touching.right) {
+  //   wall.body.velocity.y = 0;
+  //   wall.body.velocity.x = player.body.velocity.x;
+  // }
+  // /////////////////////////////////In Case Want to Change Side Ledge Velocity///////////
+  // // if (wall.body.touching.left) {
+  // //   wall.body.velocity.y = 0;
+  // //   wall.body.velocity.x = 300;
+  // // }
+  // // if (wall.body.touching.right) {
+  // //   wall.body.velocity.y = 0;
+  // //   wall.body.velocity.x = -300;
+  // // }
+  // // if (wall.body.touching.down && player.body.velocity.y < -1) {
+  // //   player.body.velocity.y = -100;
+  // // }
+  // else if (wall.body.touching.down) {
+  //   wall.body.velocity.y = -300;
+  //   player.body.velocity.y = -100;
+  // }
 }
+////////////////////////////////////Immovable Wall/////////////////////////////
+
 
 ////////////////////////////////////Ledge Mechanics//////////////////////////////////////
 
@@ -473,6 +511,9 @@ function ballLedgeDown(ball, ledge) {
 // this.game.physics.arcade.overlap(this.weapon.bullets, this.ledgeDown, weaponDownLedge);
 // this.game.physics.arcade.overlap(this.weapon.bullets, this.ledgeSide, weaponSideLedge);
 // this.game.physics.arcade.overlap(this.weapon.bullets, this.enemy, weaponEnemy);
+function weaponImmovable(weapon,wall) {
+  weapon.kill();
+}
 function weaponBall(weapon, ball) {
   // ball.body.stop();
 

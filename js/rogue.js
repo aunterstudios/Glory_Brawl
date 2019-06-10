@@ -9,6 +9,8 @@ brawl.rogue.prototype = {
     preload: function () {
         // this.game.forceSingleUpdate = true;
         this.load.image('wall', 'assets/wall.png');
+        this.load.image('immovableVerticalWall', 'assets/immovableVerticalWall.png');
+        this.load.image('immovableRotatedWall', 'assets/immovableRotatedWall.png');
         this.load.image('ball', 'assets/ball.png')
         this.load.image('rotatedWall', 'assets/rotatedWall.png');
         this.load.image('fallingSpikes', 'assets/newSpikes.png');
@@ -75,6 +77,9 @@ brawl.rogue.prototype = {
         //Adding the Wall
         this.wall = this.game.add.group();
         this.wall.enableBody = true; //enables physics for wall
+        //Adding Immovable Walls
+        this.immovableWall = this.game.add.group();
+        this.immovableWall.enableBody = true;
         //Adding Upwards Ledge
         this.ledge = this.game.add.group();
         this.ledge.enableBody = true;
@@ -253,7 +258,7 @@ brawl.rogue.prototype = {
                 var rect = new Phaser.Rectangle(x * thisWorldGenerator.world.xRectangleF, y * thisWorldGenerator.world.yRectangleF, thisWorldGenerator.world.xBlockSizeF, thisWorldGenerator.world.yBlockSizeF);
                 var xOfSprite = rect.x
                 var yOfSprite = rect.y
-                rect.offset(20,20);
+                rect.offset(20, 20);
 
                 //Debugging Purposes
                 // this.text = this.game.add.text(rect.x + 100, rect.y + 100, "Rectangle " + x + " x " + y + " y ", { font: "32px Arial", fill: "#ffffff", align: "center" });
@@ -261,7 +266,7 @@ brawl.rogue.prototype = {
                 ////////////Random Array to Scramble Positions Within Rectangle//////////
                 // var positionArray = [topCenter, topLeft, topRight, center, centerLeft, centerRight, bottomCenter, bottomLeft, bottomRight];
                 if (x === thisWorldGenerator.baseCamp[0].iteratorXBaseCamp && y === thisWorldGenerator.baseCamp[0].iteratorYBaseCamp) {
-                    this.baseCamp(xOfSprite, yOfSprite, rect, bottomCenter, bottomLeft, bottomRight, centerLeft, centerRight,topLeft,topRight);
+                    this.baseCamp(xOfSprite, yOfSprite, rect, bottomCenter, bottomLeft, bottomRight, centerLeft, centerRight, topLeft, topRight);
                 }
                 else {
                     shuffle(positionArray);
@@ -291,8 +296,11 @@ brawl.rogue.prototype = {
         //Create Randomness in Each Grid
         var gridSystemGenesis = this.game.rnd.integerInRange(0, 100);
         //Create Random Pattern Within Each Grid
-        if (gridSystemGenesis >= 0 && gridSystemGenesis <= 41) {
+        if (gridSystemGenesis >= 0 && gridSystemGenesis <= 20) {
             this.wallSpawn(x, y, rect, positionInRectangle);
+        }
+        else if (gridSystemGenesis >= 21 && gridSystemGenesis <= 41) {
+            this.immovableSpawn(x, y, rect, positionInRectangle);
         }
         else if (gridSystemGenesis >= 42 && gridSystemGenesis <= 56) {
             this.enemySpawn(x, y, rect, positionInRectangle);
@@ -352,8 +360,21 @@ brawl.rogue.prototype = {
         this.wallX.body.bounce.setTo(1);
         this.wallX.alignIn(rect, positionInRectangle)
         // this.wallX.body.immovable = true;
-        // this.wallX.body.mass = 200;
+        this.wallX.body.mass = 200;
         this.wallX.body.velocity.setTo(this.game.rnd.integerInRange(-50, 50), this.game.rnd.integerInRange(-50, 50));
+        // this.wallX.body.moves = false;
+    },
+    immovableSpawn: function (x, y, rect, positionInRectangle) {
+        this.immovableWallX = this.immovableWall.create(x, y, immovableWallArray[Math.floor(Math.random() * immovableWallArray.length)]);
+        this.immovableWallX.anchor.setTo(.5);
+        // this.immovableWallX.scale.setTo(.5);
+        this.immovableWallX.scale.setTo(ImmovableWallLength[Math.floor(Math.random() * ImmovableWallLength.length)]);
+        this.immovableWallX.body.collideWorldBounds = true;
+        this.immovableWallX.body.bounce.setTo(1);
+        this.immovableWallX.alignIn(rect, positionInRectangle)
+        this.immovableWallX.body.immovable = true;
+        // this.immovableWallX.body.mass = 200;
+        //this.immovableWallX.body.velocity.setTo(this.game.rnd.integerInRange(-50, 50), this.game.rnd.integerInRange(-50, 50));
         // this.wallX.body.moves = false;
     },
     enemySpawn: function (x, y, rect, positionInRectangle) {
@@ -501,6 +522,7 @@ brawl.rogue.prototype = {
         var onLedgeBlue = this.game.physics.arcade.collide(this.player, this.ledgeSide, ledgeSideX);
         // this.game.physics.arcade.collide(this.player, this.ball, ballMover, ballGround);
         var onBall = this.game.physics.arcade.collide(this.player, this.ball, ballMover);
+        var onImmovable = this.game.physics.arcade.collide(this.player, this.immovableWall);
 
         //Weapon One Mechanics
         this.game.physics.arcade.collide(this.weapon1.bullets, this.ball, weaponBall, null, this);
@@ -510,6 +532,7 @@ brawl.rogue.prototype = {
         this.game.physics.arcade.collide(this.weapon1.bullets, this.ledgeDown, weaponDownLedge, null, this);
         this.game.physics.arcade.collide(this.weapon1.bullets, this.ledgeSide, weaponSideLedge, null, this);
         this.game.physics.arcade.collide(this.weapon1.bullets, this.enemy, weaponEnemy, null, this);
+        this.game.physics.arcade.overlap(this.weapon1.bullets, this.immovableWall, weaponImmovable, null, this);
         // this.game.physics.arcade.overlap(this.ball, this.enemy, deathThree);
 
 
@@ -521,6 +544,7 @@ brawl.rogue.prototype = {
         this.game.physics.arcade.collide(this.weapon2.bullets, this.ledgeDown, weaponDownLedge, null, this);
         this.game.physics.arcade.collide(this.weapon2.bullets, this.ledgeSide, weaponSideLedge, null, this);
         this.game.physics.arcade.collide(this.weapon2.bullets, this.enemy, weaponEnemy, null, this);
+        this.game.physics.arcade.overlap(this.weapon2.bullets, this.immovableWall, weaponImmovable, null, this);
         // this.game.physics.arcade.overlap(this.ball, this.enemy, deathThree);
 
         //Weapon Three Mechanics
@@ -531,12 +555,22 @@ brawl.rogue.prototype = {
         this.game.physics.arcade.collide(this.weapon3.bullets, this.ledgeDown, weaponDownLedge, null, this);
         this.game.physics.arcade.collide(this.weapon3.bullets, this.ledgeSide, weaponSideLedge, null, this);
         this.game.physics.arcade.collide(this.weapon3.bullets, this.enemy, weaponEnemy, null, this);
+        this.game.physics.arcade.overlap(this.weapon3.bullets, this.immovableWall, weaponImmovable, null, this);
         // this.game.physics.arcade.overlap(this.ball, this.enemy, deathThree);
 
         //Boundary Mechanics
         // this.game.physics.arcade.overlap(this.boundary, this.wall, boundaryCollisionCheck, null, this);
         // this.game.physics.arcade.overlap(this.boundary, this.ledgeDown, boundaryCollisionCheck, null, this);
         // this.game.physics.arcade.overlap(this.boundary, this.ledgeSide, boundaryCollisionCheck, null, this);
+
+        //Immovable Wall Mechanics
+        this.game.physics.arcade.collide(this.immovableWall, this.ball);
+        this.game.physics.arcade.collide(this.immovableWall, this.wall);
+        this.game.physics.arcade.overlap(this.immovableWall, this.spikes);
+        this.game.physics.arcade.collide(this.immovableWall, this.ledge);
+        this.game.physics.arcade.collide(this.immovableWall, this.ledgeDown);
+        this.game.physics.arcade.collide(this.immovableWall, this.ledgeSide);
+        this.game.physics.arcade.overlap(this.immovableWall, this.enemy);
 
         // Ball Mechanics
         this.game.physics.arcade.collide(this.ball, this.ball);
@@ -650,7 +684,7 @@ brawl.rogue.prototype = {
         else if (onTheRightSide) {
             this.player.body.velocity.x = 100;
             this.player.body.velocity.y = 100;
-            if (onWall || onLedgeBlue || onLedgeGreen || onLedgeGrey) {
+            if (onWall || onLedgeBlue || onLedgeGreen || onLedgeGrey || onImmovable) {
                 this.player.frame = 6;
             }
             if (this.movementLeft.isDown) {
@@ -661,7 +695,7 @@ brawl.rogue.prototype = {
         else if (onTheLeftSide) {
             this.player.body.velocity.x = -100;
             this.player.body.velocity.y = 100;
-            if (onWall || onLedgeBlue || onLedgeGreen || onLedgeGrey) {
+            if (onWall || onLedgeBlue || onLedgeGreen || onLedgeGrey || onImmovable) {
                 this.player.frame = 12;
             }
             if (this.movementRight.isDown) {
