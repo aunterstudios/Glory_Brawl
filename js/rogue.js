@@ -487,7 +487,7 @@ brawl.rogue.prototype = {
             this.spikesFall = this.fallingSpikes.getFirstDead(true, spikesX.x, spikesX.y, 'fallingSpikes');
             this.spikesFall.anchor.setTo(.5);
             this.spikesFall.scale.setTo(.5);
-            this.spikesFall.alignIn(spikesX, positionArray[1], -20, -30);
+            this.spikesFall.alignIn(spikesX, positionArray[1]);
             this.spikesFall.checkWorldBounds = true;
             this.spikesFall.outOfBoundsKill = true;
             this.spikesFall.body.velocity.y = 300;
