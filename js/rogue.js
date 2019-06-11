@@ -187,8 +187,10 @@ brawl.rogue.prototype = {
         this.player.anchor.setTo(.5);
         // this.player.scale.setTo(.6);
         this.player.scale.setTo(.35);
+        this.player.tint = Math.random() * 0xffffff;
         this.player.body.setSize(63, 84, 5, 6);
         // this.player.body.bounce.y = 0;
+        this.player.body.mass = 6;
         this.player.body.gravity.y = 1500;
         //this.player.body.allowDrag = false;
         this.player.body.collideWorldBounds = true;

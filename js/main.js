@@ -110,7 +110,7 @@ var canvasWorldValues = new worldValues(400, 465, 290, 400, 1, 1400, 700, 3, 2, 
 //For the Large World
 var largeWorldValues = new worldValues(550, 570, 600, 660, 3, 1400, 3900, 7, 6, 3);
 //For the Practice World
-var practiceWorldValues = new worldValues(400, 500, 400, 500, 3, 1400, 1900, 4, 4, 3);
+var practiceWorldValues = new worldValues(490, 500, 390, 500, 3, 1400, 1900, 4, 4, 3);
 
 //////////////////////World Randomness Generator(The Conclusion)//////////////////
 
@@ -179,7 +179,7 @@ function shuffle(array) {
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "Rogue Version-OVERLAP_BIAS-BLAME!",
+  "Rogue Version-OVERLAP_BIAS-PlayableBLAME!",
   "You have no name and no memory.",
   "Trapped in an unknown ever-changing world.",
   "All you know is the name of the world",
