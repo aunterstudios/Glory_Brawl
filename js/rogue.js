@@ -19,6 +19,7 @@ brawl.rogue.prototype = {
         this.load.image('brownPlatform', 'assets/platform2.png');
         this.load.image('ledge', 'assets/platformY.png');
         this.load.image('spikes', 'assets/invisibleFloorSpikes.png');
+        this.load.image('fallingSpikes', 'assets/newSpikes.png');
         this.load.image('invertedSpikes', 'assets/invertedSpikesTrue.png')
         this.load.image('joystick', 'assets/joystick.png');
         this.load.image('joystick2', 'assets/joystickR.png');
@@ -102,6 +103,9 @@ brawl.rogue.prototype = {
         //Adding Spikes
         this.spikes = this.game.add.group();
         this.spikes.enableBody = true;
+        //Falling Spikes
+        this.fallingSpikes = this.game.add.group();
+        this.fallingSpikes.enableBody = true;
         //Adding Coins (Win Game)
         this.coin = this.game.add.group();
         this.coin.enableBody = true;
@@ -191,7 +195,7 @@ brawl.rogue.prototype = {
         this.player.anchor.setTo(.5);
         // this.player.scale.setTo(.6);
         this.player.scale.setTo(.35);
-        this.player.alpha = this.game.rnd.realInRange(.5,1);
+        this.player.alpha = this.game.rnd.realInRange(.5, 1);
         this.player.tint = Phaser.Color.getRandomColor(50, 255, 255);
         this.player.body.setSize(63, 84, 5, 6);
         // this.player.body.bounce.y = 0;
@@ -384,7 +388,7 @@ brawl.rogue.prototype = {
         this.immovableWallX.body.bounce.setTo(1);
         this.immovableWallX.body.mass = 400;
         this.immovableWallX.alignIn(rect, positionInRectangle)
-        if (immovableWallVelocity[Math.floor(Math.random() * immovableWallVelocity.length)] === 0 ) {
+        if (immovableWallVelocity[Math.floor(Math.random() * immovableWallVelocity.length)] === 0) {
             this.immovableWallX.body.velocity.setTo(this.game.rnd.integerInRange(-50, 50), this.game.rnd.integerInRange(-50, 50));
         }
         // this.immovableWallX.body.mass = 200;
@@ -469,7 +473,20 @@ brawl.rogue.prototype = {
         this.spikesX.body.immovable = true;
         this.spikesX.body.mass = 150;
         this.spikesX.alignIn(rect, positionInRectangle);
+
+        // //Falling Spikes
+        // this.game.time.events.loop(Phaser.Timer.SECOND * 2, this.spikeFall(x, y, this.spikesX), this);
     },
+    //SpikeFall
+    // spikeFall: function (x, y, alignInSpikeSpawn) {
+    //     this.spikesFall = this.fallingSpikes.getFirstDead(true, x, y, 'fallingSpikes');
+    //     this.spikesFall.anchor.setTo(.5);
+    //     this.spikesFall.scale.setTo(spikeLength[Math.floor(Math.random() * spikeLength.length)]);
+    //     this.spikesFall.alignTo(alignInSpikeSpawn,positionArray[1]);
+    //     this.spikesFall.checkWorldBounds = true;
+    //     this.spikesFall.outOfBoundsKill = true;
+    //     this.spikesFall.body.gravity.y = 710;
+    // },
     //Put the Game on Full Screen Mode
     gofull: function () {
         if (this.game.scale.isFullScreen) {
@@ -595,8 +612,8 @@ brawl.rogue.prototype = {
         this.game.physics.arcade.collide(this.immovableWall, this.enemy);
 
         //Movable Wall Mechanics
-        this.game.physics.arcade.collide(this.wall,this.wall);
-        this.game.physics.arcade.collide(this.wall,this.spikes);
+        this.game.physics.arcade.collide(this.wall, this.wall);
+        this.game.physics.arcade.collide(this.wall, this.spikes);
 
         // Ball Mechanics
         this.game.physics.arcade.collide(this.ball, this.ball);
