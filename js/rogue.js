@@ -771,11 +771,14 @@ brawl.rogue.prototype = {
         }
         if (onNone) {
             this.player.frame = 10;
-            if (this.movementLeft.isDown) {
+            if (this.movementLeft.isDown && !this.movementRight.isDown) {
                 this.player.body.velocity.x = -400;
             }
-            else if (this.movementRight.isDown) {
+            else if (this.movementRight.isDown && !this.movementLeft.isDown) {
                 this.player.body.velocity.x = 400;
+            }
+            else if (this.movementLeft.isDown && this.movementRight.isDown) {
+                this.player.body.velocity.x = 0;
             }
         }
 
