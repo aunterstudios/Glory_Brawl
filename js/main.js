@@ -555,28 +555,38 @@ function weaponBall(weapon, ball) {
 function weaponWall(weapon, wall) {
   wall.body.stop();
   if (pullBoolean) {
-    // wall.body.immovable = false;
-    wall.body.velocity.y = weapon.body.angularVelocity-100;
+    if (wall.body.touching.up) {
+      wall.body.velocity.y = -50;
+    }
+    else if (wall.body.touching.down) {
+      wall.body.velocity.y = 50;
+    }
+    else if (wall.body.touching.left) {
+      wall.body.velocity.x = -50;
+    }
+    else if (wall.body.touching.right) {
+      wall.body.velocity.x = 50;
+    }
   }
   else if (pushBoolean) {
     // wall.body.immovable = false;
     if (wall.body.touching.up) {
-      wall.body.velocity.y = 100;
+      wall.body.velocity.y = 50;
     }
     else if (wall.body.touching.down) {
-      wall.body.velocity.y = -100;
+      wall.body.velocity.y = -50;
     }
     else if (wall.body.touching.left) {
-      wall.body.velocity.x = 100;
+      wall.body.velocity.x = 50;
     }
     else if (wall.body.touching.right) {
-      wall.body.velocity.x = -100;
+      wall.body.velocity.x = -50;
     }
   }
   else if (stopBoolean) {
     // wall.body.immovable = true;
     wall.body.stop();
-    wall.kill();
+    // wall.kill();
   }
   weapon.kill();
 }

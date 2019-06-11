@@ -213,7 +213,7 @@ brawl.rogue.prototype = {
         //  Speed-up the rate of fire, allowing them to shoot 1 bullet every 60ms
         this.weapon1.fireRate = 120;
         // Track Player
-        this.weapon1.trackSprite(this.player, 0, -20);
+        this.weapon1.trackSprite(this.player, 0, 0);
 
         /////////////////Push
         //  Creates 30 bullets, using the 'bullet' graphic
@@ -228,7 +228,7 @@ brawl.rogue.prototype = {
         this.weapon2.fireRate = 120;
         //Match Your Velocity?
         // Track Player
-        this.weapon2.trackSprite(this.player, 0, -20);
+        this.weapon2.trackSprite(this.player, 0, 0);
 
         ////////////////Stop
         //  Creates 30 bullets, using the 'bullet' graphic
@@ -242,7 +242,9 @@ brawl.rogue.prototype = {
         //  Speed-up the rate of fire, allowing them to shoot 1 bullet every 60ms
         this.weapon2.fireRate = 120;
         // Track Player
-        this.weapon3.trackSprite(this.player, 0, -20);
+        this.weapon3.trackSprite(this.player, 0, 0);
+
+        // - 20 for Tracking//
 
         //Adding Undeniable Death
         for (var i = 0; i < thisWorldGenerator.world.deathIterator; i++) {
@@ -359,6 +361,7 @@ brawl.rogue.prototype = {
         this.wallX.body.collideWorldBounds = true;
         this.wallX.body.bounce.setTo(1);
         this.wallX.alignIn(rect, positionInRectangle)
+        this.wallX.body.maxVelocity.setTo(50);
         // this.wallX.body.immovable = true;
         this.wallX.body.mass = 200;
         this.wallX.body.velocity.setTo(this.game.rnd.integerInRange(-50, 50), this.game.rnd.integerInRange(-50, 50));
@@ -672,11 +675,11 @@ brawl.rogue.prototype = {
         //////////////////////////////////////////WASD Controls//////////////////////////////////////////////
         if (onTheGround) {
             if (this.movementLeft.isDown) {
-                this.player.body.velocity.x = -400;
+                this.player.body.velocity.x = -350;
                 this.player.animations.play('left');
             }
             else if (this.movementRight.isDown) {
-                this.player.body.velocity.x = 400;
+                this.player.body.velocity.x = 350;
                 this.player.animations.play('right');
             }
             else {
@@ -685,8 +688,8 @@ brawl.rogue.prototype = {
             }
         }
         else if (onTheRightSide) {
-            this.player.body.velocity.x = 100;
-            this.player.body.velocity.y = 100;
+            this.player.body.velocity.x = 50;
+            this.player.body.velocity.y = 50;
             if (onWall || onLedgeBlue || onLedgeGreen || onLedgeGrey || onImmovable) {
                 this.player.frame = 6;
             }
@@ -696,8 +699,8 @@ brawl.rogue.prototype = {
             }
         }
         else if (onTheLeftSide) {
-            this.player.body.velocity.x = -100;
-            this.player.body.velocity.y = 100;
+            this.player.body.velocity.x = -50;
+            this.player.body.velocity.y = 50;
             if (onWall || onLedgeBlue || onLedgeGreen || onLedgeGrey || onImmovable) {
                 this.player.frame = 12;
             }
