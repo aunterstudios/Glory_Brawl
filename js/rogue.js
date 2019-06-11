@@ -619,9 +619,9 @@ brawl.rogue.prototype = {
         this.game.physics.arcade.collide(this.ledgeDown, this.wall);
         this.game.physics.arcade.collide(this.ledgeDown, this.enemy);
         this.game.physics.arcade.collide(this.ledgeDown, this.spikes, preventPhysicsBug);
-        this.game.physics.arcade.collide(this.ledgeDown, this.spikes);
         this.game.physics.arcade.collide(this.ledgeSide, this.wall, preventPhysicsBug);
         this.game.physics.arcade.collide(this.ledgeSide, this.enemy, enemyLedgeBlue);
+        this.game.physics.arcade.collide(this.ledgeSide, this.spikes, preventPhysicsBug);
 
         //Enemy Mechanics
         this.game.physics.arcade.collide(this.enemy, this.spikes);
