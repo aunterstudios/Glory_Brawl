@@ -705,8 +705,8 @@ brawl.rogue.prototype = {
             }
         }
         else if (onTheRightSide) {
-            this.player.body.velocity.x = 50;
-            this.player.body.velocity.y = 50;
+            this.player.body.velocity.x = 75;
+            this.player.body.velocity.y = 75;
             if (onWall || onLedgeBlue || onLedgeGreen || onLedgeGrey || onImmovable) {
                 this.player.frame = 6;
             }
@@ -716,8 +716,8 @@ brawl.rogue.prototype = {
             }
         }
         else if (onTheLeftSide) {
-            this.player.body.velocity.x = -50;
-            this.player.body.velocity.y = 50;
+            this.player.body.velocity.x = -75;
+            this.player.body.velocity.y = 75;
             if (onWall || onLedgeBlue || onLedgeGreen || onLedgeGrey || onImmovable) {
                 this.player.frame = 12;
             }
