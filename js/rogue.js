@@ -38,6 +38,10 @@ brawl.rogue.prototype = {
         //Desired FPS of game
         this.game.time.desiredFps = 60;
 
+        //Background color of game
+        // this.game.stage.backgroundColor = "#4488AA";
+        this.game.stage.backgroundColor = Phaser.Color.getRandomColor(50, 255, 255);
+
         // this.game.time.advancedTiming = true;
 
         // Stretch to fill (Full Screen Mode)
@@ -187,7 +191,7 @@ brawl.rogue.prototype = {
         this.player.anchor.setTo(.5);
         // this.player.scale.setTo(.6);
         this.player.scale.setTo(.35);
-        this.player.tint = Math.random() * 0xffffff;
+        this.player.tint = Phaser.Color.getRandomColor(50, 255, 255);
         this.player.body.setSize(63, 84, 5, 6);
         // this.player.body.bounce.y = 0;
         this.player.body.mass = 6;
