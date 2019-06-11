@@ -191,6 +191,7 @@ brawl.rogue.prototype = {
         this.player.anchor.setTo(.5);
         // this.player.scale.setTo(.6);
         this.player.scale.setTo(.35);
+        this.player.alpha = this.game.rnd.realInRange(.5,1);
         this.player.tint = Phaser.Color.getRandomColor(50, 255, 255);
         this.player.body.setSize(63, 84, 5, 6);
         // this.player.body.bounce.y = 0;
@@ -595,6 +596,7 @@ brawl.rogue.prototype = {
 
         //Movable Wall Mechanics
         this.game.physics.arcade.collide(this.wall,this.wall);
+        this.game.physics.arcade.collide(this.wall,this.spikes);
 
         // Ball Mechanics
         this.game.physics.arcade.collide(this.ball, this.ball);
@@ -637,13 +639,14 @@ brawl.rogue.prototype = {
         // this.game.physics.arcade.collide(this.finish, this.spikes);
         // this.game.physics.arcade.collide(this.finish, this.ball);
 
-        //Win
-        this.game.physics.arcade.overlap(this.player, this.finish, nextLevel, null, this);
-
         //Death Mechanics
         this.game.physics.arcade.overlap(this.player, this.enemy, deathOne, null, this);
         this.game.physics.arcade.overlap(this.player, this.spikes, deathOne, null, this);
         this.game.physics.arcade.overlap(this.player, this.death, deathOne, null, this);
+
+        ////////////////////////////////Win Conditions/////////////////////////////////
+        //Game Mode 1 Flag
+        this.game.physics.arcade.overlap(this.player, this.finish, nextLevel, null, this);
         ////////////////////////////////Actual Controls////////////////////////////////
 
         //Jump Mechanics

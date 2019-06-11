@@ -179,7 +179,7 @@ function shuffle(array) {
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "Rogue Version-OVERLAP_BIAS-PlayableBLAME!",
+  "Rogue Version-OVERLAP_BIAS-PlayableBLAMEWalls!",
   "You have no name and no memory.",
   "Trapped in an unknown ever-changing world.",
   "All you know is the name of the world",
