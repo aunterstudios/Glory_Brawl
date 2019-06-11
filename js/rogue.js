@@ -486,18 +486,15 @@ brawl.rogue.prototype = {
         function spikeTimerFall (){
             this.spikesFall = this.fallingSpikes.getFirstDead(true, spikesX.x, spikesX.y, 'fallingSpikes');
             this.spikesFall.anchor.setTo(.5);
-            this.spikesFall.scale.setTo(1);
-            this.spikesFall.alignTo(spikesX, positionArray[1]);
+            this.spikesFall.scale.setTo(.5);
+            this.spikesFall.alignIn(spikesX, positionArray[1], -20, -30);
             this.spikesFall.checkWorldBounds = true;
             this.spikesFall.outOfBoundsKill = true;
-            this.spikesFall.body.gravity.y = 710;
+            this.spikesFall.body.velocity.y = 300;
         }
         // this.spikeTimerFall(this.spikeFall);
-        this.game.time.events.loop(Phaser.Timer.SECOND * 2, spikeTimerFall, this);
+        this.game.time.events.loop(Phaser.Timer.SECOND * this.game.rnd.integerInRange(3, 7), spikeTimerFall, this);
     },
-    // spikeTimerFall: function (spikeTimer) {
-    //     this.game.time.events.loop(Phaser.Timer.SECOND * 2, spikeTimer, this);
-    // },
     //Put the Game on Full Screen Mode
     gofull: function () {
         if (this.game.scale.isFullScreen) {
