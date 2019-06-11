@@ -108,7 +108,7 @@ var mountainClimbValues = new worldValues(700, 700, 580, 700, 1, 1400, 6200, 2, 
 //For the Canvas World
 var canvasWorldValues = new worldValues(400, 465, 290, 400, 1, 1400, 700, 3, 2, 3);
 //For the Large World
-var largeWorldValues = new worldValues(550, 570, 600, 660, 3, 1400, 3900, 7, 6, 3);
+var largeWorldValues = new worldValues(550, 570, 580, 660, 3, 1400, 3900, 7, 6, 3);
 //For the Practice World
 var practiceWorldValues = new worldValues(490, 500, 390, 500, 3, 1400, 1900, 4, 4, 3);
 
@@ -555,18 +555,9 @@ function weaponBall(weapon, ball) {
 function weaponWall(weapon, wall) {
   wall.body.stop();
   if (pullBoolean) {
-    if (wall.body.touching.up) {
-      wall.body.velocity.y = -50;
-    }
-    else if (wall.body.touching.down) {
-      wall.body.velocity.y = 50;
-    }
-    else if (wall.body.touching.left) {
-      wall.body.velocity.x = -50;
-    }
-    else if (wall.body.touching.right) {
-      wall.body.velocity.x = 50;
-    }
+    console.log("Wall Angle: "+ wall.body.angle);
+    console.log("Weapon Angle: "+ weapon.body.angle);
+    wall.body.velocity.setTo((weapon.x-wall.x)*4,(weapon.y-wall.y)*4)
   }
   else if (pushBoolean) {
     // wall.body.immovable = false;
