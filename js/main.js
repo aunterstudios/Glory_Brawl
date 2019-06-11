@@ -102,15 +102,15 @@ class worldValues {
 
 ///////blocksizeX,rectangleX, blocksizeY, rectangleY, deathI, deathX, deathY, Ix,Iy, Amount of Sprites
 //For Tradtional Platformer
-var traditionalPlatformerValues = new worldValues(600, 700, 300, 375, 5, 1400, 650, 10, 2, 2);
+var traditionalPlatformerValues = new worldValues(600, 700, 300, 375, 5, 1400, 750, 10, 2, 2);
 //For the Mountain Climb
-var mountainClimbValues = new worldValues(700, 700, 580, 700, 1, 1400, 6150, 2, 9, 3);
+var mountainClimbValues = new worldValues(700, 700, 580, 700, 1, 1400, 6250, 2, 9, 3);
 //For the Canvas World
-var canvasWorldValues = new worldValues(400, 465, 290, 400, 1, 1400, 650, 3, 2, 3);
+var canvasWorldValues = new worldValues(400, 465, 290, 400, 1, 1400, 750, 3, 2, 3);
 //For the Large World
-var largeWorldValues = new worldValues(550, 570, 580, 660, 3, 1400, 3850, 7, 6, 3);
+var largeWorldValues = new worldValues(550, 570, 580, 660, 3, 1400, 3950, 7, 6, 3);
 //For the Practice World
-var practiceWorldValues = new worldValues(490, 500, 390, 500, 3, 1400, 1850, 4, 4, 3);
+var practiceWorldValues = new worldValues(490, 500, 390, 500, 3, 1400, 1950, 4, 4, 3);
 
 //////////////////////World Randomness Generator(The Conclusion)//////////////////
 
@@ -168,6 +168,9 @@ var wallLength = [.4, .5, .6];
 var immovableWallArray = ['immovableVerticalWall', 'immovableRotatedWall'];
 var immovableWallLength = [.5, .6];
 var immovableWallVelocity = [0, 1];
+
+//Hold Spikes;
+// var spikeFallingArray = [];
 
 /////////////////////////////////////////////////Array Shuffler///////////////////////////////////////
 function shuffle(array) {
