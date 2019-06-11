@@ -358,11 +358,11 @@ brawl.rogue.prototype = {
         this.wallX.anchor.setTo(.5);
         // this.wallX.scale.setTo(.5);
         this.wallX.scale.setTo(wallLength[Math.floor(Math.random() * wallLength.length)]);
-        this.wallX.body.collideWorldBounds = true;
-        this.wallX.body.bounce.setTo(1);
         this.wallX.alignIn(rect, positionInRectangle)
         this.wallX.body.maxVelocity.setTo(50);
         // this.wallX.body.immovable = true;
+        this.wallX.body.collideWorldBounds = true;
+        this.wallX.body.bounce.setTo(1);
         this.wallX.body.mass = 200;
         this.wallX.body.velocity.setTo(this.game.rnd.integerInRange(-50, 50), this.game.rnd.integerInRange(-50, 50));
         // this.wallX.body.moves = false;
@@ -372,10 +372,11 @@ brawl.rogue.prototype = {
         this.immovableWallX.anchor.setTo(.5);
         // this.immovableWallX.scale.setTo(.5);
         this.immovableWallX.scale.setTo(immovableWallLength[Math.floor(Math.random() * immovableWallLength.length)]);
+        this.immovableWallX.body.immovable = true;
         this.immovableWallX.body.collideWorldBounds = true;
         this.immovableWallX.body.bounce.setTo(1);
+        this.immovableWallX.body.mass = 400;
         this.immovableWallX.alignIn(rect, positionInRectangle)
-        this.immovableWallX.body.immovable = true;
         if (immovableWallVelocity[Math.floor(Math.random() * immovableWallVelocity.length)] === 0 ) {
             this.immovableWallX.body.velocity.setTo(this.game.rnd.integerInRange(-50, 50), this.game.rnd.integerInRange(-50, 50));
         }
@@ -389,23 +390,25 @@ brawl.rogue.prototype = {
         // this.trumpX.body.gravity.y = 10;
         this.trumpX.anchor.setTo(.5);
         this.trumpX.scale.setTo(.6);
-        this.trumpX.alignIn(rect, positionInRectangle);
+        this.trumpX.body.mass = 20;
         this.trumpX.body.maxVelocity.setTo(400);
         this.trumpX.body.bounce.setTo(1);
         this.trumpX.body.collideWorldBounds = true;
+        this.trumpX.alignIn(rect, positionInRectangle);
     },
     ledgeSpawn: function (x, y, rect, positionInRectangle) {
         this.ledgeX = this.ledge.create(x, y, 'ledge');
-        this.ledgeX.body.maxVelocity.setTo(400);
         this.ledgeX.anchor.setTo(.5);
         // this.ledgeX.scale.setTo(.5);
         this.ledgeX.scale.setTo(.4);
-        this.ledgeX.alignIn(rect, positionInRectangle);
-        this.ledgeX.body.collideWorldBounds = true;
+        this.ledgeX.body.mass = 20;
+        this.ledgeX.body.maxVelocity.setTo(300);
         //////////////////////Ledge Out of Bounds/////////////////////
         // this.ledgeX.checkWorldBounds = true;
         // this.ledgeX.events.onOutOfBounds.add(this.ledgeOut, this);
         this.ledgeX.body.bounce.setTo(1);
+        this.ledgeX.body.collideWorldBounds = true;
+        this.ledgeX.alignIn(rect, positionInRectangle);
     },
     ledgeDownSpawn: function (x, y, rect, positionInRectangle) {
         this.ledgeY = this.ledgeDown.create(x, y, 'ledgeDown');
@@ -413,22 +416,26 @@ brawl.rogue.prototype = {
         this.ledgeY.anchor.setTo(.5);
         // this.ledgeY.scale.setTo(.5);
         this.ledgeY.scale.setTo(.4);
-        this.ledgeY.alignIn(rect, positionInRectangle);
+        this.ledgeY.body.mass = 20;
+        this.ledgeY.body.maxVelocity.setTo(300);
         this.ledgeY.body.collideWorldBounds = true;
         // this.ledgeY.body.immovable = true;
         this.ledgeY.body.bounce.setTo(1);
         this.ledgeY.body.mass = 200;
+        this.ledgeY.alignIn(rect, positionInRectangle);
     },
     ledgeSideSpawn: function (x, y, rect, positionInRectangle) {
         this.ledgeSideways = this.ledgeSide.create(x, y, 'ledgeSide');
         this.ledgeSideways.anchor.setTo(.5);
         // this.ledgeSideways.scale.setTo(.5);
         this.ledgeSideways.scale.setTo(.4);
-        this.ledgeSideways.alignIn(rect, positionInRectangle);
-        // this.ledgeSideways.body.immovable = true;
+        this.ledgeSideways.body.mass = 20;
+        this.ledgeSideways.body.maxVelocity.setTo(300);
         this.ledgeSideways.body.velocity.x = this.game.rnd.realInRange(-300, 300);
         this.ledgeSideways.body.collideWorldBounds = true;
         this.ledgeSideways.body.bounce.setTo(1);
+        this.ledgeSideways.alignIn(rect, positionInRectangle);
+        // this.ledgeSideways.body.immovable = true;
     },
     ballSpawn: function (x, y, rect, positionInRectangle) {
         //Adding Ball
@@ -436,13 +443,14 @@ brawl.rogue.prototype = {
         this.ballX.anchor.setTo(.5);
         // this.ballX.scale.setTo(.5);
         this.ballX.scale.setTo(.5);
+        this.ballX.body.mass = 30;
+        this.ballX.body.maxVelocity.setTo(500);
+        this.ballX.body.velocity.x = this.game.rnd.realInRange(-100, 100)
+        this.ballX.body.collideWorldBounds = true;
+        this.ballX.body.bounce.setTo(1.0);
         this.ballX.alignIn(rect, positionInRectangle);
         // this.ballX.body.setCircle(50);
         // this.ballX.body.mass = 5;
-        this.ballX.body.collideWorldBounds = true;
-        this.ballX.body.maxVelocity.setTo(500);
-        this.ballX.body.velocity.x = this.game.rnd.realInRange(-100, 100)
-        this.ballX.body.bounce.setTo(1.0);
     },
     spikeSpawn: function (x, y, rect, positionInRectangle) {
         // var spikeArray = ['invertedSpikes', 'spikes'];
@@ -451,8 +459,9 @@ brawl.rogue.prototype = {
         this.spikesX = this.spikes.create(x, y, spikeArray[Math.floor(Math.random() * spikeArray.length)]);
         this.spikesX.anchor.setTo(.5);
         this.spikesX.scale.setTo(spikeLength[Math.floor(Math.random() * spikeLength.length)]);
-        this.spikesX.alignIn(rect, positionInRectangle);
         this.spikesX.body.immovable = true;
+        this.spikesX.body.mass = 150;
+        this.spikesX.alignIn(rect, positionInRectangle);
     },
     //Put the Game on Full Screen Mode
     gofull: function () {
@@ -578,6 +587,9 @@ brawl.rogue.prototype = {
         this.game.physics.arcade.collide(this.immovableWall, this.ledgeSide);
         this.game.physics.arcade.collide(this.immovableWall, this.enemy);
 
+        //Movable Wall Mechanics
+        this.game.physics.arcade.collide(this.wall,this.wall);
+
         // Ball Mechanics
         this.game.physics.arcade.collide(this.ball, this.ball);
         this.game.physics.arcade.collide(this.ball, this.wall, ballWall);
@@ -595,15 +607,14 @@ brawl.rogue.prototype = {
         this.game.physics.arcade.collide(this.ledgeDown, this.ledgeSide);
 
         //Ledge vs. Other Objects
-        // this.game.physics.arcade.collide(this.ledge, this.wall, preventPhysicsBug);
+        this.game.physics.arcade.collide(this.ledge, this.wall);
         this.game.physics.arcade.collide(this.ledge, this.enemy, enemyLedge);
         this.game.physics.arcade.collide(this.ledge, this.spikes, preventPhysicsBug);
-        // this.game.physics.arcade.collide(this.ledgeDown, this.wall, preventPhysicsBug);
-        // this.game.physics.arcade.collide(this.ledgeDown, this.enemy, enemyLedge);
+        this.game.physics.arcade.collide(this.ledgeDown, this.wall);
         this.game.physics.arcade.collide(this.ledgeDown, this.enemy);
-        // this.game.physics.arcade.collide(this.ledgeDown, this.spikes, preventPhysicsBug);
+        this.game.physics.arcade.collide(this.ledgeDown, this.spikes, preventPhysicsBug);
         this.game.physics.arcade.collide(this.ledgeDown, this.spikes);
-        // this.game.physics.arcade.collide(this.ledgeSide, this.wall, preventPhysicsBug);
+        this.game.physics.arcade.collide(this.ledgeSide, this.wall, preventPhysicsBug);
         this.game.physics.arcade.collide(this.ledgeSide, this.enemy, enemyLedgeBlue);
 
         //Enemy Mechanics
