@@ -169,9 +169,6 @@ var immovableWallArray = ['immovableVerticalWall', 'immovableRotatedWall'];
 var immovableWallLength = [.5, .6];
 var immovableWallVelocity = [0, 1];
 
-//Hold Spikes;
-// var spikeFallingArray = [];
-
 /////////////////////////////////////////////////Array Shuffler///////////////////////////////////////
 function shuffle(array) {
   for (var i = array.length - 1; i > 0; i--) {

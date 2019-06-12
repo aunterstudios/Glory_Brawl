@@ -154,13 +154,6 @@ brawl.rogue.prototype = {
         this.text.fixedToCamera = true;
         this.text.cameraOffset.setTo(1100, 725);
 
-        //////////////////////////////////////Event Timers with Sprites///////////////////////////////////
-
-        //Falling Spikes
-        // console.log(spikeFallingArray);
-        // this.game.time.events.loop(Phaser.Timer.SECOND * 2, this.spikeFall(), this);
-
-
     },
     // ////////////////////////Out of Bounds Events//////////////////////////
     // playerOut: function (player) {
@@ -479,22 +472,22 @@ brawl.rogue.prototype = {
         this.spikesX.body.immovable = true;
         this.spikesX.body.mass = 150;
         this.spikesX.alignIn(rect, positionInRectangle);
-        this.spikeFall(this.spikesX);
+        // this.spikeFall(this.spikesX);
     },
     //SpikeFall
-    spikeFall: function (spikesX) {
-        function spikeTimerFall (){
-            this.spikesFall = this.fallingSpikes.getFirstDead(true, spikesX.x, spikesX.y, 'fallingSpikes');
-            this.spikesFall.anchor.setTo(.5);
-            this.spikesFall.scale.setTo(.5);
-            this.spikesFall.alignIn(spikesX, positionArray[1]);
-            this.spikesFall.checkWorldBounds = true;
-            this.spikesFall.outOfBoundsKill = true;
-            this.spikesFall.body.velocity.y = 300;
-        }
-        // this.spikeTimerFall(this.spikeFall);
-        this.game.time.events.loop(Phaser.Timer.SECOND * this.game.rnd.integerInRange(3, 7), spikeTimerFall, this);
-    },
+    // spikeFall: function (spikesX) {
+    //     function spikeTimerFall (){
+    //         this.spikesFall = this.fallingSpikes.getFirstDead(true, spikesX.x, spikesX.y, 'fallingSpikes');
+    //         this.spikesFall.anchor.setTo(.5);
+    //         this.spikesFall.scale.setTo(.5);
+    //         this.spikesFall.alignIn(spikesX, positionArray[1]);
+    //         this.spikesFall.checkWorldBounds = true;
+    //         this.spikesFall.outOfBoundsKill = true;
+    //         this.spikesFall.body.velocity.y = 300;
+    //     }
+    //     // this.spikeTimerFall(this.spikeFall);
+    //     this.game.time.events.loop(Phaser.Timer.SECOND * this.game.rnd.integerInRange(3, 7), spikeTimerFall, this);
+    // },
     //Put the Game on Full Screen Mode
     gofull: function () {
         if (this.game.scale.isFullScreen) {
