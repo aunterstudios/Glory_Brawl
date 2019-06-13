@@ -606,7 +606,6 @@ brawl.rogue.prototype = {
         //Immovable Wall Mechanics
         this.game.physics.arcade.collide(this.immovableWall, this.ball);
         this.game.physics.arcade.collide(this.immovableWall, this.wall);
-        this.game.physics.arcade.overlap(this.immovableWall, this.spikes);
         this.game.physics.arcade.collide(this.immovableWall, this.ledge);
         this.game.physics.arcade.collide(this.immovableWall, this.ledgeDown);
         this.game.physics.arcade.collide(this.immovableWall, this.ledgeSide);
@@ -712,11 +711,11 @@ brawl.rogue.prototype = {
 
         //////////////////////////////////////////WASD Controls//////////////////////////////////////////////
         if (onTheGround) {
-            if (this.movementLeft.isDown) {
+            if (this.movementLeft.isDown && !this.movementRight.isDown) {
                 this.player.body.velocity.x = -350;
                 this.player.animations.play('left');
             }
-            else if (this.movementRight.isDown) {
+            else if (this.movementRight.isDown && !this.movementLeft.isDown) {
                 this.player.body.velocity.x = 350;
                 this.player.animations.play('right');
             }
