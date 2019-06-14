@@ -161,7 +161,7 @@ var spikeLength = [.2, .3,];
 
 //Different Wall Types
 var wallArray = ['brownPlatform', 'wall', 'rotatedWall'];
-var wallLength = [.4, .5, .6];
+var wallLength = [.3, .4, .5, .6];
 
 //Different Immmovable Wall Types
 //Different Wall Types
@@ -555,9 +555,9 @@ function weaponBall(weapon, ball) {
 function weaponWall(weapon, wall) {
   wall.body.stop();
   if (pullBoolean) {
-    console.log("Wall Angle: "+ wall.body.angle);
-    console.log("Weapon Angle: "+ weapon.body.angle);
-    wall.body.velocity.setTo((weapon.x-wall.x)*4,(weapon.y-wall.y)*4)
+    console.log("Wall Angle: " + wall.body.angle);
+    console.log("Weapon Angle: " + weapon.body.angle);
+    wall.body.velocity.setTo((weapon.x - wall.x) * 4, (weapon.y - wall.y) * 4)
   }
   else if (pushBoolean) {
     // wall.body.immovable = false;

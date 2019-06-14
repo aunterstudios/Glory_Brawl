@@ -26,9 +26,9 @@ brawl.rogue.prototype = {
         this.load.image('action', 'assets/action.png');
         this.load.image('ledgeDown', 'assets/platformX.png');
         this.load.image('ledgeSide', 'assets/platformSide.png');
-        this.load.image('bullet3', 'assets/bullet09.png');
-        this.load.image('bullet2', 'assets/bullet254.png');
-        this.load.image('bullet1', 'assets/bullet255.png');
+        this.load.image('bullet3', 'assets/bullet23.png');
+        this.load.image('bullet2', 'assets/bullet24.png');
+        this.load.image('bullet1', 'assets/bullet25.png');
         this.load.image('boundary', 'assets/worldBounds.png');
         this.load.image('coin', 'assets/shield2.png');
         this.load.image('flag', 'assets/flag.png');
@@ -183,8 +183,8 @@ brawl.rogue.prototype = {
     worldCreator: function (thisWorldGenerator, gameMode) {
         //Entire Object Fed to Integrate World Generator
         console.log(thisWorldGenerator);
-        //////////////////Shuffling Positions of Player and BaseCamp////////////////
 
+        //////////////////Shuffling Positions of Player and BaseCamp////////////////
         shuffle(thisWorldGenerator.baseCamp);
         console.log(thisWorldGenerator.baseCamp);
 
@@ -223,7 +223,7 @@ brawl.rogue.prototype = {
         //  Speed-up the rate of fire, allowing them to shoot 1 bullet every 60ms
         this.weapon1.fireRate = 120;
         // Track Player
-        this.weapon1.trackSprite(this.player, 0, 0);
+        this.weapon1.trackSprite(this.player, 10, -30);
 
         /////////////////Push
         //  Creates 30 bullets, using the 'bullet' graphic
@@ -238,7 +238,7 @@ brawl.rogue.prototype = {
         this.weapon2.fireRate = 120;
         //Match Your Velocity?
         // Track Player
-        this.weapon2.trackSprite(this.player, 0, 0);
+        this.weapon2.trackSprite(this.player, 10, -30);
 
         ////////////////Stop
         //  Creates 30 bullets, using the 'bullet' graphic
@@ -252,7 +252,7 @@ brawl.rogue.prototype = {
         //  Speed-up the rate of fire, allowing them to shoot 1 bullet every 60ms
         this.weapon2.fireRate = 120;
         // Track Player
-        this.weapon3.trackSprite(this.player, 0, 0);
+        this.weapon3.trackSprite(this.player, 10, -30);
 
         // - 20 for Tracking//
 
@@ -375,6 +375,11 @@ brawl.rogue.prototype = {
         this.wallX.body.bounce.setTo(1);
         this.wallX.body.mass = 200;
         this.wallX.body.velocity.setTo(this.game.rnd.integerInRange(-50, 50), this.game.rnd.integerInRange(-50, 50));
+        ///////////Drag Events///////////
+        // this.wallX.inputEnabled = true;
+        // this.wallX.input.enableDrag();
+        // this.wallX.events.onDragStart.add(this.startDrag, this);
+        // this.wallX.events.onDragStop.add(this.stopDrag, this);
         // this.wallX.body.moves = false;
     },
     immovableSpawn: function (x, y, rect, positionInRectangle) {
@@ -487,6 +492,13 @@ brawl.rogue.prototype = {
     //     }
     //     // this.spikeTimerFall(this.spikeFall);
     //     this.game.time.events.loop(Phaser.Timer.SECOND * this.game.rnd.integerInRange(3, 7), spikeTimerFall, this);
+    // },
+    //Dragging Motino for Walls
+    // startDrag: function () {
+    //     this.wallX.body.moves = false;
+    // },
+    // stopDrag: function () {
+    //     this.wallX.body.moves = true;
     // },
     //Put the Game on Full Screen Mode
     gofull: function () {

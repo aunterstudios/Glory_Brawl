@@ -23,9 +23,9 @@ brawl.testing.prototype = {
         this.load.image('action', 'assets/action.png');
         this.load.image('ledgeDown', 'assets/platformX.png');
         this.load.image('ledgeSide', 'assets/platformSide.png');
-        this.load.image('bullet3', 'assets/bullet09.png');
-        this.load.image('bullet2', 'assets/bullet254.png');
-        this.load.image('bullet1', 'assets/bullet255.png');
+        this.load.image('bullet3', 'assets/bullet23.png');
+        this.load.image('bullet2', 'assets/bullet24.png');
+        this.load.image('bullet1', 'assets/bullet25.png');
         this.load.image('boundary', 'assets/worldBounds.png');
         this.load.image('coin', 'assets/shield2.png');
         this.load.image('flag', 'assets/flag.png');
