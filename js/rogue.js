@@ -45,6 +45,10 @@ brawl.rogue.prototype = {
 
         // this.game.time.advancedTiming = true;
 
+        //Sort Direction
+
+        this.game.physics.arcade.sortDirection = Phaser.Physics.Arcade.SORT_NONE;
+
         // Stretch to fill (Full Screen Mode)
         this.game.scale.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
 
@@ -194,8 +198,8 @@ brawl.rogue.prototype = {
         this.player.anchor.setTo(.5);
         // this.player.scale.setTo(.6);
         this.player.scale.setTo(.35);
-        this.player.alpha = this.game.rnd.realInRange(.5, 1);
-        this.player.tint = Phaser.Color.getRandomColor(50, 255, 255);
+        // this.player.alpha = this.game.rnd.realInRange(.5, 1);
+        // this.player.tint = Phaser.Color.getRandomColor(50, 255, 255);
         this.player.body.setSize(63, 84, 5, 6);
         // this.player.body.bounce.y = 0;
         this.player.body.mass = 6;
@@ -369,7 +373,7 @@ brawl.rogue.prototype = {
         // this.wallX.scale.setTo(.5);
         this.wallX.scale.setTo(wallLength[Math.floor(Math.random() * wallLength.length)]);
         this.wallX.alignIn(rect, positionInRectangle)
-        this.wallX.body.maxVelocity.setTo(50);
+        this.wallX.body.maxVelocity.setTo(200);
         // this.wallX.body.immovable = true;
         this.wallX.body.collideWorldBounds = true;
         this.wallX.body.bounce.setTo(1);

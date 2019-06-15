@@ -517,7 +517,6 @@ function weaponImmovable(weapon, wall) {
 }
 function weaponBall(weapon, ball) {
   // ball.body.stop();
-
   if (pullBoolean) {
     if (ball.body.touching.up) {
       ball.body.velocity.y = -100;
@@ -553,11 +552,30 @@ function weaponBall(weapon, ball) {
 }
 
 function weaponWall(weapon, wall) {
-  wall.body.stop();
+  // wall.body.stop();
   if (pullBoolean) {
-    console.log("Wall Angle: " + wall.body.angle);
-    console.log("Weapon Angle: " + weapon.body.angle);
-    wall.body.velocity.setTo((weapon.x - wall.x) * 4, (weapon.y - wall.y) * 4)
+    ////////////////////////////////First Attempt////////////////////////
+    // console.log("Wall Angle: " + wall.body.angle);
+    // console.log("Weapon Angle: " + weapon.body.angle);
+    // wall.body.velocity.setTo((weapon.x - wall.x) * 4, (weapon.y - wall.y) * 4)
+    ////////////////////////////////Second Attempt But Figured Something Out///////////////////////
+    // game.physics.arcade.moveToXY(wall, weapon.x, weapon.y, 50, 1000);
+    // console.log("WY: " + wall.body.velocity.y + " WX: " + wall.body.velocity.x);
+    // console.log("PlayerX: " + this.player.x + " PLayerY: " + this.player.y);
+    //////////////////////////////What I'm going to go with?/////////////////
+    if (wall.body.touching.up) {
+      wall.body.velocity.y = -50
+    }
+    else if (wall.body.touching.down) {
+      wall.body.velocity.y = 50;
+    }
+    else if (wall.body.touching.left) {
+      wall.body.velocity.x = -50;
+    }
+    else if (wall.body.touching.right) {
+      wall.body.velocity.x = 50;
+    }
+    // this.wall.forEach(game.physics.arcade.moveToPointer, game.physics.arcade, false, 200);
   }
   else if (pushBoolean) {
     // wall.body.immovable = false;
