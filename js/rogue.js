@@ -186,11 +186,11 @@ brawl.rogue.prototype = {
     //////////////Creation of the World///////////////
     worldCreator: function (thisWorldGenerator, gameMode) {
         //Entire Object Fed to Integrate World Generator
-        console.log(thisWorldGenerator);
+        // console.log(thisWorldGenerator);
 
         //////////////////Shuffling Positions of Player and BaseCamp////////////////
         shuffle(thisWorldGenerator.baseCamp);
-        console.log(thisWorldGenerator.baseCamp);
+        // console.log(thisWorldGenerator.baseCamp);
 
         ////////////////////Adding Player//////////////////////
         this.player = this.game.add.sprite(thisWorldGenerator.baseCamp[0].playerXBaseCamp, thisWorldGenerator.baseCamp[0].playerYBaseCamp, 'dude');
@@ -286,21 +286,21 @@ brawl.rogue.prototype = {
                 }
                 else {
                     shuffle(positionArray);
-                    console.log("x" + "y" + x + y + " " + positionArray)
+                    // console.log("x" + "y" + x + y + " " + positionArray)
                     //////Sprites//////
                     for (var i = 0; i < thisWorldGenerator.world.amountOfSpritesInGrid; i++) {
                         this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[i]);
                     }
                     if (gameMode === 0) {
                         this.coinSpawn(xOfSprite, yOfSprite, rect, positionArray[thisWorldGenerator.world.amountOfSpritesInGrid])
-                        console.log("coin initiated");
+                        // console.log("coin initiated");
                     }
                     else if (gameMode === 1) {
                         if (x === thisWorldGenerator.baseCamp[1].iteratorXBaseCamp && y === thisWorldGenerator.baseCamp[1].iteratorYBaseCamp) {
                             this.finish = this.game.add.sprite(xOfSprite, yOfSprite, 'flag');
                             this.game.physics.arcade.enable(this.finish);
                             this.finish.alignIn(rect, positionArray[i + 1]);
-                            console.log("Flag Initiated");
+                            // console.log("Flag Initiated");
                         }
                     }
                 }

@@ -77,10 +77,10 @@ var largeWorldPositionFour = new baseCampCreator(3700, 3800, 6, 5);
 var largeWorldArray = [largeWorldPositionOne, largeWorldPositionTwo, largeWorldPositionThree, largeWorldPositionFour];
 
 //For the Practice World
-var practiceWorldPositionOne = new baseCampCreator(200, 400, 0, 0);
-var practiceWorldPositionTwo = new baseCampCreator(200, 1600, 0, 3);
-var practiceWorldPositionThree = new baseCampCreator(1600, 400, 3, 0);
-var practiceWorldPositionFour = new baseCampCreator(1600, 1600, 3, 3);
+var practiceWorldPositionOne = new baseCampCreator(300, 400, 0, 0);
+var practiceWorldPositionTwo = new baseCampCreator(300, 1800, 0, 3);
+var practiceWorldPositionThree = new baseCampCreator(1700, 400, 3, 0);
+var practiceWorldPositionFour = new baseCampCreator(1700, 1800, 3, 3);
 var practiceWorldArray = [practiceWorldPositionOne, practiceWorldPositionTwo, practiceWorldPositionThree, practiceWorldPositionFour];
 
 ///////////////////////////////////////World Generation Variables of Each Map///////////////////////////////////////
