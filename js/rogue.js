@@ -41,7 +41,7 @@ brawl.rogue.prototype = {
 
         //Background color of game
         // this.game.stage.backgroundColor = "#4488AA";
-        this.game.stage.backgroundColor = Phaser.Color.getRandomColor(50, 255, 255);
+        // this.game.stage.backgroundColor = Phaser.Color.getRandomColor(50, 255, 255);
 
         // this.game.time.advancedTiming = true;
 
@@ -308,16 +308,16 @@ brawl.rogue.prototype = {
         //Create Randomness in Each Grid
         var gridSystemGenesis = this.game.rnd.integerInRange(0, 100);
         //Create Random Pattern Within Each Grid
-        if (gridSystemGenesis >= 0 && gridSystemGenesis <= 20) {
-            this.wallSpawn(x, y, rect, positionInRectangle);
-        }
-        else if (gridSystemGenesis >= 21 && gridSystemGenesis <= 41) {
+        if (gridSystemGenesis >= 0 && gridSystemGenesis <= 12) {
             this.immovableSpawn(x, y, rect, positionInRectangle);
         }
-        else if (gridSystemGenesis >= 42 && gridSystemGenesis <= 56) {
+        else if (gridSystemGenesis >= 13 && gridSystemGenesis <= 33) {
+            this.wallSpawn(x, y, rect, positionInRectangle);
+        }
+        else if (gridSystemGenesis >= 34 && gridSystemGenesis <= 48) {
             this.enemySpawn(x, y, rect, positionInRectangle);
         }
-        else if (gridSystemGenesis >= 57 && gridSystemGenesis <= 61) {
+        else if (gridSystemGenesis >= 49 && gridSystemGenesis <= 61) {
             this.ledgeSpawn(x, y, rect, positionInRectangle);
         }
         else if (gridSystemGenesis >= 62 && gridSystemGenesis <= 69) {
