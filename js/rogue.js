@@ -721,7 +721,7 @@ brawl.rogue.prototype = {
         //Player Angle Still
         this.player.angle = 0;
 
-        //////////////////////////////////////////WASD Controls//////////////////////////////////////////////
+        //////////////////////////////////////////WASD Controls and Player Touch Mechanics//////////////////////////////////////////////
         if (onTheGround) {
             if (this.movementLeft.isDown && !this.movementRight.isDown) {
                 this.player.body.velocity.x = -350;
@@ -737,8 +737,10 @@ brawl.rogue.prototype = {
             }
         }
         else if (onTheRightSide) {
-            this.player.body.velocity.x = 100;
-            this.player.body.velocity.y = 100;
+            if (onWall || onImmovable) {
+                this.player.body.velocity.x = 100;
+                this.player.body.velocity.y = 100;
+            }
             if (onWall || onLedgeBlue || onLedgeGreen || onLedgeGrey || onImmovable) {
                 this.player.frame = 6;
             }
@@ -748,8 +750,10 @@ brawl.rogue.prototype = {
             }
         }
         else if (onTheLeftSide) {
-            this.player.body.velocity.x = -100;
-            this.player.body.velocity.y = 100;
+            if (onWall || onImmovable) {
+                this.player.body.velocity.x = -100;
+                this.player.body.velocity.y = 100;
+            }
             if (onWall || onLedgeBlue || onLedgeGreen || onLedgeGrey || onImmovable) {
                 this.player.frame = 12;
             }
@@ -773,7 +777,7 @@ brawl.rogue.prototype = {
             }
 
         }
-        if (onNone) {
+        else if (onNone) {
             this.player.frame = 10;
             if (this.movementLeft.isDown && !this.movementRight.isDown) {
                 this.player.body.velocity.x = -400;

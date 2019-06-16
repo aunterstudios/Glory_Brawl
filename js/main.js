@@ -179,7 +179,7 @@ function shuffle(array) {
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "Rogue Version-OVERLaPBias-fallingSpikes!",
+  "Rogue Version-OVERLaPBias-FIXtheXWorld!",
   "You have no name and no memory.",
   "Trapped in an unknown ever-changing world.",
   "All you know is the name of the world",
@@ -286,14 +286,14 @@ function playerWall(player, wall) {
   //   wall.body.velocity.x = player.body.velocity.x;
   // }
   // /////////////////////////////////In Case Want to Change Side Ledge Velocity///////////
-  // // if (wall.body.touching.left) {
-  // //   wall.body.velocity.y = 0;
-  // //   wall.body.velocity.x = 300;
-  // // }
-  // // if (wall.body.touching.right) {
-  // //   wall.body.velocity.y = 0;
-  // //   wall.body.velocity.x = -300;
-  // // }
+  // if (player.body.touching.left) {
+  //   player.body.velocity.x = -100;
+  //   player.body.velocity.y = 100;
+  // }
+  // else if (player.body.touching.right) {
+  //   player.body.velocity.x = 100;
+  //   player.body.velocity.y = 100;
+  // }
   // // if (wall.body.touching.down && player.body.velocity.y < -1) {
   // //   player.body.velocity.y = -100;
   // // }
