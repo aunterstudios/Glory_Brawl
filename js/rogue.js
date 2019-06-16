@@ -572,9 +572,9 @@ brawl.rogue.prototype = {
         ////////////////////////Physics////////////////////////
         //Player Mechanics
 
-        var onWall = this.game.physics.arcade.collide(this.player, this.wall, playerWall);
-        var onLedgeGrey = this.game.physics.arcade.collide(this.player, this.ledge, ledgeUp);
-        var onLedgeGreen = this.game.physics.arcade.collide(this.player, this.ledgeDown, ledgeDownS);
+        var onWall = this.game.physics.arcade.collide(this.player, this.wall, playerWall, null, this);
+        var onLedgeGrey = this.game.physics.arcade.collide(this.player, this.ledge, ledgeUp, null, this);
+        var onLedgeGreen = this.game.physics.arcade.collide(this.player, this.ledgeDown, ledgeDownS, null, this);
         var onLedgeBlue = this.game.physics.arcade.collide(this.player, this.ledgeSide, ledgeSideX);
         // this.game.physics.arcade.collide(this.player, this.ball, ballMover, ballGround);
         var onBall = this.game.physics.arcade.collide(this.player, this.ball, ballMover);
@@ -648,20 +648,18 @@ brawl.rogue.prototype = {
         this.game.physics.arcade.collide(this.ledgeDown, this.ledgeSide);
 
         //Ledge vs. Other Objects
-        this.game.physics.arcade.collide(this.ledge, this.wall);
+        this.game.physics.arcade.collide(this.ledge, this.wall, preventPhysicsBug);
         this.game.physics.arcade.collide(this.ledge, this.enemy, enemyLedge);
         this.game.physics.arcade.collide(this.ledge, this.spikes, preventPhysicsBug);
-        this.game.physics.arcade.collide(this.ledgeDown, this.wall);
-        this.game.physics.arcade.collide(this.ledgeDown, this.enemy);
+        this.game.physics.arcade.collide(this.ledgeDown, this.wall, preventPhysicsBug);
+        this.game.physics.arcade.collide(this.ledgeDown, this.enemy, enemyLedge);
         this.game.physics.arcade.collide(this.ledgeDown, this.spikes, preventPhysicsBug);
         this.game.physics.arcade.collide(this.ledgeSide, this.wall, preventPhysicsBug);
         this.game.physics.arcade.collide(this.ledgeSide, this.enemy, enemyLedgeBlue);
         this.game.physics.arcade.collide(this.ledgeSide, this.spikes, preventPhysicsBug);
 
         //Enemy Mechanics
-        this.game.physics.arcade.collide(this.enemy, this.spikes);
-        this.game.physics.arcade.collide(this.enemy, this.wall);
-        this.game.physics.arcade.collide(this.enemy, this.enemy);
+        this.game.physics.arcade.collide(this.enemy, [this.spikes, this.wall, this.enemy], null, null, this);
 
         // //Flag Moving Mechanics
         // this.game.physics.arcade.collide(this.finish, this.wall);
@@ -673,9 +671,7 @@ brawl.rogue.prototype = {
         // this.game.physics.arcade.collide(this.finish, this.ball);
 
         //Death Mechanics
-        this.game.physics.arcade.overlap(this.player, this.enemy, deathOne, null, this);
-        this.game.physics.arcade.overlap(this.player, this.spikes, deathOne, null, this);
-        this.game.physics.arcade.overlap(this.player, this.death, deathOne, null, this);
+        this.game.physics.arcade.overlap(this.player, [this.enemy, this.spikes, this.death], deathOne, null, this);
 
         ////////////////////////////////Win Conditions/////////////////////////////////
         //Game Mode 1 Flag
@@ -741,8 +737,8 @@ brawl.rogue.prototype = {
             }
         }
         else if (onTheRightSide) {
-            this.player.body.velocity.x = 75;
-            this.player.body.velocity.y = 75;
+            this.player.body.velocity.x = 100;
+            this.player.body.velocity.y = 100;
             if (onWall || onLedgeBlue || onLedgeGreen || onLedgeGrey || onImmovable) {
                 this.player.frame = 6;
             }
@@ -752,8 +748,8 @@ brawl.rogue.prototype = {
             }
         }
         else if (onTheLeftSide) {
-            this.player.body.velocity.x = -75;
-            this.player.body.velocity.y = 75;
+            this.player.body.velocity.x = -100;
+            this.player.body.velocity.y = 100;
             if (onWall || onLedgeBlue || onLedgeGreen || onLedgeGrey || onImmovable) {
                 this.player.frame = 12;
             }
@@ -819,63 +815,6 @@ brawl.rogue.prototype = {
                 this.weapon3.fire();
             }
         }
-
-        //Shoot from Directional
-        if (pullBoolean) {
-            if (this.cursors.up.isDown) {
-                this.weapon1.fireAngle = 270;
-                this.weapon1.fire();
-            }
-            else if (this.cursors.down.isDown) {
-                this.weapon1.fireAngle = 90;
-                this.weapon1.fire();
-            }
-            else if (this.cursors.left.isDown) {
-                this.weapon1.fireAngle = 180;
-                this.weapon1.fire();
-            }
-            else if (this.cursors.right.isDown) {
-                this.weapon1.fireAngle = 0;
-                this.weapon1.fire();
-            }
-        }
-        else if (pushBoolean) {
-            if (this.cursors.up.isDown) {
-                this.weapon2.fireAngle = 270;
-                this.weapon2.fire();
-            }
-            else if (this.cursors.down.isDown) {
-                this.weapon2.fireAngle = 90;
-                this.weapon2.fire();
-            }
-            else if (this.cursors.left.isDown) {
-                this.weapon2.fireAngle = 180;
-                this.weapon2.fire();
-            }
-            else if (this.cursors.right.isDown) {
-                this.weapon2.fireAngle = 0;
-                this.weapon2.fire();
-            }
-        }
-        else if (stopBoolean) {
-            if (this.cursors.up.isDown) {
-                this.weapon3.fireAngle = 270;
-                this.weapon3.fire();
-            }
-            else if (this.cursors.down.isDown) {
-                this.weapon3.fireAngle = 90;
-                this.weapon3.fire();
-            }
-            else if (this.cursors.left.isDown) {
-                this.weapon3.fireAngle = 180;
-                this.weapon3.fire();
-            }
-            else if (this.cursors.right.isDown) {
-                this.weapon3.fireAngle = 0;
-                this.weapon3.fire();
-            }
-        }
-
         // console.log(this.crosshair.x + ' ' + this.crosshair.y);
     }
     // render: function () {

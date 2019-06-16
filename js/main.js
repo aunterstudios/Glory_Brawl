@@ -102,11 +102,11 @@ class worldValues {
 
 ///////blocksizeX,rectangleX, blocksizeY, rectangleY, deathI, deathX, deathY, Ix,Iy, Amount of Sprites
 //For Tradtional Platformer
-var traditionalPlatformerValues = new worldValues(600, 700, 300, 375, 5, 1400, 750, 10, 2, 2);
+var traditionalPlatformerValues = new worldValues(600, 700, 300, 375, 5, 1400, 750, 10, 2, 3);
 //For the Mountain Climb
 var mountainClimbValues = new worldValues(700, 700, 580, 700, 1, 1400, 6250, 2, 9, 3);
 //For the Canvas World
-var canvasWorldValues = new worldValues(400, 465, 290, 400, 1, 1400, 750, 3, 2, 3);
+var canvasWorldValues = new worldValues(400, 465, 290, 400, 1, 1400, 750, 3, 2, 2);
 //For the Large World
 var largeWorldValues = new worldValues(550, 570, 580, 660, 3, 1400, 3950, 7, 6, 3);
 //For the Practice World
@@ -301,6 +301,7 @@ function playerWall(player, wall) {
   //   wall.body.velocity.y = -300;
   //   player.body.velocity.y = -100;
   // }
+  // console.log(player.animations.play('left'));
 }
 ////////////////////////////////////Immovable Wall/////////////////////////////
 
@@ -564,17 +565,21 @@ function weaponWall(weapon, wall) {
     // console.log("PlayerX: " + this.player.x + " PLayerY: " + this.player.y);
     //////////////////////////////What I'm going to go with?/////////////////
     if (wall.body.touching.up) {
-      wall.body.velocity.y = -50
+      wall.body.velocity.y += -50
     }
     else if (wall.body.touching.down) {
-      wall.body.velocity.y = 50;
+      wall.body.velocity.y += 50;
     }
     else if (wall.body.touching.left) {
-      wall.body.velocity.x = -50;
+      wall.body.velocity.x += -50;
     }
     else if (wall.body.touching.right) {
-      wall.body.velocity.x = 50;
+      wall.body.velocity.x += 50;
     }
+    // this.game.physics.arcade.computeVelocity(0, wall.body, 40, 50, 100, 500);
+    ///////////////////////////////Fourth Attempt//////////////////////////////////
+    // game.physics.arcade.velocityFromAngle(weapon.angle, 300, wall.velocity);
+    // wall.body.velocityFromAngle(weapon.body.angle,100);
     // this.wall.forEach(game.physics.arcade.moveToPointer, game.physics.arcade, false, 200);
   }
   else if (pushBoolean) {
@@ -764,3 +769,62 @@ function boundaryCollisionCheck(boundary, collision) {
     collision.body.velocity.x = -100;
   }
 }
+
+/*
+/////////////////////////////////Reference Code///////////////////////////////
+//Shoot from Directional
+        if (pullBoolean) {
+            if (this.cursors.up.isDown) {
+                this.weapon1.fireAngle = 270;
+                this.weapon1.fire();
+            }
+            else if (this.cursors.down.isDown) {
+                this.weapon1.fireAngle = 90;
+                this.weapon1.fire();
+            }
+            else if (this.cursors.left.isDown) {
+                this.weapon1.fireAngle = 180;
+                this.weapon1.fire();
+            }
+            else if (this.cursors.right.isDown) {
+                this.weapon1.fireAngle = 0;
+                this.weapon1.fire();
+            }
+        }
+        else if (pushBoolean) {
+            if (this.cursors.up.isDown) {
+                this.weapon2.fireAngle = 270;
+                this.weapon2.fire();
+            }
+            else if (this.cursors.down.isDown) {
+                this.weapon2.fireAngle = 90;
+                this.weapon2.fire();
+            }
+            else if (this.cursors.left.isDown) {
+                this.weapon2.fireAngle = 180;
+                this.weapon2.fire();
+            }
+            else if (this.cursors.right.isDown) {
+                this.weapon2.fireAngle = 0;
+                this.weapon2.fire();
+            }
+        }
+        else if (stopBoolean) {
+            if (this.cursors.up.isDown) {
+                this.weapon3.fireAngle = 270;
+                this.weapon3.fire();
+            }
+            else if (this.cursors.down.isDown) {
+                this.weapon3.fireAngle = 90;
+                this.weapon3.fire();
+            }
+            else if (this.cursors.left.isDown) {
+                this.weapon3.fireAngle = 180;
+                this.weapon3.fire();
+            }
+            else if (this.cursors.right.isDown) {
+                this.weapon3.fireAngle = 0;
+                this.weapon3.fire();
+            }
+        }
+*/
