@@ -179,7 +179,7 @@ function shuffle(array) {
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "Rogue Version-OVERLaPBias-FIXtheXWorld!",
+  "Rogue Version-OVERLaPBias-FIXtheXWorldARRRAYS!",
   "You have no name and no memory.",
   "Trapped in an unknown ever-changing world.",
   "All you know is the name of the world",
@@ -306,8 +306,53 @@ function playerWall(player, wall) {
 ////////////////////////////////////Immovable Wall/////////////////////////////
 
 
-////////////////////////////////////Ledge Mechanics//////////////////////////////////////
+////////////////////////////////////Player Ledge Mechanics//////////////////////////////////////
+////////////////////////////Ball Mechanics////////////////////////////////////
 
+function ballMover(player, ball) {
+  ///////////////////GOOOFY/////////////
+  // ball.body.stop();
+  // if (ball.body.touching.up) {
+  //   ball.body.velocity.y= 200;
+  // }
+  // if (ball.body.touching.down) {
+  //   ball.body.velocity.y = -200;
+  //   player.body.velocity.y = -50;
+  // }
+  // if (ball.body.touching.left) {
+  //   ball.body.velocity.x = 200;
+  // }
+  // if (ball.body.touching.right) {
+  //   ball.body.velocity.x = -200;
+  // }
+  //////////////////Natural///////////////
+  if (ball.body.touching.up) {
+    ball.body.velocity.y = 50;
+  }
+  else if (ball.body.touching.down) {
+    ball.body.velocity.y = -50;
+    player.body.velocity.y = -75;
+  }
+  else if (ball.body.touching.left) {
+    ball.body.velocity.x = 50;
+  }
+  else if (ball.body.touching.right) {
+    ball.body.velocity.x = -50;
+  }
+  //////////////Control////////////
+  // if (ball.body.touching.up) {
+  //   ball.body.velocity.y = player.body.velocity.y;
+  // }
+  // if (ball.body.touching.down) {
+  //   ball.body.velocity.y = player.body.velocity.y;
+  // }
+  // if (ball.body.touching.left) {
+  //   ball.body.velocity.x = player.body.velocity.x;
+  // }
+  // if (ball.body.touching.right) {
+  //   ball.body.velocity.x = player.body.velocity.x;
+  // }
+}
 
 function ledgeUp(player, ledge) {
   //When You're On Top of the Ledge
@@ -372,139 +417,9 @@ function ledgeSideX(player, ledge) {
   ledge.body.velocity.x = player.body.velocity.x;
 }
 
-function enemyLedge(ledge, enemy) {
-  if (ledge.body.touching.up) {
-    enemy.body.stop();
-    ledge.body.stop();
-    enemy.body.velocity.y = -125;
-    ledge.body.velocity.y = 200;
-  }
-  else if (ledge.body.touching.down) {
-    enemy.body.stop();
-    ledge.body.stop();
-    enemy.body.velocity.y = 125;
-    ledge.body.velocity.y = -200;
-  }
-  else if (ledge.body.touching.left) {
-    enemy.body.stop();
-    ledge.body.stop();
-    enemy.body.velocity.x = -125;
-    ledge.body.velocity.x = 200;
-  }
-  else if (ledge.body.touching.right) {
-    enemy.body.stop();
-    ledge.body.stop();
-    enemy.body.velocity.x = 125;
-    ledge.body.velocity.x = -200;
-  }
-}
+/////////////////////////////////////////Other Objects vs. Other Objects/////////////////////////////////////////////
 
-function enemyLedgeBlue(ledge, enemy) {
-  enemy.body.stop();
-  enemy.body.velocity.y = -100;
-}
-//Preventing Physics Bugs
-function preventPhysicsBug(sprite1, sprite2) {
-  if (sprite1.body.touching.down) {
-    sprite1.body.velocity.y = -1000;
-  }
-}
 
-// function preventPhysicsBug2(sprite1, sprite2) {
-//   if (sprite1.body.touching.down) {
-//     sprite1.body.velocity.y = -1000;
-//   }
-//   if (sprite1.body.touching.up) {
-//     sprite1.body.stop();
-//     sprite1.body.velocity.y = 50;
-//   }
-// }
-
-////////////////////////////Ball Mechanics////////////////////////////////////
-
-function ballMover(player, ball) {
-  ///////////////////GOOOFY/////////////
-  // ball.body.stop();
-  // if (ball.body.touching.up) {
-  //   ball.body.velocity.y= 200;
-  // }
-  // if (ball.body.touching.down) {
-  //   ball.body.velocity.y = -200;
-  //   player.body.velocity.y = -50;
-  // }
-  // if (ball.body.touching.left) {
-  //   ball.body.velocity.x = 200;
-  // }
-  // if (ball.body.touching.right) {
-  //   ball.body.velocity.x = -200;
-  // }
-  //////////////////Natural///////////////
-  if (ball.body.touching.up) {
-    ball.body.velocity.y = 50;
-  }
-  else if (ball.body.touching.down) {
-    ball.body.velocity.y = -50;
-    player.body.velocity.y = -75;
-  }
-  else if (ball.body.touching.left) {
-    ball.body.velocity.x = 50;
-  }
-  else if (ball.body.touching.right) {
-    ball.body.velocity.x = -50;
-  }
-  //////////////Control////////////
-  // if (ball.body.touching.up) {
-  //   ball.body.velocity.y = player.body.velocity.y;
-  // }
-  // if (ball.body.touching.down) {
-  //   ball.body.velocity.y = player.body.velocity.y;
-  // }
-  // if (ball.body.touching.left) {
-  //   ball.body.velocity.x = player.body.velocity.x;
-  // }
-  // if (ball.body.touching.right) {
-  //   ball.body.velocity.x = player.body.velocity.x;
-  // }
-}
-
-function ballLedge(ball, ledge) {
-  if (ball.body.touching.up) {
-    ledge.body.stop();
-    ball.body.stop();
-    ball.body.velocity.y = 200;
-    ledge.body.velocity.y = -200;
-  }
-  else if (ball.body.touching.down) {
-    ledge.body.stop();
-    ball.body.stop();
-    ball.body.velocity.y = -200;
-    ledge.body.velocity.y = 100;
-  }
-}
-
-function ballWall(ball, wall) {
-  if (ball.body.touching.up) {
-    ball.body.velocity.y = 100;
-  }
-  else if (ball.body.touching.down) {
-    ball.body.velocity.y = -100;
-  }
-  else if (ball.body.touching.left) {
-    ball.body.velocity.x = 100;
-  }
-  else if (ball.body.touching.right) {
-    ball.body.velocity.x = -100;
-  }
-}
-
-function ballLedgeDown(ball, ledge) {
-  if (ledge.body.touching.up) {
-    ball.body.velocity.y = -1000;
-  }
-  else if (ledge.body.touching.down) {
-    ball.body.velocity.y = 1000;
-  }
-}
 
 ////////////////////////////Weapon Mechanics///////////
 // this.game.physics.arcade.overlap(this.weapon.bullets, this.wall, weaponWall);
@@ -529,16 +444,16 @@ function weaponHandler(weapon, wall) {
     // console.log("PlayerX: " + this.player.x + " PLayerY: " + this.player.y);
     //////////////////////////////What I'm going to go with?/////////////////
     if (wall.body.touching.up) {
-      wall.body.velocity.y += -50
+      wall.body.velocity.y = -50
     }
     else if (wall.body.touching.down) {
-      wall.body.velocity.y += 50;
+      wall.body.velocity.y = 50;
     }
     else if (wall.body.touching.left) {
-      wall.body.velocity.x += -50;
+      wall.body.velocity.x = -50;
     }
     else if (wall.body.touching.right) {
-      wall.body.velocity.x += 50;
+      wall.body.velocity.x = 50;
     }
     // this.game.physics.arcade.computeVelocity(0, wall.body, 40, 50, 100, 500);
     ///////////////////////////////Fourth Attempt//////////////////////////////////
@@ -572,25 +487,33 @@ function weaponHandler(weapon, wall) {
 //Test Function
 
 function testFunctionX (sprite1,sprite2) {
-  if (sprite2.key === "wall" || "rotatedWall" || "brownPlatform") {
-    console.log(sprite2.body.velocity.x + " X Velocity ");
-    if (sprite2.body.touching.up) {
-      sprite2.body.velocity.y = 100;
-      console.log("up");
-    }
-    if (sprite2.body.touching.down) {
-      sprite2.body.velocity.y = -100;
-      console.log("down");
-    }
-    if (sprite2.body.touching.left) {
-      sprite2.body.velocity.x = 100;
-      console.log("left");
-    }
-    if (sprite2.body.touching.right) {
-      sprite2.body.velocity.x = -100;
-      console.log("right");
-    }
-    // sprite2.body.immovable = false;
+  // if (sprite2.key === "wall" || "rotatedWall" || "brownPlatform") {
+  //   console.log(sprite2.body.velocity.x + " X Velocity ");
+  //   if (sprite2.body.touching.up) {
+  //     sprite2.body.velocity.y = 100;
+  //     console.log("up");
+  //   }
+  //   if (sprite2.body.touching.down) {
+  //     sprite2.body.velocity.y = -100;
+  //     console.log("down");
+  //   }
+  //   if (sprite2.body.touching.left) {
+  //     sprite2.body.velocity.x = 100;
+  //     console.log("left");
+  //   }
+  //   if (sprite2.body.touching.right) {
+  //     sprite2.body.velocity.x = -100;
+  //     console.log("right");
+  //   }
+  //   // sprite2.body.immovable = false;
+  // }
+}
+
+///////////////////////////////////////Preventing PHysics Bugs//////////////////////////
+//Preventing Physics Bugs
+function preventPhysicsBug(sprite1, sprite2) {
+  if (sprite1.body.touching.down) {
+    sprite1.body.velocity.y = -1000;
   }
 }
 
@@ -651,4 +574,31 @@ function testFunctionX (sprite1,sprite2) {
                 this.weapon3.fire();
             }
         }
+//Former Ledge Mechanics
+function enemyLedge(ledge, enemy) {
+  if (ledge.body.touching.up) {
+    enemy.body.stop();
+    ledge.body.stop();
+    enemy.body.velocity.y = -125;
+    ledge.body.velocity.y = 200;
+  }
+  else if (ledge.body.touching.down) {
+    enemy.body.stop();
+    ledge.body.stop();
+    enemy.body.velocity.y = 125;
+    ledge.body.velocity.y = -200;
+  }
+  else if (ledge.body.touching.left) {
+    enemy.body.stop();
+    ledge.body.stop();
+    enemy.body.velocity.x = -125;
+    ledge.body.velocity.x = 200;
+  }
+  else if (ledge.body.touching.right) {
+    enemy.body.stop();
+    ledge.body.stop();
+    enemy.body.velocity.x = 125;
+    ledge.body.velocity.x = -200;
+  }
+}
 */

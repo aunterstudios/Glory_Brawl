@@ -36,14 +36,13 @@ brawl.rogue.prototype = {
     },
     create: function () {
 
-        //Desired FPS of game
+        //Desired FPS of game and fps and lag debugging
         this.game.time.desiredFps = 60;
+        this.game.time.advancedTiming = true;
 
         //Background color of game
         // this.game.stage.backgroundColor = "#4488AA";
         // this.game.stage.backgroundColor = Phaser.Color.getRandomColor(50, 255, 255);
-
-        // this.game.time.advancedTiming = true;
 
         //Sort Direction
 
@@ -568,7 +567,7 @@ brawl.rogue.prototype = {
     //How Game Updates Real-Time
     update: function () {
 
-        // console.log(this.game.time.fps);
+        console.log(this.game.time.fps);
         ////////////////////////Physics////////////////////////
         //Player Mechanics
         var onWall = this.game.physics.arcade.collide(this.player, this.wall, playerWall, null, this);
@@ -578,17 +577,9 @@ brawl.rogue.prototype = {
         var onBall = this.game.physics.arcade.collide(this.player, this.ball, ballMover, null, this);
         var onImmovable = this.game.physics.arcade.collide(this.player, this.immovableWall, null, null, this);
 
-        //Weapon One Mechanics
-        this.game.physics.arcade.collide(this.weapon1.bullets, [this.ball, this.wall, this.ledge, this.ledgeDown, this.ledgeSide, this.enemy], weaponHandler, null, this);
-        this.game.physics.arcade.overlap(this.weapon1.bullets, [this.immovableWall, this.spikes], weaponImmovable, null, this);
-
-        //Weapon Two Mechanics
-        this.game.physics.arcade.collide(this.weapon2.bullets, [this.ball, this.wall, this.ledge, this.ledgeDown, this.ledgeSide, this.enemy], weaponHandler, null, this);
-        this.game.physics.arcade.overlap(this.weapon2.bullets, [this.immovableWall, this.spikes], weaponImmovable, null, this);
-
-        //Weapon Three Mechanics
-        this.game.physics.arcade.collide(this.weapon3.bullets, [this.ball, this.wall, this.ledge, this.ledgeDown, this.ledgeSide, this.enemy], weaponHandler, null, this);
-        this.game.physics.arcade.overlap(this.weapon3.bullets, [this.immovableWall, this.spikes], weaponImmovable, null, this);
+        //Weapon Mechanics
+        this.game.physics.arcade.collide([this.weapon1.bullets, this.weapon2.bullets, this.weapon3.bullets], [this.ball, this.wall, this.ledge, this.ledgeDown, this.ledgeSide, this.enemy], weaponHandler, null, this);
+        this.game.physics.arcade.overlap([this.weapon1.bullets, this.weapon2.bullets, this.weapon3.bullets], [this.immovableWall, this.spikes], weaponImmovable, null, this);
 
         //Immovable Wall Mechanics
         this.game.physics.arcade.collide(this.immovableWall, [this.ball, this.wall, this.ledge, this.ledgeDown, this.ledgeSide, this.enemy], null, null, this);
@@ -602,22 +593,7 @@ brawl.rogue.prototype = {
         this.game.physics.arcade.overlap(this.ball, [this.enemy, this.spikes], deathThree, null, this);
 
         //Ledge vs. Ledge Mechanics
-        // this.game.physics.arcade.collide(this.ledge, this.ledge);
-        // this.game.physics.arcade.collide(this.ledgeDown, this.ledgeDown);
-        this.game.physics.arcade.collide(this.ledge, this.ledgeDown, preventPhysicsBug);
-        this.game.physics.arcade.collide(this.ledge, this.ledgeSide);
-        this.game.physics.arcade.collide(this.ledgeDown, this.ledgeSide);
-
-        //Ledge vs. Other Objects
-        this.game.physics.arcade.collide(this.ledge, this.wall, preventPhysicsBug);
-        this.game.physics.arcade.collide(this.ledge, this.enemy, enemyLedge);
-        this.game.physics.arcade.collide(this.ledge, this.spikes, preventPhysicsBug);
-        this.game.physics.arcade.collide(this.ledgeDown, this.wall, preventPhysicsBug);
-        this.game.physics.arcade.collide(this.ledgeDown, this.enemy, enemyLedge);
-        this.game.physics.arcade.collide(this.ledgeDown, this.spikes, preventPhysicsBug);
-        this.game.physics.arcade.collide(this.ledgeSide, this.wall, preventPhysicsBug);
-        this.game.physics.arcade.collide(this.ledgeSide, this.enemy, enemyLedgeBlue);
-        this.game.physics.arcade.collide(this.ledgeSide, this.spikes, preventPhysicsBug);
+        this.game.physics.arcade.collide([this.ledge, this.ledgeSide, this.ledgeDown], [this.ledge, this.ledgeSide, this.ledgeDown, this.wall, this.spikes, this.enemy], null, null, this); //preventPhysicsBug Removed
 
         //Enemy Mechanics
         this.game.physics.arcade.collide(this.enemy, [this.spikes, this.wall, this.enemy], testFunctionX, null, this);
