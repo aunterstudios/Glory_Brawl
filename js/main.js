@@ -516,43 +516,7 @@ function ballLedgeDown(ball, ledge) {
 function weaponImmovable(weapon, wall) {
   weapon.kill();
 }
-function weaponBall(weapon, ball) {
-  // ball.body.stop();
-  if (pullBoolean) {
-    if (ball.body.touching.up) {
-      ball.body.velocity.y = -100;
-    }
-    else if (ball.body.touching.down) {
-      ball.body.velocity.y = 100;
-    }
-    else if (ball.body.touching.left) {
-      ball.body.velocity.x = -100;
-    }
-    else if (ball.body.touching.right) {
-      ball.body.velocity.x = 100;
-    }
-  }
-  else if (pushBoolean) {
-    if (ball.body.touching.up) {
-      ball.body.velocity.y = 100;
-    }
-    else if (ball.body.touching.down) {
-      ball.body.velocity.y = -100;
-    }
-    else if (ball.body.touching.left) {
-      ball.body.velocity.x = 100;
-    }
-    else if (ball.body.touching.right) {
-      ball.body.velocity.x = -100;
-    }
-  }
-  else if (stopBoolean) {
-    ball.body.stop()
-  }
-  weapon.kill();
-}
-
-function weaponWall(weapon, wall) {
+function weaponHandler(weapon, wall) {
   // wall.body.stop();
   if (pullBoolean) {
     ////////////////////////////////First Attempt////////////////////////
@@ -605,168 +569,28 @@ function weaponWall(weapon, wall) {
   weapon.kill();
 }
 
-function weaponSpikes(weapon, spikes) {
-  weapon.kill();
-}
+//Test Function
 
-function weaponLedge(weapon, ledge) {
-  // ledge.body.stop();
-  if (pullBoolean) {
-    if (ledge.body.touching.up) {
-      ledge.body.velocity.y = -100;
+function testFunctionX (sprite1,sprite2) {
+  if (sprite2.key === "wall" || "rotatedWall" || "brownPlatform") {
+    console.log(sprite2.body.velocity.x + " X Velocity ");
+    if (sprite2.body.touching.up) {
+      sprite2.body.velocity.y = 100;
+      console.log("up");
     }
-    else if (ledge.body.touching.down) {
-      ledge.body.velocity.y = 100;
+    if (sprite2.body.touching.down) {
+      sprite2.body.velocity.y = -100;
+      console.log("down");
     }
-    else if (ledge.body.touching.left) {
-      ledge.body.velocity.x = -100;
+    if (sprite2.body.touching.left) {
+      sprite2.body.velocity.x = 100;
+      console.log("left");
     }
-    else if (ledge.body.touching.right) {
-      ledge.body.velocity.x = 100;
+    if (sprite2.body.touching.right) {
+      sprite2.body.velocity.x = -100;
+      console.log("right");
     }
-  }
-  else if (pushBoolean) {
-    if (ledge.body.touching.up) {
-      ledge.body.velocity.y = 100;
-    }
-    else if (ledge.body.touching.down) {
-      ledge.body.velocity.y = -100;
-    }
-    else if (ledge.body.touching.left) {
-      ledge.body.velocity.x = 100;
-    }
-    else if (ledge.body.touching.right) {
-      ledge.body.velocity.x = -100;
-    }
-  }
-  else if (stopBoolean) {
-    ledge.body.stop();
-  }
-  weapon.kill();
-}
-
-function weaponDownLedge(weapon, ledge) {
-  if (pullBoolean) {
-    if (ledge.body.touching.up) {
-      ledge.body.velocity.y = -100;
-    }
-    else if (ledge.body.touching.down) {
-      ledge.body.velocity.y = 100;
-    }
-    else if (ledge.body.touching.left) {
-      ledge.body.velocity.x = -100;
-    }
-    else if (ledge.body.touching.right) {
-      ledge.body.velocity.x = 100;
-    }
-  }
-  else if (pushBoolean) {
-    if (ledge.body.touching.up) {
-      ledge.body.velocity.y = 100;
-    }
-    else if (ledge.body.touching.down) {
-      ledge.body.velocity.y = -100;
-    }
-    else if (ledge.body.touching.left) {
-      ledge.body.velocity.x = 100;
-    }
-    else if (ledge.body.touching.right) {
-      ledge.body.velocity.x = -100;
-    }
-  }
-  else if (stopBoolean) {
-    ledge.body.stop();
-  }
-  weapon.kill();
-}
-
-function weaponSideLedge(weapon, ledge) {
-  // ledge.body.stop();
-  if (pullBoolean) {
-    if (ledge.body.touching.up) {
-      ledge.body.velocity.y = -100;
-    }
-    else if (ledge.body.touching.down) {
-      ledge.body.velocity.y = 100;
-    }
-    else if (ledge.body.touching.left) {
-      ledge.body.velocity.x = -100;
-    }
-    else if (ledge.body.touching.right) {
-      ledge.body.velocity.x = 100;
-    }
-  }
-  else if (pushBoolean) {
-    if (ledge.body.touching.up) {
-      ledge.body.velocity.y = 100;
-    }
-    else if (ledge.body.touching.down) {
-      ledge.body.velocity.y = -100;
-    }
-    else if (ledge.body.touching.left) {
-      ledge.body.velocity.x = 100;
-    }
-    else if (ledge.body.touching.right) {
-      ledge.body.velocity.x = -100;
-    }
-  }
-  else if (stopBoolean) {
-    ledge.body.stop();
-  }
-  weapon.kill();
-}
-
-function weaponEnemy(weapon, enemy) {
-  // enemy.body.stop();
-  if (pullBoolean) {
-    if (enemy.body.touching.up) {
-      enemy.body.velocity.y = -100;
-    }
-    else if (enemy.body.touching.down) {
-      enemy.body.velocity.y = 100;
-    }
-    else if (enemy.body.touching.left) {
-      enemy.body.velocity.x = -100;
-    }
-    else if (enemy.body.touching.right) {
-      enemy.body.velocity.x = 100;
-    }
-  }
-  else if (pushBoolean) {
-    if (enemy.body.touching.up) {
-      enemy.body.velocity.y = 100;
-    }
-    else if (enemy.body.touching.down) {
-      enemy.body.velocity.y = -100;
-    }
-    else if (enemy.body.touching.left) {
-      enemy.body.velocity.x = 100;
-    }
-    else if (enemy.body.touching.right) {
-      enemy.body.velocity.x = -100;
-    }
-  }
-  else if (stopBoolean) {
-    enemy.body.stop();
-  }
-  weapon.kill();
-}
-
-/////////////////////////Undeniable Boundary Mechanics///////////////////////
-//Prevent Sprites from Just Staying at the Bottom
-
-function boundaryCollisionCheck(boundary, collision) {
-  if (collision.body.touching.up) {
-    collision.body.velocity.y = 100;
-  }
-  if (collision.body.touching.down) {
-    collision.body.velocity.y = -100;
-  }
-  if (collision.body.touching.left) {
-    collision.body.velocity.x = 100;
-  }
-  if (collision.body.touching.right) {
-    collision.body.velocity.x = -100;
+    // sprite2.body.immovable = false;
   }
 }
 

@@ -571,74 +571,35 @@ brawl.rogue.prototype = {
         // console.log(this.game.time.fps);
         ////////////////////////Physics////////////////////////
         //Player Mechanics
-
         var onWall = this.game.physics.arcade.collide(this.player, this.wall, playerWall, null, this);
         var onLedgeGrey = this.game.physics.arcade.collide(this.player, this.ledge, ledgeUp, null, this);
         var onLedgeGreen = this.game.physics.arcade.collide(this.player, this.ledgeDown, ledgeDownS, null, this);
-        var onLedgeBlue = this.game.physics.arcade.collide(this.player, this.ledgeSide, ledgeSideX);
-        // this.game.physics.arcade.collide(this.player, this.ball, ballMover, ballGround);
-        var onBall = this.game.physics.arcade.collide(this.player, this.ball, ballMover);
-        var onImmovable = this.game.physics.arcade.collide(this.player, this.immovableWall);
+        var onLedgeBlue = this.game.physics.arcade.collide(this.player, this.ledgeSide, ledgeSideX, null, this);
+        var onBall = this.game.physics.arcade.collide(this.player, this.ball, ballMover, null, this);
+        var onImmovable = this.game.physics.arcade.collide(this.player, this.immovableWall, null, null, this);
 
         //Weapon One Mechanics
-        this.game.physics.arcade.collide(this.weapon1.bullets, this.ball, weaponBall, null, this);
-        this.game.physics.arcade.collide(this.weapon1.bullets, this.wall, weaponWall, null, this);
-        this.game.physics.arcade.collide(this.weapon1.bullets, this.spikes, weaponSpikes, null, this);
-        this.game.physics.arcade.collide(this.weapon1.bullets, this.ledge, weaponLedge, null, this);
-        this.game.physics.arcade.collide(this.weapon1.bullets, this.ledgeDown, weaponDownLedge, null, this);
-        this.game.physics.arcade.collide(this.weapon1.bullets, this.ledgeSide, weaponSideLedge, null, this);
-        this.game.physics.arcade.collide(this.weapon1.bullets, this.enemy, weaponEnemy, null, this);
-        this.game.physics.arcade.overlap(this.weapon1.bullets, this.immovableWall, weaponImmovable, null, this);
-        // this.game.physics.arcade.overlap(this.ball, this.enemy, deathThree);
-
+        this.game.physics.arcade.collide(this.weapon1.bullets, [this.ball, this.wall, this.ledge, this.ledgeDown, this.ledgeSide, this.enemy], weaponHandler, null, this);
+        this.game.physics.arcade.overlap(this.weapon1.bullets, [this.immovableWall, this.spikes], weaponImmovable, null, this);
 
         //Weapon Two Mechanics
-        this.game.physics.arcade.collide(this.weapon2.bullets, this.ball, weaponBall, null, this);
-        this.game.physics.arcade.collide(this.weapon2.bullets, this.wall, weaponWall, null, this);
-        this.game.physics.arcade.collide(this.weapon2.bullets, this.spikes, weaponSpikes, null, this);
-        this.game.physics.arcade.collide(this.weapon2.bullets, this.ledge, weaponLedge, null, this);
-        this.game.physics.arcade.collide(this.weapon2.bullets, this.ledgeDown, weaponDownLedge, null, this);
-        this.game.physics.arcade.collide(this.weapon2.bullets, this.ledgeSide, weaponSideLedge, null, this);
-        this.game.physics.arcade.collide(this.weapon2.bullets, this.enemy, weaponEnemy, null, this);
-        this.game.physics.arcade.overlap(this.weapon2.bullets, this.immovableWall, weaponImmovable, null, this);
-        // this.game.physics.arcade.overlap(this.ball, this.enemy, deathThree);
+        this.game.physics.arcade.collide(this.weapon2.bullets, [this.ball, this.wall, this.ledge, this.ledgeDown, this.ledgeSide, this.enemy], weaponHandler, null, this);
+        this.game.physics.arcade.overlap(this.weapon2.bullets, [this.immovableWall, this.spikes], weaponImmovable, null, this);
 
         //Weapon Three Mechanics
-        this.game.physics.arcade.collide(this.weapon3.bullets, this.ball, weaponBall, null, this);
-        this.game.physics.arcade.collide(this.weapon3.bullets, this.wall, weaponWall, null, this);
-        this.game.physics.arcade.collide(this.weapon3.bullets, this.spikes, weaponSpikes, null, this);
-        this.game.physics.arcade.collide(this.weapon3.bullets, this.ledge, weaponLedge, null, this);
-        this.game.physics.arcade.collide(this.weapon3.bullets, this.ledgeDown, weaponDownLedge, null, this);
-        this.game.physics.arcade.collide(this.weapon3.bullets, this.ledgeSide, weaponSideLedge, null, this);
-        this.game.physics.arcade.collide(this.weapon3.bullets, this.enemy, weaponEnemy, null, this);
-        this.game.physics.arcade.overlap(this.weapon3.bullets, this.immovableWall, weaponImmovable, null, this);
-        // this.game.physics.arcade.overlap(this.ball, this.enemy, deathThree);
-
-        //Boundary Mechanics
-        // this.game.physics.arcade.overlap(this.boundary, this.wall, boundaryCollisionCheck, null, this);
-        // this.game.physics.arcade.overlap(this.boundary, this.ledgeDown, boundaryCollisionCheck, null, this);
-        // this.game.physics.arcade.overlap(this.boundary, this.ledgeSide, boundaryCollisionCheck, null, this);
+        this.game.physics.arcade.collide(this.weapon3.bullets, [this.ball, this.wall, this.ledge, this.ledgeDown, this.ledgeSide, this.enemy], weaponHandler, null, this);
+        this.game.physics.arcade.overlap(this.weapon3.bullets, [this.immovableWall, this.spikes], weaponImmovable, null, this);
 
         //Immovable Wall Mechanics
-        this.game.physics.arcade.collide(this.immovableWall, this.ball);
-        this.game.physics.arcade.collide(this.immovableWall, this.wall);
-        this.game.physics.arcade.collide(this.immovableWall, this.ledge);
-        this.game.physics.arcade.collide(this.immovableWall, this.ledgeDown);
-        this.game.physics.arcade.collide(this.immovableWall, this.ledgeSide);
-        this.game.physics.arcade.collide(this.immovableWall, this.enemy);
+        this.game.physics.arcade.collide(this.immovableWall, [this.ball, this.wall, this.ledge, this.ledgeDown, this.ledgeSide, this.enemy], null, null, this);
 
         //Movable Wall Mechanics
         this.game.physics.arcade.collide(this.wall, this.wall);
         this.game.physics.arcade.collide(this.wall, this.spikes);
 
         // Ball Mechanics
-        this.game.physics.arcade.collide(this.ball, this.ball);
-        this.game.physics.arcade.collide(this.ball, this.wall, ballWall);
-        this.game.physics.arcade.overlap(this.ball, this.spikes, deathThree);
-        this.game.physics.arcade.collide(this.ball, this.ledge, ballLedge);
-        this.game.physics.arcade.collide(this.ball, this.ledgeDown, ballLedgeDown);
-        this.game.physics.arcade.collide(this.ball, this.ledgeSide);
-        this.game.physics.arcade.overlap(this.ball, this.enemy, deathThree);
+        this.game.physics.arcade.collide(this.ball, [this.ball, this.wall, this.ledge, this.ledgeDown, this.ledgeSide], null, null, this);
+        this.game.physics.arcade.overlap(this.ball, [this.enemy, this.spikes], deathThree, null, this);
 
         //Ledge vs. Ledge Mechanics
         // this.game.physics.arcade.collide(this.ledge, this.ledge);
@@ -659,7 +620,7 @@ brawl.rogue.prototype = {
         this.game.physics.arcade.collide(this.ledgeSide, this.spikes, preventPhysicsBug);
 
         //Enemy Mechanics
-        this.game.physics.arcade.collide(this.enemy, [this.spikes, this.wall, this.enemy], null, null, this);
+        this.game.physics.arcade.collide(this.enemy, [this.spikes, this.wall, this.enemy], testFunctionX, null, this);
 
         // //Flag Moving Mechanics
         // this.game.physics.arcade.collide(this.finish, this.wall);
@@ -745,7 +706,7 @@ brawl.rogue.prototype = {
                 this.player.frame = 6;
             }
             if (this.movementLeft.isDown) {
-                this.player.body.velocity.y = -500;
+                this.player.body.velocity.y = -1000;
                 this.player.body.velocity.x = -1000;
             }
         }
@@ -758,7 +719,7 @@ brawl.rogue.prototype = {
                 this.player.frame = 12;
             }
             if (this.movementRight.isDown) {
-                this.player.body.velocity.y = -500;
+                this.player.body.velocity.y = -1000;
                 this.player.body.velocity.x = 1000;
             }
         }
