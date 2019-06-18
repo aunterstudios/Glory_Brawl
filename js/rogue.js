@@ -38,8 +38,6 @@ brawl.rogue.prototype = {
         this.load.spritesheet('dude', 'assets/white.png', 87.5, 93.5);
     },
     create: function () {
-
-        console.log(livingEnemies + "living Enemies in Create Function");
         //Desired FPS of game and fps and lag debugging
         this.game.time.desiredFps = 60;
         this.game.time.advancedTiming = true;
@@ -623,6 +621,9 @@ brawl.rogue.prototype = {
         this.game.physics.arcade.collide(this.wall, this.wall);
         this.game.physics.arcade.collide(this.wall, this.spikes);
 
+        //Enemy Bullet Mechanics
+        this.game.physics.arcade.overlap(this.enemyBullets, [this.ball, this.wall, this.immovableWall, this.ledge, this.ledgeDown, this.ledgeSide, this.spikes, this.coin], deathTwo, null, this);
+
         // Ball Mechanics
         this.game.physics.arcade.collide(this.ball, [this.ball, this.wall, this.ledge, this.ledgeDown, this.ledgeSide], null, null, this);
         this.game.physics.arcade.overlap(this.ball, [this.enemy, this.spikes], deathThree, null, this);
@@ -647,7 +648,7 @@ brawl.rogue.prototype = {
 
 
         //Death Mechanics
-        this.game.physics.arcade.overlap(this.player, [this.enemy, this.spikes, this.death], deathOne, null, this);
+        this.game.physics.arcade.overlap(this.player, [this.enemy, this.spikes, this.death, this.enemyBullets], deathOne, null, this);
 
         ////////////////////////////////Win Conditions/////////////////////////////////
         //Game Mode 1 Flag
