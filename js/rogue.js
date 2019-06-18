@@ -5,6 +5,8 @@ brawl.rogue.prototype = {
         //GENERAL MAP SETTINGS 
         this.game.physics.startSystem(Phaser.Physics.ARCADE); // We're going to be using physics, so enable the Arcade Physics system
         this.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT; //Scales our Game
+        //Reset Enemy Bullet Array
+        livingEnemies = [];
     },
     preload: function () {
         // this.game.forceSingleUpdate = true;
@@ -29,6 +31,7 @@ brawl.rogue.prototype = {
         this.load.image('bullet3', 'assets/bullet23.png');
         this.load.image('bullet2', 'assets/bullet24.png');
         this.load.image('bullet1', 'assets/bullet25.png');
+        this.load.image('bulletEnemy', 'assets/bullet177.png');
         this.load.image('boundary', 'assets/worldBounds.png');
         this.load.image('coin', 'assets/shield2.png');
         this.load.image('flag', 'assets/flag.png');
@@ -36,6 +39,7 @@ brawl.rogue.prototype = {
     },
     create: function () {
 
+        console.log(livingEnemies + "living Enemies in Create Function");
         //Desired FPS of game and fps and lag debugging
         this.game.time.desiredFps = 60;
         this.game.time.advancedTiming = true;
@@ -115,6 +119,17 @@ brawl.rogue.prototype = {
         //Adding This Undeniable Death At the Bottom
         this.death = this.game.add.group();
         this.death.enableBody = true;
+
+        /////////////////////Enemy Bullets///////////////
+        // creates enemy bullets
+        this.enemyBullets = this.game.add.group();
+        this.enemyBullets.enableBody = true;
+        this.enemyBullets.physicsBodyType = Phaser.Physics.ARCADE;
+        this.enemyBullets.createMultiple(30, 'bulletEnemy');
+        this.enemyBullets.setAll('anchor.x', 0.5);
+        this.enemyBullets.setAll('anchor.y', 1);
+        this.enemyBullets.setAll('outOfBoundsKill', true);
+        this.enemyBullets.setAll('checkWorldBounds', true);
 
         ////////////////////////////////Key Control Movements/////////////////////////
         //Player Movement (WASD);
@@ -406,6 +421,7 @@ brawl.rogue.prototype = {
         this.trumpX = this.enemy.create(x, y, 'enemy');
         this.trumpX.body.velocity.x = this.game.rnd.realInRange(-400, 400);
         // this.trumpX.body.gravity.y = 10;
+        this.trumpX.body.moves = false;
         this.trumpX.anchor.setTo(.5);
         this.trumpX.scale.setTo(.6);
         this.trumpX.body.mass = 20;
@@ -565,6 +581,24 @@ brawl.rogue.prototype = {
         // console.log("Pull: " + pullBoolean + " Push: " + pushBoolean + " Kill: " + stopBoolean);
     },
     ////////////////////////////////////////Localized Physics Functions//////////////////////////////////////
+    //Enemy BUllets
+    fireEnemyBullet: function() {
+        livingEnemies.length = 0; 
+        this.enemy.forEachAlive(function(enemy){
+            livingEnemies.push(enemy)
+        });
+        if(this.time.now > enemyBulletTime) { 
+            enemyBullet = this.enemyBullets.getFirstExists(false); 
+            if(enemyBullet && livingEnemies.length > 0) {
+                //enemyShotSound.play();
+                var random = this.rnd.integerInRange(0, livingEnemies.length - 1);
+                var shooter = livingEnemies[random];
+                enemyBullet.reset(shooter.body.x, shooter.body.y + 30);
+                enemyBulletTime = this.time.now + 500;
+                this.physics.arcade.moveToObject(enemyBullet,this.player,600);
+            }
+        }
+    },
     //How Game Updates Real-Time
     update: function () {
 
@@ -610,7 +644,7 @@ brawl.rogue.prototype = {
         // this.game.physics.arcade.collide(this.finish, this.ledgeSide);
         // this.game.physics.arcade.collide(this.finish, this.spikes);
         // this.game.physics.arcade.collide(this.finish, this.ball);
-        
+
 
         //Death Mechanics
         this.game.physics.arcade.overlap(this.player, [this.enemy, this.spikes, this.death], deathOne, null, this);
@@ -764,9 +798,9 @@ brawl.rogue.prototype = {
         // console.log(this.crosshair.x + ' ' + this.crosshair.y);
 
         //Moving Coins
-        this.coin.forEachAlive(moveTowardsPlayer, this, this.player);
-        ///Test
         // this.coin.forEachAlive(moveTowardsPlayer, this, this.player);
+        ///Enemy Sprites
+        this.fireEnemyBullet();
     }
     // render: function () {
     //     this.game.debug.physicsGroup(this.wall);

@@ -169,6 +169,10 @@ var immovableWallArray = ['immovableVerticalWall', 'immovableRotatedWall'];
 var immovableWallLength = [.5, .6];
 var immovableWallVelocity = [0, 1];
 
+//////////////////////////Enemy Bullet Handler//////////////////////
+var livingEnemies = [];
+var enemyBulletTime = 0;
+
 /////////////////////////////////////////////////Array Shuffler///////////////////////////////////////
 function shuffle(array) {
   for (var i = array.length - 1; i > 0; i--) {
