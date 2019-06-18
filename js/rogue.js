@@ -579,7 +579,7 @@ brawl.rogue.prototype = {
         var onImmovable = this.game.physics.arcade.collide(this.player, this.immovableWall, null, null, this);
 
         //Weapon Mechanics
-        this.game.physics.arcade.collide([this.weapon1.bullets, this.weapon2.bullets, this.weapon3.bullets], [this.ball, this.wall, this.ledge, this.ledgeDown, this.ledgeSide, this.enemy], weaponHandler, null, this);
+        this.game.physics.arcade.collide([this.weapon1.bullets, this.weapon2.bullets, this.weapon3.bullets], [this.ball, this.wall, this.ledge, this.ledgeDown, this.ledgeSide, this.enemy, this.coin], weaponHandler, null, this);
         this.game.physics.arcade.overlap([this.weapon1.bullets, this.weapon2.bullets, this.weapon3.bullets], [this.immovableWall, this.spikes], weaponImmovable, null, this);
 
         //Immovable Wall Mechanics
@@ -598,6 +598,9 @@ brawl.rogue.prototype = {
 
         //Enemy Mechanics
         this.game.physics.arcade.collide(this.enemy, [this.spikes, this.wall, this.enemy], testFunctionX, null, this);
+
+        //Coin Mechanics
+        this.game.physics.arcade.collide(this.coin, [this.ball, this.wall, this.ledge, this.ledgeDown, this.ledgeSide, this.enemy, this.immovableWall], null, null, this);
 
         // //Flag Moving Mechanics
         // this.game.physics.arcade.collide(this.finish, this.wall);
@@ -760,6 +763,7 @@ brawl.rogue.prototype = {
         }
         // console.log(this.crosshair.x + ' ' + this.crosshair.y);
 
+        //Moving Coins
         this.coin.forEachAlive(moveTowardsPlayer, this, this.player);
         ///Test
         // this.coin.forEachAlive(moveTowardsPlayer, this, this.player);
