@@ -511,10 +511,10 @@ function testFunctionX(sprite1, sprite2) {
 }
 
 function moveTowardsPlayer(sprite1, player) {
-  if (game.physics.arcade.distanceBetween(sprite1, player, false, true) < 1000) {
+  if (game.physics.arcade.distanceBetween(sprite1, player, false, true) < 500) {
     /////Alpha Build One/////
     //At the very least we can use the daakath game mode for this.
-    game.physics.arcade.moveToObject(sprite1, player, 400);
+    game.physics.arcade.moveToObject(sprite1, player, 300);
     /////Alpha Build Two/////
     //game.physics.arcade.moveToXY(sprite1, player.x, player.y, 60, 2000);
   }

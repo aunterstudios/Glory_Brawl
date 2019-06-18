@@ -42,7 +42,7 @@ brawl.rogue.prototype = {
 
         //Background color of game
         // this.game.stage.backgroundColor = "#4488AA";
-        // this.game.stage.backgroundColor = Phaser.Color.getRandomColor(50, 255, 255);
+        this.game.stage.backgroundColor = Phaser.Color.getRandomColor(50, 255, 255);
 
         //Sort Direction
 
