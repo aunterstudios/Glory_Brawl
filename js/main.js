@@ -266,6 +266,7 @@ function deathThree(killer, victim) {
 
 ////////////////////////////////////////Wall Mechanics//////////////////////////////////////////
 function playerWall(player, wall) {
+  wall.body.stop();
   // wall.body.stop();
   // if (wall.body.touching.up) {
   //   wall.body.velocity.y = -200;
@@ -486,7 +487,7 @@ function weaponHandler(weapon, wall) {
 
 //Test Function
 
-function testFunctionX (sprite1,sprite2) {
+function testFunctionX(sprite1, sprite2) {
   // if (sprite2.key === "wall" || "rotatedWall" || "brownPlatform") {
   //   console.log(sprite2.body.velocity.x + " X Velocity ");
   //   if (sprite2.body.touching.up) {
@@ -507,6 +508,12 @@ function testFunctionX (sprite1,sprite2) {
   //   }
   //   // sprite2.body.immovable = false;
   // }
+}
+
+function moveTowardsPlayer(sprite1, player) {
+  if (game.physics.arcade.distanceBetween(sprite1, player, false, true) < 1000) {
+    game.physics.arcade.moveToObject(sprite1, player);
+  }
 }
 
 ///////////////////////////////////////Preventing PHysics Bugs//////////////////////////
@@ -601,4 +608,7 @@ function enemyLedge(ledge, enemy) {
     ledge.body.velocity.x = -200;
   }
 }
+radians = this.game.physics.arcade.angleBetween(this.coinX, this.player);
+degrees = radians * (180/Math.PI);
+this.game.physics.arcade.velocityFromAngle(degrees, 300, this.player.body.velocity);
 */

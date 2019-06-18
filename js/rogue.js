@@ -564,13 +564,14 @@ brawl.rogue.prototype = {
         stopBoolean = true;
         // console.log("Pull: " + pullBoolean + " Push: " + pushBoolean + " Kill: " + stopBoolean);
     },
+    ////////////////////////////////////////Localized Physics Functions//////////////////////////////////////
     //How Game Updates Real-Time
     update: function () {
 
         console.log(this.game.time.fps);
         ////////////////////////Physics////////////////////////
         //Player Mechanics
-        var onWall = this.game.physics.arcade.collide(this.player, this.wall, playerWall, null, this);
+        var onWall = this.game.physics.arcade.collide(this.player, this.wall, null, null, this);
         var onLedgeGrey = this.game.physics.arcade.collide(this.player, this.ledge, ledgeUp, null, this);
         var onLedgeGreen = this.game.physics.arcade.collide(this.player, this.ledgeDown, ledgeDownS, null, this);
         var onLedgeBlue = this.game.physics.arcade.collide(this.player, this.ledgeSide, ledgeSideX, null, this);
@@ -606,6 +607,7 @@ brawl.rogue.prototype = {
         // this.game.physics.arcade.collide(this.finish, this.ledgeSide);
         // this.game.physics.arcade.collide(this.finish, this.spikes);
         // this.game.physics.arcade.collide(this.finish, this.ball);
+        
 
         //Death Mechanics
         this.game.physics.arcade.overlap(this.player, [this.enemy, this.spikes, this.death], deathOne, null, this);
@@ -757,6 +759,10 @@ brawl.rogue.prototype = {
             }
         }
         // console.log(this.crosshair.x + ' ' + this.crosshair.y);
+
+        this.coin.forEachAlive(moveTowardsPlayer, this, this.player);
+        ///Test
+        // this.coin.forEachAlive(moveTowardsPlayer, this, this.player);
     }
     // render: function () {
     //     this.game.debug.physicsGroup(this.wall);
