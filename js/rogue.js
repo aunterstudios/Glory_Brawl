@@ -31,7 +31,7 @@ brawl.rogue.prototype = {
         this.load.image('bullet3', 'assets/bullet23.png');
         this.load.image('bullet2', 'assets/bullet24.png');
         this.load.image('bullet1', 'assets/bullet25.png');
-        this.load.image('bulletEnemy', 'assets/bullet177.png');
+        this.load.image('bulletEnemy', 'assets/bullet129.png');
         this.load.image('boundary', 'assets/worldBounds.png');
         this.load.image('coin', 'assets/shield2.png');
         this.load.image('flag', 'assets/flag.png');
@@ -419,7 +419,7 @@ brawl.rogue.prototype = {
         this.trumpX = this.enemy.create(x, y, 'enemy');
         this.trumpX.body.velocity.x = this.game.rnd.realInRange(-400, 400);
         // this.trumpX.body.gravity.y = 10;
-        this.trumpX.body.moves = false;
+        // this.trumpX.body.moves = false;
         this.trumpX.anchor.setTo(.5);
         this.trumpX.scale.setTo(.6);
         this.trumpX.body.mass = 20;
@@ -599,6 +599,7 @@ brawl.rogue.prototype = {
         //         this.physics.arcade.moveToObject(enemyBullet,this.player,600);
         //     }
         // }
+        //Clears Array
         livingEnemies.length = 0; 
         this.enemy.forEachAlive(function(enemy){
             if (this.game.physics.arcade.distanceBetween(enemy, this.player, false, true) < 500) {

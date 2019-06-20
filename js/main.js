@@ -483,8 +483,8 @@ function weaponHandler(weapon, wall) {
   }
   else if (stopBoolean) {
     // wall.body.immovable = true;
-    wall.body.stop();
-    // wall.kill();
+    // wall.body.stop();
+    wall.kill();
   }
   weapon.kill();
 }

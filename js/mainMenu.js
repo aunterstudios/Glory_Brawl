@@ -76,7 +76,7 @@ brawl.stateControls.prototype = {
             if (i === 0) {
                 var xText = 10;
                 var yText = 100;
-                var textInput = " Up Arrow Key to Jump (Tap Twice to Double Jump) \n\n Down Arrow Key to Move or Push Downwards \n\n Left Arrow Key to Move Left \n\n Right Arrow Key to Move Right \n\n Spacebar to Shoot \n\n WASD to Change Shooting Angle";
+                var textInput = " Up Arrow Key to Jump (Tap Twice to Double Jump) \n\n Down Arrow Key to Move or Push Downwards \n\n Left Arrow Key to Move Left \n\n Right Arrow Key to Move Right \n\n Use Mouse to Shoot \n\n 1-Pull 2-Stop 3-Kill";
                 var fontFill = "#19de65";
                 var fontSize = 25;
             }
@@ -100,7 +100,7 @@ brawl.stateControls.prototype = {
             else {
                 var xText = 1000;
                 var yText = 700;
-                var textInput = "Press Z to Play. Get to the Top";
+                var textInput = "Press Z to Play. Complete the Objective";
                 var fontFill = "#ffffff";
                 var fontSize = 20;
             }
