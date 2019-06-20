@@ -75,8 +75,8 @@ brawl.stateControls.prototype = {
             //Controls
             if (i === 0) {
                 var xText = 10;
-                var yText = 100;
-                var textInput = " W or Spacebar to Jump (Tap Twice to Double Jump) \n\n S to Move or Push Downwards \n\n A to Move Left \n\n D to Move Right \n\n Use Mouse to Shoot \n\n Press 1 or 2 or 3 to Switch Weapons \n\n 1-Pull 2-Push 3-Stop";
+                var yText = 70;
+                var textInput = " W or Spacebar to Jump (Tap Twice to Double Jump) \n\n S to Move or Push Downwards \n\n A to Move Left \n\n D to Move Right \n\n Use Mouse to Shoot \n\n Press 1 or 2 or 3 to Switch Weapons \n\n 1-Pull 2-Push 3-Stop \n\n P to Pause";
                 var fontFill = "#19de65";
                 var fontSize = 25;
             }
@@ -84,7 +84,7 @@ brawl.stateControls.prototype = {
             else if (i === 1) {
                 var xText = 700;
                 var yText = 250;
-                var textInput = "You Automatically Stick to Walls. Use Arrow Keys to Jump Off";
+                var textInput = "You Automatically Stick to Walls. Press F to Full Screen";
                 var fontFill = "#19de65";
                 var fontSize = 20;
             }
@@ -92,15 +92,15 @@ brawl.stateControls.prototype = {
             else if (i === 2) {
                 var xText = 10;
                 var yText = 600;
-                var textInput = "Hints: \n 1. Once You Hit a Surface You Can Double-Jump Again.\n 2. Use Your Weapon to Manipulate the Environment \n 3. You Can Stick to the Bottom of Surfaces";
+                var textInput = "Hints: \n 1. Once You Hit a Surface You Can Double-Jump Again.\n 2. Use Your Weapon to Manipulate the Environment. \n 3. You Can Stick to the Bottom of Surfaces. \n 4. Play Patiently";
                 var fontFill = "#19de65";
                 var fontSize = 25;
             }
             //Spacebar to Play
             else {
-                var xText = 1000;
+                var xText = 900;
                 var yText = 700;
-                var textInput = "Press Z to Play. Complete the Objective";
+                var textInput = "Press Z to Play. Complete the Objective.";
                 var fontFill = "#ffffff";
                 var fontSize = 20;
             }
