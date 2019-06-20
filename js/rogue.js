@@ -66,7 +66,7 @@ brawl.rogue.prototype = {
         this.game.physics.arcade.OVERLAP_BIAS = 12;
 
         //Initializes all the Randomness
-        var randomGeneratorForWorld = this.game.rnd.integerInRange(2, 2);
+        var randomGeneratorForWorld = this.game.rnd.integerInRange(0, 4);
 
         ////////////////////Game World Size//////////////////////
         this.game.world.setBounds(0, 0, worldGenerator[randomGeneratorForWorld].xOfWorld, worldGenerator[randomGeneratorForWorld].yOfWorld);
@@ -80,7 +80,7 @@ brawl.rogue.prototype = {
         else {
             gameModeName = "Capture the Flag";
         }
-        console.log(this.randomGeneratorForGameMode + "game mode");
+        // console.log(this.randomGeneratorForGameMode + "game mode");
         //Keyboard Controls
         this.cursors = this.game.input.keyboard.createCursorKeys();
 
@@ -314,7 +314,7 @@ brawl.rogue.prototype = {
                             this.game.physics.arcade.enable(this.finish);
                             this.finish.alignIn(rect, positionArray[i + 1]);
                             // console.log("Flag Initiated");
-                            console.log(this.finish);
+                            // console.log(this.finish);
                         }
                     }
                 }
@@ -322,7 +322,7 @@ brawl.rogue.prototype = {
         }
         if (gameMode === 0) {
             this.coinAmount = this.coin.count();
-            console.log(this.coinAmount + " coin Amount");
+            // console.log(this.coinAmount + " coin Amount");
         }
     },
     /////////////////////////Randomness of the Map///////////////////////////

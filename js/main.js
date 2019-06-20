@@ -77,9 +77,9 @@ var largeWorldPositionFour = new baseCampCreator(3700, 3800, 6, 5);
 var largeWorldArray = [largeWorldPositionOne, largeWorldPositionTwo, largeWorldPositionThree, largeWorldPositionFour];
 
 //For the Practice World
-var practiceWorldPositionOne = new baseCampCreator(300, 400, 0, 0);
+var practiceWorldPositionOne = new baseCampCreator(300, 300, 0, 0);
 var practiceWorldPositionTwo = new baseCampCreator(300, 1800, 0, 3);
-var practiceWorldPositionThree = new baseCampCreator(1700, 400, 3, 0);
+var practiceWorldPositionThree = new baseCampCreator(1700, 300, 3, 0);
 var practiceWorldPositionFour = new baseCampCreator(1700, 1800, 3, 3);
 var practiceWorldArray = [practiceWorldPositionOne, practiceWorldPositionTwo, practiceWorldPositionThree, practiceWorldPositionFour];
 
@@ -477,7 +477,7 @@ function weaponHandler(weapon, sprite) {
     sprite.kill();
     if (sprite.key === "coin" || sprite.key === "flag") {
       //Refactor
-      console.log("it hit? coinX");
+      // console.log("it hit? coinX");
       if (streak > longestStreak) {
         longestStreak = streak;
       }
@@ -529,7 +529,7 @@ function weaponHandlerForFlag(sprite, weapon) {
     // sprite.body.stop();
     sprite.kill();
     //Refactor
-    console.log("it hit? Flag");
+    // console.log("it hit? Flag");
     if (streak > longestStreak) {
       longestStreak = streak;
     }
