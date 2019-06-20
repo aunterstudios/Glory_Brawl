@@ -312,6 +312,11 @@ brawl.rogue.prototype = {
                         if (x === thisWorldGenerator.baseCamp[1].iteratorXBaseCamp && y === thisWorldGenerator.baseCamp[1].iteratorYBaseCamp) {
                             this.finish = this.game.add.sprite(xOfSprite, yOfSprite, 'flag');
                             this.game.physics.arcade.enable(this.finish);
+                            this.finish.body.mass = 1;
+                            this.finish.body.maxVelocity.setTo(300);
+                            this.finish.body.collideWorldBounds = true;
+                            this.finish.body.bounce.setTo(1);
+                            this.finish.body.velocity.x = this.game.rnd.realInRange(-50, 50)
                             this.finish.alignIn(rect, positionArray[i + 1]);
                             // console.log("Flag Initiated");
                             // console.log(this.finish);
@@ -387,6 +392,7 @@ brawl.rogue.prototype = {
         this.coinX.body.maxVelocity.setTo(300);
         this.coinX.body.collideWorldBounds = true;
         this.coinX.body.bounce.setTo(1);
+        this.coinX.body.velocity.x = this.game.rnd.realInRange(-50, 50)
         this.coinX.alignIn(rect, positionInRectangle);
         // console.log(this.coinX);
     },
