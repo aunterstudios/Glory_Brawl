@@ -40,7 +40,10 @@ brawl.rogue.prototype = {
     create: function () {
         //Desired FPS of game and fps and lag debugging
         this.game.time.desiredFps = 60;
-        this.game.time.advancedTiming = true;
+        
+        //FPS Debugging
+
+        // this.game.time.advancedTiming = true;
 
         //Background color of game
         // this.game.stage.backgroundColor = "#4488AA";
@@ -655,7 +658,8 @@ brawl.rogue.prototype = {
     //How Game Updates Real-Time
     update: function () {
 
-        console.log(this.game.time.fps);
+        ////////////////////////////////////FPS Debugging////////////////////////////////////////
+        // console.log(this.game.time.fps);
         ////////////////////////Physics////////////////////////
         //Player Mechanics
         var onWall = this.game.physics.arcade.collide(this.player, this.wall, null, null, this);
