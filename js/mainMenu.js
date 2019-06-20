@@ -76,7 +76,7 @@ brawl.stateControls.prototype = {
             if (i === 0) {
                 var xText = 10;
                 var yText = 100;
-                var textInput = " Up Arrow Key to Jump (Tap Twice to Double Jump) \n\n Down Arrow Key to Move or Push Downwards \n\n Left Arrow Key to Move Left \n\n Right Arrow Key to Move Right \n\n Use Mouse to Shoot \n\n 1-Pull 2-Stop 3-Kill";
+                var textInput = " W or Spacebar to Jump (Tap Twice to Double Jump) \n\n S to Move or Push Downwards \n\n A to Move Left \n\n D to Move Right \n\n Use Mouse to Shoot \n\n Press 1 or 2 or 3 to Switch Weapons \n\n 1-Pull 2-Push 3-Stop";
                 var fontFill = "#19de65";
                 var fontSize = 25;
             }

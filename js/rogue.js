@@ -635,7 +635,7 @@ brawl.rogue.prototype = {
     coinWin: function () {
         this.game.physics.arcade.overlap(this.player, this.coin, deathThree, null, this);
         if (this.coin.countDead()=== this.coinAmount) {
-            this.nextLevel();
+            nextLevel();
         }
     },
     flagWin: function () {
@@ -705,7 +705,7 @@ brawl.rogue.prototype = {
             this.coinWin();
         }
         //Game Mode 1 Flag
-        else {
+        else if (this.randomGeneratorForGameMode === 1) {
             this.flagWin();
         }
         ////////////////////////////////Actual Controls////////////////////////////////
