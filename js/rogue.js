@@ -66,20 +66,21 @@ brawl.rogue.prototype = {
         this.game.physics.arcade.OVERLAP_BIAS = 12;
 
         //Initializes all the Randomness
-        var randomGeneratorForWorld = this.game.rnd.integerInRange(0, 4);
+        var randomGeneratorForWorld = this.game.rnd.integerInRange(2, 2);
 
         ////////////////////Game World Size//////////////////////
         this.game.world.setBounds(0, 0, worldGenerator[randomGeneratorForWorld].xOfWorld, worldGenerator[randomGeneratorForWorld].yOfWorld);
 
         ////////////Generator for Game Mode//////////////
-        var randomGeneratorForGameMode = this.game.rnd.integerInRange(0, 1);
+        this.randomGeneratorForGameMode = this.game.rnd.integerInRange(0, 1);
         var gameModeName;
-        if (randomGeneratorForGameMode === 0) {
+        if (this.randomGeneratorForGameMode === 0) {
             gameModeName = "Collect the Coins";
         }
         else {
             gameModeName = "Capture the Flag";
         }
+        console.log(this.randomGeneratorForGameMode + "game mode");
         //Keyboard Controls
         this.cursors = this.game.input.keyboard.createCursorKeys();
 
@@ -152,7 +153,7 @@ brawl.rogue.prototype = {
 
         /////////////////////////World Creation Initialization Grid///////////////////////
         var worldName;
-        this.worldCreator(worldGenerator[randomGeneratorForWorld], randomGeneratorForGameMode);
+        this.worldCreator(worldGenerator[randomGeneratorForWorld], this.randomGeneratorForGameMode);
 
         worldName = worldGenerator[randomGeneratorForWorld].worldName
 
@@ -313,10 +314,15 @@ brawl.rogue.prototype = {
                             this.game.physics.arcade.enable(this.finish);
                             this.finish.alignIn(rect, positionArray[i + 1]);
                             // console.log("Flag Initiated");
+                            console.log(this.finish);
                         }
                     }
                 }
             }
+        }
+        if (gameMode === 0) {
+            this.coinAmount = this.coin.count();
+            console.log(this.coinAmount + " coin Amount");
         }
     },
     /////////////////////////Randomness of the Map///////////////////////////
@@ -377,7 +383,12 @@ brawl.rogue.prototype = {
         this.coinX = this.coin.create(x, y, 'coin');
         this.coinX.anchor.setTo(.7);
         this.coinX.scale.setTo(.7);
+        this.coinX.body.mass = 1;
+        this.coinX.body.maxVelocity.setTo(300);
+        this.coinX.body.collideWorldBounds = true;
+        this.coinX.body.bounce.setTo(1);
         this.coinX.alignIn(rect, positionInRectangle);
+        // console.log(this.coinX);
     },
     wallSpawn: function (x, y, rect, positionInRectangle) {
         this.wallX = this.wall.create(x, y, wallArray[Math.floor(Math.random() * wallArray.length)]);
@@ -453,7 +464,6 @@ brawl.rogue.prototype = {
         this.ledgeY.body.collideWorldBounds = true;
         // this.ledgeY.body.immovable = true;
         this.ledgeY.body.bounce.setTo(1);
-        this.ledgeY.body.mass = 200;
         this.ledgeY.alignIn(rect, positionInRectangle);
     },
     ledgeSideSpawn: function (x, y, rect, positionInRectangle) {
@@ -600,15 +610,15 @@ brawl.rogue.prototype = {
         //     }
         // }
         //Clears Array
-        livingEnemies.length = 0; 
-        this.enemy.forEachAlive(function(enemy){
+        livingEnemies.length = 0;
+        this.enemy.forEachAlive(function (enemy) {
             if (this.game.physics.arcade.distanceBetween(enemy, this.player, false, true) < 500) {
                 livingEnemies.push(enemy)
             }
         }, this, this.player);
-        if(this.time.now > enemyBulletTime) { 
-            enemyBullet = this.enemyBullets.getFirstExists(false); 
-            if(enemyBullet && livingEnemies.length > 0) {
+        if (this.time.now > enemyBulletTime) {
+            enemyBullet = this.enemyBullets.getFirstExists(false);
+            if (enemyBullet && livingEnemies.length > 0) {
                 //enemyShotSound.play();
                 var random = this.rnd.integerInRange(0, livingEnemies.length - 1);
                 var shooter = livingEnemies[random];
@@ -617,9 +627,24 @@ brawl.rogue.prototype = {
                 // if (game.physics.arcade.distanceBetween(enemyBullet, this.player, false, true) < 500) {
                 //     this.physics.arcade.moveToObject(enemyBullet,this.player,600);
                 // }
-                this.physics.arcade.moveToObject(enemyBullet,this.player,600);
+                this.physics.arcade.moveToObject(enemyBullet, this.player, 600);
             }
         }
+    },
+    //////////////////////////////////////////Localized Win Conditions////////////////////////////////////////////
+    coinWin: function () {
+        this.game.physics.arcade.overlap(this.player, this.coin, deathThree, null, this);
+        if (this.coin.countDead()=== this.coinAmount) {
+            this.nextLevel();
+        }
+    },
+    flagWin: function () {
+        //Flag vs. Weapon
+        this.game.physics.arcade.collide(this.finish, [this.weapon1.bullets, this.weapon2.bullets, this.weapon3.bullets], weaponHandlerForFlag, null, this);
+        //Flag Physics
+        this.game.physics.arcade.collide(this.finish, [this.immovableWall, this.wall, this.enemy, this.ledge, this.ledgeDown, this.ledgeSide, this.spikes, this.ball]);
+        //Winning!
+        this.game.physics.arcade.overlap(this.player, this.finish, nextLevel, null, this);
     },
     //How Game Updates Real-Time
     update: function () {
@@ -675,8 +700,14 @@ brawl.rogue.prototype = {
         this.game.physics.arcade.overlap(this.player, [this.enemy, this.spikes, this.death, this.enemyBullets], deathOne, null, this);
 
         ////////////////////////////////Win Conditions/////////////////////////////////
+        //Game Mode 0 Coin
+        if (this.randomGeneratorForGameMode === 0) {
+            this.coinWin();
+        }
         //Game Mode 1 Flag
-        this.game.physics.arcade.overlap(this.player, this.finish, nextLevel, null, this);
+        else {
+            this.flagWin();
+        }
         ////////////////////////////////Actual Controls////////////////////////////////
 
         //Jump Mechanics
@@ -706,7 +737,7 @@ brawl.rogue.prototype = {
 
         // Jump!
         if (this.jumps > 0 && this.upInputIsActive(5)) {
-            this.player.body.velocity.y = -400;
+            this.player.body.velocity.y = -500;
             this.jumping = true;
         }
 
@@ -746,7 +777,7 @@ brawl.rogue.prototype = {
                 this.player.frame = 6;
             }
             if (this.movementLeft.isDown) {
-                this.player.body.velocity.y = -1000;
+                this.player.body.velocity.y = -500;
                 this.player.body.velocity.x = -1000;
             }
         }
@@ -759,7 +790,7 @@ brawl.rogue.prototype = {
                 this.player.frame = 12;
             }
             if (this.movementRight.isDown) {
-                this.player.body.velocity.y = -1000;
+                this.player.body.velocity.y = -500;
                 this.player.body.velocity.x = 1000;
             }
         }
