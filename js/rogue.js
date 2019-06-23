@@ -621,7 +621,7 @@ brawl.rogue.prototype = {
         //Clears Array
         livingEnemies.length = 0;
         this.enemy.forEachAlive(function (enemy) {
-            if (this.game.physics.arcade.distanceBetween(enemy, this.player, false, true) < 500) {
+            if (this.game.physics.arcade.distanceBetween(enemy, this.player, false, true) < 400) {
                 livingEnemies.push(enemy)
             }
         }, this, this.player);
@@ -636,7 +636,7 @@ brawl.rogue.prototype = {
                 // if (game.physics.arcade.distanceBetween(enemyBullet, this.player, false, true) < 500) {
                 //     this.physics.arcade.moveToObject(enemyBullet,this.player,600);
                 // }
-                this.physics.arcade.moveToObject(enemyBullet, this.player, 600);
+                this.physics.arcade.moveToObject(enemyBullet, this.player, 500);
             }
         }
     },
