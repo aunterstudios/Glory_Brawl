@@ -270,7 +270,7 @@ brawl.rogue.prototype = {
         //  The speed at which the bullet is fired
         this.weapon3.bulletSpeed = 500;
         //  Speed-up the rate of fire, allowing them to shoot 1 bullet every 60ms
-        this.weapon2.fireRate = 500;
+        this.weapon3.fireRate = 500;
         // Track Player
         this.weapon3.trackSprite(this.player, 10, -30);
 
