@@ -183,7 +183,7 @@ function shuffle(array) {
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "Rogue Version-OVERLaPBias-EasierTrumps!",
+  "Rogue Version-OVERLaPBias-HarderWeapons!",
   "You have no name and no memory.",
   "Trapped in an unknown ever-changing world.",
   "All you know is the name of the world",
