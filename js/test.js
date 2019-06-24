@@ -317,6 +317,7 @@ brawl.testing.prototype = {
                 this.ballSpawn(levelGenerator.ballSpawn[i].x,levelGenerator.ballSpawn[i].y, levelGenerator.ballSpawn[i].velocityX, levelGenerator.ballSpawn[i].velocityY);
             }
         }
+        //////////////////Game Mode Generation (The Type of Game You Will Play)//////////////////
     },
     //////////////////////////Creating Game Objects/////////////////////////
     coinSpawn: function (x, y, velocityX, velocityY) {
@@ -324,7 +325,7 @@ brawl.testing.prototype = {
         this.coinX.anchor.setTo(.7);
         this.coinX.scale.setTo(.7);
         this.coinX.body.mass = 1;
-        this.coinX.body.maxVelocity.setTo(300);
+        this.coinX.body.maxVelocity.setTo(1000);
         this.coinX.body.collideWorldBounds = true;
         this.coinX.body.bounce.setTo(1);
         this.coinX.body.velocity.setTo(velocityX, velocityY);
@@ -335,7 +336,7 @@ brawl.testing.prototype = {
         this.wallX = this.wall.create(x, y, art);
         this.wallX.anchor.setTo(.5);
         this.wallX.scale.setTo(size);
-        this.wallX.body.maxVelocity.setTo(200);
+        this.wallX.body.maxVelocity.setTo(1000);
         // this.wallX.body.immovable = true;
         this.wallX.body.collideWorldBounds = true;
         this.wallX.body.bounce.setTo(1);
@@ -352,6 +353,7 @@ brawl.testing.prototype = {
         this.immovableWallX = this.immovableWall.create(x, y, art);
         this.immovableWallX.anchor.setTo(.5);
         this.immovableWallX.scale.setTo(size);
+        this.immovableWallX.body.maxVelocity.setTo(1000);
         this.immovableWallX.body.immovable = true;
         this.immovableWallX.body.collideWorldBounds = true;
         this.immovableWallX.body.bounce.setTo(1);
@@ -424,6 +426,8 @@ brawl.testing.prototype = {
         this.spikesX.body.immovable = true;
         this.spikesX.body.mass = 150;
         this.spikesX.body.velocity.setTo(velocityX, velocityY);
+        this.spikesX.body.collideWorldBounds = true;
+        this.spikesX.body.bounce.setTo(1.0);
         // this.spikesX.alignIn(rect, positionInRectangle);
         // this.spikeFall(this.spikesX);
     },
@@ -441,7 +445,7 @@ brawl.testing.prototype = {
     //     // this.spikeTimerFall(this.spikeFall);
     //     this.game.time.events.loop(Phaser.Timer.SECOND * this.game.rnd.integerInRange(3, 7), spikeTimerFall, this);
     // },
-    //Dragging Motino for Walls
+    //Dragging Motion for Walls
     // startDrag: function () {
     //     this.wallX.body.moves = false;
     // },
@@ -822,62 +826,6 @@ brawl.testing.prototype = {
             }
             else if (stopBoolean) {
                 this.weapon3.fireAtPointer();
-                this.weapon3.fire();
-            }
-        }
-
-        //Shoot from Directional
-        if (pullBoolean) {
-            if (this.cursors.up.isDown) {
-                this.weapon1.fireAngle = 270;
-                this.weapon1.fire();
-            }
-            else if (this.cursors.down.isDown) {
-                this.weapon1.fireAngle = 90;
-                this.weapon1.fire();
-            }
-            else if (this.cursors.left.isDown) {
-                this.weapon1.fireAngle = 180;
-                this.weapon1.fire();
-            }
-            else if (this.cursors.right.isDown) {
-                this.weapon1.fireAngle = 0;
-                this.weapon1.fire();
-            }
-        }
-        else if (pushBoolean) {
-            if (this.cursors.up.isDown) {
-                this.weapon2.fireAngle = 270;
-                this.weapon2.fire();
-            }
-            else if (this.cursors.down.isDown) {
-                this.weapon2.fireAngle = 90;
-                this.weapon2.fire();
-            }
-            else if (this.cursors.left.isDown) {
-                this.weapon2.fireAngle = 180;
-                this.weapon2.fire();
-            }
-            else if (this.cursors.right.isDown) {
-                this.weapon2.fireAngle = 0;
-                this.weapon2.fire();
-            }
-        }
-        else if (stopBoolean) {
-            if (this.cursors.up.isDown) {
-                this.weapon3.fireAngle = 270;
-                this.weapon3.fire();
-            }
-            else if (this.cursors.down.isDown) {
-                this.weapon3.fireAngle = 90;
-                this.weapon3.fire();
-            }
-            else if (this.cursors.left.isDown) {
-                this.weapon3.fireAngle = 180;
-                this.weapon3.fire();
-            }
-            else if (this.cursors.right.isDown) {
-                this.weapon3.fireAngle = 0;
                 this.weapon3.fire();
             }
         }

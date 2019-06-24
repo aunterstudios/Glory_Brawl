@@ -7,9 +7,9 @@ game.state.add('rogueTest', brawl.rogue);
 game.state.add('test', brawl.testing);
 game.state.add('controlScreen', brawl.stateControls);
 //////////////////////////////////////////////////Starting States//////////////////////////////////////////////
-// game.state.start('mainMenu');
+game.state.start('mainMenu');
 // game.state.start('controlScreen');
-game.state.start('test');
+// game.state.start('test');
 //////////////////////////////////////////////////Global Variables//////////////////////////////////////////////
 
 //Death Total in Game
@@ -186,12 +186,15 @@ var worldDesignedLevels = [
   //Level One
   {
     worldName: "Level One",
-    xOfWorld: 7000,
+    gameMode: [],
+    ////////////World Size
+    xOfWorld: 1400,
     yOfWorld: 800,
+    ///////////Sprite Positioning
     playerPosition: { x: 0, y: 0 },
     immovableWallSpawn:
       [true,
-        { x: 0, y: 0, velocityX: 200, velocityY: 20, size: .5, art: "immovableVerticalWall" },
+        { x: 200, y: 100, velocityX: 200, velocityY: 20, size: .5, art: "immovableVerticalWall" },
         { x: 200, y: 400, velocityX: 400, velocityY: 50, size: .5, art: "immovableRotatedWall" },
       ],
     wallSpawn:
@@ -230,7 +233,7 @@ var worldDesignedLevels = [
         { x: 0, y: 500, velocityX: 20, velocityY: 100 },
         { x: 300, y: 600, velocityX: 0, velocityY: 400 },
         { x: 400, y: 800, velocityX: 300, velocityY: 200 }
-      ]
+      ],
   }
 ]
 

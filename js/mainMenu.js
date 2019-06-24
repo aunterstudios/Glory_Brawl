@@ -100,7 +100,7 @@ brawl.stateControls.prototype = {
             else {
                 var xText = 900;
                 var yText = 700;
-                var textInput = "Press Z to Play. Complete the Objective.";
+                var textInput = "Press Z to Play Procedural Version. Complete the Objective. \n\n Press X to Play Designed Levels (Incomplete)";
                 var fontFill = "#ffffff";
                 var fontSize = 20;
             }
@@ -115,7 +115,9 @@ brawl.stateControls.prototype = {
         if (this.game.input.keyboard.isDown(Phaser.Keyboard.Z)) {
             this.game.state.start('rogueTest');
         }
-
+        else if (this.game.input.keyboard.isDown(Phaser.Keyboard.X)) {
+            this.game.state.start('test');
+        }
     }
 };
 
