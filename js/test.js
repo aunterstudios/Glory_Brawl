@@ -68,8 +68,9 @@ brawl.testing.prototype = {
         //Overlap Bias to Prevent Sprite Tunneling
         this.game.physics.arcade.OVERLAP_BIAS = 12;
 
-        //Initializes all the Randomness
+        //Initializes all the Randomness for World and GameMode
         var randomGeneratorForWorld = this.game.rnd.integerInRange(0, 0);
+        this.randomGeneratorForGameMode = this.game.rnd.integerInRange(0, 0);
 
         ////////////////////Game World Size//////////////////////
         this.game.world.setBounds(0, 0, worldDesignedLevels[randomGeneratorForWorld].xOfWorld, worldDesignedLevels[randomGeneratorForWorld].yOfWorld);
@@ -278,46 +279,56 @@ brawl.testing.prototype = {
         //Generating Immovable Walls
         if (levelGenerator.immovableWallSpawn[0]) {
             for (var i = 1; i < levelGenerator.immovableWallSpawn.length; i++) {
-                this.immovableSpawn(levelGenerator.immovableWallSpawn[i].x,levelGenerator.immovableWallSpawn[i].y, levelGenerator.immovableWallSpawn[i].velocityX, levelGenerator.immovableWallSpawn[i].velocityY, levelGenerator.immovableWallSpawn[i].size, levelGenerator.immovableWallSpawn[i].art);
+                this.immovableSpawn(levelGenerator.immovableWallSpawn[i].x, levelGenerator.immovableWallSpawn[i].y, levelGenerator.immovableWallSpawn[i].velocityX, levelGenerator.immovableWallSpawn[i].velocityY, levelGenerator.immovableWallSpawn[i].size, levelGenerator.immovableWallSpawn[i].art);
             }
         }
         //Generating movable Walls
         if (levelGenerator.wallSpawn[0]) {
             for (var i = 1; i < levelGenerator.wallSpawn.length; i++) {
-                this.wallSpawn(levelGenerator.wallSpawn[i].x,levelGenerator.wallSpawn[i].y, levelGenerator.wallSpawn[i].velocityX, levelGenerator.wallSpawn[i].velocityY, levelGenerator.wallSpawn[i].size, levelGenerator.wallSpawn[i].art);
+                this.wallSpawn(levelGenerator.wallSpawn[i].x, levelGenerator.wallSpawn[i].y, levelGenerator.wallSpawn[i].velocityX, levelGenerator.wallSpawn[i].velocityY, levelGenerator.wallSpawn[i].size, levelGenerator.wallSpawn[i].art);
             }
         }
         //Generating spikes
         if (levelGenerator.spikeSpawn[0]) {
             for (var i = 1; i < levelGenerator.spikeSpawn.length; i++) {
-                this.spikeSpawn(levelGenerator.spikeSpawn[i].x,levelGenerator.spikeSpawn[i].y, levelGenerator.spikeSpawn[i].velocityX, levelGenerator.spikeSpawn[i].velocityY, levelGenerator.spikeSpawn[i].size, levelGenerator.spikeSpawn[i].art);
+                this.spikeSpawn(levelGenerator.spikeSpawn[i].x, levelGenerator.spikeSpawn[i].y, levelGenerator.spikeSpawn[i].velocityX, levelGenerator.spikeSpawn[i].velocityY, levelGenerator.spikeSpawn[i].size, levelGenerator.spikeSpawn[i].art);
             }
         }
         //Generating grey ledges
         if (levelGenerator.ledgeGreySpawn[0]) {
             for (var i = 1; i < levelGenerator.ledgeGreySpawn.length; i++) {
-                this.ledgeGreySpawn(levelGenerator.ledgeGreySpawn[i].x,levelGenerator.ledgeGreySpawn[i].y, levelGenerator.ledgeGreySpawn[i].velocityX, levelGenerator.ledgeGreySpawn[i].velocityY);
+                this.ledgeGreySpawn(levelGenerator.ledgeGreySpawn[i].x, levelGenerator.ledgeGreySpawn[i].y, levelGenerator.ledgeGreySpawn[i].velocityX, levelGenerator.ledgeGreySpawn[i].velocityY);
             }
         }
         //Generating green ledges
         if (levelGenerator.ledgeGreenSpawn[0]) {
             for (var i = 1; i < levelGenerator.ledgeGreenSpawn.length; i++) {
-                this.ledgeGreenSpawn(levelGenerator.ledgeGreenSpawn[i].x,levelGenerator.ledgeGreenSpawn[i].y, levelGenerator.ledgeGreenSpawn[i].velocityX, levelGenerator.ledgeGreenSpawn[i].velocityY);
+                this.ledgeGreenSpawn(levelGenerator.ledgeGreenSpawn[i].x, levelGenerator.ledgeGreenSpawn[i].y, levelGenerator.ledgeGreenSpawn[i].velocityX, levelGenerator.ledgeGreenSpawn[i].velocityY);
             }
         }
         //Generating enemies
         if (levelGenerator.enemySpawn[0]) {
             for (var i = 1; i < levelGenerator.enemySpawn.length; i++) {
-                this.enemySpawn(levelGenerator.enemySpawn[i].x,levelGenerator.enemySpawn[i].y, levelGenerator.enemySpawn[i].velocityX, levelGenerator.enemySpawn[i].velocityY);
+                this.enemySpawn(levelGenerator.enemySpawn[i].x, levelGenerator.enemySpawn[i].y, levelGenerator.enemySpawn[i].velocityX, levelGenerator.enemySpawn[i].velocityY);
             }
         }
         //Generating balls ledges
         if (levelGenerator.ballSpawn[0]) {
             for (var i = 1; i < levelGenerator.ballSpawn.length; i++) {
-                this.ballSpawn(levelGenerator.ballSpawn[i].x,levelGenerator.ballSpawn[i].y, levelGenerator.ballSpawn[i].velocityX, levelGenerator.ballSpawn[i].velocityY);
+                this.ballSpawn(levelGenerator.ballSpawn[i].x, levelGenerator.ballSpawn[i].y, levelGenerator.ballSpawn[i].velocityX, levelGenerator.ballSpawn[i].velocityY);
             }
         }
         //////////////////Game Mode Generation (The Type of Game You Will Play)//////////////////
+        if (levelGenerator.gameMode[this.randomGeneratorForGameMode] === "flag") {
+            console.log("It's a Flag!");
+            this.finish = this.game.add.sprite(levelGenerator.flagSpawn.x, levelGenerator.flagSpawn.y, 'flag');
+            this.game.physics.arcade.enable(this.finish);
+            this.finish.body.mass = 1;
+            this.finish.body.maxVelocity.setTo(1000);
+            this.finish.body.collideWorldBounds = true;
+            this.finish.body.bounce.setTo(1);
+            this.finish.body.velocity.setTo(levelGenerator.flagSpawn.velocityX, levelGenerator.flagSpawn.velocityY);
+        }
     },
     //////////////////////////Creating Game Objects/////////////////////////
     coinSpawn: function (x, y, velocityX, velocityY) {
@@ -358,7 +369,7 @@ brawl.testing.prototype = {
         this.immovableWallX.body.collideWorldBounds = true;
         this.immovableWallX.body.bounce.setTo(1);
         this.immovableWallX.body.mass = 400;
-        this.immovableWallX.body.velocity.setTo(velocityX,velocityY);
+        this.immovableWallX.body.velocity.setTo(velocityX, velocityY);
     },
     enemySpawn: function (x, y, velocityX, velocityY) {
         this.trumpX = this.enemy.create(x, y, 'enemy');
@@ -559,6 +570,8 @@ brawl.testing.prototype = {
     //////////////////////////////////////////Localized Win Conditions////////////////////////////////////////////
     coinWin: function () {
         this.game.physics.arcade.overlap(this.player, this.coin, deathThree, null, this);
+        //Coin Mechanics
+        this.game.physics.arcade.collide(this.coin, [this.ball, this.wall, this.ledge, this.ledgeDown, this.ledgeSide, this.enemy, this.immovableWall], null, null, this);
         if (this.coin.countDead() === this.coinAmount) {
             nextLevel();
         }
@@ -571,7 +584,7 @@ brawl.testing.prototype = {
         //Winning!
         this.game.physics.arcade.overlap(this.player, this.finish, nextLevel, null, this);
     },
-    // //How Game Updates Real-Time
+    // //How Game Updates Real-Time (Actual Controls)
     // update: function () {
 
     //     ////////////////////////////////////FPS Debugging////////////////////////////////////////
@@ -626,13 +639,13 @@ brawl.testing.prototype = {
     //     this.game.physics.arcade.overlap(this.player, [this.enemy, this.spikes, this.death, this.enemyBullets], deathOne, null, this);
 
     //     ////////////////////////////////Win Conditions/////////////////////////////////
-    //     //Game Mode 0 Coin
+    //     //Game Mode 0 Flag
     //     if (this.randomGeneratorForGameMode === 0) {
-    //         this.coinWin();
+    //          this.flagWin();
     //     }
-    //     //Game Mode 1 Flag
+    //     //Game Mode 1 Coin
     //     else if (this.randomGeneratorForGameMode === 1) {
-    //         this.flagWin();
+    //         this.coinWin();
     //     }
     //     ////////////////////////////////Actual Controls////////////////////////////////
 
@@ -784,11 +797,7 @@ brawl.testing.prototype = {
     //     ///Enemy Sprites
     //     this.fireEnemyBullet();
     // },
-    // render: function () {
-    //     this.game.debug.physicsGroup(this.wall);
-    //     this.game.debug.physicsGroup(this.weapon);
-    // }
-    //How Game Updates Real-Time
+    //How Game Updates Real-Time (God Mode)!
     update: function () {
         this.fireEnemyBullet();
         ///////////God Mode//////////////
@@ -811,9 +820,7 @@ brawl.testing.prototype = {
             this.player.frame = 10;
             this.player.body.velocity.y = 650;
         }
-
         ///////////////////////Weapon Mechanics///////////////
-
         //Shoot from Mouse
         if (this.game.input.activePointer.leftButton.isDown || this.shiftFire.isDown) {
             if (pullBoolean) {

@@ -643,6 +643,8 @@ brawl.rogue.prototype = {
     //////////////////////////////////////////Localized Win Conditions////////////////////////////////////////////
     coinWin: function () {
         this.game.physics.arcade.overlap(this.player, this.coin, deathThree, null, this);
+        //Coin Mechanics
+        this.game.physics.arcade.collide(this.coin, [this.ball, this.wall, this.ledge, this.ledgeDown, this.ledgeSide, this.enemy, this.immovableWall], null, null, this);
         if (this.coin.countDead() === this.coinAmount) {
             nextLevel();
         }
@@ -692,9 +694,6 @@ brawl.rogue.prototype = {
 
         //Enemy Mechanics
         this.game.physics.arcade.collide(this.enemy, [this.spikes, this.wall, this.enemy], testFunctionX, null, this);
-
-        //Coin Mechanics
-        this.game.physics.arcade.collide(this.coin, [this.ball, this.wall, this.ledge, this.ledgeDown, this.ledgeSide, this.enemy, this.immovableWall], null, null, this);
 
         // //Flag Moving Mechanics
         // this.game.physics.arcade.collide(this.finish, this.wall);
@@ -861,10 +860,6 @@ brawl.rogue.prototype = {
                 this.weapon3.fire();
             }
         }
-        // console.log(this.crosshair.x + ' ' + this.crosshair.y);
-
-        //Moving Coins
-        // this.coin.forEachAlive(moveTowardsPlayer, this, this.player);
         ///Enemy Sprites
         this.fireEnemyBullet();
     }

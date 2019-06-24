@@ -181,13 +181,13 @@ function shuffle(array) {
   }
 }
 
-///////////////////////////////////////////Testing World Generator/////////////////////////////////////////////
-//Will Turn This Into A Constructor and Refactor
+///////////////////////////////////////////Designed World Generator/////////////////////////////////////////////
+//Will Turn This Into A Constructor and Refactor Later
 var worldDesignedLevels = [
   //Level One
   {
     worldName: "Level One",
-    gameMode: [],
+    gameMode: ["flag", "coin"],
     ////////////World Size
     xOfWorld: 1400,
     yOfWorld: 800,
@@ -196,7 +196,7 @@ var worldDesignedLevels = [
     immovableWallSpawn:
       [true,
         { x: 0, y: 200, velocityX: 0, velocityY: 0, size: .5, art: "immovableRotatedWall" },
-        { x: 600, y: 400, velocityX: 500, velocityY: 0, size: .5, art: "immovableVerticalWall" },
+        // { x: 600, y: 400, velocityX: 500, velocityY: 0, size: .5, art: "immovableVerticalWall" },
       ],
     wallSpawn:
       [true,
@@ -205,17 +205,17 @@ var worldDesignedLevels = [
       ],
     spikeSpawn:
       [true,
-        { x: 0, y: 0, velocityX: 100, velocityY: 200, size: .5, art: "spikes" },
-        { x: 800, y: 400, velocityX: 400, velocityY: 50, size: .5, art: "invertedSpikes" },
+        { x: 700, y: 450, velocityX: 400, velocityY: 0, size: .5, art: "spikes" },
+        { x: 700, y: 900, velocityX: 0, velocityY: 0, size: 1, art: "spikes" },
       ],
     ledgeGreySpawn:
       [true,
         //First Item!!
-        { x: 0, y: 0, velocityX: 0, velocityY: 100 },
+        { x: 800, y: 0, velocityX: 0, velocityY: 0 },
         //Second Item!!!!!s
-        { x: 500, y: 600, velocityX: 0, velocityY: 100 },
+        { x: 900, y: 600, velocityX: 0, velocityY: 0 },
         //Third Item///sdfj
-        { x: 800, y: 200, velocityX: 400, velocityY: 200 }
+        { x: 1000, y: 200, velocityX: 0, velocityY: 0 }
       ],
     ledgeGreenSpawn:
       [true,
@@ -235,17 +235,22 @@ var worldDesignedLevels = [
         { x: 300, y: 600, velocityX: 0, velocityY: 400 },
         { x: 400, y: 800, velocityX: 300, velocityY: 200 }
       ],
+    //Win Condition Items
+    flagSpawn: { x: 0, y: 550, velocityX: 400, velocityY: 0 }
+    //Any Other Property Here Are Unditional Objects
+    //Falling or Sideways Spikes
+    //Super Ball
+    //World Gravity
+    //Traps that create generating enemies
   }
 ]
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
   "Rogue Version-OVERLaPBias-DesignedLevelzForSean",
-  "You have no name and no memory.",
-  "Trapped in an unknown ever-changing world.",
-  "All you know is the name of the world",
-  "Glory Brawl",
-  "Survive 1000 rooms in a row without dying to escape."
+  "In this unknown world",
+  "You only know your name",
+  "Glory Brawl"
 ];
 
 var line = [];
@@ -641,6 +646,8 @@ function preventPhysicsBug(sprite1, sprite2) {
 
 /*
 /////////////////////////////////Reference Code///////////////////////////////
+//Pass Arguments forEachAlive
+    // this.coin.forEachAlive(moveTowardsPlayer, this, this.player);
 //Shoot from Directional
         if (pullBoolean) {
             if (this.cursors.up.isDown) {
