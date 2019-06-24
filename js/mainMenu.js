@@ -114,9 +114,11 @@ brawl.stateControls.prototype = {
     update: function () {
         if (this.game.input.keyboard.isDown(Phaser.Keyboard.Z)) {
             this.game.state.start('rogueTest');
+            deathStateProcedural = true;
         }
         else if (this.game.input.keyboard.isDown(Phaser.Keyboard.X)) {
             this.game.state.start('test');
+            deathStateProcedural = false;
         }
     }
 };

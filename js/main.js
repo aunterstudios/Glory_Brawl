@@ -12,6 +12,9 @@ game.state.start('mainMenu');
 // game.state.start('test');
 //////////////////////////////////////////////////Global Variables//////////////////////////////////////////////
 
+//Alternative Death State (boolean that is activated).
+var deathStateProcedural;
+
 //Death Total in Game
 var deaths = 0;
 
@@ -24,6 +27,7 @@ var pullBoolean = false;
 var pushBoolean = false;
 var stopBoolean = false;
 
+////////////////////////////////////////Procedural Generation////////////////////////////////////////////////////////
 /////////////////////////////////Position of Items Within Rectangle///////////////////////
 ///Top Positions
 var topCenter = Phaser.TOP_CENTER;
@@ -181,6 +185,7 @@ function shuffle(array) {
   }
 }
 
+////////////////////////////////////////////Designed Levels/////////////////////////////////////////////////////
 ///////////////////////////////////////////Designed World Generator/////////////////////////////////////////////
 //Will Turn This Into A Constructor and Refactor Later
 var worldDesignedLevels = [
@@ -200,40 +205,33 @@ var worldDesignedLevels = [
       ],
     wallSpawn:
       [true,
-        { x: 0, y: 0, velocityX: 200, velocityY: 20, size: .5, art: "wall" },
-        { x: 200, y: 400, velocityX: 400, velocityY: 50, size: .5, art: "rotatedWall" },
+        { x: 200, y: 400, velocityX: 300, velocityY: 0, size: .5, art: "rotatedWall" },
       ],
     spikeSpawn:
       [true,
-        { x: 700, y: 450, velocityX: 400, velocityY: 0, size: .5, art: "spikes" },
+        { x: 700, y: 475, velocityX: 700, velocityY: 0, size: .5, art: "spikes" },
         { x: 700, y: 900, velocityX: 0, velocityY: 0, size: 1, art: "spikes" },
       ],
     ledgeGreySpawn:
-      [true,
+      [true, 
         //First Item!!
-        { x: 800, y: 0, velocityX: 0, velocityY: 0 },
-        //Second Item!!!!!s
-        { x: 900, y: 600, velocityX: 0, velocityY: 0 },
-        //Third Item///sdfj
-        { x: 1000, y: 200, velocityX: 0, velocityY: 0 }
+        { x: 1000, y: 200, velocityX: 0, velocityY: 0 },
       ],
     ledgeGreenSpawn:
       [true,
-        { x: 0, y: 500, velocityX: 20, velocityY: 200 },
-        { x: 500, y: 600, velocityX: 0, velocityY: 100 },
-        { x: 800, y: 200, velocityX: 400, velocityY: 200 }
+        { x: 800, y: 200, velocityX: 0, velocityY: 0 },
+      ],
+    ledgeBlueSpawn:
+      [true,
+        { x: 600, y: 200, velocityX: 0, velocityY: 0 },
       ],
     enemySpawn:
       [true,
-        { x: 200, y: 500, velocityX: 20, velocityY: 200 },
-        { x: 700, y: 600, velocityX: 20, velocityY: 100 },
-        { x: 600, y: 200, velocityX: 100, velocityY: 400 }
+        { x: 1200, y: 100, velocityX: 0, velocityY: 0 },
       ],
     ballSpawn:
       [true,
-        { x: 0, y: 500, velocityX: 20, velocityY: 100 },
-        { x: 300, y: 600, velocityX: 0, velocityY: 400 },
-        { x: 400, y: 800, velocityX: 300, velocityY: 200 }
+        { x: 1300, y: 50, velocityX: 0, velocityY: 0 },
       ],
     //Win Condition Items
     flagSpawn: { x: 0, y: 550, velocityX: 400, velocityY: 0 }

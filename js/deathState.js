@@ -28,10 +28,17 @@ brawl.state2.prototype = {
         this.text.fill = "#000000";
         this.text.fontWeight = 'bold';
 
+        console.log(deathStateProcedural);
+
     },
     update: function () {
         if (this.game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
-            this.game.state.start('rogueTest');
+            if (deathStateProcedural) {
+                this.game.state.start('rogueTest');
+            }
+            else {
+                this.game.state.start('test');
+            }
         }
 
     }

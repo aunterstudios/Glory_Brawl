@@ -695,27 +695,17 @@ brawl.rogue.prototype = {
         //Enemy Mechanics
         this.game.physics.arcade.collide(this.enemy, [this.spikes, this.wall, this.enemy], testFunctionX, null, this);
 
-        // //Flag Moving Mechanics
-        // this.game.physics.arcade.collide(this.finish, this.wall);
-        // this.game.physics.arcade.collide(this.finish, this.enemy);
-        // this.game.physics.arcade.collide(this.finish, this.ledge);
-        // this.game.physics.arcade.collide(this.finish, this.ledgeDown);
-        // this.game.physics.arcade.collide(this.finish, this.ledgeSide);
-        // this.game.physics.arcade.collide(this.finish, this.spikes);
-        // this.game.physics.arcade.collide(this.finish, this.ball);
-
-
         //Death Mechanics
         this.game.physics.arcade.overlap(this.player, [this.enemy, this.spikes, this.death, this.enemyBullets], deathOne, null, this);
 
         ////////////////////////////////Win Conditions/////////////////////////////////
         //Game Mode 0 Coin
         if (this.randomGeneratorForGameMode === 0) {
-            this.coinWin();
+            this.flagWin();
         }
         //Game Mode 1 Flag
         else if (this.randomGeneratorForGameMode === 1) {
-            this.flagWin();
+            this.coinWin();
         }
         ////////////////////////////////Actual Controls////////////////////////////////
 
