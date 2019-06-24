@@ -40,7 +40,7 @@ brawl.rogue.prototype = {
     create: function () {
         //Desired FPS of game and fps and lag debugging
         this.game.time.desiredFps = 60;
-        
+
         //FPS Debugging
 
         // this.game.time.advancedTiming = true;
@@ -643,7 +643,7 @@ brawl.rogue.prototype = {
     //////////////////////////////////////////Localized Win Conditions////////////////////////////////////////////
     coinWin: function () {
         this.game.physics.arcade.overlap(this.player, this.coin, deathThree, null, this);
-        if (this.coin.countDead()=== this.coinAmount) {
+        if (this.coin.countDead() === this.coinAmount) {
             nextLevel();
         }
     },
@@ -867,7 +867,7 @@ brawl.rogue.prototype = {
         // this.coin.forEachAlive(moveTowardsPlayer, this, this.player);
         ///Enemy Sprites
         this.fireEnemyBullet();
-    }
+    },
     // render: function () {
     //     this.game.debug.physicsGroup(this.wall);
     //     this.game.debug.physicsGroup(this.weapon);

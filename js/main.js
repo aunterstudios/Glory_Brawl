@@ -7,9 +7,9 @@ game.state.add('rogueTest', brawl.rogue);
 game.state.add('test', brawl.testing);
 game.state.add('controlScreen', brawl.stateControls);
 //////////////////////////////////////////////////Starting States//////////////////////////////////////////////
-game.state.start('mainMenu');
+// game.state.start('mainMenu');
 // game.state.start('controlScreen');
-// game.state.start('test');
+game.state.start('test');
 //////////////////////////////////////////////////Global Variables//////////////////////////////////////////////
 
 //Death Total in Game
@@ -183,7 +183,7 @@ function shuffle(array) {
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "Rogue Version-OVERLaPBias-HarderWeaponsFixedWeapn2/3!",
+  "Rogue Version-OVERLaPBias-DesignedLevelz",
   "You have no name and no memory.",
   "Trapped in an unknown ever-changing world.",
   "All you know is the name of the world",
