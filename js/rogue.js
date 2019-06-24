@@ -500,7 +500,7 @@ brawl.rogue.prototype = {
         this.ballX.body.collideWorldBounds = true;
         this.ballX.body.bounce.setTo(1.0);
         this.ballX.alignIn(rect, positionInRectangle);
-        // this.ballX.body.setCircle(50);
+        this.ballX.body.setCircle(50);
         // this.ballX.body.mass = 5;
     },
     spikeSpawn: function (x, y, rect, positionInRectangle) {

@@ -182,6 +182,7 @@ function shuffle(array) {
 }
 
 ///////////////////////////////////////////Testing World Generator/////////////////////////////////////////////
+//Will Turn This Into A Constructor and Refactor
 var worldDesignedLevels = [
   //Level One
   {
@@ -194,8 +195,8 @@ var worldDesignedLevels = [
     playerPosition: { x: 0, y: 0 },
     immovableWallSpawn:
       [true,
-        { x: 200, y: 100, velocityX: 200, velocityY: 20, size: .5, art: "immovableVerticalWall" },
-        { x: 200, y: 400, velocityX: 400, velocityY: 50, size: .5, art: "immovableRotatedWall" },
+        { x: 0, y: 200, velocityX: 0, velocityY: 0, size: .5, art: "immovableRotatedWall" },
+        { x: 600, y: 400, velocityX: 500, velocityY: 0, size: .5, art: "immovableVerticalWall" },
       ],
     wallSpawn:
       [true,
@@ -239,7 +240,7 @@ var worldDesignedLevels = [
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "Rogue Version-OVERLaPBias-DesignedLevelz",
+  "Rogue Version-OVERLaPBias-DesignedLevelzForSean",
   "You have no name and no memory.",
   "Trapped in an unknown ever-changing world.",
   "All you know is the name of the world",
