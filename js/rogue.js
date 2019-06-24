@@ -867,7 +867,7 @@ brawl.rogue.prototype = {
         // this.coin.forEachAlive(moveTowardsPlayer, this, this.player);
         ///Enemy Sprites
         this.fireEnemyBullet();
-    },
+    }
     // render: function () {
     //     this.game.debug.physicsGroup(this.wall);
     //     this.game.debug.physicsGroup(this.weapon);

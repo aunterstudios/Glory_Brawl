@@ -181,6 +181,59 @@ function shuffle(array) {
   }
 }
 
+///////////////////////////////////////////Testing World Generator/////////////////////////////////////////////
+var worldDesignedLevels = [
+  //Level One
+  {
+    worldName: "Level One",
+    xOfWorld: 7000,
+    yOfWorld: 800,
+    playerPosition: { x: 0, y: 0 },
+    immovableWallSpawn:
+      [true,
+        { x: 0, y: 0, velocityX: 200, velocityY: 20, size: .5, art: "immovableVerticalWall" },
+        { x: 200, y: 400, velocityX: 400, velocityY: 50, size: .5, art: "immovableRotatedWall" },
+      ],
+    wallSpawn:
+      [true,
+        { x: 0, y: 0, velocityX: 200, velocityY: 20, size: .5, art: "wall" },
+        { x: 200, y: 400, velocityX: 400, velocityY: 50, size: .5, art: "rotatedWall" },
+      ],
+    spikeSpawn:
+      [true,
+        { x: 0, y: 0, velocityX: 100, velocityY: 200, size: .5, art: "spikes" },
+        { x: 800, y: 400, velocityX: 400, velocityY: 50, size: .5, art: "invertedSpikes" },
+      ],
+    ledgeGreySpawn:
+      [true,
+        //First Item!!
+        { x: 0, y: 0, velocityX: 0, velocityY: 100 },
+        //Second Item!!!!!s
+        { x: 500, y: 600, velocityX: 0, velocityY: 100 },
+        //Third Item///sdfj
+        { x: 800, y: 200, velocityX: 400, velocityY: 200 }
+      ],
+    ledgeGreenSpawn:
+      [true,
+        { x: 0, y: 500, velocityX: 20, velocityY: 200 },
+        { x: 500, y: 600, velocityX: 0, velocityY: 100 },
+        { x: 800, y: 200, velocityX: 400, velocityY: 200 }
+      ],
+    enemySpawn:
+      [true,
+        { x: 200, y: 500, velocityX: 20, velocityY: 200 },
+        { x: 700, y: 600, velocityX: 20, velocityY: 100 },
+        { x: 600, y: 200, velocityX: 100, velocityY: 400 }
+      ],
+    ballSpawn:
+      [true,
+        { x: 0, y: 500, velocityX: 20, velocityY: 100 },
+        { x: 300, y: 600, velocityX: 0, velocityY: 400 },
+        { x: 400, y: 800, velocityX: 300, velocityY: 200 }
+      ]
+  }
+]
+
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
   "Rogue Version-OVERLaPBias-DesignedLevelz",

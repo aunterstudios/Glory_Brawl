@@ -40,7 +40,7 @@ brawl.testing.prototype = {
     create: function () {
         //Desired FPS of game and fps and lag debugging
         this.game.time.desiredFps = 60;
-        
+
         //FPS Debugging
 
         // this.game.time.advancedTiming = true;
@@ -69,22 +69,23 @@ brawl.testing.prototype = {
         this.game.physics.arcade.OVERLAP_BIAS = 12;
 
         //Initializes all the Randomness
-        var randomGeneratorForWorld = this.game.rnd.integerInRange(0, 4);
+        var randomGeneratorForWorld = this.game.rnd.integerInRange(0, 0);
 
         ////////////////////Game World Size//////////////////////
-        this.game.world.setBounds(0, 0, worldGenerator[randomGeneratorForWorld].xOfWorld, worldGenerator[randomGeneratorForWorld].yOfWorld);
+        this.game.world.setBounds(0, 0, worldDesignedLevels[randomGeneratorForWorld].xOfWorld, worldDesignedLevels[randomGeneratorForWorld].yOfWorld);
 
-        ////////////Generator for Game Mode//////////////
-        this.randomGeneratorForGameMode = this.game.rnd.integerInRange(0, 1);
-        var gameModeName;
-        if (this.randomGeneratorForGameMode === 0) {
-            gameModeName = "Collect the Coins";
-        }
-        else {
-            gameModeName = "Capture the Flag";
-        }
+        // ////////////Generator for Game Mode//////////////
+        // this.randomGeneratorForGameMode = this.game.rnd.integerInRange(0, 1);
+        // var gameModeName;
+        // if (this.randomGeneratorForGameMode === 0) {
+        //     gameModeName = "Collect the Coins";
+        // }
+        // else {
+        //     gameModeName = "Capture the Flag";
+        // }
         // console.log(this.randomGeneratorForGameMode + "game mode");
-        //Keyboard Controls
+
+        ////////////////////////////////////Keyboard Controls/////////////////////////////////
         this.cursors = this.game.input.keyboard.createCursorKeys();
 
         /////////////////Adding Sprite Groups//////////////
@@ -156,9 +157,9 @@ brawl.testing.prototype = {
 
         /////////////////////////World Creation Initialization Grid///////////////////////
         var worldName;
-        this.worldCreator(worldGenerator[randomGeneratorForWorld], this.randomGeneratorForGameMode);
+        this.worldCreator(worldDesignedLevels[randomGeneratorForWorld]);
 
-        worldName = worldGenerator[randomGeneratorForWorld].worldName
+        worldName = worldDesignedLevels[randomGeneratorForWorld].worldName
 
         ////////////////////////////////////////////Camera///////////////////////////////////////////////////////////
         // this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_PLATFORMER);
@@ -170,7 +171,10 @@ brawl.testing.prototype = {
         this.text.cameraOffset.setTo(100, 750);
 
         //World
-        this.text = this.game.add.text(200, 6208, "World: " + worldName + "\n Game Mode: " + gameModeName, { font: "20px Arial", fill: "#ffffff", align: "center" });
+        // this.text = this.game.add.text(200, 6208, "World: " + worldName + "\n Game Mode: " + gameModeName, { font: "20px Arial", fill: "#ffffff", align: "center" });
+        // this.text.fixedToCamera = true;
+        // this.text.cameraOffset.setTo(1100, 725);
+        this.text = this.game.add.text(200, 6208, "World: " + worldName, { font: "20px Arial", fill: "#ffffff", align: "center" });
         this.text.fixedToCamera = true;
         this.text.cameraOffset.setTo(1100, 725);
 
@@ -200,16 +204,10 @@ brawl.testing.prototype = {
 
     // // },
     //////////////Creation of the World///////////////
-    worldCreator: function (thisWorldGenerator, gameMode) {
-        //Entire Object Fed to Integrate World Generator
-        // console.log(thisWorldGenerator);
-
-        //////////////////Shuffling Positions of Player and BaseCamp////////////////
-        shuffle(thisWorldGenerator.baseCamp);
-        // console.log(thisWorldGenerator.baseCamp);
-
+    worldCreator: function (levelGenerator) {
+        console.log(levelGenerator);
         ////////////////////Adding Player//////////////////////
-        this.player = this.game.add.sprite(thisWorldGenerator.baseCamp[0].playerXBaseCamp, thisWorldGenerator.baseCamp[0].playerYBaseCamp, 'dude');
+        this.player = this.game.add.sprite(levelGenerator.playerPosition.x, levelGenerator.playerPosition.y, 'dude');
         this.game.physics.arcade.enable(this.player); //enables physics for player
         this.player.anchor.setTo(.5);
         // this.player.scale.setTo(.6);
@@ -276,118 +274,52 @@ brawl.testing.prototype = {
 
         // - 20 for Tracking//
 
-        //Adding Undeniable Death
-        for (var i = 0; i < thisWorldGenerator.world.deathIterator; i++) {
-            this.deathX = this.death.create(i * thisWorldGenerator.world.deathX, thisWorldGenerator.world.deathY, 'spikes');
-            this.deathX.scale.setTo(1);
-            this.deathX.body.immovable = true;
-        }
-
-        //Block Debugging
-        for (var x = 0; x < thisWorldGenerator.world.iteratorX; x++) {
-            for (var y = 0; y < thisWorldGenerator.world.iteratorY; y++) {
-                ////////Creation of Rectangle////////////;
-                var rect = new Phaser.Rectangle(x * thisWorldGenerator.world.xRectangleF, y * thisWorldGenerator.world.yRectangleF, thisWorldGenerator.world.xBlockSizeF, thisWorldGenerator.world.yBlockSizeF);
-                var xOfSprite = rect.x
-                var yOfSprite = rect.y
-                rect.offset(20, 20);
-
-                //Debugging Purposes
-                // this.text = this.game.add.text(rect.x + 100, rect.y + 100, "Rectangle " + x + " x " + y + " y ", { font: "32px Arial", fill: "#ffffff", align: "center" });
-
-                ////////////Random Array to Scramble Positions Within Rectangle//////////
-                // var positionArray = [topCenter, topLeft, topRight, center, centerLeft, centerRight, bottomCenter, bottomLeft, bottomRight];
-                if (x === thisWorldGenerator.baseCamp[0].iteratorXBaseCamp && y === thisWorldGenerator.baseCamp[0].iteratorYBaseCamp) {
-                    this.baseCamp(xOfSprite, yOfSprite, rect, bottomCenter, bottomLeft, bottomRight, centerLeft, centerRight, topLeft, topRight);
-                }
-                else {
-                    shuffle(positionArray);
-                    // console.log("x" + "y" + x + y + " " + positionArray)
-                    //////Sprites//////
-                    for (var i = 0; i < thisWorldGenerator.world.amountOfSpritesInGrid; i++) {
-                        this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[i]);
-                    }
-                    if (gameMode === 0) {
-                        this.coinSpawn(xOfSprite, yOfSprite, rect, positionArray[thisWorldGenerator.world.amountOfSpritesInGrid])
-                        // console.log("coin initiated");
-                    }
-                    else if (gameMode === 1) {
-                        if (x === thisWorldGenerator.baseCamp[1].iteratorXBaseCamp && y === thisWorldGenerator.baseCamp[1].iteratorYBaseCamp) {
-                            this.finish = this.game.add.sprite(xOfSprite, yOfSprite, 'flag');
-                            this.game.physics.arcade.enable(this.finish);
-                            this.finish.body.mass = 1;
-                            this.finish.body.maxVelocity.setTo(300);
-                            this.finish.body.collideWorldBounds = true;
-                            this.finish.body.bounce.setTo(1);
-                            this.finish.body.velocity.x = this.game.rnd.realInRange(-50, 50)
-                            this.finish.alignIn(rect, positionArray[i + 1]);
-                            // console.log("Flag Initiated");
-                            // console.log(this.finish);
-                        }
-                    }
-                }
+        ///////////////////////////Sprite Generation in World/////////////////////////////
+        //Generating Immovable Walls
+        if (levelGenerator.immovableWallSpawn[0]) {
+            for (var i = 1; i < levelGenerator.immovableWallSpawn.length; i++) {
+                this.immovableSpawn(levelGenerator.immovableWallSpawn[i].x,levelGenerator.immovableWallSpawn[i].y, levelGenerator.immovableWallSpawn[i].velocityX, levelGenerator.immovableWallSpawn[i].velocityY, levelGenerator.immovableWallSpawn[i].size, levelGenerator.immovableWallSpawn[i].art);
             }
         }
-        if (gameMode === 0) {
-            this.coinAmount = this.coin.count();
-            // console.log(this.coinAmount + " coin Amount");
+        //Generating movable Walls
+        if (levelGenerator.wallSpawn[0]) {
+            for (var i = 1; i < levelGenerator.wallSpawn.length; i++) {
+                this.wallSpawn(levelGenerator.wallSpawn[i].x,levelGenerator.wallSpawn[i].y, levelGenerator.wallSpawn[i].velocityX, levelGenerator.wallSpawn[i].velocityY, levelGenerator.wallSpawn[i].size, levelGenerator.wallSpawn[i].art);
+            }
         }
-    },
-    /////////////////////////Randomness of the Map///////////////////////////
-    gridSystem: function (x, y, rect, positionInRectangle) {
-        //Create Randomness in Each Grid
-        var gridSystemGenesis = this.game.rnd.integerInRange(0, 100);
-        //Create Random Pattern Within Each Grid
-        if (gridSystemGenesis >= 0 && gridSystemGenesis <= 12) {
-            this.immovableSpawn(x, y, rect, positionInRectangle);
+        //Generating spikes
+        if (levelGenerator.spikeSpawn[0]) {
+            for (var i = 1; i < levelGenerator.spikeSpawn.length; i++) {
+                this.spikeSpawn(levelGenerator.spikeSpawn[i].x,levelGenerator.spikeSpawn[i].y, levelGenerator.spikeSpawn[i].velocityX, levelGenerator.spikeSpawn[i].velocityY, levelGenerator.spikeSpawn[i].size, levelGenerator.spikeSpawn[i].art);
+            }
         }
-        else if (gridSystemGenesis >= 13 && gridSystemGenesis <= 33) {
-            this.wallSpawn(x, y, rect, positionInRectangle);
+        //Generating grey ledges
+        if (levelGenerator.ledgeGreySpawn[0]) {
+            for (var i = 1; i < levelGenerator.ledgeGreySpawn.length; i++) {
+                this.ledgeGreySpawn(levelGenerator.ledgeGreySpawn[i].x,levelGenerator.ledgeGreySpawn[i].y, levelGenerator.ledgeGreySpawn[i].velocityX, levelGenerator.ledgeGreySpawn[i].velocityY);
+            }
         }
-        else if (gridSystemGenesis >= 34 && gridSystemGenesis <= 48) {
-            this.enemySpawn(x, y, rect, positionInRectangle);
+        //Generating green ledges
+        if (levelGenerator.ledgeGreenSpawn[0]) {
+            for (var i = 1; i < levelGenerator.ledgeGreenSpawn.length; i++) {
+                this.ledgeGreenSpawn(levelGenerator.ledgeGreenSpawn[i].x,levelGenerator.ledgeGreenSpawn[i].y, levelGenerator.ledgeGreenSpawn[i].velocityX, levelGenerator.ledgeGreenSpawn[i].velocityY);
+            }
         }
-        else if (gridSystemGenesis >= 49 && gridSystemGenesis <= 61) {
-            this.ledgeSpawn(x, y, rect, positionInRectangle);
+        //Generating enemies
+        if (levelGenerator.enemySpawn[0]) {
+            for (var i = 1; i < levelGenerator.enemySpawn.length; i++) {
+                this.enemySpawn(levelGenerator.enemySpawn[i].x,levelGenerator.enemySpawn[i].y, levelGenerator.enemySpawn[i].velocityX, levelGenerator.enemySpawn[i].velocityY);
+            }
         }
-        else if (gridSystemGenesis >= 62 && gridSystemGenesis <= 69) {
-            this.ledgeDownSpawn(x, y, rect, positionInRectangle);
+        //Generating balls ledges
+        if (levelGenerator.ballSpawn[0]) {
+            for (var i = 1; i < levelGenerator.ballSpawn.length; i++) {
+                this.ballSpawn(levelGenerator.ballSpawn[i].x,levelGenerator.ballSpawn[i].y, levelGenerator.ballSpawn[i].velocityX, levelGenerator.ballSpawn[i].velocityY);
+            }
         }
-        else if (gridSystemGenesis >= 70 && gridSystemGenesis <= 74) {
-            this.ballSpawn(x, y, rect, positionInRectangle);
-        }
-        else if (gridSystemGenesis >= 75 && gridSystemGenesis <= 84) {
-            this.ledgeSideSpawn(x, y, rect, positionInRectangle);
-        }
-        else if (gridSystemGenesis >= 85 && gridSystemGenesis <= 100) {
-            this.spikeSpawn(x, y, rect, positionInRectangle);
-        }
-    },
-    //////////////////////////////////////Starting Position of Player//////////////////////////////
-    baseCamp: function (x, y, rect, positionInRectangle1, positionInRectangle2, positionInRectangle3, positionInRectangle4, positionInRectangle5, positionInRectangle6, positionInRectangle7) {
-
-        /////////////////////////////////Starting Point of The Map////////////////////////////////
-
-        // console.log("-----------------------------------");
-        // console.log("BaseCamp");
-        //create wall
-        this.immovableWallX = this.immovableWall.create(x, y, 'immovableRotatedWall');
-        this.immovableWallX.anchor.setTo(.5);
-        this.immovableWallX.scale.setTo(.4);
-        this.immovableWallX.alignIn(rect, positionInRectangle1);
-        this.immovableWallX.body.immovable = true;
-        this.immovableWallX.body.moves = false;
-        this.wallSpawn(x, y, rect, positionInRectangle6);
-        this.wallSpawn(x, y, rect, positionInRectangle7);
-        this.ledgeSpawn(x, y, rect, positionInRectangle2);
-        this.ledgeSpawn(x, y, rect, positionInRectangle3);
-        this.ballSpawn(x, y, rect, positionInRectangle4);
-        this.ballSpawn(x, y, rect, positionInRectangle5);
-        // console.log("-----------------------------------");
-
     },
     //////////////////////////Creating Game Objects/////////////////////////
-    coinSpawn: function (x, y, rect, positionInRectangle) {
+    coinSpawn: function (x, y, velocityX, velocityY) {
         this.coinX = this.coin.create(x, y, 'coin');
         this.coinX.anchor.setTo(.7);
         this.coinX.scale.setTo(.7);
@@ -395,22 +327,20 @@ brawl.testing.prototype = {
         this.coinX.body.maxVelocity.setTo(300);
         this.coinX.body.collideWorldBounds = true;
         this.coinX.body.bounce.setTo(1);
-        this.coinX.body.velocity.x = this.game.rnd.realInRange(-50, 50)
-        this.coinX.alignIn(rect, positionInRectangle);
+        this.coinX.body.velocity.setTo(velocityX, velocityY);
+        // this.coinX.alignIn(rect, positionInRectangle);
         // console.log(this.coinX);
     },
-    wallSpawn: function (x, y, rect, positionInRectangle) {
-        this.wallX = this.wall.create(x, y, wallArray[Math.floor(Math.random() * wallArray.length)]);
+    wallSpawn: function (x, y, velocityX, velocityY, size, art) {
+        this.wallX = this.wall.create(x, y, art);
         this.wallX.anchor.setTo(.5);
-        // this.wallX.scale.setTo(.5);
-        this.wallX.scale.setTo(wallLength[Math.floor(Math.random() * wallLength.length)]);
-        this.wallX.alignIn(rect, positionInRectangle)
+        this.wallX.scale.setTo(size);
         this.wallX.body.maxVelocity.setTo(200);
         // this.wallX.body.immovable = true;
         this.wallX.body.collideWorldBounds = true;
         this.wallX.body.bounce.setTo(1);
         this.wallX.body.mass = 200;
-        this.wallX.body.velocity.setTo(this.game.rnd.integerInRange(-50, 50), this.game.rnd.integerInRange(-50, 50));
+        this.wallX.body.velocity.setTo(velocityX, velocityY);
         ///////////Drag Events///////////
         // this.wallX.inputEnabled = true;
         // this.wallX.input.enableDrag();
@@ -418,101 +348,83 @@ brawl.testing.prototype = {
         // this.wallX.events.onDragStop.add(this.stopDrag, this);
         // this.wallX.body.moves = false;
     },
-    immovableSpawn: function (x, y, rect, positionInRectangle) {
-        this.immovableWallX = this.immovableWall.create(x, y, immovableWallArray[Math.floor(Math.random() * immovableWallArray.length)]);
+    immovableSpawn: function (x, y, velocityX, velocityY, size, art) {
+        this.immovableWallX = this.immovableWall.create(x, y, art);
         this.immovableWallX.anchor.setTo(.5);
-        // this.immovableWallX.scale.setTo(.5);
-        this.immovableWallX.scale.setTo(immovableWallLength[Math.floor(Math.random() * immovableWallLength.length)]);
+        this.immovableWallX.scale.setTo(size);
         this.immovableWallX.body.immovable = true;
         this.immovableWallX.body.collideWorldBounds = true;
         this.immovableWallX.body.bounce.setTo(1);
         this.immovableWallX.body.mass = 400;
-        this.immovableWallX.alignIn(rect, positionInRectangle)
-        if (immovableWallVelocity[Math.floor(Math.random() * immovableWallVelocity.length)] === 0) {
-            this.immovableWallX.body.velocity.setTo(this.game.rnd.integerInRange(-50, 50), this.game.rnd.integerInRange(-50, 50));
-        }
-        // this.immovableWallX.body.mass = 200;
-        //this.immovableWallX.body.velocity.setTo(this.game.rnd.integerInRange(-50, 50), this.game.rnd.integerInRange(-50, 50));
-        // this.wallX.body.moves = false;
+        this.immovableWallX.body.velocity.setTo(velocityX,velocityY);
     },
-    enemySpawn: function (x, y, rect, positionInRectangle) {
+    enemySpawn: function (x, y, velocityX, velocityY) {
         this.trumpX = this.enemy.create(x, y, 'enemy');
-        this.trumpX.body.velocity.x = this.game.rnd.realInRange(-400, 400);
-        // this.trumpX.body.gravity.y = 10;
-        // this.trumpX.body.moves = false;
         this.trumpX.anchor.setTo(.5);
         this.trumpX.scale.setTo(.6);
         this.trumpX.body.mass = 20;
-        this.trumpX.body.maxVelocity.setTo(400);
+        this.trumpX.body.maxVelocity.setTo(velocityX, velocityY);
+        this.trumpX.body.velocity.setTo(velocityX, velocityY);
         this.trumpX.body.bounce.setTo(1);
         this.trumpX.body.collideWorldBounds = true;
-        this.trumpX.alignIn(rect, positionInRectangle);
     },
-    ledgeSpawn: function (x, y, rect, positionInRectangle) {
-        this.ledgeX = this.ledge.create(x, y, 'ledge');
-        this.ledgeX.anchor.setTo(.5);
-        // this.ledgeX.scale.setTo(.5);
-        this.ledgeX.scale.setTo(.4);
-        this.ledgeX.body.mass = 20;
-        this.ledgeX.body.maxVelocity.setTo(300);
+    ledgeGreySpawn: function (x, y, velocityX, velocityY) {
+        this.ledgeGrey = this.ledge.create(x, y, 'ledge');
+        this.ledgeGrey.anchor.setTo(.5);
+        this.ledgeGrey.scale.setTo(.4);
+        this.ledgeGrey.body.mass = 20;
+        this.ledgeGrey.body.maxVelocity.setTo(300);
         //////////////////////Ledge Out of Bounds/////////////////////
-        // this.ledgeX.checkWorldBounds = true;
-        // this.ledgeX.events.onOutOfBounds.add(this.ledgeOut, this);
-        this.ledgeX.body.bounce.setTo(1);
-        this.ledgeX.body.collideWorldBounds = true;
-        this.ledgeX.alignIn(rect, positionInRectangle);
+        // this.ledgeGrey.checkWorldBounds = true;
+        // this.ledgeGrey.events.onOutOfBounds.add(this.ledgeOut, this);
+        this.ledgeGrey.body.bounce.setTo(1);
+        this.ledgeGrey.body.collideWorldBounds = true;
+        this.ledgeGrey.body.velocity.setTo(velocityX, velocityY);
     },
-    ledgeDownSpawn: function (x, y, rect, positionInRectangle) {
-        this.ledgeY = this.ledgeDown.create(x, y, 'ledgeDown');
-        // this.ledgeY.body.maxVelocity.setTo(400);
-        this.ledgeY.anchor.setTo(.5);
-        // this.ledgeY.scale.setTo(.5);
-        this.ledgeY.scale.setTo(.4);
-        this.ledgeY.body.mass = 20;
-        this.ledgeY.body.maxVelocity.setTo(300);
-        this.ledgeY.body.collideWorldBounds = true;
-        // this.ledgeY.body.immovable = true;
-        this.ledgeY.body.bounce.setTo(1);
-        this.ledgeY.alignIn(rect, positionInRectangle);
+    ledgeGreenSpawn: function (x, y, velocityX, velocityY) {
+        this.ledgeGreen = this.ledgeDown.create(x, y, 'ledgeDown');
+        this.ledgeGreen.anchor.setTo(.5);
+        this.ledgeGreen.scale.setTo(.4);
+        this.ledgeGreen.body.mass = 20;
+        this.ledgeGreen.body.maxVelocity.setTo(300);
+        this.ledgeGreen.body.collideWorldBounds = true;
+        this.ledgeGreen.body.bounce.setTo(1);
+        this.ledgeGreen.body.velocity.setTo(velocityX, velocityY);
     },
-    ledgeSideSpawn: function (x, y, rect, positionInRectangle) {
-        this.ledgeSideways = this.ledgeSide.create(x, y, 'ledgeSide');
-        this.ledgeSideways.anchor.setTo(.5);
-        // this.ledgeSideways.scale.setTo(.5);
-        this.ledgeSideways.scale.setTo(.4);
-        this.ledgeSideways.body.mass = 20;
-        this.ledgeSideways.body.maxVelocity.setTo(300);
-        this.ledgeSideways.body.velocity.x = this.game.rnd.realInRange(-300, 300);
-        this.ledgeSideways.body.collideWorldBounds = true;
-        this.ledgeSideways.body.bounce.setTo(1);
-        this.ledgeSideways.alignIn(rect, positionInRectangle);
-        // this.ledgeSideways.body.immovable = true;
+    ledgeBlueSpawn: function (x, y, velocityX, velocityY) {
+        this.ledgeBlue = this.ledgeSide.create(x, y, 'ledgeSide');
+        this.ledgeBlue.anchor.setTo(.5);
+        this.ledgeBlue.scale.setTo(.4);
+        this.ledgeBlue.body.mass = 20;
+        this.ledgeBlue.body.maxVelocity.setTo(300);
+        this.ledgeBlue.body.velocity.x = this.game.rnd.realInRange(-300, 300);
+        this.ledgeBlue.body.collideWorldBounds = true;
+        this.ledgeBlue.body.bounce.setTo(1);
+        this.ledgeBlue.body.velocity.setTo(velocityX, velocityY);
     },
-    ballSpawn: function (x, y, rect, positionInRectangle) {
+    ballSpawn: function (x, y, velocityX, velocityY) {
         //Adding Ball
         this.ballX = this.ball.create(x, y, 'ball');
         this.ballX.anchor.setTo(.5);
-        // this.ballX.scale.setTo(.5);
         this.ballX.scale.setTo(.5);
+        this.ballX.body.setCircle(50);
         this.ballX.body.mass = 30;
         this.ballX.body.maxVelocity.setTo(500);
-        this.ballX.body.velocity.x = this.game.rnd.realInRange(-100, 100)
+        this.ballX.body.velocity.setTo(velocityX, velocityY);
         this.ballX.body.collideWorldBounds = true;
         this.ballX.body.bounce.setTo(1.0);
-        this.ballX.alignIn(rect, positionInRectangle);
-        // this.ballX.body.setCircle(50);
-        // this.ballX.body.mass = 5;
     },
-    spikeSpawn: function (x, y, rect, positionInRectangle) {
+    spikeSpawn: function (x, y, velocityX, velocityY, size, art) {
         // var spikeArray = ['invertedSpikes', 'spikes'];
         // // var spikeLength = [.2, .3, .4, .5];
         // var spikeLength = [.2, .3,];
-        this.spikesX = this.spikes.create(x, y, spikeArray[Math.floor(Math.random() * spikeArray.length)]);
+        this.spikesX = this.spikes.create(x, y, art);
         this.spikesX.anchor.setTo(.5);
-        this.spikesX.scale.setTo(spikeLength[Math.floor(Math.random() * spikeLength.length)]);
+        this.spikesX.scale.setTo(size);
         this.spikesX.body.immovable = true;
         this.spikesX.body.mass = 150;
-        this.spikesX.alignIn(rect, positionInRectangle);
+        this.spikesX.body.velocity.setTo(velocityX, velocityY);
+        // this.spikesX.alignIn(rect, positionInRectangle);
         // this.spikeFall(this.spikesX);
     },
     //SpikeFall
@@ -643,7 +555,7 @@ brawl.testing.prototype = {
     //////////////////////////////////////////Localized Win Conditions////////////////////////////////////////////
     coinWin: function () {
         this.game.physics.arcade.overlap(this.player, this.coin, deathThree, null, this);
-        if (this.coin.countDead()=== this.coinAmount) {
+        if (this.coin.countDead() === this.coinAmount) {
             nextLevel();
         }
     },
@@ -655,225 +567,226 @@ brawl.testing.prototype = {
         //Winning!
         this.game.physics.arcade.overlap(this.player, this.finish, nextLevel, null, this);
     },
-    //How Game Updates Real-Time
-    update: function () {
+    // //How Game Updates Real-Time
+    // update: function () {
 
-        ////////////////////////////////////FPS Debugging////////////////////////////////////////
-        // console.log(this.game.time.fps);
-        ////////////////////////Physics////////////////////////
-        //Player Mechanics
-        var onWall = this.game.physics.arcade.collide(this.player, this.wall, null, null, this);
-        var onLedgeGrey = this.game.physics.arcade.collide(this.player, this.ledge, ledgeUp, null, this);
-        var onLedgeGreen = this.game.physics.arcade.collide(this.player, this.ledgeDown, ledgeDownS, null, this);
-        var onLedgeBlue = this.game.physics.arcade.collide(this.player, this.ledgeSide, ledgeSideX, null, this);
-        var onBall = this.game.physics.arcade.collide(this.player, this.ball, ballMover, null, this);
-        var onImmovable = this.game.physics.arcade.collide(this.player, this.immovableWall, null, null, this);
+    //     ////////////////////////////////////FPS Debugging////////////////////////////////////////
+    //     // console.log(this.game.time.fps);
+    //     ////////////////////////Physics////////////////////////
+    //     //Player Mechanics
+    //     var onWall = this.game.physics.arcade.collide(this.player, this.wall, null, null, this);
+    //     var onLedgeGrey = this.game.physics.arcade.collide(this.player, this.ledge, ledgeUp, null, this);
+    //     var onLedgeGreen = this.game.physics.arcade.collide(this.player, this.ledgeDown, ledgeDownS, null, this);
+    //     var onLedgeBlue = this.game.physics.arcade.collide(this.player, this.ledgeSide, ledgeSideX, null, this);
+    //     var onBall = this.game.physics.arcade.collide(this.player, this.ball, ballMover, null, this);
+    //     var onImmovable = this.game.physics.arcade.collide(this.player, this.immovableWall, null, null, this);
 
-        //Weapon Mechanics
-        this.game.physics.arcade.collide([this.weapon1.bullets, this.weapon2.bullets, this.weapon3.bullets], [this.ball, this.wall, this.ledge, this.ledgeDown, this.ledgeSide, this.enemy, this.coin], weaponHandler, null, this);
-        this.game.physics.arcade.overlap([this.weapon1.bullets, this.weapon2.bullets, this.weapon3.bullets], [this.immovableWall, this.spikes], weaponImmovable, null, this);
+    //     //Weapon Mechanics
+    //     this.game.physics.arcade.collide([this.weapon1.bullets, this.weapon2.bullets, this.weapon3.bullets], [this.ball, this.wall, this.ledge, this.ledgeDown, this.ledgeSide, this.enemy, this.coin], weaponHandler, null, this);
+    //     this.game.physics.arcade.overlap([this.weapon1.bullets, this.weapon2.bullets, this.weapon3.bullets], [this.immovableWall, this.spikes], weaponImmovable, null, this);
 
-        //Immovable Wall Mechanics
-        this.game.physics.arcade.collide(this.immovableWall, [this.ball, this.wall, this.ledge, this.ledgeDown, this.ledgeSide, this.enemy], null, null, this);
+    //     //Immovable Wall Mechanics
+    //     this.game.physics.arcade.collide(this.immovableWall, [this.ball, this.wall, this.ledge, this.ledgeDown, this.ledgeSide, this.enemy], null, null, this);
 
-        //Movable Wall Mechanics
-        this.game.physics.arcade.collide(this.wall, this.wall);
-        this.game.physics.arcade.collide(this.wall, this.spikes);
+    //     //Movable Wall Mechanics
+    //     this.game.physics.arcade.collide(this.wall, this.wall);
+    //     this.game.physics.arcade.collide(this.wall, this.spikes);
 
-        //Enemy Bullet Mechanics
-        this.game.physics.arcade.overlap(this.enemyBullets, [this.ball, this.wall, this.immovableWall, this.ledge, this.ledgeDown, this.ledgeSide, this.spikes, this.coin], deathTwo, null, this);
+    //     //Enemy Bullet Mechanics
+    //     this.game.physics.arcade.overlap(this.enemyBullets, [this.ball, this.wall, this.immovableWall, this.ledge, this.ledgeDown, this.ledgeSide, this.spikes, this.coin], deathTwo, null, this);
 
-        // Ball Mechanics
-        this.game.physics.arcade.collide(this.ball, [this.ball, this.wall, this.ledge, this.ledgeDown, this.ledgeSide], null, null, this);
-        this.game.physics.arcade.overlap(this.ball, [this.enemy, this.spikes], deathThree, null, this);
+    //     // Ball Mechanics
+    //     this.game.physics.arcade.collide(this.ball, [this.ball, this.wall, this.ledge, this.ledgeDown, this.ledgeSide], null, null, this);
+    //     this.game.physics.arcade.overlap(this.ball, [this.enemy, this.spikes], deathThree, null, this);
 
-        //Ledge vs. Ledge Mechanics
-        this.game.physics.arcade.collide([this.ledge, this.ledgeSide, this.ledgeDown], [this.ledge, this.ledgeSide, this.ledgeDown, this.wall, this.spikes, this.enemy], null, null, this); //preventPhysicsBug Removed
+    //     //Ledge vs. Ledge Mechanics
+    //     this.game.physics.arcade.collide([this.ledge, this.ledgeSide, this.ledgeDown], [this.ledge, this.ledgeSide, this.ledgeDown, this.wall, this.spikes, this.enemy], null, null, this); //preventPhysicsBug Removed
 
-        //Enemy Mechanics
-        this.game.physics.arcade.collide(this.enemy, [this.spikes, this.wall, this.enemy], testFunctionX, null, this);
+    //     //Enemy Mechanics
+    //     this.game.physics.arcade.collide(this.enemy, [this.spikes, this.wall, this.enemy], testFunctionX, null, this);
 
-        //Coin Mechanics
-        this.game.physics.arcade.collide(this.coin, [this.ball, this.wall, this.ledge, this.ledgeDown, this.ledgeSide, this.enemy, this.immovableWall], null, null, this);
+    //     //Coin Mechanics
+    //     this.game.physics.arcade.collide(this.coin, [this.ball, this.wall, this.ledge, this.ledgeDown, this.ledgeSide, this.enemy, this.immovableWall], null, null, this);
 
-        // //Flag Moving Mechanics
-        // this.game.physics.arcade.collide(this.finish, this.wall);
-        // this.game.physics.arcade.collide(this.finish, this.enemy);
-        // this.game.physics.arcade.collide(this.finish, this.ledge);
-        // this.game.physics.arcade.collide(this.finish, this.ledgeDown);
-        // this.game.physics.arcade.collide(this.finish, this.ledgeSide);
-        // this.game.physics.arcade.collide(this.finish, this.spikes);
-        // this.game.physics.arcade.collide(this.finish, this.ball);
+    //     // //Flag Moving Mechanics
+    //     // this.game.physics.arcade.collide(this.finish, this.wall);
+    //     // this.game.physics.arcade.collide(this.finish, this.enemy);
+    //     // this.game.physics.arcade.collide(this.finish, this.ledge);
+    //     // this.game.physics.arcade.collide(this.finish, this.ledgeDown);
+    //     // this.game.physics.arcade.collide(this.finish, this.ledgeSide);
+    //     // this.game.physics.arcade.collide(this.finish, this.spikes);
+    //     // this.game.physics.arcade.collide(this.finish, this.ball);
 
 
-        //Death Mechanics
-        this.game.physics.arcade.overlap(this.player, [this.enemy, this.spikes, this.death, this.enemyBullets], deathOne, null, this);
+    //     //Death Mechanics
+    //     this.game.physics.arcade.overlap(this.player, [this.enemy, this.spikes, this.death, this.enemyBullets], deathOne, null, this);
 
-        ////////////////////////////////Win Conditions/////////////////////////////////
-        //Game Mode 0 Coin
-        if (this.randomGeneratorForGameMode === 0) {
-            this.coinWin();
-        }
-        //Game Mode 1 Flag
-        else if (this.randomGeneratorForGameMode === 1) {
-            this.flagWin();
-        }
-        ////////////////////////////////Actual Controls////////////////////////////////
+    //     ////////////////////////////////Win Conditions/////////////////////////////////
+    //     //Game Mode 0 Coin
+    //     if (this.randomGeneratorForGameMode === 0) {
+    //         this.coinWin();
+    //     }
+    //     //Game Mode 1 Flag
+    //     else if (this.randomGeneratorForGameMode === 1) {
+    //         this.flagWin();
+    //     }
+    //     ////////////////////////////////Actual Controls////////////////////////////////
 
-        //Jump Mechanics
-        // Set a variable that is true when the player is a surface the ground (or different sides) or not a surface
-        var onTheGround = this.player.body.touching.down;
-        var onTheRightSide = this.player.body.touching.right;
-        var onTheLeftSide = this.player.body.touching.left;
-        var onUpsideDown = this.player.body.touching.up;
-        var onNone = this.player.body.touching.none;
+    //     //Jump Mechanics
+    //     // Set a variable that is true when the player is a surface the ground (or different sides) or not a surface
+    //     var onTheGround = this.player.body.touching.down;
+    //     var onTheRightSide = this.player.body.touching.right;
+    //     var onTheLeftSide = this.player.body.touching.left;
+    //     var onUpsideDown = this.player.body.touching.up;
+    //     var onNone = this.player.body.touching.none;
 
-        // If the player is touching a surface, let him have 2 jumps
-        if (onTheGround || onTheLeftSide || onTheRightSide || onUpsideDown) {
-            this.jumps = 2;
-            this.jumping = false;
-        }
+    //     // If the player is touching a surface, let him have 2 jumps
+    //     if (onTheGround || onTheLeftSide || onTheRightSide || onUpsideDown) {
+    //         this.jumps = 2;
+    //         this.jumping = false;
+    //     }
 
-        //////////////////////////Double Jump Only from the ground/////////////////
-        // if (onTheGround) {
-        //     this.jumps = 2;
-        //     this.jumping = false;
-        // }
+    //     //////////////////////////Double Jump Only from the ground/////////////////
+    //     // if (onTheGround) {
+    //     //     this.jumps = 2;
+    //     //     this.jumping = false;
+    //     // }
 
-        // if (onTheLeftSide || onTheRightSide || onUpsideDown) {
-        //     this.jumps = 0;
-        //     this.jumping = false;
-        // }
+    //     // if (onTheLeftSide || onTheRightSide || onUpsideDown) {
+    //     //     this.jumps = 0;
+    //     //     this.jumping = false;
+    //     // }
 
-        // Jump!
-        if (this.jumps > 0 && this.upInputIsActive(5)) {
-            this.player.body.velocity.y = -500;
-            this.jumping = true;
-        }
+    //     // Jump!
+    //     if (this.jumps > 0 && this.upInputIsActive(5)) {
+    //         this.player.body.velocity.y = -500;
+    //         this.jumping = true;
+    //     }
 
-        // Reduce the number of available jumps if the jump input is released
-        if (this.jumping && this.upInputReleased()) {
-            this.jumps--;
-            this.jumping = false;
-        }
+    //     // Reduce the number of available jumps if the jump input is released
+    //     if (this.jumping && this.upInputReleased()) {
+    //         this.jumps--;
+    //         this.jumping = false;
+    //     }
 
-        //Player Standing Still
-        this.player.body.velocity.x = 0;
+    //     //Player Standing Still
+    //     this.player.body.velocity.x = 0;
 
-        //Player Angle Still
-        this.player.angle = 0;
+    //     //Player Angle Still
+    //     this.player.angle = 0;
 
-        //////////////////////////////////////////WASD Controls and Player Touch Mechanics//////////////////////////////////////////////
-        if (onTheGround) {
-            if (this.movementLeft.isDown && !this.movementRight.isDown) {
-                this.player.body.velocity.x = -350;
-                this.player.animations.play('left');
-            }
-            else if (this.movementRight.isDown && !this.movementLeft.isDown) {
-                this.player.body.velocity.x = 350;
-                this.player.animations.play('right');
-            }
-            else {
-                this.player.animations.stop();
-                this.player.frame = 8;
-            }
-        }
-        else if (onTheRightSide) {
-            if (onWall || onImmovable) {
-                this.player.body.velocity.x = 100;
-                this.player.body.velocity.y = 100;
-            }
-            if (onWall || onLedgeBlue || onLedgeGreen || onLedgeGrey || onImmovable) {
-                this.player.frame = 6;
-            }
-            if (this.movementLeft.isDown) {
-                this.player.body.velocity.y = -500;
-                this.player.body.velocity.x = -1000;
-            }
-        }
-        else if (onTheLeftSide) {
-            if (onWall || onImmovable) {
-                this.player.body.velocity.x = -100;
-                this.player.body.velocity.y = 100;
-            }
-            if (onWall || onLedgeBlue || onLedgeGreen || onLedgeGrey || onImmovable) {
-                this.player.frame = 12;
-            }
-            if (this.movementRight.isDown) {
-                this.player.body.velocity.y = -500;
-                this.player.body.velocity.x = 1000;
-            }
-        }
-        else if (onUpsideDown) {
-            this.player.animations.stop();
-            this.player.frame = 8;
-            this.player.angle = 180;
-            this.player.body.velocity.y = -100;
-            if (this.movementLeft.isDown) {
-                this.player.body.velocity.x = -400;
-                this.player.animations.play('left');
-            }
-            else if (this.movementRight.isDown) {
-                this.player.body.velocity.x = 400;
-                this.player.animations.play('right');
-            }
+    //     //////////////////////////////////////////WASD Controls and Player Touch Mechanics//////////////////////////////////////////////
+    //     if (onTheGround) {
+    //         if (this.movementLeft.isDown && !this.movementRight.isDown) {
+    //             this.player.body.velocity.x = -350;
+    //             this.player.animations.play('left');
+    //         }
+    //         else if (this.movementRight.isDown && !this.movementLeft.isDown) {
+    //             this.player.body.velocity.x = 350;
+    //             this.player.animations.play('right');
+    //         }
+    //         else {
+    //             this.player.animations.stop();
+    //             this.player.frame = 8;
+    //         }
+    //     }
+    //     else if (onTheRightSide) {
+    //         if (onWall || onImmovable) {
+    //             this.player.body.velocity.x = 100;
+    //             this.player.body.velocity.y = 100;
+    //         }
+    //         if (onWall || onLedgeBlue || onLedgeGreen || onLedgeGrey || onImmovable) {
+    //             this.player.frame = 6;
+    //         }
+    //         if (this.movementLeft.isDown) {
+    //             this.player.body.velocity.y = -500;
+    //             this.player.body.velocity.x = -1000;
+    //         }
+    //     }
+    //     else if (onTheLeftSide) {
+    //         if (onWall || onImmovable) {
+    //             this.player.body.velocity.x = -100;
+    //             this.player.body.velocity.y = 100;
+    //         }
+    //         if (onWall || onLedgeBlue || onLedgeGreen || onLedgeGrey || onImmovable) {
+    //             this.player.frame = 12;
+    //         }
+    //         if (this.movementRight.isDown) {
+    //             this.player.body.velocity.y = -500;
+    //             this.player.body.velocity.x = 1000;
+    //         }
+    //     }
+    //     else if (onUpsideDown) {
+    //         this.player.animations.stop();
+    //         this.player.frame = 8;
+    //         this.player.angle = 180;
+    //         this.player.body.velocity.y = -100;
+    //         if (this.movementLeft.isDown) {
+    //             this.player.body.velocity.x = -400;
+    //             this.player.animations.play('left');
+    //         }
+    //         else if (this.movementRight.isDown) {
+    //             this.player.body.velocity.x = 400;
+    //             this.player.animations.play('right');
+    //         }
 
-        }
-        else if (onNone) {
-            this.player.frame = 10;
-            if (this.movementLeft.isDown && !this.movementRight.isDown) {
-                this.player.body.velocity.x = -400;
-            }
-            else if (this.movementRight.isDown && !this.movementLeft.isDown) {
-                this.player.body.velocity.x = 400;
-            }
-            else if (this.movementLeft.isDown && this.movementRight.isDown) {
-                this.player.body.velocity.x = 0;
-            }
-        }
+    //     }
+    //     else if (onNone) {
+    //         this.player.frame = 10;
+    //         if (this.movementLeft.isDown && !this.movementRight.isDown) {
+    //             this.player.body.velocity.x = -400;
+    //         }
+    //         else if (this.movementRight.isDown && !this.movementLeft.isDown) {
+    //             this.player.body.velocity.x = 400;
+    //         }
+    //         else if (this.movementLeft.isDown && this.movementRight.isDown) {
+    //             this.player.body.velocity.x = 0;
+    //         }
+    //     }
 
-        //////////Downwards Mechanics
-        if (this.movementDown.isDown && onUpsideDown) {
-            this.player.frame = 13;
-            this.player.body.velocity.y = 200;
-        }
+    //     //////////Downwards Mechanics
+    //     if (this.movementDown.isDown && onUpsideDown) {
+    //         this.player.frame = 13;
+    //         this.player.body.velocity.y = 200;
+    //     }
 
-        //Downward Mechanics
-        if (this.movementDown.isDown) {
-            this.player.frame = 13;
-            this.player.body.velocity.y = 500;
-        }
+    //     //Downward Mechanics
+    //     if (this.movementDown.isDown) {
+    //         this.player.frame = 13;
+    //         this.player.body.velocity.y = 500;
+    //     }
 
-        ///////////////////////Weapon Mechanics///////////////
+    //     ///////////////////////Weapon Mechanics///////////////
 
-        //Shoot from Mouse
-        if (this.game.input.activePointer.leftButton.isDown || this.shiftFire.isDown) {
-            if (pullBoolean) {
-                this.weapon1.fireAtPointer();
-                this.weapon1.fire();
-            }
-            else if (pushBoolean) {
-                this.weapon2.fireAtPointer();
-                this.weapon2.fire();
-            }
-            else if (stopBoolean) {
-                this.weapon3.fireAtPointer();
-                this.weapon3.fire();
-            }
-        }
-        // console.log(this.crosshair.x + ' ' + this.crosshair.y);
+    //     //Shoot from Mouse
+    //     if (this.game.input.activePointer.leftButton.isDown || this.shiftFire.isDown) {
+    //         if (pullBoolean) {
+    //             this.weapon1.fireAtPointer();
+    //             this.weapon1.fire();
+    //         }
+    //         else if (pushBoolean) {
+    //             this.weapon2.fireAtPointer();
+    //             this.weapon2.fire();
+    //         }
+    //         else if (stopBoolean) {
+    //             this.weapon3.fireAtPointer();
+    //             this.weapon3.fire();
+    //         }
+    //     }
+    //     // console.log(this.crosshair.x + ' ' + this.crosshair.y);
 
-        //Moving Coins
-        // this.coin.forEachAlive(moveTowardsPlayer, this, this.player);
-        ///Enemy Sprites
-        this.fireEnemyBullet();
-    },
+    //     //Moving Coins
+    //     // this.coin.forEachAlive(moveTowardsPlayer, this, this.player);
+    //     ///Enemy Sprites
+    //     this.fireEnemyBullet();
+    // },
     // render: function () {
     //     this.game.debug.physicsGroup(this.wall);
     //     this.game.debug.physicsGroup(this.weapon);
     // }
     //How Game Updates Real-Time
     update: function () {
+        this.fireEnemyBullet();
         ///////////God Mode//////////////
         this.player.body.velocity.y = 0;
         this.player.body.velocity.x = 0;
