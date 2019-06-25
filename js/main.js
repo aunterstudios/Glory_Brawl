@@ -202,7 +202,7 @@ var worldDesignedLevels = [
     //Up, Down, Left, Right (Remember!)
       [
         { upPosition: true, x: 200, y: 20 },
-        { downPosition: true, x: 800, y: 1400 },
+        { downPosition: true, x: 700, y: 500 },
         { leftPosition: true, x: 200, y: 20 },
         { rightPosition: true, x: 1400, y: 400 }
       ],

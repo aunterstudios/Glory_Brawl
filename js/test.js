@@ -10,16 +10,16 @@ brawl.testing.prototype = {
         /*
         Essentially the room initializes with the index of the current world, where the player should spawn in the world, and lastly the rooms available to switch to depending on the side.
         */
-        console.log("IndexOfWorld");
-        console.log(indexOfCurrentWorld);
-        console.log("IndexOfPlayer");
-        console.log(indexOfPlayerPosition);
-        console.log("Metroidvania");
-        console.log(metroidvania);
+        // console.log("IndexOfWorld");
+        // console.log(indexOfCurrentWorld);
+        // console.log("IndexOfPlayer");
+        // console.log(indexOfPlayerPosition);
+        // console.log("Metroidvania");
+        // console.log(metroidvania);
         this.indexOfCurrentWorld = indexOfCurrentWorld;
         this.indexOfPlayerPosition = indexOfPlayerPosition;
         this.metroidvania = metroidvania;
-        console.log(this.metroidvania.roomRightValue);
+        // console.log(this.metroidvania.roomRightValue);
     },
     preload: function () {
         // this.game.forceSingleUpdate = true;
@@ -193,7 +193,7 @@ brawl.testing.prototype = {
         this.text.cameraOffset.setTo(1100, 725);
 
     },
-    // ////////////////////////Room Switching Events//////////////////////////
+    // ////////////////////////Room Switching (Metroidvania) Events//////////////////////////
     playerOut: function (player) {
         //Up
         if (player.y <= this.metroidvania.roomUpValue) {
