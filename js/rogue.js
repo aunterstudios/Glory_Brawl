@@ -392,7 +392,7 @@ brawl.rogue.prototype = {
         this.coinX.anchor.setTo(.7);
         this.coinX.scale.setTo(.7);
         this.coinX.body.mass = 1;
-        this.coinX.body.maxVelocity.setTo(1000);
+        this.coinX.body.maxVelocity.setTo(500);
         this.coinX.body.collideWorldBounds = true;
         this.coinX.body.bounce.setTo(1);
         this.coinX.body.velocity.setTo(this.game.rnd.realInRange(-50, 50));
@@ -404,7 +404,7 @@ brawl.rogue.prototype = {
         this.wallX.anchor.setTo(.5);
         this.wallX.scale.setTo(wallLength[Math.floor(Math.random() * wallLength.length)]);
         this.wallX.body.mass = 200;
-        this.wallX.body.maxVelocity.setTo(1000);
+        this.wallX.body.maxVelocity.setTo(500);
         this.wallX.body.collideWorldBounds = true;
         this.wallX.body.bounce.setTo(1);
         this.wallX.body.velocity.setTo(this.game.rnd.integerInRange(-50, 50), this.game.rnd.integerInRange(-50, 50));
@@ -423,12 +423,13 @@ brawl.rogue.prototype = {
         this.immovableWallX.scale.setTo(immovableWallLength[Math.floor(Math.random() * immovableWallLength.length)]);
         this.immovableWallX.body.immovable = true;
         this.immovableWallX.body.mass = 400;
-        this.immovableWallX.body.maxVelocity.setTo(1000);
+        this.immovableWallX.body.maxVelocity.setTo(500);
         this.immovableWallX.body.collideWorldBounds = true;
         this.immovableWallX.body.bounce.setTo(1);
         if (immovableWallVelocity[Math.floor(Math.random() * immovableWallVelocity.length)] === 0) {
             this.immovableWallX.body.velocity.setTo(this.game.rnd.integerInRange(-50, 50), this.game.rnd.integerInRange(-50, 50));
         }
+        // this.immovableWallX.body.friction = 10;
         this.immovableWallX.alignIn(rect, positionInRectangle)
         // this.immovableWallX.body.mass = 200;
         //this.immovableWallX.body.velocity.setTo(this.game.rnd.integerInRange(-50, 50), this.game.rnd.integerInRange(-50, 50));
@@ -441,7 +442,7 @@ brawl.rogue.prototype = {
         this.trumpX.anchor.setTo(.5);
         this.trumpX.scale.setTo(.6);
         this.trumpX.body.mass = 20;
-        this.trumpX.body.maxVelocity.setTo(1000);
+        this.trumpX.body.maxVelocity.setTo(500);
         this.trumpX.body.collideWorldBounds = true;
         this.trumpX.body.bounce.setTo(1);
         this.trumpX.body.velocity.setTo(this.game.rnd.realInRange(-400, 400),0);
@@ -453,7 +454,7 @@ brawl.rogue.prototype = {
         // this.ledgeX.scale.setTo(.5);
         this.ledgeX.scale.setTo(.4);
         this.ledgeX.body.mass = 20;
-        this.ledgeX.body.maxVelocity.setTo(1000);
+        this.ledgeX.body.maxVelocity.setTo(500);
         //////////////////////Ledge Out of Bounds/////////////////////
         // this.ledgeX.checkWorldBounds = true;
         // this.ledgeX.events.onOutOfBounds.add(this.ledgeOut, this);
@@ -469,7 +470,7 @@ brawl.rogue.prototype = {
         // this.ledgeY.scale.setTo(.5);
         this.ledgeY.scale.setTo(.4);
         this.ledgeY.body.mass = 20;
-        this.ledgeY.body.maxVelocity.setTo(300);
+        this.ledgeY.body.maxVelocity.setTo(500);
         this.ledgeY.body.collideWorldBounds = true;
         // this.ledgeY.body.immovable = true;
         this.ledgeY.body.bounce.setTo(1);
@@ -482,7 +483,7 @@ brawl.rogue.prototype = {
         // this.ledgeSideways.scale.setTo(.5);
         this.ledgeSideways.scale.setTo(.4);
         this.ledgeSideways.body.mass = 20;
-        this.ledgeSideways.body.maxVelocity.setTo(300);
+        this.ledgeSideways.body.maxVelocity.setTo(500);
         this.ledgeSideways.body.collideWorldBounds = true;
         this.ledgeSideways.body.bounce.setTo(1);
         this.ledgeSideways.body.velocity.setTo(this.game.rnd.realInRange(-300, 300));
@@ -637,7 +638,7 @@ brawl.rogue.prototype = {
                 // if (game.physics.arcade.distanceBetween(enemyBullet, this.player, false, true) < 500) {
                 //     this.physics.arcade.moveToObject(enemyBullet,this.player,600);
                 // }
-                this.physics.arcade.moveToObject(enemyBullet, this.player, 500);
+                this.physics.arcade.moveToObject(enemyBullet, this.player, 550);
             }
         }
     },
@@ -702,11 +703,11 @@ brawl.rogue.prototype = {
         ////////////////////////////////Win Conditions/////////////////////////////////
         //Game Mode 0 Coin
         if (this.randomGeneratorForGameMode === 0) {
-            this.flagWin();
+            this.coinWin();
         }
         //Game Mode 1 Flag
         else if (this.randomGeneratorForGameMode === 1) {
-            this.coinWin();
+            this.flagWin();
         }
         ////////////////////////////////Actual Controls////////////////////////////////
 
