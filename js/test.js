@@ -1,12 +1,25 @@
 //////////////////////////////////////////Testing Environment//////////////////////////////////////////
 brawl.testing = function () { };
 brawl.testing.prototype = {
-    init: function () {
+    init: function (indexOfCurrentWorld, indexOfPlayerPosition, metroidvania) {
         //GENERAL MAP SETTINGS 
         this.game.physics.startSystem(Phaser.Physics.ARCADE); // We're going to be using physics, so enable the Arcade Physics system
         this.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT; //Scales our Game
         //Reset Enemy Bullet Array
         livingEnemies = [];
+        /*
+        Essentially the room initializes with the index of the current world, where the player should spawn in the world, and lastly the rooms available to switch to depending on the side.
+        */
+        console.log("IndexOfWorld");
+        console.log(indexOfCurrentWorld);
+        console.log("IndexOfPlayer");
+        console.log(indexOfPlayerPosition);
+        console.log("Metroidvania");
+        console.log(metroidvania);
+        this.indexOfCurrentWorld = indexOfCurrentWorld;
+        this.indexOfPlayerPosition = indexOfPlayerPosition;
+        this.metroidvania = metroidvania;
+        console.log(this.metroidvania.roomRightValue);
     },
     preload: function () {
         // this.game.forceSingleUpdate = true;
@@ -68,12 +81,12 @@ brawl.testing.prototype = {
         //Overlap Bias to Prevent Sprite Tunneling
         this.game.physics.arcade.OVERLAP_BIAS = 12;
 
-        //Initializes all the Randomness for World and GameMode
-        var randomGeneratorForWorld = this.game.rnd.integerInRange(0, 0);
-        this.randomGeneratorForGameMode = this.game.rnd.integerInRange(0, 0);
+        // //Initializes all the Randomness for World and GameMode
+        // var randomGeneratorForWorld = this.game.rnd.integerInRange(0, 0);
+        // this.randomGeneratorForGameMode = this.game.rnd.integerInRange(0, 0);
 
         ////////////////////Game World Size//////////////////////
-        this.game.world.setBounds(0, 0, worldDesignedLevels[randomGeneratorForWorld].xOfWorld, worldDesignedLevels[randomGeneratorForWorld].yOfWorld);
+        this.game.world.setBounds(0, 0, worldDesignedLevels[this.indexOfCurrentWorld].xOfWorld, worldDesignedLevels[this.indexOfCurrentWorld].yOfWorld);
 
         // ////////////Generator for Game Mode//////////////
         // this.randomGeneratorForGameMode = this.game.rnd.integerInRange(0, 1);
@@ -158,9 +171,9 @@ brawl.testing.prototype = {
 
         /////////////////////////World Creation Initialization Grid///////////////////////
         var worldName;
-        this.worldCreator(worldDesignedLevels[randomGeneratorForWorld]);
+        this.worldCreator(worldDesignedLevels[this.indexOfCurrentWorld]);
 
-        worldName = worldDesignedLevels[randomGeneratorForWorld].worldName
+        worldName = worldDesignedLevels[this.indexOfCurrentWorld].worldName
 
         ////////////////////////////////////////////Camera///////////////////////////////////////////////////////////
         // this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_PLATFORMER);
@@ -180,35 +193,39 @@ brawl.testing.prototype = {
         this.text.cameraOffset.setTo(1100, 725);
 
     },
-    // ////////////////////////Out of Bounds Events//////////////////////////
-    // playerOut: function (player) {
-    //     if (player.x >= 1400) {
-    //         player.reset(0, player.y)
-    //         player.body.velocity.x = 400;
-    //     }
-    //     else if (0 >= player.x) {
-    //         player.reset(1400, player.y)
-    //         player.body.velocity.x = -400;
-    //     }
+    // ////////////////////////Room Switching Events//////////////////////////
+    playerOut: function (player) {
+        //Up
+        if (player.y <= this.metroidvania.roomUpValue) {
+            // player.reset(0, player.y)
+            // player.body.velocity.x = 400;
+            this.game.state.restart(true, false, this.metroidvania.roomDownIndex, 1, worldDesignedLevels[this.metroidvania.roomDownIndex].metroidvania);
+        }
+        //Down
+        else if (player.y >= this.metroidvania.roomDownValue) {
+            // player.reset(1400, player.y)
+            // player.body.velocity.x = -400;
+            this.game.state.restart(true, false, this.metroidvania.roomUpIndex, 0, worldDesignedLevels[this.metroidvania.roomUpIndex].metroidvania);
+        }
+        //Left
+        else if (player.x <= this.metroidvania.roomLeftValue) {
+            // player.reset(1400, player.y)
+            // player.body.velocity.x = -400;
+            this.game.state.restart(true, false, this.metroidvania.roomRightIndex, 3, worldDesignedLevels[this.metroidvania.roomRightIndex].metroidvania);
+        }
+        //Right
+        else if (player.x >= this.metroidvania.roomRightValue) {
+            // player.reset(1400, player.y)
+            // player.body.velocity.x = -400;
+            this.game.state.restart(true, false, this.metroidvania.roomLeftIndex, 2, worldDesignedLevels[this.metroidvania.roomLeftIndex].metroidvania);
+        }
 
-    // },
-    // // ledgeOut: function (ledge) {
-    // //     if (ledge.x >= 1400) {
-    // //         ledge.reset(0, ledge.y)
-    // //         ledge.body.velocity.x = 400;
-    // //     }
-    // //     else if (0 >= ledge.x) {
-    // //         ledge.reset(1400, ledge.y)
-    // //         ledge.body.velocity.x = -400;
-    // //     }
-    // //     // console.log(this.ledgeX.x + ' ' + this.ledgeX.y);
-
-    // // },
+    },
     //////////////Creation of the World///////////////
     worldCreator: function (levelGenerator) {
         console.log(levelGenerator);
         ////////////////////Adding Player//////////////////////
-        this.player = this.game.add.sprite(levelGenerator.playerPosition.x, levelGenerator.playerPosition.y, 'dude');
+        this.player = this.game.add.sprite(levelGenerator.playerPosition[this.indexOfPlayerPosition].x, levelGenerator.playerPosition[this.indexOfPlayerPosition].y, 'dude');
         this.game.physics.arcade.enable(this.player); //enables physics for player
         this.player.anchor.setTo(.5);
         // this.player.scale.setTo(.6);
@@ -220,9 +237,9 @@ brawl.testing.prototype = {
         this.player.body.mass = 6;
         this.player.body.gravity.y = 1500;
         //this.player.body.allowDrag = false;
-        this.player.body.collideWorldBounds = true;
-        // this.player.checkWorldBounds = true;
-        // this.player.events.onOutOfBounds.add(this.playerOut, this);
+        // this.player.body.collideWorldBounds = true;
+        this.player.checkWorldBounds = true;
+        this.player.events.onOutOfBounds.add(this.playerOut, this);
 
         // PLAYER ANIMATIONS
         this.player.animations.add('left', [0, 1, 2, 3, 4, 5, 6, 7], 10, true);
@@ -276,6 +293,12 @@ brawl.testing.prototype = {
         // - 20 for Tracking//
 
         ///////////////////////////Sprite Generation in World/////////////////////////////
+        //Generating Undeniable Death
+        if (levelGenerator.undeniableDeathSpawn) {
+            for (var i = 1; i < levelGenerator.undeniableDeathSpawn.length; i++) {
+                this.immovableSpawn(levelGenerator.undeniableDeathSpawn[i].x, levelGenerator.undeniableDeathSpawn[i].y);
+            }
+        }
         //Generating Immovable Walls
         if (levelGenerator.immovableWallSpawn[0]) {
             for (var i = 1; i < levelGenerator.immovableWallSpawn.length; i++) {
@@ -324,17 +347,17 @@ brawl.testing.prototype = {
                 this.ballSpawn(levelGenerator.ballSpawn[i].x, levelGenerator.ballSpawn[i].y, levelGenerator.ballSpawn[i].velocityX, levelGenerator.ballSpawn[i].velocityY);
             }
         }
-        //////////////////Game Mode Generation (The Type of Game You Will Play)//////////////////
-        if (levelGenerator.gameMode[this.randomGeneratorForGameMode] === "flag") {
-            console.log("It's a Flag!");
-            this.finish = this.game.add.sprite(levelGenerator.flagSpawn.x, levelGenerator.flagSpawn.y, 'flag');
-            this.game.physics.arcade.enable(this.finish);
-            this.finish.body.mass = 1;
-            this.finish.body.maxVelocity.setTo(1000);
-            this.finish.body.collideWorldBounds = true;
-            this.finish.body.bounce.setTo(1);
-            this.finish.body.velocity.setTo(levelGenerator.flagSpawn.velocityX, levelGenerator.flagSpawn.velocityY);
-        }
+        // //////////////////Game Mode Generation (The Type of Game You Will Play)//////////////////
+        // if (levelGenerator.gameMode[this.randomGeneratorForGameMode] === "flag") {
+        //     console.log("It's a Flag!");
+        //     this.finish = this.game.add.sprite(levelGenerator.flagSpawn.x, levelGenerator.flagSpawn.y, 'flag');
+        //     this.game.physics.arcade.enable(this.finish);
+        //     this.finish.body.mass = 1;
+        //     this.finish.body.maxVelocity.setTo(1000);
+        //     this.finish.body.collideWorldBounds = true;
+        //     this.finish.body.bounce.setTo(1);
+        //     this.finish.body.velocity.setTo(levelGenerator.flagSpawn.velocityX, levelGenerator.flagSpawn.velocityY);
+        // }
     },
     //////////////////////////Creating Game Objects/////////////////////////
     coinSpawn: function (x, y, velocityX, velocityY) {
@@ -348,6 +371,11 @@ brawl.testing.prototype = {
         this.coinX.body.velocity.setTo(velocityX, velocityY);
         // this.coinX.alignIn(rect, positionInRectangle);
         // console.log(this.coinX);
+    },
+    undeniableDeathSpawn: function (x, y) {
+        this.deathX = this.death.create(x, y, 'spikes');
+        this.deathX.scale.setTo(1);
+        this.deathX.body.immovable = true;
     },
     wallSpawn: function (x, y, velocityX, velocityY, size, art) {
         this.wallX = this.wall.create(x, y, art);
@@ -591,223 +619,181 @@ brawl.testing.prototype = {
         this.game.physics.arcade.overlap(this.player, this.finish, nextLevel, null, this);
     },
     // //How Game Updates Real-Time (Actual Controls)
-    update: function () {
-
-        ////////////////////////////////////FPS Debugging////////////////////////////////////////
-        // console.log(this.game.time.fps);
-        ////////////////////////Physics////////////////////////
-        //Player Mechanics
-        var onWall = this.game.physics.arcade.collide(this.player, this.wall, null, null, this);
-        var onLedgeGrey = this.game.physics.arcade.collide(this.player, this.ledge, ledgeUp, null, this);
-        var onLedgeGreen = this.game.physics.arcade.collide(this.player, this.ledgeDown, ledgeDownS, null, this);
-        var onLedgeBlue = this.game.physics.arcade.collide(this.player, this.ledgeSide, ledgeSideX, null, this);
-        var onBall = this.game.physics.arcade.collide(this.player, this.ball, ballMover, null, this);
-        var onImmovable = this.game.physics.arcade.collide(this.player, this.immovableWall, null, null, this);
-
-        //Weapon Mechanics
-        this.game.physics.arcade.collide([this.weapon1.bullets, this.weapon2.bullets, this.weapon3.bullets], [this.ball, this.wall, this.ledge, this.ledgeDown, this.ledgeSide, this.enemy, this.coin], weaponHandler, null, this);
-        this.game.physics.arcade.overlap([this.weapon1.bullets, this.weapon2.bullets, this.weapon3.bullets], [this.immovableWall, this.spikes], weaponImmovable, null, this);
-
-        //Immovable Wall Mechanics
-        this.game.physics.arcade.collide(this.immovableWall, [this.ball, this.wall, this.ledge, this.ledgeDown, this.ledgeSide, this.enemy], null, null, this);
-
-        //Movable Wall Mechanics
-        this.game.physics.arcade.collide(this.wall, this.wall);
-        this.game.physics.arcade.collide(this.wall, this.spikes);
-
-        //Enemy Bullet Mechanics
-        this.game.physics.arcade.overlap(this.enemyBullets, [this.ball, this.wall, this.immovableWall, this.ledge, this.ledgeDown, this.ledgeSide, this.spikes, this.coin], deathTwo, null, this);
-
-        // Ball Mechanics
-        this.game.physics.arcade.collide(this.ball, [this.ball, this.wall, this.ledge, this.ledgeDown, this.ledgeSide], null, null, this);
-        this.game.physics.arcade.overlap(this.ball, [this.enemy, this.spikes], deathThree, null, this);
-
-        //Ledge vs. Ledge Mechanics
-        this.game.physics.arcade.collide([this.ledge, this.ledgeSide, this.ledgeDown], [this.ledge, this.ledgeSide, this.ledgeDown, this.wall, this.spikes, this.enemy], null, null, this); //preventPhysicsBug Removed
-
-        //Enemy Mechanics
-        this.game.physics.arcade.collide(this.enemy, [this.spikes, this.wall, this.enemy], testFunctionX, null, this);
-
-        //Death Mechanics
-        this.game.physics.arcade.overlap(this.player, [this.enemy, this.spikes, this.death, this.enemyBullets], deathOne, null, this);
-
-        ////////////////////////////////Win Conditions/////////////////////////////////
-        //Game Mode 0 Flag
-        if (this.randomGeneratorForGameMode === 0) {
-             this.flagWin();
-        }
-        //Game Mode 1 Coin
-        else if (this.randomGeneratorForGameMode === 1) {
-            this.coinWin();
-        }
-        ////////////////////////////////Actual Controls////////////////////////////////
-
-        //Jump Mechanics
-        // Set a variable that is true when the player is a surface the ground (or different sides) or not a surface
-        var onTheGround = this.player.body.touching.down;
-        var onTheRightSide = this.player.body.touching.right;
-        var onTheLeftSide = this.player.body.touching.left;
-        var onUpsideDown = this.player.body.touching.up;
-        var onNone = this.player.body.touching.none;
-
-        // If the player is touching a surface, let him have 2 jumps
-        if (onTheGround || onTheLeftSide || onTheRightSide || onUpsideDown) {
-            this.jumps = 2;
-            this.jumping = false;
-        }
-
-        //////////////////////////Double Jump Only from the ground/////////////////
-        // if (onTheGround) {
-        //     this.jumps = 2;
-        //     this.jumping = false;
-        // }
-
-        // if (onTheLeftSide || onTheRightSide || onUpsideDown) {
-        //     this.jumps = 0;
-        //     this.jumping = false;
-        // }
-
-        // Jump!
-        if (this.jumps > 0 && this.upInputIsActive(5)) {
-            this.player.body.velocity.y = -500;
-            this.jumping = true;
-        }
-
-        // Reduce the number of available jumps if the jump input is released
-        if (this.jumping && this.upInputReleased()) {
-            this.jumps--;
-            this.jumping = false;
-        }
-
-        //Player Standing Still
-        this.player.body.velocity.x = 0;
-
-        //Player Angle Still
-        this.player.angle = 0;
-
-        //////////////////////////////////////////WASD Controls and Player Touch Mechanics//////////////////////////////////////////////
-        if (onTheGround) {
-            if (this.movementLeft.isDown && !this.movementRight.isDown) {
-                this.player.body.velocity.x = -350;
-                this.player.animations.play('left');
-            }
-            else if (this.movementRight.isDown && !this.movementLeft.isDown) {
-                this.player.body.velocity.x = 350;
-                this.player.animations.play('right');
-            }
-            else {
-                this.player.animations.stop();
-                this.player.frame = 8;
-            }
-        }
-        else if (onTheRightSide) {
-            if (onWall || onImmovable) {
-                this.player.body.velocity.x = 100;
-                this.player.body.velocity.y = 100;
-            }
-            if (onWall || onLedgeBlue || onLedgeGreen || onLedgeGrey || onImmovable) {
-                this.player.frame = 6;
-            }
-            if (this.movementLeft.isDown) {
-                this.player.body.velocity.y = -500;
-                this.player.body.velocity.x = -1000;
-            }
-        }
-        else if (onTheLeftSide) {
-            if (onWall || onImmovable) {
-                this.player.body.velocity.x = -100;
-                this.player.body.velocity.y = 100;
-            }
-            if (onWall || onLedgeBlue || onLedgeGreen || onLedgeGrey || onImmovable) {
-                this.player.frame = 12;
-            }
-            if (this.movementRight.isDown) {
-                this.player.body.velocity.y = -500;
-                this.player.body.velocity.x = 1000;
-            }
-        }
-        else if (onUpsideDown) {
-            this.player.animations.stop();
-            this.player.frame = 8;
-            this.player.angle = 180;
-            this.player.body.velocity.y = -100;
-            if (this.movementLeft.isDown) {
-                this.player.body.velocity.x = -400;
-                this.player.animations.play('left');
-            }
-            else if (this.movementRight.isDown) {
-                this.player.body.velocity.x = 400;
-                this.player.animations.play('right');
-            }
-
-        }
-        else if (onNone) {
-            this.player.frame = 10;
-            if (this.movementLeft.isDown && !this.movementRight.isDown) {
-                this.player.body.velocity.x = -400;
-            }
-            else if (this.movementRight.isDown && !this.movementLeft.isDown) {
-                this.player.body.velocity.x = 400;
-            }
-            else if (this.movementLeft.isDown && this.movementRight.isDown) {
-                this.player.body.velocity.x = 0;
-            }
-        }
-
-        //////////Downwards Mechanics////////
-        if (this.movementDown.isDown && onUpsideDown) {
-            this.player.frame = 13;
-            this.player.body.velocity.y = 200;
-        }
-
-        //Downward Mechanics
-        if (this.movementDown.isDown) {
-            this.player.frame = 13;
-            this.player.body.velocity.y = 500;
-        }
-
-        ///////////////////////Weapon Mechanics///////////////
-        //Shoot from Mouse
-        if (this.game.input.activePointer.leftButton.isDown || this.shiftFire.isDown) {
-            if (pullBoolean) {
-                this.weapon1.fireAtPointer();
-                this.weapon1.fire();
-            }
-            else if (pushBoolean) {
-                this.weapon2.fireAtPointer();
-                this.weapon2.fire();
-            }
-            else if (stopBoolean) {
-                this.weapon3.fireAtPointer();
-                this.weapon3.fire();
-            }
-        }
-        ///Enemy Sprites
-        this.fireEnemyBullet();
-    },
-    //How Game Updates Real-Time (God Mode)!
     // update: function () {
-    //     this.fireEnemyBullet();
-    //     ///////////God Mode//////////////
-    //     this.player.body.velocity.y = 0;
+
+    //     ////////////////////////////////////FPS Debugging////////////////////////////////////////
+    //     // console.log(this.game.time.fps);
+    //     ////////////////////////Physics////////////////////////
+    //     //Player Mechanics
+    //     var onWall = this.game.physics.arcade.collide(this.player, this.wall, null, null, this);
+    //     var onLedgeGrey = this.game.physics.arcade.collide(this.player, this.ledge, ledgeUp, null, this);
+    //     var onLedgeGreen = this.game.physics.arcade.collide(this.player, this.ledgeDown, ledgeDownS, null, this);
+    //     var onLedgeBlue = this.game.physics.arcade.collide(this.player, this.ledgeSide, ledgeSideX, null, this);
+    //     var onBall = this.game.physics.arcade.collide(this.player, this.ball, ballMover, null, this);
+    //     var onImmovable = this.game.physics.arcade.collide(this.player, this.immovableWall, null, null, this);
+
+    //     //Weapon Mechanics
+    //     this.game.physics.arcade.collide([this.weapon1.bullets, this.weapon2.bullets, this.weapon3.bullets], [this.ball, this.wall, this.ledge, this.ledgeDown, this.ledgeSide, this.enemy, this.coin], weaponHandler, null, this);
+    //     this.game.physics.arcade.overlap([this.weapon1.bullets, this.weapon2.bullets, this.weapon3.bullets], [this.immovableWall, this.spikes], weaponImmovable, null, this);
+
+    //     //Immovable Wall Mechanics
+    //     this.game.physics.arcade.collide(this.immovableWall, [this.ball, this.wall, this.ledge, this.ledgeDown, this.ledgeSide, this.enemy], null, null, this);
+
+    //     //Movable Wall Mechanics
+    //     this.game.physics.arcade.collide(this.wall, this.wall);
+    //     this.game.physics.arcade.collide(this.wall, this.spikes);
+
+    //     //Enemy Bullet Mechanics
+    //     this.game.physics.arcade.overlap(this.enemyBullets, [this.ball, this.wall, this.immovableWall, this.ledge, this.ledgeDown, this.ledgeSide, this.spikes, this.coin], deathTwo, null, this);
+
+    //     // Ball Mechanics
+    //     this.game.physics.arcade.collide(this.ball, [this.ball, this.wall, this.ledge, this.ledgeDown, this.ledgeSide], null, null, this);
+    //     this.game.physics.arcade.overlap(this.ball, [this.enemy, this.spikes], deathThree, null, this);
+
+    //     //Ledge vs. Ledge Mechanics
+    //     this.game.physics.arcade.collide([this.ledge, this.ledgeSide, this.ledgeDown], [this.ledge, this.ledgeSide, this.ledgeDown, this.wall, this.spikes, this.enemy], null, null, this); //preventPhysicsBug Removed
+
+    //     //Enemy Mechanics
+    //     this.game.physics.arcade.collide(this.enemy, [this.spikes, this.wall, this.enemy], testFunctionX, null, this);
+
+    //     //Death Mechanics
+    //     this.game.physics.arcade.overlap(this.player, [this.enemy, this.spikes, this.death, this.enemyBullets], deathOne, null, this);
+
+    //     ////////////////////////////////Win Conditions/////////////////////////////////
+    //     //Game Mode 0 Flag
+    //     if (this.randomGeneratorForGameMode === 0) {
+    //         this.flagWin();
+    //     }
+    //     //Game Mode 1 Coin
+    //     else if (this.randomGeneratorForGameMode === 1) {
+    //         this.coinWin();
+    //     }
+    //     ////////////////////////////////Actual Controls////////////////////////////////
+
+    //     //Jump Mechanics
+    //     // Set a variable that is true when the player is a surface the ground (or different sides) or not a surface
+    //     var onTheGround = this.player.body.touching.down;
+    //     var onTheRightSide = this.player.body.touching.right;
+    //     var onTheLeftSide = this.player.body.touching.left;
+    //     var onUpsideDown = this.player.body.touching.up;
+    //     var onNone = this.player.body.touching.none;
+
+    //     // If the player is touching a surface, let him have 2 jumps
+    //     if (onTheGround || onTheLeftSide || onTheRightSide || onUpsideDown) {
+    //         this.jumps = 2;
+    //         this.jumping = false;
+    //     }
+
+    //     //////////////////////////Double Jump Only from the ground/////////////////
+    //     // if (onTheGround) {
+    //     //     this.jumps = 2;
+    //     //     this.jumping = false;
+    //     // }
+
+    //     // if (onTheLeftSide || onTheRightSide || onUpsideDown) {
+    //     //     this.jumps = 0;
+    //     //     this.jumping = false;
+    //     // }
+
+    //     // Jump!
+    //     if (this.jumps > 0 && this.upInputIsActive(5)) {
+    //         this.player.body.velocity.y = -500;
+    //         this.jumping = true;
+    //     }
+
+    //     // Reduce the number of available jumps if the jump input is released
+    //     if (this.jumping && this.upInputReleased()) {
+    //         this.jumps--;
+    //         this.jumping = false;
+    //     }
+
+    //     //Player Standing Still
     //     this.player.body.velocity.x = 0;
 
-    //     if (this.movementLeft.isDown) {
-    //         this.player.body.velocity.x = -400;
-    //         this.player.animations.play('left');
+    //     //Player Angle Still
+    //     this.player.angle = 0;
+
+    //     //////////////////////////////////////////WASD Controls and Player Touch Mechanics//////////////////////////////////////////////
+    //     if (onTheGround) {
+    //         if (this.movementLeft.isDown && !this.movementRight.isDown) {
+    //             this.player.body.velocity.x = -350;
+    //             this.player.animations.play('left');
+    //         }
+    //         else if (this.movementRight.isDown && !this.movementLeft.isDown) {
+    //             this.player.body.velocity.x = 350;
+    //             this.player.animations.play('right');
+    //         }
+    //         else {
+    //             this.player.animations.stop();
+    //             this.player.frame = 8;
+    //         }
     //     }
-    //     else if (this.movementRight.isDown) {
-    //         this.player.body.velocity.x = 400;
-    //         this.player.animations.play('right');
+    //     else if (onTheRightSide) {
+    //         if (onWall || onImmovable) {
+    //             this.player.body.velocity.x = 100;
+    //             this.player.body.velocity.y = 100;
+    //         }
+    //         if (onWall || onLedgeBlue || onLedgeGreen || onLedgeGrey || onImmovable) {
+    //             this.player.frame = 6;
+    //         }
+    //         if (this.movementLeft.isDown) {
+    //             this.player.body.velocity.y = -500;
+    //             this.player.body.velocity.x = -1000;
+    //         }
     //     }
-    //     if (this.movementUp.isDown) {
+    //     else if (onTheLeftSide) {
+    //         if (onWall || onImmovable) {
+    //             this.player.body.velocity.x = -100;
+    //             this.player.body.velocity.y = 100;
+    //         }
+    //         if (onWall || onLedgeBlue || onLedgeGreen || onLedgeGrey || onImmovable) {
+    //             this.player.frame = 12;
+    //         }
+    //         if (this.movementRight.isDown) {
+    //             this.player.body.velocity.y = -500;
+    //             this.player.body.velocity.x = 1000;
+    //         }
+    //     }
+    //     else if (onUpsideDown) {
+    //         this.player.animations.stop();
+    //         this.player.frame = 8;
+    //         this.player.angle = 180;
+    //         this.player.body.velocity.y = -100;
+    //         if (this.movementLeft.isDown) {
+    //             this.player.body.velocity.x = -400;
+    //             this.player.animations.play('left');
+    //         }
+    //         else if (this.movementRight.isDown) {
+    //             this.player.body.velocity.x = 400;
+    //             this.player.animations.play('right');
+    //         }
+
+    //     }
+    //     else if (onNone) {
     //         this.player.frame = 10;
-    //         this.player.body.velocity.y = -650;
+    //         if (this.movementLeft.isDown && !this.movementRight.isDown) {
+    //             this.player.body.velocity.x = -400;
+    //         }
+    //         else if (this.movementRight.isDown && !this.movementLeft.isDown) {
+    //             this.player.body.velocity.x = 400;
+    //         }
+    //         else if (this.movementLeft.isDown && this.movementRight.isDown) {
+    //             this.player.body.velocity.x = 0;
+    //         }
     //     }
-    //     else if (this.movementDown.isDown) {
-    //         this.player.frame = 10;
-    //         this.player.body.velocity.y = 650;
+
+    //     //////////Downwards Mechanics////////
+    //     if (this.movementDown.isDown && onUpsideDown) {
+    //         this.player.frame = 13;
+    //         this.player.body.velocity.y = 200;
     //     }
+
+    //     //Downward Mechanics
+    //     if (this.movementDown.isDown) {
+    //         this.player.frame = 13;
+    //         this.player.body.velocity.y = 500;
+    //     }
+
     //     ///////////////////////Weapon Mechanics///////////////
     //     //Shoot from Mouse
     //     if (this.game.input.activePointer.leftButton.isDown || this.shiftFire.isDown) {
@@ -824,5 +810,47 @@ brawl.testing.prototype = {
     //             this.weapon3.fire();
     //         }
     //     }
-    // }
+    //     ///Enemy Sprites
+    //     this.fireEnemyBullet();
+    // },
+    //How Game Updates Real-Time (God Mode)!
+    update: function () {
+        this.fireEnemyBullet();
+        ///////////God Mode//////////////
+        this.player.body.velocity.y = 0;
+        this.player.body.velocity.x = 0;
+
+        if (this.movementLeft.isDown) {
+            this.player.body.velocity.x = -400;
+            this.player.animations.play('left');
+        }
+        else if (this.movementRight.isDown) {
+            this.player.body.velocity.x = 400;
+            this.player.animations.play('right');
+        }
+        if (this.movementUp.isDown) {
+            this.player.frame = 10;
+            this.player.body.velocity.y = -650;
+        }
+        else if (this.movementDown.isDown) {
+            this.player.frame = 10;
+            this.player.body.velocity.y = 650;
+        }
+        ///////////////////////Weapon Mechanics///////////////
+        //Shoot from Mouse
+        if (this.game.input.activePointer.leftButton.isDown || this.shiftFire.isDown) {
+            if (pullBoolean) {
+                this.weapon1.fireAtPointer();
+                this.weapon1.fire();
+            }
+            else if (pushBoolean) {
+                this.weapon2.fireAtPointer();
+                this.weapon2.fire();
+            }
+            else if (stopBoolean) {
+                this.weapon3.fireAtPointer();
+                this.weapon3.fire();
+            }
+        }
+    }
 };

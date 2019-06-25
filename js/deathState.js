@@ -28,8 +28,6 @@ brawl.state2.prototype = {
         this.text.fill = "#000000";
         this.text.fontWeight = 'bold';
 
-        console.log(deathStateProcedural);
-
     },
     update: function () {
         if (this.game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {

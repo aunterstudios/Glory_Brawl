@@ -189,15 +189,44 @@ function shuffle(array) {
 ///////////////////////////////////////////Designed World Generator/////////////////////////////////////////////
 //Will Turn This Into A Constructor and Refactor Later
 var worldDesignedLevels = [
-  //Level One
+  //Level 0
   {
-    worldName: "Level One",
+    worldName: "Level 0",
     gameMode: ["flag", "coin"],
     ////////////World Size
     xOfWorld: 1400,
     yOfWorld: 800,
     ///////////Sprite Positioning
-    playerPosition: { x: 0, y: 0 },
+    //Where the Player Spawns Due to Switch
+    playerPosition:
+    //Up, Down, Left, Right (Remember!)
+      [
+        { upPosition: true, x: 200, y: 20 },
+        { downPosition: true, x: 800, y: 1400 },
+        { leftPosition: true, x: 200, y: 20 },
+        { rightPosition: true, x: 1400, y: 400 }
+      ],
+    //Deals with Room Switching
+    metroidvania:
+    //Up, Down, Left, Right (Remember!)
+      {
+        //Up Values
+        roomUpIndex: 0,
+        roomUpValue: 0,
+        //Down Values
+        roomDownIndex: 0,
+        roomDownValue: 800,
+        //Left Values
+        roomLeftIndex: 0,
+        roomLeftValue: 1,
+        //Right Values
+        roomRightIndex: 0,
+        roomRightValue: 1400
+      },
+    undeniableDeathSpawn:
+      [true,
+        { x: 0, y: 800 }
+      ],
     immovableWallSpawn:
       [true,
         { x: 0, y: 200, velocityX: 0, velocityY: 0, size: .5, art: "immovableRotatedWall" },
@@ -213,7 +242,7 @@ var worldDesignedLevels = [
         { x: 700, y: 900, velocityX: 0, velocityY: 0, size: 1, art: "spikes" },
       ],
     ledgeGreySpawn:
-      [true, 
+      [true,
         //First Item!!
         { x: 1000, y: 200, velocityX: 0, velocityY: 0 },
       ],
