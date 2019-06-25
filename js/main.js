@@ -203,7 +203,7 @@ var worldDesignedLevels = [
       [
         { upPosition: true, x: 200, y: 20 },
         { downPosition: true, x: 700, y: 500 },
-        { leftPosition: true, x: 200, y: 20 },
+        { leftPosition: true, x: 200, y: 400 },
         { rightPosition: true, x: 1400, y: 400 }
       ],
     //Deals with Room Switching
