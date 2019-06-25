@@ -223,7 +223,7 @@ brawl.testing.prototype = {
     },
     //////////////Creation of the World///////////////
     worldCreator: function (levelGenerator) {
-        console.log(levelGenerator);
+        // console.log(levelGenerator);
         ////////////////////Adding Player//////////////////////
         this.player = this.game.add.sprite(levelGenerator.playerPosition[this.indexOfPlayerPosition].x, levelGenerator.playerPosition[this.indexOfPlayerPosition].y, 'dude');
         this.game.physics.arcade.enable(this.player); //enables physics for player
@@ -381,11 +381,11 @@ brawl.testing.prototype = {
         this.wallX = this.wall.create(x, y, art);
         this.wallX.anchor.setTo(.5);
         this.wallX.scale.setTo(size);
-        this.wallX.body.maxVelocity.setTo(1000);
         // this.wallX.body.immovable = true;
+        this.wallX.body.mass = 200;
+        this.wallX.body.maxVelocity.setTo(1000);
         this.wallX.body.collideWorldBounds = true;
         this.wallX.body.bounce.setTo(1);
-        this.wallX.body.mass = 200;
         this.wallX.body.velocity.setTo(velocityX, velocityY);
         ///////////Drag Events///////////
         // this.wallX.inputEnabled = true;
@@ -398,11 +398,11 @@ brawl.testing.prototype = {
         this.immovableWallX = this.immovableWall.create(x, y, art);
         this.immovableWallX.anchor.setTo(.5);
         this.immovableWallX.scale.setTo(size);
-        this.immovableWallX.body.maxVelocity.setTo(1000);
         this.immovableWallX.body.immovable = true;
+        this.immovableWallX.body.mass = 400;
+        this.immovableWallX.body.maxVelocity.setTo(1000);
         this.immovableWallX.body.collideWorldBounds = true;
         this.immovableWallX.body.bounce.setTo(1);
-        this.immovableWallX.body.mass = 400;
         this.immovableWallX.body.velocity.setTo(velocityX, velocityY);
     },
     enemySpawn: function (x, y, velocityX, velocityY) {
@@ -410,22 +410,22 @@ brawl.testing.prototype = {
         this.trumpX.anchor.setTo(.5);
         this.trumpX.scale.setTo(.6);
         this.trumpX.body.mass = 20;
-        this.trumpX.body.maxVelocity.setTo(velocityX, velocityY);
-        this.trumpX.body.velocity.setTo(velocityX, velocityY);
-        this.trumpX.body.bounce.setTo(1);
+        this.trumpX.body.maxVelocity.setTo(1000);
         this.trumpX.body.collideWorldBounds = true;
+        this.trumpX.body.bounce.setTo(1);
+        this.trumpX.body.velocity.setTo(velocityX, velocityY);
     },
     ledgeGreySpawn: function (x, y, velocityX, velocityY) {
         this.ledgeGrey = this.ledge.create(x, y, 'ledge');
         this.ledgeGrey.anchor.setTo(.5);
         this.ledgeGrey.scale.setTo(.4);
         this.ledgeGrey.body.mass = 20;
-        this.ledgeGrey.body.maxVelocity.setTo(300);
+        this.ledgeGrey.body.maxVelocity.setTo(1000);
         //////////////////////Ledge Out of Bounds/////////////////////
         // this.ledgeGrey.checkWorldBounds = true;
         // this.ledgeGrey.events.onOutOfBounds.add(this.ledgeOut, this);
-        this.ledgeGrey.body.bounce.setTo(1);
         this.ledgeGrey.body.collideWorldBounds = true;
+        this.ledgeGrey.body.bounce.setTo(1);
         this.ledgeGrey.body.velocity.setTo(velocityX, velocityY);
     },
     ledgeGreenSpawn: function (x, y, velocityX, velocityY) {
@@ -433,7 +433,7 @@ brawl.testing.prototype = {
         this.ledgeGreen.anchor.setTo(.5);
         this.ledgeGreen.scale.setTo(.4);
         this.ledgeGreen.body.mass = 20;
-        this.ledgeGreen.body.maxVelocity.setTo(300);
+        this.ledgeGreen.body.maxVelocity.setTo(1000);
         this.ledgeGreen.body.collideWorldBounds = true;
         this.ledgeGreen.body.bounce.setTo(1);
         this.ledgeGreen.body.velocity.setTo(velocityX, velocityY);
@@ -443,8 +443,7 @@ brawl.testing.prototype = {
         this.ledgeBlue.anchor.setTo(.5);
         this.ledgeBlue.scale.setTo(.4);
         this.ledgeBlue.body.mass = 20;
-        this.ledgeBlue.body.maxVelocity.setTo(300);
-        this.ledgeBlue.body.velocity.x = this.game.rnd.realInRange(-300, 300);
+        this.ledgeBlue.body.maxVelocity.setTo(1000);
         this.ledgeBlue.body.collideWorldBounds = true;
         this.ledgeBlue.body.bounce.setTo(1);
         this.ledgeBlue.body.velocity.setTo(velocityX, velocityY);
@@ -457,9 +456,9 @@ brawl.testing.prototype = {
         this.ballX.body.setCircle(50);
         this.ballX.body.mass = 30;
         this.ballX.body.maxVelocity.setTo(500);
-        this.ballX.body.velocity.setTo(velocityX, velocityY);
         this.ballX.body.collideWorldBounds = true;
         this.ballX.body.bounce.setTo(1.0);
+        this.ballX.body.velocity.setTo(velocityX, velocityY);
     },
     spikeSpawn: function (x, y, velocityX, velocityY, size, art) {
         // var spikeArray = ['invertedSpikes', 'spikes'];
@@ -470,9 +469,9 @@ brawl.testing.prototype = {
         this.spikesX.scale.setTo(size);
         this.spikesX.body.immovable = true;
         this.spikesX.body.mass = 150;
-        this.spikesX.body.velocity.setTo(velocityX, velocityY);
         this.spikesX.body.collideWorldBounds = true;
         this.spikesX.body.bounce.setTo(1.0);
+        this.spikesX.body.velocity.setTo(velocityX, velocityY);
         // this.spikesX.alignIn(rect, positionInRectangle);
         // this.spikeFall(this.spikesX);
     },

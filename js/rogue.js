@@ -392,25 +392,23 @@ brawl.rogue.prototype = {
         this.coinX.anchor.setTo(.7);
         this.coinX.scale.setTo(.7);
         this.coinX.body.mass = 1;
-        this.coinX.body.maxVelocity.setTo(300);
+        this.coinX.body.maxVelocity.setTo(1000);
         this.coinX.body.collideWorldBounds = true;
         this.coinX.body.bounce.setTo(1);
-        this.coinX.body.velocity.x = this.game.rnd.realInRange(-50, 50)
+        this.coinX.body.velocity.setTo(this.game.rnd.realInRange(-50, 50));
         this.coinX.alignIn(rect, positionInRectangle);
         // console.log(this.coinX);
     },
     wallSpawn: function (x, y, rect, positionInRectangle) {
         this.wallX = this.wall.create(x, y, wallArray[Math.floor(Math.random() * wallArray.length)]);
         this.wallX.anchor.setTo(.5);
-        // this.wallX.scale.setTo(.5);
         this.wallX.scale.setTo(wallLength[Math.floor(Math.random() * wallLength.length)]);
-        this.wallX.alignIn(rect, positionInRectangle)
-        this.wallX.body.maxVelocity.setTo(200);
-        // this.wallX.body.immovable = true;
+        this.wallX.body.mass = 200;
+        this.wallX.body.maxVelocity.setTo(1000);
         this.wallX.body.collideWorldBounds = true;
         this.wallX.body.bounce.setTo(1);
-        this.wallX.body.mass = 200;
         this.wallX.body.velocity.setTo(this.game.rnd.integerInRange(-50, 50), this.game.rnd.integerInRange(-50, 50));
+        this.wallX.alignIn(rect, positionInRectangle)
         ///////////Drag Events///////////
         // this.wallX.inputEnabled = true;
         // this.wallX.input.enableDrag();
@@ -424,28 +422,29 @@ brawl.rogue.prototype = {
         // this.immovableWallX.scale.setTo(.5);
         this.immovableWallX.scale.setTo(immovableWallLength[Math.floor(Math.random() * immovableWallLength.length)]);
         this.immovableWallX.body.immovable = true;
+        this.immovableWallX.body.mass = 400;
+        this.immovableWallX.body.maxVelocity.setTo(1000);
         this.immovableWallX.body.collideWorldBounds = true;
         this.immovableWallX.body.bounce.setTo(1);
-        this.immovableWallX.body.mass = 400;
-        this.immovableWallX.alignIn(rect, positionInRectangle)
         if (immovableWallVelocity[Math.floor(Math.random() * immovableWallVelocity.length)] === 0) {
             this.immovableWallX.body.velocity.setTo(this.game.rnd.integerInRange(-50, 50), this.game.rnd.integerInRange(-50, 50));
         }
+        this.immovableWallX.alignIn(rect, positionInRectangle)
         // this.immovableWallX.body.mass = 200;
         //this.immovableWallX.body.velocity.setTo(this.game.rnd.integerInRange(-50, 50), this.game.rnd.integerInRange(-50, 50));
         // this.wallX.body.moves = false;
     },
     enemySpawn: function (x, y, rect, positionInRectangle) {
         this.trumpX = this.enemy.create(x, y, 'enemy');
-        this.trumpX.body.velocity.x = this.game.rnd.realInRange(-400, 400);
         // this.trumpX.body.gravity.y = 10;
         // this.trumpX.body.moves = false;
         this.trumpX.anchor.setTo(.5);
         this.trumpX.scale.setTo(.6);
         this.trumpX.body.mass = 20;
-        this.trumpX.body.maxVelocity.setTo(400);
-        this.trumpX.body.bounce.setTo(1);
+        this.trumpX.body.maxVelocity.setTo(1000);
         this.trumpX.body.collideWorldBounds = true;
+        this.trumpX.body.bounce.setTo(1);
+        this.trumpX.body.velocity.setTo(this.game.rnd.realInRange(-400, 400),0);
         this.trumpX.alignIn(rect, positionInRectangle);
     },
     ledgeSpawn: function (x, y, rect, positionInRectangle) {
@@ -454,12 +453,13 @@ brawl.rogue.prototype = {
         // this.ledgeX.scale.setTo(.5);
         this.ledgeX.scale.setTo(.4);
         this.ledgeX.body.mass = 20;
-        this.ledgeX.body.maxVelocity.setTo(300);
+        this.ledgeX.body.maxVelocity.setTo(1000);
         //////////////////////Ledge Out of Bounds/////////////////////
         // this.ledgeX.checkWorldBounds = true;
         // this.ledgeX.events.onOutOfBounds.add(this.ledgeOut, this);
-        this.ledgeX.body.bounce.setTo(1);
         this.ledgeX.body.collideWorldBounds = true;
+        this.ledgeX.body.bounce.setTo(1);
+        this.ledgeX.body.velocity.setTo(0);
         this.ledgeX.alignIn(rect, positionInRectangle);
     },
     ledgeDownSpawn: function (x, y, rect, positionInRectangle) {
@@ -473,6 +473,7 @@ brawl.rogue.prototype = {
         this.ledgeY.body.collideWorldBounds = true;
         // this.ledgeY.body.immovable = true;
         this.ledgeY.body.bounce.setTo(1);
+        this.ledgeY.body.velocity.setTo(0);
         this.ledgeY.alignIn(rect, positionInRectangle);
     },
     ledgeSideSpawn: function (x, y, rect, positionInRectangle) {
@@ -482,9 +483,9 @@ brawl.rogue.prototype = {
         this.ledgeSideways.scale.setTo(.4);
         this.ledgeSideways.body.mass = 20;
         this.ledgeSideways.body.maxVelocity.setTo(300);
-        this.ledgeSideways.body.velocity.x = this.game.rnd.realInRange(-300, 300);
         this.ledgeSideways.body.collideWorldBounds = true;
         this.ledgeSideways.body.bounce.setTo(1);
+        this.ledgeSideways.body.velocity.setTo(this.game.rnd.realInRange(-300, 300));
         this.ledgeSideways.alignIn(rect, positionInRectangle);
         // this.ledgeSideways.body.immovable = true;
     },
@@ -494,13 +495,13 @@ brawl.rogue.prototype = {
         this.ballX.anchor.setTo(.5);
         // this.ballX.scale.setTo(.5);
         this.ballX.scale.setTo(.5);
+        this.ballX.body.setCircle(50);
         this.ballX.body.mass = 30;
         this.ballX.body.maxVelocity.setTo(500);
-        this.ballX.body.velocity.x = this.game.rnd.realInRange(-100, 100)
         this.ballX.body.collideWorldBounds = true;
         this.ballX.body.bounce.setTo(1.0);
+        this.ballX.body.velocity.setTo(this.game.rnd.realInRange(-100, 100));
         this.ballX.alignIn(rect, positionInRectangle);
-        this.ballX.body.setCircle(50);
         // this.ballX.body.mass = 5;
     },
     spikeSpawn: function (x, y, rect, positionInRectangle) {
@@ -512,8 +513,8 @@ brawl.rogue.prototype = {
         this.spikesX.scale.setTo(spikeLength[Math.floor(Math.random() * spikeLength.length)]);
         this.spikesX.body.immovable = true;
         this.spikesX.body.mass = 150;
-        this.spikesX.alignIn(rect, positionInRectangle);
-        // this.spikeFall(this.spikesX);
+        this.spikesX.body.velocity.setTo(this.game.rnd.realInRange(-100, 100),0);
+        this.spikesX.alignIn(rect, positionInRectangle)
     },
     //SpikeFall
     // spikeFall: function (spikesX) {
