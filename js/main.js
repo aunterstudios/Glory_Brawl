@@ -124,7 +124,8 @@ var worldGenerator = [
     yOfWorld: 800,
     baseCamp: tradtionalPlatformerArray, //Array
     world: traditionalPlatformerValues, //Object
-    spritesType: [1, 2, 0, 3, 1, 1, 2, 0, 3, 1, 2, 3, 1, 2, 2, 1, 0, 0, 2, 1, 1, 2, 1, 3, 0],
+    // 0-Wall, 1-Enemy, 2-Ledges, 3-Ball
+    spritesType: [0, 2, 3, 1, 1, 2, 1, 1, 2, 1, 3, 0, 1, 0, 2, 1, 2, 0, 1, 0, 0, 1, 2, 3, 1],
     worldName: "Traditional Platformer"
   },
   {

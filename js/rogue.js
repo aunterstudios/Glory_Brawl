@@ -84,7 +84,7 @@ brawl.rogue.prototype = {
         //     gameModeName = "Capture the Flag";
         // }
         // console.log(this.randomGeneratorForGameMode + "game mode");
-        
+
         //Keyboard Controls
         this.cursors = this.game.input.keyboard.createCursorKeys();
 
@@ -276,7 +276,7 @@ brawl.rogue.prototype = {
         this.weapon3.trackSprite(this.player, 10, -30);
 
         // - 20 for Tracking//
-        
+
         //Reset Position Index Increaser
         var indexIncrease = -1;
 
@@ -311,9 +311,10 @@ brawl.rogue.prototype = {
 
                     //Increases the index positioning
                     indexIncrease++
-                    console.log("indexIncrease: "+ indexIncrease);
-                    for (var i = 0; i < thisWorldGenerator.world.amountOfSpritesInGrid; i++) {
-                        this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[i], thisWorldGenerator.spritesType[indexIncrease]);
+                    console.log("indexIncrease: " + indexIncrease);
+                    for (var i = 0; i < this.game.rnd.integerInRange(0, 1); i++) {
+                        // this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[i], thisWorldGenerator.spritesType[indexIncrease]);
+                        this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[i], 0, i);
                     }
                     if (x === thisWorldGenerator.baseCamp[1].iteratorXBaseCamp && y === thisWorldGenerator.baseCamp[1].iteratorYBaseCamp) {
                         this.finish = this.game.add.sprite(xOfSprite, yOfSprite, 'flag');
@@ -336,16 +337,16 @@ brawl.rogue.prototype = {
         // }
     },
     /////////////////////////Randomness of the Map///////////////////////////
-    gridSystem: function (x, y, rect, positionInRectangle, spriteType) {
+    gridSystem: function (x, y, rect, positionInRectangle, spriteType, particularSprite) {
         //Create Randomness in Each Batch of Sprite Groups
         var gridSystemGenesis = this.game.rnd.integerInRange(0, 100);
         //////////////////////////Alpha Build One/////////////////// (Needs different Combinations on Hindsight)
         //Walls
         if (spriteType === 0) {
-            if (gridSystemGenesis >= 0 && gridSystemGenesis <= 50) {
+            if (particularSprite === 0) {
                 this.immovableSpawn(x, y, rect, positionInRectangle);
             }
-            else if (gridSystemGenesis >= 51 && gridSystemGenesis <= 100) {
+            else if (particularSprite === 1) {
                 this.wallSpawn(x, y, rect, positionInRectangle);
             }
         }
@@ -459,7 +460,7 @@ brawl.rogue.prototype = {
         this.trumpX.body.maxVelocity.setTo(500);
         this.trumpX.body.collideWorldBounds = true;
         this.trumpX.body.bounce.setTo(1);
-        this.trumpX.body.velocity.setTo(this.game.rnd.realInRange(-400, 400),0);
+        this.trumpX.body.velocity.setTo(this.game.rnd.realInRange(-400, 400), 0);
         this.trumpX.alignIn(rect, positionInRectangle);
     },
     ledgeSpawn: function (x, y, rect, positionInRectangle) {
@@ -529,7 +530,7 @@ brawl.rogue.prototype = {
         this.spikesX.body.immovable = true;
         this.spikesX.body.collideWorldBounds = true;
         this.spikesX.body.mass = 150;
-        this.spikesX.body.velocity.setTo(this.game.rnd.realInRange(-100, 100),0);
+        this.spikesX.body.velocity.setTo(this.game.rnd.realInRange(-100, 100), 0);
         this.spikesX.alignIn(rect, positionInRectangle)
     },
     //SpikeFall
