@@ -69,7 +69,7 @@ brawl.rogue.prototype = {
         this.game.physics.arcade.OVERLAP_BIAS = 12;
 
         //Initializes all the Randomness
-        var randomGeneratorForWorld = this.game.rnd.integerInRange(0, 4);
+        var randomGeneratorForWorld = this.game.rnd.integerInRange(0, 0);
 
         ////////////////////Game World Size//////////////////////
         this.game.world.setBounds(0, 0, worldGenerator[randomGeneratorForWorld].xOfWorld, worldGenerator[randomGeneratorForWorld].yOfWorld);
@@ -203,7 +203,7 @@ brawl.rogue.prototype = {
     //////////////Creation of the World///////////////
     worldCreator: function (thisWorldGenerator) {
         //Entire Object Fed to Integrate World Generator
-        // console.log(thisWorldGenerator);
+        console.log(thisWorldGenerator);
 
         //////////////////Shuffling Positions of Player and BaseCamp////////////////
         shuffle(thisWorldGenerator.baseCamp);
@@ -276,6 +276,9 @@ brawl.rogue.prototype = {
         this.weapon3.trackSprite(this.player, 10, -30);
 
         // - 20 for Tracking//
+        
+        //Reset Position Index Increaser
+        var indexIncrease = -1;
 
         //Adding Undeniable Death
         for (var i = 0; i < thisWorldGenerator.world.deathIterator; i++) {
@@ -305,8 +308,12 @@ brawl.rogue.prototype = {
                     shuffle(positionArray);
                     // console.log("x" + "y" + x + y + " " + positionArray)
                     //////Sprites//////
+
+                    //Increases the index positioning
+                    indexIncrease++
+                    console.log("indexIncrease: "+ indexIncrease);
                     for (var i = 0; i < thisWorldGenerator.world.amountOfSpritesInGrid; i++) {
-                        this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[i], 2);
+                        this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[i], thisWorldGenerator.spritesType[indexIncrease]);
                     }
                     if (x === thisWorldGenerator.baseCamp[1].iteratorXBaseCamp && y === thisWorldGenerator.baseCamp[1].iteratorYBaseCamp) {
                         this.finish = this.game.add.sprite(xOfSprite, yOfSprite, 'flag');

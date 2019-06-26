@@ -124,6 +124,7 @@ var worldGenerator = [
     yOfWorld: 800,
     baseCamp: tradtionalPlatformerArray, //Array
     world: traditionalPlatformerValues, //Object
+    spritesType: [1, 2, 0, 3, 1, 1, 2, 0, 3, 1, 2, 3, 1, 2, 2, 1, 0, 0, 2, 1, 1, 2, 1, 3, 0],
     worldName: "Traditional Platformer"
   },
   {
@@ -199,7 +200,7 @@ var worldDesignedLevels = [
     ///////////Sprite Positioning
     //Where the Player Spawns Due to Switching Rooms
     playerPosition:
-    //Up, Down, Left, Right (Remember!)
+      //Up, Down, Left, Right (Remember!)
       [
         { upPosition: true, x: 200, y: 20 },
         { downPosition: true, x: 700, y: 500 },
@@ -209,20 +210,20 @@ var worldDesignedLevels = [
     //Deals with Room Switching
     metroidvania:
     //Up, Down, Left, Right (Remember!)
-      {
-        //Up Values
-        roomUpIndex: 0,
-        roomUpValue: 0,
-        //Down Values
-        roomDownIndex: 0,
-        roomDownValue: 800,
-        //Left Values
-        roomLeftIndex: 0,
-        roomLeftValue: 1,
-        //Right Values
-        roomRightIndex: 0,
-        roomRightValue: 1400
-      },
+    {
+      //Up Values
+      roomUpIndex: 0,
+      roomUpValue: 0,
+      //Down Values
+      roomDownIndex: 0,
+      roomDownValue: 800,
+      //Left Values
+      roomLeftIndex: 0,
+      roomLeftValue: 1,
+      //Right Values
+      roomRightIndex: 0,
+      roomRightValue: 1400
+    },
     undeniableDeathSpawn:
       [true,
         { x: 0, y: 800 }
