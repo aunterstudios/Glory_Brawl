@@ -75,15 +75,16 @@ brawl.rogue.prototype = {
         this.game.world.setBounds(0, 0, worldGenerator[randomGeneratorForWorld].xOfWorld, worldGenerator[randomGeneratorForWorld].yOfWorld);
 
         ////////////Generator for Game Mode//////////////
-        this.randomGeneratorForGameMode = this.game.rnd.integerInRange(0, 1);
-        var gameModeName;
-        if (this.randomGeneratorForGameMode === 0) {
-            gameModeName = "Collect the Coins";
-        }
-        else {
-            gameModeName = "Capture the Flag";
-        }
+        // this.randomGeneratorForGameMode = this.game.rnd.integerInRange(0, 1);
+        // var gameModeName;
+        // if (this.randomGeneratorForGameMode === 0) {
+        //     gameModeName = "Collect the Coins";
+        // }
+        // else {
+        //     gameModeName = "Capture the Flag";
+        // }
         // console.log(this.randomGeneratorForGameMode + "game mode");
+        
         //Keyboard Controls
         this.cursors = this.game.input.keyboard.createCursorKeys();
 
@@ -156,7 +157,7 @@ brawl.rogue.prototype = {
 
         /////////////////////////World Creation Initialization Grid///////////////////////
         var worldName;
-        this.worldCreator(worldGenerator[randomGeneratorForWorld], this.randomGeneratorForGameMode);
+        this.worldCreator(worldGenerator[randomGeneratorForWorld]);
 
         worldName = worldGenerator[randomGeneratorForWorld].worldName
 
@@ -170,7 +171,7 @@ brawl.rogue.prototype = {
         this.text.cameraOffset.setTo(100, 750);
 
         //World
-        this.text = this.game.add.text(200, 6208, "World: " + worldName + "\n Game Mode: " + gameModeName, { font: "20px Arial", fill: "#ffffff", align: "center" });
+        this.text = this.game.add.text(200, 6208, "World: " + worldName, { font: "20px Arial", fill: "#ffffff", align: "center" });
         this.text.fixedToCamera = true;
         this.text.cameraOffset.setTo(1100, 725);
 
@@ -200,7 +201,7 @@ brawl.rogue.prototype = {
 
     // // },
     //////////////Creation of the World///////////////
-    worldCreator: function (thisWorldGenerator, gameMode) {
+    worldCreator: function (thisWorldGenerator) {
         //Entire Object Fed to Integrate World Generator
         // console.log(thisWorldGenerator);
 
@@ -305,62 +306,68 @@ brawl.rogue.prototype = {
                     // console.log("x" + "y" + x + y + " " + positionArray)
                     //////Sprites//////
                     for (var i = 0; i < thisWorldGenerator.world.amountOfSpritesInGrid; i++) {
-                        this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[i]);
+                        this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[i], 2);
                     }
-                    if (gameMode === 0) {
-                        this.coinSpawn(xOfSprite, yOfSprite, rect, positionArray[thisWorldGenerator.world.amountOfSpritesInGrid])
-                        // console.log("coin initiated");
-                    }
-                    else if (gameMode === 1) {
-                        if (x === thisWorldGenerator.baseCamp[1].iteratorXBaseCamp && y === thisWorldGenerator.baseCamp[1].iteratorYBaseCamp) {
-                            this.finish = this.game.add.sprite(xOfSprite, yOfSprite, 'flag');
-                            this.game.physics.arcade.enable(this.finish);
-                            this.finish.body.mass = 1;
-                            this.finish.body.maxVelocity.setTo(300);
-                            this.finish.body.collideWorldBounds = true;
-                            this.finish.body.bounce.setTo(1);
-                            this.finish.body.velocity.x = this.game.rnd.realInRange(-50, 50)
-                            this.finish.alignIn(rect, positionArray[i + 1]);
-                            // console.log("Flag Initiated");
-                            // console.log(this.finish);
-                        }
+                    if (x === thisWorldGenerator.baseCamp[1].iteratorXBaseCamp && y === thisWorldGenerator.baseCamp[1].iteratorYBaseCamp) {
+                        this.finish = this.game.add.sprite(xOfSprite, yOfSprite, 'flag');
+                        this.game.physics.arcade.enable(this.finish);
+                        this.finish.body.mass = 1;
+                        this.finish.body.maxVelocity.setTo(300);
+                        this.finish.body.collideWorldBounds = true;
+                        this.finish.body.bounce.setTo(1);
+                        this.finish.body.velocity.x = this.game.rnd.realInRange(-50, 50)
+                        this.finish.alignIn(rect, positionArray[i + 1]);
+                        // console.log("Flag Initiated");
+                        // console.log(this.finish);
                     }
                 }
             }
         }
-        if (gameMode === 0) {
-            this.coinAmount = this.coin.count();
-            // console.log(this.coinAmount + " coin Amount");
-        }
+        // if (gameMode === 0) {
+        //     this.coinAmount = this.coin.count();
+        //     // console.log(this.coinAmount + " coin Amount");
+        // }
     },
     /////////////////////////Randomness of the Map///////////////////////////
-    gridSystem: function (x, y, rect, positionInRectangle) {
-        //Create Randomness in Each Grid
+    gridSystem: function (x, y, rect, positionInRectangle, spriteType) {
+        //Create Randomness in Each Batch of Sprite Groups
         var gridSystemGenesis = this.game.rnd.integerInRange(0, 100);
-        //Create Random Pattern Within Each Grid
-        if (gridSystemGenesis >= 0 && gridSystemGenesis <= 12) {
-            this.immovableSpawn(x, y, rect, positionInRectangle);
+        //////////////////////////Alpha Build One/////////////////// (Needs different Combinations on Hindsight)
+        //Walls
+        if (spriteType === 0) {
+            if (gridSystemGenesis >= 0 && gridSystemGenesis <= 50) {
+                this.immovableSpawn(x, y, rect, positionInRectangle);
+            }
+            else if (gridSystemGenesis >= 51 && gridSystemGenesis <= 100) {
+                this.wallSpawn(x, y, rect, positionInRectangle);
+            }
         }
-        else if (gridSystemGenesis >= 13 && gridSystemGenesis <= 33) {
-            this.wallSpawn(x, y, rect, positionInRectangle);
+        //Enemy
+        else if (spriteType === 1) {
+            if (gridSystemGenesis >= 0 && gridSystemGenesis <= 50) {
+                this.enemySpawn(x, y, rect, positionInRectangle);
+            }
+            else if (gridSystemGenesis >= 51 && gridSystemGenesis <= 100) {
+                this.spikeSpawn(x, y, rect, positionInRectangle);
+            }
         }
-        else if (gridSystemGenesis >= 34 && gridSystemGenesis <= 48) {
-            this.enemySpawn(x, y, rect, positionInRectangle);
+        //Ledges
+        else if (spriteType === 2) {
+            if (gridSystemGenesis >= 0 && gridSystemGenesis <= 33) {
+                this.ledgeSpawn(x, y, rect, positionInRectangle);
+            }
+            else if (gridSystemGenesis >= 34 && gridSystemGenesis <= 66) {
+                this.ledgeDownSpawn(x, y, rect, positionInRectangle);
+            }
+            else if (gridSystemGenesis >= 67 && gridSystemGenesis <= 100) {
+                this.ledgeSideSpawn(x, y, rect, positionInRectangle);
+            }
         }
-        else if (gridSystemGenesis >= 49 && gridSystemGenesis <= 61) {
-            this.ledgeSpawn(x, y, rect, positionInRectangle);
-        }
-        else if (gridSystemGenesis >= 62 && gridSystemGenesis <= 69) {
-            this.ledgeDownSpawn(x, y, rect, positionInRectangle);
-        }
-        else if (gridSystemGenesis >= 70 && gridSystemGenesis <= 74) {
-            this.ballSpawn(x, y, rect, positionInRectangle);
-        }
-        else if (gridSystemGenesis >= 75 && gridSystemGenesis <= 84) {
-            this.ledgeSideSpawn(x, y, rect, positionInRectangle);
-        }
-        else if (gridSystemGenesis >= 85 && gridSystemGenesis <= 100) {
-            this.spikeSpawn(x, y, rect, positionInRectangle);
+        //Ball
+        else if (spriteType === 3) {
+            if (gridSystemGenesis >= 0 && gridSystemGenesis <= 100) {
+                this.ballSpawn(x, y, rect, positionInRectangle);
+            }
         }
     },
     //////////////////////////////////////Starting Position of Player//////////////////////////////
@@ -513,6 +520,7 @@ brawl.rogue.prototype = {
         this.spikesX.anchor.setTo(.5);
         this.spikesX.scale.setTo(spikeLength[Math.floor(Math.random() * spikeLength.length)]);
         this.spikesX.body.immovable = true;
+        this.spikesX.body.collideWorldBounds = true;
         this.spikesX.body.mass = 150;
         this.spikesX.body.velocity.setTo(this.game.rnd.realInRange(-100, 100),0);
         this.spikesX.alignIn(rect, positionInRectangle)
@@ -701,14 +709,7 @@ brawl.rogue.prototype = {
         this.game.physics.arcade.overlap(this.player, [this.enemy, this.spikes, this.death, this.enemyBullets], deathOne, null, this);
 
         ////////////////////////////////Win Conditions/////////////////////////////////
-        //Game Mode 0 Coin
-        if (this.randomGeneratorForGameMode === 0) {
-            this.coinWin();
-        }
-        //Game Mode 1 Flag
-        else if (this.randomGeneratorForGameMode === 1) {
-            this.flagWin();
-        }
+        this.flagWin();
         ////////////////////////////////Actual Controls////////////////////////////////
 
         //Jump Mechanics

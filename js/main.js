@@ -197,7 +197,7 @@ var worldDesignedLevels = [
     xOfWorld: 1400,
     yOfWorld: 800,
     ///////////Sprite Positioning
-    //Where the Player Spawns Due to Switch
+    //Where the Player Spawns Due to Switching Rooms
     playerPosition:
     //Up, Down, Left, Right (Remember!)
       [
@@ -262,8 +262,10 @@ var worldDesignedLevels = [
       [true,
         { x: 1300, y: 50, velocityX: 0, velocityY: 0 },
       ],
-    //Win Condition Items
-    flagSpawn: { x: 0, y: 550, velocityX: 400, velocityY: 0 }
+    //Check Point
+    flagSpawn: { x: 0, y: 550, velocityX: 400, velocityY: 0 } //Will Need to Attach a Boolean Here to Trigger
+
+
     //Any Other Property Here Are Unditional Objects
     //Falling or Sideways Spikes
     //Super Ball
@@ -506,7 +508,7 @@ function ledgeSideX(player, ledge) {
   //   ledge.body.stop();
   //   ledge.body.velocity.x = 300;
   // }
-  ledge.body.stop();
+  // ledge.body.stop();
   ledge.body.velocity.y = 200;
   ledge.body.velocity.x = player.body.velocity.x;
 }
