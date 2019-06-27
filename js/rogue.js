@@ -312,9 +312,9 @@ brawl.rogue.prototype = {
                     //Increases the index positioning
                     indexIncrease++
                     console.log("indexIncrease: " + indexIncrease);
-                    for (var i = 0; i < this.game.rnd.integerInRange(0, 1); i++) {
-                        // this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[i], thisWorldGenerator.spritesType[indexIncrease]);
-                        this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[i], 0, i);
+                    for (var i = 0; i < this.game.rnd.integerInRange(2, 4); i++) {
+                        this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[i], thisWorldGenerator.spritesType[indexIncrease]);
+                        // this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[i], 0, i);
                     }
                     if (x === thisWorldGenerator.baseCamp[1].iteratorXBaseCamp && y === thisWorldGenerator.baseCamp[1].iteratorYBaseCamp) {
                         this.finish = this.game.add.sprite(xOfSprite, yOfSprite, 'flag');
