@@ -259,7 +259,7 @@ brawl.testing.prototype = {
         //  Speed-up the rate of fire, allowing them to shoot 1 bullet every 60ms
         this.weapon1.fireRate = 500;
         // Track Player
-        this.weapon1.trackSprite(this.player, 10, -30);
+        this.weapon1.trackSprite(this.player, 10, 0);
 
         /////////////////Push
         //  Creates 30 bullets, using the 'bullet' graphic
@@ -274,7 +274,7 @@ brawl.testing.prototype = {
         this.weapon2.fireRate = 500;
         //Match Your Velocity?
         // Track Player
-        this.weapon2.trackSprite(this.player, 10, -30);
+        this.weapon2.trackSprite(this.player, 10, 0);
 
         ////////////////Stop
         //  Creates 30 bullets, using the 'bullet' graphic
@@ -288,7 +288,7 @@ brawl.testing.prototype = {
         //  Speed-up the rate of fire, allowing them to shoot 1 bullet every 60ms
         this.weapon3.fireRate = 500;
         // Track Player
-        this.weapon3.trackSprite(this.player, 10, -30);
+        this.weapon3.trackSprite(this.player, 10, 0);
 
         // - 20 for Tracking//
 
@@ -296,7 +296,7 @@ brawl.testing.prototype = {
         //Generating Undeniable Death
         if (levelGenerator.undeniableDeathSpawn) {
             for (var i = 1; i < levelGenerator.undeniableDeathSpawn.length; i++) {
-                this.immovableSpawn(levelGenerator.undeniableDeathSpawn[i].x, levelGenerator.undeniableDeathSpawn[i].y);
+                this.undeniableDeathSpawn(levelGenerator.undeniableDeathSpawn[i].x, levelGenerator.undeniableDeathSpawn[i].y);
             }
         }
         //Generating Immovable Walls
