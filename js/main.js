@@ -265,7 +265,7 @@ var worldDesignedLevels = [
         { x: 1300, y: 50, velocityX: 0, velocityY: 0 },
       ],
     //Check Point
-    flagSpawn: { x: 0, y: 550, velocityX: 400, velocityY: 0 } //Will Need to Attach a Boolean Here to Trigger
+    flagSpawn: { trigger: true, x: 0, y: 550, velocityX: 400, velocityY: 0 } //Will Need to Attach a Boolean Here to Trigger
 
 
     //Any Other Property Here Are Unditional Objects
@@ -278,10 +278,10 @@ var worldDesignedLevels = [
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "Rogue Version-OVERLaPBias-DesignedLevelzForSean",
-  "In this unknown world",
-  "You only know your name",
-  "Glory Brawl"
+  "MetroidVania-Rogue Version: 02",
+  "In this unknown world.",
+  "You only know your name.",
+  "Glory Brawl."
 ];
 
 var line = [];

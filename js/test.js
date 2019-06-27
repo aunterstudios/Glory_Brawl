@@ -348,16 +348,19 @@ brawl.testing.prototype = {
             }
         }
         // //////////////////Game Mode Generation (The Type of Game You Will Play)//////////////////
-        // if (levelGenerator.gameMode[this.randomGeneratorForGameMode] === "flag") {
-        //     console.log("It's a Flag!");
-        //     this.finish = this.game.add.sprite(levelGenerator.flagSpawn.x, levelGenerator.flagSpawn.y, 'flag');
-        //     this.game.physics.arcade.enable(this.finish);
-        //     this.finish.body.mass = 1;
-        //     this.finish.body.maxVelocity.setTo(1000);
-        //     this.finish.body.collideWorldBounds = true;
-        //     this.finish.body.bounce.setTo(1);
-        //     this.finish.body.velocity.setTo(levelGenerator.flagSpawn.velocityX, levelGenerator.flagSpawn.velocityY);
-        // }
+        if (levelGenerator.flagSpawn.trigger) {
+            console.log("It's a Flag!");
+            this.finish = this.game.add.sprite(levelGenerator.flagSpawn.x, levelGenerator.flagSpawn.y, 'flag');
+            this.game.physics.arcade.enable(this.finish);
+            this.finish.body.mass = 1;
+            this.finish.body.maxVelocity.setTo(1000);
+            this.finish.body.collideWorldBounds = true;
+            this.finish.body.bounce.setTo(1);
+            this.finish.body.velocity.setTo(levelGenerator.flagSpawn.velocityX, levelGenerator.flagSpawn.velocityY);
+        }
+        
+        
+        
     },
     //////////////////////////Creating Game Objects/////////////////////////
     coinSpawn: function (x, y, velocityX, velocityY) {
