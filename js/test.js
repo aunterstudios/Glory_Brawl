@@ -48,6 +48,7 @@ brawl.testing.prototype = {
         this.load.image('boundary', 'assets/worldBounds.png');
         this.load.image('coin', 'assets/shield2.png');
         this.load.image('flag', 'assets/flag.png');
+        this.load.image('door', 'assets/door.png');
         this.load.spritesheet('dude', 'assets/white.png', 87.5, 93.5);
     },
     create: function () {
@@ -133,6 +134,9 @@ brawl.testing.prototype = {
         //Adding Coins (Win Game)
         this.coin = this.game.add.group();
         this.coin.enableBody = true;
+        //Adding Teleportation Doors.
+        this.door = this.game.add.group();
+        this.door.enableBody = true;
         //Adding This Undeniable Death At the Bottom
         this.death = this.game.add.group();
         this.death.enableBody = true;
@@ -191,6 +195,9 @@ brawl.testing.prototype = {
         this.text = this.game.add.text(200, 6208, "World: " + worldName, { font: "20px Arial", fill: "#ffffff", align: "center" });
         this.text.fixedToCamera = true;
         this.text.cameraOffset.setTo(1100, 725);
+
+        //Teleportation
+        this.game.physics.arcade.overlap(this.player, this.door, this.teleportationDoor, null, this);
 
     },
     // ////////////////////////Room Switching (Metroidvania) Events//////////////////////////
@@ -293,8 +300,14 @@ brawl.testing.prototype = {
         // - 20 for Tracking//
 
         ///////////////////////////Sprite Generation in World/////////////////////////////
+        // Generating Teleportation Doors
+        if (levelGenerator.doorSpawn[0]) {
+            for (var i = 1; i < levelGenerator.doorSpawn.length; i++) {
+                this.doorSpawn(levelGenerator.doorSpawn[i].x, levelGenerator.doorSpawn[i].y, levelGenerator.doorSpawn[i].teleportationX, levelGenerator.doorSpawn[i].teleportationY);
+            }
+        }
         //Generating Undeniable Death
-        if (levelGenerator.undeniableDeathSpawn) {
+        if (levelGenerator.undeniableDeathSpawn[0]) {
             for (var i = 1; i < levelGenerator.undeniableDeathSpawn.length; i++) {
                 this.undeniableDeathSpawn(levelGenerator.undeniableDeathSpawn[i].x, levelGenerator.undeniableDeathSpawn[i].y);
             }
@@ -358,11 +371,26 @@ brawl.testing.prototype = {
             this.finish.body.bounce.setTo(1);
             this.finish.body.velocity.setTo(levelGenerator.flagSpawn.velocityX, levelGenerator.flagSpawn.velocityY);
         }
-        
-        
-        
+
+
+
     },
     //////////////////////////Creating Game Objects/////////////////////////
+    doorSpawn: function (x, y, teleportX, teleportY) {
+        this.doorsX = this.door.create(x, y, 'door');
+        this.doorsX.anchor.setTo(.7);
+        this.doorsX.scale.setTo(.7);
+        this.doorsX.body.immovable = true;
+        this.doorsX.teleportationX = teleportX
+        this.doorsX.teleportationY = teleportY
+        console.log(this.doorsX.teleportationX);
+        ///////////////////////physics properties
+        // this.doorX.body.mass = 1;
+        // this.doorX.body.maxVelocity.setTo(1000);
+        // this.doorX.body.collideWorldBounds = true;
+        // this.doorX.body.bounce.setTo(1);
+        // this.doorX.body.velocity.setTo(velocityX, velocityY);
+    },
     coinSpawn: function (x, y, velocityX, velocityY) {
         this.coinX = this.coin.create(x, y, 'coin');
         this.coinX.anchor.setTo(.7);
@@ -603,6 +631,9 @@ brawl.testing.prototype = {
             }
         }
     },
+    teleportationDoor: function (player, door) {
+        player.reset(door.teleportationX, door.teleportationY);
+    },
     //////////////////////////////////////////Localized Win Conditions////////////////////////////////////////////
     coinWin: function () {
         this.game.physics.arcade.overlap(this.player, this.coin, deathThree, null, this);
@@ -817,6 +848,7 @@ brawl.testing.prototype = {
     // },
     //How Game Updates Real-Time (God Mode)!
     update: function () {
+        this.game.physics.arcade.overlap(this.player, this.door, this.teleportationDoor, null, this);
         this.fireEnemyBullet();
         ///////////God Mode//////////////
         this.player.body.velocity.y = 0;

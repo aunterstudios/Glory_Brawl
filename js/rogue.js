@@ -35,6 +35,7 @@ brawl.rogue.prototype = {
         this.load.image('boundary', 'assets/worldBounds.png');
         this.load.image('coin', 'assets/shield2.png');
         this.load.image('flag', 'assets/flag.png');
+        this.load.image('door', 'assets/door.png');
         this.load.spritesheet('dude', 'assets/white.png', 87.5, 93.5);
     },
     create: function () {
@@ -119,6 +120,9 @@ brawl.rogue.prototype = {
         //Adding Coins (Win Game)
         this.coin = this.game.add.group();
         this.coin.enableBody = true;
+        //Adding Teleportation Doors.
+        this.door = this.game.add.group();
+        this.door.enableBody = true;
         //Adding This Undeniable Death At the Bottom
         this.death = this.game.add.group();
         this.death.enableBody = true;

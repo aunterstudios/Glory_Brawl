@@ -225,6 +225,10 @@ var worldDesignedLevels = [
       roomRightIndex: 0,
       roomRightValue: 1400
     },
+    doorSpawn: 
+      [true,
+        {x: 500, y: 500, teleportationX: 100, teleporationY: 50}
+      ],
     undeniableDeathSpawn:
       [true,
         { x: 0, y: 800 }
