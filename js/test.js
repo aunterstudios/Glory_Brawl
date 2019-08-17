@@ -135,8 +135,8 @@ brawl.testing.prototype = {
         this.coin = this.game.add.group();
         this.coin.enableBody = true;
         //Adding Teleportation Doors.
-        this.door = this.game.add.group();
-        this.door.enableBody = true;
+        // this.door = this.game.add.group();
+        // this.door.enableBody = true;
         //Adding This Undeniable Death At the Bottom
         this.death = this.game.add.group();
         this.death.enableBody = true;
@@ -301,11 +301,11 @@ brawl.testing.prototype = {
 
         ///////////////////////////Sprite Generation in World/////////////////////////////
         // Generating Teleportation Doors
-        if (levelGenerator.doorSpawn[0]) {
-            for (var i = 1; i < levelGenerator.doorSpawn.length; i++) {
-                this.doorSpawn(levelGenerator.doorSpawn[i].x, levelGenerator.doorSpawn[i].y, levelGenerator.doorSpawn[i].teleportationX, levelGenerator.doorSpawn[i].teleportationY);
-            }
-        }
+        // if (levelGenerator.doorSpawn[0]) {
+        //     for (var i = 1; i < levelGenerator.doorSpawn.length; i++) {
+        //         this.doorSpawn(levelGenerator.doorSpawn[i].x, levelGenerator.doorSpawn[i].y, levelGenerator.doorSpawn[i].teleportationX, levelGenerator.doorSpawn[i].teleportationY);
+        //     }
+        // }
         //Generating Undeniable Death
         if (levelGenerator.undeniableDeathSpawn[0]) {
             for (var i = 1; i < levelGenerator.undeniableDeathSpawn.length; i++) {
@@ -376,21 +376,21 @@ brawl.testing.prototype = {
 
     },
     //////////////////////////Creating Game Objects/////////////////////////
-    doorSpawn: function (x, y, teleportX, teleportY) {
-        this.doorsX = this.door.create(x, y, 'door');
-        this.doorsX.anchor.setTo(.7);
-        this.doorsX.scale.setTo(.7);
-        this.doorsX.body.immovable = true;
-        this.doorsX.teleportationX = teleportX
-        this.doorsX.teleportationY = teleportY
-        console.log(this.doorsX.teleportationX);
-        ///////////////////////physics properties
-        // this.doorX.body.mass = 1;
-        // this.doorX.body.maxVelocity.setTo(1000);
-        // this.doorX.body.collideWorldBounds = true;
-        // this.doorX.body.bounce.setTo(1);
-        // this.doorX.body.velocity.setTo(velocityX, velocityY);
-    },
+    // doorSpawn: function (x, y, teleportX, teleportY) {
+    //     this.doorsX = this.door.create(x, y, 'door');
+    //     this.doorsX.anchor.setTo(.7);
+    //     this.doorsX.scale.setTo(.7);
+    //     this.doorsX.body.immovable = true;
+    //     this.doorsX.teleportationX = teleportX
+    //     this.doorsX.teleportationY = teleportY
+    //     console.log(this.doorsX.teleportationX);
+    //     ///////////////////////physics properties
+    //     // this.doorX.body.mass = 1;
+    //     // this.doorX.body.maxVelocity.setTo(1000);
+    //     // this.doorX.body.collideWorldBounds = true;
+    //     // this.doorX.body.bounce.setTo(1);
+    //     // this.doorX.body.velocity.setTo(velocityX, velocityY);
+    // },
     coinSpawn: function (x, y, velocityX, velocityY) {
         this.coinX = this.coin.create(x, y, 'coin');
         this.coinX.anchor.setTo(.7);
@@ -631,9 +631,9 @@ brawl.testing.prototype = {
             }
         }
     },
-    teleportationDoor: function (player, door) {
-        player.reset(door.teleportationX, door.teleportationY);
-    },
+    // teleportationDoor: function (player, door) {
+    //     player.reset(door.teleportationX, door.teleportationY);
+    // },
     //////////////////////////////////////////Localized Win Conditions////////////////////////////////////////////
     coinWin: function () {
         this.game.physics.arcade.overlap(this.player, this.coin, deathThree, null, this);

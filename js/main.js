@@ -282,9 +282,7 @@ var worldDesignedLevels = [
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "MetroidVania-Rogue Version: 02",
-  "In this unknown world.",
-  "You only know your name.",
+  "MetroidVania-Rogue Version: 03, TELEPORTATION DOORS",
   "Glory Brawl."
 ];
 

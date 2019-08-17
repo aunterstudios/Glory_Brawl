@@ -658,7 +658,7 @@ brawl.rogue.prototype = {
                 // if (game.physics.arcade.distanceBetween(enemyBullet, this.player, false, true) < 500) {
                 //     this.physics.arcade.moveToObject(enemyBullet,this.player,600);
                 // }
-                this.physics.arcade.moveToObject(enemyBullet, this.player, 550);
+                this.physics.arcade.moveToObject(enemyBullet, this.player, 475);
             }
         }
     },
