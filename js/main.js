@@ -225,9 +225,9 @@ var worldDesignedLevels = [
       roomRightIndex: 0,
       roomRightValue: 1400
     },
-    doorSpawn: 
+    doorSpawn:
       [true,
-        {x: 500, y: 500, teleportationX: 100, teleporationY: 50}
+        { x: 500, y: 500, teleportationX: 100, teleporationY: 50 }
       ],
     undeniableDeathSpawn:
       [true,
@@ -282,7 +282,7 @@ var worldDesignedLevels = [
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "MetroidVania-Rogue Version: 03, TELEPORTATION DOORS",
+  "MetroidVania-Rogue Version: 03, WeaponFix",
   "Glory Brawl."
 ];
 
@@ -531,100 +531,22 @@ function ledgeSideX(player, ledge) {
 function weaponImmovable(weapon, wall) {
   weapon.kill();
 }
-function weaponHandler(weapon, sprite) {
-  // sprite.body.stop();
-  if (pullBoolean) {
-    ////////////////////////////////First Attempt////////////////////////
-    // console.log("sprite Angle: " + sprite.body.angle);
-    // console.log("Weapon Angle: " + weapon.body.angle);
-    // sprite.body.velocity.setTo((weapon.x - sprite.x) * 4, (weapon.y - sprite.y) * 4)
-    ////////////////////////////////Second Attempt But Figured Something Out///////////////////////
-    // game.physics.arcade.moveToXY(sprite, weapon.x, weapon.y, 50, 1000);
-    // console.log("WY: " + sprite.body.velocity.y + " WX: " + sprite.body.velocity.x);
-    // console.log("PlayerX: " + this.player.x + " PLayerY: " + this.player.y);
-    //////////////////////////////What I'm going to go with?/////////////////
-    // if (sprite.body.touching.up) {
-    //   sprite.body.velocity.y = -50
-    // }
-    // else if (sprite.body.touching.down) {
-    //   sprite.body.velocity.y = 50;
-    // }
-    // else if (sprite.body.touching.left) {
-    //   sprite.body.velocity.x = -50;
-    // }
-    // else if (sprite.body.touching.right) {
-    //   sprite.body.velocity.x = 50;
-    // }
-    // this.game.physics.arcade.computeVelocity(0, sprite.body, 40, 50, 100, 500);
-    ///////////////////////////////Fourth Attempt//////////////////////////////////
-    // game.physics.arcade.velocityFromAngle(weapon.angle, 300, sprite.velocity);
-    // sprite.body.velocityFromAngle(weapon.body.angle,100);
-    // this.sprite.forEach(game.physics.arcade.moveToPointer, game.physics.arcade, false, 200);
-    this.game.physics.arcade.moveToObject(sprite, this.player, 200);
-  }
-  else if (pushBoolean) {
-    // sprite.body.immovable = false;
-    sprite.body.stop();
-  }
-  else if (stopBoolean) {
-    // sprite.body.immovable = true;
-    // sprite.body.stop();
-    sprite.kill();
-    if (sprite.key === "coin" || sprite.key === "flag") {
-      //Refactor
-      // console.log("it hit? coinX");
-      if (streak > longestStreak) {
-        longestStreak = streak;
-      }
-      streak = 0;
-      game.state.start('deathState');
-    }
-  }
+
+function pullWeaponHandler(weapon, sprite) {
+  this.game.physics.arcade.moveToObject(sprite, this.player, 200);
   weapon.kill();
 }
 
-////////////////////Refactor this later/////////////////////////////
-function weaponHandlerForFlag(sprite, weapon) {
-  // sprite.body.stop();
-  if (pullBoolean) {
-    ////////////////////////////////First Attempt////////////////////////
-    // console.log("sprite Angle: " + sprite.body.angle);
-    // console.log("Weapon Angle: " + weapon.body.angle);
-    // sprite.body.velocity.setTo((weapon.x - sprite.x) * 4, (weapon.y - sprite.y) * 4)
-    ////////////////////////////////Second Attempt But Figured Something Out///////////////////////
-    // game.physics.arcade.moveToXY(sprite, weapon.x, weapon.y, 50, 1000);
-    // console.log("WY: " + sprite.body.velocity.y + " WX: " + sprite.body.velocity.x);
-    // console.log("PlayerX: " + this.player.x + " PLayerY: " + this.player.y);
-    //////////////////////////////What I'm going to go with?/////////////////
-    // if (sprite.body.touching.up) {
-    //   sprite.body.velocity.y = -50
-    // }
-    // else if (sprite.body.touching.down) {
-    //   sprite.body.velocity.y = 50;
-    // }
-    // else if (sprite.body.touching.left) {
-    //   sprite.body.velocity.x = -50;
-    // }
-    // else if (sprite.body.touching.right) {
-    //   sprite.body.velocity.x = 50;
-    // }
-    // this.game.physics.arcade.computeVelocity(0, sprite.body, 40, 50, 100, 500);
-    ///////////////////////////////Fourth Attempt//////////////////////////////////
-    // game.physics.arcade.velocityFromAngle(weapon.angle, 300, sprite.velocity);
-    // sprite.body.velocityFromAngle(weapon.body.angle,100);
-    // this.sprite.forEach(game.physics.arcade.moveToPointer, game.physics.arcade, false, 200);
-    this.game.physics.arcade.moveToObject(sprite, this.player, 200);
-  }
-  else if (pushBoolean) {
-    // sprite.body.immovable = false;
-    sprite.body.stop();
-  }
-  else if (stopBoolean) {
-    // sprite.body.immovable = true;
-    // sprite.body.stop();
-    sprite.kill();
+function stopWeaponHandler(weapon, sprite) {
+  sprite.body.stop();
+  weapon.kill();
+}
+
+function killWeaponHandler(weapon, sprite) {
+  sprite.kill();
+  if (sprite.key === "coin" || sprite.key === "flag") {
     //Refactor
-    // console.log("it hit? Flag");
+    // console.log("it hit? coinX");
     if (streak > longestStreak) {
       longestStreak = streak;
     }
@@ -634,7 +556,85 @@ function weaponHandlerForFlag(sprite, weapon) {
   weapon.kill();
 }
 
-//Test Function
+function pullWeaponHandlerForFlag(sprite, weapon) {
+  this.game.physics.arcade.moveToObject(sprite, this.player, 200);
+  weapon.kill();
+}
+
+function stopWeaponHandlerForFlag(sprite, weapon) {
+  sprite.body.stop();
+  weapon.kill();
+}
+
+function killWeaponHandlerForFlag(sprite, weapon) {
+  sprite.kill();
+  if (sprite.key === "coin" || sprite.key === "flag") {
+    //Refactor
+    // console.log("it hit? coinX");
+    if (streak > longestStreak) {
+      longestStreak = streak;
+    }
+    streak = 0;
+    game.state.start('deathState');
+  }
+  weapon.kill();
+}
+
+
+
+// function weaponHandler(weapon, sprite) {
+//   // sprite.body.stop();
+//   if (pullBoolean) {
+//     ////////////////////////////////First Attempt////////////////////////
+//     // console.log("sprite Angle: " + sprite.body.angle);
+//     // console.log("Weapon Angle: " + weapon.body.angle);
+//     // sprite.body.velocity.setTo((weapon.x - sprite.x) * 4, (weapon.y - sprite.y) * 4)
+//     ////////////////////////////////Second Attempt But Figured Something Out///////////////////////
+//     // game.physics.arcade.moveToXY(sprite, weapon.x, weapon.y, 50, 1000);
+//     // console.log("WY: " + sprite.body.velocity.y + " WX: " + sprite.body.velocity.x);
+//     // console.log("PlayerX: " + this.player.x + " PLayerY: " + this.player.y);
+//     //////////////////////////////What I'm going to go with?/////////////////
+//     // if (sprite.body.touching.up) {
+//     //   sprite.body.velocity.y = -50
+//     // }
+//     // else if (sprite.body.touching.down) {
+//     //   sprite.body.velocity.y = 50;
+//     // }
+//     // else if (sprite.body.touching.left) {
+//     //   sprite.body.velocity.x = -50;
+//     // }
+//     // else if (sprite.body.touching.right) {
+//     //   sprite.body.velocity.x = 50;
+//     // }
+//     // this.game.physics.arcade.computeVelocity(0, sprite.body, 40, 50, 100, 500);
+//     ///////////////////////////////Fourth Attempt//////////////////////////////////
+//     // game.physics.arcade.velocityFromAngle(weapon.angle, 300, sprite.velocity);
+//     // sprite.body.velocityFromAngle(weapon.body.angle,100);
+//     // this.sprite.forEach(game.physics.arcade.moveToPointer, game.physics.arcade, false, 200);
+//     this.game.physics.arcade.moveToObject(sprite, this.player, 200);
+//   }
+//   else if (pushBoolean) {
+//     // sprite.body.immovable = false;
+//     sprite.body.stop();
+//   }
+//   else if (stopBoolean) {
+//     // sprite.body.immovable = true;
+//     // sprite.body.stop();
+//     sprite.kill();
+//     if (sprite.key === "coin" || sprite.key === "flag") {
+//       //Refactor
+//       // console.log("it hit? coinX");
+//       if (streak > longestStreak) {
+//         longestStreak = streak;
+//       }
+//       streak = 0;
+//       game.state.start('deathState');
+//     }
+//   }
+//   weapon.kill();
+// }
+
+///////////////////////Test Function///////////////////////
 
 function testFunctionX(sprite1, sprite2) {
   // if (sprite2.key === "wall" || "rotatedWall" || "brownPlatform") {

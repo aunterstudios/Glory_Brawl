@@ -673,7 +673,9 @@ brawl.rogue.prototype = {
     },
     flagWin: function () {
         //Flag vs. Weapon
-        this.game.physics.arcade.collide(this.finish, [this.weapon1.bullets, this.weapon2.bullets, this.weapon3.bullets], weaponHandlerForFlag, null, this);
+        this.game.physics.arcade.collide(this.finish, this.weapon1.bullets, pullWeaponHandlerForFlag, null, this);
+        this.game.physics.arcade.collide(this.finish, this.weapon2.bullets, stopWeaponHandlerForFlag, null, this);
+        this.game.physics.arcade.collide(this.finish, this.weapon3.bullets, killWeaponHandlerForFlag, null, this);
         //Flag Physics
         this.game.physics.arcade.collide(this.finish, [this.immovableWall, this.wall, this.enemy, this.ledge, this.ledgeDown, this.ledgeSide, this.spikes, this.ball]);
         //Winning!
@@ -694,8 +696,12 @@ brawl.rogue.prototype = {
         var onImmovable = this.game.physics.arcade.collide(this.player, this.immovableWall, null, null, this);
 
         //Weapon Mechanics
-        this.game.physics.arcade.collide([this.weapon1.bullets, this.weapon2.bullets, this.weapon3.bullets], [this.ball, this.wall, this.ledge, this.ledgeDown, this.ledgeSide, this.enemy, this.coin], weaponHandler, null, this);
-        this.game.physics.arcade.overlap([this.weapon1.bullets, this.weapon2.bullets, this.weapon3.bullets], [this.immovableWall, this.spikes], weaponImmovable, null, this);
+        this.game.physics.arcade.collide(this.weapon1.bullets, [this.ball, this.wall, this.ledge, this.ledgeDown, this.ledgeSide, this.enemy, this.coin], pullWeaponHandler, null, this);
+        this.game.physics.arcade.overlap(this.weapon1.bullets, [this.immovableWall, this.spikes], weaponImmovable, null, this);
+        this.game.physics.arcade.collide(this.weapon2.bullets, [this.ball, this.wall, this.ledge, this.ledgeDown, this.ledgeSide, this.enemy, this.coin], stopWeaponHandler, null, this);
+        this.game.physics.arcade.overlap(this.weapon2.bullets, [this.immovableWall, this.spikes], weaponImmovable, null, this);
+        this.game.physics.arcade.collide(this.weapon3.bullets, [this.ball, this.wall, this.ledge, this.ledgeDown, this.ledgeSide, this.enemy, this.coin], killWeaponHandler, null, this);
+        this.game.physics.arcade.overlap(this.weapon3.bullets, [this.immovableWall, this.spikes], weaponImmovable, null, this);
 
         //Immovable Wall Mechanics
         this.game.physics.arcade.collide(this.immovableWall, [this.ball, this.wall, this.ledge, this.ledgeDown, this.ledgeSide, this.enemy], null, null, this);
