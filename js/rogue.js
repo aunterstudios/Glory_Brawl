@@ -70,7 +70,7 @@ brawl.rogue.prototype = {
         this.game.physics.arcade.OVERLAP_BIAS = 12;
 
         //Initializes all the Randomness
-        var randomGeneratorForWorld = this.game.rnd.integerInRange(0, 0);
+        var randomGeneratorForWorld = this.game.rnd.integerInRange(0, 4);
 
         ////////////////////Game World Size//////////////////////
         this.game.world.setBounds(0, 0, worldGenerator[randomGeneratorForWorld].xOfWorld, worldGenerator[randomGeneratorForWorld].yOfWorld);
@@ -282,7 +282,7 @@ brawl.rogue.prototype = {
         // - 20 for Tracking//
 
         //Reset Position Index Increaser
-        var indexIncrease = -1;
+        // var indexIncrease = -1;
 
         //Adding Undeniable Death
         for (var i = 0; i < thisWorldGenerator.world.deathIterator; i++) {
@@ -304,34 +304,18 @@ brawl.rogue.prototype = {
                 // this.text = this.game.add.text(rect.x + 100, rect.y + 100, "Rectangle " + x + " x " + y + " y ", { font: "32px Arial", fill: "#ffffff", align: "center" });
 
                 ////////////Random Array to Scramble Positions Within Rectangle//////////
-                // var positionArray = [topCenter, topLeft, topRight, center, centerLeft, centerRight, bottomCenter, bottomLeft, bottomRight];
+
+                //Basecamp (starting position)
                 if (x === thisWorldGenerator.baseCamp[0].iteratorXBaseCamp && y === thisWorldGenerator.baseCamp[0].iteratorYBaseCamp) {
                     this.baseCamp(xOfSprite, yOfSprite, rect, bottomCenter, bottomLeft, bottomRight, centerLeft, centerRight, topLeft, topRight);
                 }
+                //Endpoint (Flag)
+                else if (x === thisWorldGenerator.baseCamp[1].iteratorXBaseCamp && y === thisWorldGenerator.baseCamp[1].iteratorYBaseCamp) {
+                    this.gridSystem(xOfSprite, yOfSprite, rect, true);
+                }
+                //Initialization of the rest of the map
                 else {
-                    shuffle(positionArray);
-                    // console.log("x" + "y" + x + y + " " + positionArray)
-                    //////Sprites//////
-
-                    //Increases the index positioning
-                    indexIncrease++
-                    console.log("indexIncrease: " + indexIncrease);
-                    for (var i = 0; i < this.game.rnd.integerInRange(2, 4); i++) {
-                        this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[i], thisWorldGenerator.spritesType[indexIncrease]);
-                        // this.gridSystem(xOfSprite, yOfSprite, rect, positionArray[i], 0, i);
-                    }
-                    if (x === thisWorldGenerator.baseCamp[1].iteratorXBaseCamp && y === thisWorldGenerator.baseCamp[1].iteratorYBaseCamp) {
-                        this.finish = this.game.add.sprite(xOfSprite, yOfSprite, 'flag');
-                        this.game.physics.arcade.enable(this.finish);
-                        this.finish.body.mass = 1;
-                        this.finish.body.maxVelocity.setTo(300);
-                        this.finish.body.collideWorldBounds = true;
-                        this.finish.body.bounce.setTo(1);
-                        this.finish.body.velocity.x = this.game.rnd.realInRange(-50, 50)
-                        this.finish.alignIn(rect, positionArray[i + 1]);
-                        // console.log("Flag Initiated");
-                        // console.log(this.finish);
-                    }
+                    this.gridSystem(xOfSprite, yOfSprite, rect, false);
                 }
             }
         }
@@ -341,46 +325,76 @@ brawl.rogue.prototype = {
         // }
     },
     /////////////////////////Randomness of the Map///////////////////////////
-    gridSystem: function (x, y, rect, positionInRectangle, spriteType, particularSprite) {
-        //Create Randomness in Each Batch of Sprite Groups
+    gridSystem: function (x, y, rect, initiateFlag) {
+        ////////////////////Create Randomness in Each Batch of Sprite Groups//////////////////
+        shuffle(positionArray);
+        // console.log("x" + "y" + x + y + " " + positionArray)
         var gridSystemGenesis = this.game.rnd.integerInRange(0, 100);
         //////////////////////////Alpha Build One/////////////////// (Needs different Combinations on Hindsight)
-        //Walls
-        if (spriteType === 0) {
-            if (particularSprite === 0) {
-                this.immovableSpawn(x, y, rect, positionInRectangle);
-            }
-            else if (particularSprite === 1) {
-                this.wallSpawn(x, y, rect, positionInRectangle);
-            }
+        // //Walls
+        // if (spriteType === 0) {
+        //     if (particularSprite === 0) {
+        //         this.immovableSpawn(x, y, rect, positionInRectangle);
+        //     }
+        //     else if (particularSprite === 1) {
+        //         this.wallSpawn(x, y, rect, positionInRectangle);
+        //     }
+        // }
+        // //Enemy
+        // else if (spriteType === 1) {
+        //     if (gridSystemGenesis >= 0 && gridSystemGenesis <= 50) {
+        //         this.enemySpawn(x, y, rect, positionInRectangle);
+        //     }
+        //     else if (gridSystemGenesis >= 51 && gridSystemGenesis <= 100) {
+        //         this.spikeSpawn(x, y, rect, positionInRectangle);
+        //     }
+        // }
+        // //Ledges
+        // else if (spriteType === 2) {
+        //     if (gridSystemGenesis >= 0 && gridSystemGenesis <= 33) {
+        //         this.ledgeSpawn(x, y, rect, positionInRectangle);
+        //     }
+        //     else if (gridSystemGenesis >= 34 && gridSystemGenesis <= 66) {
+        //         this.ledgeDownSpawn(x, y, rect, positionInRectangle);
+        //     }
+        //     else if (gridSystemGenesis >= 67 && gridSystemGenesis <= 100) {
+        //         this.ledgeSideSpawn(x, y, rect, positionInRectangle);
+        //     }
+        // }
+        // //Ball
+        // else if (spriteType === 3) {
+        //     if (gridSystemGenesis >= 0 && gridSystemGenesis <= 100) {
+        //         this.ballSpawn(x, y, rect, positionInRectangle);
+        //     }
+        // }
+        //////////////////////////Alpha Build Two///////////////////
+
+        //Sprite Generation in Each Grid
+        if (gridSystemGenesis >= 0 && gridSystemGenesis <= 33) {
+            this.immovableSpawn(x, y, rect, positionArray[0]);
+            this.wallSpawn(x, y, rect, positionArray[1]);
         }
-        //Enemy
-        else if (spriteType === 1) {
-            if (gridSystemGenesis >= 0 && gridSystemGenesis <= 50) {
-                this.enemySpawn(x, y, rect, positionInRectangle);
-            }
-            else if (gridSystemGenesis >= 51 && gridSystemGenesis <= 100) {
-                this.spikeSpawn(x, y, rect, positionInRectangle);
-            }
+        else if (gridSystemGenesis >= 34 && gridSystemGenesis <= 66) {
+            this.ballSpawn(x, y, rect, positionArray[0])
+            this.ledgeDownSpawn(x, y, rect, positionArray[1]);
         }
-        //Ledges
-        else if (spriteType === 2) {
-            if (gridSystemGenesis >= 0 && gridSystemGenesis <= 33) {
-                this.ledgeSpawn(x, y, rect, positionInRectangle);
-            }
-            else if (gridSystemGenesis >= 34 && gridSystemGenesis <= 66) {
-                this.ledgeDownSpawn(x, y, rect, positionInRectangle);
-            }
-            else if (gridSystemGenesis >= 67 && gridSystemGenesis <= 100) {
-                this.ledgeSideSpawn(x, y, rect, positionInRectangle);
-            }
+        else if (gridSystemGenesis >= 67 && gridSystemGenesis <= 100) {
+            this.enemySpawn(x, y, rect, positionArray[0]);
+            this.spikeSpawn(x, y, rect, positionArray[1]);
+            this.ledgeSideSpawn(x, y, rect, positionArray[2])
         }
-        //Ball
-        else if (spriteType === 3) {
-            if (gridSystemGenesis >= 0 && gridSystemGenesis <= 100) {
-                this.ballSpawn(x, y, rect, positionInRectangle);
-            }
+        //Initiate the Flag at the End
+        if (initiateFlag) {
+            this.finish = this.game.add.sprite(x, y, 'flag');
+            this.game.physics.arcade.enable(this.finish);
+            this.finish.body.mass = 1;
+            this.finish.body.maxVelocity.setTo(300);
+            this.finish.body.collideWorldBounds = true;
+            this.finish.body.bounce.setTo(1);
+            this.finish.body.velocity.x = this.game.rnd.realInRange(-50, 50)
+            this.finish.alignIn(rect, positionArray[8]);
         }
+
     },
     //////////////////////////////////////Starting Position of Player//////////////////////////////
     baseCamp: function (x, y, rect, positionInRectangle1, positionInRectangle2, positionInRectangle3, positionInRectangle4, positionInRectangle5, positionInRectangle6, positionInRectangle7) {
