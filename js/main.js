@@ -282,7 +282,7 @@ var worldDesignedLevels = [
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "MetroidVania-Rogue Version: 04, newRogue",
+  "MetroidVania-Rogue Version: 05, newRogueValues",
   "Glory Brawl."
 ];
 

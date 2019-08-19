@@ -369,19 +369,42 @@ brawl.rogue.prototype = {
         // }
         //////////////////////////Alpha Build Two///////////////////
 
-        //Sprite Generation in Each Grid
-        if (gridSystemGenesis >= 0 && gridSystemGenesis <= 33) {
+        /////////////////Sprite Generation in Each Grid////////////////
+
+        //Stability with immovable walls in one block
+        if (gridSystemGenesis >= 0 && gridSystemGenesis <= 15) {
             this.immovableSpawn(x, y, rect, positionArray[0]);
+            // this.wallSpawn(x, y, rect, positionArray[1]);
+        }
+        else if (gridSystemGenesis >= 16 && gridSystemGenesis <= 21) {
             this.wallSpawn(x, y, rect, positionArray[1]);
         }
-        else if (gridSystemGenesis >= 34 && gridSystemGenesis <= 66) {
-            this.ballSpawn(x, y, rect, positionArray[0])
-            this.ledgeDownSpawn(x, y, rect, positionArray[1]);
+        else if (gridSystemGenesis >= 22 && gridSystemGenesis <= 27) {
+            for (var i = 0; i < 3; i ++) {
+                this.ballSpawn(x,y,rect,positionArray[i]);
+            }
         }
-        else if (gridSystemGenesis >= 67 && gridSystemGenesis <= 100) {
-            this.enemySpawn(x, y, rect, positionArray[0]);
-            this.spikeSpawn(x, y, rect, positionArray[1]);
-            this.ledgeSideSpawn(x, y, rect, positionArray[2])
+        else if (gridSystemGenesis >= 28 && gridSystemGenesis <= 33) {
+            this.ledgeSpawn(x, y, rect, positionArray[0]);
+            this.ledgeSideSpawn(x,y,rect,positionArray[1]);
+        }
+        else if (gridSystemGenesis >= 34 && gridSystemGenesis <= 39) {
+            this.ledgeDownSpawn(x,y,rect,positionArray[0])
+        }
+        else if (gridSystemGenesis >= 41 && gridSystemGenesis <= 60) {
+            this.spikeSpawn(x,y,rect,positionArray[0]);
+        }
+        else if (gridSystemGenesis >= 61 && gridSystemGenesis <= 70) {
+            this.enemySpawn(x,y,rect,positionArray[0]);
+            this.spikeSpawn(x,y,rect,positionArray[1]);
+        }
+        else if (gridSystemGenesis >= 71 && gridSystemGenesis <= 80) {
+            this.enemySpawn(x,y,rect,positionArray[0]);
+        }
+        else if (gridSystemGenesis >= 90 && gridSystemGenesis <= 100) {
+            this.ledgeDownSpawn(x,y,rect,positionArray[0]);
+            this.ledgeSideSpawn(x,y,rect,positionArray[1]);
+            this.ledgeSpawn(x,y,rect,positionArray[1]);
         }
         //Initiate the Flag at the End
         if (initiateFlag) {
