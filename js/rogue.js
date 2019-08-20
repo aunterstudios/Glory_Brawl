@@ -371,54 +371,59 @@ brawl.rogue.prototype = {
 
         /////////////////Sprite Generation in Each Grid////////////////
 
+        //Walls
         //Stability with immovable walls in one block
-        if (gridSystemGenesis >= 0 && gridSystemGenesis <= 20) {
+        if (gridSystemGenesis >= 0 && gridSystemGenesis <= 10) {
             this.immovableSpawn(x, y, rect, positionArray[0]);
             // this.wallSpawn(x, y, rect, positionArray[1]);
         }
-        else if (gridSystemGenesis >= 21 && gridSystemGenesis <= 31) {
-            this.enemySpawn(x,y,rect,positionArray[0]);
-            this.ledgeSpawn(x,y,rect,positionArray[1]);
-            this.wallSpawn(x,y,rect,positionArray[2]);
+        else if (gridSystemGenesis >= 11 && gridSystemGenesis <= 16) {
+            this.wallSpawn(x, y, rect, positionArray[0]);
         }
-        else if (gridSystemGenesis >= 32 && gridSystemGenesis <= 46) {
-            // for (var i = 0; i < 3; i ++) {
-            //     this.ballSpawn(x,y,rect,positionArray[i]);
-            // }
-            this.spikeSpawn(x,y,rect,positionArray[0]);
-            this.enemySpawn(x,y,rect,positionArray[1]);
-            this.wallSpawn(x,y,rect,positionArray[2]);
+        else if (gridSystemGenesis >= 17 && gridSystemGenesis <= 23) {
+            this.wallSpawn(x, y, rect, positionArray[0]);
+            this.immovableSpawn(x, y, rect, positionArray[1]);
         }
-        else if (gridSystemGenesis >= 47 && gridSystemGenesis <= 59) {
+        else if (gridSystemGenesis >= 23 && gridSystemGenesis <= 30) {
+            this.wallSpawn(x, y, rect, positionArray[0]);
+            this.wallSpawn(x, y, rect, positionArray[1]);
+            this.immovableSpawn(x, y, rect, positionArray[2]);
+        }
+        else if (gridSystemGenesis >= 31 && gridSystemGenesis <= 33) {
+            this.immovableSpawn(x, y, rect, positionArray[0]);
+            this.immovableSpawn(x, y, rect, positionArray[1]);
+        }
+        //Enemies
+        else if (gridSystemGenesis >= 34 && gridSystemGenesis <= 50) {
+            this.enemySpawn(x, y, rect, positionArray[0]);
+            this.spikeSpawn(x, y, rect, positionArray[1]);
+        }
+        else if (gridSystemGenesis >= 51 && gridSystemGenesis <= 60) {
+            this.spikeSpawn(x, y, rect, positionArray[0]);
+        }
+        else if (gridSystemGenesis >= 61 && gridSystemGenesis <= 68) {
+            this.enemySpawn(x, y, rect, positionArray[0]);
+            this.enemySpawn(x, y, rect, positionArray[1]);
+        }
+        else if (gridSystemGenesis >= 69 && gridSystemGenesis <= 80) {
+            this.spikeSpawn(x, y, rect, positionArray[0]);
+            this.spikeSpawn(x, y, rect, positionArray[1]);
+        }
+        //Platforms
+        else if (gridSystemGenesis >= 81 && gridSystemGenesis <= 86) {
+            this.ledgeDownSpawn(x, y, rect, positionArray[0]);
+        }
+        else if (gridSystemGenesis >= 87  && gridSystemGenesis <= 93) {
             this.ledgeSpawn(x, y, rect, positionArray[0]);
-            this.ledgeSideSpawn(x,y,rect,positionArray[1]);
-            //checkoneTwo
-        }
-        else if (gridSystemGenesis >= 60 && gridSystemGenesis <= 67) {
-            this.ledgeDownSpawn(x,y,rect,positionArray[0])
-            this.ballSpawn(x,y,rect,positionArray[1]);
-        }
-        else if (gridSystemGenesis >= 68 && gridSystemGenesis <= 80) {
-            this.spikeSpawn(x,y,rect,positionArray[0]);
-            this.wallSpawn(x,y,rect,positionArray[1]);
-        }
-        else if (gridSystemGenesis >= 81 && gridSystemGenesis <= 90) {
-            this.enemySpawn(x,y,rect,positionArray[0]);
-            this.spikeSpawn(x,y,rect,positionArray[1]);
-        }
-        else if (gridSystemGenesis >= 91 && gridSystemGenesis <= 93) {
-            this.enemySpawn(x,y,rect,positionArray[0]);
         }
         else if (gridSystemGenesis >= 94 && gridSystemGenesis <= 100) {
-            this.ledgeDownSpawn(x,y,rect,positionArray[0]);
-            this.ledgeSideSpawn(x,y,rect,positionArray[1]);
-            this.enemySpawn(x,y,rect,positionArray[2]);
+            this.ledgeSideSpawn(x, y, rect, positionArray[0]);
         }
         //Initiate the Flag at the End
         if (initiateFlag) {
             this.finish = this.game.add.sprite(x, y, 'flag');
             this.game.physics.arcade.enable(this.finish);
-            this.finish.body.mass = 1;
+            this.finish.body.mass = 10;
             this.finish.body.maxVelocity.setTo(300);
             this.finish.body.collideWorldBounds = true;
             this.finish.body.bounce.setTo(1);
@@ -576,7 +581,8 @@ brawl.rogue.prototype = {
         // var spikeLength = [.2, .3,];
         this.spikesX = this.spikes.create(x, y, spikeArray[Math.floor(Math.random() * spikeArray.length)]);
         this.spikesX.anchor.setTo(.5);
-        this.spikesX.scale.setTo(spikeLength[Math.floor(Math.random() * spikeLength.length)]);
+        // this.spikesX.scale.setTo(spikeLength[Math.floor(Math.random() * spikeLength.length)]);
+        this.spikesX.scale.setTo(.4);
         this.spikesX.body.immovable = true;
         this.spikesX.body.collideWorldBounds = true;
         this.spikesX.body.mass = 150;
