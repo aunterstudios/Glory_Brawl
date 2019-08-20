@@ -80,7 +80,7 @@ brawl.testing.prototype = {
         this.pause.onDown.add(this.goPause, this);
 
         //Overlap Bias to Prevent Sprite Tunneling
-        this.game.physics.arcade.OVERLAP_BIAS = 12;
+        this.game.physics.arcade.OVERLAP_BIAS = 20;
 
         // //Initializes all the Randomness for World and GameMode
         // var randomGeneratorForWorld = this.game.rnd.integerInRange(0, 0);
