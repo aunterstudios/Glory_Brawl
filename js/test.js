@@ -666,8 +666,12 @@ brawl.testing.prototype = {
     //     var onImmovable = this.game.physics.arcade.collide(this.player, this.immovableWall, null, null, this);
 
     //     //Weapon Mechanics
-    //     this.game.physics.arcade.collide([this.weapon1.bullets, this.weapon2.bullets, this.weapon3.bullets], [this.ball, this.wall, this.ledge, this.ledgeDown, this.ledgeSide, this.enemy, this.coin], weaponHandler, null, this);
-    //     this.game.physics.arcade.overlap([this.weapon1.bullets, this.weapon2.bullets, this.weapon3.bullets], [this.immovableWall, this.spikes], weaponImmovable, null, this);
+    // this.game.physics.arcade.collide(this.weapon1.bullets, [this.ball, this.wall, this.ledge, this.ledgeDown, this.ledgeSide, this.enemy, this.coin], pullWeaponHandler, null, this);
+    // this.game.physics.arcade.overlap(this.weapon1.bullets, [this.immovableWall, this.spikes], weaponImmovable, null, this);
+    // this.game.physics.arcade.collide(this.weapon2.bullets, [this.ball, this.wall, this.ledge, this.ledgeDown, this.ledgeSide, this.enemy, this.coin], stopWeaponHandler, null, this);
+    // this.game.physics.arcade.overlap(this.weapon2.bullets, [this.immovableWall, this.spikes], weaponImmovable, null, this);
+    // this.game.physics.arcade.collide(this.weapon3.bullets, [this.ball, this.wall, this.ledge, this.ledgeDown, this.ledgeSide, this.enemy, this.coin], killWeaponHandler, null, this);
+    // this.game.physics.arcade.overlap(this.weapon3.bullets, [this.immovableWall, this.spikes], weaponImmovable, null, this);
 
     //     //Immovable Wall Mechanics
     //     this.game.physics.arcade.collide(this.immovableWall, [this.ball, this.wall, this.ledge, this.ledgeDown, this.ledgeSide, this.enemy], null, null, this);

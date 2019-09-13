@@ -413,7 +413,7 @@ brawl.rogue.prototype = {
         else if (gridSystemGenesis >= 81 && gridSystemGenesis <= 86) {
             this.ledgeDownSpawn(x, y, rect, positionArray[0]);
         }
-        else if (gridSystemGenesis >= 87  && gridSystemGenesis <= 93) {
+        else if (gridSystemGenesis >= 87 && gridSystemGenesis <= 93) {
             this.ledgeSpawn(x, y, rect, positionArray[0]);
         }
         else if (gridSystemGenesis >= 94 && gridSystemGenesis <= 100) {

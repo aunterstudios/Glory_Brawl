@@ -193,7 +193,7 @@ function shuffle(array) {
 var worldDesignedLevels = [
   //Level 0
   {
-    worldName: "Level 0",
+    worldName: "Level 0 ",
     gameMode: ["flag", "coin"],
     ////////////World Size
     xOfWorld: 1400,
@@ -277,12 +277,103 @@ var worldDesignedLevels = [
     //Super Ball
     //World Gravity
     //Traps that create generating enemies
-  }
+  },
+  //Level One
+  {
+    worldName: "Level 0 1/2: Practice",
+    gameMode: ["flag", "coin"],
+    ////////////World Size
+    xOfWorld: 1400,
+    yOfWorld: 800,
+    ///////////Sprite Positioning
+    //Where the Player Spawns Due to Switching Rooms
+    playerPosition:
+      //Up, Down, Left, Right (Remember!)
+      [
+        { upPosition: true, x: 200, y: 20 },
+        { downPosition: true, x: 700, y: 500 },
+        { leftPosition: true, x: 200, y: 400 },
+        { rightPosition: true, x: 1400, y: 400 }
+      ],
+    //Deals with Room Switching
+    metroidvania:
+    //Up, Down, Left, Right (Remember!)
+    {
+      //Up Values
+      roomUpIndex: 0,
+      roomUpValue: 0,
+      //Down Values
+      roomDownIndex: 0,
+      roomDownValue: 800,
+      //Left Values
+      roomLeftIndex: 0,
+      roomLeftValue: 1,
+      //Right Values
+      roomRightIndex: 0,
+      roomRightValue: 1400
+    },
+    doorSpawn:
+      [true,
+        { x: 500, y: 500, teleportationX: 100, teleporationY: 50 }
+      ],
+    undeniableDeathSpawn:
+      [true,
+        { x: 0, y: 800 }
+      ],
+    immovableWallSpawn:
+      [true,
+        { x: 0, y: 200, velocityX: 0, velocityY: 0, size: .5, art: "immovableRotatedWall" },
+        // { x: 600, y: 400, velocityX: 500, velocityY: 0, size: .5, art: "immovableVerticalWall" },
+      ],
+    wallSpawn:
+      [true,
+        { x: 200, y: 400, velocityX: 300, velocityY: 0, size: .5, art: "rotatedWall" },
+      ],
+    spikeSpawn:
+      [true,
+        { x: 700, y: 475, velocityX: 700, velocityY: 0, size: .5, art: "spikes" },
+        { x: 700, y: 900, velocityX: 0, velocityY: 0, size: 1, art: "spikes" },
+      ],
+    ledgeGreySpawn:
+      [true,
+        //First Item!!
+        { x: 1000, y: 200, velocityX: 0, velocityY: 0 },
+      ],
+    ledgeGreenSpawn:
+      [true,
+        { x: 800, y: 200, velocityX: 0, velocityY: 0 },
+      ],
+    ledgeBlueSpawn:
+      [true,
+        { x: 600, y: 200, velocityX: 0, velocityY: 0 },
+      ],
+    enemySpawn:
+      [true,
+        { x: 1200, y: 100, velocityX: 0, velocityY: 0 },
+      ],
+    ballSpawn:
+      [true,
+        { x: 1300, y: 50, velocityX: 0, velocityY: 0 },
+      ],
+    //Check Point
+    flagSpawn: { trigger: true, x: 0, y: 550, velocityX: 400, velocityY: 0 } //Will Need to Attach a Boolean Here to Trigger
+
+
+    //Any Other Property Here Are Unditional Objects
+    //Falling or Sideways Spikes
+    //Super Ball
+    //World Gravity
+    //Traps that create generating enemies
+  },
 ]
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "MetroidVania-Rogue Version: 06, changedOverLapBias",
+  "MetroidVania-Rogue Version: The Truth",
+  "In this lair of a mad god.",
+  "You must become a god yourself.",
+  "Ascend.",
+  "Remember the words.",
   "Glory Brawl."
 ];
 
