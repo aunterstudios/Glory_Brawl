@@ -35,7 +35,7 @@ brawl.state2.prototype = {
                 this.game.state.start('rogueTest');
             }
             else {
-                this.game.state.start('test');
+                this.game.state.start('test', true, false, 0, 1, worldDesignedLevels[0].metroidvania);
             }
         }
 

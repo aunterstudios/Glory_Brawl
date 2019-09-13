@@ -239,6 +239,8 @@ var worldDesignedLevels = [
         { x: 200, y: 2400, velocityX: 0, velocityY: 0, sizeX: 1, sizeY: .5, art: "immovableRotatedWall" },
         { x: 1000, y: 2400, velocityX: 0, velocityY: 0, sizeX: 1, sizeY: .5, art: "immovableRotatedWall" },
         { x: 1400, y: 2100, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "immovableVerticalWall" },
+        { x: 975, y: 1850, velocityX: 0, velocityY: 0, sizeX: 1, sizeY: .5, art: "immovableRotatedWall" },
+        { x: 300, y: 1600, velocityX: 0, velocityY: 0, sizeX: 1, sizeY: .5, art: "immovableRotatedWall" },
       ],
     wallSpawn:
       [true,
@@ -246,7 +248,8 @@ var worldDesignedLevels = [
       ],
     spikeSpawn:
       [true,
-        { x: 0, y: 900, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "sidewaysSpikes" },
+        { x: 0, y: 1988, velocityX: 0, velocityY: 0, sizeX: .25, sizeY: .5, art: "sidewaysSpikes" },
+        { x: 0, y: 1100, velocityX: 0, velocityY: 0, sizeX: .25, sizeY: .5, art: "sidewaysSpikes" },
         { x: 700, y: 475, velocityX: 700, velocityY: 0, sizeX: .5, sizeY: .5, art: "spikes" },
       ],
     ledgeGreySpawn:
