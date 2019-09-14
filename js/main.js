@@ -204,7 +204,7 @@ var worldDesignedLevels = [
       //Up, Down, Left, Right (Remember!)
       [
         { upPosition: true, x: 200, y: 20 },
-        { downPosition: true, x: 700, y: 2200 },
+        { downPosition: true, x: 700, y: 1800 },
         { leftPosition: true, x: 200, y: 400 },
         { rightPosition: true, x: 1400, y: 400 }
       ],
@@ -229,28 +229,31 @@ var worldDesignedLevels = [
       [true,
         { x: 500, y: 500, teleportationX: 100, teleporationY: 50 }
       ],
-    // undeniableDeathSpawn:
-    //   [true,
-    //     { x: 500, y: 300, size: .5, art: 'sidewaysSpikes'}
-    //   ],
+    undeniableDeathSpawn:
+      [true,
+        { x: 0, y: 1638, velocityX: 0, velocityY: 0, sizeX: .25, sizeY: .5, art: "sidewaysSpikes" },
+        { x: 0, y: 950, velocityX: 0, velocityY: 0, sizeX: .25, sizeY: .5, art: "sidewaysSpikes" },
+        { x: 700, y: 1340, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "undeniableDeath" },
+      ],
     immovableWallSpawn:
       [true,
         //Ground
-        { x: 200, y: 2400, velocityX: 0, velocityY: 0, sizeX: 1, sizeY: .5, art: "immovableRotatedWall" },
-        { x: 1000, y: 2400, velocityX: 0, velocityY: 0, sizeX: 1, sizeY: .5, art: "immovableRotatedWall" },
-        { x: 1400, y: 2100, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "immovableVerticalWall" },
-        { x: 975, y: 1850, velocityX: 0, velocityY: 0, sizeX: 1, sizeY: .5, art: "immovableRotatedWall" },
-        { x: 300, y: 1600, velocityX: 0, velocityY: 0, sizeX: 1, sizeY: .5, art: "immovableRotatedWall" },
+        { x: 0, y: 2400, velocityX: 0, velocityY: 0, sizeX: 1, sizeY: .5, art: "immovableRotatedWall" },
+        { x: 851, y: 2400, velocityX: 0, velocityY: 0, sizeX: .65, sizeY: .5, art: "immovableRotatedWall" },
+        { x: 1400, y: 1910, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "immovableVerticalWall" },
+        { x: 975, y: 1846, velocityX: 0, velocityY: 0, sizeX: 1, sizeY: .5, art: "immovableRotatedWall" },
+        { x: 1400, y: 1420, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "immovableVerticalWall" },
+        { x: 300, y: 1500, velocityX: 0, velocityY: 0, sizeX: 1, sizeY: .5, art: "immovableRotatedWall" },
       ],
     wallSpawn:
       [true,
-        { x: 200, y: 400, velocityX: 300, velocityY: 0, sizeX: .5, sizeY: .5, art: "rotatedWall" },
+        { x: 200, y: 1400, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "rotatedWall" },
       ],
     spikeSpawn:
-      [true,
-        { x: 0, y: 1988, velocityX: 0, velocityY: 0, sizeX: .25, sizeY: .5, art: "sidewaysSpikes" },
+      [false,
+        { x: 0, y: 1985, velocityX: 0, velocityY: 0, sizeX: .25, sizeY: .5, art: "sidewaysSpikes" },
         { x: 0, y: 1100, velocityX: 0, velocityY: 0, sizeX: .25, sizeY: .5, art: "sidewaysSpikes" },
-        { x: 700, y: 475, velocityX: 700, velocityY: 0, sizeX: .5, sizeY: .5, art: "spikes" },
+        { x: 1045, y: 1375, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "invertedSpikes" },
       ],
     ledgeGreySpawn:
       [true,

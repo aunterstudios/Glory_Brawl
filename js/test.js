@@ -35,6 +35,7 @@ brawl.testing.prototype = {
         this.load.image('ledge', 'assets/platformY.png');
         this.load.image('spikes', 'assets/invisibleFloorSpikes.png');
         this.load.image('sidewaysSpikes', 'assets/sidewaysSpikes.png');
+        this.load.image('undeniableDeath', 'assets/undeniableDeath.png');
         this.load.image('fallingSpikes', 'assets/newSpikes.png');
         this.load.image('invertedSpikes', 'assets/invertedSpikesTrue.png')
         this.load.image('joystick', 'assets/joystick.png');
@@ -139,8 +140,8 @@ brawl.testing.prototype = {
         // this.door = this.game.add.group();
         // this.door.enableBody = true;
         //Adding This Undeniable Death At the Bottom
-        // this.death = this.game.add.group();
-        // this.death.enableBody = true;
+        this.death = this.game.add.group();
+        this.death.enableBody = true;
 
         /////////////////////Practice Specific Sprite Groups/////////////////
 
@@ -269,7 +270,7 @@ brawl.testing.prototype = {
         //  Speed-up the rate of fire, allowing them to shoot 1 bullet every 60ms
         this.weapon1.fireRate = 500;
         // Track Player
-        this.weapon1.trackSprite(this.player, 10, 0);
+        this.weapon1.trackSprite(this.player, 10, -30);
 
         /////////////////Push
         //  Creates 30 bullets, using the 'bullet' graphic
@@ -284,7 +285,7 @@ brawl.testing.prototype = {
         this.weapon2.fireRate = 500;
         //Match Your Velocity?
         // Track Player
-        this.weapon2.trackSprite(this.player, 10, 0);
+        this.weapon2.trackSprite(this.player, 10, -30);
 
         ////////////////Stop
         //  Creates 30 bullets, using the 'bullet' graphic
@@ -298,7 +299,7 @@ brawl.testing.prototype = {
         //  Speed-up the rate of fire, allowing them to shoot 1 bullet every 60ms
         this.weapon3.fireRate = 500;
         // Track Player
-        this.weapon3.trackSprite(this.player, 10, 0);
+        this.weapon3.trackSprite(this.player, 10, -30);
 
         // - 20 for Tracking//
 
@@ -309,12 +310,12 @@ brawl.testing.prototype = {
         //         this.doorSpawn(levelGenerator.doorSpawn[i].x, levelGenerator.doorSpawn[i].y, levelGenerator.doorSpawn[i].teleportationX, levelGenerator.doorSpawn[i].teleportationY);
         //     }
         // }
-        //Generating Undeniable Death
-        // if (levelGenerator.undeniableDeathSpawn[0]) {
-        //     for (var i = 1; i < levelGenerator.undeniableDeathSpawn.length; i++) {
-        //         this.undeniableDeathSpawn(levelGenerator.undeniableDeathSpawn[i].x, levelGenerator.undeniableDeathSpawn[i].y, levelGenerator.undeniableDeathSpawn[i].size, levelGenerator.undeniableDeathSpawn[i].art);
-        //     }
-        // }
+        // Generating Undeniable Death
+        if (levelGenerator.undeniableDeathSpawn[0]) {
+            for (var i = 1; i < levelGenerator.undeniableDeathSpawn.length; i++) {
+                this.undeniableDeathSpawn(levelGenerator.undeniableDeathSpawn[i].x, levelGenerator.undeniableDeathSpawn[i].y, levelGenerator.undeniableDeathSpawn[i].sizeX, levelGenerator.undeniableDeathSpawn[i].sizeY, levelGenerator.undeniableDeathSpawn[i].art);
+            }
+        }
         //Generating Immovable Walls
         if (levelGenerator.immovableWallSpawn[0]) {
             for (var i = 1; i < levelGenerator.immovableWallSpawn.length; i++) {
@@ -406,18 +407,21 @@ brawl.testing.prototype = {
         // this.coinX.alignIn(rect, positionInRectangle);
         // console.log(this.coinX);
     },
-    // undeniableDeathSpawn: function (x, y, size, art) {
-    //     this.deathX = this.death.create(x, y, art);
-    //     this.deathX.scale.setTo(size);
-    //     this.deathX.body.immovable = true;
-    // },
+    undeniableDeathSpawn: function (x, y, sizeX, sizeY, art) {
+        this.deathX = this.death.create(x, y, art);
+        this.deathX.scale.setTo(sizeX, sizeY);
+        this.deathX.body.immovable = true;
+        this.deathX.body.mass = 300;
+        this.deathX.body.collideWorldBounds = true;
+        this.deathX.body.immovable = true;
+    },
     wallSpawn: function (x, y, velocityX, velocityY, sizeX, sizeY, art) {
         this.wallX = this.wall.create(x, y, art);
         this.wallX.anchor.setTo(.5);
         this.wallX.scale.setTo(sizeX, sizeY);
         // this.wallX.body.immovable = true;
         this.wallX.body.mass = 200;
-        this.wallX.body.maxVelocity.setTo(1000);
+        this.wallX.body.maxVelocity.setTo(500);
         this.wallX.body.collideWorldBounds = true;
         this.wallX.body.bounce.setTo(1);
         this.wallX.body.velocity.setTo(velocityX, velocityY);
@@ -430,7 +434,7 @@ brawl.testing.prototype = {
     },
     immovableSpawn: function (x, y, velocityX, velocityY, sizeX, sizeY, art) {
         this.immovableWallX = this.immovableWall.create(x, y, art);
-        this.immovableWallX.anchor.setTo(.5);
+        // this.immovableWallX.anchor.setTo(.5);
         this.immovableWallX.scale.setTo(sizeX, sizeY);
         this.immovableWallX.body.immovable = true;
         this.immovableWallX.body.mass = 400;
@@ -670,11 +674,11 @@ brawl.testing.prototype = {
 
         //Weapon Mechanics
         this.game.physics.arcade.collide(this.weapon1.bullets, [this.ball, this.wall, this.ledge, this.ledgeDown, this.ledgeSide, this.enemy, this.coin], pullWeaponHandler, null, this);
-        this.game.physics.arcade.overlap(this.weapon1.bullets, [this.immovableWall, this.spikes], weaponImmovable, null, this);
+        this.game.physics.arcade.overlap(this.weapon1.bullets, [this.immovableWall, this.spikes, this.death], weaponImmovable, null, this);
         this.game.physics.arcade.collide(this.weapon2.bullets, [this.ball, this.wall, this.ledge, this.ledgeDown, this.ledgeSide, this.enemy, this.coin], stopWeaponHandler, null, this);
-        this.game.physics.arcade.overlap(this.weapon2.bullets, [this.immovableWall, this.spikes], weaponImmovable, null, this);
+        this.game.physics.arcade.overlap(this.weapon2.bullets, [this.immovableWall, this.spikes, this.death], weaponImmovable, null, this);
         this.game.physics.arcade.collide(this.weapon3.bullets, [this.ball, this.wall, this.ledge, this.ledgeDown, this.ledgeSide, this.enemy, this.coin], killWeaponHandler, null, this);
-        this.game.physics.arcade.overlap(this.weapon3.bullets, [this.immovableWall, this.spikes], weaponImmovable, null, this);
+        this.game.physics.arcade.overlap(this.weapon3.bullets, [this.immovableWall, this.spikes, this.death], weaponImmovable, null, this);
 
         //Immovable Wall Mechanics
         this.game.physics.arcade.collide(this.immovableWall, [this.ball, this.wall, this.ledge, this.ledgeDown, this.ledgeSide, this.enemy], null, null, this);
@@ -682,22 +686,23 @@ brawl.testing.prototype = {
         //Movable Wall Mechanics
         this.game.physics.arcade.collide(this.wall, this.wall);
         this.game.physics.arcade.collide(this.wall, this.spikes);
+        this.game.physics.arcade.collide(this.wall, this.death);
 
         //Enemy Bullet Mechanics
-        this.game.physics.arcade.overlap(this.enemyBullets, [this.ball, this.wall, this.immovableWall, this.ledge, this.ledgeDown, this.ledgeSide, this.spikes, this.coin], deathTwo, null, this);
+        this.game.physics.arcade.overlap(this.enemyBullets, [this.ball, this.wall, this.immovableWall, this.ledge, this.ledgeDown, this.ledgeSide, this.spikes, this.death], deathTwo, null, this);
 
         // Ball Mechanics
-        this.game.physics.arcade.collide(this.ball, [this.ball, this.wall, this.ledge, this.ledgeDown, this.ledgeSide], null, null, this);
+        this.game.physics.arcade.collide(this.ball, [this.ball, this.wall, this.ledge, this.ledgeDown, this.ledgeSide, this.death], null, null, this);
         this.game.physics.arcade.overlap(this.ball, [this.enemy, this.spikes], deathThree, null, this);
 
         //Ledge vs. Ledge Mechanics
-        this.game.physics.arcade.collide([this.ledge, this.ledgeSide, this.ledgeDown], [this.ledge, this.ledgeSide, this.ledgeDown, this.wall, this.spikes, this.enemy], null, null, this); //preventPhysicsBug Removed
+        this.game.physics.arcade.collide([this.ledge, this.ledgeSide, this.ledgeDown], [this.ledge, this.ledgeSide, this.ledgeDown, this.wall, this.spikes, this.enemy, this.death], null, null, this); //preventPhysicsBug Removed
 
         //Enemy Mechanics
         this.game.physics.arcade.collide(this.enemy, [this.spikes, this.wall, this.enemy], testFunctionX, null, this);
 
         //Death Mechanics
-        this.game.physics.arcade.overlap(this.player, [this.enemy, this.spikes, this.enemyBullets], deathOne, null, this);
+        this.game.physics.arcade.overlap(this.player, [this.enemy, this.spikes, this.enemyBullets, this.death], deathOne, null, this);
 
         ////////////////////////////////Win Conditions/////////////////////////////////
         //Game Mode 0 Flag
