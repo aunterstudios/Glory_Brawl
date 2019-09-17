@@ -204,7 +204,7 @@ var worldDesignedLevels = [
       //Up, Down, Left, Right (Remember!)
       [
         { upPosition: true, x: 200, y: 20 },
-        { downPosition: true, x: 300, y: 1000 },
+        { downPosition: true, x: 300, y: 2100 },
         { leftPosition: true, x: 200, y: 400 },
         { rightPosition: true, x: 1400, y: 400 }
       ],
@@ -279,7 +279,8 @@ var worldDesignedLevels = [
       { trigger: false, x: 0, y: 550, velocityX: 400, velocityY: 0 }, //Will Need to Attach a Boolean Here to Trigger
     text: 
       [true,
-        {x: 700, y: 1200, textInput: "test", font: "Arial Black", fontSize: 40, fill: "#ffffff", fontWeight: "bold"}
+        {x: 200, y: 2000, textInput: "WASD to Move (Spacebar is also jump)\nTapping Twice on the Jump Button Lets You Double Jump\nJump on the Wall (You Automatically Stick to it)\nTouching Any Surface Lets You Double Jump Again\nWall Jump by Pressing A or D While on the Wall\nYou Can Stick to the Bottom of Surfaces\nYou Can Move or Push Downwards by Pressing S", font: "Arial Black", fontSize: 30, fill: "#ffffff", fontWeight: "bold"},
+        {x: 100, y: 1700, textInput: "Red is Death", font: "Times New Roman", fontSize: 30, fill: "#FF0000", fontWeight: "bold"}
       ],
     
 
