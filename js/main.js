@@ -225,6 +225,7 @@ var worldDesignedLevels = [
       roomRightIndex: 0,
       roomRightValue: 1400
     },
+    //Game Objects
     doorSpawn:
       [true,
         { x: 500, y: 500, teleportationX: 100, teleporationY: 50 }
@@ -275,7 +276,12 @@ var worldDesignedLevels = [
       ],
     //Check Point
     flagSpawn: 
-      { trigger: false, x: 0, y: 550, velocityX: 400, velocityY: 0 } //Will Need to Attach a Boolean Here to Trigger
+      { trigger: false, x: 0, y: 550, velocityX: 400, velocityY: 0 }, //Will Need to Attach a Boolean Here to Trigger
+    text: 
+      [true,
+        {x: 700, y: 1200, textInput: "test", font: "Arial Black", fontSize: 40, fill: "#ffffff", fontWeight: "bold"}
+      ],
+    
 
 
     //Any Other Property Here Are Unditional Objects

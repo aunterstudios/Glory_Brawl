@@ -232,6 +232,13 @@ brawl.testing.prototype = {
         }
 
     },
+    textCreator: function(x, y, textInput, font, fontSize, fill, fontWeight) {
+        this.text1 = this.game.add.text(x, y, textInput);
+        this.text1.font = font;
+        this.text1.fontSize = fontSize;
+        this.text1.fill = fill;
+        this.text1.fontWeight = fontWeight;
+    },
     //////////////Creation of the World///////////////
     worldCreator: function (levelGenerator) {
         // console.log(levelGenerator);
@@ -374,6 +381,12 @@ brawl.testing.prototype = {
             this.finish.body.collideWorldBounds = true;
             this.finish.body.bounce.setTo(1);
             this.finish.body.velocity.setTo(levelGenerator.flagSpawn.velocityX, levelGenerator.flagSpawn.velocityY);
+        }
+        ////////////////////////Text Generation///////////////////////////
+        if (levelGenerator.text[0]) {
+            for (var i = 1; i < levelGenerator.text.length; i++) {
+                this.textCreator(levelGenerator.text[i].x, levelGenerator.text[i].y, levelGenerator.text[i].textInput, levelGenerator.text[i].font, levelGenerator.text[i].fontSize, levelGenerator.text[i].fill, levelGenerator.text[i].fontWeight);
+            }
         }
 
 
