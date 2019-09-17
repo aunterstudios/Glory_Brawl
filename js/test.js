@@ -493,7 +493,7 @@ brawl.testing.prototype = {
         this.ballX.scale.setTo(.5);
         this.ballX.body.setCircle(50);
         this.ballX.body.mass = 30;
-        this.ballX.body.maxVelocity.setTo(500);
+        this.ballX.body.maxVelocity.setTo(1000);
         this.ballX.body.collideWorldBounds = true;
         this.ballX.body.bounce.setTo(1.0);
         this.ballX.body.velocity.setTo(velocityX, velocityY);

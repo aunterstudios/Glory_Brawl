@@ -204,7 +204,7 @@ var worldDesignedLevels = [
       //Up, Down, Left, Right (Remember!)
       [
         { upPosition: true, x: 200, y: 20 },
-        { downPosition: true, x: 700, y: 1800 },
+        { downPosition: true, x: 300, y: 1000 },
         { leftPosition: true, x: 200, y: 400 },
         { rightPosition: true, x: 1400, y: 400 }
       ],
@@ -234,6 +234,7 @@ var worldDesignedLevels = [
         { x: 0, y: 1638, velocityX: 0, velocityY: 0, sizeX: .25, sizeY: .5, art: "sidewaysSpikes" },
         { x: 0, y: 950, velocityX: 0, velocityY: 0, sizeX: .25, sizeY: .5, art: "sidewaysSpikes" },
         { x: 700, y: 1340, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "undeniableDeath" },
+        // { x: 0, y: 900, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "undeniableDeath" },
       ],
     immovableWallSpawn:
       [true,
@@ -244,40 +245,37 @@ var worldDesignedLevels = [
         { x: 975, y: 1846, velocityX: 0, velocityY: 0, sizeX: 1, sizeY: .5, art: "immovableRotatedWall" },
         { x: 1400, y: 1420, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "immovableVerticalWall" },
         { x: 300, y: 1500, velocityX: 0, velocityY: 0, sizeX: 1, sizeY: .5, art: "immovableRotatedWall" },
+        { x: 1400, y: 0, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: 1.579, art: "immovableVerticalWall" },
+        { x: 0, y: 880, velocityX: 0, velocityY: 0, sizeX: 1, sizeY: .5, art: "immovableRotatedWall" },
+        { x: 0, y: 0, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: 1.034, art: "immovableVerticalWall" },
       ],
     wallSpawn:
       [true,
-        { x: 200, y: 1400, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "rotatedWall" },
+        { x: 350, y: 1100, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "rotatedWall" },
       ],
     spikeSpawn:
-      [false,
-        { x: 0, y: 1985, velocityX: 0, velocityY: 0, sizeX: .25, sizeY: .5, art: "sidewaysSpikes" },
-        { x: 0, y: 1100, velocityX: 0, velocityY: 0, sizeX: .25, sizeY: .5, art: "sidewaysSpikes" },
-        { x: 1045, y: 1375, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "invertedSpikes" },
+      [true,
+        { x: 0, y: 300, velocityX: 0, velocityY: 0, sizeX: 1, sizeY: 1, art: "invertedSpikes" },
       ],
     ledgeGreySpawn:
-      [true,
-        //First Item!!
-        { x: 1000, y: 200, velocityX: 0, velocityY: 0 },
+      [false,
       ],
     ledgeGreenSpawn:
-      [true,
-        { x: 800, y: 200, velocityX: 0, velocityY: 0 },
+      [false,
       ],
     ledgeBlueSpawn:
-      [true,
-        { x: 600, y: 200, velocityX: 0, velocityY: 0 },
+      [false,
       ],
     enemySpawn:
-      [true,
-        { x: 1200, y: 100, velocityX: 0, velocityY: 0 },
+      [false,
       ],
     ballSpawn:
       [true,
-        { x: 1300, y: 50, velocityX: 0, velocityY: 0 },
+        { x: 700, y: 600, velocityX: 800, velocityY: 0 },
       ],
     //Check Point
-    flagSpawn: { trigger: true, x: 0, y: 550, velocityX: 400, velocityY: 0 } //Will Need to Attach a Boolean Here to Trigger
+    flagSpawn: 
+      { trigger: false, x: 0, y: 550, velocityX: 400, velocityY: 0 } //Will Need to Attach a Boolean Here to Trigger
 
 
     //Any Other Property Here Are Unditional Objects
