@@ -196,7 +196,7 @@ var worldDesignedLevels = [
     worldName: "Level 0 ",
     gameMode: ["flag", "coin"],
     ////////////World Size
-    xOfWorld: 1400,
+    xOfWorld: 2800,
     yOfWorld: 2400,
     ///////////Sprite Positioning
     //Where the Player Spawns Due to Switching Rooms
@@ -223,7 +223,7 @@ var worldDesignedLevels = [
       roomLeftValue: 1,
       //Right Values
       roomRightIndex: 0,
-      roomRightValue: 1400
+      roomRightValue: 2800
     },
     //Game Objects
     doorSpawn:
@@ -240,11 +240,11 @@ var worldDesignedLevels = [
     immovableWallSpawn:
       [true,
         //Ground
-        { x: 0, y: 2400, velocityX: 0, velocityY: 0, sizeX: 1, sizeY: .5, art: "immovableRotatedWall" },
-        { x: 851, y: 2400, velocityX: 0, velocityY: 0, sizeX: .65, sizeY: .5, art: "immovableRotatedWall" },
-        { x: 1400, y: 1910, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "immovableVerticalWall" },
-        { x: 975, y: 1846, velocityX: 0, velocityY: 0, sizeX: 1, sizeY: .5, art: "immovableRotatedWall" },
-        { x: 1400, y: 1420, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "immovableVerticalWall" },
+        { x: 0, y: 2400, velocityX: 0, velocityY: 0, sizeX: 3, sizeY: .5, art: "immovableRotatedWall" },
+        { x: 700, y: 2210, velocityX: 0, velocityY: 0, sizeX: .4, sizeY: .15, art: "immovableVerticalWall" },
+        { x: 1800, y: 1910, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "immovableVerticalWall" },
+        // { x: 975, y: 1846, velocityX: 0, velocityY: 0, sizeX: 1, sizeY: .5, art: "immovableRotatedWall" },
+        // { x: 1400, y: 1420, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "immovableVerticalWall" },
         { x: 300, y: 1500, velocityX: 0, velocityY: 0, sizeX: 1, sizeY: .5, art: "immovableRotatedWall" },
         { x: 1400, y: 0, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: 1.579, art: "immovableVerticalWall" },
         { x: 0, y: 880, velocityX: 0, velocityY: 0, sizeX: 1, sizeY: .5, art: "immovableRotatedWall" },
@@ -279,8 +279,10 @@ var worldDesignedLevels = [
       { trigger: false, x: 0, y: 550, velocityX: 400, velocityY: 0 }, //Will Need to Attach a Boolean Here to Trigger
     text: 
       [true,
-        {x: 200, y: 2000, textInput: "WASD to Move (Spacebar is also jump)\nTapping Twice on the Jump Button Lets You Double Jump\nJump on the Wall (You Automatically Stick to it)\nTouching Any Surface Lets You Double Jump Again\nWall Jump by Pressing A or D While on the Wall\nYou Can Stick to the Bottom of Surfaces\nYou Can Move or Push Downwards by Pressing S", font: "Arial Black", fontSize: 30, fill: "#ffffff", fontWeight: "bold"},
+        {x: 100, y: 2000, textInput: "WASD to Move (Spacebar is also jump)\nTapping Twice on the Jump Button Lets You Double Jump\nJump Over the Wall", font: "Arial Black", fontSize: 25, fill: "#ffffff", fontWeight: "bold"},
         {x: 100, y: 1700, textInput: "Red is Death", font: "Times New Roman", fontSize: 30, fill: "#FF0000", fontWeight: "bold"}
+        ,
+        {x: 800, y: 1800, textInput: "You Automatically Stick on Surfaces When You Jump on It\nPress A or D while on the Wall to Jump Off It\nKeep Jumping Off and Moving Again Towards the Wall to Climb Over", font: "Arial Black", fontSize: 25, fill: "#ffffff", fontWeight: "bold"}
       ],
     
 
@@ -295,7 +297,7 @@ var worldDesignedLevels = [
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "MetroidVania-Rogue Version: The Truth",
+  "MetroidVanian: Mike Shaw Play the Game",
   "In this lair of a mad god.",
   "You must become a god yourself.",
   "Ascend.",

@@ -852,6 +852,11 @@ brawl.rogue.prototype = {
                 this.player.body.velocity.y = -500;
                 this.player.body.velocity.x = -1000;
             }
+            //////Experimental Up Wall-Jump/////
+            // if (this.movementUp.isDown) {
+            //     this.player.body.velocity.y = -500;
+            //     this.player.body.velocity.x = -1000;
+            // }
         }
         else if (onTheLeftSide) {
             if (onWall || onImmovable) {
@@ -865,6 +870,11 @@ brawl.rogue.prototype = {
                 this.player.body.velocity.y = -500;
                 this.player.body.velocity.x = 1000;
             }
+            ///////Experimental Up Wall-Jump/////
+            // if (this.movementUp.isDown) {
+            //     this.player.body.velocity.y = -500;
+            //     this.player.body.velocity.x = 1000;
+            // }
         }
         else if (onUpsideDown) {
             this.player.animations.stop();
