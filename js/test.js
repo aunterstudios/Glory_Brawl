@@ -433,7 +433,7 @@ brawl.testing.prototype = {
         this.wallX.anchor.setTo(.5);
         this.wallX.scale.setTo(sizeX, sizeY);
         // this.wallX.body.immovable = true;
-        this.wallX.body.mass = 200;
+        this.wallX.body.mass = 150;
         this.wallX.body.maxVelocity.setTo(500);
         this.wallX.body.collideWorldBounds = true;
         this.wallX.body.bounce.setTo(1);

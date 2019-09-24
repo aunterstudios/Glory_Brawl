@@ -204,7 +204,7 @@ var worldDesignedLevels = [
       //Up, Down, Left, Right (Remember!)
       [
         { upPosition: true, x: 200, y: 20 },
-        { downPosition: true, x: 300, y: 2100 },
+        { downPosition: true, x: 200, y: 300 },
         { leftPosition: true, x: 200, y: 400 },
         { rightPosition: true, x: 1400, y: 400 }
       ],
@@ -232,31 +232,66 @@ var worldDesignedLevels = [
       ],
     undeniableDeathSpawn:
       [true,
-        { x: 0, y: 1638, velocityX: 0, velocityY: 0, sizeX: .25, sizeY: .5, art: "sidewaysSpikes" },
-        { x: 0, y: 950, velocityX: 0, velocityY: 0, sizeX: .25, sizeY: .5, art: "sidewaysSpikes" },
-        { x: 700, y: 1340, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "undeniableDeath" },
+        // { x: 0, y: 1638, velocityX: 0, velocityY: 0, sizeX: .25, sizeY: .5, art: "sidewaysSpikes" },
+        { x: 0, y: 1470, velocityX: 0, velocityY: 0, sizeX: .25, sizeY: .619, art: "sidewaysSpikes" },
+        // { x: 700, y: 1340, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "undeniableDeath" },
+        { x: 2800, y: 0, velocityX: 0, velocityY: 0, sizeX: .25, sizeY: .857, art: "sidewaysSpikes" },
+        { x: 1463, y: 900, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "undeniableDeath" },
+        { x: 1463, y: 300, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "undeniableDeath" },
+        { x: 2100, y: 600, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "undeniableDeath" },
+        { x: 1400, y: 0, velocityX: 0, velocityY: 0, sizeX: 1, sizeY: .5, art: "undeniableDeath" },
         // { x: 0, y: 900, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "undeniableDeath" },
       ],
     immovableWallSpawn:
       [true,
         //Ground
-        { x: 0, y: 2400, velocityX: 0, velocityY: 0, sizeX: 3, sizeY: .5, art: "immovableRotatedWall" },
+        { x: 0, y: 2400, velocityX: 0, velocityY: 0, sizeX: 3.29, sizeY: .5, art: "immovableRotatedWall" },
+        //Practice Jump Levels
         { x: 700, y: 2210, velocityX: 0, velocityY: 0, sizeX: .4, sizeY: .15, art: "immovableVerticalWall" },
-        { x: 1800, y: 1910, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "immovableVerticalWall" },
-        // { x: 975, y: 1846, velocityX: 0, velocityY: 0, sizeX: 1, sizeY: .5, art: "immovableRotatedWall" },
-        // { x: 1400, y: 1420, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "immovableVerticalWall" },
-        { x: 300, y: 1500, velocityX: 0, velocityY: 0, sizeX: 1, sizeY: .5, art: "immovableRotatedWall" },
-        { x: 1400, y: 0, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: 1.579, art: "immovableVerticalWall" },
-        { x: 0, y: 880, velocityX: 0, velocityY: 0, sizeX: 1, sizeY: .5, art: "immovableRotatedWall" },
-        { x: 0, y: 0, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: 1.034, art: "immovableVerticalWall" },
+        { x: 1700, y: 1910, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "immovableVerticalWall" },
+        //Mini Walls
+        { x: 2500, y: 2200, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall" },
+        { x: 2500, y: 1800, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall" },
+        { x: 2700, y: 2000, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall" },
+        { x: 2700, y: 1600, velocityX: 0, velodcityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall" },
+        { x: 2700, y: 1375, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall" },
+        //The Box
+        { x: 2375, y: 1200, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "immovableRotatedWall" },
+        { x: 1400, y: 300, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: 1.3, art: "immovableVerticalWall" },
+        { x: 0, y: 1407, velocityX: 0, velocityY: 0, sizeX: 1.72, sizeY: .5, art: "immovableRotatedWall" },
+        { x: 0, y: 0, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: 1.653, art: "immovableVerticalWall" },
+        //Inside the Box
+        { x: 400, y: 1200, velocityX: 0, velocityY: 0, sizeX: .9, sizeY: .4, art: "immovableRotatedWall" },
+        { x: 63, y: 800, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "immovableRotatedWall" },
+        { x: 974, y: 500, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "immovableRotatedWall" },
+        { x: 63, y: 300, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "immovableRotatedWall" },
+        { x: 700, y: 600, velocityX: 0, velocityY: 0, sizeX: .4, sizeY: .5, art: "immovableRotatedWall" },
+        { x: 400, y: 500, velocityX: 0, velocityY: 0, sizeX: .4, sizeY: .5, art: "immovableRotatedWall" },
+        //Tiny Boxes inside the Box
+        { x: 800, y: 900, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall" },
+        { x: 800, y: 1100, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall" },
+        { x: 1200, y: 1100, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall" },
+        { x: 1100, y: 1000, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall" },
+        { x: 200, y: 950, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall" },
+        { x: 500, y: 1000, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall" },
+        { x: 200, y: 1150, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall" },
+        { x: 600, y: 800, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall" },
+        { x: 800, y: 700, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall" },
+        { x: 700, y: 775, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall" },
+        { x: 1000, y: 800, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall" },
+        { x: 1000, y: 600, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall" },
+        { x: 1100, y: 600, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall" },
+        // { x: 400, y: 1000, velocityX: 0, velodcityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall" },
+        // { x: 700, y: 600, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall" },
+
       ],
     wallSpawn:
       [true,
-        { x: 350, y: 1100, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "rotatedWall" },
+        { x: 1900, y: 1100, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "rotatedWall" },
       ],
     spikeSpawn:
       [true,
-        { x: 0, y: 300, velocityX: 0, velocityY: 0, sizeX: 1, sizeY: 1, art: "invertedSpikes" },
+        { x: 0, y: 0, velocityX: 0, velocityY: 0, sizeX: 1, sizeY: 1, art: "invertedSpikes" },
       ],
     ledgeGreySpawn:
       [false,
@@ -272,19 +307,20 @@ var worldDesignedLevels = [
       ],
     ballSpawn:
       [true,
-        { x: 700, y: 600, velocityX: 800, velocityY: 0 },
+        { x: 700, y: 1350, velocityX: 0, velocityY: 0 },
       ],
     //Check Point
-    flagSpawn: 
+    flagSpawn:
       { trigger: false, x: 0, y: 550, velocityX: 400, velocityY: 0 }, //Will Need to Attach a Boolean Here to Trigger
-    text: 
+    text:
       [true,
-        {x: 100, y: 2000, textInput: "WASD to Move (Spacebar is also jump)\nTapping Twice on the Jump Button Lets You Double Jump\nJump Over the Wall", font: "Arial Black", fontSize: 25, fill: "#ffffff", fontWeight: "bold"},
-        {x: 100, y: 1700, textInput: "Red is Death", font: "Times New Roman", fontSize: 30, fill: "#FF0000", fontWeight: "bold"}
+        { x: 100, y: 2000, textInput: "WASD to Move (Spacebar is also jump)\nTapping Twice on the Jump Button Lets You Double Jump\nJump Over the Wall", font: "Arial Black", fontSize: 25, fill: "#ffffff", fontWeight: "bold" },
+        { x: 100, y: 1700, textInput: "Red is Death", font: "Times New Roman", fontSize: 30, fill: "#FF0000", fontWeight: "bold" }
         ,
-        {x: 800, y: 1800, textInput: "You Automatically Stick on Surfaces When You Jump on It\nPress A or D while on the Wall to Jump Off It\nKeep Jumping Off and Moving Again Towards the Wall to Climb Over", font: "Arial Black", fontSize: 25, fill: "#ffffff", fontWeight: "bold"}
+        { x: 800, y: 1700, textInput: "You Automatically Stick on Surfaces When You Jump on It\nPress A or D while on the Wall to Jump Off It\nKeep Jumping Off and Moving Again Towards the Wall to Climb Over\nTip: Hold Towards the Wall While Jumping Off Lets You Fast Climb", font: "Arial Black", fontSize: 25, fill: "#ffffff", fontWeight: "bold" },
+        { x: 1800, y: 2000, textInput: "You Can Stick and Move on the Bottom of Surfaces\nPress S to go Downwards or Push", font: "Arial Black", fontSize: 25, fill: "#ffffff", fontWeight: "bold" }
       ],
-    
+
 
 
     //Any Other Property Here Are Unditional Objects
@@ -445,19 +481,19 @@ function ballMover(player, ball) {
   //   ball.body.velocity.x = -200;
   // }
   //////////////////Natural///////////////
-  if (ball.body.touching.up) {
-    ball.body.velocity.y = 50;
-  }
-  else if (ball.body.touching.down) {
-    ball.body.velocity.y = -50;
-    player.body.velocity.y = -75;
-  }
-  else if (ball.body.touching.left) {
-    ball.body.velocity.x = 50;
-  }
-  else if (ball.body.touching.right) {
-    ball.body.velocity.x = -50;
-  }
+  // if (ball.body.touching.up) {
+  //   ball.body.velocity.y = 50;
+  // }
+  // else if (ball.body.touching.down) {
+  //   ball.body.velocity.y = -50;
+  //   player.body.velocity.y = -75;
+  // }
+  // else if (ball.body.touching.left) {
+  //   ball.body.velocity.x = 50;
+  // }
+  // else if (ball.body.touching.right) {
+  //   ball.body.velocity.x = -50;
+  // }
   //////////////Control////////////
   // if (ball.body.touching.up) {
   //   ball.body.velocity.y = player.body.velocity.y;
