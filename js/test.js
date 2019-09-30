@@ -142,6 +142,10 @@ brawl.testing.prototype = {
         //Adding This Undeniable Death At the Bottom
         this.death = this.game.add.group();
         this.death.enableBody = true;
+        //Adding Flag Group
+        this.flag = this.game.add.group();
+        this.flag.enableBody = true;
+
 
         /////////////////////Practice Specific Sprite Groups/////////////////
 
@@ -232,23 +236,23 @@ brawl.testing.prototype = {
         }
 
     },
-    textCreator: function(x, y, textInput, font, fontSize, fill, fontWeight) {
+    textCreator: function (x, y, textInput, font, fontSize, fill, fontWeight) {
         this.text1 = this.game.add.text(x, y, textInput);
         this.text1.font = font;
         this.text1.fontSize = fontSize;
         this.text1.fill = fill;
         this.text1.fontWeight = fontWeight;
     },
-    deathState: function (victim,killer) {
+    deathState: function (victim, killer) {
         // console.log(victim.body.x + ' '+ victim.body.y);
         victim.kill();
         game.state.start('deathState', true, false, respawnHolder.indexOfCurrentWorld, respawnHolder.indexOfPlayerPosition, respawnHolder.metroidvania);
     },
-    respawn: function (player,flag) {
+    respawn: function (player, flag) {
         flag.kill();
         console.log("It Hits the Flag!");
         respawnHolder.indexOfCurrentWorld = this.indexOfCurrentWorld;
-        respawnHolder.indexOfPlayerPosition = this.indexOfPlayerPosition;
+        respawnHolder.indexOfPlayerPosition = flag.indexOfPlayerPosition;
         respawnHolder.metroidvania = this.metroidvania;
     },
     //////////////Creation of the World///////////////
@@ -384,15 +388,12 @@ brawl.testing.prototype = {
             }
         }
         // //////////////////Game Mode Generation (The Type of Game You Will Play)//////////////////
-        if (levelGenerator.flagSpawn.trigger) {
+        if (levelGenerator.flagSpawn[0]) {
             console.log("It's a Flag!");
-            this.finish = this.game.add.sprite(levelGenerator.flagSpawn.x, levelGenerator.flagSpawn.y, 'flag');
-            this.game.physics.arcade.enable(this.finish);
-            this.finish.body.mass = 1;
-            this.finish.body.maxVelocity.setTo(1000);
-            this.finish.body.collideWorldBounds = true;
-            this.finish.body.bounce.setTo(1);
-            this.finish.body.velocity.setTo(levelGenerator.flagSpawn.velocityX, levelGenerator.flagSpawn.velocityY);
+            for (var i = 1; i < levelGenerator.flagSpawn.length; i++) {
+                this.flagSpawn(levelGenerator.flagSpawn[i].x, levelGenerator.flagSpawn[i].y, levelGenerator.flagSpawn[i].velocityX, levelGenerator.flagSpawn[i].velocityY, levelGenerator.flagSpawn[i].indexOfPlayerPosition);
+            }
+
         }
         ////////////////////////Text Generation///////////////////////////
         if (levelGenerator.text[0]) {
@@ -431,6 +432,15 @@ brawl.testing.prototype = {
         this.coinX.body.velocity.setTo(velocityX, velocityY);
         // this.coinX.alignIn(rect, positionInRectangle);
         // console.log(this.coinX);
+    },
+    flagSpawn: function (x, y, velocityX, velocityY, indexOfPlayerPosition) {
+        this.flagX = this.flag.create(x, y, 'flag');
+        this.flagX.body.mass = 1;
+        this.flagX.body.maxVelocity.setTo(1000);
+        this.flagX.body.collideWorldBounds = true;
+        this.flagX.body.bounce.setTo(1);
+        this.flagX.body.velocity.setTo(velocityX, velocityY);
+        this.flagX.indexOfPlayerPosition = indexOfPlayerPosition;
     },
     undeniableDeathSpawn: function (x, y, sizeX, sizeY, art) {
         this.deathX = this.death.create(x, y, art);
@@ -698,7 +708,7 @@ brawl.testing.prototype = {
         var onImmovable = this.game.physics.arcade.collide(this.player, this.immovableWall, null, null, this);
 
         //Respawn Point Mechanics
-        this.game.physics.arcade.overlap(this.player, this.finish, this.respawn, null, this);
+        this.game.physics.arcade.overlap(this.player, this.flag, this.respawn, null, this);
 
         //Weapon Mechanics
         this.game.physics.arcade.collide(this.weapon1.bullets, [this.ball, this.wall, this.ledge, this.ledgeDown, this.ledgeSide, this.enemy, this.coin], pullWeaponHandler, null, this);

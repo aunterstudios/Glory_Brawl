@@ -313,7 +313,9 @@ var worldDesignedLevels = [
       ],
     //Check Point
     flagSpawn:
-      { trigger: false, x: 0, y: 550, velocityX: 400, velocityY: 0 }, //Will Need to Attach a Boolean Here to Trigger
+      [false,
+        { x: 900, y: 3000, velocityX: 0, velocityY: 0, indexOfPlayerPosition: 1 },
+      ],
     text:
       [true,
         { x: 100, y: 2000, textInput: "WASD to Move (Spacebar is also jump)\nTapping Twice on the Jump Button Lets You Double Jump\nJump Over the Wall", font: "Arial Black", fontSize: 25, fill: "#ffffff", fontWeight: "bold" },
@@ -457,7 +459,9 @@ var worldDesignedLevels = [
       ],
     //Check Point
     flagSpawn:
-      { trigger: true, x: 900, y: 3000, velocityX: 0, velocityY: 0, indexOfPlayerPosition: 1 }, //Will Need to Attach a Boolean Here to Trigger
+      [true,
+        { x: 900, y: 3000, velocityX: 0, velocityY: 0, indexOfPlayerPosition: 1 },
+      ],
     text:
       [true,
         //Inside the Box
@@ -472,7 +476,7 @@ var worldDesignedLevels = [
     //World Gravity
     //Traps that create generating enemies
   }
-  
+
 ]
 
 var respawnHolder = {
