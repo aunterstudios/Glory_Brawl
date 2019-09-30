@@ -255,9 +255,9 @@ brawl.testing.prototype = {
         respawnHolder.indexOfPlayerPosition = flag.indexOfPlayerPosition;
         respawnHolder.metroidvania = this.metroidvania;
     },
-    specialConditionHandler (sprite1,sprite2) {
+    specialConditionHandler(sprite1, sprite2) {
         sprite2.kill();
-        if (sprite2.specialCondition > 0 ) {
+        if (sprite2.specialCondition > 0) {
             worldDesignedLevels[this.indexOfCurrentWorld].spikeSpawn[sprite2.positionInArray].trigger = false;
         }
         else if (sprite2.specialCondition < 0) {
@@ -346,19 +346,25 @@ brawl.testing.prototype = {
         // Generating Undeniable Death
         if (levelGenerator.undeniableDeathSpawn[0]) {
             for (var i = 1; i < levelGenerator.undeniableDeathSpawn.length; i++) {
-                this.undeniableDeathSpawn(levelGenerator.undeniableDeathSpawn[i].x, levelGenerator.undeniableDeathSpawn[i].y, levelGenerator.undeniableDeathSpawn[i].sizeX, levelGenerator.undeniableDeathSpawn[i].sizeY, levelGenerator.undeniableDeathSpawn[i].art);
+                if (levelGenerator.undeniableDeathSpawn[i].trigger) {
+                    this.undeniableDeathSpawn(levelGenerator.undeniableDeathSpawn[i].x, levelGenerator.undeniableDeathSpawn[i].y, levelGenerator.undeniableDeathSpawn[i].velocityX, levelGenerator.undeniableDeathSpawn[i].velocityY, levelGenerator.undeniableDeathSpawn[i].sizeX, levelGenerator.undeniableDeathSpawn[i].sizeY, levelGenerator.undeniableDeathSpawn[i].art, levelGenerator.undeniableDeathSpawn[i].specialCondition, levelGenerator.undeniableDeathSpawn[i].specialWorld, levelGenerator.undeniableDeathSpawn[i].specialArray, levelGenerator.undeniableDeathSpawn[i].positionInArray);
+                }
             }
         }
         //Generating Immovable Walls
         if (levelGenerator.immovableWallSpawn[0]) {
             for (var i = 1; i < levelGenerator.immovableWallSpawn.length; i++) {
-                this.immovableSpawn(levelGenerator.immovableWallSpawn[i].x, levelGenerator.immovableWallSpawn[i].y, levelGenerator.immovableWallSpawn[i].velocityX, levelGenerator.immovableWallSpawn[i].velocityY, levelGenerator.immovableWallSpawn[i].sizeX, levelGenerator.immovableWallSpawn[i].sizeY, levelGenerator.immovableWallSpawn[i].art);
+                if (levelGenerator.immovableWallSpawn[i].trigger) {
+                    this.immovableSpawn(levelGenerator.immovableWallSpawn[i].x, levelGenerator.immovableWallSpawn[i].y, levelGenerator.immovableWallSpawn[i].velocityX, levelGenerator.immovableWallSpawn[i].velocityY, levelGenerator.immovableWallSpawn[i].sizeX, levelGenerator.immovableWallSpawn[i].sizeY, levelGenerator.immovableWallSpawn[i].art, levelGenerator.immovableWallSpawn[i].specialCondition, levelGenerator.immovableWallSpawn[i].specialWorld, levelGenerator.immovableWallSpawn[i].specialArray, levelGenerator.immovableWallSpawn[i].positionInArray);
+                }
             }
         }
         //Generating movable Walls
         if (levelGenerator.wallSpawn[0]) {
             for (var i = 1; i < levelGenerator.wallSpawn.length; i++) {
-                this.wallSpawn(levelGenerator.wallSpawn[i].x, levelGenerator.wallSpawn[i].y, levelGenerator.wallSpawn[i].velocityX, levelGenerator.wallSpawn[i].velocityY, levelGenerator.wallSpawn[i].sizeX, levelGenerator.wallSpawn[i].sizeY, levelGenerator.wallSpawn[i].art);
+                if (levelGenerator.wallSpawn[i].trigger) {
+                    this.wallSpawn(levelGenerator.wallSpawn[i].x, levelGenerator.wallSpawn[i].y, levelGenerator.wallSpawn[i].velocityX, levelGenerator.wallSpawn[i].velocityY, levelGenerator.wallSpawn[i].sizeX, levelGenerator.wallSpawn[i].sizeY, levelGenerator.wallSpawn[i].art, levelGenerator.wallSpawn[i].specialCondition, levelGenerator.wallSpawn[i].specialWorld, levelGenerator.wallSpawn[i].specialArray, levelGenerator.wallSpawn[i].positionInArray);
+                }
             }
         }
         //Generating spikes
@@ -368,9 +374,9 @@ brawl.testing.prototype = {
                     this.spikeSpawn(levelGenerator.spikeSpawn[i].x, levelGenerator.spikeSpawn[i].y, levelGenerator.spikeSpawn[i].velocityX, levelGenerator.spikeSpawn[i].velocityY, levelGenerator.spikeSpawn[i].sizeX, levelGenerator.spikeSpawn[i].sizeY, levelGenerator.spikeSpawn[i].art, levelGenerator.spikeSpawn[i].specialCondition, levelGenerator.spikeSpawn[i].specialWorld, levelGenerator.spikeSpawn[i].specialArray, levelGenerator.spikeSpawn[i].positionInArray);
                     console.log("Yes Its Hitting Spikes");
                 }
-                else {
-                    console.log("special condition spikes trigger false");
-                }
+                // else {
+                //     console.log("special condition spikes trigger false");
+                // }
                 // this.spikeSpawn(levelGenerator.spikeSpawn[i].x, levelGenerator.spikeSpawn[i].y, levelGenerator.spikeSpawn[i].velocityX, levelGenerator.spikeSpawn[i].velocityY, levelGenerator.spikeSpawn[i].sizeX, levelGenerator.spikeSpawn[i].sizeY, levelGenerator.spikeSpawn[i].art, levelGenerator.spikeSpawn[i].specialCondition);
             }
         }
@@ -459,16 +465,26 @@ brawl.testing.prototype = {
         this.flagX.body.velocity.setTo(velocityX, velocityY);
         this.flagX.indexOfPlayerPosition = indexOfPlayerPosition;
     },
-    undeniableDeathSpawn: function (x, y, sizeX, sizeY, art) {
+    undeniableDeathSpawn: function (x, y, velocityX, velocityY, sizeX, sizeY, art, specialCondition, specialWorld, specialArray, positionInArray) {
         this.deathX = this.death.create(x, y, art);
+        this.deathX.specialCondition = specialCondition;
+        this.deathX.specialWorld = specialWorld;
+        this.deathX.specialArray = specialArray;
+        this.deathX.positionInArray = positionInArray;
         this.deathX.scale.setTo(sizeX, sizeY);
         this.deathX.body.immovable = true;
         this.deathX.body.mass = 300;
         this.deathX.body.collideWorldBounds = true;
         this.deathX.body.immovable = true;
+        this.deathX.body.bounce.setTo(1);
+        this.deathX.body.velocity.setTo(velocityX, velocityY);
     },
-    wallSpawn: function (x, y, velocityX, velocityY, sizeX, sizeY, art) {
+    wallSpawn: function (x, y, velocityX, velocityY, sizeX, sizeY, art, specialCondition, specialWorld, specialArray, positionInArray) {
         this.wallX = this.wall.create(x, y, art);
+        this.wallX.specialCondition = specialCondition;
+        this.wallX.specialWorld = specialWorld;
+        this.wallX.specialArray = specialArray;
+        this.wallX.positionInArray = positionInArray;
         this.wallX.anchor.setTo(.5);
         this.wallX.scale.setTo(sizeX, sizeY);
         // this.wallX.body.immovable = true;
@@ -484,9 +500,13 @@ brawl.testing.prototype = {
         // this.wallX.events.onDragStop.add(this.stopDrag, this);
         // this.wallX.body.moves = false;
     },
-    immovableSpawn: function (x, y, velocityX, velocityY, sizeX, sizeY, art) {
+    immovableSpawn: function (x, y, velocityX, velocityY, sizeX, sizeY, art, specialCondition, specialWorld, specialArray, positionInArray) {
         this.immovableWallX = this.immovableWall.create(x, y, art);
         // this.immovableWallX.anchor.setTo(.5);
+        this.immovableWallX.specialCondition = specialCondition;
+        this.immovableWallX.specialWorld = specialWorld;
+        this.immovableWallX.specialArray = specialArray;
+        this.immovableWallX.positionInArray = positionInArray;
         this.immovableWallX.scale.setTo(sizeX, sizeY);
         this.immovableWallX.body.immovable = true;
         this.immovableWallX.body.mass = 400;
