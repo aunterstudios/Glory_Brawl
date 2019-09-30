@@ -255,6 +255,13 @@ brawl.testing.prototype = {
         respawnHolder.indexOfPlayerPosition = flag.indexOfPlayerPosition;
         respawnHolder.metroidvania = this.metroidvania;
     },
+    specialConditionHandler (sprite1,sprite2) {
+        sprite2.kill();
+        if (sprite2.specialCondition > 0 ) {
+            worldDesignedLevels[this.indexOfCurrentWorld].spikeSpawn.splice(sprite2.specialCondition,1);
+        }
+        console.log(worldDesignedLevels[this.indexOfCurrentWorld].spikeSpawn.splice(sprite2.specialCondition,1));
+    },
     //////////////Creation of the World///////////////
     worldCreator: function (levelGenerator) {
         // console.log(levelGenerator);
@@ -354,7 +361,7 @@ brawl.testing.prototype = {
         //Generating spikes
         if (levelGenerator.spikeSpawn[0]) {
             for (var i = 1; i < levelGenerator.spikeSpawn.length; i++) {
-                this.spikeSpawn(levelGenerator.spikeSpawn[i].x, levelGenerator.spikeSpawn[i].y, levelGenerator.spikeSpawn[i].velocityX, levelGenerator.spikeSpawn[i].velocityY, levelGenerator.spikeSpawn[i].sizeX, levelGenerator.spikeSpawn[i].sizeY, levelGenerator.spikeSpawn[i].art);
+                this.spikeSpawn(levelGenerator.spikeSpawn[i].x, levelGenerator.spikeSpawn[i].y, levelGenerator.spikeSpawn[i].velocityX, levelGenerator.spikeSpawn[i].velocityY, levelGenerator.spikeSpawn[i].sizeX, levelGenerator.spikeSpawn[i].sizeY, levelGenerator.spikeSpawn[i].art, levelGenerator.spikeSpawn[i].specialCondition);
             }
         }
         //Generating grey ledges
@@ -533,11 +540,12 @@ brawl.testing.prototype = {
         this.ballX.body.bounce.setTo(1.0);
         this.ballX.body.velocity.setTo(velocityX, velocityY);
     },
-    spikeSpawn: function (x, y, velocityX, velocityY, sizeX, sizeY, art) {
+    spikeSpawn: function (x, y, velocityX, velocityY, sizeX, sizeY, art, specialCondition) {
         // var spikeArray = ['invertedSpikes', 'spikes'];
         // // var spikeLength = [.2, .3, .4, .5];
         // var spikeLength = [.2, .3,];
         this.spikesX = this.spikes.create(x, y, art);
+        this.spikesX.specialCondition = specialCondition;
         this.spikesX.anchor.setTo(.5);
         this.spikesX.scale.setTo(sizeX, sizeY);
         this.spikesX.body.immovable = true;
@@ -731,7 +739,8 @@ brawl.testing.prototype = {
 
         // Ball Mechanics
         this.game.physics.arcade.collide(this.ball, [this.ball, this.wall, this.ledge, this.ledgeDown, this.ledgeSide, this.death], null, null, this);
-        this.game.physics.arcade.overlap(this.ball, [this.enemy, this.spikes], deathThree, null, this);
+        // this.game.physics.arcade.overlap(this.ball, [this.enemy, this.spikes], deathThree, null, this);
+        this.game.physics.arcade.overlap(this.ball, [this.enemy, this.spikes], this.specialConditionHandler, null, this);
 
         //Ledge vs. Ledge Mechanics
         this.game.physics.arcade.collide([this.ledge, this.ledgeSide, this.ledgeDown], [this.ledge, this.ledgeSide, this.ledgeDown, this.wall, this.spikes, this.enemy, this.death], null, null, this); //preventPhysicsBug Removed

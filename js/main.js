@@ -292,8 +292,8 @@ var worldDesignedLevels = [
         { x: 1900, y: 1100, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "rotatedWall" },
       ],
     spikeSpawn:
-      [false,
-        { x: 0, y: 0, velocityX: 0, velocityY: 0, sizeX: 1, sizeY: 1, art: "invertedSpikes" },
+      [true,
+        { x: 0, y: 0, velocityX: 0, velocityY: 0, sizeX: 1, sizeY: 1, art: "invertedSpikes", specialCondition: 1 },
       ],
     ledgeGreySpawn:
       [false,
@@ -310,6 +310,7 @@ var worldDesignedLevels = [
     ballSpawn:
       [true,
         { x: 700, y: 1350, velocityX: 0, velocityY: 0 },
+        { x: 700, y: 200, velocityX: 0, velocityY: 0 },
       ],
     //Check Point
     flagSpawn:
@@ -326,7 +327,7 @@ var worldDesignedLevels = [
         //First Use of Weapons
         { x: 1600, y: 1200, textInput: "Press 1 to Access Pull Gun\nUse Mouse to Aim and Left Click to Shoot\nAny Object that is Moveable Can Be Pulled\n\nSurf the Grey Wall to the Top Using the Pull Gun\nHint: Jump While Shooting At the Grey Wall While Riding It", font: "Arial Black", fontSize: 25, fill: "#ffffff", fontWeight: "bold" },
         //Inside the Box
-        { x: 800, y: 1265, textInput: "Press 2 to Use the Stop Gun\nBalls Destroy Enemies and Traps\nDestroy the Spikes\nAny Object that is Moveable Can be Stopped", font: "Arial Black", fontSize: 25, fill: "#ffffff", fontWeight: "bold" }
+        { x: 750, y: 1265, textInput: "Press 2 to Use the Stop Gun\nBalls Destroy Enemies and Traps\nDestroy the Spikes\nAny Object that is Moveable Can be Stopped", font: "Arial Black", fontSize: 25, fill: "#ffffff", fontWeight: "bold" }
       ],
 
 
@@ -461,6 +462,7 @@ var worldDesignedLevels = [
     flagSpawn:
       [true,
         { x: 900, y: 3000, velocityX: 0, velocityY: 0, indexOfPlayerPosition: 1 },
+        // { x: 500, y: 3000, velocityX: 0, velocityY: 0, indexOfPlayerPosition: 0 },
       ],
     text:
       [true,
@@ -765,29 +767,29 @@ function killWeaponHandler(weapon, sprite) {
   weapon.kill();
 }
 
-function pullWeaponHandlerForFlag(sprite, weapon) {
-  this.game.physics.arcade.moveToObject(sprite, this.player, 200);
-  weapon.kill();
-}
+// function pullWeaponHandlerForFlag(sprite, weapon) {
+//   this.game.physics.arcade.moveToObject(sprite, this.player, 200);
+//   weapon.kill();
+// }
 
-function stopWeaponHandlerForFlag(sprite, weapon) {
-  sprite.body.stop();
-  weapon.kill();
-}
+// function stopWeaponHandlerForFlag(sprite, weapon) {
+//   sprite.body.stop();
+//   weapon.kill();
+// }
 
-function killWeaponHandlerForFlag(sprite, weapon) {
-  sprite.kill();
-  if (sprite.key === "coin" || sprite.key === "flag") {
-    //Refactor
-    // console.log("it hit? coinX");
-    if (streak > longestStreak) {
-      longestStreak = streak;
-    }
-    streak = 0;
-    game.state.start('deathState');
-  }
-  weapon.kill();
-}
+// function killWeaponHandlerForFlag(sprite, weapon) {
+//   sprite.kill();
+//   if (sprite.key === "coin" || sprite.key === "flag") {
+//     //Refactor
+//     // console.log("it hit? coinX");
+//     if (streak > longestStreak) {
+//       longestStreak = streak;
+//     }
+//     streak = 0;
+//     game.state.start('deathState');
+//   }
+//   weapon.kill();
+// }
 
 
 
