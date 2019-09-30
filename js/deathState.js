@@ -1,9 +1,13 @@
 //Death State
 brawl.state2 = function () { };
 brawl.state2.prototype = {
-    init: function () {
+    init: function (indexOfCurrentWorld, indexOfPlayerPosition, metroidvania) {
         this.game.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT;
         this.game.world.setBounds(0, 0, 1400, 800);
+        //Init To Get to the Next State
+        this.indexOfCurrentWorld = indexOfCurrentWorld;
+        this.indexOfPlayerPosition = indexOfPlayerPosition;
+        this.metroidvania = metroidvania;
     },
     preload: function () {
         this.load.image('background-three', 'assets/trumpBackground.png');
@@ -35,7 +39,8 @@ brawl.state2.prototype = {
                 this.game.state.start('rogueTest');
             }
             else {
-                this.game.state.start('test', true, false, 0, 1, worldDesignedLevels[0].metroidvania);
+                // this.game.state.start('test', true, false, 0, 1, worldDesignedLevels[0].metroidvania);
+                this.game.state.start('test', true, false, this.indexOfCurrentWorld, this.indexOfPlayerPosition, worldDesignedLevels[this.indexOfCurrentWorld].metroidvania);
             }
         }
 

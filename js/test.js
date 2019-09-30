@@ -210,25 +210,25 @@ brawl.testing.prototype = {
         if (player.y <= this.metroidvania.roomUpValue) {
             // player.reset(0, player.y)
             // player.body.velocity.x = 400;
-            this.game.state.restart(true, false, this.metroidvania.roomUpIndex, 1, worldDesignedLevels[this.metroidvania.roomDownIndex].metroidvania);
+            this.game.state.restart(true, false, this.metroidvania.roomUpIndex, 1, worldDesignedLevels[this.metroidvania.roomUpIndex].metroidvania);
         }
         //Down
         else if (player.y >= this.metroidvania.roomDownValue) {
             // player.reset(1400, player.y)
             // player.body.velocity.x = -400;
-            this.game.state.restart(true, false, this.metroidvania.roomDownIndex, 0, worldDesignedLevels[this.metroidvania.roomUpIndex].metroidvania);
+            this.game.state.restart(true, false, this.metroidvania.roomDownIndex, 0, worldDesignedLevels[this.metroidvania.roomDownIndex].metroidvania);
         }
         //Left
         else if (player.x <= this.metroidvania.roomLeftValue) {
             // player.reset(1400, player.y)
             // player.body.velocity.x = -400;
-            this.game.state.restart(true, false, this.metroidvania.roomLeftIndex, 3, worldDesignedLevels[this.metroidvania.roomRightIndex].metroidvania);
+            this.game.state.restart(true, false, this.metroidvania.roomLeftIndex, 3, worldDesignedLevels[this.metroidvania.roomLeftIndex].metroidvania);
         }
         //Right
         else if (player.x >= this.metroidvania.roomRightValue) {
             // player.reset(1400, player.y)
             // player.body.velocity.x = -400;
-            this.game.state.restart(true, false, this.metroidvania.roomRightIndex, 2, worldDesignedLevels[this.metroidvania.roomLeftIndex].metroidvania);
+            this.game.state.restart(true, false, this.metroidvania.roomRightIndex, 2, worldDesignedLevels[this.metroidvania.roomRightIndex].metroidvania);
         }
 
     },
@@ -238,6 +238,18 @@ brawl.testing.prototype = {
         this.text1.fontSize = fontSize;
         this.text1.fill = fill;
         this.text1.fontWeight = fontWeight;
+    },
+    deathState: function (victim,killer) {
+        // console.log(victim.body.x + ' '+ victim.body.y);
+        victim.kill();
+        game.state.start('deathState', true, false, respawnHolder.indexOfCurrentWorld, respawnHolder.indexOfPlayerPosition, respawnHolder.metroidvania);
+    },
+    respawn: function (player,flag) {
+        flag.kill();
+        console.log("It Hits the Flag!");
+        respawnHolder.indexOfCurrentWorld = this.indexOfCurrentWorld;
+        respawnHolder.indexOfPlayerPosition = this.indexOfPlayerPosition;
+        respawnHolder.metroidvania = this.metroidvania;
     },
     //////////////Creation of the World///////////////
     worldCreator: function (levelGenerator) {
@@ -669,7 +681,7 @@ brawl.testing.prototype = {
         //Flag Physics
         this.game.physics.arcade.collide(this.finish, [this.immovableWall, this.wall, this.enemy, this.ledge, this.ledgeDown, this.ledgeSide, this.spikes, this.ball]);
         //Winning!
-        this.game.physics.arcade.overlap(this.player, this.finish, nextLevel, null, this);
+        this.game.physics.arcade.overlap(this.player, this.finish, this.respawn, null, this);
     },
     // // //How Game Updates Real-Time (Actual Controls)
     update: function () {
@@ -684,6 +696,9 @@ brawl.testing.prototype = {
         var onLedgeBlue = this.game.physics.arcade.collide(this.player, this.ledgeSide, ledgeSideX, null, this);
         var onBall = this.game.physics.arcade.collide(this.player, this.ball, ballMover, null, this);
         var onImmovable = this.game.physics.arcade.collide(this.player, this.immovableWall, null, null, this);
+
+        //Respawn Point Mechanics
+        this.game.physics.arcade.overlap(this.player, this.finish, this.respawn, null, this);
 
         //Weapon Mechanics
         this.game.physics.arcade.collide(this.weapon1.bullets, [this.ball, this.wall, this.ledge, this.ledgeDown, this.ledgeSide, this.enemy, this.coin], pullWeaponHandler, null, this);
@@ -715,7 +730,7 @@ brawl.testing.prototype = {
         this.game.physics.arcade.collide(this.enemy, [this.spikes, this.wall, this.enemy], testFunctionX, null, this);
 
         //Death Mechanics
-        this.game.physics.arcade.overlap(this.player, [this.enemy, this.spikes, this.enemyBullets, this.death], deathOne, null, this);
+        this.game.physics.arcade.overlap(this.player, [this.enemy, this.spikes, this.enemyBullets, this.death], this.deathState, null, this);
 
         ////////////////////////////////Win Conditions/////////////////////////////////
         //Game Mode 0 Flag
