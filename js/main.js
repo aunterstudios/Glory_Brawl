@@ -457,7 +457,7 @@ var worldDesignedLevels = [
       ],
     //Check Point
     flagSpawn:
-      { trigger: true, x: 900, y: 3000, velocityX: 0, velocityY: 0 }, //Will Need to Attach a Boolean Here to Trigger
+      { trigger: true, x: 900, y: 3000, velocityX: 0, velocityY: 0, indexOfPlayerPosition: 1 }, //Will Need to Attach a Boolean Here to Trigger
     text:
       [true,
         //Inside the Box
