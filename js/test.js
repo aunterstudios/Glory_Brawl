@@ -258,9 +258,12 @@ brawl.testing.prototype = {
     specialConditionHandler (sprite1,sprite2) {
         sprite2.kill();
         if (sprite2.specialCondition > 0 ) {
-            worldDesignedLevels[this.indexOfCurrentWorld].spikeSpawn.splice(sprite2.specialCondition,1);
+            worldDesignedLevels[this.indexOfCurrentWorld].spikeSpawn[sprite2.positionInArray].trigger = false;
         }
-        console.log(worldDesignedLevels[this.indexOfCurrentWorld].spikeSpawn.splice(sprite2.specialCondition,1));
+        else if (sprite2.specialCondition < 0) {
+            worldDesignedLevels[this.indexOfCurrentWorld].spikeSpawn[sprite2.positionInArray].trigger = false;
+            worldDesignedLevels[sprite2.specialWorld].spikeSpawn[sprite2.specialArray].trigger = false;
+        }
     },
     //////////////Creation of the World///////////////
     worldCreator: function (levelGenerator) {
@@ -361,7 +364,14 @@ brawl.testing.prototype = {
         //Generating spikes
         if (levelGenerator.spikeSpawn[0]) {
             for (var i = 1; i < levelGenerator.spikeSpawn.length; i++) {
-                this.spikeSpawn(levelGenerator.spikeSpawn[i].x, levelGenerator.spikeSpawn[i].y, levelGenerator.spikeSpawn[i].velocityX, levelGenerator.spikeSpawn[i].velocityY, levelGenerator.spikeSpawn[i].sizeX, levelGenerator.spikeSpawn[i].sizeY, levelGenerator.spikeSpawn[i].art, levelGenerator.spikeSpawn[i].specialCondition);
+                if (levelGenerator.spikeSpawn[i].trigger) {
+                    this.spikeSpawn(levelGenerator.spikeSpawn[i].x, levelGenerator.spikeSpawn[i].y, levelGenerator.spikeSpawn[i].velocityX, levelGenerator.spikeSpawn[i].velocityY, levelGenerator.spikeSpawn[i].sizeX, levelGenerator.spikeSpawn[i].sizeY, levelGenerator.spikeSpawn[i].art, levelGenerator.spikeSpawn[i].specialCondition, levelGenerator.spikeSpawn[i].specialWorld, levelGenerator.spikeSpawn[i].specialArray, levelGenerator.spikeSpawn[i].positionInArray);
+                    console.log("Yes Its Hitting Spikes");
+                }
+                else {
+                    console.log("special condition spikes trigger false");
+                }
+                // this.spikeSpawn(levelGenerator.spikeSpawn[i].x, levelGenerator.spikeSpawn[i].y, levelGenerator.spikeSpawn[i].velocityX, levelGenerator.spikeSpawn[i].velocityY, levelGenerator.spikeSpawn[i].sizeX, levelGenerator.spikeSpawn[i].sizeY, levelGenerator.spikeSpawn[i].art, levelGenerator.spikeSpawn[i].specialCondition);
             }
         }
         //Generating grey ledges
@@ -540,12 +550,15 @@ brawl.testing.prototype = {
         this.ballX.body.bounce.setTo(1.0);
         this.ballX.body.velocity.setTo(velocityX, velocityY);
     },
-    spikeSpawn: function (x, y, velocityX, velocityY, sizeX, sizeY, art, specialCondition) {
+    spikeSpawn: function (x, y, velocityX, velocityY, sizeX, sizeY, art, specialCondition, specialWorld, specialArray, positionInArray) {
         // var spikeArray = ['invertedSpikes', 'spikes'];
         // // var spikeLength = [.2, .3, .4, .5];
         // var spikeLength = [.2, .3,];
         this.spikesX = this.spikes.create(x, y, art);
         this.spikesX.specialCondition = specialCondition;
+        this.spikesX.specialWorld = specialWorld;
+        this.spikesX.specialArray = specialArray;
+        this.spikesX.positionInArray = positionInArray;
         this.spikesX.anchor.setTo(.5);
         this.spikesX.scale.setTo(sizeX, sizeY);
         this.spikesX.body.immovable = true;

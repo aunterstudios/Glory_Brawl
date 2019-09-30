@@ -232,16 +232,32 @@ var worldDesignedLevels = [
       ],
     undeniableDeathSpawn:
       [true,
-        // { x: 0, y: 1638, velocityX: 0, velocityY: 0, sizeX: .25, sizeY: .5, art: "sidewaysSpikes" },
-        { x: 0, y: 1470, velocityX: 0, velocityY: 0, sizeX: .25, sizeY: .619, art: "sidewaysSpikes" },
-        // { x: 700, y: 1340, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "undeniableDeath" },
-        { x: 2800, y: 0, velocityX: 0, velocityY: 0, sizeX: .25, sizeY: .857, art: "sidewaysSpikes" },
-        { x: 2800, y: 1263, velocityX: 0, velocityY: 0, sizeX: .25, sizeY: .767, art: "sidewaysSpikes" },
-        { x: 1463, y: 900, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "undeniableDeath" },
-        { x: 1463, y: 300, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "undeniableDeath" },
-        { x: 2100, y: 600, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "undeniableDeath" },
-        { x: 1400, y: 0, velocityX: 0, velocityY: 0, sizeX: 1, sizeY: .5, art: "undeniableDeath" },
-        // { x: 0, y: 900, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "undeniableDeath" },
+        {
+          trigger: true, x: 0, y: 1470, velocityX: 0, velocityY: 0, sizeX: .25, sizeY: .619, art: "sidewaysSpikes", specialCondition: 0, specialWorld: 0, specialArray: null, positionInArray: 1
+        },
+        {
+          trigger: true, x: 2800, y: 0, velocityX: 0, velocityY: 0, sizeX: .25, sizeY: .857, art: "sidewaysSpikes",
+          specialCondition: 0, specialWorld: 0, specialArray: null, positionInArray: 2
+        },
+        {
+          trigger: true, x: 2800, y: 1263, velocityX: 0, velocityY: 0, sizeX: .25, sizeY: .767, art: "sidewaysSpikes",
+          specialCondition: 0, specialWorld: 0, specialArray: null, positionInArray: 3
+        },
+        {
+          trigger: true, x: 1463, y: 900, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "undeniableDeath", specialCondition: 0, specialWorld: 0, specialArray: null, positionInArray: 4
+        },
+        {
+          trigger: true, x: 1463, y: 300, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "undeniableDeath",
+          specialCondition: 0, specialWorld: 0, specialArray: null, positionInArray: 5
+        },
+        {
+          trigger: true, x: 2100, y: 600, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "undeniableDeath",
+          specialCondition: 0, specialWorld: 0, specialArray: null, positionInArray: 6
+        },
+        {
+          trigger: true, x: 1400, y: 0, velocityX: 0, velocityY: 0, sizeX: 1, sizeY: .5, art: "undeniableDeath",
+          specialCondition: 0, specialWorld: 0, specialArray: null, positionInArray: 7
+        },
       ],
     immovableWallSpawn:
       [true,
@@ -289,11 +305,13 @@ var worldDesignedLevels = [
       ],
     wallSpawn:
       [true,
-        { x: 1900, y: 1100, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "rotatedWall" },
+        { trigger: true, x: 1900, y: 1100, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "rotatedWall", specialCondition: 0, specialWorld: 0, positionInArray: 1 },
       ],
     spikeSpawn:
       [true,
-        { x: 0, y: 0, velocityX: 0, velocityY: 0, sizeX: 1, sizeY: 1, art: "invertedSpikes", specialCondition: 1 },
+        { trigger: true, x: 0, y: 0, velocityX: 0, velocityY: 0, sizeX: 1, sizeY: 1, art: "invertedSpikes", specialCondition: 1, specialWorld: 0, specialArray: null, positionInArray: 1, },
+        //Special Condition Test to Remove A Game Object Level One
+        { trigger: true, x: 0, y: 1200, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: 1, art: "invertedSpikes", specialCondition: -1, specialWorld: 1, specialArray: 1, positionInArray: 2, },
       ],
     ledgeGreySpawn:
       [false,
@@ -440,7 +458,7 @@ var worldDesignedLevels = [
       ],
     spikeSpawn:
       [true,
-        { x: 0, y: 2900, velocityX: 0, velocityY: 0, sizeX: 1, sizeY: 1, art: "invertedSpikes" },
+        { trigger: true, x: 0, y: 2900, velocityX: 0, velocityY: 0, sizeX: 1, sizeY: 1, art: "invertedSpikes", specialCondition: 1, specialWorld: 1, positionInArray: 1 },
       ],
     ledgeGreySpawn:
       [false,
