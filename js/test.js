@@ -257,16 +257,18 @@ brawl.testing.prototype = {
     },
     specialConditionHandler(sprite1, sprite2) {
         sprite2.kill();
-        if (sprite2.specialCondition > 0) {
-            //Removes Localized Sprites from Regenerating After Room Switch Killing
+        //Removes Localized Sprites from Regenerating (Spikes)
+        if (sprite2.specialCondition === 0) {
+            //Destruction of Localized Sprite
             worldDesignedLevels[this.indexOfCurrentWorld].spikeSpawn[sprite2.positionInArray].trigger = false;
         }
-        else if (sprite2.specialCondition < 0) {
-            //Removes Sprites from Different Levels After Room Switch Killing
+        //Removes Sprites from Different Levels (Spikes)
+        else if (sprite2.specialCondition === 1) {
             worldDesignedLevels[this.indexOfCurrentWorld].spikeSpawn[sprite2.positionInArray].trigger = false;
+            //Destruction of a sprite at a different level
             worldDesignedLevels[sprite2.specialWorld].spikeSpawn[sprite2.specialArray].trigger = false;
         }
-        //////////////////////////Creates New Sprites After Room Switch Killing///////////////////////
+        //////////////////////////Creates New Sprites After Spikes Destroyed///////////////////////
         //worldDesignedLevels[sprite2.specialWorld].ledgeGreySpawn[sprite2.specialArray].trigger = true;
     },
     //////////////Creation of the World///////////////
@@ -390,13 +392,17 @@ brawl.testing.prototype = {
         //Generating green ledges
         if (levelGenerator.ledgeGreenSpawn[0]) {
             for (var i = 1; i < levelGenerator.ledgeGreenSpawn.length; i++) {
-                this.ledgeGreenSpawn(levelGenerator.ledgeGreenSpawn[i].x, levelGenerator.ledgeGreenSpawn[i].y, levelGenerator.ledgeGreenSpawn[i].velocityX, levelGenerator.ledgeGreenSpawn[i].velocityY);
+                if (levelGenerator.ledgeGreenSpawn[i].trigger) {
+                    this.ledgeGreenSpawn(levelGenerator.ledgeGreenSpawn[i].x, levelGenerator.ledgeGreenSpawn[i].y, levelGenerator.ledgeGreenSpawn[i].velocityX, levelGenerator.ledgeGreenSpawn[i].velocityY, levelGenerator.ledgeGreenSpawn[i].specialCondition, levelGenerator.ledgeGreenSpawn[i].specialWorld, levelGenerator.ledgeGreenSpawn[i].specialArray, levelGenerator.ledgeGreenSpawn[i].positionInArray);
+                }
             }
         }
         //Generating blue ledges
         if (levelGenerator.ledgeBlueSpawn[0]) {
             for (var i = 1; i < levelGenerator.ledgeBlueSpawn.length; i++) {
-                this.ledgeBlueSpawn(levelGenerator.ledgeBlueSpawn[i].x, levelGenerator.ledgeBlueSpawn[i].y, levelGenerator.ledgeBlueSpawn[i].velocityX, levelGenerator.ledgeBlueSpawn[i].velocityY);
+                if (levelGenerator.ledgeBlueSpawn[i].trigger) {
+                    this.ledgeBlueSpawn(levelGenerator.ledgeBlueSpawn[i].x, levelGenerator.ledgeBlueSpawn[i].y, levelGenerator.ledgeBlueSpawn[i].velocityX, levelGenerator.ledgeBlueSpawn[i].velocityY, levelGenerator.ledgeBlueSpawn[i].specialCondition, levelGenerator.ledgeBlueSpawn[i].specialWorld, levelGenerator.ledgeBlueSpawn[i].specialArray, levelGenerator.ledgeBlueSpawn[i].positionInArray);
+                }
             }
         }
         //Generating enemies
@@ -543,8 +549,12 @@ brawl.testing.prototype = {
         this.ledgeGrey.body.bounce.setTo(1);
         this.ledgeGrey.body.velocity.setTo(velocityX, velocityY);
     },
-    ledgeGreenSpawn: function (x, y, velocityX, velocityY) {
+    ledgeGreenSpawn: function (x, y, velocityX, velocityY, specialCondition, specialWorld, specialArray, positionInArray) {
         this.ledgeGreen = this.ledgeDown.create(x, y, 'ledgeDown');
+        this.ledgeGreen.specialCondition = specialCondition;
+        this.ledgeGreen.specialWorld = specialWorld;
+        this.ledgeGreen.specialArray = specialArray;
+        this.ledgeGreen.positionInArray = positionInArray;
         this.ledgeGreen.anchor.setTo(.5);
         this.ledgeGreen.scale.setTo(.4);
         this.ledgeGreen.body.mass = 20;
@@ -553,8 +563,12 @@ brawl.testing.prototype = {
         this.ledgeGreen.body.bounce.setTo(1);
         this.ledgeGreen.body.velocity.setTo(velocityX, velocityY);
     },
-    ledgeBlueSpawn: function (x, y, velocityX, velocityY) {
+    ledgeBlueSpawn: function (x, y, velocityX, velocityY, specialCondition, specialWorld, specialArray, positionInArray) {
         this.ledgeBlue = this.ledgeSide.create(x, y, 'ledgeSide');
+        this.ledgeBlue.specialCondition = specialCondition;
+        this.ledgeBlue.specialWorld = specialWorld;
+        this.ledgeBlue.specialArray = specialArray;
+        this.ledgeBlue.positionInArray = positionInArray;
         this.ledgeBlue.anchor.setTo(.5);
         this.ledgeBlue.scale.setTo(.4);
         this.ledgeBlue.body.mass = 20;
