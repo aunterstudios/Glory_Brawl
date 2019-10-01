@@ -546,10 +546,11 @@ var worldDesignedLevels = [
       ],
     spikeSpawn:
       [true,
-        { trigger: true, x: 0, y: 2900, velocityX: 0, velocityY: 0, sizeX: 1, sizeY: 1, art: "invertedSpikes", specialCondition: 1, specialWorld: 1, positionInArray: 1 },
+        { trigger: true, x: 0, y: 2900, velocityX: 0, velocityY: 0, sizeX: 1, sizeY: 1, art: "invertedSpikes", specialCondition: null, specialWorld: null, positionInArray: 1 },
       ],
     ledgeGreySpawn:
-      [false,
+      [true,
+        { trigger: false, x: 0, y: 2500, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, positionInArray: 1 },
       ],
     ledgeGreenSpawn:
       [false,

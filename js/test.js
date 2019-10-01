@@ -258,12 +258,16 @@ brawl.testing.prototype = {
     specialConditionHandler(sprite1, sprite2) {
         sprite2.kill();
         if (sprite2.specialCondition > 0) {
+            //Removes Localized Sprites from Regenerating After Room Switch Killing
             worldDesignedLevels[this.indexOfCurrentWorld].spikeSpawn[sprite2.positionInArray].trigger = false;
         }
         else if (sprite2.specialCondition < 0) {
+            //Removes Sprites from Different Levels After Room Switch Killing
             worldDesignedLevels[this.indexOfCurrentWorld].spikeSpawn[sprite2.positionInArray].trigger = false;
             worldDesignedLevels[sprite2.specialWorld].spikeSpawn[sprite2.specialArray].trigger = false;
         }
+        //////////////////////////Creates New Sprites After Room Switch Killing///////////////////////
+        //worldDesignedLevels[sprite2.specialWorld].ledgeGreySpawn[sprite2.specialArray].trigger = true;
     },
     //////////////Creation of the World///////////////
     worldCreator: function (levelGenerator) {
@@ -372,18 +376,15 @@ brawl.testing.prototype = {
             for (var i = 1; i < levelGenerator.spikeSpawn.length; i++) {
                 if (levelGenerator.spikeSpawn[i].trigger) {
                     this.spikeSpawn(levelGenerator.spikeSpawn[i].x, levelGenerator.spikeSpawn[i].y, levelGenerator.spikeSpawn[i].velocityX, levelGenerator.spikeSpawn[i].velocityY, levelGenerator.spikeSpawn[i].sizeX, levelGenerator.spikeSpawn[i].sizeY, levelGenerator.spikeSpawn[i].art, levelGenerator.spikeSpawn[i].specialCondition, levelGenerator.spikeSpawn[i].specialWorld, levelGenerator.spikeSpawn[i].specialArray, levelGenerator.spikeSpawn[i].positionInArray);
-                    console.log("Yes Its Hitting Spikes");
                 }
-                // else {
-                //     console.log("special condition spikes trigger false");
-                // }
-                // this.spikeSpawn(levelGenerator.spikeSpawn[i].x, levelGenerator.spikeSpawn[i].y, levelGenerator.spikeSpawn[i].velocityX, levelGenerator.spikeSpawn[i].velocityY, levelGenerator.spikeSpawn[i].sizeX, levelGenerator.spikeSpawn[i].sizeY, levelGenerator.spikeSpawn[i].art, levelGenerator.spikeSpawn[i].specialCondition);
             }
         }
         //Generating grey ledges
         if (levelGenerator.ledgeGreySpawn[0]) {
             for (var i = 1; i < levelGenerator.ledgeGreySpawn.length; i++) {
-                this.ledgeGreySpawn(levelGenerator.ledgeGreySpawn[i].x, levelGenerator.ledgeGreySpawn[i].y, levelGenerator.ledgeGreySpawn[i].velocityX, levelGenerator.ledgeGreySpawn[i].velocityY);
+                if (levelGenerator.ledgeGreySpawn[i].trigger) {
+                    this.ledgeGreySpawn(levelGenerator.ledgeGreySpawn[i].x, levelGenerator.ledgeGreySpawn[i].y, levelGenerator.ledgeGreySpawn[i].velocityX, levelGenerator.ledgeGreySpawn[i].velocityY, levelGenerator.ledgeGreySpawn[i].specialCondition, levelGenerator.ledgeGreySpawn[i].specialWorld, levelGenerator.ledgeGreySpawn[i].specialArray, levelGenerator.ledgeGreySpawn[i].positionInArray);
+                }
             }
         }
         //Generating green ledges
@@ -525,8 +526,12 @@ brawl.testing.prototype = {
         this.trumpX.body.bounce.setTo(1);
         this.trumpX.body.velocity.setTo(velocityX, velocityY);
     },
-    ledgeGreySpawn: function (x, y, velocityX, velocityY) {
+    ledgeGreySpawn: function (x, y, velocityX, velocityY, specialCondition, specialWorld, specialArray, positionInArray) {
         this.ledgeGrey = this.ledge.create(x, y, 'ledge');
+        this.ledgeGrey.specialCondition = specialCondition;
+        this.ledgeGrey.specialWorld = specialWorld;
+        this.ledgeGrey.specialArray = specialArray;
+        this.ledgeGrey.positionInArray = positionInArray;
         this.ledgeGrey.anchor.setTo(.5);
         this.ledgeGrey.scale.setTo(.4);
         this.ledgeGrey.body.mass = 20;
