@@ -117,7 +117,8 @@ brawl.stateControls.prototype = {
             deathStateProcedural = true;
         }
         else if (this.game.input.keyboard.isDown(Phaser.Keyboard.X)) {
-            this.game.state.start('test', true, false, 0, 1, worldDesignedLevels[0].metroidvania);
+            // this.game.state.start('test', true, false, 0, 1, worldDesignedLevels[0].metroidvania);
+            this.game.state.start('test', true, false, 1, 1, worldDesignedLevels[1].metroidvania);
             deathStateProcedural = false;
         }
     }

@@ -204,7 +204,7 @@ var worldDesignedLevels = [
       //Up, Down, Left, Right (Remember!)
       [
         { upPosition: true, x: 200, y: 20 },
-        { downPosition: true, x: 200, y: 2000 },
+        { downPosition: true, x: 200, y: 300 },
         { leftPosition: true, x: 200, y: 400 },
         { rightPosition: true, x: 1400, y: 400 }
       ],
@@ -246,12 +246,12 @@ var worldDesignedLevels = [
         {
           trigger: true, x: 1463, y: 900, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "undeniableDeath", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 4
         },
+        // {
+        //   trigger: true, x: 1463, y: 300, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "undeniableDeath",
+        //   specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 5
+        // },
         {
-          trigger: true, x: 1463, y: 300, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "undeniableDeath",
-          specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 5
-        },
-        {
-          trigger: true, x: 2100, y: 600, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "undeniableDeath",
+          trigger: true, x: 2060, y: 300, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "undeniableDeath",
           specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 6
         },
         {
@@ -394,7 +394,12 @@ var worldDesignedLevels = [
         {
           trigger: true, x: 1200, y: 800, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall",
           specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 32
-        }
+        },
+        ////Left Room Blocker
+        // {
+        //   trigger: true, x: 64, y: 0, velocityX: 0, velocityY: 0, sizeX: .4, sizeY: .5, art: "immovableRotatedWall",
+        //   specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 18
+        // },
         // { x: 400, y: 1000, velocityX: 0, velodcityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall" },
         // { x: 700, y: 600, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall" },
 
@@ -407,9 +412,9 @@ var worldDesignedLevels = [
       ],
     spikeSpawn:
       [true,
-        {
-          trigger: true, x: 0, y: 0, velocityX: 0, velocityY: 0, sizeX: 1, sizeY: 1, art: "invertedSpikes", specialCondition: 0, specialWorld: 0, specialArray: null, positionInArray: 1,
-        },
+        // {
+        //   trigger: true, x: 0, y: 0, velocityX: 0, velocityY: 0, sizeX: 1, sizeY: 1, art: "invertedSpikes", specialCondition: 0, specialWorld: 0, specialArray: null, positionInArray: 1,
+        // },
         //Special Condition Test to Remove A Game Object Level One
         // {
         //   trigger: true, x: 0, y: 1200, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: 1, art: "invertedSpikes", specialCondition: 1, specialWorld: 1, specialArray: 1, positionInArray: 2,
@@ -432,9 +437,9 @@ var worldDesignedLevels = [
         {
           trigger: true, x: 700, y: 1350, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1
         },
-        // {
-        //   trigger: true, x: 700, y: 200, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 2
-        // },
+        {
+          trigger: true, x: 700, y: 200, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 2
+        },
       ],
     //Check Point
     flagSpawn:
@@ -446,12 +451,14 @@ var worldDesignedLevels = [
         { x: 100, y: 2000, textInput: "WASD to Move (Spacebar is also jump)\nTapping Twice on the Jump Button Lets You Double Jump\nJump Over the Wall", font: "Arial Black", fontSize: 25, fill: "#ffffff", fontWeight: "bold" },
         { x: 100, y: 1700, textInput: "Red is Death", font: "Times New Roman", fontSize: 30, fill: "#FF0000", fontWeight: "bold" }
         ,
-        { x: 800, y: 1700, textInput: "You Automatically Stick on Surfaces When You Jump on It\nPress A or D while on the Wall to Jump Off It\nKeep Jumping Off and Moving Again Towards the Wall to Climb Over\nTip: Hold Towards the Wall While Jumping Off Lets You Fast Climb", font: "Arial Black", fontSize: 25, fill: "#ffffff", fontWeight: "bold" },
+        { x: 1300, y: 1700, textInput: "You Automatically Stick on Surfaces When You Jump on It\nPress A or D while on the Wall to Jump Off It\nKeep Jumping Off and Moving Again Towards the Wall to Climb Over\nTip: Hold Towards the Wall While Jumping Off Lets You Fast Climb", font: "Arial Black", fontSize: 25, fill: "#ffffff", fontWeight: "bold" },
         { x: 1800, y: 2000, textInput: "You Can Stick and Move on the Bottom of Surfaces\nPress S to go Downwards or Push\n\nWhenever You Stick to a Surface You Can Double Jump Again", font: "Arial Black", fontSize: 25, fill: "#ffffff", fontWeight: "bold" },
         //First Use of Weapons
         { x: 1600, y: 1200, textInput: "Press 1 to Access Pull Gun\nUse Mouse to Aim and Left Click to Shoot\nAny Object that is Moveable Can Be Pulled\n\nSurf the Grey Wall to the Top Using the Pull Gun\nHint: Jump While Shooting At the Grey Wall While Riding It", font: "Arial Black", fontSize: 25, fill: "#ffffff", fontWeight: "bold" },
         //Inside the Box
-        { x: 750, y: 1265, textInput: "Press 2 to Use the Stop Gun\nBalls Destroy Enemies and Traps\nDestroy the Spikes\nAny Object that is Moveable Can be Stopped", font: "Arial Black", fontSize: 25, fill: "#ffffff", fontWeight: "bold" }
+        { x: 750, y: 1265, textInput: "Press 2 to Use the Stop Gun\nBalls Destroy Enemies and Traps\nDestroy the Spikes\nAny Object that is Moveable Can be Stopped", font: "Arial Black", fontSize: 25, fill: "#ffffff", fontWeight: "bold" },
+        //To Next Level
+        { x: 100, y: 25, textInput: "Level 1 ↑", font: "Arial Black", fontSize: 25, fill: "#ffffff", fontWeight: "bold" }
       ],
 
 
@@ -467,7 +474,7 @@ var worldDesignedLevels = [
     worldName: "Level 1 ",
     gameMode: ["flag", "coin"],
     ////////////World Size
-    xOfWorld: 1400,
+    xOfWorld: 2800,
     yOfWorld: 3200,
     ///////////Sprite Positioning
     //Where the Player Spawns Due to Switching Rooms
@@ -475,7 +482,7 @@ var worldDesignedLevels = [
       //Up, Down, Left, Right (Remember!)
       [
         { upPosition: true, x: 200, y: 20 },
-        { downPosition: true, x: 700, y: 3000 },
+        { downPosition: true, x: 1300, y: 1600 }, //x400 y3000 (Original)
         { leftPosition: true, x: 200, y: 400 },
         { rightPosition: true, x: 1400, y: 400 }
       ],
@@ -502,69 +509,91 @@ var worldDesignedLevels = [
         { x: 500, y: 500, teleportationX: 100, teleporationY: 50 }
       ],
     undeniableDeathSpawn:
-      [false,
+      [true,
+        //Ground Next To Flag
+        {
+          trigger: true, x: 725, y: 3170, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .4, art: "undeniableDeath", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1
+        },
+        //Top of the Yellow at the Bottom
+        {
+          trigger: true, x: 0, y: 2691, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "undeniableDeath", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 2
+        },
+        //Border of First Half
+        {
+          trigger: true, x: 1425, y: 1700, velocityX: 0, velocityY: 0, sizeX: .25, sizeY: 1.08, art: "sidewaysSpikes", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 3
+        },
+        //Connector to top of yellow
+        {
+          trigger: true, x: 700, y: 2000, velocityX: 0, velocityY: 0, sizeX: .25, sizeY: .714, art: "sidewaysSpikes", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 4
+        },
+        //Preventing Grey Cheese
+        {
+          trigger: true, x: 150, y: 1690, velocityX: 0, velocityY: 0, sizeX: .608, sizeY: .39, art: "undeniableDeath", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 5
+        },
+        //Border Slim Left Side
+        {
+          trigger: true, x: 0, y: 1400, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .922, art: "sidewaysSpikes", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 6
+        },
+        // Next to Wall at the End of Grey Phase
+        {
+          trigger: true, x: 426, y: 1336.5, velocityX: 0, velocityY: 0, sizeX: .8029, sizeY: .395, art: "undeniableDeath", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 7
+        },
+        //Entryway to the Green Ledge
+        {
+          trigger: true, x: 1550, y: 1336.5, velocityX: 0, velocityY: 0, sizeX: .25, sizeY: .714, art: "sidewaysSpikes", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 4
+        },
       ],
     immovableWallSpawn:
       [true,
         //Ground
         {
-          trigger: true, x: 700, y: 3100, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "immovableRotatedWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1,
+          trigger: true, x: 300, y: 3136, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "immovableRotatedWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1,
         },
-        // //Practice Jump Levels
-        // { x: 700, y: 2210, velocityX: 0, velocityY: 0, sizeX: .4, sizeY: .15, art: "immovableVerticalWall" },
-        // { x: 1700, y: 1910, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "immovableVerticalWall" },
-        // //Mini Walls
-        // { x: 2500, y: 2200, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall" },
-        // { x: 2500, y: 1800, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall" },
-        // { x: 2700, y: 2000, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall" },
-        // { x: 2700, y: 1600, velocityX: 0, velodcityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall" },
-        // { x: 2700, y: 1375, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall" },
-        // //The Box
-        // { x: 2375, y: 1200, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "immovableRotatedWall" },
-        // { x: 1400, y: 300, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: 1.3, art: "immovableVerticalWall" },
-        // { x: 0, y: 1407, velocityX: 0, velocityY: 0, sizeX: 1.72, sizeY: .5, art: "immovableRotatedWall" },
-        // { x: 0, y: 0, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: 1.653, art: "immovableVerticalWall" },
-        // //Inside the Box
-        // { x: 400, y: 1200, velocityX: 0, velocityY: 0, sizeX: .9, sizeY: .4, art: "immovableRotatedWall" },
-        // { x: 63, y: 800, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "immovableRotatedWall" },
-        // { x: 974, y: 500, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "immovableRotatedWall" },
-        // { x: 63, y: 300, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "immovableRotatedWall" },
-        // { x: 700, y: 600, velocityX: 0, velocityY: 0, sizeX: .4, sizeY: .5, art: "immovableRotatedWall" },
-        // { x: 400, y: 500, velocityX: 0, velocityY: 0, sizeX: .4, sizeY: .5, art: "immovableRotatedWall" },
-        // //Tiny Boxes inside the Box
-        // { x: 200, y: 950, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall" },
-        // { x: 200, y: 1150, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall" },
-        // { x: 500, y: 1000, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall" },
-        // { x: 600, y: 800, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall" },
-        // { x: 700, y: 775, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall" },
-        // { x: 800, y: 700, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall" },
-        // { x: 800, y: 900, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall" },
-        // { x: 800, y: 1100, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall" },
-        // { x: 1000, y: 800, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall" },
-        // { x: 1000, y: 600, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall" },
-        // { x: 1100, y: 1000, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall" },
-        // { x: 1100, y: 600, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall" },
-        // { x: 1200, y: 1100, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall" },
-        // { x: 1200, y: 800, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall" }
-        // { x: 400, y: 1000, velocityX: 0, velodcityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall" },
-        // { x: 700, y: 600, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall" },
-
+        //Vertical Wall Connector to Level 0
+        {
+          trigger: true, x: 0, y: 2772, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "immovableVerticalWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 2,
+        },
+        //Mini Boxes
+        {
+          trigger: true, x: 1062.5, y: 2600, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall",
+          specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 3
+        },
+        //Top of First Grey Ledge
+        {
+          trigger: true, x: 1000, y: 1690, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "immovableRotatedWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 4,
+        },
+        //End of Grey Ledge
+        {
+          trigger: true, x: 0, y: 1336.5, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "immovableRotatedWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 4,
+        },
       ],
     wallSpawn:
       [true,
-        { trigger: true, x: 0, y: 3200, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "rotatedWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1 },
+        {
+          trigger: true, x: 300, y: 2900, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "rotatedWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1
+        },
+        {
+          trigger: true, x: 1100, y: 3000, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "rotatedWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 2
+        },
       ],
     spikeSpawn:
       [true,
-        { trigger: true, x: 0, y: 2900, velocityX: 0, velocityY: 0, sizeX: 1, sizeY: 1, art: "invertedSpikes", specialCondition: null, specialWorld: null, positionInArray: 1 },
+        {
+          trigger: true, x: 0, y: 0, velocityX: 0, velocityY: 0, sizeX: 1, sizeY: 1, art: "invertedSpikes", specialCondition: null, specialWorld: null, positionInArray: 1
+        },
       ],
     ledgeGreySpawn:
       [true,
-        { trigger: true, x: 0, y: 2500, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, positionInArray: 1 },
+        //First One You See
+        { trigger: true, x: 100, y: 2600, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, positionInArray: 1 },
+        { trigger: true, x: 1080, y: 2200, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, positionInArray: 2 },
       ],
     ledgeGreenSpawn:
-      [false,
+      [true,
+        { trigger: true, x: 1525, y: 3000, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, positionInArray: 1 },
+        { trigger: true, x: 2200, y: 2700, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, positionInArray: 2 },
       ],
+      
     ledgeBlueSpawn:
       [false,
       ],
@@ -573,18 +602,18 @@ var worldDesignedLevels = [
       ],
     ballSpawn:
       [false,
-        { x: 700, y: 1350, velocityX: 0, velocityY: 0 },
       ],
     //Check Point
     flagSpawn:
       [true,
-        { x: 900, y: 3000, velocityX: 0, velocityY: 0, indexOfPlayerPosition: 1 },
+        { x: 600, y: 3050, velocityX: 0, velocityY: 0, indexOfPlayerPosition: 1 },
         // { x: 500, y: 3000, velocityX: 0, velocityY: 0, indexOfPlayerPosition: 0 },
       ],
     text:
       [true,
         //Inside the Box
-        { x: 800, y: 2000, textInput: "Border Zone", font: "Arial Black", fontSize: 25, fill: "#ffffff", fontWeight: "bold" }
+        { x: 100, y: 3150, textInput: "Level 0 ↓", font: "Arial Black", fontSize: 25, fill: "#ffffff", fontWeight: "bold" },
+        { x: 400, y: 3000, textInput: "Flags are Respawn Checkpoints", font: "Arial Black", fontSize: 25, fill: "#ffffff", fontWeight: "bold" }
       ],
 
 
@@ -884,33 +913,33 @@ function killWeaponHandler(weapon, sprite) {
   weapon.kill();
 }
 
-// function pullWeaponHandlerForFlag(sprite, weapon) {
-//   this.game.physics.arcade.moveToObject(sprite, this.player, 200);
-//   weapon.kill();
-// }
+function pullWeaponHandlerForFlag(sprite, weapon) {
+  this.game.physics.arcade.moveToObject(sprite, this.player, 200);
+  weapon.kill();
+}
 
-// function stopWeaponHandlerForFlag(sprite, weapon) {
-//   sprite.body.stop();
-//   weapon.kill();
-// }
+function stopWeaponHandlerForFlag(sprite, weapon) {
+  sprite.body.stop();
+  weapon.kill();
+}
 
-// function killWeaponHandlerForFlag(sprite, weapon) {
-//   sprite.kill();
-//   if (sprite.key === "coin" || sprite.key === "flag") {
-//     //Refactor
-//     // console.log("it hit? coinX");
-//     if (streak > longestStreak) {
-//       longestStreak = streak;
-//     }
-//     streak = 0;
-//     game.state.start('deathState');
-//   }
-//   weapon.kill();
-// }
+function killWeaponHandlerForFlag(sprite, weapon) {
+  sprite.kill();
+  if (sprite.key === "coin" || sprite.key === "flag") {
+    //Refactor
+    // console.log("it hit? coinX");
+    if (streak > longestStreak) {
+      longestStreak = streak;
+    }
+    streak = 0;
+    game.state.start('deathState');
+  }
+  weapon.kill();
+}
 
 
 
-// function weaponHandler(weapon, sprite) {
+// function weaponHandler(weapon, sprite)  {
 //   // sprite.body.stop();
 //   if (pullBoolean) {
 //     ////////////////////////////////First Attempt////////////////////////

@@ -192,9 +192,9 @@ brawl.testing.prototype = {
         this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_LOCKON);
 
         //Streak
-        this.text = this.game.add.text(200, 6208, "Streak: " + streak, { font: "32px Arial", fill: "#ffffff", align: "center" });
-        this.text.fixedToCamera = true;
-        this.text.cameraOffset.setTo(100, 750);
+        // this.text = this.game.add.text(200, 6208, "Streak: " + streak, { font: "32px Arial", fill: "#ffffff", align: "center" });
+        // this.text.fixedToCamera = true;
+        // this.text.cameraOffset.setTo(100, 750);
 
         //World
         // this.text = this.game.add.text(200, 6208, "World: " + worldName + "\n Game Mode: " + gameModeName, { font: "20px Arial", fill: "#ffffff", align: "center" });
@@ -405,7 +405,7 @@ brawl.testing.prototype = {
                 }
             }
         }
-        //Generating enemies
+        //Generating enemies (Tabled For Now)
         if (levelGenerator.enemySpawn[0]) {
             for (var i = 1; i < levelGenerator.enemySpawn.length; i++) {
                 this.enemySpawn(levelGenerator.enemySpawn[i].x, levelGenerator.enemySpawn[i].y, levelGenerator.enemySpawn[i].velocityX, levelGenerator.enemySpawn[i].velocityY);
@@ -414,7 +414,9 @@ brawl.testing.prototype = {
         //Generating balls ledges
         if (levelGenerator.ballSpawn[0]) {
             for (var i = 1; i < levelGenerator.ballSpawn.length; i++) {
-                this.ballSpawn(levelGenerator.ballSpawn[i].x, levelGenerator.ballSpawn[i].y, levelGenerator.ballSpawn[i].velocityX, levelGenerator.ballSpawn[i].velocityY);
+                if (levelGenerator.ballSpawn[i].trigger) {
+                    this.ballSpawn(levelGenerator.ballSpawn[i].x, levelGenerator.ballSpawn[i].y, levelGenerator.ballSpawn[i].velocityX, levelGenerator.ballSpawn[i].velocityY, levelGenerator.ballSpawn[i].specialCondition, levelGenerator.ballSpawn[i].specialWorld, levelGenerator.ballSpawn[i].specialArray, levelGenerator.ballSpawn[i].positionInArray);
+                }
             }
         }
         // //////////////////Game Mode Generation (The Type of Game You Will Play)//////////////////
@@ -577,9 +579,13 @@ brawl.testing.prototype = {
         this.ledgeBlue.body.bounce.setTo(1);
         this.ledgeBlue.body.velocity.setTo(velocityX, velocityY);
     },
-    ballSpawn: function (x, y, velocityX, velocityY) {
+    ballSpawn: function (x, y, velocityX, velocityY, specialCondition, specialWorld, specialArray, positionInArray) {
         //Adding Ball
         this.ballX = this.ball.create(x, y, 'ball');
+        this.ballX.specialCondition = specialCondition;
+        this.ballX.specialWorld = specialWorld;
+        this.ballX.specialArray = specialArray;
+        this.ballX.positionInArray = positionInArray;
         this.ballX.anchor.setTo(.5);
         this.ballX.scale.setTo(.5);
         this.ballX.body.setCircle(50);
