@@ -19,6 +19,7 @@ brawl.testing.prototype = {
         this.indexOfCurrentWorld = indexOfCurrentWorld;
         this.indexOfPlayerPosition = indexOfPlayerPosition;
         this.metroidvania = metroidvania;
+        cameraBoolean = true;
         // console.log(this.metroidvania.roomRightValue);
     },
     preload: function () {
@@ -191,6 +192,8 @@ brawl.testing.prototype = {
         ////////////////////////////////////////////Camera///////////////////////////////////////////////////////////
         // this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_PLATFORMER);
         this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_LOCKON);
+        this.cameraStyle = this.game.input.keyboard.addKey(Phaser.Keyboard.FOUR);
+        this.cameraStyle.onDown.add(this.cameraChange, this);
 
         //Streak
         // this.text = this.game.add.text(200, 6208, "Streak: " + streak, { font: "32px Arial", fill: "#ffffff", align: "center" });
@@ -208,6 +211,22 @@ brawl.testing.prototype = {
         //Teleportation
         this.game.physics.arcade.overlap(this.player, this.door, this.teleportationDoor, null, this);
 
+    },
+    cameraChange: function () {
+        console.log(cameraBoolean + " Before It Hits Anything")
+        if (cameraBoolean) {
+            cameraBoolean = false;
+        }
+        else {
+            cameraBoolean = true;
+        }
+        console.log(cameraBoolean + " After the Change");
+        if (cameraBoolean) {
+            this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_LOCKON);
+        }
+        else {
+            this.game.camera.unfollow();
+        }
     },
     // ////////////////////////Room Switching (Metroidvania) Events//////////////////////////
     playerOut: function (player) {
@@ -964,21 +983,37 @@ brawl.testing.prototype = {
     //     this.player.body.velocity.y = 0;
     //     this.player.body.velocity.x = 0;
 
-    //     if (this.movementLeft.isDown) {
-    //         this.player.body.velocity.x = -400;
-    //         this.player.animations.play('left');
+    //     if (cameraBoolean) {
+    //         if (this.movementLeft.isDown) {
+    //             this.player.body.velocity.x = -400;
+    //             this.player.animations.play('left');
+    //         }
+    //         else if (this.movementRight.isDown) {
+    //             this.player.body.velocity.x = 400;
+    //             this.player.animations.play('right');
+    //         }
+    //         if (this.movementUp.isDown) {
+    //             this.player.frame = 10;
+    //             this.player.body.velocity.y = -650;
+    //         }
+    //         else if (this.movementDown.isDown) {
+    //             this.player.frame = 10;
+    //             this.player.body.velocity.y = 650;
+    //         }
     //     }
-    //     else if (this.movementRight.isDown) {
-    //         this.player.body.velocity.x = 400;
-    //         this.player.animations.play('right');
-    //     }
-    //     if (this.movementUp.isDown) {
-    //         this.player.frame = 10;
-    //         this.player.body.velocity.y = -650;
-    //     }
-    //     else if (this.movementDown.isDown) {
-    //         this.player.frame = 10;
-    //         this.player.body.velocity.y = 650;
+    //     else {
+    //         if (this.movementLeft.isDown) {
+    //            this.game.camera.x -= 4;
+    //         }
+    //         else if (this.movementRight.isDown) {
+    //             this.game.camera.x += 4;
+    //         }
+    //         if (this.movementUp.isDown) {
+    //             this.game.camera.y -= 4;
+    //         }
+    //         else if (this.movementDown.isDown) {
+    //             this.game.camera.y += 4;
+    //         }
     //     }
     //     ///////////////////////Weapon Mechanics///////////////
     //     //Shoot from Mouse

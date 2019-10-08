@@ -482,7 +482,7 @@ var worldDesignedLevels = [
       //Up, Down, Left, Right (Remember!)
       [
         { upPosition: true, x: 200, y: 20 },
-        { downPosition: true, x: 400, y: 3000 }, //x400 y3000 (Original)
+        { downPosition: true, x: 2700, y: 400 }, //x400 y3000 (Original)
         { leftPosition: true, x: 200, y: 400 },
         { rightPosition: true, x: 2600, y: 3050 }
       ],
@@ -702,6 +702,8 @@ var respawnHolder = {
   indexOfPlayerPosition: 1,
   metroidvania: null,
 }
+
+var cameraBoolean = true;
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
