@@ -204,7 +204,7 @@ var worldDesignedLevels = [
       //Up, Down, Left, Right (Remember!)
       [
         { upPosition: true, x: 200, y: 20 },
-        { downPosition: true, x: 200, y: 300 },
+        { downPosition: true, x: 300, y: 2200 },
         { leftPosition: true, x: 200, y: 400 },
         { rightPosition: true, x: 1400, y: 400 }
       ],
@@ -412,9 +412,9 @@ var worldDesignedLevels = [
       ],
     spikeSpawn:
       [true,
-        // {
-        //   trigger: true, x: 0, y: 0, velocityX: 0, velocityY: 0, sizeX: 1, sizeY: 1, art: "invertedSpikes", specialCondition: 0, specialWorld: 0, specialArray: null, positionInArray: 1,
-        // },
+        {
+          trigger: true, x: 0, y: 0, velocityX: 0, velocityY: 0, sizeX: 1, sizeY: 1, art: "invertedSpikes", specialCondition: 0, specialWorld: 0, specialArray: null, positionInArray: 1,
+        },
         //Special Condition Test to Remove A Game Object Level One
         // {
         //   trigger: true, x: 0, y: 1200, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: 1, art: "invertedSpikes", specialCondition: 1, specialWorld: 1, specialArray: 1, positionInArray: 2,
@@ -437,9 +437,9 @@ var worldDesignedLevels = [
         {
           trigger: true, x: 700, y: 1350, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1
         },
-        {
-          trigger: true, x: 700, y: 200, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 2
-        },
+        // {
+        //   trigger: true, x: 700, y: 200, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 2
+        // },
       ],
     //Check Point
     flagSpawn:
@@ -482,9 +482,9 @@ var worldDesignedLevels = [
       //Up, Down, Left, Right (Remember!)
       [
         { upPosition: true, x: 200, y: 20 },
-        { downPosition: true, x: 1300, y: 1600 }, //x400 y3000 (Original)
+        { downPosition: true, x: 400, y: 3000 }, //x400 y3000 (Original)
         { leftPosition: true, x: 200, y: 400 },
-        { rightPosition: true, x: 1400, y: 400 }
+        { rightPosition: true, x: 2600, y: 3050 }
       ],
     //Deals with Room Switching
     metroidvania:
@@ -528,7 +528,7 @@ var worldDesignedLevels = [
         },
         //Preventing Grey Cheese
         {
-          trigger: true, x: 150, y: 1690, velocityX: 0, velocityY: 0, sizeX: .608, sizeY: .39, art: "undeniableDeath", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 5
+          trigger: true, x: 150, y: 1690, velocityX: 0, velocityY: 0, sizeX: .2, sizeY: .39, art: "undeniableDeath", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 5
         },
         //Border Slim Left Side
         {
@@ -540,8 +540,45 @@ var worldDesignedLevels = [
         },
         //Entryway to the Green Ledge
         {
-          trigger: true, x: 1550, y: 1336.5, velocityX: 0, velocityY: 0, sizeX: .25, sizeY: .714, art: "sidewaysSpikes", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 4
+          trigger: true, x: 1550, y: 1336.5, velocityX: 0, velocityY: 0, sizeX: .25, sizeY: .714, art: "sidewaysSpikes", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 8
         },
+        //Connector to right side of map
+        {
+          trigger: true, x: 1465, y: 3170, velocityX: 0, velocityY: 0, sizeX: .5249, sizeY: .4, art: "undeniableDeath", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 9
+        },
+        //Finally Hurdles Till You Get Respawn Twin Primes
+        {
+          trigger: true, x: 2150, y: 2000, velocityX: 0, velocityY: 0, sizeX: .25, sizeY: .811, art: "sidewaysSpikes", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 10
+        },
+        {
+          trigger: true, x: 2250, y: 500, velocityX: 0, velocityY: 0, sizeX: .25, sizeY: 1.5, art: "sidewaysSpikes", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 11
+        },
+        {
+          trigger: true, x: 1800, y: 0, velocityX: 0, velocityY: 0, sizeX: .25, sizeY: .5, art: "sidewaysSpikes", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 11
+        },
+        {
+          trigger: true, x: 2800, y: 1437, velocityX: 0, velocityY: 0, sizeX: .25, sizeY: .811, art: "sidewaysSpikes", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 12
+        },
+        //Long Pole Death
+        {
+          trigger: true, x: 2495, y: 600, velocityX: 0, velocityY: 0, sizeX: .375, sizeY: .03, art: "sidewaysSpikes", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 13
+        },
+        {
+          trigger: true, x: 2495, y: 1000, velocityX: 0, velocityY: 0, sizeX: .375, sizeY: .03, art: "sidewaysSpikes", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 13
+        },
+        {
+          trigger: true, x: 2495, y: 1400, velocityX: 0, velocityY: 0, sizeX: .375, sizeY: .03, art: "sidewaysSpikes", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 13
+        },
+        {
+          trigger: true, x: 2495, y: 1800, velocityX: 0, velocityY: 0, sizeX: .375, sizeY: .03, art: "sidewaysSpikes", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 13
+        },
+        {
+          trigger: true, x: 2495, y: 2200, velocityX: 0, velocityY: 0, sizeX: .375, sizeY: .03, art: "sidewaysSpikes", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 13
+        },
+        {
+          trigger: true, x: 2495, y: 2600, velocityX: 0, velocityY: 0, sizeX: .375, sizeY: .03, art: "sidewaysSpikes", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 13
+        },
+
       ],
     immovableWallSpawn:
       [true,
@@ -560,12 +597,29 @@ var worldDesignedLevels = [
         },
         //Top of First Grey Ledge
         {
-          trigger: true, x: 1000, y: 1690, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "immovableRotatedWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 4,
+          trigger: true, x: 430, y: 1690, velocityX: 0, velocityY: 0, sizeX: 1.17, sizeY: .5, art: "immovableRotatedWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 4,
         },
         //End of Grey Ledge
         {
-          trigger: true, x: 0, y: 1336.5, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "immovableRotatedWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 4,
+          trigger: true, x: 0, y: 1336.5, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "immovableRotatedWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 5,
         },
+        //End of Green Ledge
+        {
+          trigger: true, x: 1591, y: 1336, velocityX: 0, velocityY: 0, sizeX: .774, sizeY: .5, art: "immovableRotatedWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 6,
+        },
+        //Entry to Right Side of Map
+        {
+          trigger: true, x: 2200, y: 3136, velocityX: 0, velocityY: 0, sizeX: .7, sizeY: .5, art: "immovableRotatedWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 7,
+        },
+        //Long Pole
+        {
+          trigger: true, x: 2500, y: 400, velocityX: 0, velocityY: 0, sizeX: .4, sizeY: 3, art: "immovableVerticalWall",
+          specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 8
+        },
+        // {
+        //   trigger: true, x: 2400, y: 2800, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall",
+        //   specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 8
+        // },
       ],
     wallSpawn:
       [true,
@@ -579,7 +633,10 @@ var worldDesignedLevels = [
     spikeSpawn:
       [true,
         {
-          trigger: true, x: 0, y: 0, velocityX: 0, velocityY: 0, sizeX: 1, sizeY: 1, art: "invertedSpikes", specialCondition: null, specialWorld: null, positionInArray: 1
+          trigger: true, x: 0, y: 0, velocityX: 0, velocityY: 0, sizeX: 2, sizeY: 1, art: "invertedSpikes", specialCondition: null, specialWorld: null, positionInArray: 1
+        },
+        {
+          trigger: true, x: 2800, y: 2853, velocityX: 0, velocityY: 0, sizeX: .6, sizeY: .4, art: "trueSpikes", specialCondition: null, specialWorld: null, positionInArray: 2
         },
       ],
     ledgeGreySpawn:
@@ -591,11 +648,14 @@ var worldDesignedLevels = [
     ledgeGreenSpawn:
       [true,
         { trigger: true, x: 1525, y: 3000, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, positionInArray: 1 },
-        { trigger: true, x: 2200, y: 2700, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, positionInArray: 2 },
+        { trigger: true, x: 1700, y: 2200, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, positionInArray: 2 },
+        { trigger: true, x: 1900, y: 2700, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, positionInArray: 3 },
+        { trigger: true, x: 2100, y: 2000, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, positionInArray: 4 },
       ],
       
     ledgeBlueSpawn:
-      [false,
+      [true,
+        { trigger: true, x: 2270, y: 300, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, positionInArray: 1 },
       ],
     enemySpawn:
       [false,
@@ -607,13 +667,23 @@ var worldDesignedLevels = [
     flagSpawn:
       [true,
         { x: 600, y: 3050, velocityX: 0, velocityY: 0, indexOfPlayerPosition: 1 },
+        { x: 2500, y: 3050, velocityX: 0, velocityY: 0, indexOfPlayerPosition: 3 },
         // { x: 500, y: 3000, velocityX: 0, velocityY: 0, indexOfPlayerPosition: 0 },
       ],
     text:
       [true,
-        //Inside the Box
+        //Entry to Level 0
         { x: 100, y: 3150, textInput: "Level 0 ↓", font: "Arial Black", fontSize: 25, fill: "#ffffff", fontWeight: "bold" },
-        { x: 400, y: 3000, textInput: "Flags are Respawn Checkpoints", font: "Arial Black", fontSize: 25, fill: "#ffffff", fontWeight: "bold" }
+        //Flag Respawn Pointg Down
+        { x: 400, y: 3000, textInput: "Flags are Respawn Checkpoints", font: "Arial Black", fontSize: 25, fill: "#ffffff", fontWeight: "bold" },
+        //Grey Ledge Tutorial
+        { x: 900, y: 2300, textInput: "Get on Top of the Grey Ledge\n\nPull the Grey Ledge Towards You", font: "Arial Black", fontSize: 25, fill: "#ffffff", fontWeight: "bold" },
+        //Tell You Where To Jump From Grey Ledge
+        { x: 300, y: 1900, textInput: "Jump Down to the Grey Ledge at the Bottom", font: "Arial Black", fontSize: 25, fill: "#ffffff", fontWeight: "bold" },
+        //Trust the Green Jump
+        { x: 1500, y: 1600, textInput: "↓", font: "Arial Black", fontSize: 25, fill: "#ffffff", fontWeight: "bold" },
+        //Green Ledge Tutorial
+        { x: 1600, y: 3000, textInput: "Green Ledges Make You Jump High", font: "Arial Black", fontSize: 25, fill: "#ffffff", fontWeight: "bold" },
       ],
 
 

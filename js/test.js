@@ -34,6 +34,7 @@ brawl.testing.prototype = {
         this.load.image('brownPlatform', 'assets/platform2.png');
         this.load.image('ledge', 'assets/platformY.png');
         this.load.image('spikes', 'assets/invisibleFloorSpikes.png');
+        this.load.image('trueSpikes', 'assets/trueSidewaysSpikes.png');
         this.load.image('sidewaysSpikes', 'assets/sidewaysSpikes.png');
         this.load.image('undeniableDeath', 'assets/undeniableDeath.png');
         this.load.image('fallingSpikes', 'assets/newSpikes.png');
@@ -751,15 +752,7 @@ brawl.testing.prototype = {
             nextLevel();
         }
     },
-    flagWin: function () {
-        //Flag vs. Weapon
-        this.game.physics.arcade.collide(this.finish, [this.weapon1.bullets, this.weapon2.bullets, this.weapon3.bullets], weaponHandlerForFlag, null, this);
-        //Flag Physics
-        this.game.physics.arcade.collide(this.finish, [this.immovableWall, this.wall, this.enemy, this.ledge, this.ledgeDown, this.ledgeSide, this.spikes, this.ball]);
-        //Winning!
-        this.game.physics.arcade.overlap(this.player, this.finish, this.respawn, null, this);
-    },
-    // // //How Game Updates Real-Time (Actual Controls)
+    // //How Game Updates Real-Time (Actual Controls)
     update: function () {
 
         ////////////////////////////////////FPS Debugging////////////////////////////////////////
