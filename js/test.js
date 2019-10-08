@@ -876,85 +876,210 @@ brawl.testing.prototype = {
         this.player.angle = 0;
 
         //////////////////////////////////////////WASD Controls and Player Touch Mechanics//////////////////////////////////////////////
-        if (onTheGround) {
-            if (this.movementLeft.isDown && !this.movementRight.isDown) {
-                this.player.body.velocity.x = -350;
-                this.player.animations.play('left');
+        //Camera Focused on Player
+        if (cameraBoolean) {
+            if (onTheGround) {
+                if (this.movementLeft.isDown && !this.movementRight.isDown) {
+                    this.player.body.velocity.x = -350;
+                    this.player.animations.play('left');
+                }
+                else if (this.movementRight.isDown && !this.movementLeft.isDown) {
+                    this.player.body.velocity.x = 350;
+                    this.player.animations.play('right');
+                }
+                else {
+                    this.player.animations.stop();
+                    this.player.frame = 8;
+                }
             }
-            else if (this.movementRight.isDown && !this.movementLeft.isDown) {
-                this.player.body.velocity.x = 350;
-                this.player.animations.play('right');
+            else if (onTheRightSide) {
+                if (onWall || onImmovable) {
+                    this.player.body.velocity.x = 100;
+                    this.player.body.velocity.y = 100;
+                }
+                if (onWall || onLedgeBlue || onLedgeGreen || onLedgeGrey || onImmovable) {
+                    this.player.frame = 6;
+                }
+                if (this.movementLeft.isDown) {
+                    this.player.body.velocity.y = -500;
+                    this.player.body.velocity.x = -1000;
+                }
             }
-            else {
+            else if (onTheLeftSide) {
+                if (onWall || onImmovable) {
+                    this.player.body.velocity.x = -100;
+                    this.player.body.velocity.y = 100;
+                }
+                if (onWall || onLedgeBlue || onLedgeGreen || onLedgeGrey || onImmovable) {
+                    this.player.frame = 12;
+                }
+                if (this.movementRight.isDown) {
+                    this.player.body.velocity.y = -500;
+                    this.player.body.velocity.x = 1000;
+                }
+            }
+            else if (onUpsideDown) {
                 this.player.animations.stop();
                 this.player.frame = 8;
+                this.player.angle = 180;
+                this.player.body.velocity.y = -100;
+                if (this.movementLeft.isDown) {
+                    this.player.body.velocity.x = -400;
+                    this.player.animations.play('left');
+                }
+                else if (this.movementRight.isDown) {
+                    this.player.body.velocity.x = 400;
+                    this.player.animations.play('right');
+                }
+
+            }
+            else if (onNone) {
+                this.player.frame = 10;
+                if (this.movementLeft.isDown && !this.movementRight.isDown) {
+                    this.player.body.velocity.x = -400;
+                }
+                else if (this.movementRight.isDown && !this.movementLeft.isDown) {
+                    this.player.body.velocity.x = 400;
+                }
+                else if (this.movementLeft.isDown && this.movementRight.isDown) {
+                    this.player.body.velocity.x = 0;
+                }
+            }
+
+            //////////Downwards Mechanics////////
+            if (this.movementDown.isDown && onUpsideDown) {
+                this.player.frame = 13;
+                this.player.body.velocity.y = 200;
+            }
+
+            //Downward Mechanics
+            if (this.movementDown.isDown) {
+                this.player.frame = 13;
+                this.player.body.velocity.y = 500;
             }
         }
-        else if (onTheRightSide) {
-            if (onWall || onImmovable) {
-                this.player.body.velocity.x = 100;
-                this.player.body.velocity.y = 100;
-            }
-            if (onWall || onLedgeBlue || onLedgeGreen || onLedgeGrey || onImmovable) {
-                this.player.frame = 6;
-            }
+        //Freelook
+        else {
             if (this.movementLeft.isDown) {
-                this.player.body.velocity.y = -500;
-                this.player.body.velocity.x = -1000;
-            }
-        }
-        else if (onTheLeftSide) {
-            if (onWall || onImmovable) {
-                this.player.body.velocity.x = -100;
-                this.player.body.velocity.y = 100;
-            }
-            if (onWall || onLedgeBlue || onLedgeGreen || onLedgeGrey || onImmovable) {
-                this.player.frame = 12;
-            }
-            if (this.movementRight.isDown) {
-                this.player.body.velocity.y = -500;
-                this.player.body.velocity.x = 1000;
-            }
-        }
-        else if (onUpsideDown) {
-            this.player.animations.stop();
-            this.player.frame = 8;
-            this.player.angle = 180;
-            this.player.body.velocity.y = -100;
-            if (this.movementLeft.isDown) {
-                this.player.body.velocity.x = -400;
-                this.player.animations.play('left');
+                this.game.camera.x -= 8;
             }
             else if (this.movementRight.isDown) {
-                this.player.body.velocity.x = 400;
-                this.player.animations.play('right');
+                this.game.camera.x += 8;
             }
+            if (this.movementUp.isDown) {
+                this.game.camera.y -= 8;
+                this.player.body.velocity.y = 0;
+            }
+            else if (this.movementDown.isDown) {
+                this.game.camera.y += 8;
+            }
+            if (onTheRightSide) {
+                if (onWall || onImmovable) {
+                    this.player.body.velocity.x = 100;
+                    this.player.body.velocity.y = 100;
+                }
+                if (onWall || onLedgeBlue || onLedgeGreen || onLedgeGrey || onImmovable) {
+                    this.player.frame = 6;
+                }
+            }
+            else if (onTheLeftSide) {
+                if (onWall || onImmovable) {
+                    this.player.body.velocity.x = -100;
+                    this.player.body.velocity.y = 100;
+                }
+                if (onWall || onLedgeBlue || onLedgeGreen || onLedgeGrey || onImmovable) {
+                    this.player.frame = 12;
+                }
+            }
+            else if (onUpsideDown) {
+                this.player.animations.stop();
+                this.player.frame = 8;
+                this.player.angle = 180;
+                this.player.body.velocity.y = -100;
+            }
+            else if (onNone) {
+                this.player.frame = 10;
+            }
+        }
+        // if (onTheGround) {
+        //     if (this.movementLeft.isDown && !this.movementRight.isDown) {
+        //         this.player.body.velocity.x = -350;
+        //         this.player.animations.play('left');
+        //     }
+        //     else if (this.movementRight.isDown && !this.movementLeft.isDown) {
+        //         this.player.body.velocity.x = 350;
+        //         this.player.animations.play('right');
+        //     }
+        //     else {
+        //         this.player.animations.stop();
+        //         this.player.frame = 8;
+        //     }
+        // }
+        // else if (onTheRightSide) {
+        //     if (onWall || onImmovable) {
+        //         this.player.body.velocity.x = 100;
+        //         this.player.body.velocity.y = 100;
+        //     }
+        //     if (onWall || onLedgeBlue || onLedgeGreen || onLedgeGrey || onImmovable) {
+        //         this.player.frame = 6;
+        //     }
+        //     if (this.movementLeft.isDown) {
+        //         this.player.body.velocity.y = -500;
+        //         this.player.body.velocity.x = -1000;
+        //     }
+        // }
+        // else if (onTheLeftSide) {
+        //     if (onWall || onImmovable) {
+        //         this.player.body.velocity.x = -100;
+        //         this.player.body.velocity.y = 100;
+        //     }
+        //     if (onWall || onLedgeBlue || onLedgeGreen || onLedgeGrey || onImmovable) {
+        //         this.player.frame = 12;
+        //     }
+        //     if (this.movementRight.isDown) {
+        //         this.player.body.velocity.y = -500;
+        //         this.player.body.velocity.x = 1000;
+        //     }
+        // }
+        // else if (onUpsideDown) {
+        //     this.player.animations.stop();
+        //     this.player.frame = 8;
+        //     this.player.angle = 180;
+        //     this.player.body.velocity.y = -100;
+        //     if (this.movementLeft.isDown) {
+        //         this.player.body.velocity.x = -400;
+        //         this.player.animations.play('left');
+        //     }
+        //     else if (this.movementRight.isDown) {
+        //         this.player.body.velocity.x = 400;
+        //         this.player.animations.play('right');
+        //     }
 
-        }
-        else if (onNone) {
-            this.player.frame = 10;
-            if (this.movementLeft.isDown && !this.movementRight.isDown) {
-                this.player.body.velocity.x = -400;
-            }
-            else if (this.movementRight.isDown && !this.movementLeft.isDown) {
-                this.player.body.velocity.x = 400;
-            }
-            else if (this.movementLeft.isDown && this.movementRight.isDown) {
-                this.player.body.velocity.x = 0;
-            }
-        }
+        // }
+        // else if (onNone) {
+        //     this.player.frame = 10;
+        //     if (this.movementLeft.isDown && !this.movementRight.isDown) {
+        //         this.player.body.velocity.x = -400;
+        //     }
+        //     else if (this.movementRight.isDown && !this.movementLeft.isDown) {
+        //         this.player.body.velocity.x = 400;
+        //     }
+        //     else if (this.movementLeft.isDown && this.movementRight.isDown) {
+        //         this.player.body.velocity.x = 0;
+        //     }
+        // }
 
-        //////////Downwards Mechanics////////
-        if (this.movementDown.isDown && onUpsideDown) {
-            this.player.frame = 13;
-            this.player.body.velocity.y = 200;
-        }
+        // //////////Downwards Mechanics////////
+        // if (this.movementDown.isDown && onUpsideDown) {
+        //     this.player.frame = 13;
+        //     this.player.body.velocity.y = 200;
+        // }
 
-        //Downward Mechanics
-        if (this.movementDown.isDown) {
-            this.player.frame = 13;
-            this.player.body.velocity.y = 500;
-        }
+        // //Downward Mechanics
+        // if (this.movementDown.isDown) {
+        //     this.player.frame = 13;
+        //     this.player.body.velocity.y = 500;
+        // }
 
         ///////////////////////Weapon Mechanics///////////////
         //Shoot from Mouse
