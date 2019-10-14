@@ -191,6 +191,95 @@ function shuffle(array) {
 ///////////////////////////////////////////Designed World Generator/////////////////////////////////////////////
 //Will Turn This Into A Constructor and Refactor Later
 var worldDesignedLevels = [
+  //////////////////////////////////////////Prototype or Template///////////////////////////////////////
+  // {
+  //   worldName: "Prototype",
+  //   gameMode: ["flag", "coin"],
+  //   ////////////World Size
+  //   xOfWorld: 1400,
+  //   yOfWorld: 800,
+  //   ///////////Sprite Positioning
+  //   //Where the Player Spawns Due to Switching Rooms
+  //   playerPosition:
+  //     //Up, Down, Left, Right (Remember!)
+  //     [
+  //       { upPosition: true, x: 200, y: 20 },
+  //       { downPosition: true, x: 2500, y: 200 }, //x400 y3000 (Original)
+  //       { leftPosition: true, x: 400, y: 500 },
+  //       { rightPosition: true, x: 400, y: 400 }
+  //     ],
+  //   //Deals with Room Switching
+  //   metroidvania:
+  //   //Up, Down, Left, Right (Remember!)
+  //   {
+  //     //Up Values
+  //     roomUpIndex: 4,
+  //     roomUpValue: 0,
+  //     //Down Values
+  //     roomDownIndex: 0,
+  //     roomDownValue: 3200,
+  //     //Left Values
+  //     roomLeftIndex: 2,
+  //     roomLeftValue: 1,
+  //     //Right Values
+  //     roomRightIndex: 3,
+  //     roomRightValue: 2800
+  //   },
+  //   //Game Objects
+  //   doorSpawn:
+  //     [false,
+  //       { x: 500, y: 500, teleportationX: 100, teleporationY: 50 }
+  //     ],
+  //   undeniableDeathSpawn:
+  //     [true,
+  
+  //     ],
+  //   immovableWallSpawn:
+  //     [true,
+  //       //Ground
+  //       {
+  //         trigger: true, x: 300, y: 3136, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "immovableRotatedWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1,
+  //       },
+  //     ],
+  //   wallSpawn:
+  //     [true,
+  //     ],
+  //   spikeSpawn:
+  //     [true,
+  //     ],
+  //   ledgeGreySpawn:
+  //     [true,
+  //     ],
+  //   ledgeGreenSpawn:
+  //     [true,
+  //     ],
+      
+  //   ledgeBlueSpawn:
+  //     [true,
+  //     ],
+  //   enemySpawn:
+  //     [false,
+  //     ],
+  //   ballSpawn:
+  //     [true,
+  //     ],
+  //   //Check Point
+  //   flagSpawn:
+  //     [true,
+  //       // { x: 500, y: 3000, velocityX: 0, velocityY: 0, indexOfPlayerPosition: 0 },
+  //     ],
+  //   text:
+  //     [true,
+  //     ],
+
+
+
+  //   //Any Other Property Here Are Unditional Objects
+  //   //Falling or Sideways Spikes
+  //   //Super Ball
+  //   //World Gravity
+  //   //Traps that create generating enemies
+  // },
   /////////////////////////////////////////////////////////////Level 0 Test/////////////////////////////////////////////
   {
     worldName: "Level 0 ",
@@ -485,8 +574,8 @@ var worldDesignedLevels = [
       //Up, Down, Left, Right (Remember!)
       [
         { upPosition: true, x: 200, y: 20 },
-        { downPosition: true, x: 200, y: 200 }, //x400 y3000 (Original)
-        { leftPosition: true, x: 200, y: 400 },
+        { downPosition: true, x: 400, y: 3000 }, //x400 y3000 (Original)
+        { leftPosition: true, x: 200, y: 1200 },
         { rightPosition: true, x: 2600, y: 3050 }
       ],
     //Deals with Room Switching
@@ -500,10 +589,10 @@ var worldDesignedLevels = [
       roomDownIndex: 0,
       roomDownValue: 3200,
       //Left Values
-      roomLeftIndex: 3,
+      roomLeftIndex: 2,
       roomLeftValue: 1,
       //Right Values
-      roomRightIndex: 2,
+      roomRightIndex: 3,
       roomRightValue: 2800
     },
     //Game Objects
@@ -673,6 +762,10 @@ var worldDesignedLevels = [
           trigger: true, x: 700, y: 500, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall",
           specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 3
         },
+        {
+          trigger: true, x: 300, y: 1000, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall",
+          specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 3
+        },
 
       ],
     wallSpawn:
@@ -687,10 +780,22 @@ var worldDesignedLevels = [
         },
         //Kill These
         {
-          trigger: true, x: 300, y: 500, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "rotatedWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 3
+          trigger: true, x: 250, y: 600, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "rotatedWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 3
         },
         {
-          trigger: true, x: 300, y: 600, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "rotatedWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 3
+          trigger: true, x: 250, y: 700, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "rotatedWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 3
+        },
+        {
+          trigger: true, x: 250, y: 800, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "rotatedWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 3
+        },
+        {
+          trigger: true, x: 250, y: 900, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "rotatedWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 3
+        },
+        {
+          trigger: true, x: 250, y: 1000, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "rotatedWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 3
+        },
+        {
+          trigger: true, x: 250, y: 1100, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "rotatedWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 3
         },
       ],
     spikeSpawn:
@@ -754,6 +859,99 @@ var worldDesignedLevels = [
         { x: 1500, y: 1600, textInput: "↓", font: "Arial Black", fontSize: 25, fill: "#ffffff", fontWeight: "bold" },
         //Green Ledge Tutorial
         { x: 1600, y: 3000, textInput: "Green Ledges Make You Jump High", font: "Arial Black", fontSize: 25, fill: "#ffffff", fontWeight: "bold" },
+        //Blue Spawn Tutorial
+        { x: 1500, y: 200, textInput: "You Can Surf Blue Ledges\n\nBe Warned They Are Unstable\n\nLand Perfectly in the Middle of the Blue Ledge\n\nHint: Hold S When Surfing", font: "Arial Black", fontSize: 25, fill: "#ffffff", fontWeight: "bold" },
+        // Entry to Left Side (Kill Instructions)
+        { x: 100, y: 200, textInput: "Press 3 to Access Kill Gun\n\nAny Object that is Moveable can be Killed", font: "Arial Black", fontSize: 25, fill: "#ffffff", fontWeight: "bold" },
+      ],
+
+
+
+    //Any Other Property Here Are Unditional Objects
+    //Falling or Sideways Spikes
+    //Super Ball
+    //World Gravity
+    //Traps that create generating enemies
+  },
+  //////////////////////////////////////////////////Level Tw0//////////////////////////////////////////////////////////////
+  {
+    worldName: "Level 2 ",
+    gameMode: ["flag", "coin"],
+    ////////////World Size
+    xOfWorld: 4800,
+    yOfWorld: 800,
+    ///////////Sprite Positioning
+    //Where the Player Spawns Due to Switching Rooms
+    playerPosition:
+      //Up, Down, Left, Right (Remember!)
+      [
+        { upPosition: true, x: 200, y: 20 },
+        { downPosition: true, x: 2500, y: 200 }, //x400 y3000 (Original)
+        { leftPosition: true, x: 400, y: 500 },
+        { rightPosition: true, x: 400, y: 400 }
+      ],
+    //Deals with Room Switching
+    metroidvania:
+    //Up, Down, Left, Right (Remember!)
+    {
+      //Up Values
+      roomUpIndex: 4,
+      roomUpValue: 0,
+      //Down Values
+      roomDownIndex: 0,
+      roomDownValue: 800,
+      //Left Values
+      roomLeftIndex: 2,
+      roomLeftValue: 1,
+      //Right Values
+      roomRightIndex: 3,
+      roomRightValue: 4800
+    },
+    //Game Objects
+    doorSpawn:
+      [false,
+        { x: 500, y: 500, teleportationX: 100, teleporationY: 50 }
+      ],
+    undeniableDeathSpawn:
+      [true,
+  
+      ],
+    immovableWallSpawn:
+      [true,
+        //Ground
+        {
+          trigger: true, x: 300, y: 3136, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "immovableRotatedWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1,
+        },
+      ],
+    wallSpawn:
+      [true,
+      ],
+    spikeSpawn:
+      [true,
+      ],
+    ledgeGreySpawn:
+      [true,
+      ],
+    ledgeGreenSpawn:
+      [true,
+      ],
+      
+    ledgeBlueSpawn:
+      [true,
+      ],
+    enemySpawn:
+      [true,
+      ],
+    ballSpawn:
+      [true,
+      ],
+    //Check Point
+    flagSpawn:
+      [true,
+        // { x: 500, y: 3000, velocityX: 0, velocityY: 0, indexOfPlayerPosition: 0 },
+      ],
+    text:
+      [true,
       ],
 
 
