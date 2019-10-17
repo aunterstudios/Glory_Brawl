@@ -873,9 +873,9 @@ var worldDesignedLevels = [
     //World Gravity
     //Traps that create generating enemies
   },
-  //////////////////////////////////////////////////Level Tw0//////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////Level Three//////////////////////////////////////////////////////////////
   {
-    worldName: "Level 2 ",
+    worldName: "Level 3 ",
     gameMode: ["flag", "coin"],
     ////////////World Size
     xOfWorld: 4800,
@@ -887,24 +887,24 @@ var worldDesignedLevels = [
       [
         { upPosition: true, x: 200, y: 20 },
         { downPosition: true, x: 2500, y: 200 }, //x400 y3000 (Original)
-        { leftPosition: true, x: 400, y: 500 },
-        { rightPosition: true, x: 400, y: 400 }
+        { leftPosition: true, x: 200, y: 500 },
+        { rightPosition: true, x: 4700, y: 700 }
       ],
     //Deals with Room Switching
     metroidvania:
     //Up, Down, Left, Right (Remember!)
     {
       //Up Values
-      roomUpIndex: 4,
+      roomUpIndex: 1,
       roomUpValue: 0,
       //Down Values
-      roomDownIndex: 0,
+      roomDownIndex: 1,
       roomDownValue: 800,
       //Left Values
-      roomLeftIndex: 2,
+      roomLeftIndex: 1,
       roomLeftValue: 1,
       //Right Values
-      roomRightIndex: 3,
+      roomRightIndex: 1,
       roomRightValue: 4800
     },
     //Game Objects
@@ -918,13 +918,20 @@ var worldDesignedLevels = [
       ],
     immovableWallSpawn:
       [true,
+        ///////////////Orientation X-Right to Left/////////////////////
         //Ground
         {
-          trigger: true, x: 300, y: 3136, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "immovableRotatedWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1,
+          trigger: true, x: 4100, y: 800, velocityX: 0, velocityY: 0, sizeX: .83, sizeY: .5, art: "immovableRotatedWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1,
+        },
+        {
+          trigger: true, x: 4090, y: 100, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .83, art: "immovableVerticalWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1,
         },
       ],
     wallSpawn:
       [true,
+        {
+          trigger: true, x: 4500, y: 400, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "rotatedWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1
+        },
       ],
     spikeSpawn:
       [true,
@@ -941,6 +948,10 @@ var worldDesignedLevels = [
       ],
     enemySpawn:
       [true,
+        { trigger: true, x: 4300, y: 200, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, positionInArray: 1 },
+        { trigger: true, x: 4500, y: 200, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, positionInArray: 1 },
+        { trigger: true, x: 4700, y: 200, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, positionInArray: 1 },
+        
       ],
     ballSpawn:
       [true,
@@ -949,6 +960,7 @@ var worldDesignedLevels = [
     flagSpawn:
       [true,
         // { x: 500, y: 3000, velocityX: 0, velocityY: 0, indexOfPlayerPosition: 0 },
+        { x: 4600, y: 650, velocityX: 0, velocityY: 0, indexOfPlayerPosition: 3 },
       ],
     text:
       [true,

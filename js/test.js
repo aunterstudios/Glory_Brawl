@@ -429,7 +429,9 @@ brawl.testing.prototype = {
         //Generating enemies (Tabled For Now)
         if (levelGenerator.enemySpawn[0]) {
             for (var i = 1; i < levelGenerator.enemySpawn.length; i++) {
-                this.enemySpawn(levelGenerator.enemySpawn[i].x, levelGenerator.enemySpawn[i].y, levelGenerator.enemySpawn[i].velocityX, levelGenerator.enemySpawn[i].velocityY);
+                if (levelGenerator.enemySpawn[i].trigger) {
+                    this.enemySpawn(levelGenerator.enemySpawn[i].x, levelGenerator.enemySpawn[i].y, levelGenerator.enemySpawn[i].velocityX, levelGenerator.enemySpawn[i].velocityY, levelGenerator.enemySpawn[i].specialCondition, levelGenerator.enemySpawn[i].specialWorld, levelGenerator.enemySpawn[i].specialArray, levelGenerator.enemySpawn[i].positionInArray);
+                }
             }
         }
         //Generating balls ledges
