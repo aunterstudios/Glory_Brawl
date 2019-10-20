@@ -27,6 +27,10 @@ var pullBoolean = false;
 var pushBoolean = false;
 var stopBoolean = false;
 
+//Timer
+
+var total = 0;
+
 ////////////////////////////////////////Procedural Generation////////////////////////////////////////////////////////
 /////////////////////////////////Position of Items Within Rectangle///////////////////////
 ///Top Positions
@@ -914,7 +918,9 @@ var worldDesignedLevels = [
       ],
     undeniableDeathSpawn:
       [true,
-  
+        // {
+        //   trigger: true, x: 3500, y: 0, velocityX: 0, velocityY: 0, sizeX: 2, sizeY: .15, art: "undeniableDeath", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 7
+        // },
       ],
     immovableWallSpawn:
       [true,
@@ -923,8 +929,12 @@ var worldDesignedLevels = [
         {
           trigger: true, x: 4100, y: 800, velocityX: 0, velocityY: 0, sizeX: .83, sizeY: .5, art: "immovableRotatedWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1,
         },
+        //Wall Blocking First Ground
         {
           trigger: true, x: 4090, y: 100, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .83, art: "immovableVerticalWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1,
+        },
+        {
+          trigger: true, x: 3300, y: 0, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .83, art: "immovableVerticalWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1,
         },
       ],
     wallSpawn:
@@ -948,9 +958,14 @@ var worldDesignedLevels = [
       ],
     enemySpawn:
       [true,
+        //First Three Enemies
         { trigger: true, x: 4300, y: 200, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, positionInArray: 1 },
         { trigger: true, x: 4500, y: 200, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, positionInArray: 1 },
         { trigger: true, x: 4700, y: 200, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, positionInArray: 1 },
+        //Blocking the first obstacle
+        { trigger: true, x: 4125, y: 50, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, positionInArray: 1 },
+        //Maximum Jump Enemy
+        { trigger: true, x: 3500, y: 500, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, positionInArray: 1 },
         
       ],
     ballSpawn:

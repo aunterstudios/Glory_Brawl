@@ -85,7 +85,7 @@ brawl.testing.prototype = {
         this.pause.onDown.add(this.goPause, this);
 
         //Overlap Bias to Prevent Sprite Tunneling
-        this.game.physics.arcade.OVERLAP_BIAS = 20;
+        this.game.physics.arcade.OVERLAP_BIAS = 20; //20 is original
 
         // //Initializes all the Randomness for World and GameMode
         // var randomGeneratorForWorld = this.game.rnd.integerInRange(0, 0);
@@ -212,6 +212,19 @@ brawl.testing.prototype = {
         //Teleportation
         this.game.physics.arcade.overlap(this.player, this.door, this.teleportationDoor, null, this);
 
+        //Timer
+        //  Create our Timer
+        this.timer = this.game.time.create(false);
+
+        //  Set a TimerEvent to occur after 2 seconds
+        this.timer.loop(1000, this.updateCounter, this);
+
+        //  Start the timer running - this is important!
+        //  It won't start automatically, allowing you to hook it to button events and the like.
+        this.timer.start();
+
+        // this.total = 0;
+
     },
     cameraChange: function () {
         console.log(cameraBoolean + " Before It Hits Anything")
@@ -228,6 +241,9 @@ brawl.testing.prototype = {
         else {
             this.game.camera.unfollow();
         }
+    },
+    updateCounter: function () {
+        total++
     },
     // ////////////////////////Room Switching (Metroidvania) Events//////////////////////////
     playerOut: function (player) {
@@ -904,7 +920,7 @@ brawl.testing.prototype = {
                     this.player.frame = 6;
                 }
                 if (this.movementLeft.isDown) {
-                    this.player.body.velocity.y = -500;4
+                    this.player.body.velocity.y = -500; 4
                     this.player.body.velocity.x = -1000;
                 }
             }
@@ -1160,4 +1176,9 @@ brawl.testing.prototype = {
     //         }
     //     }
     // }
+    render: function () {
+        // this.game.debug.text('Elapsed seconds: ' + this.game.time.totalElapsedSeconds(), 32, 32);
+        this.game.debug.text('Global Timer: ' + total, 32, 32);
+        // this.game.debug.text('Heat Timer: ' + total, 32, 64);
+    },
 };
