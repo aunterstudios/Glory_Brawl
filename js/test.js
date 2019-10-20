@@ -64,9 +64,9 @@ brawl.testing.prototype = {
         // this.game.time.advancedTiming = true;
 
         //Background color of game
-        // this.game.stage.backgroundColor = "#4488AA";
-        this.game.stage.backgroundColor = Phaser.Color.getRandomColor(50, 255, 255);
-        // this.game.stage.backgroundColor = "#000000";
+        this.game.stage.backgroundColor = "#4488AA";
+        // this.game.stage.backgroundColor = Phaser.Color.getRandomColor(50, 255, 255);
+        // this.game.stage.backgroundColor = "#2F4F4F";
 
         //Sort Direction
 
@@ -458,7 +458,23 @@ brawl.testing.prototype = {
                 }
             }
         }
-        // //////////////////Game Mode Generation (The Type of Game You Will Play)//////////////////
+        /////////////////////(Falling Spikes)////////////////
+        // if (levelGenerator.flagSpawn[0]) {
+        //     console.log("It's a Flag!");
+        //     for (var i = 1; i < levelGenerator.flagSpawn.length; i++) {
+        //         this.flagSpawn(levelGenerator.flagSpawn[i].x, levelGenerator.flagSpawn[i].y, levelGenerator.flagSpawn[i].velocityX, levelGenerator.flagSpawn[i].velocityY, levelGenerator.flagSpawn[i].indexOfPlayerPosition);
+        //     }
+        // if (levelGenerator.fallingSpikes[0]) {
+        //     for (var i = 1; i < levelGenerator.fallingSpikes.length; i++) {
+        //         if (levelGenerator.fallingSpikes[i].trigger) {
+        //             // this.fallingSpikes(levelGenerator.fallingSpikes[i].x, levelGenerator.fallingSpikes[i].y,levelGenerator.fallingSpikes[i].milliseconds, levelGenerator.fallingSpikes[i].velocityX, levelGenerator.fallingSpikes[i].velocityY, levelGenerator.fallingSpikes[i].specialCondition, levelGenerator.fallingSpikes[i].specialWorld, levelGenerator.fallingSpikes[i].specialArray, levelGenerator.fallingSpikes[i].positionInArray);
+        //             this.game.time.events.loop(Phaser.Timer.SECOND * 4, this.spikesFalling, this);
+        //         }
+        //     }
+        // }
+
+        // }
+        // //////////////////(Respawn)Flag//////////////////
         if (levelGenerator.flagSpawn[0]) {
             console.log("It's a Flag!");
             for (var i = 1; i < levelGenerator.flagSpawn.length; i++) {

@@ -936,11 +936,24 @@ var worldDesignedLevels = [
         {
           trigger: true, x: 3300, y: 0, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .83, art: "immovableVerticalWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1,
         },
+        //Past Max Jump
+        {
+          trigger: true, x: 2800, y: 800, velocityX: 0, velocityY: 0, sizeX: .83, sizeY: .5, art: "immovableRotatedWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1,
+        },
+        //Vertical Wall Landing
+        {
+          trigger: true, x: 700, y: 800, velocityX: 0, velocityY: 0, sizeX: .83, sizeY: .5, art: "immovableRotatedWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1,
+        },
+
       ],
     wallSpawn:
       [true,
         {
           trigger: true, x: 4500, y: 400, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "rotatedWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1
+        },
+        //First Vertical Wall
+        {
+          trigger: true, x: 2000, y: 400, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "wall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 2
         },
       ],
     spikeSpawn:
@@ -966,10 +979,19 @@ var worldDesignedLevels = [
         { trigger: true, x: 4125, y: 50, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, positionInArray: 1 },
         //Maximum Jump Enemy
         { trigger: true, x: 3500, y: 500, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, positionInArray: 1 },
+        //Four Enemies of the Gate
+        { trigger: true, x: 1000, y: 50, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, positionInArray: 1 },
+        { trigger: true, x: 1000, y: 250, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, positionInArray: 1 },
+        { trigger: true, x: 1000, y: 450, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, positionInArray: 1 },
+        { trigger: true, x: 1000, y: 650, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, positionInArray: 1 },
         
       ],
     ballSpawn:
       [true,
+      ],
+    fallingSpikes:
+      [true,
+        { trigger: true, x: 1000, y: 650, milliseconds: 3000, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, positionInArray: 1 },
       ],
     //Check Point
     flagSpawn:
