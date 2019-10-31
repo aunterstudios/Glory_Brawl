@@ -224,7 +224,6 @@ brawl.testing.prototype = {
         this.timer.start();
 
         // this.total = 0;
-
     },
     cameraChange: function () {
         console.log(cameraBoolean + " Before It Hits Anything")
@@ -458,22 +457,14 @@ brawl.testing.prototype = {
                 }
             }
         }
-        /////////////////////(Falling Spikes)////////////////
-        // if (levelGenerator.flagSpawn[0]) {
-        //     console.log("It's a Flag!");
-        //     for (var i = 1; i < levelGenerator.flagSpawn.length; i++) {
-        //         this.flagSpawn(levelGenerator.flagSpawn[i].x, levelGenerator.flagSpawn[i].y, levelGenerator.flagSpawn[i].velocityX, levelGenerator.flagSpawn[i].velocityY, levelGenerator.flagSpawn[i].indexOfPlayerPosition);
-        //     }
-        // if (levelGenerator.fallingSpikes[0]) {
-        //     for (var i = 1; i < levelGenerator.fallingSpikes.length; i++) {
-        //         if (levelGenerator.fallingSpikes[i].trigger) {
-        //             // this.fallingSpikes(levelGenerator.fallingSpikes[i].x, levelGenerator.fallingSpikes[i].y,levelGenerator.fallingSpikes[i].milliseconds, levelGenerator.fallingSpikes[i].velocityX, levelGenerator.fallingSpikes[i].velocityY, levelGenerator.fallingSpikes[i].specialCondition, levelGenerator.fallingSpikes[i].specialWorld, levelGenerator.fallingSpikes[i].specialArray, levelGenerator.fallingSpikes[i].positionInArray);
-        //             this.game.time.events.loop(Phaser.Timer.SECOND * 4, this.spikesFalling, this);
-        //         }
-        //     }
-        // }
-
-        // }
+        ///////////////////(Falling Spikes)////////////////
+        if (levelGenerator.fallingSpikes[0]) {
+            for (var i = 1; i < levelGenerator.fallingSpikes.length; i++) {
+                if (levelGenerator.fallingSpikes[i].trigger) {
+                    this.game.time.events.loop(Phaser.Timer.SECOND * levelGenerator.fallingSpikes[i].seconds, this.spikeFall, this, levelGenerator.fallingSpikes[i].x, levelGenerator.fallingSpikes[i].y, levelGenerator.fallingSpikes[i].seconds, levelGenerator.fallingSpikes[i].velocityX, levelGenerator.fallingSpikes[i].velocityY, levelGenerator.fallingSpikes[i].specialCondition, levelGenerator.fallingSpikes[i].specialWorld, levelGenerator.fallingSpikes[i].positionInArray);
+                }
+            }
+        }
         // //////////////////(Respawn)Flag//////////////////
         if (levelGenerator.flagSpawn[0]) {
             console.log("It's a Flag!");
@@ -508,6 +499,16 @@ brawl.testing.prototype = {
     //     // this.doorX.body.bounce.setTo(1);
     //     // this.doorX.body.velocity.setTo(velocityX, velocityY);
     // },
+    //SpikeFall
+    spikeFall: function (x, y, velocityX, velocityY, specialCondition, specialWorld, specialArray, positionInArray) {
+        this.spikesFall = this.fallingSpikes.getFirstDead(true, x, y, 'fallingSpikes');
+        this.spikesFall.anchor.setTo(.5);
+        this.spikesFall.scale.setTo(.5);
+        this.spikesFall.checkWorldBounds = true;
+        this.spikesFall.outOfBoundsKill = true;
+        this.spikesFall.body.velocity.x = velocityX;
+        this.spikesFall.body.velocity.y = velocityY;
+    },
     coinSpawn: function (x, y, velocityX, velocityY) {
         this.coinX = this.coin.create(x, y, 'coin');
         this.coinX.anchor.setTo(.7);
@@ -669,20 +670,6 @@ brawl.testing.prototype = {
         // this.spikesX.alignIn(rect, positionInRectangle);
         // this.spikeFall(this.spikesX);
     },
-    //SpikeFall
-    // spikeFall: function (spikesX) {
-    //     function spikeTimerFall (){
-    //         this.spikesFall = this.fallingSpikes.getFirstDead(true, spikesX.x, spikesX.y, 'fallingSpikes');
-    //         this.spikesFall.anchor.setTo(.5);
-    //         this.spikesFall.scale.setTo(.5);
-    //         this.spikesFall.alignIn(spikesX, positionArray[1]);
-    //         this.spikesFall.checkWorldBounds = true;
-    //         this.spikesFall.outOfBoundsKill = true;
-    //         this.spikesFall.body.velocity.y = 300;
-    //     }
-    //     // this.spikeTimerFall(this.spikeFall);
-    //     this.game.time.events.loop(Phaser.Timer.SECOND * this.game.rnd.integerInRange(3, 7), spikeTimerFall, this);
-    // },
     //Dragging Motion for Walls
     // startDrag: function () {
     //     this.wallX.body.moves = false;
