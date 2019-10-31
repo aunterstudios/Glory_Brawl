@@ -1030,7 +1030,7 @@ var worldDesignedLevels = [
       ],
     fallingSpikes:
       [true,
-        { trigger: true, x: 1000, y: 650, seconds: 3, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, positionInArray: 1 },
+        { trigger: true, x: 4700, y: 300, seconds: 3, velocityX: 0, velocityY: 1000, specialCondition: null, specialWorld: null, positionInArray: 1 },
       ],
     //Check Point
     flagSpawn:

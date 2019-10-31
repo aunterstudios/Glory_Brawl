@@ -196,21 +196,13 @@ brawl.testing.prototype = {
         this.cameraStyle = this.game.input.keyboard.addKey(Phaser.Keyboard.FOUR);
         this.cameraStyle.onDown.add(this.cameraChange, this);
 
-        //Streak
-        // this.text = this.game.add.text(200, 6208, "Streak: " + streak, { font: "32px Arial", fill: "#ffffff", align: "center" });
-        // this.text.fixedToCamera = true;
-        // this.text.cameraOffset.setTo(100, 750);
-
         //World
-        // this.text = this.game.add.text(200, 6208, "World: " + worldName + "\n Game Mode: " + gameModeName, { font: "20px Arial", fill: "#ffffff", align: "center" });
-        // this.text.fixedToCamera = true;
-        // this.text.cameraOffset.setTo(1100, 725);
         this.text = this.game.add.text(200, 6208, "World: " + worldName, { font: "20px Arial", fill: "#ffffff", align: "center" });
         this.text.fixedToCamera = true;
         this.text.cameraOffset.setTo(1100, 725);
 
         //Teleportation
-        this.game.physics.arcade.overlap(this.player, this.door, this.teleportationDoor, null, this);
+        // this.game.physics.arcade.overlap(this.player, this.door, this.teleportationDoor, null, this);
 
         //Timer
         //  Create our Timer
@@ -222,8 +214,6 @@ brawl.testing.prototype = {
         //  Start the timer running - this is important!
         //  It won't start automatically, allowing you to hook it to button events and the like.
         this.timer.start();
-
-        // this.total = 0;
     },
     cameraChange: function () {
         console.log(cameraBoolean + " Before It Hits Anything")
@@ -461,7 +451,7 @@ brawl.testing.prototype = {
         if (levelGenerator.fallingSpikes[0]) {
             for (var i = 1; i < levelGenerator.fallingSpikes.length; i++) {
                 if (levelGenerator.fallingSpikes[i].trigger) {
-                    this.game.time.events.loop(Phaser.Timer.SECOND * levelGenerator.fallingSpikes[i].seconds, this.spikeFall, this, levelGenerator.fallingSpikes[i].x, levelGenerator.fallingSpikes[i].y, levelGenerator.fallingSpikes[i].seconds, levelGenerator.fallingSpikes[i].velocityX, levelGenerator.fallingSpikes[i].velocityY, levelGenerator.fallingSpikes[i].specialCondition, levelGenerator.fallingSpikes[i].specialWorld, levelGenerator.fallingSpikes[i].positionInArray);
+                    this.game.time.events.loop(Phaser.Timer.SECOND * levelGenerator.fallingSpikes[i].seconds, this.spikeFall, this, levelGenerator.fallingSpikes[i].x, levelGenerator.fallingSpikes[i].y, levelGenerator.fallingSpikes[i].velocityX, levelGenerator.fallingSpikes[i].velocityY, levelGenerator.fallingSpikes[i].specialCondition, levelGenerator.fallingSpikes[i].specialWorld, levelGenerator.fallingSpikes[i].positionInArray);
                 }
             }
         }
@@ -506,8 +496,11 @@ brawl.testing.prototype = {
         this.spikesFall.scale.setTo(.5);
         this.spikesFall.checkWorldBounds = true;
         this.spikesFall.outOfBoundsKill = true;
-        this.spikesFall.body.velocity.x = velocityX;
-        this.spikesFall.body.velocity.y = velocityY;
+        // this.spikesFall.body.gravity.x = velocityX;
+        this.spikesFall.body.gravity.y = velocityY;
+        console.log(x + "X");
+        console.log(y + "Y");
+        console.log(velocityY);
     },
     coinSpawn: function (x, y, velocityX, velocityY) {
         this.coinX = this.coin.create(x, y, 'coin');
