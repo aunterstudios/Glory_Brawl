@@ -275,7 +275,7 @@ var worldDesignedLevels = [
   //     ],
   //   undeniableDeathSpawn:
   //     [true,
-  
+
   //     ],
   //   immovableWallSpawn:
   //     [true,
@@ -296,7 +296,7 @@ var worldDesignedLevels = [
   //   ledgeGreenSpawn:
   //     [true,
   //     ],
-      
+
   //   ledgeBlueSpawn:
   //     [true,
   //     ],
@@ -304,6 +304,9 @@ var worldDesignedLevels = [
   //     [false,
   //     ],
   //   ballSpawn:
+  //     [true,
+  //     ],
+  //   fallingSpikes:
   //     [true,
   //     ],
   //   //Check Point
@@ -573,6 +576,9 @@ var worldDesignedLevels = [
         //   trigger: true, x: 700, y: 200, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 2
         // },
       ],
+    fallingSpikes:
+      [false
+      ],
     //Check Point
     flagSpawn:
       [false,
@@ -775,39 +781,40 @@ var worldDesignedLevels = [
         // },
         //Left and Upwards Rooms of the Map
         {
-          trigger: true, x: 773, y: 0, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "immovableRotatedWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 7,
+          trigger: true, x: 773, y: 0, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "immovableRotatedWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 9,
         },
+        //First Wall THat Gets Removed from Level 3
         {
-          trigger: true, x: 773, y: 300, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "immovableRotatedWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 7,
+          trigger: true, x: 773, y: 300, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "immovableRotatedWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 10,
         },
         {
           trigger: true, x: 710, y: 0, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .8, art: "immovableVerticalWall",
-          specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 8
+          specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 11
         },
         {
           trigger: true, x: 425, y: 600, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .87, art: "immovableVerticalWall",
-          specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 8
+          specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 12
         },
         //Mini Walls at the End
         {
           trigger: true, x: 400, y: 400, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall",
-          specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 3
+          specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 13
         },
         {
           trigger: true, x: 600, y: 600, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall",
-          specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 3
+          specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 14
         },
         {
           trigger: true, x: 600, y: 400, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall",
-          specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 3
+          specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 15
         },
         {
           trigger: true, x: 700, y: 500, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall",
-          specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 3
+          specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 16
         },
         {
           trigger: true, x: 300, y: 1000, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall",
-          specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 3
+          specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 17
         },
 
       ],
@@ -863,7 +870,7 @@ var worldDesignedLevels = [
         { trigger: true, x: 1900, y: 2700, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, positionInArray: 3 },
         { trigger: true, x: 2100, y: 2000, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, positionInArray: 4 },
       ],
-      
+
     ledgeBlueSpawn:
       [true,
         { trigger: true, x: 2270, y: 300, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, positionInArray: 1 },
@@ -877,12 +884,15 @@ var worldDesignedLevels = [
           trigger: true, x: 975, y: 200, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1
         },
       ],
+    fallingSpikes:
+      [false
+      ],
     //Check Point
     flagSpawn:
       [true,
-        { x: 600, y: 3050, velocityX: 0, velocityY: 0, indexOfPlayerPosition: 1 },
-        { x: 2500, y: 3050, velocityX: 0, velocityY: 0, indexOfPlayerPosition: 3 },
-        { x: 200, y: 1250, velocityX: 0, velocityY: 0, indexOfPlayerPosition: 2 },
+        { trigger: true, x: 600, y: 3050, velocityX: 0, velocityY: 0, indexOfPlayerPosition: 1, art: "flag", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1 },
+        { trigger: true, x: 2500, y: 3050, velocityX: 0, velocityY: 0, indexOfPlayerPosition: 3, art: "flag", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 2 },
+        { trigger: true, x: 200, y: 1250, velocityX: 0, velocityY: 0, indexOfPlayerPosition: 2, art: "flag", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 3 },
         // { x: 500, y: 3000, velocityX: 0, velocityY: 0, indexOfPlayerPosition: 0 },
       ],
     text:
@@ -1004,7 +1014,6 @@ var worldDesignedLevels = [
     ledgeGreenSpawn:
       [true,
       ],
-      
     ledgeBlueSpawn:
       [true,
       ],
@@ -1023,20 +1032,21 @@ var worldDesignedLevels = [
         { trigger: true, x: 1000, y: 250, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, positionInArray: 1 },
         { trigger: true, x: 1000, y: 450, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, positionInArray: 1 },
         { trigger: true, x: 1000, y: 650, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, positionInArray: 1 },
-        
+
       ],
     ballSpawn:
       [true,
       ],
     fallingSpikes:
       [true,
-        { trigger: true, x: 4700, y: 300, seconds: 3, velocityX: 0, velocityY: 1000, specialCondition: null, specialWorld: null, positionInArray: 1 },
+        { trigger: true, x: 4700, y: 300, seconds: 3, velocityX: 0, velocityY: 500, specialCondition: null, specialWorld: null, positionInArray: 1 },
       ],
     //Check Point
     flagSpawn:
       [true,
+        // trigger: true, art: "invertedSpikes", specialCondition: 1, specialWorld: 1, specialArray: 1, positionInArray: 2
         // { x: 500, y: 3000, velocityX: 0, velocityY: 0, indexOfPlayerPosition: 0 },
-        { x: 4600, y: 650, velocityX: 0, velocityY: 0, indexOfPlayerPosition: 3 },
+        { trigger: true, x: 4600, y: 650, velocityX: 0, velocityY: 0, indexOfPlayerPosition: 3, art: "flag", specialCondition: 1, specialWorld: 1, specialArray: 10, positionInArray: 0 },
       ],
     text:
       [true,
@@ -1053,12 +1063,14 @@ var worldDesignedLevels = [
 
 ]
 
+//Respawn Holder (The Level You Will Respawn In)
 var respawnHolder = {
   indexOfCurrentWorld: 0,
   indexOfPlayerPosition: 1,
   metroidvania: null,
 }
 
+//Toggling Camera
 var cameraBoolean = true;
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////

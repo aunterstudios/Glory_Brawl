@@ -262,6 +262,7 @@ brawl.testing.prototype = {
         }
 
     },
+    ///Creation of Text in Game
     textCreator: function (x, y, textInput, font, fontSize, fill, fontWeight) {
         this.text1 = this.game.add.text(x, y, textInput);
         this.text1.font = font;
@@ -269,17 +270,24 @@ brawl.testing.prototype = {
         this.text1.fill = fill;
         this.text1.fontWeight = fontWeight;
     },
+    //Switching to Death State
     deathState: function (victim, killer) {
         // console.log(victim.body.x + ' '+ victim.body.y);
         victim.kill();
         game.state.start('deathState', true, false, respawnHolder.indexOfCurrentWorld, respawnHolder.indexOfPlayerPosition, respawnHolder.metroidvania);
     },
+    //Character Respawn
     respawn: function (player, flag) {
         flag.kill();
         console.log("It Hits the Flag!");
         respawnHolder.indexOfCurrentWorld = this.indexOfCurrentWorld;
         respawnHolder.indexOfPlayerPosition = flag.indexOfPlayerPosition;
         respawnHolder.metroidvania = this.metroidvania;
+        if (flag.specialCondition === 1) {
+            worldDesignedLevels[this.indexOfCurrentWorld].flagSpawn[flag.positionInArray].trigger = false;
+            //Destruction of a sprite at a different level
+            worldDesignedLevels[flag.specialWorld].immovableWallSpawn[flag.specialArray].trigger = false;
+        }
     },
     specialConditionHandler(sprite1, sprite2) {
         sprite2.kill();
@@ -457,9 +465,10 @@ brawl.testing.prototype = {
         }
         // //////////////////(Respawn)Flag//////////////////
         if (levelGenerator.flagSpawn[0]) {
-            console.log("It's a Flag!");
             for (var i = 1; i < levelGenerator.flagSpawn.length; i++) {
-                this.flagSpawn(levelGenerator.flagSpawn[i].x, levelGenerator.flagSpawn[i].y, levelGenerator.flagSpawn[i].velocityX, levelGenerator.flagSpawn[i].velocityY, levelGenerator.flagSpawn[i].indexOfPlayerPosition);
+                if (levelGenerator.flagSpawn[i].trigger) {
+                    this.flagSpawn(levelGenerator.flagSpawn[i].x, levelGenerator.flagSpawn[i].y, levelGenerator.flagSpawn[i].velocityX, levelGenerator.flagSpawn[i].velocityY, levelGenerator.flagSpawn[i].indexOfPlayerPosition, levelGenerator.flagSpawn[i].art, levelGenerator.flagSpawn[i].specialCondition, levelGenerator.flagSpawn[i].specialWorld, levelGenerator.flagSpawn[i].specialArray, levelGenerator.flagSpawn[i].positionInArray);
+                }
             }
 
         }
@@ -496,11 +505,8 @@ brawl.testing.prototype = {
         this.spikesFall.scale.setTo(.5);
         this.spikesFall.checkWorldBounds = true;
         this.spikesFall.outOfBoundsKill = true;
-        // this.spikesFall.body.gravity.x = velocityX;
+        this.spikesFall.body.gravity.x = velocityX;
         this.spikesFall.body.gravity.y = velocityY;
-        console.log(x + "X");
-        console.log(y + "Y");
-        console.log(velocityY);
     },
     coinSpawn: function (x, y, velocityX, velocityY) {
         this.coinX = this.coin.create(x, y, 'coin');
@@ -514,14 +520,19 @@ brawl.testing.prototype = {
         // this.coinX.alignIn(rect, positionInRectangle);
         // console.log(this.coinX);
     },
-    flagSpawn: function (x, y, velocityX, velocityY, indexOfPlayerPosition) {
-        this.flagX = this.flag.create(x, y, 'flag');
+    flagSpawn: function (x, y, velocityX, velocityY, indexOfPlayerPosition, art, specialCondition, specialWorld, specialArray, positionInArray) {
+        this.flagX = this.flag.create(x, y, art);
+        this.flagX.specialCondition = specialCondition;
+        this.flagX.specialWorld = specialWorld;
+        this.flagX.specialArray = specialArray;
+        this.flagX.positionInArray = positionInArray;
         this.flagX.body.mass = 1;
         this.flagX.body.maxVelocity.setTo(1000);
         this.flagX.body.collideWorldBounds = true;
         this.flagX.body.bounce.setTo(1);
         this.flagX.body.velocity.setTo(velocityX, velocityY);
         this.flagX.indexOfPlayerPosition = indexOfPlayerPosition;
+        console.log(specialCondition);
     },
     undeniableDeathSpawn: function (x, y, velocityX, velocityY, sizeX, sizeY, art, specialCondition, specialWorld, specialArray, positionInArray) {
         this.deathX = this.death.create(x, y, art);
