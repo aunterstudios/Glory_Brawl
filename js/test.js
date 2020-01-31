@@ -971,18 +971,19 @@ brawl.testing.prototype = {
         }
         //Freelook
         else {
+            //Original is 8
             if (this.movementLeft.isDown) {
-                this.game.camera.x -= 8;
+                this.game.camera.x -= 20;
             }
             else if (this.movementRight.isDown) {
-                this.game.camera.x += 8;
+                this.game.camera.x += 20;
             }
             if (this.movementUp.isDown) {
-                this.game.camera.y -= 8;
+                this.game.camera.y -= 20;
                 this.player.body.velocity.y = 0;
             }
             else if (this.movementDown.isDown) {
-                this.game.camera.y += 8;
+                this.game.camera.y += 20;
             }
             if (onTheRightSide) {
                 if (onWall || onImmovable) {
@@ -1172,6 +1173,6 @@ brawl.testing.prototype = {
         // this.game.debug.text('Elapsed seconds: ' + this.game.time.totalElapsedSeconds(), 32, 32);
         this.game.debug.text('Global Timer: ' + total, 32, 32);
         // this.game.debug.text('Heat Timer: ' + total, 32, 64);
-        this.game.debug.physicsGroup(this.weapon1.bullets, '#ffffff');
+        // this.game.debug.physicsGroup(this.weapon1.bullets, '#ffffff');
     },
 };
