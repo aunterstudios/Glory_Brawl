@@ -972,9 +972,9 @@ var worldDesignedLevels = [
       ],
     undeniableDeathSpawn:
       [true,
-        // {
-        //   trigger: true, x: 3500, y: 0, velocityX: 0, velocityY: 0, sizeX: 2, sizeY: .15, art: "undeniableDeath", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 7
-        // },
+        {
+          trigger: true, x: 300, y: 0, velocityX: 0, velocityY: 0, sizeX: 3.215, sizeY: .1, art: "undeniableDeath", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1
+        },
       ],
     immovableWallSpawn:
       [true,
@@ -1044,7 +1044,7 @@ var worldDesignedLevels = [
       ],
     fallingSpikes:
       [true,
-        { trigger: true, x: 4700, y: 300, seconds: 3, velocityX: 0, velocityY: 500, specialCondition: null, specialWorld: null, positionInArray: 1 },
+        { trigger: true, x: 300, y: 10, seconds: 3, velocityX: 0, velocityY: 500, specialCondition: null, specialWorld: null, positionInArray: 1 },
       ],
     //Check Point
     flagSpawn:

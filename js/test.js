@@ -326,6 +326,8 @@ brawl.testing.prototype = {
         this.weapon1.bulletSpeed = 500;
         //  Speed-up the rate of fire, allowing them to shoot 1 bullet every 60ms
         this.weapon1.fireRate = 500;
+        //Size of Bullet
+        // this.weapon1.setBulletBodyOffset(5,5,0,0);
         // Track Player
         this.weapon1.trackSprite(this.player, 10, -30);
 
