@@ -326,6 +326,12 @@ var worldDesignedLevels = [
   //   //World Gravity
   //   //Traps that create generating enemies
   // },
+  ///////////////////////////////////Notes About Designed Levels/////////////////////////////////////
+  /*
+    SpecialCondition (The Type of Change That Will Happen at a Different Level)
+    SpecialWorld (The Different Level)
+    SpecialArray (The Sprite Position at a Different Level)
+  */
   /////////////////////////////////////////////////////////////Level 0 Test/////////////////////////////////////////////
   {
     worldName: "Level 0 ",
@@ -853,7 +859,7 @@ var worldDesignedLevels = [
         //   trigger: true, x: 0, y: 0, velocityX: 0, velocityY: 0, sizeX: 2, sizeY: 1, art: "invertedSpikes", specialCondition: null, specialWorld: null, positionInArray: 1
         // },
         {
-          trigger: true, x: 2800, y: 2853, velocityX: 0, velocityY: 0, sizeX: .6, sizeY: .4, art: "trueSpikes", specialCondition: null, specialWorld: null, positionInArray: 1
+          trigger: true, x: 2800, y: 2853, velocityX: 0, velocityY: 0, sizeX: .6, sizeY: .4, art: "trueSpikes", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1
         },
       ],
     ledgeGreySpawn:
@@ -1043,7 +1049,9 @@ var worldDesignedLevels = [
     //Check Point
     flagSpawn:
       [true,
+        //Flag At the Beginning of the Level
         { trigger: true, x: 4600, y: 650, velocityX: 0, velocityY: 0, indexOfPlayerPosition: 3, art: "flag", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1 },
+        //Flag At the End of The Level
         { trigger: true, x: 100, y: 200, velocityX: 0, velocityY: 0, indexOfPlayerPosition: 2, art: "flag", specialCondition: 1, specialWorld: 1, specialArray: 10, positionInArray: 2 },
       ],
     text:
@@ -1073,9 +1081,7 @@ var cameraBoolean = true;
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "MetroidVanian: Sean Moody Play the Game",
-  "In this lair of a mad god.",
-  "You must become a god yourself.",
+  "MetroidVanian: New World Order",
   "Ascend.",
   "Remember the words.",
   "Glory Brawl."

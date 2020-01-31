@@ -63,7 +63,7 @@ brawl.testing.prototype = {
 
         // this.game.time.advancedTiming = true;
 
-        //Background color of game
+        //Background Color of Game
         this.game.stage.backgroundColor = "#4488AA";
         // this.game.stage.backgroundColor = Phaser.Color.getRandomColor(50, 255, 255);
         // this.game.stage.backgroundColor = "#2F4F4F";
@@ -87,23 +87,8 @@ brawl.testing.prototype = {
         //Overlap Bias to Prevent Sprite Tunneling
         this.game.physics.arcade.OVERLAP_BIAS = 20; //20 is original
 
-        // //Initializes all the Randomness for World and GameMode
-        // var randomGeneratorForWorld = this.game.rnd.integerInRange(0, 0);
-        // this.randomGeneratorForGameMode = this.game.rnd.integerInRange(0, 0);
-
         ////////////////////Game World Size//////////////////////
         this.game.world.setBounds(0, 0, worldDesignedLevels[this.indexOfCurrentWorld].xOfWorld, worldDesignedLevels[this.indexOfCurrentWorld].yOfWorld);
-
-        // ////////////Generator for Game Mode//////////////
-        // this.randomGeneratorForGameMode = this.game.rnd.integerInRange(0, 1);
-        // var gameModeName;
-        // if (this.randomGeneratorForGameMode === 0) {
-        //     gameModeName = "Collect the Coins";
-        // }
-        // else {
-        //     gameModeName = "Capture the Flag";
-        // }
-        // console.log(this.randomGeneratorForGameMode + "game mode");
 
         ////////////////////////////////////Keyboard Controls/////////////////////////////////
         this.cursors = this.game.input.keyboard.createCursorKeys();
