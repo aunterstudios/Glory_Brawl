@@ -45,9 +45,9 @@ brawl.testing.prototype = {
         this.load.image('action', 'assets/action.png');
         this.load.image('ledgeDown', 'assets/platformX.png');
         this.load.image('ledgeSide', 'assets/platformSide.png');
-        this.load.image('bullet3', 'assets/bullet23.png');
-        this.load.image('bullet2', 'assets/bullet24.png');
-        this.load.image('bullet1', 'assets/bullet25.png');
+        this.load.image('bullet3', 'assets/bullet44.png');
+        this.load.image('bullet2', 'assets/bullet45.png');
+        this.load.image('bullet1', 'assets/bullet46.png');
         this.load.image('bulletEnemy', 'assets/bullet129.png');
         this.load.image('boundary', 'assets/worldBounds.png');
         this.load.image('coin', 'assets/shield2.png');
@@ -327,7 +327,7 @@ brawl.testing.prototype = {
         //  Speed-up the rate of fire, allowing them to shoot 1 bullet every 60ms
         this.weapon1.fireRate = 500;
         //Size of Bullet
-        // this.weapon1.setBulletBodyOffset(5,5,0,0);
+        // this.weapon1.setBulletBodyOffset(5,2,-20,0); //setSize(32 / Math.abs(this.scale.x), 32 / Math.abs(this.scale.y), 24, 34)
         // Track Player
         this.weapon1.trackSprite(this.player, 10, -30);
 
@@ -1172,5 +1172,6 @@ brawl.testing.prototype = {
         // this.game.debug.text('Elapsed seconds: ' + this.game.time.totalElapsedSeconds(), 32, 32);
         this.game.debug.text('Global Timer: ' + total, 32, 32);
         // this.game.debug.text('Heat Timer: ' + total, 32, 64);
+        this.game.debug.physicsGroup(this.weapon1.bullets, '#ffffff');
     },
 };

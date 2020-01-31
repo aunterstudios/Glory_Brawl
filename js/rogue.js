@@ -28,9 +28,9 @@ brawl.rogue.prototype = {
         this.load.image('action', 'assets/action.png');
         this.load.image('ledgeDown', 'assets/platformX.png');
         this.load.image('ledgeSide', 'assets/platformSide.png');
-        this.load.image('bullet3', 'assets/bullet23.png');
-        this.load.image('bullet2', 'assets/bullet24.png');
-        this.load.image('bullet1', 'assets/bullet25.png');
+        this.load.image('bullet3', 'assets/bullet44.png');
+        this.load.image('bullet2', 'assets/bullet45.png');
+        this.load.image('bullet1', 'assets/bullet46.png');
         this.load.image('bulletEnemy', 'assets/bullet129.png');
         this.load.image('boundary', 'assets/worldBounds.png');
         this.load.image('coin', 'assets/shield2.png');
