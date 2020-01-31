@@ -487,6 +487,10 @@ brawl.testing.prototype = {
     //SpikeFall
     spikeFall: function (x, y, velocityX, velocityY, specialCondition, specialWorld, specialArray, positionInArray) {
         this.spikesFall = this.fallingSpikes.getFirstDead(true, x, y, 'fallingSpikes');
+        this.spikesFall.specialCondition = specialCondition;
+        this.spikesFall.specialWorld = specialWorld;
+        this.spikesFall.specialArray = specialArray;
+        this.spikesFall.positionInArray = positionInArray;
         this.spikesFall.anchor.setTo(.5);
         this.spikesFall.scale.setTo(.5);
         this.spikesFall.checkWorldBounds = true;
@@ -569,8 +573,12 @@ brawl.testing.prototype = {
         this.immovableWallX.body.bounce.setTo(1);
         this.immovableWallX.body.velocity.setTo(velocityX, velocityY);
     },
-    enemySpawn: function (x, y, velocityX, velocityY) {
+    enemySpawn: function (x, y, velocityX, velocityY, specialCondition, specialWorld, specialArray, positionInArray) {
         this.trumpX = this.enemy.create(x, y, 'enemy');
+        this.trumpX.specialCondition = specialCondition;
+        this.trumpX.specialWorld = specialWorld;
+        this.trumpX.specialArray = specialArray;
+        this.trumpX.positionInArray = positionInArray;
         this.trumpX.anchor.setTo(.5);
         this.trumpX.scale.setTo(.6);
         this.trumpX.body.mass = 20;
@@ -830,7 +838,7 @@ brawl.testing.prototype = {
         this.game.physics.arcade.collide(this.enemy, [this.spikes, this.wall, this.enemy], testFunctionX, null, this);
 
         //Death Mechanics
-        this.game.physics.arcade.overlap(this.player, [this.enemy, this.spikes, this.enemyBullets, this.death], this.deathState, null, this);
+        this.game.physics.arcade.overlap(this.player, [this.enemy, this.spikes, this.enemyBullets, this.death, this.fallingSpikes], this.deathState, null, this);
 
         ////////////////////////////////Win Conditions/////////////////////////////////
         //Game Mode 0 Flag
@@ -971,7 +979,7 @@ brawl.testing.prototype = {
         }
         //Freelook
         else {
-            //Original is 8
+            //Original is 8 (Camera Speed)
             if (this.movementLeft.isDown) {
                 this.game.camera.x -= 20;
             }
