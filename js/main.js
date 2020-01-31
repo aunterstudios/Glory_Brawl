@@ -1082,9 +1082,9 @@ var cameraBoolean = true;
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
   "MetroidVanian: New World Order",
-  "Ascend.",
+  "Be Reborn Once Again",
   "Remember the words.",
-  "Glory Brawl."
+  "GLORY BRAWL"
 ];
 
 var line = [];
