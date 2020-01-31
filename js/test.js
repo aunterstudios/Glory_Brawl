@@ -215,15 +215,14 @@ brawl.testing.prototype = {
         //  It won't start automatically, allowing you to hook it to button events and the like.
         this.timer.start();
     },
+    /////////////////Camera////////////////
     cameraChange: function () {
-        console.log(cameraBoolean + " Before It Hits Anything")
         if (cameraBoolean) {
             cameraBoolean = false;
         }
         else {
             cameraBoolean = true;
         }
-        console.log(cameraBoolean + " After the Change");
         if (cameraBoolean) {
             this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_LOCKON);
         }
@@ -231,10 +230,11 @@ brawl.testing.prototype = {
             this.game.camera.unfollow();
         }
     },
+    /////////////Timer/////////////
     updateCounter: function () {
         total++
     },
-    // ////////////////////////Room Switching (Metroidvania) Events//////////////////////////
+    //////////////////////////Room Switching (Metroidvania) Events//////////////////////////
     playerOut: function (player) {
         //Up
         if (player.y <= this.metroidvania.roomUpValue) {
@@ -279,7 +279,6 @@ brawl.testing.prototype = {
     //Character Respawn
     respawn: function (player, flag) {
         flag.kill();
-        console.log("It Hits the Flag!");
         respawnHolder.indexOfCurrentWorld = this.indexOfCurrentWorld;
         respawnHolder.indexOfPlayerPosition = flag.indexOfPlayerPosition;
         respawnHolder.metroidvania = this.metroidvania;
@@ -532,7 +531,6 @@ brawl.testing.prototype = {
         this.flagX.body.bounce.setTo(1);
         this.flagX.body.velocity.setTo(velocityX, velocityY);
         this.flagX.indexOfPlayerPosition = indexOfPlayerPosition;
-        console.log(specialCondition);
     },
     undeniableDeathSpawn: function (x, y, velocityX, velocityY, sizeX, sizeY, art, specialCondition, specialWorld, specialArray, positionInArray) {
         this.deathX = this.death.create(x, y, art);

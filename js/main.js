@@ -582,7 +582,6 @@ var worldDesignedLevels = [
     //Check Point
     flagSpawn:
       [false,
-        { x: 900, y: 3000, velocityX: 0, velocityY: 0, indexOfPlayerPosition: 1 },
       ],
     text:
       [true,
@@ -1044,9 +1043,8 @@ var worldDesignedLevels = [
     //Check Point
     flagSpawn:
       [true,
-        // trigger: true, art: "invertedSpikes", specialCondition: 1, specialWorld: 1, specialArray: 1, positionInArray: 2
-        // { x: 500, y: 3000, velocityX: 0, velocityY: 0, indexOfPlayerPosition: 0 },
-        { trigger: true, x: 4600, y: 650, velocityX: 0, velocityY: 0, indexOfPlayerPosition: 3, art: "flag", specialCondition: 1, specialWorld: 1, specialArray: 10, positionInArray: 0 },
+        { trigger: true, x: 4600, y: 650, velocityX: 0, velocityY: 0, indexOfPlayerPosition: 3, art: "flag", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1 },
+        { trigger: true, x: 100, y: 200, velocityX: 0, velocityY: 0, indexOfPlayerPosition: 2, art: "flag", specialCondition: 1, specialWorld: 1, specialArray: 10, positionInArray: 2 },
       ],
     text:
       [true,
