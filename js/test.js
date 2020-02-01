@@ -331,7 +331,7 @@ brawl.testing.prototype = {
         //Size of Bullet
         // this.weapon1.setBulletBodyOffset(5,2,-20,0); //setSize(32 / Math.abs(this.scale.x), 32 / Math.abs(this.scale.y), 24, 34)
         // Track Player
-        this.weapon1.trackSprite(this.player, 10, -30);
+        this.weapon1.trackSprite(this.player, 10, 0);
 
         /////////////////Push
         //  Creates 30 bullets, using the 'bullet' graphic
@@ -346,7 +346,7 @@ brawl.testing.prototype = {
         this.weapon2.fireRate = 500;
         //Match Your Velocity?
         // Track Player
-        this.weapon2.trackSprite(this.player, 10, -30);
+        this.weapon2.trackSprite(this.player, 10, 0);
 
         ////////////////Stop
         //  Creates 30 bullets, using the 'bullet' graphic
@@ -360,7 +360,7 @@ brawl.testing.prototype = {
         //  Speed-up the rate of fire, allowing them to shoot 1 bullet every 60ms
         this.weapon3.fireRate = 500;
         // Track Player
-        this.weapon3.trackSprite(this.player, 10, -30);
+        this.weapon3.trackSprite(this.player, 10, 0);
 
         // - 20 for Tracking//
 
@@ -831,9 +831,7 @@ brawl.testing.prototype = {
         this.game.physics.arcade.collide(this.immovableWall, [this.ball, this.wall, this.ledge, this.ledgeDown, this.ledgeSide, this.enemy], null, null, this);
 
         //Movable Wall Mechanics
-        this.game.physics.arcade.collide(this.wall, this.wall);
-        this.game.physics.arcade.collide(this.wall, this.spikes);
-        this.game.physics.arcade.collide(this.wall, this.death);
+        this.game.physics.arcade.collide(this.wall, [this.wall, this.spikes, this.death], null, null, this);
         this.game.physics.arcade.collide(this.wall, [this.ledge, this.ledgeSide, this.ledgeDown, this.ball, this.enemy], wallGroupPhysics, null, this);
 
         //Enemy Bullet Mechanics
