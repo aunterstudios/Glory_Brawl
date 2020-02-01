@@ -761,19 +761,20 @@ brawl.rogue.prototype = {
         //Movable Wall Mechanics
         this.game.physics.arcade.collide(this.wall, this.wall);
         this.game.physics.arcade.collide(this.wall, this.spikes);
+        this.game.physics.arcade.collide(this.wall, [this.ledge, this.ledgeSide, this.ledgeDown, this.ball], wallGroupPhysics, null, this);
 
         //Enemy Bullet Mechanics
         this.game.physics.arcade.overlap(this.enemyBullets, [this.ball, this.wall, this.immovableWall, this.ledge, this.ledgeDown, this.ledgeSide, this.spikes, this.coin], deathTwo, null, this);
 
         // Ball Mechanics
-        this.game.physics.arcade.collide(this.ball, [this.ball, this.wall, this.ledge, this.ledgeDown, this.ledgeSide], null, null, this);
+        this.game.physics.arcade.collide(this.ball, [this.ball, this.ledge, this.ledgeDown, this.ledgeSide], null, null, this);
         this.game.physics.arcade.overlap(this.ball, [this.enemy, this.spikes], deathThree, null, this);
 
         //Ledge vs. Ledge Mechanics
         this.game.physics.arcade.collide([this.ledge, this.ledgeSide, this.ledgeDown], [this.ledge, this.ledgeSide, this.ledgeDown, this.wall, this.spikes, this.enemy], null, null, this); //preventPhysicsBug Removed
 
         //Enemy Mechanics
-        this.game.physics.arcade.collide(this.enemy, [this.spikes, this.wall, this.enemy], testFunctionX, null, this);
+        this.game.physics.arcade.collide(this.enemy, [this.spikes, this.enemy], null, null, this);
 
         //Death Mechanics
         this.game.physics.arcade.overlap(this.player, [this.enemy, this.spikes, this.death, this.enemyBullets], deathOne, null, this);

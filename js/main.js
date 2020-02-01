@@ -594,8 +594,8 @@ var worldDesignedLevels = [
         { x: 100, y: 2000, textInput: "W or Spacebar- Jump\nA- Left\nS- Push or Move Downwards\nD- Right\nTapping Twice on the Jump Button Lets You Double Jump\nJump Over the Wall", font: "Arial Black", fontSize: 25, fill: "#ffffff", fontWeight: "bold" },
         { x: 100, y: 1700, textInput: "Red is Death", font: "Times New Roman", fontSize: 30, fill: "#FF0000", fontWeight: "bold" }
         ,
-        { x: 1300, y: 1700, textInput: "You Automatically Stick on Surfaces When You Jump on It\nPress A or D while on the Wall to Jump Off It\nKeep Jumping Off and Moving Again Towards the Wall to Climb Over\nTry Holding D While Tapping A while on Sticking on the Left Side of the Wall", font: "Arial Black", fontSize: 25, fill: "#ffffff", fontWeight: "bold" },
-        { x: 1800, y: 2000, textInput: "You Can Stick and Move on the Bottom of Surfaces\nPress S to go Downwards or Push\n\nWhenever You Stick to a Surface You Can Double Jump Again", font: "Arial Black", fontSize: 25, fill: "#ffffff", fontWeight: "bold" },
+        { x: 1300, y: 1650, textInput: "You Automatically Stick on Surfaces When You Jump on It\nPress A or D while on the Wall to Jump Off It\nWhile in the Air Move Towards the Wall to Stick to it Again\nKeep Jumping Off and Moving Again Towards the Wall to Climb Over\nTry Holding D While Tapping A while on Sticking on the Left Side of the Wall", font: "Arial Black", fontSize: 25, fill: "#ffffff", fontWeight: "bold" },
+        { x: 1800, y: 2000, textInput: "You Can Stick and Move on the Bottom of Surfaces\nPress S to go Downwards or Push\n\nWhenever You Touch A Surface You Can Double Jump Again", font: "Arial Black", fontSize: 25, fill: "#ffffff", fontWeight: "bold" },
         //First Use of Weapons
         // { x: 1550, y: 1200, textInput: "Press 4 to Toggle Camera Mode (WASD to Move Camera)\n\nPress 1 to Access Pull Gun\nUse Mouse to Aim and Left Click to Shoot\nAny Object that is Moveable Can Be Pulled\n\nSurf the Grey Wall to the Top Using the Pull Gun\nHint: Jump While Shooting At the Grey Wall While Riding It", font: "Arial Black", fontSize: 25, fill: "#ffffff", fontWeight: "bold" },
         { x: 1550, y: 1200, textInput: "Press 1 to Access Pull Gun\nUse Mouse to Aim and Left Click to Shoot\nAny Object that is Moveable Can Be Pulled\n\nSurf the Grey Wall to the Top Using the Pull Gun\nHint: Jump While Shooting At the Grey Wall While Riding It", font: "Arial Black", fontSize: 25, fill: "#ffffff", fontWeight: "bold" },
@@ -865,20 +865,20 @@ var worldDesignedLevels = [
     ledgeGreySpawn:
       [true,
         //First One You See
-        { trigger: true, x: 100, y: 2600, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, positionInArray: 1 },
-        { trigger: true, x: 1080, y: 2200, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, positionInArray: 2 },
+        { trigger: true, x: 100, y: 2600, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1 },
+        { trigger: true, x: 1080, y: 2200, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 2 },
       ],
     ledgeGreenSpawn:
       [true,
-        { trigger: true, x: 1525, y: 3000, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, positionInArray: 1 },
-        { trigger: true, x: 1700, y: 2200, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, positionInArray: 2 },
-        { trigger: true, x: 1900, y: 2700, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, positionInArray: 3 },
-        { trigger: true, x: 2100, y: 2000, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, positionInArray: 4 },
+        { trigger: true, x: 1525, y: 3000, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1 },
+        { trigger: true, x: 1700, y: 2200, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 2 },
+        { trigger: true, x: 1900, y: 2700, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 3 },
+        { trigger: true, x: 2100, y: 2000, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 4 },
       ],
 
     ledgeBlueSpawn:
       [true,
-        { trigger: true, x: 2270, y: 300, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, positionInArray: 1 },
+        { trigger: true, x: 2270, y: 300, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1 },
       ],
     enemySpawn:
       [false,
@@ -944,8 +944,8 @@ var worldDesignedLevels = [
       //Up, Down, Left, Right (Remember!)
       [
         { upPosition: true, x: 200, y: 20 },
-        { downPosition: true, x: 2500, y: 200 }, //x400 y3000 (Original)
-        { leftPosition: true, x: 200, y: 500 },
+        { downPosition: true, x: 200, y: 100 }, //x400 y3000 (Original)
+        { leftPosition: true, x: 200, y: 380 },
         { rightPosition: true, x: 4700, y: 700 }
       ],
     //Deals with Room Switching
@@ -982,6 +982,10 @@ var worldDesignedLevels = [
     immovableWallSpawn:
       [true,
         ///////////////Orientation X-Right to Left/////////////////////
+        //Border of Level One
+        {
+          trigger: true, x: 4800, y: 0, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .7, art: "immovableVerticalWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1,
+        },
         //Ground
         {
           trigger: true, x: 4100, y: 800, velocityX: 0, velocityY: 0, sizeX: .83, sizeY: .5, art: "immovableRotatedWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1,
@@ -1001,7 +1005,18 @@ var worldDesignedLevels = [
         {
           trigger: true, x: 700, y: 800, velocityX: 0, velocityY: 0, sizeX: .83, sizeY: .5, art: "immovableRotatedWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1,
         },
-
+        //Divider at the End
+        {
+          trigger: true, x: 300, y: 0, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "immovableVerticalWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1,
+        },
+        //Wall for the Flag
+        {
+          trigger: true, x: 128, y: 388.3, velocityX: 0, velocityY: 0, sizeX: .201, sizeY: .296, art: "immovableRotatedWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1,
+        },
+        //Border Edge At The End of The Level
+        {
+          trigger: true, x: 0, y: 0, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .93, art: "immovableVerticalWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1,
+        },
       ],
     wallSpawn:
       [true,
@@ -1012,18 +1027,25 @@ var worldDesignedLevels = [
         {
           trigger: true, x: 2000, y: 400, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "wall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 2
         },
+        //Test Wall
+        {
+          trigger: true, x: 500, y: 300, velocityX: 100, velocityY: 0, sizeX: .5, sizeY: .5, art: "wall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 3
+        },
       ],
     spikeSpawn:
       [true,
       ],
     ledgeGreySpawn:
-      [true,
+      [false,
+        // { trigger: true, x: 1000, y: 150, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 6 },
       ],
     ledgeGreenSpawn:
-      [true,
+      [false,
+        // { trigger: true, x: 1000, y: 250, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 7 },
       ],
     ledgeBlueSpawn:
-      [true,
+      [false,
+        // { trigger: true, x: 1000, y: 450, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 8 },
       ],
     enemySpawn:
       [true,
@@ -1043,11 +1065,13 @@ var worldDesignedLevels = [
 
       ],
     ballSpawn:
-      [true,
+      [false,
+        // { trigger: true, x: 900, y: 450, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 9 },
       ],
     fallingSpikes:
       [true,
-        { trigger: true, x: 450, y: 10, seconds: 3, velocityX: 0, velocityY: 500, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1 },
+        { trigger: true, x: 475, y: 50, seconds: 3, velocityX: 0, velocityY: 500, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1 },
+        // { trigger: true, x: 4700, y: 50, seconds: 5, velocityX: 0, velocityY: 500, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1 },
       ],
     //Check Point
     flagSpawn:
@@ -1055,7 +1079,7 @@ var worldDesignedLevels = [
         //Flag At the Beginning of the Level
         { trigger: true, x: 4600, y: 650, velocityX: 0, velocityY: 0, indexOfPlayerPosition: 3, art: "flag", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1 },
         //Flag At the End of The Level
-        { trigger: true, x: 100, y: 200, velocityX: 0, velocityY: 0, indexOfPlayerPosition: 2, art: "flag", specialCondition: 1, specialWorld: 1, specialArray: 10, positionInArray: 2 },
+        { trigger: true, x: 220, y: 250, velocityX: 0, velocityY: 0, indexOfPlayerPosition: 2, art: "flag", specialCondition: 1, specialWorld: 1, specialArray: 10, positionInArray: 2 },
       ],
     text:
       [true,
@@ -1084,9 +1108,9 @@ var cameraBoolean = true;
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "MetroidVanian: New World Order",
+  "MetroidVanian: Finishing This",
   "Be Reborn Once Again",
-  "Remember the words.",
+  "Remember the Words",
   "GLORY BRAWL"
 ];
 
@@ -1168,51 +1192,29 @@ function deathThree(killer, victim) {
 ///////////////////////////////////////////Physics Within Game Mechanics////////////////////////////////////////////
 
 ////////////////////////////////////////Wall Mechanics//////////////////////////////////////////
-function playerWall(player, wall) {
-  wall.body.stop();
-  // wall.body.stop();
-  // if (wall.body.touching.up) {
-  //   wall.body.velocity.y = -200;
-  //   player.body.velocity.y = -200
-  //   // if (player.body.velocity.x < 0) {
-  //   //   wall.body.velocity.x = player.body.velocity.x - 100;
-  //   // }
-  //   // if (player.body.velocity.x > 0) {
-  //   //   wall.body.velocity.x = player.body.velocity.x + 100;
-  //   // }
-  //   // {
-  //   //   wall.body.velocity.x = 0;
-  //   // }
-  // }
-  // // When You're Hitting the Edge from the Sides (Right and Left)
-  // else if (wall.body.touching.left || wall.body.touching.right) {
-  //   wall.body.velocity.y = 0;
-  //   wall.body.velocity.x = player.body.velocity.x;
-  // }
-  // /////////////////////////////////In Case Want to Change Side Ledge Velocity///////////
-  // if (player.body.touching.left) {
-  //   player.body.velocity.x = -100;
-  //   player.body.velocity.y = 100;
-  // }
-  // else if (player.body.touching.right) {
-  //   player.body.velocity.x = 100;
-  //   player.body.velocity.y = 100;
-  // }
-  // // if (wall.body.touching.down && player.body.velocity.y < -1) {
-  // //   player.body.velocity.y = -100;
-  // // }
-  // else if (wall.body.touching.down) {
-  //   wall.body.velocity.y = -300;
-  //   player.body.velocity.y = -100;
-  // }
-  // console.log(player.animations.play('left'));
+function wallGroupPhysics (sprite1,sprite2) {
+  if (sprite1.body.touching.up) {
+    sprite2.body.velocity.y = -sprite2.velocityVsWallY;
+    sprite2.body.velocity.x = sprite1.body.velocity.x;
+  }
+  if (sprite1.body.touching.down) {
+    sprite2.body.velocity.y = sprite2.velocityVsWallY;
+    sprite2.body.velocity.x = sprite1.body.velocity.x;
+  }
+  if (sprite1.body.touching.left) {
+    sprite2.body.velocity.x = -sprite2.velocityVsWallX;
+    sprite2.body.velocity.y = sprite1.body.velocity.y;
+  }
+  if (sprite1.body.touching.right) {
+    sprite2.body.velocity.x = sprite2.velocityVsWallX;
+    sprite2.body.velocity.y = sprite1.body.velocity.y;
+  }
+
 }
 ////////////////////////////////////Immovable Wall/////////////////////////////
 
 
-////////////////////////////////////Player Ledge Mechanics//////////////////////////////////////
 ////////////////////////////Ball Mechanics////////////////////////////////////
-
 function ballMover(player, ball) {
   ///////////////////GOOOFY/////////////
   // ball.body.stop();
@@ -1258,6 +1260,7 @@ function ballMover(player, ball) {
   // }
 }
 
+////////////////////////////////////Player Ledge Mechanics//////////////////////////////////////
 function ledgeUp(player, ledge) {
   //When You're On Top of the Ledge
   ledge.body.stop();
@@ -1321,11 +1324,8 @@ function ledgeSideX(player, ledge) {
   ledge.body.velocity.x = player.body.velocity.x;
 }
 
-/////////////////////////////////////////Other Objects vs. Other Objects/////////////////////////////////////////////
 
-
-
-////////////////////////////Weapon Mechanics///////////
+////////////////////////////Weapon Mechanics/////////////////////////
 // this.game.physics.arcade.overlap(this.weapon.bullets, this.wall, weaponWall);
 // this.game.physics.arcade.overlap(this.weapon.bullets, this.spikes, weaponSpikes);
 // this.game.physics.arcade.overlap(this.weapon.bullets, this.ledge, weaponLedge);
@@ -1384,85 +1384,6 @@ function killWeaponHandlerForFlag(sprite, weapon) {
   weapon.kill();
 }
 
-
-
-// function weaponHandler(weapon, sprite)  {
-//   // sprite.body.stop();
-//   if (pullBoolean) {
-//     ////////////////////////////////First Attempt////////////////////////
-//     // console.log("sprite Angle: " + sprite.body.angle);
-//     // console.log("Weapon Angle: " + weapon.body.angle);
-//     // sprite.body.velocity.setTo((weapon.x - sprite.x) * 4, (weapon.y - sprite.y) * 4)
-//     ////////////////////////////////Second Attempt But Figured Something Out///////////////////////
-//     // game.physics.arcade.moveToXY(sprite, weapon.x, weapon.y, 50, 1000);
-//     // console.log("WY: " + sprite.body.velocity.y + " WX: " + sprite.body.velocity.x);
-//     // console.log("PlayerX: " + this.player.x + " PLayerY: " + this.player.y);
-//     //////////////////////////////What I'm going to go with?/////////////////
-//     // if (sprite.body.touching.up) {
-//     //   sprite.body.velocity.y = -50
-//     // }
-//     // else if (sprite.body.touching.down) {
-//     //   sprite.body.velocity.y = 50;
-//     // }
-//     // else if (sprite.body.touching.left) {
-//     //   sprite.body.velocity.x = -50;
-//     // }
-//     // else if (sprite.body.touching.right) {
-//     //   sprite.body.velocity.x = 50;
-//     // }
-//     // this.game.physics.arcade.computeVelocity(0, sprite.body, 40, 50, 100, 500);
-//     ///////////////////////////////Fourth Attempt//////////////////////////////////
-//     // game.physics.arcade.velocityFromAngle(weapon.angle, 300, sprite.velocity);
-//     // sprite.body.velocityFromAngle(weapon.body.angle,100);
-//     // this.sprite.forEach(game.physics.arcade.moveToPointer, game.physics.arcade, false, 200);
-//     this.game.physics.arcade.moveToObject(sprite, this.player, 200);
-//   }
-//   else if (pushBoolean) {
-//     // sprite.body.immovable = false;
-//     sprite.body.stop();
-//   }
-//   else if (stopBoolean) {
-//     // sprite.body.immovable = true;
-//     // sprite.body.stop();
-//     sprite.kill();
-//     if (sprite.key === "coin" || sprite.key === "flag") {
-//       //Refactor
-//       // console.log("it hit? coinX");
-//       if (streak > longestStreak) {
-//         longestStreak = streak;
-//       }
-//       streak = 0;
-//       game.state.start('deathState');
-//     }
-//   }
-//   weapon.kill();
-// }
-
-///////////////////////Test Function///////////////////////
-
-function testFunctionX(sprite1, sprite2) {
-  // if (sprite2.key === "wall" || "rotatedWall" || "brownPlatform") {
-  //   console.log(sprite2.body.velocity.x + " X Velocity ");
-  //   if (sprite2.body.touching.up) {
-  //     sprite2.body.velocity.y = 100;
-  //     console.log("up");
-  //   }
-  //   if (sprite2.body.touching.down) {
-  //     sprite2.body.velocity.y = -100;
-  //     console.log("down");
-  //   }
-  //   if (sprite2.body.touching.left) {
-  //     sprite2.body.velocity.x = 100;
-  //     console.log("left");
-  //   }
-  //   if (sprite2.body.touching.right) {
-  //     sprite2.body.velocity.x = -100;
-  //     console.log("right");
-  //   }
-  //   // sprite2.body.immovable = false;
-  // }
-}
-
 function moveTowardsPlayer(sprite1, player) {
   if (game.physics.arcade.distanceBetween(sprite1, player, false, true) < 500) {
     /////Alpha Build One/////
@@ -1473,7 +1394,7 @@ function moveTowardsPlayer(sprite1, player) {
   }
 }
 
-///////////////////////////////////////Preventing PHysics Bugs//////////////////////////
+///////////////////////////////////////Preventing Physics Bugs//////////////////////////
 //Preventing Physics Bugs
 function preventPhysicsBug(sprite1, sprite2) {
   if (sprite1.body.touching.down) {
