@@ -331,7 +331,7 @@ brawl.testing.prototype = {
         //Size of Bullet
         // this.weapon1.setBulletBodyOffset(5,2,-20,0); //setSize(32 / Math.abs(this.scale.x), 32 / Math.abs(this.scale.y), 24, 34)
         // Track Player
-        this.weapon1.trackSprite(this.player, 10, 0);
+        this.weapon1.trackSprite(this.player, 0, 0);
 
         /////////////////Push
         //  Creates 30 bullets, using the 'bullet' graphic
@@ -346,7 +346,7 @@ brawl.testing.prototype = {
         this.weapon2.fireRate = 500;
         //Match Your Velocity?
         // Track Player
-        this.weapon2.trackSprite(this.player, 10, 0);
+        this.weapon2.trackSprite(this.player, 0, 0);
 
         ////////////////Stop
         //  Creates 30 bullets, using the 'bullet' graphic
@@ -360,7 +360,7 @@ brawl.testing.prototype = {
         //  Speed-up the rate of fire, allowing them to shoot 1 bullet every 60ms
         this.weapon3.fireRate = 500;
         // Track Player
-        this.weapon3.trackSprite(this.player, 10, 0);
+        this.weapon3.trackSprite(this.player, 0, 0);
 
         // - 20 for Tracking//
 
@@ -1116,6 +1116,7 @@ brawl.testing.prototype = {
     //     // this.game.debug.text('Elapsed seconds: ' + this.game.time.totalElapsedSeconds(), 32, 32);
     //     // this.game.debug.text('Global Timer: ' + total, 32, 32);
     //     // this.game.debug.text('Heat Timer: ' + total, 32, 64);
+    //     // this.game.debug.body(this.player);
     //     // this.game.debug.physicsGroup(this.weapon1.bullets, '#ffffff');
     // },
 };

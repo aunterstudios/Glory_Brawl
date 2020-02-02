@@ -628,9 +628,9 @@ var worldDesignedLevels = [
       //Up, Down, Left, Right (Remember!)
       [
         { upPosition: true, x: 200, y: 20 },
-        { downPosition: true, x: 400, y: 3000 }, //x400 y3000 (Original)
-        { leftPosition: true, x: 200, y: 1200 },
-        { rightPosition: true, x: 2600, y: 3050 }
+        { downPosition: true, x: 400, y: 3120 }, //x400 y3000 (Original)
+        { leftPosition: true, x: 100, y: 1320 },
+        { rightPosition: true, x: 2600, y: 3140 }
       ],
     //Deals with Room Switching
     metroidvania:
@@ -946,7 +946,7 @@ var worldDesignedLevels = [
         { upPosition: true, x: 200, y: 20 },
         { downPosition: true, x: 200, y: 100 }, //x400 y3000 (Original)
         { leftPosition: true, x: 200, y: 380 },
-        { rightPosition: true, x: 4700, y: 700 }
+        { rightPosition: true, x: 4700, y: 750 }
       ],
     //Deals with Room Switching
     metroidvania:
@@ -972,17 +972,28 @@ var worldDesignedLevels = [
       ],
     undeniableDeathSpawn:
       [true,
+        /////////////////////////Orientation X-Left to Right //////////////////////
+        //Bottom Towards the End of the Map
         {
-          trigger: true, x: 300, y: 0, velocityX: 0, velocityY: 0, sizeX: 3.215, sizeY: .1, art: "undeniableDeath", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1
+          trigger: true, x: 0, y: 4100, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .1, art: "undeniableDeath", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1
         },
+        //Top of Map
         {
-          trigger: true, x: 0, y: 4100, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .1, art: "undeniableDeath", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 2
+          trigger: true, x: 300, y: 0, velocityX: 0, velocityY: 0, sizeX: 3.215, sizeY: .1, art: "undeniableDeath", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 2
+        },
+        //Long Pit (Under Vertical Moveable Wall)
+        {
+          trigger: true, x: 1406.5, y: 4100, velocityX: 0, velocityY: 0, sizeX: .995, sizeY: .1, art: "undeniableDeath", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 3
+        },
+        //Bottom Towards the End of the Map
+        {
+          trigger: true, x: 3506, y: 4100, velocityX: 0, velocityY: 0, sizeX: .4169, sizeY: .1, art: "undeniableDeath", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1
         },
       ],
     immovableWallSpawn:
       [true,
         ///////////////Orientation X-Right to Left/////////////////////
-        //Border of Level One
+        //Border of Level One and Level Two
         {
           trigger: true, x: 4800, y: 0, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .7, art: "immovableVerticalWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1,
         },
@@ -994,6 +1005,7 @@ var worldDesignedLevels = [
         {
           trigger: true, x: 4090, y: 100, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .83, art: "immovableVerticalWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1,
         },
+        //Wall with Little Hole
         {
           trigger: true, x: 3300, y: 0, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .83, art: "immovableVerticalWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1,
         },
@@ -1001,7 +1013,7 @@ var worldDesignedLevels = [
         {
           trigger: true, x: 2800, y: 800, velocityX: 0, velocityY: 0, sizeX: .83, sizeY: .5, art: "immovableRotatedWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1,
         },
-        //Vertical Wall Landing
+        //Immovable Wall Past Vertical Moveable Wall
         {
           trigger: true, x: 700, y: 800, velocityX: 0, velocityY: 0, sizeX: .83, sizeY: .5, art: "immovableRotatedWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1,
         },
@@ -1009,9 +1021,9 @@ var worldDesignedLevels = [
         {
           trigger: true, x: 300, y: 0, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "immovableVerticalWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1,
         },
-        //Wall for the Flag
+        //Ground for the Flag
         {
-          trigger: true, x: 128, y: 388.3, velocityX: 0, velocityY: 0, sizeX: .201, sizeY: .296, art: "immovableRotatedWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1,
+          trigger: true, x: 128, y: 388.3, velocityX: 0, velocityY: 0, sizeX: .276, sizeY: .297, art: "immovableRotatedWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1,
         },
         //Border Edge At The End of The Level
         {
@@ -1036,16 +1048,16 @@ var worldDesignedLevels = [
       [true,
       ],
     ledgeGreySpawn:
-      [false,
-        // { trigger: true, x: 1000, y: 150, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 6 },
+      [true,
+        { trigger: true, x: 1000, y: 150, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 6 },
       ],
     ledgeGreenSpawn:
-      [false,
-        // { trigger: true, x: 1000, y: 250, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 7 },
+      [true,
+        { trigger: true, x: 1000, y: 250, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 7 },
       ],
     ledgeBlueSpawn:
-      [false,
-        // { trigger: true, x: 1000, y: 450, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 8 },
+      [true,
+        { trigger: true, x: 1000, y: 450, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 8 },
       ],
     enemySpawn:
       [true,
@@ -1058,11 +1070,10 @@ var worldDesignedLevels = [
         //Maximum Jump Enemy
         { trigger: true, x: 3500, y: 500, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 5 },
         //Four Enemies of the Gate
-        { trigger: true, x: 1000, y: 50, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 6 },
-        { trigger: true, x: 1000, y: 250, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 7 },
-        { trigger: true, x: 1000, y: 450, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 8 },
-        { trigger: true, x: 1000, y: 650, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 9 },
-
+        // { trigger: true, x: 1000, y: 50, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 6 },
+        // { trigger: true, x: 1000, y: 250, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 7 },
+        // { trigger: true, x: 1000, y: 450, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 8 },
+        // { trigger: true, x: 1000, y: 650, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 9 },
       ],
     ballSpawn:
       [false,
@@ -1077,9 +1088,11 @@ var worldDesignedLevels = [
     flagSpawn:
       [true,
         //Flag At the Beginning of the Level
-        { trigger: true, x: 4600, y: 650, velocityX: 0, velocityY: 0, indexOfPlayerPosition: 3, art: "flag", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1 },
+        // { trigger: true, x: 4600, y: 650, velocityX: 0, velocityY: 0, indexOfPlayerPosition: 3, art: "flag", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1 },
         //Flag At the End of The Level
         { trigger: true, x: 220, y: 250, velocityX: 0, velocityY: 0, indexOfPlayerPosition: 2, art: "flag", specialCondition: 1, specialWorld: 1, specialArray: 10, positionInArray: 2 },
+        //test
+        { trigger: true, x: 4600, y: 650, velocityX: 0, velocityY: 0, indexOfPlayerPosition: 2, art: "flag", specialCondition: 1, specialWorld: 1, specialArray: 10, positionInArray: 2 },
       ],
     text:
       [true,
@@ -1194,20 +1207,26 @@ function deathThree(killer, victim) {
 ////////////////////////////////////////Wall Mechanics//////////////////////////////////////////
 function wallGroupPhysics (sprite1,sprite2) {
   if (sprite1.body.touching.up) {
+    // sprite2.body.acceleration.y = 100
+    // sprite2.body.acceleration.y = 0;
     sprite2.body.velocity.y = -sprite2.velocityVsWallY;
-    sprite2.body.velocity.x = sprite1.body.velocity.x;
+    console.log("Velocity BallSpeed: ", sprite2.body.speed);
+    // sprite2.body.velocity.x = sprite1.body.velocity.x;
   }
   if (sprite1.body.touching.down) {
+    // sprite2.body.acceleration.y = 0;
     sprite2.body.velocity.y = sprite2.velocityVsWallY;
-    sprite2.body.velocity.x = sprite1.body.velocity.x;
+    // sprite2.body.velocity.x = sprite1.body.velocity.x;
   }
   if (sprite1.body.touching.left) {
+    // sprite2.body.acceleration.x = 0;
     sprite2.body.velocity.x = -sprite2.velocityVsWallX;
-    sprite2.body.velocity.y = sprite1.body.velocity.y;
+    // sprite2.body.velocity.y = sprite1.body.velocity.y;
   }
   if (sprite1.body.touching.right) {
+    // sprite2.body.acceleration.x = 0;
     sprite2.body.velocity.x = sprite2.velocityVsWallX;
-    sprite2.body.velocity.y = sprite1.body.velocity.y;
+    // sprite2.body.velocity.y = sprite1.body.velocity.y;
   }
 
 }
@@ -1397,9 +1416,9 @@ function moveTowardsPlayer(sprite1, player) {
 ///////////////////////////////////////Preventing Physics Bugs//////////////////////////
 //Preventing Physics Bugs
 function preventPhysicsBug(sprite1, sprite2) {
-  if (sprite1.body.touching.down) {
-    sprite1.body.velocity.y = -1000;
-  }
+  // if (sprite1.body.touching.down) {
+  //   sprite1.body.velocity.y = -1000;
+  // }
 }
 
 /*
