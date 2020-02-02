@@ -1205,12 +1205,14 @@ function deathThree(killer, victim) {
 ///////////////////////////////////////////Physics Within Game Mechanics////////////////////////////////////////////
 
 ////////////////////////////////////////Wall Mechanics//////////////////////////////////////////
-function wallGroupPhysics (sprite1,sprite2) {
+function wallGroupPhysics(sprite1, sprite2) {
+  // sprite2.body.stop();
   if (sprite1.body.touching.up) {
     // sprite2.body.acceleration.y = 100
     // sprite2.body.acceleration.y = 0;
     sprite2.body.velocity.y = -sprite2.velocityVsWallY;
-    console.log("Velocity BallSpeed: ", sprite2.body.speed);
+    // sprite1.body.velocity.y = sprite2.velocityVsWallY;
+    // console.log(sprite1.body.velocity.y, sprite2.body.velocity.y);
     // sprite2.body.velocity.x = sprite1.body.velocity.x;
   }
   if (sprite1.body.touching.down) {
@@ -1230,6 +1232,13 @@ function wallGroupPhysics (sprite1,sprite2) {
   }
 
 }
+
+///////////////////////////////Player vs. Wall//////////////////
+// function playerVsWall (player,wall) {
+//   if (wall.body.touching.down) {
+//     wall.body.velocity.y = -200;
+//   }
+// }
 ////////////////////////////////////Immovable Wall/////////////////////////////
 
 
@@ -1415,11 +1424,11 @@ function moveTowardsPlayer(sprite1, player) {
 
 ///////////////////////////////////////Preventing Physics Bugs//////////////////////////
 //Preventing Physics Bugs
-function preventPhysicsBug(sprite1, sprite2) {
-  // if (sprite1.body.touching.down) {
-  //   sprite1.body.velocity.y = -1000;
-  // }
-}
+// function preventPhysicsBug(sprite1, sprite2) {
+//   if (sprite1.body.touching.down) {
+//     sprite1.body.velocity.y = -1000;
+//   }
+// }
 
 /*
 /////////////////////////////////Reference Code///////////////////////////////

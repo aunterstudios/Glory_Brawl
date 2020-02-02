@@ -85,7 +85,7 @@ brawl.testing.prototype = {
         this.pause.onDown.add(this.goPause, this);
 
         //Overlap Bias to Prevent Sprite Tunneling
-        this.game.physics.arcade.OVERLAP_BIAS = 20; //20 is original
+        this.game.physics.arcade.OVERLAP_BIAS = 30; //20 is original
 
         ////////////////////Game World Size//////////////////////
         this.game.world.setBounds(0, 0, worldDesignedLevels[this.indexOfCurrentWorld].xOfWorld, worldDesignedLevels[this.indexOfCurrentWorld].yOfWorld);
@@ -310,6 +310,9 @@ brawl.testing.prototype = {
         // this.player.body.collideWorldBounds = true;
         this.player.checkWorldBounds = true;
         this.player.events.onOutOfBounds.add(this.playerOut, this);
+
+        //Player Upwards Wall
+        // this.player.wallUp = 200;
 
         // PLAYER ANIMATIONS
         this.player.animations.add('left', [0, 1, 2, 3, 4, 5, 6, 7], 10, true);
