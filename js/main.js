@@ -931,9 +931,9 @@ var worldDesignedLevels = [
     //World Gravity
     //Traps that create generating enemies
   },
-  //////////////////////////////////////////////////Level Three//////////////////////////////////////////////////////////////
+  //////////////////////////////////////////////////Level Two//////////////////////////////////////////////////////////////
   {
-    worldName: "Level 3 ",
+    worldName: "Level 2 ",
     gameMode: ["flag", "coin"],
     ////////////World Size
     xOfWorld: 4800,
@@ -1049,6 +1049,7 @@ var worldDesignedLevels = [
       ],
     ledgeGreySpawn:
       [true,
+        { trigger: true, x: 100, y: 100, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 6 },
         { trigger: true, x: 1000, y: 150, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 6 },
       ],
     ledgeGreenSpawn:

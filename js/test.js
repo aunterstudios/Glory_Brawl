@@ -470,6 +470,16 @@ brawl.testing.prototype = {
             }
         }
 
+        ///////////////////Debugging Purposes (Knowing The Placement of Each Sprites)/////////////////////////
+        // var xIterator = Math.round(levelGenerator.xOfWorld / 100);
+        // var yIterator = Math.round(levelGenerator.yOfWorld / 100);
+
+        // for (var x = 1; x < xIterator; x++) {
+        //     for (var y = 1; y < yIterator; y++) {
+        //         this.text = this.game.add.text(x*100, y*100, x*100+'X'+y*100+'Y', { font: "10px Arial", fill: "#ffffff", align: "center" });
+        //     }
+        // }
+
 
 
     },
