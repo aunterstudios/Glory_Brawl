@@ -471,12 +471,13 @@ brawl.testing.prototype = {
         }
 
         ///////////////////Debugging Purposes (Knowing The Placement of Each Sprites)/////////////////////////
-        // var xIterator = Math.round(levelGenerator.xOfWorld / 100);
-        // var yIterator = Math.round(levelGenerator.yOfWorld / 100);
+        // var distanceOfXandY = 100;
+        // var xIterator = Math.round(levelGenerator.xOfWorld / distanceOfXandY);
+        // var yIterator = Math.round(levelGenerator.yOfWorld / distanceOfXandY);
 
         // for (var x = 1; x < xIterator; x++) {
         //     for (var y = 1; y < yIterator; y++) {
-        //         this.text = this.game.add.text(x*100, y*100, x*100+'X'+y*100+'Y', { font: "10px Arial", fill: "#ffffff", align: "center" });
+        //         this.text = this.game.add.text(x*distanceOfXandY, y*distanceOfXandY, x*distanceOfXandY+'X'+y*distanceOfXandY+'Y', { font: "10px Arial", fill: "#ffffff", align: "center" });
         //     }
         // }
 
@@ -560,7 +561,7 @@ brawl.testing.prototype = {
         this.wallX.positionInArray = positionInArray;
         this.wallX.anchor.setTo(.5);
         this.wallX.scale.setTo(sizeX, sizeY);
-        // this.wallX.body.immovable = true;
+        this.wallX.body.immovable = true;
         this.wallX.body.mass = 150;
         this.wallX.body.maxVelocity.setTo(500);
         this.wallX.body.collideWorldBounds = true;
