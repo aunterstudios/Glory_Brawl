@@ -559,6 +559,7 @@ brawl.testing.prototype = {
         this.wallX.specialWorld = specialWorld;
         this.wallX.specialArray = specialArray;
         this.wallX.positionInArray = positionInArray;
+        this.wallX.velocityVsImmovable = 100;
         this.wallX.anchor.setTo(.5);
         this.wallX.scale.setTo(sizeX, sizeY);
         this.wallX.body.immovable = true;
@@ -842,10 +843,11 @@ brawl.testing.prototype = {
         this.game.physics.arcade.overlap(this.weapon3.bullets, [this.immovableWall, this.spikes, this.death], weaponImmovable, null, this);
 
         //Immovable Wall Mechanics
-        this.game.physics.arcade.collide(this.immovableWall, [this.ball, this.wall, this.ledge, this.ledgeDown, this.ledgeSide, this.enemy], null, null, this);
+        // this.game.physics.arcade.collide(this.immovableWall, [this.ball, this.wall, this.ledge, this.ledgeDown, this.ledgeSide, this.enemy], null, null, this);
+        this.game.physics.arcade.collide(this.immovableWall, [this.ball, this.ledge, this.ledgeDown, this.ledgeSide, this.enemy], null, null, this);
 
         //Movable Wall Mechanics
-        this.game.physics.arcade.collide(this.wall, [this.wall, this.spikes, this.death], null, null, this);
+        this.game.physics.arcade.collide(this.wall, [this.wall, this.immovableWall, this.spikes, this.death], wallStopper, null, this);
         this.game.physics.arcade.collide(this.wall, [this.ledge, this.ledgeSide, this.ledgeDown, this.ball, this.enemy], wallGroupPhysics, null, this);
 
         //Enemy Bullet Mechanics

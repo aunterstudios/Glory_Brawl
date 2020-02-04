@@ -1122,7 +1122,7 @@ var cameraBoolean = true;
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "MetroidVanian: Finishing This",
+  "MetroidVanian: Finishing This YOYO",
   "Be Reborn Once Again",
   "Remember the Words",
   "GLORY BRAWL"
@@ -1233,6 +1233,21 @@ function wallGroupPhysics(sprite1, sprite2) {
     // sprite2.body.velocity.y = sprite1.body.velocity.y;
   }
 
+}
+
+function wallStopper (wall,sprite2) {
+  if (wall.body.touching.up) {
+    wall.body.velocity.y += wall.body.velocityVsImmovable;
+  }
+  if (wall.body.touching.down) {
+    wall.body.velocity.y -= wall.body.velocityVsImmovable;;
+  }
+  if (wall.body.touching.left) {
+    wall.body.velocity.x += wall.body.velocityVsImmovable;;
+  }
+  if (wall.body.touching.right) {
+    wall.body.velocity.x -= wall.body.velocityVsImmovable;
+  }
 }
 
 ///////////////////////////////Player vs. Wall//////////////////
