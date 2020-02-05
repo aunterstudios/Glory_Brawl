@@ -1324,6 +1324,11 @@ function ballMover(player, ball) {
 }
 
 ////////////////////////////////////Player Ledge Mechanics//////////////////////////////////////
+
+function ledgePhysics(player,ledge) {
+
+}
+
 function ledgeUp(player, ledge) {
   //When You're On Top of the Ledge
   ledge.body.stop();
@@ -1389,40 +1394,27 @@ function ledgeSideX(player, ledge) {
 
 
 ////////////////////////////Weapon Mechanics/////////////////////////
-// this.game.physics.arcade.overlap(this.weapon.bullets, this.wall, weaponWall);
-// this.game.physics.arcade.overlap(this.weapon.bullets, this.spikes, weaponSpikes);
-// this.game.physics.arcade.overlap(this.weapon.bullets, this.ledge, weaponLedge);
-// this.game.physics.arcade.overlap(this.weapon.bullets, this.ledgeDown, weaponDownLedge);
-// this.game.physics.arcade.overlap(this.weapon.bullets, this.ledgeSide, weaponSideLedge);
-// this.game.physics.arcade.overlap(this.weapon.bullets, this.enemy, weaponEnemy);
+//When Weapon Hits Immovable/Unkillable Objects (It Dies);
 function weaponImmovable(weapon, wall) {
   weapon.kill();
 }
 
-function pullWeaponHandler(weapon, sprite) {
-  this.game.physics.arcade.moveToObject(sprite, this.player, 200);
-  weapon.kill();
-}
+//When Weapon Hits Moveable Objects (It's Special Property Expressed)
 
-function stopWeaponHandler(weapon, sprite) {
-  sprite.body.stop();
-  weapon.kill();
-}
-
-function killWeaponHandler(weapon, sprite) {
-  sprite.kill();
-  if (sprite.key === "coin" || sprite.key === "flag") {
-    //Refactor
-    // console.log("it hit? coinX");
-    if (streak > longestStreak) {
-      longestStreak = streak;
-    }
-    streak = 0;
-    game.state.start('deathState');
+function weaponHandler(weapon,sprite) {
+  if (weapon.key === 'bullet1') {
+    this.game.physics.arcade.moveToObject(sprite, this.player, 200);
+  }
+  else if (weapon.key === 'bullet2') {
+    sprite.body.stop();
+  }
+  else if (weapon.key === 'bullet3') {
+    sprite.kill();
   }
   weapon.kill();
 }
 
+//////////////////////////////////////////Rogue Specific/////////////////////////////////
 function pullWeaponHandlerForFlag(sprite, weapon) {
   this.game.physics.arcade.moveToObject(sprite, this.player, 200);
   weapon.kill();
@@ -1447,111 +1439,13 @@ function killWeaponHandlerForFlag(sprite, weapon) {
   weapon.kill();
 }
 
-function moveTowardsPlayer(sprite1, player) {
-  if (game.physics.arcade.distanceBetween(sprite1, player, false, true) < 500) {
-    /////Alpha Build One/////
-    //At the very least we can use the daakath game mode for this.
-    game.physics.arcade.moveToObject(sprite1, player, 300);
-    /////Alpha Build Two/////
-    //game.physics.arcade.moveToXY(sprite1, player.x, player.y, 60, 2000);
-  }
-}
-
-///////////////////////////////////////Preventing Physics Bugs//////////////////////////
-//Preventing Physics Bugs
-// function preventPhysicsBug(sprite1, sprite2) {
-//   if (sprite1.body.touching.down) {
-//     sprite1.body.velocity.y = -1000;
-//   }
-// }
-
-/*
-/////////////////////////////////Reference Code///////////////////////////////
-//Pass Arguments forEachAlive
-    // this.coin.forEachAlive(moveTowardsPlayer, this, this.player);
-//Shoot from Directional
-        if (pullBoolean) {
-            if (this.cursors.up.isDown) {
-                this.weapon1.fireAngle = 270;
-                this.weapon1.fire();
-            }
-            else if (this.cursors.down.isDown) {
-                this.weapon1.fireAngle = 90;
-                this.weapon1.fire();
-            }
-            else if (this.cursors.left.isDown) {
-                this.weapon1.fireAngle = 180;
-                this.weapon1.fire();
-            }
-            else if (this.cursors.right.isDown) {
-                this.weapon1.fireAngle = 0;
-                this.weapon1.fire();
-            }
-        }
-        else if (pushBoolean) {
-            if (this.cursors.up.isDown) {
-                this.weapon2.fireAngle = 270;
-                this.weapon2.fire();
-            }
-            else if (this.cursors.down.isDown) {
-                this.weapon2.fireAngle = 90;
-                this.weapon2.fire();
-            }
-            else if (this.cursors.left.isDown) {
-                this.weapon2.fireAngle = 180;
-                this.weapon2.fire();
-            }
-            else if (this.cursors.right.isDown) {
-                this.weapon2.fireAngle = 0;
-                this.weapon2.fire();
-            }
-        }
-        else if (stopBoolean) {
-            if (this.cursors.up.isDown) {
-                this.weapon3.fireAngle = 270;
-                this.weapon3.fire();
-            }
-            else if (this.cursors.down.isDown) {
-                this.weapon3.fireAngle = 90;
-                this.weapon3.fire();
-            }
-            else if (this.cursors.left.isDown) {
-                this.weapon3.fireAngle = 180;
-                this.weapon3.fire();
-            }
-            else if (this.cursors.right.isDown) {
-                this.weapon3.fireAngle = 0;
-                this.weapon3.fire();
-            }
-        }
-//Former Ledge Mechanics
-function enemyLedge(ledge, enemy) {
-  if (ledge.body.touching.up) {
-    enemy.body.stop();
-    ledge.body.stop();
-    enemy.body.velocity.y = -125;
-    ledge.body.velocity.y = 200;
-  }
-  else if (ledge.body.touching.down) {
-    enemy.body.stop();
-    ledge.body.stop();
-    enemy.body.velocity.y = 125;
-    ledge.body.velocity.y = -200;
-  }
-  else if (ledge.body.touching.left) {
-    enemy.body.stop();
-    ledge.body.stop();
-    enemy.body.velocity.x = -125;
-    ledge.body.velocity.x = 200;
-  }
-  else if (ledge.body.touching.right) {
-    enemy.body.stop();
-    ledge.body.stop();
-    enemy.body.velocity.x = 125;
-    ledge.body.velocity.x = -200;
-  }
-}
-radians = this.game.physics.arcade.angleBetween(this.coinX, this.player);
-degrees = radians * (180/Math.PI);
-this.game.physics.arcade.velocityFromAngle(degrees, 300, this.player.body.velocity);
-*/
+///////////////Reference Code/////////////
+// function moveTowardsPlayer(sprite1, player) {
+//   //   if (game.physics.arcade.distanceBetween(sprite1, player, false, true) < 500) {
+//   //     /////Alpha Build One/////
+//   //     //At the very least we can use the daakath game mode for this.
+//   //     game.physics.arcade.moveToObject(sprite1, player, 300);
+//   //     /////Alpha Build Two/////
+//   //     //game.physics.arcade.moveToXY(sprite1, player.x, player.y, 60, 2000);
+//   //   }
+//   // }

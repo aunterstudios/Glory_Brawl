@@ -846,19 +846,16 @@ brawl.testing.prototype = {
         this.game.physics.arcade.overlap(this.player, this.flag, this.respawn, null, this);
 
         //Weapon Mechanics
-        this.game.physics.arcade.collide(this.weapon1.bullets, [this.ball, this.wall, this.ledge, this.ledgeDown, this.ledgeSide, this.enemy, this.coin], pullWeaponHandler, null, this);
-        this.game.physics.arcade.overlap(this.weapon1.bullets, [this.immovableWall, this.spikes, this.death], weaponImmovable, null, this);
-        this.game.physics.arcade.collide(this.weapon2.bullets, [this.ball, this.wall, this.ledge, this.ledgeDown, this.ledgeSide, this.enemy, this.coin], stopWeaponHandler, null, this);
-        this.game.physics.arcade.overlap(this.weapon2.bullets, [this.immovableWall, this.spikes, this.death], weaponImmovable, null, this);
-        this.game.physics.arcade.collide(this.weapon3.bullets, [this.ball, this.wall, this.ledge, this.ledgeDown, this.ledgeSide, this.enemy, this.coin], killWeaponHandler, null, this);
-        this.game.physics.arcade.overlap(this.weapon3.bullets, [this.immovableWall, this.spikes, this.death], weaponImmovable, null, this);
+        this.game.physics.arcade.collide([this.weapon1.bullets, this.weapon2.bullets, this.weapon3.bullets], [this.ball, this.wall, this.ledge, this.ledgeDown, this.ledgeSide, this.enemy], weaponHandler, null, this);
+        this.game.physics.arcade.overlap([this.weapon1.bullets, this.weapon2.bullets, this.weapon3.bullets], [this.immovableWall, this.spikes, this.death], weaponImmovable, null, this);
 
-        //Immovable Wall Mechanics
-        // this.game.physics.arcade.collide(this.immovableWall, [this.ball, this.wall, this.ledge, this.ledgeDown, this.ledgeSide, this.enemy], null, null, this);
+        //Immovable Wall vs Moveable Objects
         this.game.physics.arcade.collide(this.immovableWall, [this.ball, this.ledge, this.ledgeDown, this.ledgeSide, this.enemy], null, null, this);
 
-        //Movable Wall Mechanics
+        //Moveable Wall vs Immoveable Objects (Defunct For Now)
         // this.game.physics.arcade.collide(this.wall, [this.wall, this.immovableWall, this.spikes, this.death], wallStopper, null, this);
+        
+        //Movable Wall Mechanics vs. Moveable Objects
         this.game.physics.arcade.collide(this.wall, [this.ledge, this.ledgeSide, this.ledgeDown, this.ball, this.enemy], wallGroupPhysics, null, this);
 
         //Enemy Bullet Mechanics
@@ -869,7 +866,6 @@ brawl.testing.prototype = {
 
         // Ball Mechanics
         this.game.physics.arcade.collide(this.ball, [this.ball, this.ledge, this.ledgeDown, this.ledgeSide, this.death], null, null, this);
-        // this.game.physics.arcade.overlap(this.ball, [this.enemy, this.spikes], deathThree, null, this);
         this.game.physics.arcade.overlap(this.ball, [this.enemy, this.spikes], this.specialConditionHandler, null, this);
 
         //Ledge vs. Ledge and Enemy Mechanics
