@@ -80,7 +80,7 @@ brawl.stateControls.prototype = {
             // this.game.state.start('test', true, false, 1, 3, worldDesignedLevels[1].metroidvania);
             //Level 2
             // current level
-            this.game.state.start('test', true, false, 2, 3, worldDesignedLevels[2].metroidvania);
+            this.game.state.start('gameOn', true, false, 2, 3, worldDesignedLevels[2].metroidvania);
         }
     }
 };

@@ -1,6 +1,6 @@
-//////////////////////////////////////////Testing Environment//////////////////////////////////////////
-brawl.testing = function () { };
-brawl.testing.prototype = {
+/////////////////////Practice Environment/////////////////
+brawl.practiceEnvironment = function () { };
+brawl.practiceEnvironment.prototype = {
     init: function (indexOfCurrentWorld, indexOfPlayerPosition, metroidvania) {
         //GENERAL MAP SETTINGS 
         this.game.physics.startSystem(Phaser.Physics.ARCADE); // We're going to be using physics, so enable the Arcade Physics system

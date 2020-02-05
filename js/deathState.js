@@ -35,8 +35,8 @@ brawl.state2.prototype = {
     },
     update: function () {
         if (this.game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
-            this.game.state.start('test', true, false, this.indexOfCurrentWorld, this.indexOfPlayerPosition, worldDesignedLevels[this.indexOfCurrentWorld].metroidvania);
-
+            this.game.state.start('gameOn', true, false, this.indexOfCurrentWorld, this.indexOfPlayerPosition, worldDesignedLevels[this.indexOfCurrentWorld].metroidvania);
+            
         }
 
     }
