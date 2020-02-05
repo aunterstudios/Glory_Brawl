@@ -35,13 +35,8 @@ brawl.state2.prototype = {
     },
     update: function () {
         if (this.game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
-            if (deathStateProcedural) {
-                this.game.state.start('rogueTest');
-            }
-            else {
-                // this.game.state.start('test', true, false, 0, 1, worldDesignedLevels[0].metroidvania);
-                this.game.state.start('test', true, false, this.indexOfCurrentWorld, this.indexOfPlayerPosition, worldDesignedLevels[this.indexOfCurrentWorld].metroidvania);
-            }
+            this.game.state.start('test', true, false, this.indexOfCurrentWorld, this.indexOfPlayerPosition, worldDesignedLevels[this.indexOfCurrentWorld].metroidvania);
+
         }
 
     }

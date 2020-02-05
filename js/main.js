@@ -47,176 +47,14 @@ game.state.add('test', brawl.testing);
 game.state.add('controlScreen', brawl.stateControls);
 //////////////////////////////////////////////////Starting States//////////////////////////////////////////////
 game.state.start('mainMenu');
-// game.state.start('controlScreen');
-// game.state.start('test');
 //////////////////////////////////////////////////Global Variables//////////////////////////////////////////////
-
-//Alternative Death State (boolean that is activated).
-var deathStateProcedural;
-
-//Death Total in Game
-var deaths = 0;
-
-//Total Streak
-var streak = 0;
-var longestStreak = 0;
-
 //Weapon Variables to Change Bullet Type
 var pullBoolean = false;
 var pushBoolean = false;
 var stopBoolean = false;
 
 // Global Timer
-
 var total = 0;
-
-////////////////////////////////////////Procedural Generation///////////////////////////////////////////////////////
-/////////////////////////////////Position of Items Within Rectangle///////////////////////
-///Top Positions
-var topCenter = Phaser.TOP_CENTER;
-var topLeft = Phaser.TOP_LEFT;
-var topRight = Phaser.TOP_RIGHT;
-//Center Positions
-var center = Phaser.CENTER;
-var centerLeft = Phaser.LEFT_CENTER;
-var centerRight = Phaser.RIGHT_CENTER;
-//Bottom Positions
-var bottomCenter = Phaser.BOTTOM_CENTER;
-var bottomLeft = Phaser.BOTTOM_LEFT;
-var bottomRight = Phaser.BOTTOM_RIGHT;
-
-////////////////////////////Array to Scramble Positions///////////////////
-//Variables that Hold the Different Positions
-var positionArray = [topCenter, topLeft, topRight, center, centerLeft, centerRight, bottomCenter, bottomLeft, bottomRight];
-
-////////////////////////////Creation of Starting Point and EndPoint///////////////////
-class baseCampCreator {
-  constructor(playerXBaseCamp, playerYBaseCamp, iteratorXBaseCamp, iteratorYBaseCamp) {
-    this.playerXBaseCamp = playerXBaseCamp;
-    this.playerYBaseCamp = playerYBaseCamp;
-    this.iteratorXBaseCamp = iteratorXBaseCamp;
-    this.iteratorYBaseCamp = iteratorYBaseCamp;
-  }
-}
-//For the Tradtional Platformer World
-var traditionalPlatformerPositionOne = new baseCampCreator(350, 600, 0, 1);
-var traditionalPlatformerPositionTwo = new baseCampCreator(6650, 600, 9, 1);
-var tradtionalPlatformerArray = [traditionalPlatformerPositionOne, traditionalPlatformerPositionTwo
-];
-
-//For the MountainClimb
-var mountainClimbPositionOne = new baseCampCreator(1100, 500, 1, 0);
-var mountainClimbPositionTwo = new baseCampCreator(1100, 6100, 1, 8);
-var mountainClimbArray = [mountainClimbPositionOne, mountainClimbPositionTwo];
-
-//For the Canvas World
-var canvasWorldPositionOne = new baseCampCreator(200, 200, 0, 0);
-var canvasWorldPositionTwo = new baseCampCreator(200, 625, 0, 1);
-var canvasWorldPositionThree = new baseCampCreator(1200, 200, 2, 0);
-var canvasWorldPositionFour = new baseCampCreator(1200, 625, 2, 1);
-var canvasWorldArray = [canvasWorldPositionOne, canvasWorldPositionTwo, canvasWorldPositionThree, canvasWorldPositionFour];
-
-//For the LargeWorld
-var largeWorldPositionOne = new baseCampCreator(300, 520, 0, 0);
-var largeWorldPositionTwo = new baseCampCreator(300, 3800, 0, 5);
-var largeWorldPositionThree = new baseCampCreator(3700, 520, 6, 0);
-var largeWorldPositionFour = new baseCampCreator(3700, 3800, 6, 5);
-var largeWorldArray = [largeWorldPositionOne, largeWorldPositionTwo, largeWorldPositionThree, largeWorldPositionFour];
-
-//For the Practice World
-var practiceWorldPositionOne = new baseCampCreator(300, 300, 0, 0);
-var practiceWorldPositionTwo = new baseCampCreator(300, 1800, 0, 3);
-var practiceWorldPositionThree = new baseCampCreator(1700, 300, 3, 0);
-var practiceWorldPositionFour = new baseCampCreator(1700, 1800, 3, 3);
-var practiceWorldArray = [practiceWorldPositionOne, practiceWorldPositionTwo, practiceWorldPositionThree, practiceWorldPositionFour];
-
-///////////////////////////////////////World Generation Variables of Each Map///////////////////////////////////////
-
-class worldValues {
-  constructor(xBlockSizeF, xRectangleF, yBlockSizeF, yRectangleF, deathIterator, deathX, deathY, iteratorX, iteratorY, amountOfSpritesInGrid) {
-    this.xBlockSizeF = xBlockSizeF; //Size of Each Block
-    this.xRectangleF = xRectangleF; //Size of Rectangle (different than size of block to provide spacing)
-    this.yBlockSizeF = yBlockSizeF;
-    this.yRectangleF = yRectangleF;
-    this.deathIterator = deathIterator; //How Many Times the Spikes at the Bottom Will Loop
-    this.deathX = deathX; //Where the Spikes are Located
-    this.deathY = deathY;
-    this.iteratorX = iteratorX; //How Many Blocks 
-    this.iteratorY = iteratorY;
-    this.amountOfSpritesInGrid = amountOfSpritesInGrid; //Amount of Sprites in Each Grid
-  }
-}
-
-///////blocksizeX,rectangleX, blocksizeY, rectangleY, deathI, deathX, deathY, Ix,Iy, Amount of Sprites
-//For Tradtional Platformer
-var traditionalPlatformerValues = new worldValues(600, 700, 300, 375, 5, 1400, 750, 10, 2, 3);
-//For the Mountain Climb
-var mountainClimbValues = new worldValues(700, 700, 580, 700, 1, 1400, 6250, 2, 9, 3);
-//For the Canvas World
-var canvasWorldValues = new worldValues(400, 465, 290, 400, 1, 1400, 750, 3, 2, 2);
-//For the Large World
-var largeWorldValues = new worldValues(550, 570, 580, 660, 3, 1400, 3950, 7, 6, 3);
-//For the Practice World
-var practiceWorldValues = new worldValues(490, 500, 390, 500, 3, 1400, 1950, 4, 4, 3);
-
-//////////////////////World Randomness Generator(The Conclusion)//////////////////
-
-var worldGenerator = [
-  {
-    xOfWorld: 7000,
-    yOfWorld: 800,
-    baseCamp: tradtionalPlatformerArray, //Array
-    world: traditionalPlatformerValues, //Object
-    // 0-Wall, 1-Enemy, 2-Ledges, 3-Ball
-    spritesType: [0, 2, 3, 1, 1, 2, 1, 1, 2, 1, 3, 0, 1, 0, 2, 1, 2, 0, 1, 0, 0, 1, 2, 3, 1],
-    worldName: "Traditional Platformer"
-  },
-  {
-    xOfWorld: 1400,
-    yOfWorld: 6300,
-    baseCamp: mountainClimbArray,
-    world: mountainClimbValues,
-    worldName: "The Mountain Climb"
-  },
-  {
-    xOfWorld: 1400,
-    yOfWorld: 800,
-    baseCamp: canvasWorldArray,
-    world: canvasWorldValues,
-    worldName: "The Canvas World"
-  },
-  {
-    xOfWorld: 4000,
-    yOfWorld: 4000,
-    baseCamp: largeWorldArray,
-    world: largeWorldValues,
-    worldName: "The Large World"
-  },
-  {
-    xOfWorld: 2000,
-    yOfWorld: 2000,
-    baseCamp: practiceWorldArray,
-    world: practiceWorldValues,
-    worldName: "The Practice World"
-  },
-]
-
-
-
-//////////////////////////Variables that Hold Different Sizes and Animations of Sprite Groups//////////////////////
-//Different Spike Sizes and Keys
-var spikeArray = ['invertedSpikes', 'spikes'];
-var spikeLength = [.2, .3,];
-
-//Different Wall Types
-var wallArray = ['brownPlatform', 'wall', 'rotatedWall'];
-var wallLength = [.3, .4, .5, .6];
-
-//Different Immmovable Wall Types
-//Different Wall Types
-var immovableWallArray = ['immovableVerticalWall', 'immovableRotatedWall'];
-var immovableWallLength = [.5, .6];
-var immovableWallVelocity = [0, 1];
 
 //////////////////////////Enemy Bullet Handler//////////////////////
 var livingEnemies = [];
@@ -945,7 +783,7 @@ var worldDesignedLevels = [
         },
         //Test Wall
         // {
-        //   trigger: true, x: 500, y: 300, velocityX: 100, velocityY: 0, sizeX: .5, sizeY: .5, art: "wall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 3
+        //   trigger: true, x: 0, y: 300, velocityX: 100, velocityY: 0, sizeX: .5, sizeY: .5, art: "wall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 3
         // },
       ],
     spikeSpawn:
@@ -953,6 +791,9 @@ var worldDesignedLevels = [
       ],
     ledgeSpawn:
       [false,
+        // { trigger: true, type: 'elevator', x: 500, y: 100, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 6 },
+        // { trigger: true, type: 'bounce', x: 500, y: 250, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 7 },
+        // { trigger: true, type: 'surf', x: 500, y: 450, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 8 },
       ],
     enemySpawn:
       [true,
@@ -993,14 +834,6 @@ var worldDesignedLevels = [
     text:
       [true,
       ],
-
-
-
-    //Any Other Property Here Are Unditional Objects
-    //Falling or Sideways Spikes
-    //Super Ball
-    //World Gravity
-    //Traps that create generating enemies
   }
 
 ]
@@ -1017,7 +850,7 @@ var cameraBoolean = true;
 
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "MetroidVanian: Finishing This YESSIR",
+  "MetroidVanian: Refactor",
   "Be Reborn Once Again",
   "Remember the Words",
   "GLORY BRAWL"
@@ -1103,7 +936,7 @@ function deathThree(killer, victim) {
 }
 ///////////////////////////////////////////Physics Within Game Mechanics////////////////////////////////////////////
 
-////////////////////////////////////////Wall Mechanics//////////////////////////////////////////
+////////////////////////////////////////Immovable Wall Mechanics//////////////////////////////////////////
 function wallGroupPhysics(sprite1, sprite2) {
   // sprite2.body.stop();
   // sprite1.body.immovable = true;
@@ -1135,6 +968,7 @@ function wallGroupPhysics(sprite1, sprite2) {
 
 }
 
+///////////////////////////////////Moveable Wall Mecanics///////////////////
 function wallStopper(wall, sprite2) {
   //wall.body.stop();
   // wall.body.immovable = true;
@@ -1284,32 +1118,6 @@ function weaponHandler(weapon, sprite) {
   }
   weapon.kill();
 }
-
-//////////////////////////////////////////Rogue Specific/////////////////////////////////
-function pullWeaponHandlerForFlag(sprite, weapon) {
-  this.game.physics.arcade.moveToObject(sprite, this.player, 200);
-  weapon.kill();
-}
-
-function stopWeaponHandlerForFlag(sprite, weapon) {
-  sprite.body.stop();
-  weapon.kill();
-}
-
-function killWeaponHandlerForFlag(sprite, weapon) {
-  sprite.kill();
-  if (sprite.key === "coin" || sprite.key === "flag") {
-    //Refactor
-    // console.log("it hit? coinX");
-    if (streak > longestStreak) {
-      longestStreak = streak;
-    }
-    streak = 0;
-    game.state.start('deathState');
-  }
-  weapon.kill();
-}
-
 ///////////////Reference Code/////////////
 // function moveTowardsPlayer(sprite1, player) {
 //   //   if (game.physics.arcade.distanceBetween(sprite1, player, false, true) < 500) {
