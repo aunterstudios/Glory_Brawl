@@ -386,7 +386,7 @@ brawl.testing.prototype = {
         if (levelGenerator.immovableWallSpawn[0]) {
             for (var i = 1; i < levelGenerator.immovableWallSpawn.length; i++) {
                 if (levelGenerator.immovableWallSpawn[i].trigger) {
-                    this.immovableSpawn(levelGenerator.immovableWallSpawn[i].x, levelGenerator.immovableWallSpawn[i].y, levelGenerator.immovableWallSpawn[i].velocityX, levelGenerator.immovableWallSpawn[i].velocityY, levelGenerator.immovableWallSpawn[i].sizeX, levelGenerator.immovableWallSpawn[i].sizeY, levelGenerator.immovableWallSpawn[i].art, levelGenerator.immovableWallSpawn[i].specialCondition, levelGenerator.immovableWallSpawn[i].specialWorld, levelGenerator.immovableWallSpawn[i].specialArray, levelGenerator.immovableWallSpawn[i].positionInArray);
+                    this.immovableSpawn(levelGenerator.immovableWallSpawn[i].x, levelGenerator.immovableWallSpawn[i].y, levelGenerator.immovableWallSpawn[i].velocityX, levelGenerator.immovableWallSpawn[i].velocityY, levelGenerator.immovableWallSpawn[i].sizeX, levelGenerator.immovableWallSpawn[i].sizeY, levelGenerator.immovableWallSpawn[i].art, levelGenerator.immovableWallSpawn[i].phaseWall, levelGenerator.immovableWallSpawn[i].specialCondition, levelGenerator.immovableWallSpawn[i].specialWorld, levelGenerator.immovableWallSpawn[i].specialArray, levelGenerator.immovableWallSpawn[i].positionInArray);
                 }
             }
         }
@@ -471,7 +471,7 @@ brawl.testing.prototype = {
         }
 
         ///////////////////Debugging Purposes (Knowing The Placement of Each Sprites)/////////////////////////
-        // var distanceOfXandY = 100;
+        // var distanceOfXandY = 200;
         // var xIterator = Math.round(levelGenerator.xOfWorld / distanceOfXandY);
         // var yIterator = Math.round(levelGenerator.yOfWorld / distanceOfXandY);
 
@@ -575,13 +575,17 @@ brawl.testing.prototype = {
         // this.wallX.events.onDragStop.add(this.stopDrag, this);
         // this.wallX.body.moves = false;
     },
-    immovableSpawn: function (x, y, velocityX, velocityY, sizeX, sizeY, art, specialCondition, specialWorld, specialArray, positionInArray) {
+    immovableSpawn: function (x, y, velocityX, velocityY, sizeX, sizeY, art, phaseWall, specialCondition, specialWorld, specialArray, positionInArray) {
         this.immovableWallX = this.immovableWall.create(x, y, art);
         // this.immovableWallX.anchor.setTo(.5);
         this.immovableWallX.specialCondition = specialCondition;
         this.immovableWallX.specialWorld = specialWorld;
         this.immovableWallX.specialArray = specialArray;
         this.immovableWallX.positionInArray = positionInArray;
+        this.immovableWallX.phaseWall = phaseWall;
+        if (phaseWall === 'phase') {
+            this.immovableWallX.tint = "#a7a6ba";
+        }
         this.immovableWallX.scale.setTo(sizeX, sizeY);
         this.immovableWallX.body.immovable = true;
         this.immovableWallX.body.mass = 400;
@@ -817,11 +821,18 @@ brawl.testing.prototype = {
             nextLevel();
         }
     },
+    //////////////////////////////Test Functions////////////////////////
+    //////////////////////////////Moveable Wall Test///////////////////
+    // wallStop: function (wall) {
+    //     wall.body.immovable = false;
+    //     console.log(wall.body.immovable);
+    // },
     // //How Game Updates Real-Time (Actual Controls)
     update: function () {
 
         ////////////////////////////////////FPS Debugging////////////////////////////////////////
         // console.log(this.game.time.fps);
+        // this.wall.forEachAlive(this.wallStop,this);
         ////////////////////////Physics////////////////////////
         //Player Mechanics
         var onWall = this.game.physics.arcade.collide(this.player, this.wall, null, null, this);
@@ -847,7 +858,7 @@ brawl.testing.prototype = {
         this.game.physics.arcade.collide(this.immovableWall, [this.ball, this.ledge, this.ledgeDown, this.ledgeSide, this.enemy], null, null, this);
 
         //Movable Wall Mechanics
-        this.game.physics.arcade.collide(this.wall, [this.wall, this.immovableWall, this.spikes, this.death], wallStopper, null, this);
+        // this.game.physics.arcade.collide(this.wall, [this.wall, this.immovableWall, this.spikes, this.death], wallStopper, null, this);
         this.game.physics.arcade.collide(this.wall, [this.ledge, this.ledgeSide, this.ledgeDown, this.ball, this.enemy], wallGroupPhysics, null, this);
 
         //Enemy Bullet Mechanics
@@ -1134,5 +1145,7 @@ brawl.testing.prototype = {
     //     // this.game.debug.text('Heat Timer: ' + total, 32, 64);
     //     // this.game.debug.body(this.player);
     //     // this.game.debug.physicsGroup(this.weapon1.bullets, '#ffffff');
+    //     //Debugging FPS
+    //     // this.game.debug.text(game.time.fps,500,500);
     // },
 };
