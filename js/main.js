@@ -72,6 +72,52 @@ function shuffle(array) {
 }
 
 ////////////////////////////////////////////Designed Levels/////////////////////////////////////////////////////
+////////////////////////////////////////////Class Declaration Test//////////////////////////////////////////////
+
+//Creates Each Individual Level
+class LevelCreator {
+  constructor(worldName, xOfWorld, yOfWorld, metroidvania) {
+    this.worldName = worldName;
+    this.xOfWorld = xOfWorld;
+    this.yOfWorld = yOfWorld;
+    this.metroidvania = metroidvania;
+    this.playerPosition = [];
+  }
+}
+
+///Creates Room Switching
+class MetroidvaniaCreator {
+  constructor(roomUpIndex, roomUpValue, roomDownIndex, roomDownValue, roomLeftIndex, roomLeftValue, roomRightIndex, roomRightValue) {
+    this.roomUpIndex = roomUpIndex;
+    this.roomUpValue = roomUpValue
+    this.roomDownIndex = roomDownIndex;
+    this.roomDownValue = roomDownValue;
+    this.roomLeftIndex = roomLeftIndex;
+    this.roomLeftValue = roomLeftValue;
+    this.roomRightIndex = roomRightIndex;
+    this.roomRightValue = roomRightValue;
+  }
+}
+
+//Creates Player Positioning (Up, Down, Left Right);
+class PlayerPositionCreator {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+  }
+}
+
+
+var metroidvaniaLevelOne = new MetroidvaniaCreator(1, 100, 0, 2400, 0, 1, 0, 2800);
+
+var levelOne = new LevelCreator(0, 0, 0, metroidvaniaLevelOne, []);
+console.log(levelOne, 'Yes');
+console.log(levelOne.metroidvania.roomDownIndex, "roomDown");
+
+//Will Be Put All Together in This Array
+var worldClassLevels = [
+
+]
 ///////////////////////////////////////////Designed World Generator/////////////////////////////////////////////
 //Will Turn This Into A Constructor and Refactor Later
 var worldDesignedLevels = [
@@ -93,10 +139,10 @@ var worldDesignedLevels = [
     playerPosition:
       //Up, Down, Left, Right (Remember!)
       [
-        { upPosition: true, x: 200, y: 20 },
-        { downPosition: true, x: 300, y: 2200 },
-        { leftPosition: true, x: 200, y: 400 },
-        { rightPosition: true, x: 1400, y: 400 }
+        { x: 200, y: 20 },
+        { x: 300, y: 2200 },
+        { x: 200, y: 400 },
+        { x: 1400, y: 400 }
       ],
     //Deals with Room Switching
     metroidvania:
@@ -312,7 +358,7 @@ var worldDesignedLevels = [
       ],
     ledgeSpawn:
       [
-        
+
       ],
     enemySpawn:
       [
@@ -373,10 +419,10 @@ var worldDesignedLevels = [
     playerPosition:
       //Up, Down, Left, Right (Remember!)
       [
-        { upPosition: true, x: 200, y: 20 },
-        { downPosition: true, x: 400, y: 3120 }, //x400 y3000 (Original)
-        { leftPosition: true, x: 100, y: 1320 },
-        { rightPosition: true, x: 2600, y: 3140 }
+        { x: 200, y: 20 },
+        { x: 400, y: 3120 }, //x400 y3000 (Original)
+        { x: 100, y: 1320 },
+        { x: 2600, y: 3140 }
       ],
     //Deals with Room Switching
     metroidvania:
@@ -684,10 +730,10 @@ var worldDesignedLevels = [
     playerPosition:
       //Up, Down, Left, Right (Remember!)
       [
-        { upPosition: true, x: 200, y: 20 },
-        { downPosition: true, x: 200, y: 100 }, //x400 y3000 (Original)
-        { leftPosition: true, x: 200, y: 380 },
-        { rightPosition: true, x: 4700, y: 750 }
+        { x: 200, y: 20 },
+        { x: 200, y: 100 }, //x400 y3000 (Original)
+        { x: 200, y: 380 },
+        { x: 4700, y: 750 }
       ],
     //Deals with Room Switching
     metroidvania:

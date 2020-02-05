@@ -1,4 +1,4 @@
-/////////////////////Practice Environment/////////////////
+//////////////////////////////////////////Practice Environment//////////////////////////////////////////
 brawl.practiceEnvironment = function () { };
 brawl.practiceEnvironment.prototype = {
     init: function (indexOfCurrentWorld, indexOfPlayerPosition, metroidvania) {
@@ -77,6 +77,7 @@ brawl.practiceEnvironment.prototype = {
         //Sort Direction
 
         this.game.physics.arcade.sortDirection = Phaser.Physics.Arcade.SORT_NONE;
+        this.game.physics.arcade.forceX = true;
 
         // Stretch to fill (Full Screen Mode)
         this.game.scale.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
@@ -366,72 +367,72 @@ brawl.practiceEnvironment.prototype = {
 
         ///////////////////////////Sprite Generation in World/////////////////////////////
         // Generating Undeniable Death
-        if (levelGenerator.undeniableDeathSpawn[0]) {
-            for (var i = 1; i < levelGenerator.undeniableDeathSpawn.length; i++) {
+        if (levelGenerator.undeniableDeathSpawn.length > 0) {
+            for (var i = 0; i < levelGenerator.undeniableDeathSpawn.length; i++) {
                 if (levelGenerator.undeniableDeathSpawn[i].trigger) {
                     this.undeniableDeathSpawn(levelGenerator.undeniableDeathSpawn[i]);
                 }
             }
         }
         //Generating Immovable Walls
-        if (levelGenerator.immovableWallSpawn[0]) {
-            for (var i = 1; i < levelGenerator.immovableWallSpawn.length; i++) {
+        if (levelGenerator.immovableWallSpawn.length > 0) {
+            for (var i = 0; i < levelGenerator.immovableWallSpawn.length; i++) {
                 if (levelGenerator.immovableWallSpawn[i].trigger) {
                     this.immovableWallSpawn(levelGenerator.immovableWallSpawn[i]);
                 }
             }
         }
         //Generating movable Walls
-        if (levelGenerator.wallSpawn[0]) {
-            for (var i = 1; i < levelGenerator.wallSpawn.length; i++) {
+        if (levelGenerator.wallSpawn.length > 0) {
+            for (var i = 0; i < levelGenerator.wallSpawn.length; i++) {
                 if (levelGenerator.wallSpawn[i].trigger) {
                     this.wallSpawn(levelGenerator.wallSpawn[i]);
                 }
             }
         }
         //Generating spikes
-        if (levelGenerator.spikeSpawn[0]) {
-            for (var i = 1; i < levelGenerator.spikeSpawn.length; i++) {
+        if (levelGenerator.spikeSpawn.length > 0) {
+            for (var i = 0; i < levelGenerator.spikeSpawn.length; i++) {
                 if (levelGenerator.spikeSpawn[i].trigger) {
                     this.spikeSpawn(levelGenerator.spikeSpawn[i]);
                 }
             }
         }
         //Generating Ledges
-        if (levelGenerator.ledgeSpawn[0]) {
-            for (var i = 1; i < levelGenerator.ledgeSpawn.length; i++) {
+        if (levelGenerator.ledgeSpawn.length > 0) {
+            for (var i = 0; i < levelGenerator.ledgeSpawn.length; i++) {
                 if (levelGenerator.ledgeSpawn[i].trigger) {
                     this.ledgeSpawn(levelGenerator.ledgeSpawn[i]);
                 }
             }
         }
         //Generating enemies (Tabled For Now)
-        if (levelGenerator.enemySpawn[0]) {
-            for (var i = 1; i < levelGenerator.enemySpawn.length; i++) {
+        if (levelGenerator.enemySpawn.length > 0) {
+            for (var i = 0; i < levelGenerator.enemySpawn.length; i++) {
                 if (levelGenerator.enemySpawn[i].trigger) {
                     this.enemySpawn(levelGenerator.enemySpawn[i]);
                 }
             }
         }
         //Generating balls ledges
-        if (levelGenerator.ballSpawn[0]) {
-            for (var i = 1; i < levelGenerator.ballSpawn.length; i++) {
+        if (levelGenerator.ballSpawn.length > 0) {
+            for (var i = 0; i < levelGenerator.ballSpawn.length; i++) {
                 if (levelGenerator.ballSpawn[i].trigger) {
                     this.ballSpawn(levelGenerator.ballSpawn[i]);
                 }
             }
         }
         ///////////////////(Falling Spikes)////////////////
-        if (levelGenerator.fallingSpikes[0]) {
-            for (var i = 1; i < levelGenerator.fallingSpikes.length; i++) {
+        if (levelGenerator.fallingSpikes.length > 0) {
+            for (var i = 0; i < levelGenerator.fallingSpikes.length; i++) {
                 if (levelGenerator.fallingSpikes[i].trigger) {
                     this.game.time.events.loop(Phaser.Timer.SECOND * levelGenerator.fallingSpikes[i].seconds, this.spikeFall, this, levelGenerator.fallingSpikes[i]);
                 }
             }
         }
         // //////////////////(Respawn)Flag//////////////////
-        if (levelGenerator.flagSpawn[0]) {
-            for (var i = 1; i < levelGenerator.flagSpawn.length; i++) {
+        if (levelGenerator.flagSpawn.length > 0) {
+            for (var i = 0; i < levelGenerator.flagSpawn.length; i++) {
                 if (levelGenerator.flagSpawn[i].trigger) {
                     this.flagSpawn(levelGenerator.flagSpawn[i]);
                 }
@@ -439,8 +440,8 @@ brawl.practiceEnvironment.prototype = {
 
         }
         ////////////////////////Text Generation///////////////////////////
-        if (levelGenerator.text[0]) {
-            for (var i = 1; i < levelGenerator.text.length; i++) {
+        if (levelGenerator.text.length > 0) {
+            for (var i = 0; i < levelGenerator.text.length; i++) {
                 this.textCreator(levelGenerator.text[i]);
             }
         }
@@ -782,7 +783,7 @@ brawl.practiceEnvironment.prototype = {
         this.game.physics.arcade.collide(this.immovableWall, [this.ball, this.ledge, this.enemy], null, null, this);
 
         //Moveable Wall vs Immoveable Objects (Defunct For Now)
-        // this.game.physics.arcade.collide(this.wall, [this.wall, this.immovableWall, this.spikes, this.death], wallStopper, null, this);
+        this.game.physics.arcade.collide(this.wall, [this.wall, this.immovableWall, this.spikes, this.death], null, null, this);
 
         //Movable Wall Mechanics vs. Moveable Objects
         this.game.physics.arcade.collide(this.wall, [this.ledge, this.ball, this.enemy], wallGroupPhysics, null, this);
@@ -873,7 +874,7 @@ brawl.practiceEnvironment.prototype = {
                     this.player.body.velocity.x = 100;
                     this.player.body.velocity.y = 100;
                 }
-                if (onWall || onLedge) {
+                if (onWall || onImmovable || onLedge) {
                     this.player.frame = 6;
                 }
                 if (this.movementLeft.isDown) {
@@ -886,7 +887,7 @@ brawl.practiceEnvironment.prototype = {
                     this.player.body.velocity.x = -100;
                     this.player.body.velocity.y = 100;
                 }
-                if (onWall || onLedge) {
+                if (onWall || onImmovable || onLedge) {
                     this.player.frame = 12;
                 }
                 if (this.movementRight.isDown) {
@@ -955,7 +956,7 @@ brawl.practiceEnvironment.prototype = {
                     this.player.body.velocity.x = 100;
                     this.player.body.velocity.y = 100;
                 }
-                if (onWall || onLedge) {
+                if (onWall || onImmovable || onLedge) {
                     this.player.frame = 6;
                 }
             }
@@ -964,7 +965,7 @@ brawl.practiceEnvironment.prototype = {
                     this.player.body.velocity.x = -100;
                     this.player.body.velocity.y = 100;
                 }
-                if (onWall || onLedge) {
+                if (onWall || onImmovable || onLedge) {
                     this.player.frame = 12;
                 }
             }
