@@ -234,98 +234,6 @@ function shuffle(array) {
 ///////////////////////////////////////////Designed World Generator/////////////////////////////////////////////
 //Will Turn This Into A Constructor and Refactor Later
 var worldDesignedLevels = [
-  //////////////////////////////////////////Prototype or Template///////////////////////////////////////
-  // {
-  //   worldName: "Prototype",
-  //   gameMode: ["flag", "coin"],
-  //   ////////////World Size
-  //   xOfWorld: 1400,
-  //   yOfWorld: 800,
-  //   ///////////Sprite Positioning
-  //   //Where the Player Spawns Due to Switching Rooms
-  //   playerPosition:
-  //     //Up, Down, Left, Right (Remember!)
-  //     [
-  //       { upPosition: true, x: 200, y: 20 },
-  //       { downPosition: true, x: 2500, y: 200 }, //x400 y3000 (Original)
-  //       { leftPosition: true, x: 400, y: 500 },
-  //       { rightPosition: true, x: 400, y: 400 }
-  //     ],
-  //   //Deals with Room Switching
-  //   metroidvania:
-  //   //Up, Down, Left, Right (Remember!)
-  //   {
-  //     //Up Values
-  //     roomUpIndex: 4,
-  //     roomUpValue: 0,
-  //     //Down Values
-  //     roomDownIndex: 0,
-  //     roomDownValue: 3200,
-  //     //Left Values
-  //     roomLeftIndex: 2,
-  //     roomLeftValue: 1,
-  //     //Right Values
-  //     roomRightIndex: 3,
-  //     roomRightValue: 2800
-  //   },
-  //   //Game Objects
-  //   doorSpawn:
-  //     [false,
-  //       { x: 500, y: 500, teleportationX: 100, teleporationY: 50 }
-  //     ],
-  //   undeniableDeathSpawn:
-  //     [true,
-
-  //     ],
-  //   immovableWallSpawn:
-  //     [true,
-  //       //Ground
-  //       {
-  //         trigger: true, x: 300, y: 3136, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "immovableRotatedWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1,
-  //       },
-  //     ],
-  //   wallSpawn:
-  //     [true,
-  //     ],
-  //   spikeSpawn:
-  //     [true,
-  //     ],
-  //   ledgeGreySpawn:
-  //     [true,
-  //     ],
-  //   ledgeGreenSpawn:
-  //     [true,
-  //     ],
-
-  //   ledgeBlueSpawn:
-  //     [true,
-  //     ],
-  //   enemySpawn:
-  //     [false,
-  //     ],
-  //   ballSpawn:
-  //     [true,
-  //     ],
-  //   fallingSpikes:
-  //     [true,
-  //     ],
-  //   //Check Point
-  //   flagSpawn:
-  //     [true,
-  //       // { x: 500, y: 3000, velocityX: 0, velocityY: 0, indexOfPlayerPosition: 0 },
-  //     ],
-  //   text:
-  //     [true,
-  //     ],
-
-
-
-  //   //Any Other Property Here Are Unditional Objects
-  //   //Falling or Sideways Spikes
-  //   //Super Ball
-  //   //World Gravity
-  //   //Traps that create generating enemies
-  // },
   ///////////////////////////////////Notes About Designed Levels/////////////////////////////////////
   /*
     SpecialCondition (The Type of Change That Will Happen at a Different Level)
@@ -561,14 +469,9 @@ var worldDesignedLevels = [
         //   trigger: true, x: 0, y: 1200, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: 1, art: "invertedSpikes", specialCondition: 1, specialWorld: 1, specialArray: 1, positionInArray: 2,
         // },
       ],
-    ledgeGreySpawn:
+    ledgeSpawn:
       [false,
-      ],
-    ledgeGreenSpawn:
-      [false,
-      ],
-    ledgeBlueSpawn:
-      [false,
+        //{ trigger: true, type: 'elevator', x: 100, y: 2600, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1 },
       ],
     enemySpawn:
       [false,
@@ -858,29 +761,24 @@ var worldDesignedLevels = [
     spikeSpawn:
       [true,
         // {
-        //   trigger: true, x: 0, y: 0, velocityX: 0, velocityY: 0, sizeX: 2, sizeY: 1, art: "invertedSpikes", specialCondition: null, specialWorld: null, positionInArray: 1
+        //   trigger: true, x: 0, y: 0, velocityX: 0, velocityY: 0, sizeX: 2, sizeY: 1, art: "invertedSpikes", specialCondition: null, specialWorld: null, positionInArray:null 1
         // },
         {
           trigger: true, x: 2800, y: 2853, velocityX: 0, velocityY: 0, sizeX: .6, sizeY: .4, art: "trueSpikes", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1
         },
       ],
-    ledgeGreySpawn:
+    ledgeSpawn:
       [true,
-        //First One You See
-        { trigger: true, x: 100, y: 2600, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1 },
-        { trigger: true, x: 1080, y: 2200, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 2 },
-      ],
-    ledgeGreenSpawn:
-      [true,
-        { trigger: true, x: 1525, y: 3000, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1 },
-        { trigger: true, x: 1700, y: 2200, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 2 },
-        { trigger: true, x: 1900, y: 2700, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 3 },
-        { trigger: true, x: 2100, y: 2000, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 4 },
-      ],
-
-    ledgeBlueSpawn:
-      [true,
-        { trigger: true, x: 2270, y: 300, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1 },
+        //Elevator
+        { trigger: true, type: 'elevator', x: 100, y: 2600, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1 },
+        { trigger: true, type: 'elevator', x: 1080, y: 2200, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 2 },
+        //Bounce Ledges
+        { trigger: true, type: 'bounce', x: 1525, y: 3000, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 3 },
+        { trigger: true, type: 'bounce', x: 1700, y: 2200, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 4 },
+        { trigger: true, type: 'bounce', x: 1900, y: 2700, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 5 },
+        { trigger: true, type: 'bounce', x: 2100, y: 2000, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 6 },
+        //Surf Ledges
+        { trigger: true, type: 'surf', x: 2270, y: 300, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 7 },
       ],
     enemySpawn:
       [false,
@@ -1053,18 +951,8 @@ var worldDesignedLevels = [
     spikeSpawn:
       [false,
       ],
-    ledgeGreySpawn:
+    ledgeSpawn:
       [false,
-        // { trigger: true, x: 100, y: 100, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 6 },
-        // { trigger: true, x: 1000, y: 150, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 6 },
-      ],
-    ledgeGreenSpawn:
-      [false,
-        // { trigger: true, x: 1000, y: 250, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 7 },
-      ],
-    ledgeBlueSpawn:
-      [false,
-        // { trigger: true, x: 1000, y: 450, velocityX: 0, velocityY: 0, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 8 },
       ],
     enemySpawn:
       [true,
@@ -1091,17 +979,16 @@ var worldDesignedLevels = [
     fallingSpikes:
       [true,
         { trigger: true, x: 475, y: 50, seconds: 3, velocityX: 0, velocityY: 500, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1 },
-        // { trigger: true, x: 4700, y: 50, seconds: 5, velocityX: 0, velocityY: 500, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1 },
       ],
     //Check Point
     flagSpawn:
       [true,
         //Flag At the Beginning of the Level
-        // { trigger: true, x: 4600, y: 650, velocityX: 0, velocityY: 0, indexOfPlayerPosition: 3, art: "flag", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1 },
+        { trigger: true, x: 4600, y: 650, velocityX: 0, velocityY: 0, indexOfPlayerPosition: 3, art: "flag", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1 },
         //Flag At the End of The Level
         { trigger: true, x: 220, y: 250, velocityX: 0, velocityY: 0, indexOfPlayerPosition: 2, art: "flag", specialCondition: 1, specialWorld: 1, specialArray: 10, positionInArray: 2 },
-        //test
-        { trigger: true, x: 4600, y: 650, velocityX: 0, velocityY: 0, indexOfPlayerPosition: 2, art: "flag", specialCondition: 1, specialWorld: 1, specialArray: 10, positionInArray: 2 },
+        // //test
+        // { trigger: true, x: 4600, y: 650, velocityX: 0, velocityY: 0, indexOfPlayerPosition: 2, art: "flag", specialCondition: 1, specialWorld: 1, specialArray: 10, positionInArray: 2 },
       ],
     text:
       [true,
@@ -1248,7 +1135,7 @@ function wallGroupPhysics(sprite1, sprite2) {
 
 }
 
-function wallStopper (wall,sprite2) {
+function wallStopper(wall, sprite2) {
   //wall.body.stop();
   // wall.body.immovable = true;
   if (wall.body.touching.up) {
@@ -1270,9 +1157,8 @@ function wallStopper (wall,sprite2) {
 }
 
 ///////////////////////////////Player vs. Wall//////////////////
-function playerVsWall (player,wall) {
-  wall.body.immovable = true;
-  console.log(wall.body.immovable, "playerwall");
+function playerVsWall(player, wall) {
+  //////Deciding///
 }
 ////////////////////////////////////Immovable Wall/////////////////////////////
 
@@ -1325,7 +1211,8 @@ function ballMover(player, ball) {
 
 ////////////////////////////////////Player Ledge Mechanics//////////////////////////////////////
 
-function ledgePhysics(player,ledge) {
+function ledgePhysics(player, ledge) {
+  //////////Eleveator Ledges/////////
   if (ledge.type === 'elevator') {
     ledge.body.stop();
     if (ledge.body.touching.up) {
@@ -1363,72 +1250,19 @@ function ledgePhysics(player,ledge) {
       player.body.velocity.y = -100;
     }
   }
-
-}
-
-function ledgeUp(player, ledge) {
-  //When You're On Top of the Ledge
-  ledge.body.stop();
-  if (ledge.body.touching.up) {
-    ledge.body.velocity.y = -200;
-    player.body.velocity.y = -200
-    // if (player.body.velocity.x < 0) {
-    //   ledge.body.velocity.x = player.body.velocity.x - 100;
-    // }
-    // if (player.body.velocity.x > 0) {
-    //   ledge.body.velocity.x = player.body.velocity.x + 100;
-    // }
-    // {
-    //   ledge.body.velocity.x = 0;
-    // }
+  //////////Super Jump/////////
+  if (ledge.type === 'bounce') {
+    if (ledge.body.touching.up) {
+      player.body.velocity.y = -1200;
+    }
   }
-  // When You're Hitting the Edge from the Sides (Right and Left)
-  else if (ledge.body.touching.left || ledge.body.touching.right) {
-    ledge.body.velocity.y = 0;
+  ////////Surfs Up Dude////////
+  if (ledge.type === 'surf') {
+    ledge.body.velocity.y = 200;
     ledge.body.velocity.x = player.body.velocity.x;
   }
-  /////////////////////////////////In Case Want to Change Side Ledge Velocity///////////
-  // if (ledge.body.touching.left) {
-  //   ledge.body.velocity.y = 0;
-  //   ledge.body.velocity.x = 300;
-  // }
-  // if (ledge.body.touching.right) {
-  //   ledge.body.velocity.y = 0;
-  //   ledge.body.velocity.x = -300;
-  // }
-  // if (ledge.body.touching.down && player.body.velocity.y < -1) {
-  //   player.body.velocity.y = -100;
-  // }
-  else if (ledge.body.touching.down) {
-    ledge.body.velocity.y = -300;
-    player.body.velocity.y = -100;
-  }
-}
 
-function ledgeDownS(player, ledge) {
-  //When You're On Top of the Ledge
-  if (ledge.body.touching.up) {
-    player.body.velocity.y = -1200;
-  }
 }
-
-function ledgeSideX(player, ledge) {
-  ////////////////Old Controls////////////////////
-  // if (ledge.body.velocity.x > 0) {
-  //   ledge.body.velocity.x = 300;
-  // }
-  // else if (ledge.body.velocity.x < 0) {
-  //   ledge.body.velocity.x = -300;
-  // }
-  // else if (ledge.body.velocity.y >= 0 || ledge.body.velocity.y < 0) {
-  //   ledge.body.stop();
-  //   ledge.body.velocity.x = 300;
-  // }
-  // ledge.body.stop();
-  ledge.body.velocity.y = 200;
-  ledge.body.velocity.x = player.body.velocity.x;
-}
-
 
 ////////////////////////////Weapon Mechanics/////////////////////////
 //When Weapon Hits Immovable/Unkillable Objects (It Dies);
@@ -1438,7 +1272,7 @@ function weaponImmovable(weapon, wall) {
 
 //When Weapon Hits Moveable Objects (It's Special Property Expressed)
 
-function weaponHandler(weapon,sprite) {
+function weaponHandler(weapon, sprite) {
   if (weapon.key === 'bullet1') {
     this.game.physics.arcade.moveToObject(sprite, this.player, 200);
   }
