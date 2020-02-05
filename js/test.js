@@ -30,7 +30,6 @@ brawl.testing.prototype = {
         this.load.image('ball', 'assets/ball.png')
         this.load.image('rotatedWall', 'assets/rotatedWall.png');
         this.load.image('fallingSpikes', 'assets/newSpikes.png');
-        this.load.image('win', 'assets/finishLine.png');
         this.load.image('enemy', 'assets/trumpface.png');
         this.load.image('brownPlatform', 'assets/platform2.png');
         this.load.image('spikes', 'assets/invisibleFloorSpikes.png');
@@ -39,9 +38,6 @@ brawl.testing.prototype = {
         this.load.image('undeniableDeath', 'assets/undeniableDeath.png');
         this.load.image('fallingSpikes', 'assets/newSpikes.png');
         this.load.image('invertedSpikes', 'assets/invertedSpikesTrue.png')
-        this.load.image('joystick', 'assets/joystick.png');
-        this.load.image('joystick2', 'assets/joystickR.png');
-        this.load.image('action', 'assets/action.png');
         this.load.image('elevatorLedge', 'assets/platformY.png');
         this.load.image('bounceLedge', 'assets/platformX.png');
         this.load.image('surfLedge', 'assets/platformSide.png');

@@ -56,6 +56,9 @@ var stopBoolean = false;
 // Global Timer
 var total = 0;
 
+// Total Deaths
+var deaths = 0;
+
 //////////////////////////Enemy Bullet Handler//////////////////////
 var livingEnemies = [];
 var enemyBulletTime = 0;

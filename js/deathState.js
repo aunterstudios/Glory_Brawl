@@ -22,7 +22,7 @@ brawl.state2.prototype = {
         this.trump.anchor.setTo(.5);
         //this.trump.scale.setTo(.75);
 
-        this.text = this.game.add.text(this.game.world.centerX - 300, 300, "SPACEBAR to Try Again Prisoner \n Deaths: " + deaths + "\n Longest Streak: " + longestStreak);
+        this.text = this.game.add.text(this.game.world.centerX - 250, 220, "SPACEBAR to Try Again \n Deaths: " + deaths);
         this.text.anchor.setTo(0.5);
         this.text.align = 'center';
 
