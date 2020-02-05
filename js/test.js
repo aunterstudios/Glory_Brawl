@@ -24,32 +24,42 @@ brawl.testing.prototype = {
     },
     preload: function () {
         // this.game.forceSingleUpdate = true;
-        this.load.image('wall', 'assets/wall.png');
-        this.load.image('immovableVerticalWall', 'assets/immovableVerticalWall.png');
-        this.load.image('immovableRotatedWall', 'assets/immovableRotatedWall.png');
-        this.load.image('ball', 'assets/ball.png')
-        this.load.image('rotatedWall', 'assets/rotatedWall.png');
-        this.load.image('fallingSpikes', 'assets/newSpikes.png');
-        this.load.image('enemy', 'assets/trumpface.png');
-        this.load.image('brownPlatform', 'assets/platform2.png');
-        this.load.image('spikes', 'assets/invisibleFloorSpikes.png');
-        this.load.image('trueSpikes', 'assets/trueSidewaysSpikes.png');
-        this.load.image('sidewaysSpikes', 'assets/sidewaysSpikes.png');
-        this.load.image('undeniableDeath', 'assets/undeniableDeath.png');
-        this.load.image('fallingSpikes', 'assets/newSpikes.png');
-        this.load.image('invertedSpikes', 'assets/invertedSpikesTrue.png')
-        this.load.image('elevatorLedge', 'assets/platformY.png');
-        this.load.image('bounceLedge', 'assets/platformX.png');
-        this.load.image('surfLedge', 'assets/platformSide.png');
-        this.load.image('bullet3', 'assets/bullet44.png');
-        this.load.image('bullet2', 'assets/bullet45.png');
-        this.load.image('bullet1', 'assets/bullet46.png');
-        this.load.image('bulletEnemy', 'assets/bullet129.png');
-        this.load.image('boundary', 'assets/worldBounds.png');
-        this.load.image('coin', 'assets/shield2.png');
+        //Immovable Walls
+        this.load.image('immovableWallVertical', 'assets/immovableWallVertical.png');
+        this.load.image('immovableWallHorizontal', 'assets/immovableWallHorizontal.png');
+        //Moveable Walls
+        this.load.image('wallVertical', 'assets/wallVertical.png');
+        this.load.image('wallHorizontal', 'assets/wallHorizontal.png');
+        this.load.image('wallBrown', 'assets/wallBrown.png');
+        //Ledges
+        this.load.image('ledgeElevator', 'assets/ledgeElevator.png');
+        this.load.image('ledgeBounce', 'assets/ledgeBounce.png');
+        this.load.image('ledgeSurf', 'assets/ledgeSurf.png');
+        //Traps
+        this.load.image('spikeFall', 'assets/spikeFall.png');
+        this.load.image('spikesHorizontalOne', 'assets/spikesHorizontalOne.png')
+        this.load.image('spikesHorizontalTwo', 'assets/spikesHorizontalTwo.png');
+        this.load.image('spikesVertical', 'assets/spikesVertical.png');
+        //Death (Red)
+        this.load.image('deathVertical', 'assets/deathVertical.png');
+        this.load.image('deathHorizontal', 'assets/deathHorizontal.png');
+        //Bullets
+        this.load.image('bulletKill', 'assets/bulletKill.png');
+        this.load.image('bulletStop', 'assets/bulletStop.png');
+        this.load.image('bulletPull', 'assets/bulletPull.png');
+        this.load.image('bulletEnemy', 'assets/bulletEnemy.png');
+        //Coin
+        this.load.image('coin', 'assets/coin.png');
+        //Flag
         this.load.image('flag', 'assets/flag.png');
+        //Door
         this.load.image('door', 'assets/door.png');
-        this.load.spritesheet('dude', 'assets/white.png', 87.5, 93.5);
+        //Ball
+        this.load.image('ball', 'assets/ball.png');
+        //Enemies
+        this.load.image('enemy', 'assets/trumpface.png');
+        //Player
+        this.load.spritesheet('player', 'assets/player.png', 87.5, 93.5);
     },
     create: function () {
         //Desired FPS of game and fps and lag debugging
@@ -282,7 +292,7 @@ brawl.testing.prototype = {
         /////////////////////Testing Entirety of Level/////////////////
         // console.log(levelGenerator);
         ////////////////////Adding Player//////////////////////
-        this.player = this.game.add.sprite(levelGenerator.playerPosition[this.indexOfPlayerPosition].x, levelGenerator.playerPosition[this.indexOfPlayerPosition].y, 'dude');
+        this.player = this.game.add.sprite(levelGenerator.playerPosition[this.indexOfPlayerPosition].x, levelGenerator.playerPosition[this.indexOfPlayerPosition].y, 'player');
         this.game.physics.arcade.enable(this.player); //enables physics for player
         this.player.anchor.setTo(.5);
         // this.player.scale.setTo(.6);
@@ -309,7 +319,7 @@ brawl.testing.prototype = {
         /////////////Pull as Default
         pullBoolean = true;
         //  Creates 30 bullets, using the 'bullet' graphic
-        this.weapon1 = this.game.add.weapon(30, 'bullet1');
+        this.weapon1 = this.game.add.weapon(30, 'bulletPull');
         //  The bullet will be automatically killed when it leaves the camera bounds
         this.weapon1.bulletKillType = Phaser.Weapon.KILL_CAMERA_BOUNDS;
         //  Because our bullet is drawn facing up, we need to offset its rotation:
@@ -325,7 +335,7 @@ brawl.testing.prototype = {
 
         /////////////////Push
         //  Creates 30 bullets, using the 'bullet' graphic
-        this.weapon2 = this.game.add.weapon(30, 'bullet2');
+        this.weapon2 = this.game.add.weapon(30, 'bulletStop');
         //  The bullet will be automatically killed when it leaves the camera bounds
         this.weapon2.bulletKillType = Phaser.Weapon.KILL_CAMERA_BOUNDS;
         //  Because our bullet is drawn facing up, we need to offset its rotation:
@@ -340,7 +350,7 @@ brawl.testing.prototype = {
 
         ////////////////Stop
         //  Creates 30 bullets, using the 'bullet' graphic
-        this.weapon3 = this.game.add.weapon(30, 'bullet3');
+        this.weapon3 = this.game.add.weapon(30, 'bulletKill');
         //  The bullet will be automatically killed when it leaves the camera bounds
         this.weapon3.bulletKillType = Phaser.Weapon.KILL_CAMERA_BOUNDS;
         //  Because our bullet is drawn facing up, we need to offset its rotation:
@@ -452,7 +462,7 @@ brawl.testing.prototype = {
     //////////////////////////Creating Game Objects/////////////////////////
     //SpikeFall
     spikeFall: function (sprite) {
-        this.spikesFall = this.fallingSpikes.getFirstDead(true, sprite.x, sprite.y, 'fallingSpikes');
+        this.spikesFall = this.fallingSpikes.getFirstDead(true, sprite.x, sprite.y, 'spikeFall');
         this.spikesFall.specialCondition = sprite.specialCondition;
         this.spikesFall.specialWorld = sprite.specialWorld;
         this.spikesFall.specialArray = sprite.specialArray;
@@ -561,13 +571,13 @@ brawl.testing.prototype = {
     },
     ledgeSpawn: function (sprite) {
         if (sprite.type === 'elevator') {
-            var ledgeArt = 'elevatorLedge';
+            var ledgeArt = 'ledgeElevator';
         }
         else if (sprite.type === 'bounce') {
-            var ledgeArt = 'bounceLedge';
+            var ledgeArt = 'ledgeBounce';
         }
         else if (sprite.type === 'surf') {
-            var ledgeArt = 'surfLedge'
+            var ledgeArt = 'ledgeSurf'
         }
         this.ledgeX = this.ledge.create(sprite.x, sprite.y, ledgeArt);
         this.ledgeX.type = sprite.type;

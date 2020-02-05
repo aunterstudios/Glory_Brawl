@@ -123,29 +123,29 @@ var worldDesignedLevels = [
     undeniableDeathSpawn:
       [true,
         {
-          trigger: true, x: 0, y: 1470, velocityX: 0, velocityY: 0, sizeX: .25, sizeY: .619, art: "sidewaysSpikes", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1
+          trigger: true, x: 0, y: 1470, velocityX: 0, velocityY: 0, sizeX: .25, sizeY: .619, art: "deathVertical", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1
         },
         {
-          trigger: true, x: 2800, y: 0, velocityX: 0, velocityY: 0, sizeX: .25, sizeY: .857, art: "sidewaysSpikes",
+          trigger: true, x: 2800, y: 0, velocityX: 0, velocityY: 0, sizeX: .25, sizeY: .857, art: "deathVertical",
           specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 2
         },
         {
-          trigger: true, x: 2800, y: 1263, velocityX: 0, velocityY: 0, sizeX: .25, sizeY: .767, art: "sidewaysSpikes",
+          trigger: true, x: 2800, y: 1263, velocityX: 0, velocityY: 0, sizeX: .25, sizeY: .767, art: "deathVertical",
           specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 3
         },
         {
-          trigger: true, x: 1463, y: 900, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "undeniableDeath", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 4
+          trigger: true, x: 1463, y: 900, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "deathHorizontal", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 4
         },
         // {
-        //   trigger: true, x: 1463, y: 300, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "undeniableDeath",
+        //   trigger: true, x: 1463, y: 300, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "deathHorizontal",
         //   specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 5
         // },
         {
-          trigger: true, x: 2060, y: 300, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "undeniableDeath",
+          trigger: true, x: 2060, y: 300, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "deathHorizontal",
           specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 6
         },
         {
-          trigger: true, x: 1400, y: 0, velocityX: 0, velocityY: 0, sizeX: 1, sizeY: .5, art: "undeniableDeath",
+          trigger: true, x: 1400, y: 0, velocityX: 0, velocityY: 0, sizeX: 1, sizeY: .5, art: "deathHorizontal",
           specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 7
         },
       ],
@@ -153,157 +153,157 @@ var worldDesignedLevels = [
       [true,
         //Ground
         {
-          trigger: true, x: 0, y: 2400, velocityX: 0, velocityY: 0, sizeX: 3.29, sizeY: .5, art: "immovableRotatedWall", phaseWall: null,
+          trigger: true, x: 0, y: 2400, velocityX: 0, velocityY: 0, sizeX: 3.29, sizeY: .5, art: "immovableWallHorizontal", phaseWall: null,
           specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1
         },
         //Practice Jump Levels
         {
-          trigger: true, x: 700, y: 2210, velocityX: 0, velocityY: 0, sizeX: .4, sizeY: .15, art: "immovableVerticalWall", phaseWall: null,
+          trigger: true, x: 700, y: 2210, velocityX: 0, velocityY: 0, sizeX: .4, sizeY: .15, art: "immovableWallVertical", phaseWall: null,
           specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 2
         },
         {
-          trigger: true, x: 1700, y: 1910, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "immovableVerticalWall", phaseWall: null,
+          trigger: true, x: 1700, y: 1910, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "immovableWallVertical", phaseWall: null,
           specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 3
         },
         //Mini Walls
         {
-          trigger: true, x: 2500, y: 2200, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall", phaseWall: null,
+          trigger: true, x: 2500, y: 2200, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableWallVertical", phaseWall: null,
           specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 4
         },
         {
-          trigger: true, x: 2500, y: 1800, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall", phaseWall: null,
+          trigger: true, x: 2500, y: 1800, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableWallVertical", phaseWall: null,
           specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 5
         },
         {
-          trigger: true, x: 2700, y: 2000, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall", phaseWall: null,
+          trigger: true, x: 2700, y: 2000, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableWallVertical", phaseWall: null,
           specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 6
         },
         {
-          trigger: true, x: 2700, y: 1600, velocityX: 0, velodcityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall", phaseWall: null,
+          trigger: true, x: 2700, y: 1600, velocityX: 0, velodcityY: 0, sizeX: .3, sizeY: .05, art: "immovableWallVertical", phaseWall: null,
           specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 7
         },
         {
-          trigger: true, x: 2700, y: 1375, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall", phaseWall: null,
+          trigger: true, x: 2700, y: 1375, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableWallVertical", phaseWall: null,
           specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 8
         },
         //The Box
         {
-          trigger: true, x: 2375, y: 1200, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "immovableRotatedWall", phaseWall: null,
+          trigger: true, x: 2375, y: 1200, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "immovableWallHorizontal", phaseWall: null,
           specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 9
         },
         {
-          trigger: true, x: 1400, y: 300, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: 1.3, art: "immovableVerticalWall", phaseWall: null,
+          trigger: true, x: 1400, y: 300, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: 1.3, art: "immovableWallVertical", phaseWall: null,
           specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 10
         },
         {
-          trigger: true, x: 0, y: 1407, velocityX: 0, velocityY: 0, sizeX: 1.72, sizeY: .5, art: "immovableRotatedWall", phaseWall: null,
+          trigger: true, x: 0, y: 1407, velocityX: 0, velocityY: 0, sizeX: 1.72, sizeY: .5, art: "immovableWallHorizontal", phaseWall: null,
           specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 11
         },
         {
-          trigger: true, x: 0, y: 0, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: 1.653, art: "immovableVerticalWall", phaseWall: null,
+          trigger: true, x: 0, y: 0, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: 1.653, art: "immovableWallVertical", phaseWall: null,
           specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 12
         },
         //Inside the Box
         {
-          trigger: true, x: 400, y: 1200, velocityX: 0, velocityY: 0, sizeX: .9, sizeY: .4, art: "immovableRotatedWall", phaseWall: null,
+          trigger: true, x: 400, y: 1200, velocityX: 0, velocityY: 0, sizeX: .9, sizeY: .4, art: "immovableWallHorizontal", phaseWall: null,
           specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 13
         },
         {
-          trigger: true, x: 63, y: 800, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "immovableRotatedWall", phaseWall: null,
+          trigger: true, x: 63, y: 800, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "immovableWallHorizontal", phaseWall: null,
           specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 14
         },
         {
-          trigger: true, x: 974, y: 500, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "immovableRotatedWall", phaseWall: null,
+          trigger: true, x: 974, y: 500, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "immovableWallHorizontal", phaseWall: null,
           specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 15
         },
         {
-          trigger: true, x: 63, y: 300, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "immovableRotatedWall", phaseWall: null,
+          trigger: true, x: 63, y: 300, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "immovableWallHorizontal", phaseWall: null,
           specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 16
         },
         {
-          trigger: true, x: 700, y: 600, velocityX: 0, velocityY: 0, sizeX: .4, sizeY: .5, art: "immovableRotatedWall", phaseWall: null,
+          trigger: true, x: 700, y: 600, velocityX: 0, velocityY: 0, sizeX: .4, sizeY: .5, art: "immovableWallHorizontal", phaseWall: null,
           specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 17
         },
         {
-          trigger: true, x: 400, y: 500, velocityX: 0, velocityY: 0, sizeX: .4, sizeY: .5, art: "immovableRotatedWall", phaseWall: null,
+          trigger: true, x: 400, y: 500, velocityX: 0, velocityY: 0, sizeX: .4, sizeY: .5, art: "immovableWallHorizontal", phaseWall: null,
           specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 18
         },
         //Tiny Boxes inside the Box
         {
-          trigger: true, x: 200, y: 950, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall", phaseWall: null,
+          trigger: true, x: 200, y: 950, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableWallVertical", phaseWall: null,
           specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 19
         },
         {
-          trigger: true, x: 200, y: 1150, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall", phaseWall: null,
+          trigger: true, x: 200, y: 1150, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableWallVertical", phaseWall: null,
           specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 20
         },
         {
-          trigger: true, x: 500, y: 1000, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall", phaseWall: null,
+          trigger: true, x: 500, y: 1000, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableWallVertical", phaseWall: null,
           specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 21
         },
         {
-          trigger: true, x: 600, y: 800, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall", phaseWall: null,
+          trigger: true, x: 600, y: 800, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableWallVertical", phaseWall: null,
           specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 22
         },
         {
-          trigger: true, x: 700, y: 775, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall", phaseWall: null,
+          trigger: true, x: 700, y: 775, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableWallVertical", phaseWall: null,
           specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 23
         },
         {
-          trigger: true, x: 800, y: 700, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall", phaseWall: null,
+          trigger: true, x: 800, y: 700, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableWallVertical", phaseWall: null,
           specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 24
         },
         {
-          trigger: true, x: 800, y: 900, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall", phaseWall: null,
+          trigger: true, x: 800, y: 900, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableWallVertical", phaseWall: null,
           specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 25
         },
         {
-          trigger: true, x: 800, y: 1100, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall", phaseWall: null,
+          trigger: true, x: 800, y: 1100, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableWallVertical", phaseWall: null,
           specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 26
         },
         {
-          trigger: true, x: 1000, y: 800, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall", phaseWall: null,
+          trigger: true, x: 1000, y: 800, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableWallVertical", phaseWall: null,
           specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 27
         },
         {
-          trigger: true, x: 1000, y: 600, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall", phaseWall: null,
+          trigger: true, x: 1000, y: 600, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableWallVertical", phaseWall: null,
           specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 28
         },
         {
-          trigger: true, x: 1100, y: 1000, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall", phaseWall: null,
+          trigger: true, x: 1100, y: 1000, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableWallVertical", phaseWall: null,
           specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 29
         },
         {
-          trigger: true, x: 1100, y: 600, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall", phaseWall: null,
+          trigger: true, x: 1100, y: 600, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableWallVertical", phaseWall: null,
           specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 30
         },
         {
-          trigger: true, x: 1200, y: 1100, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall", phaseWall: null,
+          trigger: true, x: 1200, y: 1100, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableWallVertical", phaseWall: null,
           specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 31
         },
         {
-          trigger: true, x: 1200, y: 800, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall", phaseWall: null,
+          trigger: true, x: 1200, y: 800, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableWallVertical", phaseWall: null,
           specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 32
         },
         ////Left Room Blocker
         // {
-        //   trigger: true, x: 64, y: 0, velocityX: 0, velocityY: 0, sizeX: .4, sizeY: .5, art: "immovableRotatedWall",
+        //   trigger: true, x: 64, y: 0, velocityX: 0, velocityY: 0, sizeX: .4, sizeY: .5, art: "immovableWallHorizontal",
         //   specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 18
         // },
-        // { x: 400, y: 1000, velocityX: 0, velodcityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall" },
-        // { x: 700, y: 600, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall" },
+        // { x: 400, y: 1000, velocityX: 0, velodcityY: 0, sizeX: .3, sizeY: .05, art: "immovableWallVertical" },
+        // { x: 700, y: 600, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableWallVertical" },
 
       ],
     wallSpawn:
       [true,
         {
-          trigger: true, x: 1900, y: 1100, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "rotatedWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1
+          trigger: true, x: 1900, y: 1100, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "wallHorizontal", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1
         },
       ],
     spikeSpawn:
       [true,
         {
-          trigger: true, x: 0, y: 0, velocityX: 0, velocityY: 0, sizeX: 1, sizeY: 1, art: "invertedSpikes", specialCondition: 0, specialWorld: null, specialArray: null, positionInArray: 1,
+          trigger: true, x: 0, y: 0, velocityX: 0, velocityY: 0, sizeX: 1, sizeY: 1, art: "spikesHorizontalOne", specialCondition: 0, specialWorld: null, specialArray: null, positionInArray: 1,
         },
         //Special Condition Test to Remove A Game Object Level One
         // {
@@ -404,88 +404,88 @@ var worldDesignedLevels = [
       [true,
         //Ground Next To Flag
         {
-          trigger: true, x: 725, y: 3170, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .4, art: "undeniableDeath", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1
+          trigger: true, x: 725, y: 3170, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .4, art: "deathHorizontal", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1
         },
         //Top of the Yellow at the Bottom
         {
-          trigger: true, x: 0, y: 2691, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "undeniableDeath", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 2
+          trigger: true, x: 0, y: 2691, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "deathHorizontal", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 2
         },
         //Border of First Half
         {
-          trigger: true, x: 1425, y: 1700, velocityX: 0, velocityY: 0, sizeX: .25, sizeY: 1.08, art: "sidewaysSpikes", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 3
+          trigger: true, x: 1425, y: 1700, velocityX: 0, velocityY: 0, sizeX: .25, sizeY: 1.08, art: "deathVertical", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 3
         },
         //Connector to top of yellow
         {
-          trigger: true, x: 700, y: 2000, velocityX: 0, velocityY: 0, sizeX: .25, sizeY: .714, art: "sidewaysSpikes", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 4
+          trigger: true, x: 700, y: 2000, velocityX: 0, velocityY: 0, sizeX: .25, sizeY: .714, art: "deathVertical", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 4
         },
         //Preventing Grey Cheese
         {
-          trigger: true, x: 150, y: 1690, velocityX: 0, velocityY: 0, sizeX: .2, sizeY: .39, art: "undeniableDeath", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 5
+          trigger: true, x: 150, y: 1690, velocityX: 0, velocityY: 0, sizeX: .2, sizeY: .39, art: "deathHorizontal", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 5
         },
         //Border Slim Left Side
         {
-          trigger: true, x: 0, y: 1400, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .922, art: "sidewaysSpikes", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 6
+          trigger: true, x: 0, y: 1400, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .922, art: "deathVertical", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 6
         },
         // Next to Wall at the End of Grey Phase
         {
-          trigger: true, x: 426, y: 1336.5, velocityX: 0, velocityY: 0, sizeX: .8029, sizeY: .395, art: "undeniableDeath", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 7
+          trigger: true, x: 426, y: 1336.5, velocityX: 0, velocityY: 0, sizeX: .8029, sizeY: .395, art: "deathHorizontal", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 7
         },
         //Entryway to the Green Ledge
         {
-          trigger: true, x: 1550, y: 1336.5, velocityX: 0, velocityY: 0, sizeX: .25, sizeY: .714, art: "sidewaysSpikes", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 8
+          trigger: true, x: 1550, y: 1336.5, velocityX: 0, velocityY: 0, sizeX: .25, sizeY: .714, art: "deathVertical", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 8
         },
         //Connector to right side of map
         {
-          trigger: true, x: 1465, y: 3170, velocityX: 0, velocityY: 0, sizeX: .5249, sizeY: .4, art: "undeniableDeath", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 9
+          trigger: true, x: 1465, y: 3170, velocityX: 0, velocityY: 0, sizeX: .5249, sizeY: .4, art: "deathHorizontal", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 9
         },
         //Finally Hurdles Till You Get Respawn Twin Primes
         {
-          trigger: true, x: 2150, y: 2000, velocityX: 0, velocityY: 0, sizeX: .25, sizeY: .811, art: "sidewaysSpikes", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 10
+          trigger: true, x: 2150, y: 2000, velocityX: 0, velocityY: 0, sizeX: .25, sizeY: .811, art: "deathVertical", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 10
         },
         {
-          trigger: true, x: 2250, y: 500, velocityX: 0, velocityY: 0, sizeX: .25, sizeY: 1.5, art: "sidewaysSpikes", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 11
+          trigger: true, x: 2250, y: 500, velocityX: 0, velocityY: 0, sizeX: .25, sizeY: 1.5, art: "deathVertical", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 11
         },
         {
-          trigger: true, x: 2800, y: 0, velocityX: 0, velocityY: 0, sizeX: .25, sizeY: 1.837, art: "sidewaysSpikes", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 12
+          trigger: true, x: 2800, y: 0, velocityX: 0, velocityY: 0, sizeX: .25, sizeY: 1.837, art: "deathVertical", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 12
         },
         //Long Pole Death
         {
-          trigger: true, x: 2495, y: 600, velocityX: 0, velocityY: 0, sizeX: .375, sizeY: .03, art: "sidewaysSpikes", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 13
+          trigger: true, x: 2495, y: 600, velocityX: 0, velocityY: 0, sizeX: .375, sizeY: .03, art: "deathVertical", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 13
         },
         {
-          trigger: true, x: 2495, y: 1000, velocityX: 0, velocityY: 0, sizeX: .375, sizeY: .03, art: "sidewaysSpikes", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 14
+          trigger: true, x: 2495, y: 1000, velocityX: 0, velocityY: 0, sizeX: .375, sizeY: .03, art: "deathVertical", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 14
         },
         {
-          trigger: true, x: 2495, y: 1400, velocityX: 0, velocityY: 0, sizeX: .375, sizeY: .03, art: "sidewaysSpikes", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 15
+          trigger: true, x: 2495, y: 1400, velocityX: 0, velocityY: 0, sizeX: .375, sizeY: .03, art: "deathVertical", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 15
         },
         {
-          trigger: true, x: 2495, y: 1800, velocityX: 0, velocityY: 0, sizeX: .375, sizeY: .03, art: "sidewaysSpikes", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 16
+          trigger: true, x: 2495, y: 1800, velocityX: 0, velocityY: 0, sizeX: .375, sizeY: .03, art: "deathVertical", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 16
         },
         {
-          trigger: true, x: 2495, y: 2200, velocityX: 0, velocityY: 0, sizeX: .375, sizeY: .03, art: "sidewaysSpikes", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 17
+          trigger: true, x: 2495, y: 2200, velocityX: 0, velocityY: 0, sizeX: .375, sizeY: .03, art: "deathVertical", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 17
         },
         {
-          trigger: true, x: 2495, y: 2600, velocityX: 0, velocityY: 0, sizeX: .375, sizeY: .03, art: "sidewaysSpikes", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 18
+          trigger: true, x: 2495, y: 2600, velocityX: 0, velocityY: 0, sizeX: .375, sizeY: .03, art: "deathVertical", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 18
         },
         //Blue Ledge Past Long Pole of Death
         {
-          trigger: true, x: 1200, y: 0, velocityX: 0, velocityY: 0, sizeX: 1.12, sizeY: .25, art: "undeniableDeath", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 19
+          trigger: true, x: 1200, y: 0, velocityX: 0, velocityY: 0, sizeX: 1.12, sizeY: .25, art: "deathHorizontal", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 19
         },
         {
-          trigger: true, x: 1200, y: 0, velocityX: 0, velocityY: 0, sizeX: .25, sizeY: .8, art: "sidewaysSpikes", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 19
+          trigger: true, x: 1200, y: 0, velocityX: 0, velocityY: 0, sizeX: .25, sizeY: .8, art: "deathVertical", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 19
         },
         {
-          trigger: true, x: 1830, y: 500, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .25, art: "undeniableDeath", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 7
+          trigger: true, x: 1830, y: 500, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .25, art: "deathHorizontal", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 7
         },
         {
-          trigger: true, x: 1240, y: 1080, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .25, art: "undeniableDeath", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 7
+          trigger: true, x: 1240, y: 1080, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .25, art: "deathHorizontal", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 7
         },
         //Entry Way to Left Side of the Map
         {
-          trigger: true, x: 0, y: 0, velocityX: 0, velocityY: 0, sizeX: .507, sizeY: .25, art: "undeniableDeath", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 7
+          trigger: true, x: 0, y: 0, velocityX: 0, velocityY: 0, sizeX: .507, sizeY: .25, art: "deathHorizontal", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 7
         },
         {
-          trigger: true, x: 0, y: 0, velocityX: 0, velocityY: 0, sizeX: .25, sizeY: .82, art: "sidewaysSpikes", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 19
+          trigger: true, x: 0, y: 0, velocityX: 0, velocityY: 0, sizeX: .25, sizeY: .82, art: "deathVertical", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 19
         },
 
 
@@ -494,77 +494,77 @@ var worldDesignedLevels = [
       [true,
         //Ground
         {
-          trigger: true, x: 300, y: 3136, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "immovableRotatedWall", phaseWall: null, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1,
+          trigger: true, x: 300, y: 3136, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "immovableWallHorizontal", phaseWall: null, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1,
         },
         //Vertical Wall Connector to Level 0
         {
-          trigger: true, x: 0, y: 2772, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "immovableVerticalWall", phaseWall: null, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 2,
+          trigger: true, x: 0, y: 2772, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "immovableWallVertical", phaseWall: null, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 2,
         },
         //Mini Boxes
         {
-          trigger: true, x: 1062.5, y: 2600, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall", phaseWall: null,
+          trigger: true, x: 1062.5, y: 2600, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableWallVertical", phaseWall: null,
           specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 3
         },
         //Top of First Grey Ledge
         {
-          trigger: true, x: 430, y: 1690, velocityX: 0, velocityY: 0, sizeX: 1.17, sizeY: .5, art: "immovableRotatedWall", phaseWall: null, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 4,
+          trigger: true, x: 430, y: 1690, velocityX: 0, velocityY: 0, sizeX: 1.17, sizeY: .5, art: "immovableWallHorizontal", phaseWall: null, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 4,
         },
         //End of Grey Ledge
         {
-          trigger: true, x: 0, y: 1336.5, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "immovableRotatedWall", phaseWall: null, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 5,
+          trigger: true, x: 0, y: 1336.5, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "immovableWallHorizontal", phaseWall: null, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 5,
         },
         //End of Green Ledge
         {
-          trigger: true, x: 1591, y: 1336, velocityX: 0, velocityY: 0, sizeX: .774, sizeY: .5, art: "immovableRotatedWall", phaseWall: null, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 6,
+          trigger: true, x: 1591, y: 1336, velocityX: 0, velocityY: 0, sizeX: .774, sizeY: .5, art: "immovableWallHorizontal", phaseWall: null, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 6,
         },
         //Entry to Right Side of Map
         {
-          trigger: true, x: 2200, y: 3136, velocityX: 0, velocityY: 0, sizeX: .7, sizeY: .5, art: "immovableRotatedWall", phaseWall: null, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 7,
+          trigger: true, x: 2200, y: 3136, velocityX: 0, velocityY: 0, sizeX: .7, sizeY: .5, art: "immovableWallHorizontal", phaseWall: null, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 7,
         },
         //Long Pole
         {
-          trigger: true, x: 2500, y: 400, velocityX: 0, velocityY: 0, sizeX: .4, sizeY: 3, art: "immovableVerticalWall", phaseWall: null,
+          trigger: true, x: 2500, y: 400, velocityX: 0, velocityY: 0, sizeX: .4, sizeY: 3, art: "immovableWallVertical", phaseWall: null,
           specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 8
         },
         // {
-        //   trigger: true, x: 2400, y: 2800, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall", phaseWall: null,
+        //   trigger: true, x: 2400, y: 2800, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableWallVertical", phaseWall: null,
         //   specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 8
         // },
         //Left and Upwards Rooms of the Map
         {
-          trigger: true, x: 773, y: 0, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "immovableRotatedWall", phaseWall: null, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 9,
+          trigger: true, x: 773, y: 0, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "immovableWallHorizontal", phaseWall: null, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 9,
         },
         //First Wall THat Gets Removed from Level 3
         {
-          trigger: true, x: 773, y: 300, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "immovableRotatedWall", phaseWall: null, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 10,
+          trigger: true, x: 773, y: 300, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "immovableWallHorizontal", phaseWall: null, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 10,
         },
         {
-          trigger: true, x: 710, y: 0, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .8, art: "immovableVerticalWall", phaseWall: null,
+          trigger: true, x: 710, y: 0, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .8, art: "immovableWallVertical", phaseWall: null,
           specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 11
         },
         {
-          trigger: true, x: 425, y: 600, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .87, art: "immovableVerticalWall", phaseWall: null,
+          trigger: true, x: 425, y: 600, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .87, art: "immovableWallVertical", phaseWall: null,
           specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 12
         },
         //Mini Walls at the End
         {
-          trigger: true, x: 400, y: 400, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall", phaseWall: null,
+          trigger: true, x: 400, y: 400, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableWallVertical", phaseWall: null,
           specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 13
         },
         {
-          trigger: true, x: 600, y: 600, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall", phaseWall: null,
+          trigger: true, x: 600, y: 600, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableWallVertical", phaseWall: null,
           specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 14
         },
         {
-          trigger: true, x: 600, y: 400, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall", phaseWall: null,
+          trigger: true, x: 600, y: 400, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableWallVertical", phaseWall: null,
           specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 15
         },
         {
-          trigger: true, x: 700, y: 500, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall", phaseWall: null,
+          trigger: true, x: 700, y: 500, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableWallVertical", phaseWall: null,
           specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 16
         },
         {
-          trigger: true, x: 300, y: 1000, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableVerticalWall", phaseWall: null,
+          trigger: true, x: 300, y: 1000, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .05, art: "immovableWallVertical", phaseWall: null,
           specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 17
         },
 
@@ -573,30 +573,30 @@ var worldDesignedLevels = [
       [true,
         //Before Grey
         {
-          trigger: true, x: 1100, y: 3000, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "rotatedWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1
+          trigger: true, x: 1100, y: 3000, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "wallHorizontal", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1
         },
         //After BLue
         {
-          trigger: true, x: 1100, y: 1250, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "rotatedWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 2
+          trigger: true, x: 1100, y: 1250, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "wallHorizontal", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 2
         },
         //Kill These
         {
-          trigger: true, x: 250, y: 600, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "rotatedWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 3
+          trigger: true, x: 250, y: 600, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "wallHorizontal", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 3
         },
         {
-          trigger: true, x: 250, y: 700, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "rotatedWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 3
+          trigger: true, x: 250, y: 700, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "wallHorizontal", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 3
         },
         {
-          trigger: true, x: 250, y: 800, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "rotatedWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 3
+          trigger: true, x: 250, y: 800, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "wallHorizontal", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 3
         },
         {
-          trigger: true, x: 250, y: 900, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "rotatedWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 3
+          trigger: true, x: 250, y: 900, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "wallHorizontal", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 3
         },
         {
-          trigger: true, x: 250, y: 1000, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "rotatedWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 3
+          trigger: true, x: 250, y: 1000, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "wallHorizontal", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 3
         },
         {
-          trigger: true, x: 250, y: 1100, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "rotatedWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 3
+          trigger: true, x: 250, y: 1100, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "wallHorizontal", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 3
         },
       ],
     spikeSpawn:
@@ -605,7 +605,7 @@ var worldDesignedLevels = [
         //   trigger: true, x: 0, y: 0, velocityX: 0, velocityY: 0, sizeX: 2, sizeY: 1, art: "invertedSpikes", specialCondition: null, specialWorld: null, positionInArray:null 1
         // },
         {
-          trigger: true, x: 2800, y: 2853, velocityX: 0, velocityY: 0, sizeX: .6, sizeY: .4, art: "trueSpikes", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1
+          trigger: true, x: 2800, y: 2853, velocityX: 0, velocityY: 0, sizeX: .6, sizeY: .4, art: "spikesVertical", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1
         },
       ],
     ledgeSpawn:
@@ -716,19 +716,19 @@ var worldDesignedLevels = [
         /////////////////////////Orientation X-Left to Right //////////////////////
         //Bottom Towards the End of the Map
         {
-          trigger: true, x: 0, y: 4100, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .1, art: "undeniableDeath", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1
+          trigger: true, x: 0, y: 4100, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .1, art: "deathHorizontal", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1
         },
         //Top of Map
         {
-          trigger: true, x: 300, y: 0, velocityX: 0, velocityY: 0, sizeX: 3.215, sizeY: .1, art: "undeniableDeath", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 2
+          trigger: true, x: 300, y: 0, velocityX: 0, velocityY: 0, sizeX: 3.215, sizeY: .1, art: "deathHorizontal", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 2
         },
         //Long Pit (Under Vertical Moveable Wall)
         {
-          trigger: true, x: 1406.5, y: 4100, velocityX: 0, velocityY: 0, sizeX: .995, sizeY: .1, art: "undeniableDeath", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 3
+          trigger: true, x: 1406.5, y: 4100, velocityX: 0, velocityY: 0, sizeX: .995, sizeY: .1, art: "deathHorizontal", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 3
         },
         //Bottom Towards the End of the Map
         {
-          trigger: true, x: 3506, y: 4100, velocityX: 0, velocityY: 0, sizeX: .4169, sizeY: .1, art: "undeniableDeath", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1
+          trigger: true, x: 3506, y: 4100, velocityX: 0, velocityY: 0, sizeX: .4169, sizeY: .1, art: "deathHorizontal", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1
         },
       ],
     immovableWallSpawn:
@@ -736,53 +736,53 @@ var worldDesignedLevels = [
         ///////////////Orientation X-Right to Left/////////////////////
         //Border of Level One and Level Two
         {
-          trigger: true, x: 4800, y: 0, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .7, art: "immovableVerticalWall", phaseWall: null, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1,
+          trigger: true, x: 4800, y: 0, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .7, art: "immovableWallVertical", phaseWall: null, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1,
         },
         //Ground
         {
-          trigger: true, x: 4100, y: 800, velocityX: 0, velocityY: 0, sizeX: .83, sizeY: .5, art: "immovableRotatedWall", phaseWall: null, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1,
+          trigger: true, x: 4100, y: 800, velocityX: 0, velocityY: 0, sizeX: .83, sizeY: .5, art: "immovableWallHorizontal", phaseWall: null, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1,
         },
         //Wall Blocking First Ground
         {
-          trigger: true, x: 4090, y: 100, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .83, art: "immovableVerticalWall", phaseWall: null, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1,
+          trigger: true, x: 4090, y: 100, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .83, art: "immovableWallVertical", phaseWall: null, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1,
         },
         //Wall with Little Hole
         {
-          trigger: true, x: 3300, y: 0, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .83, art: "immovableVerticalWall", phaseWall: null, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1,
+          trigger: true, x: 3300, y: 0, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .83, art: "immovableWallVertical", phaseWall: null, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1,
         },
         //Past Max Jump
         {
-          trigger: true, x: 2800, y: 800, velocityX: 0, velocityY: 0, sizeX: .83, sizeY: .5, art: "immovableRotatedWall", phaseWall: null, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1,
+          trigger: true, x: 2800, y: 800, velocityX: 0, velocityY: 0, sizeX: .83, sizeY: .5, art: "immovableWallHorizontal", phaseWall: null, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1,
         },
         //Immovable Wall Past Vertical Moveable Wall
         {
-          trigger: true, x: 700, y: 800, velocityX: 0, velocityY: 0, sizeX: .83, sizeY: .5, art: "immovableRotatedWall", phaseWall: null, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1,
+          trigger: true, x: 700, y: 800, velocityX: 0, velocityY: 0, sizeX: .83, sizeY: .5, art: "immovableWallHorizontal", phaseWall: null, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1,
         },
         //Divider at the End
         {
-          trigger: true, x: 300, y: 0, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "immovableVerticalWall", phaseWall: null, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1,
+          trigger: true, x: 300, y: 0, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "immovableWallVertical", phaseWall: null, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1,
         },
         //Ground for the Flag
         {
-          trigger: true, x: 128, y: 388.3, velocityX: 0, velocityY: 0, sizeX: .276, sizeY: .297, art: "immovableRotatedWall", phaseWall: null, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1,
+          trigger: true, x: 128, y: 388.3, velocityX: 0, velocityY: 0, sizeX: .276, sizeY: .297, art: "immovableWallHorizontal", phaseWall: null, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1,
         },
         //Border Edge At The End of The Level
         {
-          trigger: true, x: 0, y: 0, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .93, art: "immovableVerticalWall", phaseWall: null, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1,
+          trigger: true, x: 0, y: 0, velocityX: 0, velocityY: 0, sizeX: .3, sizeY: .93, art: "immovableWallVertical", phaseWall: null, specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1,
         },
         //Phase Wall
         {
-          trigger: true, x: 300, y: 426, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .418, art: "immovableVerticalWall", phaseWall: 'phase', specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1,
+          trigger: true, x: 300, y: 426, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .418, art: "immovableWallVertical", phaseWall: 'phase', specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1,
         },
       ],
     wallSpawn:
       [true,
         {
-          trigger: true, x: 4500, y: 400, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "rotatedWall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1
+          trigger: true, x: 4500, y: 400, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "wallHorizontal", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 1
         },
         //First Vertical Wall
         {
-          trigger: true, x: 2000, y: 400, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "wall", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 2
+          trigger: true, x: 2000, y: 400, velocityX: 0, velocityY: 0, sizeX: .5, sizeY: .5, art: "wallVertical", specialCondition: null, specialWorld: null, specialArray: null, positionInArray: 2
         },
         //Test Wall
         // {
@@ -1110,13 +1110,13 @@ function weaponImmovable(weapon, wall) {
 //When Weapon Hits Moveable Objects (It's Special Property Expressed)
 
 function weaponHandler(weapon, sprite) {
-  if (weapon.key === 'bullet1') {
+  if (weapon.key === 'bulletPull') {
     this.game.physics.arcade.moveToObject(sprite, this.player, 200);
   }
-  else if (weapon.key === 'bullet2') {
+  else if (weapon.key === 'bulletStop') {
     sprite.body.stop();
   }
-  else if (weapon.key === 'bullet3') {
+  else if (weapon.key === 'bulletKill') {
     sprite.kill();
   }
   weapon.kill();
