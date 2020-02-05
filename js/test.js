@@ -248,12 +248,12 @@ brawl.testing.prototype = {
 
     },
     ///Creation of Text in Game
-    textCreator: function (x, y, textInput, font, fontSize, fill, fontWeight) {
-        this.text1 = this.game.add.text(x, y, textInput);
-        this.text1.font = font;
-        this.text1.fontSize = fontSize;
-        this.text1.fill = fill;
-        this.text1.fontWeight = fontWeight;
+    textCreator: function (sprite) {
+        this.text1 = this.game.add.text(sprite.x, sprite.y, sprite.textInput);
+        this.text1.font = sprite.font;
+        this.text1.fontSize = sprite.fontSize;
+        this.text1.fill = sprite.fill;
+        this.text1.fontWeight = sprite.fontWeight;
     },
     //Switching to Death State
     deathState: function (victim, killer) {
@@ -368,17 +368,11 @@ brawl.testing.prototype = {
         // - 20 for Tracking//
 
         ///////////////////////////Sprite Generation in World/////////////////////////////
-        // Generating Teleportation Doors
-        // if (levelGenerator.doorSpawn[0]) {
-        //     for (var i = 1; i < levelGenerator.doorSpawn.length; i++) {
-        //         this.doorSpawn(levelGenerator.doorSpawn[i].x, levelGenerator.doorSpawn[i].y, levelGenerator.doorSpawn[i].teleportationX, levelGenerator.doorSpawn[i].teleportationY);
-        //     }
-        // }
         // Generating Undeniable Death
         if (levelGenerator.undeniableDeathSpawn[0]) {
             for (var i = 1; i < levelGenerator.undeniableDeathSpawn.length; i++) {
                 if (levelGenerator.undeniableDeathSpawn[i].trigger) {
-                    this.undeniableDeathSpawn(levelGenerator.undeniableDeathSpawn[i].x, levelGenerator.undeniableDeathSpawn[i].y, levelGenerator.undeniableDeathSpawn[i].velocityX, levelGenerator.undeniableDeathSpawn[i].velocityY, levelGenerator.undeniableDeathSpawn[i].sizeX, levelGenerator.undeniableDeathSpawn[i].sizeY, levelGenerator.undeniableDeathSpawn[i].art, levelGenerator.undeniableDeathSpawn[i].specialCondition, levelGenerator.undeniableDeathSpawn[i].specialWorld, levelGenerator.undeniableDeathSpawn[i].specialArray, levelGenerator.undeniableDeathSpawn[i].positionInArray);
+                    this.undeniableDeathSpawn(levelGenerator.undeniableDeathSpawn[i]);
                 }
             }
         }
@@ -386,7 +380,7 @@ brawl.testing.prototype = {
         if (levelGenerator.immovableWallSpawn[0]) {
             for (var i = 1; i < levelGenerator.immovableWallSpawn.length; i++) {
                 if (levelGenerator.immovableWallSpawn[i].trigger) {
-                    this.immovableSpawn(levelGenerator.immovableWallSpawn[i].x, levelGenerator.immovableWallSpawn[i].y, levelGenerator.immovableWallSpawn[i].velocityX, levelGenerator.immovableWallSpawn[i].velocityY, levelGenerator.immovableWallSpawn[i].sizeX, levelGenerator.immovableWallSpawn[i].sizeY, levelGenerator.immovableWallSpawn[i].art, levelGenerator.immovableWallSpawn[i].phaseWall, levelGenerator.immovableWallSpawn[i].specialCondition, levelGenerator.immovableWallSpawn[i].specialWorld, levelGenerator.immovableWallSpawn[i].specialArray, levelGenerator.immovableWallSpawn[i].positionInArray);
+                    this.immovableWallSpawn(levelGenerator.immovableWallSpawn[i]);
                 }
             }
         }
@@ -394,7 +388,7 @@ brawl.testing.prototype = {
         if (levelGenerator.wallSpawn[0]) {
             for (var i = 1; i < levelGenerator.wallSpawn.length; i++) {
                 if (levelGenerator.wallSpawn[i].trigger) {
-                    this.wallSpawn(levelGenerator.wallSpawn[i].x, levelGenerator.wallSpawn[i].y, levelGenerator.wallSpawn[i].velocityX, levelGenerator.wallSpawn[i].velocityY, levelGenerator.wallSpawn[i].sizeX, levelGenerator.wallSpawn[i].sizeY, levelGenerator.wallSpawn[i].art, levelGenerator.wallSpawn[i].specialCondition, levelGenerator.wallSpawn[i].specialWorld, levelGenerator.wallSpawn[i].specialArray, levelGenerator.wallSpawn[i].positionInArray);
+                    this.wallSpawn(levelGenerator.wallSpawn[i]);
                 }
             }
         }
@@ -402,7 +396,7 @@ brawl.testing.prototype = {
         if (levelGenerator.spikeSpawn[0]) {
             for (var i = 1; i < levelGenerator.spikeSpawn.length; i++) {
                 if (levelGenerator.spikeSpawn[i].trigger) {
-                    this.spikeSpawn(levelGenerator.spikeSpawn[i].x, levelGenerator.spikeSpawn[i].y, levelGenerator.spikeSpawn[i].velocityX, levelGenerator.spikeSpawn[i].velocityY, levelGenerator.spikeSpawn[i].sizeX, levelGenerator.spikeSpawn[i].sizeY, levelGenerator.spikeSpawn[i].art, levelGenerator.spikeSpawn[i].specialCondition, levelGenerator.spikeSpawn[i].specialWorld, levelGenerator.spikeSpawn[i].specialArray, levelGenerator.spikeSpawn[i].positionInArray);
+                    this.spikeSpawn(levelGenerator.spikeSpawn[i]);
                 }
             }
         }
@@ -434,7 +428,7 @@ brawl.testing.prototype = {
         if (levelGenerator.enemySpawn[0]) {
             for (var i = 1; i < levelGenerator.enemySpawn.length; i++) {
                 if (levelGenerator.enemySpawn[i].trigger) {
-                    this.enemySpawn(levelGenerator.enemySpawn[i].x, levelGenerator.enemySpawn[i].y, levelGenerator.enemySpawn[i].velocityX, levelGenerator.enemySpawn[i].velocityY, levelGenerator.enemySpawn[i].specialCondition, levelGenerator.enemySpawn[i].specialWorld, levelGenerator.enemySpawn[i].specialArray, levelGenerator.enemySpawn[i].positionInArray);
+                    this.enemySpawn(levelGenerator.enemySpawn[i]);
                 }
             }
         }
@@ -442,7 +436,7 @@ brawl.testing.prototype = {
         if (levelGenerator.ballSpawn[0]) {
             for (var i = 1; i < levelGenerator.ballSpawn.length; i++) {
                 if (levelGenerator.ballSpawn[i].trigger) {
-                    this.ballSpawn(levelGenerator.ballSpawn[i].x, levelGenerator.ballSpawn[i].y, levelGenerator.ballSpawn[i].velocityX, levelGenerator.ballSpawn[i].velocityY, levelGenerator.ballSpawn[i].specialCondition, levelGenerator.ballSpawn[i].specialWorld, levelGenerator.ballSpawn[i].specialArray, levelGenerator.ballSpawn[i].positionInArray);
+                    this.ballSpawn(levelGenerator.ballSpawn[i]);
                 }
             }
         }
@@ -450,7 +444,7 @@ brawl.testing.prototype = {
         if (levelGenerator.fallingSpikes[0]) {
             for (var i = 1; i < levelGenerator.fallingSpikes.length; i++) {
                 if (levelGenerator.fallingSpikes[i].trigger) {
-                    this.game.time.events.loop(Phaser.Timer.SECOND * levelGenerator.fallingSpikes[i].seconds, this.spikeFall, this, levelGenerator.fallingSpikes[i].x, levelGenerator.fallingSpikes[i].y, levelGenerator.fallingSpikes[i].velocityX, levelGenerator.fallingSpikes[i].velocityY, levelGenerator.fallingSpikes[i].specialCondition, levelGenerator.fallingSpikes[i].specialWorld, levelGenerator.fallingSpikes[i].positionInArray);
+                    this.game.time.events.loop(Phaser.Timer.SECOND * levelGenerator.fallingSpikes[i].seconds, this.spikeFall, this, levelGenerator.fallingSpikes[i]);
                 }
             }
         }
@@ -458,7 +452,7 @@ brawl.testing.prototype = {
         if (levelGenerator.flagSpawn[0]) {
             for (var i = 1; i < levelGenerator.flagSpawn.length; i++) {
                 if (levelGenerator.flagSpawn[i].trigger) {
-                    this.flagSpawn(levelGenerator.flagSpawn[i].x, levelGenerator.flagSpawn[i].y, levelGenerator.flagSpawn[i].velocityX, levelGenerator.flagSpawn[i].velocityY, levelGenerator.flagSpawn[i].indexOfPlayerPosition, levelGenerator.flagSpawn[i].art, levelGenerator.flagSpawn[i].specialCondition, levelGenerator.flagSpawn[i].specialWorld, levelGenerator.flagSpawn[i].specialArray, levelGenerator.flagSpawn[i].positionInArray);
+                    this.flagSpawn(levelGenerator.flagSpawn[i]);
                 }
             }
 
@@ -466,7 +460,7 @@ brawl.testing.prototype = {
         ////////////////////////Text Generation///////////////////////////
         if (levelGenerator.text[0]) {
             for (var i = 1; i < levelGenerator.text.length; i++) {
-                this.textCreator(levelGenerator.text[i].x, levelGenerator.text[i].y, levelGenerator.text[i].textInput, levelGenerator.text[i].font, levelGenerator.text[i].fontSize, levelGenerator.text[i].fill, levelGenerator.text[i].fontWeight);
+                this.textCreator(levelGenerator.text[i]);
             }
         }
 
@@ -485,89 +479,73 @@ brawl.testing.prototype = {
 
     },
     //////////////////////////Creating Game Objects/////////////////////////
-    // doorSpawn: function (x, y, teleportX, teleportY) {
-    //     this.doorsX = this.door.create(x, y, 'door');
-    //     this.doorsX.anchor.setTo(.7);
-    //     this.doorsX.scale.setTo(.7);
-    //     this.doorsX.body.immovable = true;
-    //     this.doorsX.teleportationX = teleportX
-    //     this.doorsX.teleportationY = teleportY
-    //     console.log(this.doorsX.teleportationX);
-    //     ///////////////////////physics properties
-    //     // this.doorX.body.mass = 1;
-    //     // this.doorX.body.maxVelocity.setTo(1000);
-    //     // this.doorX.body.collideWorldBounds = true;
-    //     // this.doorX.body.bounce.setTo(1);
-    //     // this.doorX.body.velocity.setTo(velocityX, velocityY);
-    // },
     //SpikeFall
-    spikeFall: function (x, y, velocityX, velocityY, specialCondition, specialWorld, specialArray, positionInArray) {
-        this.spikesFall = this.fallingSpikes.getFirstDead(true, x, y, 'fallingSpikes');
-        this.spikesFall.specialCondition = specialCondition;
-        this.spikesFall.specialWorld = specialWorld;
-        this.spikesFall.specialArray = specialArray;
-        this.spikesFall.positionInArray = positionInArray;
+    spikeFall: function (sprite) {
+        this.spikesFall = this.fallingSpikes.getFirstDead(true, sprite.x, sprite.y, 'fallingSpikes');
+        this.spikesFall.specialCondition = sprite.specialCondition;
+        this.spikesFall.specialWorld = sprite.specialWorld;
+        this.spikesFall.specialArray = sprite.specialArray;
+        this.spikesFall.positionInArray = sprite.positionInArray;
         this.spikesFall.anchor.setTo(.5);
         this.spikesFall.scale.setTo(.5);
         this.spikesFall.checkWorldBounds = true;
         this.spikesFall.outOfBoundsKill = true;
-        this.spikesFall.body.gravity.x = velocityX;
-        this.spikesFall.body.gravity.y = velocityY;
+        this.spikesFall.body.gravity.x = sprite.velocityX;
+        this.spikesFall.body.gravity.y = sprite.velocityY;
     },
-    coinSpawn: function (x, y, velocityX, velocityY) {
-        this.coinX = this.coin.create(x, y, 'coin');
+    coinSpawn: function (sprite) {
+        this.coinX = this.coin.create(sprite.x, sprite.y, 'coin');
         this.coinX.anchor.setTo(.7);
         this.coinX.scale.setTo(.7);
         this.coinX.body.mass = 1;
         this.coinX.body.maxVelocity.setTo(1000);
         this.coinX.body.collideWorldBounds = true;
         this.coinX.body.bounce.setTo(1);
-        this.coinX.body.velocity.setTo(velocityX, velocityY);
-        // this.coinX.alignIn(rect, positionInRectangle);
-        // console.log(this.coinX);
+        this.coinX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
+
     },
-    flagSpawn: function (x, y, velocityX, velocityY, indexOfPlayerPosition, art, specialCondition, specialWorld, specialArray, positionInArray) {
-        this.flagX = this.flag.create(x, y, art);
-        this.flagX.specialCondition = specialCondition;
-        this.flagX.specialWorld = specialWorld;
-        this.flagX.specialArray = specialArray;
-        this.flagX.positionInArray = positionInArray;
+    flagSpawn: function (sprite) {
+        this.flagX = this.flag.create(sprite.x, sprite.y, sprite.art);
+        this.flagX.specialCondition = sprite.specialCondition;
+        this.flagX.specialWorld = sprite.specialWorld;
+        this.flagX.specialArray = sprite.specialArray;
+        this.flagX.positionInArray = sprite.positionInArray;
         this.flagX.body.mass = 1;
         this.flagX.body.maxVelocity.setTo(1000);
         this.flagX.body.collideWorldBounds = true;
         this.flagX.body.bounce.setTo(1);
-        this.flagX.body.velocity.setTo(velocityX, velocityY);
-        this.flagX.indexOfPlayerPosition = indexOfPlayerPosition;
+        this.flagX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
+        this.flagX.indexOfPlayerPosition = sprite.indexOfPlayerPosition;
     },
-    undeniableDeathSpawn: function (x, y, velocityX, velocityY, sizeX, sizeY, art, specialCondition, specialWorld, specialArray, positionInArray) {
-        this.deathX = this.death.create(x, y, art);
-        this.deathX.specialCondition = specialCondition;
-        this.deathX.specialWorld = specialWorld;
-        this.deathX.specialArray = specialArray;
-        this.deathX.positionInArray = positionInArray;
-        this.deathX.scale.setTo(sizeX, sizeY);
+    undeniableDeathSpawn: function (sprite) {
+        this.deathX = this.death.create(sprite.x, sprite.y, sprite.art);
+        this.deathX.specialCondition = sprite.specialCondition;
+        this.deathX.specialWorld = sprite.specialWorld;
+        this.deathX.specialArray = sprite.specialArray;
+        this.deathX.positionInArray = sprite.positionInArray;
+        this.deathX.scale.setTo(sprite.sizeX, sprite.sizeY);
         this.deathX.body.immovable = true;
         this.deathX.body.mass = 300;
         this.deathX.body.collideWorldBounds = true;
         this.deathX.body.immovable = true;
         this.deathX.body.bounce.setTo(1);
-        this.deathX.body.velocity.setTo(velocityX, velocityY);
+        this.deathX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
     },
-    wallSpawn: function (x, y, velocityX, velocityY, sizeX, sizeY, art, specialCondition, specialWorld, specialArray, positionInArray) {
-        this.wallX = this.wall.create(x, y, art);
-        this.wallX.specialCondition = specialCondition;
-        this.wallX.specialWorld = specialWorld;
-        this.wallX.specialArray = specialArray;
-        this.wallX.positionInArray = positionInArray;
+    wallSpawn: function (sprite) {
+        this.wallX = this.wall.create(sprite.x, sprite.y, sprite.art);
+        this.wallX.specialCondition = sprite.specialCondition;
+        this.wallX.specialWorld = sprite.specialWorld;
+        this.wallX.specialArray = sprite.specialArray;
+        this.wallX.positionInArray = sprite.positionInArray;
         this.wallX.velocityVsImmovable = 100;
         this.wallX.anchor.setTo(.5);
-        this.wallX.scale.setTo(sizeX, sizeY);
+        this.wallX.scale.setTo(sprite.sizeX, sprite.sizeY);
         this.wallX.body.immovable = true;
         this.wallX.body.mass = 150;
         this.wallX.body.maxVelocity.setTo(500);
         this.wallX.body.collideWorldBounds = true;
         this.wallX.body.bounce.setTo(1);
-        this.wallX.body.velocity.setTo(velocityX, velocityY);
+        this.wallX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
         ///////////Drag Events///////////
         // this.wallX.inputEnabled = true;
         // this.wallX.input.enableDrag();
@@ -575,31 +553,31 @@ brawl.testing.prototype = {
         // this.wallX.events.onDragStop.add(this.stopDrag, this);
         // this.wallX.body.moves = false;
     },
-    immovableSpawn: function (x, y, velocityX, velocityY, sizeX, sizeY, art, phaseWall, specialCondition, specialWorld, specialArray, positionInArray) {
-        this.immovableWallX = this.immovableWall.create(x, y, art);
+    immovableWallSpawn: function (sprite) {
+        this.immovableWallX = this.immovableWall.create(sprite.x, sprite.y, sprite.art);
         // this.immovableWallX.anchor.setTo(.5);
-        this.immovableWallX.specialCondition = specialCondition;
-        this.immovableWallX.specialWorld = specialWorld;
-        this.immovableWallX.specialArray = specialArray;
-        this.immovableWallX.positionInArray = positionInArray;
-        this.immovableWallX.phaseWall = phaseWall;
-        if (phaseWall === 'phase') {
+        this.immovableWallX.specialCondition = sprite.specialCondition;
+        this.immovableWallX.specialWorld = sprite.specialWorld;
+        this.immovableWallX.specialArray = sprite.specialArray;
+        this.immovableWallX.positionInArray = sprite.positionInArray;
+        this.immovableWallX.phaseWall = sprite.phaseWall;
+        if (sprite.phaseWall === 'phase') {
             this.immovableWallX.tint = Phaser.Color.hexToRGB("#6a0dad");
         }
-        this.immovableWallX.scale.setTo(sizeX, sizeY);
+        this.immovableWallX.scale.setTo(sprite.sizeX, sprite.sizeY);
         this.immovableWallX.body.immovable = true;
         this.immovableWallX.body.mass = 400;
         this.immovableWallX.body.maxVelocity.setTo(1000);
         this.immovableWallX.body.collideWorldBounds = true;
         this.immovableWallX.body.bounce.setTo(1);
-        this.immovableWallX.body.velocity.setTo(velocityX, velocityY);
+        this.immovableWallX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
     },
-    enemySpawn: function (x, y, velocityX, velocityY, specialCondition, specialWorld, specialArray, positionInArray) {
-        this.trumpX = this.enemy.create(x, y, 'enemy');
-        this.trumpX.specialCondition = specialCondition;
-        this.trumpX.specialWorld = specialWorld;
-        this.trumpX.specialArray = specialArray;
-        this.trumpX.positionInArray = positionInArray;
+    enemySpawn: function (sprite) {
+        this.trumpX = this.enemy.create(sprite.x, sprite.y, 'enemy');
+        this.trumpX.specialCondition = sprite.specialCondition;
+        this.trumpX.specialWorld = sprite.specialWorld;
+        this.trumpX.specialArray = sprite.specialArray;
+        this.trumpX.positionInArray = sprite.positionInArray;
         this.trumpX.velocityVsWallX = 50;
         this.trumpX.velocityVsWallY = 50;
         this.trumpX.anchor.setTo(.5);
@@ -608,7 +586,7 @@ brawl.testing.prototype = {
         this.trumpX.body.maxVelocity.setTo(1000);
         this.trumpX.body.collideWorldBounds = true;
         this.trumpX.body.bounce.setTo(1);
-        this.trumpX.body.velocity.setTo(velocityX, velocityY);
+        this.trumpX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
     },
     ledgeGreySpawn: function (x, y, velocityX, velocityY, specialCondition, specialWorld, specialArray, positionInArray) {
         this.ledgeGrey = this.ledge.create(x, y, 'ledge');
@@ -661,13 +639,13 @@ brawl.testing.prototype = {
         this.ledgeBlue.body.bounce.setTo(1);
         this.ledgeBlue.body.velocity.setTo(velocityX, velocityY);
     },
-    ballSpawn: function (x, y, velocityX, velocityY, specialCondition, specialWorld, specialArray, positionInArray) {
+    ballSpawn: function (sprite) {
         //Adding Ball
-        this.ballX = this.ball.create(x, y, 'ball');
-        this.ballX.specialCondition = specialCondition;
-        this.ballX.specialWorld = specialWorld;
-        this.ballX.specialArray = specialArray;
-        this.ballX.positionInArray = positionInArray;
+        this.ballX = this.ball.create(sprite.x, sprite.y, 'ball');
+        this.ballX.specialCondition = sprite.specialCondition;
+        this.ballX.specialWorld = sprite.specialWorld;
+        this.ballX.specialArray = sprite.specialArray;
+        this.ballX.positionInArray = sprite.positionInArray;
         this.ballX.velocityVsWallX = 300;
         this.ballX.velocityVsWallY = 300;
         this.ballX.anchor.setTo(.5);
@@ -677,24 +655,21 @@ brawl.testing.prototype = {
         this.ballX.body.maxVelocity.setTo(1000);
         this.ballX.body.collideWorldBounds = true;
         this.ballX.body.bounce.setTo(1.0);
-        this.ballX.body.velocity.setTo(velocityX, velocityY);
+        this.ballX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
     },
-    spikeSpawn: function (x, y, velocityX, velocityY, sizeX, sizeY, art, specialCondition, specialWorld, specialArray, positionInArray) {
-        // var spikeArray = ['invertedSpikes', 'spikes'];
-        // // var spikeLength = [.2, .3, .4, .5];
-        // var spikeLength = [.2, .3,];
-        this.spikesX = this.spikes.create(x, y, art);
-        this.spikesX.specialCondition = specialCondition;
-        this.spikesX.specialWorld = specialWorld;
-        this.spikesX.specialArray = specialArray;
-        this.spikesX.positionInArray = positionInArray;
+    spikeSpawn: function (sprite) {
+        this.spikesX = this.spikes.create(sprite.x, sprite.y, sprite.art);
+        this.spikesX.specialCondition = sprite.specialCondition;
+        this.spikesX.specialWorld = sprite.specialWorld;
+        this.spikesX.specialArray = sprite.specialArray;
+        this.spikesX.positionInArray = sprite.positionInArray;
         this.spikesX.anchor.setTo(.5);
-        this.spikesX.scale.setTo(sizeX, sizeY);
+        this.spikesX.scale.setTo(sprite.sizeX, sprite.sizeY);
         this.spikesX.body.immovable = true;
         this.spikesX.body.mass = 150;
         this.spikesX.body.collideWorldBounds = true;
         this.spikesX.body.bounce.setTo(1.0);
-        this.spikesX.body.velocity.setTo(velocityX, velocityY);
+        this.spikesX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
         // this.spikesX.alignIn(rect, positionInRectangle);
         // this.spikeFall(this.spikesX);
     },

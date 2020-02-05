@@ -1326,6 +1326,43 @@ function ballMover(player, ball) {
 ////////////////////////////////////Player Ledge Mechanics//////////////////////////////////////
 
 function ledgePhysics(player,ledge) {
+  if (ledge.type === 'elevator') {
+    ledge.body.stop();
+    if (ledge.body.touching.up) {
+      ledge.body.velocity.y = -200;
+      player.body.velocity.y = -200
+      // if (player.body.velocity.x < 0) {
+      //   ledge.body.velocity.x = player.body.velocity.x - 100;
+      // }
+      // if (player.body.velocity.x > 0) {
+      //   ledge.body.velocity.x = player.body.velocity.x + 100;
+      // }
+      // {
+      //   ledge.body.velocity.x = 0;
+      // }
+    }
+    // When You're Hitting the Edge from the Sides (Right and Left)
+    else if (ledge.body.touching.left || ledge.body.touching.right) {
+      ledge.body.velocity.y = 0;
+      ledge.body.velocity.x = player.body.velocity.x;
+    }
+    /////////////////////////////////In Case Want to Change Side Ledge Velocity///////////
+    // if (ledge.body.touching.left) {
+    //   ledge.body.velocity.y = 0;
+    //   ledge.body.velocity.x = 300;
+    // }
+    // if (ledge.body.touching.right) {
+    //   ledge.body.velocity.y = 0;
+    //   ledge.body.velocity.x = -300;
+    // }
+    // if (ledge.body.touching.down && player.body.velocity.y < -1) {
+    //   player.body.velocity.y = -100;
+    // }
+    else if (ledge.body.touching.down) {
+      ledge.body.velocity.y = -300;
+      player.body.velocity.y = -100;
+    }
+  }
 
 }
 
