@@ -584,7 +584,7 @@ brawl.testing.prototype = {
         this.immovableWallX.positionInArray = positionInArray;
         this.immovableWallX.phaseWall = phaseWall;
         if (phaseWall === 'phase') {
-            this.immovableWallX.tint = "#a7a6ba";
+            this.immovableWallX.tint = Phaser.Color.hexToRGB("#6a0dad");
         }
         this.immovableWallX.scale.setTo(sizeX, sizeY);
         this.immovableWallX.body.immovable = true;
@@ -835,12 +835,12 @@ brawl.testing.prototype = {
         // this.wall.forEachAlive(this.wallStop,this);
         ////////////////////////Physics////////////////////////
         //Player Mechanics
+        var onImmovable = this.game.physics.arcade.collide(this.player, this.immovableWall, null, null, this);
         var onWall = this.game.physics.arcade.collide(this.player, this.wall, null, null, this);
         var onLedgeGrey = this.game.physics.arcade.collide(this.player, this.ledge, ledgeUp, null, this);
         var onLedgeGreen = this.game.physics.arcade.collide(this.player, this.ledgeDown, ledgeDownS, null, this);
         var onLedgeBlue = this.game.physics.arcade.collide(this.player, this.ledgeSide, ledgeSideX, null, this);
         var onBall = this.game.physics.arcade.collide(this.player, this.ball, ballMover, null, this);
-        var onImmovable = this.game.physics.arcade.collide(this.player, this.immovableWall, null, null, this);
 
         //Respawn Point Mechanics
         this.game.physics.arcade.overlap(this.player, this.flag, this.respawn, null, this);
