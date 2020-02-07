@@ -252,6 +252,7 @@ brawl.gameOn.prototype = {
         this.text1.fontSize = sprite.fontSize;
         this.text1.fill = sprite.fill;
         this.text1.fontWeight = sprite.fontWeight;
+        this.text1.positionInArray = sprite.positionInArray;
     },
     //Switching to Death State
     deathState: function (victim, killer) {
@@ -445,6 +446,87 @@ brawl.gameOn.prototype = {
                 this.textCreator(levelGenerator.text[i]);
             }
         }
+        /*
+        // Generating Undeniable Death
+        if ('undeniableDeathSpawn' in levelGenerator) {
+            for (var i = 0; i < levelGenerator.undeniableDeathSpawn.length; i++) {
+                if (levelGenerator.undeniableDeathSpawn[i].trigger) {
+                    this.undeniableDeathSpawn(levelGenerator.undeniableDeathSpawn[i]);
+                }
+            }
+        }
+        //Generating Immovable Walls
+        if ('immovableWallSpawn' in levelGenerator) {
+            for (var i = 0; i < levelGenerator.immovableWallSpawn.length; i++) {
+                if (levelGenerator.immovableWallSpawn[i].trigger) {
+                    this.immovableWallSpawn(levelGenerator.immovableWallSpawn[i]);
+                }
+            }
+        }
+        //Generating movable Walls
+        if ('wallSpawn' in levelGenerator) {
+            for (var i = 0; i < levelGenerator.wallSpawn.length; i++) {
+                if (levelGenerator.wallSpawn[i].trigger) {
+                    this.wallSpawn(levelGenerator.wallSpawn[i]);
+                }
+            }
+        }
+        //Generating spikes
+        if ('spikeSpawn' in levelGenerator) {
+            for (var i = 0; i < levelGenerator.spikeSpawn.length; i++) {
+                if (levelGenerator.spikeSpawn[i].trigger) {
+                    this.spikeSpawn(levelGenerator.spikeSpawn[i]);
+                }
+            }
+        }
+        //Generating Ledges
+        if ('ledgeSpawn' in levelGenerator) {
+            for (var i = 0; i < levelGenerator.ledgeSpawn.length; i++) {
+                if (levelGenerator.ledgeSpawn[i].trigger) {
+                    this.ledgeSpawn(levelGenerator.ledgeSpawn[i]);
+                }
+            }
+        }
+        //Generating enemies (Tabled For Now)
+        if ('enemySpawn' in levelGenerator) {
+            for (var i = 0; i < levelGenerator.enemySpawn.length; i++) {
+                if (levelGenerator.enemySpawn[i].trigger) {
+                    this.enemySpawn(levelGenerator.enemySpawn[i]);
+                }
+            }
+        }
+        //Generating balls ledges
+        if ('ballSpawn' in levelGenerator) {
+            for (var i = 0; i < levelGenerator.ballSpawn.length; i++) {
+                if (levelGenerator.ballSpawn[i].trigger) {
+                    this.ballSpawn(levelGenerator.ballSpawn[i]);
+                }
+            }
+        }
+        ///////////////////(Falling Spikes)////////////////
+        if ('fallingSpikes' in levelGenerator) {
+            for (var i = 0; i < levelGenerator.fallingSpikes.length; i++) {
+                if (levelGenerator.fallingSpikes[i].trigger) {
+                    this.game.time.events.loop(Phaser.Timer.SECOND * levelGenerator.fallingSpikes[i].seconds, this.spikeFall, this, levelGenerator.fallingSpikes[i]);
+                }
+            }
+        }
+        // //////////////////(Respawn)Flag//////////////////
+        if ('flagSpawn' in levelGenerator) {
+            for (var i = 0; i < levelGenerator.flagSpawn.length; i++) {
+                if (levelGenerator.flagSpawn[i].trigger) {
+                    this.flagSpawn(levelGenerator.flagSpawn[i]);
+                }
+            }
+
+        }
+        ////////////////////////Text Generation///////////////////////////
+        if ('text' in levelGenerator) {
+            for (var i = 0; i < levelGenerator.text.length; i++) {
+                this.textCreator(levelGenerator.text[i]);
+            }
+        }
+        */
 
         ///////////////////Debugging Purposes (Knowing The Placement of Each Sprites)/////////////////////////
         // var distanceOfXandY = 200;
@@ -547,8 +629,11 @@ brawl.gameOn.prototype = {
         this.immovableWallX.specialArray = sprite.specialArray;
         this.immovableWallX.positionInArray = sprite.positionInArray;
         this.immovableWallX.type = sprite.type;
-        if (sprite.type === 'phase') {
+        if (sprite.type === 'immovableWallPhase') {
             this.immovableWallX.tint = Phaser.Color.hexToRGB("#6a0dad");
+        }
+        if (sprite.type === 'immovableWallKillWall') {
+            this.immovableWallX.tint = Phaser.Color.hexToRGB("#cdf053");
         }
         this.immovableWallX.scale.setTo(sprite.sizeX, sprite.sizeY);
         this.immovableWallX.body.immovable = true;

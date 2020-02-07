@@ -84,7 +84,7 @@ brawl.stateControls.prototype = {
 
 
             //class test
-            this.game.state.start('practiceEnvironment', true, false, 0, 1, worldClassLevels[0].metroidvania);
+            this.game.state.start('practiceEnvironment', true, false, 1, 1, worldClassLevels[1].metroidvania);
 
         }
     }

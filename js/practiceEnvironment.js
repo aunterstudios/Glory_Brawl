@@ -252,6 +252,7 @@ brawl.practiceEnvironment.prototype = {
         this.text1.fontSize = sprite.fontSize;
         this.text1.fill = sprite.fill;
         this.text1.fontWeight = sprite.fontWeight;
+        this.text1.positionInArray = sprite.positionInArray;
     },
     //Switching to Death State
     deathState: function (victim, killer) {
@@ -367,7 +368,7 @@ brawl.practiceEnvironment.prototype = {
 
         ///////////////////////////Sprite Generation in World/////////////////////////////
         // Generating Undeniable Death
-        if (levelGenerator.undeniableDeathSpawn.length > 0) {
+        if ('undeniableDeathSpawn' in levelGenerator) {
             for (var i = 0; i < levelGenerator.undeniableDeathSpawn.length; i++) {
                 if (levelGenerator.undeniableDeathSpawn[i].trigger) {
                     this.undeniableDeathSpawn(levelGenerator.undeniableDeathSpawn[i]);
@@ -375,7 +376,7 @@ brawl.practiceEnvironment.prototype = {
             }
         }
         //Generating Immovable Walls
-        if (levelGenerator.immovableWallSpawn.length > 0) {
+        if ('immovableWallSpawn' in levelGenerator) {
             for (var i = 0; i < levelGenerator.immovableWallSpawn.length; i++) {
                 if (levelGenerator.immovableWallSpawn[i].trigger) {
                     this.immovableWallSpawn(levelGenerator.immovableWallSpawn[i]);
@@ -383,7 +384,7 @@ brawl.practiceEnvironment.prototype = {
             }
         }
         //Generating movable Walls
-        if (levelGenerator.wallSpawn.length > 0) {
+        if ('wallSpawn' in levelGenerator) {
             for (var i = 0; i < levelGenerator.wallSpawn.length; i++) {
                 if (levelGenerator.wallSpawn[i].trigger) {
                     this.wallSpawn(levelGenerator.wallSpawn[i]);
@@ -391,7 +392,7 @@ brawl.practiceEnvironment.prototype = {
             }
         }
         //Generating spikes
-        if (levelGenerator.spikeSpawn.length > 0) {
+        if ('spikeSpawn' in levelGenerator) {
             for (var i = 0; i < levelGenerator.spikeSpawn.length; i++) {
                 if (levelGenerator.spikeSpawn[i].trigger) {
                     this.spikeSpawn(levelGenerator.spikeSpawn[i]);
@@ -399,7 +400,7 @@ brawl.practiceEnvironment.prototype = {
             }
         }
         //Generating Ledges
-        if (levelGenerator.ledgeSpawn.length > 0) {
+        if ('ledgeSpawn' in levelGenerator) {
             for (var i = 0; i < levelGenerator.ledgeSpawn.length; i++) {
                 if (levelGenerator.ledgeSpawn[i].trigger) {
                     this.ledgeSpawn(levelGenerator.ledgeSpawn[i]);
@@ -407,7 +408,7 @@ brawl.practiceEnvironment.prototype = {
             }
         }
         //Generating enemies (Tabled For Now)
-        if (levelGenerator.enemySpawn.length > 0) {
+        if ('enemySpawn' in levelGenerator) {
             for (var i = 0; i < levelGenerator.enemySpawn.length; i++) {
                 if (levelGenerator.enemySpawn[i].trigger) {
                     this.enemySpawn(levelGenerator.enemySpawn[i]);
@@ -415,7 +416,7 @@ brawl.practiceEnvironment.prototype = {
             }
         }
         //Generating balls ledges
-        if (levelGenerator.ballSpawn.length > 0) {
+        if ('ballSpawn' in levelGenerator) {
             for (var i = 0; i < levelGenerator.ballSpawn.length; i++) {
                 if (levelGenerator.ballSpawn[i].trigger) {
                     this.ballSpawn(levelGenerator.ballSpawn[i]);
@@ -423,7 +424,7 @@ brawl.practiceEnvironment.prototype = {
             }
         }
         ///////////////////(Falling Spikes)////////////////
-        if (levelGenerator.fallingSpikes.length > 0) {
+        if ('fallingSpikes' in levelGenerator) {
             for (var i = 0; i < levelGenerator.fallingSpikes.length; i++) {
                 if (levelGenerator.fallingSpikes[i].trigger) {
                     this.game.time.events.loop(Phaser.Timer.SECOND * levelGenerator.fallingSpikes[i].seconds, this.spikeFall, this, levelGenerator.fallingSpikes[i]);
@@ -431,7 +432,7 @@ brawl.practiceEnvironment.prototype = {
             }
         }
         // //////////////////(Respawn)Flag//////////////////
-        if (levelGenerator.flagSpawn.length > 0) {
+        if ('flagSpawn' in levelGenerator) {
             for (var i = 0; i < levelGenerator.flagSpawn.length; i++) {
                 if (levelGenerator.flagSpawn[i].trigger) {
                     this.flagSpawn(levelGenerator.flagSpawn[i]);
@@ -440,7 +441,7 @@ brawl.practiceEnvironment.prototype = {
 
         }
         ////////////////////////Text Generation///////////////////////////
-        if (levelGenerator.text.length > 0) {
+        if ('text' in levelGenerator) {
             for (var i = 0; i < levelGenerator.text.length; i++) {
                 this.textCreator(levelGenerator.text[i]);
             }
@@ -484,19 +485,21 @@ brawl.practiceEnvironment.prototype = {
         this.coinX.body.collideWorldBounds = true;
         this.coinX.body.bounce.setTo(1);
         this.coinX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
-
     },
     flagSpawn: function (sprite) {
         this.flagX = this.flag.create(sprite.x, sprite.y, sprite.art);
+        this.flagX.type = sprite.type;
         this.flagX.specialCondition = sprite.specialCondition;
         this.flagX.specialWorld = sprite.specialWorld;
         this.flagX.specialArray = sprite.specialArray;
         this.flagX.positionInArray = sprite.positionInArray;
+        //this.flagX.scale(sprite.sizeX,sprite.sizeY);
         this.flagX.body.mass = 1;
         this.flagX.body.maxVelocity.setTo(1000);
         this.flagX.body.collideWorldBounds = true;
         this.flagX.body.bounce.setTo(1);
         this.flagX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
+        ////////////////Special Property of Flag//////////////////
         this.flagX.indexOfPlayerPosition = sprite.indexOfPlayerPosition;
     },
     undeniableDeathSpawn: function (sprite) {
@@ -515,7 +518,6 @@ brawl.practiceEnvironment.prototype = {
         this.deathX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
     },
     wallSpawn: function (sprite) {
-        console.log(sprite, 'wallSprite');
         this.wallX = this.wall.create(sprite.x, sprite.y, sprite.art);
         this.wallX.specialCondition = sprite.specialCondition;
         this.wallX.specialWorld = sprite.specialWorld;
@@ -540,13 +542,16 @@ brawl.practiceEnvironment.prototype = {
     immovableWallSpawn: function (sprite) {
         this.immovableWallX = this.immovableWall.create(sprite.x, sprite.y, sprite.art);
         // this.immovableWallX.anchor.setTo(.5);
+        this.immovableWallX.type = sprite.type;
         this.immovableWallX.specialCondition = sprite.specialCondition;
         this.immovableWallX.specialWorld = sprite.specialWorld;
         this.immovableWallX.specialArray = sprite.specialArray;
         this.immovableWallX.positionInArray = sprite.positionInArray;
-        this.immovableWallX.phaseWall = sprite.phaseWall;
-        if (sprite.phaseWall === 'phase') {
+        if (sprite.type === 'immovableWallPhase') {
             this.immovableWallX.tint = Phaser.Color.hexToRGB("#6a0dad");
+        }
+        if (sprite.type === 'immovableWallKillWall') {
+            this.immovableWallX.tint = Phaser.Color.hexToRGB("#cdf053");
         }
         this.immovableWallX.scale.setTo(sprite.sizeX, sprite.sizeY);
         this.immovableWallX.body.immovable = true;
@@ -558,6 +563,7 @@ brawl.practiceEnvironment.prototype = {
     },
     enemySpawn: function (sprite) {
         this.trumpX = this.enemy.create(sprite.x, sprite.y, 'enemy');
+        this.trumpX.type = sprite.type;
         this.trumpX.specialCondition = sprite.specialCondition;
         this.trumpX.specialWorld = sprite.specialWorld;
         this.trumpX.specialArray = sprite.specialArray;
@@ -573,16 +579,7 @@ brawl.practiceEnvironment.prototype = {
         this.trumpX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
     },
     ledgeSpawn: function (sprite) {
-        if (sprite.type === 'elevator') {
-            var ledgeArt = 'ledgeElevator';
-        }
-        else if (sprite.type === 'bounce') {
-            var ledgeArt = 'ledgeBounce';
-        }
-        else if (sprite.type === 'surf') {
-            var ledgeArt = 'ledgeSurf'
-        }
-        this.ledgeX = this.ledge.create(sprite.x, sprite.y, ledgeArt);
+        this.ledgeX = this.ledge.create(sprite.x, sprite.y, sprite.art);
         this.ledgeX.type = sprite.type;
         this.ledgeX.specialCondition = sprite.specialCondition;
         this.ledgeX.specialWorld = sprite.specialWorld;
@@ -601,6 +598,7 @@ brawl.practiceEnvironment.prototype = {
     ballSpawn: function (sprite) {
         //Adding Ball
         this.ballX = this.ball.create(sprite.x, sprite.y, 'ball');
+        this.ballX.type = sprite.type;
         this.ballX.specialCondition = sprite.specialCondition;
         this.ballX.specialWorld = sprite.specialWorld;
         this.ballX.specialArray = sprite.specialArray;
@@ -618,6 +616,7 @@ brawl.practiceEnvironment.prototype = {
     },
     spikeSpawn: function (sprite) {
         this.spikesX = this.spikes.create(sprite.x, sprite.y, sprite.art);
+        this.spikesX.type = sprite.type;
         this.spikesX.specialCondition = sprite.specialCondition;
         this.spikesX.specialWorld = sprite.specialWorld;
         this.spikesX.specialArray = sprite.specialArray;
@@ -632,13 +631,6 @@ brawl.practiceEnvironment.prototype = {
         // this.spikesX.alignIn(rect, positionInRectangle);
         // this.spikeFall(this.spikesX);
     },
-    //Dragging Motion for Walls
-    // startDrag: function () {
-    //     this.wallX.body.moves = false;
-    // },
-    // stopDrag: function () {
-    //     this.wallX.body.moves = true;
-    // },
     //Put the Game on Full Screen Mode
     gofull: function () {
         if (this.game.scale.isFullScreen) {
