@@ -272,7 +272,7 @@ brawl.gameOn.prototype = {
             worldDesignedLevels[flag.specialWorld].immovableWallSpawn[flag.specialArray].trigger = false;
         }
     },
-    specialConditionHandler(sprite1, sprite2) {
+    ballSpike(sprite1, sprite2) {
         sprite2.kill();
         //Removes Localized Sprites from Regenerating (Spikes)
         if (sprite2.specialCondition === 0) {
@@ -474,6 +474,8 @@ brawl.gameOn.prototype = {
         this.spikesFall.outOfBoundsKill = true;
         this.spikesFall.body.gravity.x = sprite.velocityX;
         this.spikesFall.body.gravity.y = sprite.velocityY;
+        ////////////////////Velocity/////////////
+        // this.spikesFall.body.velocity.y = sprite.velocityY;
     },
     coinSpawn: function (sprite) {
         this.coinX = this.coin.create(sprite.x, sprite.y, 'coin');
@@ -501,6 +503,7 @@ brawl.gameOn.prototype = {
     },
     undeniableDeathSpawn: function (sprite) {
         this.deathX = this.death.create(sprite.x, sprite.y, sprite.art);
+        this.deathX.type = sprite.type;
         this.deathX.specialCondition = sprite.specialCondition;
         this.deathX.specialWorld = sprite.specialWorld;
         this.deathX.specialArray = sprite.specialArray;
@@ -527,6 +530,7 @@ brawl.gameOn.prototype = {
         this.wallX.body.maxVelocity.setTo(500);
         this.wallX.body.collideWorldBounds = true;
         this.wallX.body.bounce.setTo(1);
+        // this.wallX.body.allowDrag = false;
         this.wallX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
         ///////////Drag Events///////////
         // this.wallX.inputEnabled = true;
@@ -542,8 +546,8 @@ brawl.gameOn.prototype = {
         this.immovableWallX.specialWorld = sprite.specialWorld;
         this.immovableWallX.specialArray = sprite.specialArray;
         this.immovableWallX.positionInArray = sprite.positionInArray;
-        this.immovableWallX.phaseWall = sprite.phaseWall;
-        if (sprite.phaseWall === 'phase') {
+        this.immovableWallX.type = sprite.type;
+        if (sprite.type === 'phase') {
             this.immovableWallX.tint = Phaser.Color.hexToRGB("#6a0dad");
         }
         this.immovableWallX.scale.setTo(sprite.sizeX, sprite.sizeY);
@@ -569,6 +573,7 @@ brawl.gameOn.prototype = {
         this.trumpX.body.collideWorldBounds = true;
         this.trumpX.body.bounce.setTo(1);
         this.trumpX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
+        console.log(this.trumpX.body.gravity.x, this.trumpX.body.gravity.y);
     },
     ledgeSpawn: function (sprite) {
         if (sprite.type === 'elevator') {
@@ -755,16 +760,16 @@ brawl.gameOn.prototype = {
     },
     //////////////////////////////Test Functions////////////////////////
     //////////////////////////////Moveable Wall Test///////////////////
-    // wallStop: function (wall) {
-    //     wall.body.immovable = false;
-    //     console.log(wall.body.immovable);
+    // groupSpriteTester: function (sprite) {
+    //     console.log(sprite.body.gravity.x, sprite.body.gravity.y)
     // },
     // //How Game Updates Real-Time (Actual Controls)
     update: function () {
 
         ////////////////////////////////////FPS Debugging////////////////////////////////////////
         // console.log(this.game.time.fps);
-        // this.wall.forEachAlive(this.wallStop,this);
+        ///////////////////////////////////Testing Groups///////////////////////////////////////
+        // this.enemy.forEachAlive(this.groupSpriteTester,this);
         ////////////////////////Physics////////////////////////
         //Player Mechanics
         var onImmovable = this.game.physics.arcade.collide(this.player, this.immovableWall, null, null, this);
@@ -796,7 +801,7 @@ brawl.gameOn.prototype = {
 
         // Ball Mechanics
         this.game.physics.arcade.collide(this.ball, [this.ball, this.ledge, this.death], null, null, this);
-        this.game.physics.arcade.overlap(this.ball, [this.enemy, this.spikes], this.specialConditionHandler, null, this);
+        this.game.physics.arcade.overlap(this.ball, [this.enemy, this.spikes], this.ballSpike, null, this);
 
         //Ledge and Enemy Interactions
         this.game.physics.arcade.collide(this.ledge, [this.ledge, this.spikes, this.enemy, this.death], null, null, this); //preventPhysicsBug Removed

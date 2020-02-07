@@ -1,4 +1,4 @@
-//////////////////////////////////////////Practice Environment//////////////////////////////////////////
+//////////////////////////////////////////Environment//////////////////////////////////////////
 brawl.practiceEnvironment = function () { };
 brawl.practiceEnvironment.prototype = {
     init: function (indexOfCurrentWorld, indexOfPlayerPosition, metroidvania) {
@@ -95,7 +95,7 @@ brawl.practiceEnvironment.prototype = {
         this.game.physics.arcade.OVERLAP_BIAS = 20; //20 is original
 
         ////////////////////Game World Size//////////////////////
-        this.game.world.setBounds(0, 0, worldDesignedLevels[this.indexOfCurrentWorld].xOfWorld, worldDesignedLevels[this.indexOfCurrentWorld].yOfWorld);
+        this.game.world.setBounds(0, 0, worldClassLevels[this.indexOfCurrentWorld].xOfWorld, worldClassLevels[this.indexOfCurrentWorld].yOfWorld);
 
         ////////////////////////////////////Keyboard Controls/////////////////////////////////
         this.cursors = this.game.input.keyboard.createCursorKeys();
@@ -169,9 +169,9 @@ brawl.practiceEnvironment.prototype = {
 
         /////////////////////////World Creation Initialization Grid///////////////////////
         var worldName;
-        this.worldCreator(worldDesignedLevels[this.indexOfCurrentWorld]);
+        this.worldCreator(worldClassLevels[this.indexOfCurrentWorld]);
 
-        worldName = worldDesignedLevels[this.indexOfCurrentWorld].worldName
+        worldName = worldClassLevels[this.indexOfCurrentWorld].worldName
 
         ////////////////////////////////////////////Camera///////////////////////////////////////////////////////////
         // this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_PLATFORMER);
@@ -223,25 +223,25 @@ brawl.practiceEnvironment.prototype = {
         if (player.y <= this.metroidvania.roomUpValue) {
             // player.reset(0, player.y)
             // player.body.velocity.x = 400;
-            this.game.state.restart(true, false, this.metroidvania.roomUpIndex, 1, worldDesignedLevels[this.metroidvania.roomUpIndex].metroidvania);
+            this.game.state.restart(true, false, this.metroidvania.roomUpIndex, 1, worldClassLevels[this.metroidvania.roomUpIndex].metroidvania);
         }
         //Down
         else if (player.y >= this.metroidvania.roomDownValue) {
             // player.reset(1400, player.y)
             // player.body.velocity.x = -400;
-            this.game.state.restart(true, false, this.metroidvania.roomDownIndex, 0, worldDesignedLevels[this.metroidvania.roomDownIndex].metroidvania);
+            this.game.state.restart(true, false, this.metroidvania.roomDownIndex, 0, worldClassLevels[this.metroidvania.roomDownIndex].metroidvania);
         }
         //Left
         else if (player.x <= this.metroidvania.roomLeftValue) {
             // player.reset(1400, player.y)
             // player.body.velocity.x = -400;
-            this.game.state.restart(true, false, this.metroidvania.roomLeftIndex, 3, worldDesignedLevels[this.metroidvania.roomLeftIndex].metroidvania);
+            this.game.state.restart(true, false, this.metroidvania.roomLeftIndex, 3, worldClassLevels[this.metroidvania.roomLeftIndex].metroidvania);
         }
         //Right
         else if (player.x >= this.metroidvania.roomRightValue) {
             // player.reset(1400, player.y)
             // player.body.velocity.x = -400;
-            this.game.state.restart(true, false, this.metroidvania.roomRightIndex, 2, worldDesignedLevels[this.metroidvania.roomRightIndex].metroidvania);
+            this.game.state.restart(true, false, this.metroidvania.roomRightIndex, 2, worldClassLevels[this.metroidvania.roomRightIndex].metroidvania);
         }
 
     },
@@ -267,26 +267,26 @@ brawl.practiceEnvironment.prototype = {
         respawnHolder.metroidvania = this.metroidvania;
         if (flag.specialCondition === 1) {
             ///////////////Why did I make it so that the flag won't respawn Ever? There was a Reason///////////
-            // worldDesignedLevels[this.indexOfCurrentWorld].flagSpawn[flag.positionInArray].trigger = false;
+            // worldClassLevels[this.indexOfCurrentWorld].flagSpawn[flag.positionInArray].trigger = false;
             //Destruction of a sprite at a different level
-            worldDesignedLevels[flag.specialWorld].immovableWallSpawn[flag.specialArray].trigger = false;
+            worldClassLevels[flag.specialWorld].immovableWallSpawn[flag.specialArray].trigger = false;
         }
     },
-    specialConditionHandler(sprite1, sprite2) {
+    ballSpike(sprite1, sprite2) {
         sprite2.kill();
         //Removes Localized Sprites from Regenerating (Spikes)
         if (sprite2.specialCondition === 0) {
             //Destruction of Localized Sprite
-            worldDesignedLevels[this.indexOfCurrentWorld].spikeSpawn[sprite2.positionInArray].trigger = false;
+            worldClassLevels[this.indexOfCurrentWorld].spikeSpawn[sprite2.positionInArray].trigger = false;
         }
         //Removes Sprites from Different Levels (Spikes)
         else if (sprite2.specialCondition === 1) {
-            worldDesignedLevels[this.indexOfCurrentWorld].spikeSpawn[sprite2.positionInArray].trigger = false;
+            worldClassLevels[this.indexOfCurrentWorld].spikeSpawn[sprite2.positionInArray].trigger = false;
             //Destruction of a sprite at a different level
-            worldDesignedLevels[sprite2.specialWorld].spikeSpawn[sprite2.specialArray].trigger = false;
+            worldClassLevels[sprite2.specialWorld].spikeSpawn[sprite2.specialArray].trigger = false;
         }
         //////////////////////////Creates New Sprites After Spikes Destroyed///////////////////////
-        //worldDesignedLevels[sprite2.specialWorld].ledgeGreySpawn[sprite2.specialArray].trigger = true;
+        //worldClassLevels[sprite2.specialWorld].ledgeGreySpawn[sprite2.specialArray].trigger = true;
     },
     //////////////Creation of the World///////////////
     worldCreator: function (levelGenerator) {
@@ -501,6 +501,7 @@ brawl.practiceEnvironment.prototype = {
     },
     undeniableDeathSpawn: function (sprite) {
         this.deathX = this.death.create(sprite.x, sprite.y, sprite.art);
+        this.deathX.type = sprite.type;
         this.deathX.specialCondition = sprite.specialCondition;
         this.deathX.specialWorld = sprite.specialWorld;
         this.deathX.specialArray = sprite.specialArray;
@@ -514,6 +515,7 @@ brawl.practiceEnvironment.prototype = {
         this.deathX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
     },
     wallSpawn: function (sprite) {
+        console.log(sprite, 'wallSprite');
         this.wallX = this.wall.create(sprite.x, sprite.y, sprite.art);
         this.wallX.specialCondition = sprite.specialCondition;
         this.wallX.specialWorld = sprite.specialWorld;
@@ -796,7 +798,7 @@ brawl.practiceEnvironment.prototype = {
 
         // Ball Mechanics
         this.game.physics.arcade.collide(this.ball, [this.ball, this.ledge, this.death], null, null, this);
-        this.game.physics.arcade.overlap(this.ball, [this.enemy, this.spikes], this.specialConditionHandler, null, this);
+        this.game.physics.arcade.overlap(this.ball, [this.enemy, this.spikes], this.ballSpike, null, this);
 
         //Ledge and Enemy Interactions
         this.game.physics.arcade.collide(this.ledge, [this.ledge, this.spikes, this.enemy, this.death], null, null, this); //preventPhysicsBug Removed
