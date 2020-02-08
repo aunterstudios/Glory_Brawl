@@ -74,17 +74,9 @@ brawl.stateControls.prototype = {
         if (this.game.input.keyboard.isDown(Phaser.Keyboard.X)) {
             /////////CurrentWorld-PlayerPosition-CurrentWorld(metroidvania)////////
             ////////0-Up, 1-Down, 2-Left, 3-Right//////
-            //Level 0
-            // this.game.state.start('test', true, false, 0, 1, worldDesignedLevels[0].metroidvania);
-            //Level 1
-            // this.game.state.start('test', true, false, 1, 3, worldDesignedLevels[1].metroidvania);
-            //Level 2
-            // current level
-            // this.game.state.start('gameOn', true, false, 2, 3, worldDesignedLevels[2].metroidvania);
-
-
-            //class test
-            this.game.state.start('practiceEnvironment', true, false, 1, 1, worldClassLevels[1].metroidvania);
+            ///////(IndexOfCurrentWorld, Position, MetroidVania(Same as Index of Current World))
+            //Level 3
+            this.game.state.start('game', true, false, 2, 3, worldClassLevels[2].metroidvania);
 
         }
     }

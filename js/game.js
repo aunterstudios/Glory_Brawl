@@ -1,6 +1,6 @@
 //////////////////////////////////////////Environment//////////////////////////////////////////
-brawl.practiceEnvironment = function () { };
-brawl.practiceEnvironment.prototype = {
+brawl.game = function () { };
+brawl.game.prototype = {
     init: function (indexOfCurrentWorld, indexOfPlayerPosition, metroidvania) {
         //GENERAL MAP SETTINGS 
         this.game.physics.startSystem(Phaser.Physics.ARCADE); // We're going to be using physics, so enable the Arcade Physics system
@@ -70,7 +70,7 @@ brawl.practiceEnvironment.prototype = {
         // this.game.time.advancedTiming = true;
 
         //Background Color of Game
-        this.game.stage.backgroundColor = "#4488AA";
+        this.game.stage.backgroundColor = worldClassLevels[this.indexOfCurrentWorld].backgroundColor;
         // this.game.stage.backgroundColor = Phaser.Color.getRandomColor(50, 255, 255);
         // this.game.stage.backgroundColor = "#2F4F4F";
 
@@ -469,12 +469,13 @@ brawl.practiceEnvironment.prototype = {
         this.spikesFall.specialWorld = sprite.specialWorld;
         this.spikesFall.specialArray = sprite.specialArray;
         this.spikesFall.positionInArray = sprite.positionInArray;
+        this.spikesFall.name = sprite.name
         this.spikesFall.anchor.setTo(.5);
         this.spikesFall.scale.setTo(.5);
         this.spikesFall.checkWorldBounds = true;
         this.spikesFall.outOfBoundsKill = true;
-        this.spikesFall.body.gravity.x = sprite.velocityX;
-        this.spikesFall.body.gravity.y = sprite.velocityY;
+        this.spikesFall.body.gravity.x = sprite.gravityX;
+        this.spikesFall.body.gravity.y = sprite.gravityY;
     },
     coinSpawn: function (sprite) {
         this.coinX = this.coin.create(sprite.x, sprite.y, 'coin');
@@ -488,7 +489,7 @@ brawl.practiceEnvironment.prototype = {
     },
     flagSpawn: function (sprite) {
         this.flagX = this.flag.create(sprite.x, sprite.y, sprite.art);
-        this.flagX.type = sprite.type;
+        this.flagX.name = sprite.name;
         this.flagX.specialCondition = sprite.specialCondition;
         this.flagX.specialWorld = sprite.specialWorld;
         this.flagX.specialArray = sprite.specialArray;
@@ -504,7 +505,7 @@ brawl.practiceEnvironment.prototype = {
     },
     undeniableDeathSpawn: function (sprite) {
         this.deathX = this.death.create(sprite.x, sprite.y, sprite.art);
-        this.deathX.type = sprite.type;
+        this.deathX.name = sprite.name;
         this.deathX.specialCondition = sprite.specialCondition;
         this.deathX.specialWorld = sprite.specialWorld;
         this.deathX.specialArray = sprite.specialArray;
@@ -542,15 +543,15 @@ brawl.practiceEnvironment.prototype = {
     immovableWallSpawn: function (sprite) {
         this.immovableWallX = this.immovableWall.create(sprite.x, sprite.y, sprite.art);
         // this.immovableWallX.anchor.setTo(.5);
-        this.immovableWallX.type = sprite.type;
+        this.immovableWallX.name = sprite.name;
         this.immovableWallX.specialCondition = sprite.specialCondition;
         this.immovableWallX.specialWorld = sprite.specialWorld;
         this.immovableWallX.specialArray = sprite.specialArray;
         this.immovableWallX.positionInArray = sprite.positionInArray;
-        if (sprite.type === 'immovableWallPhase') {
+        if (sprite.name === 'immovableWallPhase') {
             this.immovableWallX.tint = Phaser.Color.hexToRGB("#6a0dad");
         }
-        if (sprite.type === 'immovableWallKillWall') {
+        if (sprite.name === 'immovableWallKillWall') {
             this.immovableWallX.tint = Phaser.Color.hexToRGB("#cdf053");
         }
         this.immovableWallX.scale.setTo(sprite.sizeX, sprite.sizeY);
@@ -563,7 +564,7 @@ brawl.practiceEnvironment.prototype = {
     },
     enemySpawn: function (sprite) {
         this.trumpX = this.enemy.create(sprite.x, sprite.y, 'enemy');
-        this.trumpX.type = sprite.type;
+        this.trumpX.name = sprite.name;
         this.trumpX.specialCondition = sprite.specialCondition;
         this.trumpX.specialWorld = sprite.specialWorld;
         this.trumpX.specialArray = sprite.specialArray;
@@ -580,7 +581,7 @@ brawl.practiceEnvironment.prototype = {
     },
     ledgeSpawn: function (sprite) {
         this.ledgeX = this.ledge.create(sprite.x, sprite.y, sprite.art);
-        this.ledgeX.type = sprite.type;
+        this.ledgeX.name = sprite.name;
         this.ledgeX.specialCondition = sprite.specialCondition;
         this.ledgeX.specialWorld = sprite.specialWorld;
         this.ledgeX.specialArray = sprite.specialArray;
@@ -598,7 +599,7 @@ brawl.practiceEnvironment.prototype = {
     ballSpawn: function (sprite) {
         //Adding Ball
         this.ballX = this.ball.create(sprite.x, sprite.y, 'ball');
-        this.ballX.type = sprite.type;
+        this.ballX.name = sprite.name;
         this.ballX.specialCondition = sprite.specialCondition;
         this.ballX.specialWorld = sprite.specialWorld;
         this.ballX.specialArray = sprite.specialArray;
@@ -616,7 +617,7 @@ brawl.practiceEnvironment.prototype = {
     },
     spikeSpawn: function (sprite) {
         this.spikesX = this.spikes.create(sprite.x, sprite.y, sprite.art);
-        this.spikesX.type = sprite.type;
+        this.spikesX.name = sprite.name;
         this.spikesX.specialCondition = sprite.specialCondition;
         this.spikesX.specialWorld = sprite.specialWorld;
         this.spikesX.specialArray = sprite.specialArray;
