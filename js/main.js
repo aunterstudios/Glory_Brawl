@@ -168,7 +168,9 @@ var surf = 'surf';
 var enemyRegular = 'enemyRegular';
 
 //Ball Names
-var ballRegular = 'ballRegular'
+var ballRegular = 'ballRegular';
+
+var spikeRegular = 'spikeRegular';
 
 //Flag Names
 var regularFlag = 'regularFlag';
@@ -201,6 +203,9 @@ var enemyOne = 'enemy'
 
 //Ball
 var ball = 'ball';
+
+//Falling Spikes
+var spikeFall = 'spikeFall';
 
 //Flag
 var flag = 'flag';
@@ -528,7 +533,7 @@ level_2.enemySpawn = [
 
 //Falling Spikes
 level_2.fallingSpikes = [
-  new SpriteCreator(0, true, true, regularFlag, flag, 475, 50, null, null, .4, .4, 0, 500, null, null, null, 3, null),
+  new SpriteCreator(0, true, true, spikeRegular, spikeFall, 475, 50, null, null, .4, .4, 0, 500, null, null, null, 3, null),
 ]
 
 //Flag Spawn
