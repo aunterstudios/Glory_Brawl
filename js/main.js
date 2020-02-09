@@ -431,7 +431,7 @@ level_1.immovableWallSpawn = [
   //End of Grey Ledge
   new SpriteCreator(4, true, true, immovableWallRegular, immovableWallHorizontal, 0, 1336.5, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
   //End of Green Ledge
-  new SpriteCreator(5, true, true, immovableWallRegular, immovableWallHorizontal, 1591, 1336, 0, 0, .774, .5, 0, 0, null, null, null, null, null),
+  new SpriteCreator(5, true, true, immovableWallRegular, immovableWallHorizontal, 1591, 1500, 0, 0, .774, .5, 0, 0, null, null, null, null, null),
   //Entry to Right Side of the Map
   new SpriteCreator(6, true, true, immovableWallRegular, immovableWallHorizontal, 2200, 3136, 0, 0, .7, .5, 0, 0, null, null, null, null, null),
   //Long Pole
