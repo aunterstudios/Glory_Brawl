@@ -291,10 +291,10 @@ level_0.playerPosition = [
 level_0.undeniableDeathSpawn = [
   new SpriteCreator(0, true, true, undeniableDeathRegular, deathVertical, 0, 1470, 0, 0, .25, .619, 0, 0, null, null, null, null, null),
   new SpriteCreator(1, true, true, undeniableDeathRegular, deathVertical, 2800, 0, 0, 0, .25, .857, 0, 0, null, null, null, null, null),
-  new SpriteCreator(2, true, true, undeniableDeathRegular, deathVertical, 2800, 1263, 0, 0, .25, .767, 0, 0, null, null, null, null, null),
-  new SpriteCreator(3, true, true, undeniableDeathRegular, deathHorizontal, 1463, 900, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
-  new SpriteCreator(4, true, true, undeniableDeathRegular, deathHorizontal, 2060, 300, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
-  new SpriteCreator(5, true, true, undeniableDeathRegular, deathHorizontal, 1400, 0, 0, 0, 1, .5, 0, 0, null, null, null, null, null)
+  // new SpriteCreator(2, true, true, undeniableDeathRegular, deathVertical, 2800, 1263, 0, 0, .25, .767, 0, 0, null, null, null, null, null),
+  new SpriteCreator(2, true, true, undeniableDeathRegular, deathHorizontal, 1463, 900, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
+  new SpriteCreator(3, true, true, undeniableDeathRegular, deathHorizontal, 2060, 300, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
+  new SpriteCreator(4, true, true, undeniableDeathRegular, deathHorizontal, 1400, 0, 0, 0, 1, .5, 0, 0, null, null, null, null, null)
 ];
 
 /////////////////////////Creation of ImmovableWalls
@@ -336,6 +336,8 @@ level_0.immovableWallSpawn = [
   new SpriteCreator(29, true, true, immovableWallRegular, immovableWallVertical, 1100, 600, 0, 0, .3, .05, 0, 0, null, null, null, null, null),
   new SpriteCreator(30, true, true, immovableWallRegular, immovableWallVertical, 1200, 1100, 0, 0, .3, .05, 0, 0, null, null, null, null, null),
   new SpriteCreator(31, true, true, immovableWallRegular, immovableWallVertical, 1200, 800, 0, 0, .3, .05, 0, 0, null, null, null, null, null),
+  //New Item (Instead of Undeniable Death)
+  new SpriteCreator(32, true, true, immovableWallRegular, immovableWallVertical, 2800, 1263, 0, 0, .2, 1.262, 0, 0, null, null, null, null, null),
 ];
 
 //Moveable Walls
