@@ -708,10 +708,10 @@ brawl.game.prototype = {
             }
         }
     },
-    turnMoveable: function (wall) {
-        wall.body.immovable = false;
-        console.log(wall.body.immovable);
-    },
+    // turnMoveable: function (wall) {
+    //     wall.body.immovable = false;
+    //     console.log(wall.body.immovable);
+    // },
     ///////////////////////////////////////////State Switches////////////////////////////////
     deathState: function (victim, killer) {
         victim.kill();
@@ -769,15 +769,20 @@ brawl.game.prototype = {
         victim.kill();
     },
     wallImmovable: function (wall, sprite2) {
+        wall.body.velocity.y = -300;
         if (sprite2.name === immovableWallKillWall) {
             wall.kill();
         }
     },
     wallMoveable: function (sprite1, sprite2) {
         // sprite2.body.stop();
+        // sprite1.body.immovable = true;
+        sprite1.body.moves = false;
         sprite1.body.immovable = true;
+        sprite1.body.velocity.y = -500;
+        sprite1.tint = 0xff0000;
         sprite1.body.stop();
-        sprite2.body.stopMovement();
+        // sprite2.body.stopMovement();
         //sprite2.body.stop();
         if (sprite1.body.touching.up) {
             // sprite2.body.acceleration.y = 100
@@ -821,8 +826,12 @@ brawl.game.prototype = {
         //worldClassLevels[sprite2.specialWorld].ledgeGreySpawn[sprite2.specialArray].trigger = true;
     },
     playerWall: function (player,wall) {
+        wall.body.moves = true;
+        wall.tint = 0xFFFFFF;
+        wall.body.immovable = false;
         if (player.body.touching.up) {
             wall.body.velocity.y = -100;
+            player.body.velocity.y = 100;
         }
         // if (player.body.touching.down) {
         //     wall.body.velocity.y = -50;
@@ -930,7 +939,7 @@ brawl.game.prototype = {
         ////////////////////////////////////////Continious Updating//////////////////////////////////
         ///Enemy Sprites Firing Bullets
         this.fireEnemyBullet();
-        this.wall.forEachAlive(this.turnMoveable,this);
+        // this.wall.forEachAlive(this.turnMoveable,this);
         ////////////////////////Physics////////////////////////
         //Player Mechanics
         var onImmovable = this.game.physics.arcade.collide(this.player, this.immovableWall, null, null, this);
