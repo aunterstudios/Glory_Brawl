@@ -75,8 +75,8 @@ brawl.stateControls.prototype = {
             /////////CurrentWorld-PlayerPosition-CurrentWorld(metroidvania)////////
             ////////0-Up, 1-Down, 2-Left, 3-Right//////
             ///////(IndexOfCurrentWorld, Position, MetroidVania(Same as Index of Current World))
-            //Level 3
-            this.game.state.start('game', true, false, 1, 3, worldClassLevels[1].metroidvania);
+            //Level 1
+            this.game.state.start('game', true, false, 0, 1, worldClassLevels[0].metroidvania);
 
         }
     }

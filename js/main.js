@@ -439,7 +439,7 @@ level_1.immovableWallSpawn = [
   ///////////////////////////////////Second Wall That Gets Removed From Level 3//////////////////////
   new SpriteCreator(8, true, true, immovableWallRegular, immovableWallHorizontal, 773, 0, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
   /////////////////////////////////////First Wall That Gets Removed From Level 2//////////////////////
-  // new SpriteCreator(9, true, true, immovableWallRegular, immovableWallHorizontal, 773, 300, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
+  new SpriteCreator(9, true, true, immovableWallRegular, immovableWallHorizontal, 773, 300, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
   //Divider
   new SpriteCreator(10, true, true, immovableWallRegular, immovableWallVertical, 710, 0, 0, 0, .5, .8, 0, 0, null, null, null, null, null),
   //Divider 2
@@ -483,7 +483,7 @@ level_1.ledgeSpawn = [
   new SpriteCreator(4, true, true, bounce, ledgeBounce, 1900, 2700, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
   new SpriteCreator(5, true, true, bounce, ledgeBounce, 2100, 2000, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
   //Surf Ledges
-  new SpriteCreator(5, true, true, surf, ledgeSurf, 2270, 300, 0, 0, .4, .4, 0, 0, null, null, null, null, null)
+  new SpriteCreator(5, true, true, surf, ledgeSurf, 2270, 300, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
 ];
 
 //Ball

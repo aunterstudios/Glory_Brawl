@@ -282,7 +282,7 @@ brawl.game.prototype = {
         // this.player.tint = Phaser.Color.getRandomColor(50, 255, 255);
         // this.player.body.setSize(63, 84, 5, 6);
         // this.player.body.bounce.y = 0;
-        this.player.body.mass = 6;
+        this.player.body.mass = 6; //6
         this.player.body.gravity.y = 1500;
         //this.player.body.allowDrag = false;
         // this.player.body.collideWorldBounds = true;
@@ -769,19 +769,15 @@ brawl.game.prototype = {
         victim.kill();
     },
     wallImmovable: function (wall, sprite2) {
-        wall.body.velocity.y = -300;
         if (sprite2.name === immovableWallKillWall) {
             wall.kill();
         }
     },
     wallMoveable: function (sprite1, sprite2) {
         // sprite2.body.stop();
-        // sprite1.body.immovable = true;
         sprite1.body.moves = false;
         sprite1.body.immovable = true;
-        sprite1.body.velocity.y = -500;
         sprite1.tint = 0xff0000;
-        sprite1.body.stop();
         // sprite2.body.stopMovement();
         //sprite2.body.stop();
         if (sprite1.body.touching.up) {
