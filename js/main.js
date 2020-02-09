@@ -622,93 +622,16 @@ function nextWord() {
   }
 
 }
-
-//////////////////////////////////////////////////Changing Game States//////////////////////////////////////////////
-
-//Next Level
-function nextLevel(player, door) {
-  ++streak
-  game.state.start('rogueTest');
-}
-
-///Deathgame State
-function deathOne(victim, killer) {
-  // console.log(victim.body.x + ' '+ victim.body.y);
-  victim.kill();
-  if (streak > longestStreak) {
-    longestStreak = streak;
-  }
-  streak = 0;
-  game.state.start('deathState');
-}
-
-//Sprite vs. Group Specific Deaths
-function deathTwo(victim, killer) {
-  victim.kill();
-  if (killer.name === 'immovableWallPhase') {
-    killer.kill();
-  }
-}
-
-function deathThree(killer, victim) {
-  victim.kill();
-}
-///////////////////////////////////////////Physics Within Game Mechanics////////////////////////////////////////////
-
-////////////////////////////////////////Immovable Wall Mechanics//////////////////////////////////////////
-function wallGroupPhysics(sprite1, sprite2) {
-  // sprite2.body.stop();
-  // sprite1.body.immovable = true;
-  sprite1.body.stop();
-  sprite2.body.stopMovement();
-  //sprite2.body.stop();
-  if (sprite1.body.touching.up) {
-    // sprite2.body.acceleration.y = 100
-    // sprite2.body.acceleration.y = 0;
-    sprite2.body.velocity.y = -sprite2.velocityVsWallY;
-    // sprite1.body.velocity.y = sprite2.velocityVsWallY;
-    // console.log(sprite1.body.velocity.y, sprite2.body.velocity.y);
-    // sprite2.body.velocity.x = sprite1.body.velocity.x;
-  }
-  if (sprite1.body.touching.down) {
-    // sprite2.body.acceleration.y = 0;
-    sprite2.body.velocity.y = sprite2.velocityVsWallY;
-    // sprite2.body.velocity.x = sprite1.body.velocity.x;
-  }
-  if (sprite1.body.touching.left) {
-    // sprite2.body.acceleration.x = 0;
-    sprite2.body.velocity.x = -sprite2.velocityVsWallX;
-    // sprite2.body.velocity.y = sprite1.body.velocity.y;
-  }
-  if (sprite1.body.touching.right) {
-    // sprite2.body.acceleration.x = 0;
-    sprite2.body.velocity.x = sprite2.velocityVsWallX;
-    // sprite2.body.velocity.y = sprite1.body.velocity.y;
-  }
-
-}
-
-///////////////////////////////////Moveable Wall Mecanics///////////////////
-function wallStopper(wall, sprite2) {
-  wall.body.stopMovement();
-  // wall.body.immovable = true;
-  if (wall.body.touching.up) {
-    wall.body.velocity.y = 100;
-    wall.body.velocity.x = 0;
-  }
-  if (wall.body.touching.down) {
-    wall.body.velocity.y = -100;
-    wall.body.velocity.x = 0;
-  }
-  if (wall.body.touching.left) {
-    wall.body.velocity.x = 100;
-    wall.body.velocity.y = 0;
-  }
-  if (wall.body.touching.right) {
-    wall.body.velocity.x = -100;
-    wall.body.velocity.y = 0;
-  }
-}
+///////////////Reference Code/////////////
+// function moveTowardsPlayer(sprite1, player) {
+//   //   if (game.physics.arcade.distanceBetween(sprite1, player, false, true) < 500) {
+//   //     /////Alpha Build One/////
+//   //     //At the very least we can use the daakath game mode for this.
+//   //     game.physics.arcade.moveToObject(sprite1, player, 300);
+//   //     /////Alpha Build Two/////
+//   //     //game.physics.arcade.moveToXY(sprite1, player.x, player.y, 60, 2000);
+//   //   }
+//   // }
 
 ///////////////////////////////Player vs. Wall//////////////////
 ///////////Leaner Walls///////////
@@ -722,137 +645,47 @@ function wallStopper(wall, sprite2) {
 //     }
 
 // }
-////////////////////////////////////Immovable Wall/////////////////////////////
-
-
-////////////////////////////Ball Mechanics////////////////////////////////////
-function ballMover(player, ball) {
-  ///////////////////GOOOFY/////////////
-  // ball.body.stop();
-  // if (ball.body.touching.up) {
-  //   ball.body.velocity.y= 200;
-  // }
-  // if (ball.body.touching.down) {
-  //   ball.body.velocity.y = -200;
-  //   player.body.velocity.y = -50;
-  // }
-  // if (ball.body.touching.left) {
-  //   ball.body.velocity.x = 200;
-  // }
-  // if (ball.body.touching.right) {
-  //   ball.body.velocity.x = -200;
-  // }
-  //////////////////Natural///////////////
-  // if (ball.body.touching.up) {
-  //   ball.body.velocity.y = 50;
-  // }
-  // else if (ball.body.touching.down) {
-  //   ball.body.velocity.y = -50;
-  //   player.body.velocity.y = -75;
-  // }
-  // else if (ball.body.touching.left) {
-  //   ball.body.velocity.x = 50;
-  // }
-  // else if (ball.body.touching.right) {
-  //   ball.body.velocity.x = -50;
-  // }
-  //////////////Control////////////
-  // if (ball.body.touching.up) {
-  //   ball.body.velocity.y = player.body.velocity.y;
-  // }
-  // if (ball.body.touching.down) {
-  //   ball.body.velocity.y = player.body.velocity.y;
-  // }
-  // if (ball.body.touching.left) {
-  //   ball.body.velocity.x = player.body.velocity.x;
-  // }
-  // if (ball.body.touching.right) {
-  //   ball.body.velocity.x = player.body.velocity.x;
-  // }
-}
-
-////////////////////////////////////Player Ledge Mechanics//////////////////////////////////////
-
-function ledgePhysics(player, ledge) {
-  //////////Eleveator Ledges/////////
-  if (ledge.name === elevator) {
-    ledge.body.stop();
-    if (ledge.body.touching.up) {
-      ledge.body.velocity.y = -200;
-      player.body.velocity.y = -200
-      // if (player.body.velocity.x < 0) {
-      //   ledge.body.velocity.x = player.body.velocity.x - 100;
-      // }
-      // if (player.body.velocity.x > 0) {
-      //   ledge.body.velocity.x = player.body.velocity.x + 100;
-      // }
-      // {
-      //   ledge.body.velocity.x = 0;
-      // }
-    }
-    // When You're Hitting the Edge from the Sides (Right and Left)
-    else if (ledge.body.touching.left || ledge.body.touching.right) {
-      ledge.body.velocity.y = 0;
-      ledge.body.velocity.x = player.body.velocity.x;
-    }
-    /////////////////////////////////In Case Want to Change Side Ledge Velocity///////////
-    // if (ledge.body.touching.left) {
-    //   ledge.body.velocity.y = 0;
-    //   ledge.body.velocity.x = 300;
-    // }
-    // if (ledge.body.touching.right) {
-    //   ledge.body.velocity.y = 0;
-    //   ledge.body.velocity.x = -300;
-    // }
-    // if (ledge.body.touching.down && player.body.velocity.y < -1) {
-    //   player.body.velocity.y = -100;
-    // }
-    else if (ledge.body.touching.down) {
-      ledge.body.velocity.y = -300;
-      player.body.velocity.y = -100;
-    }
-  }
-  //////////Super Jump/////////
-  if (ledge.name === bounce) {
-    if (ledge.body.touching.up) {
-      player.body.velocity.y = -1200;
-    }
-  }
-  ////////Surfs Up Dude////////
-  if (ledge.name === surf) {
-    ledge.body.velocity.y = 200;
-    ledge.body.velocity.x = player.body.velocity.x;
-  }
-
-}
-
-////////////////////////////Weapon Mechanics/////////////////////////
-//When Weapon Hits Immovable/Unkillable Objects (It Dies);
-function weaponImmovable(weapon, wall) {
-  weapon.kill();
-}
-
-//When Weapon Hits Moveable Objects (It's Special Property Expressed)
-
-function weaponHandler(weapon, sprite) {
-  if (weapon.key === 'bulletPull') {
-    this.game.physics.arcade.moveToObject(sprite, this.player, 200);
-  }
-  else if (weapon.key === 'bulletStop') {
-    sprite.body.stop();
-  }
-  else if (weapon.key === 'bulletKill') {
-    sprite.kill();
-  }
-  weapon.kill();
-}
-///////////////Reference Code/////////////
-// function moveTowardsPlayer(sprite1, player) {
-//   //   if (game.physics.arcade.distanceBetween(sprite1, player, false, true) < 500) {
-//   //     /////Alpha Build One/////
-//   //     //At the very least we can use the daakath game mode for this.
-//   //     game.physics.arcade.moveToObject(sprite1, player, 300);
-//   //     /////Alpha Build Two/////
-//   //     //game.physics.arcade.moveToXY(sprite1, player.x, player.y, 60, 2000);
-//   //   }
+// function ballMover(player, ball) {
+//   ///////////////////GOOOFY/////////////
+//   // ball.body.stop();
+//   // if (ball.body.touching.up) {
+//   //   ball.body.velocity.y= 200;
 //   // }
+//   // if (ball.body.touching.down) {
+//   //   ball.body.velocity.y = -200;
+//   //   player.body.velocity.y = -50;
+//   // }
+//   // if (ball.body.touching.left) {
+//   //   ball.body.velocity.x = 200;
+//   // }
+//   // if (ball.body.touching.right) {
+//   //   ball.body.velocity.x = -200;
+//   // }
+//   //////////////////Natural///////////////
+//   // if (ball.body.touching.up) {
+//   //   ball.body.velocity.y = 50;
+//   // }
+//   // else if (ball.body.touching.down) {
+//   //   ball.body.velocity.y = -50;
+//   //   player.body.velocity.y = -75;
+//   // }
+//   // else if (ball.body.touching.left) {
+//   //   ball.body.velocity.x = 50;
+//   // }
+//   // else if (ball.body.touching.right) {
+//   //   ball.body.velocity.x = -50;
+//   // }
+//   //////////////Control////////////
+//   // if (ball.body.touching.up) {
+//   //   ball.body.velocity.y = player.body.velocity.y;
+//   // }
+//   // if (ball.body.touching.down) {
+//   //   ball.body.velocity.y = player.body.velocity.y;
+//   // }
+//   // if (ball.body.touching.left) {
+//   //   ball.body.velocity.x = player.body.velocity.x;
+//   // }
+//   // if (ball.body.touching.right) {
+//   //   ball.body.velocity.x = player.body.velocity.x;
+//   // }
+// }

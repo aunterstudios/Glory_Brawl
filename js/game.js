@@ -198,7 +198,29 @@ brawl.game.prototype = {
         //  It won't start automatically, allowing you to hook it to button events and the like.
         this.timer.start();
     },
-    /////////////////Camera////////////////
+    /////////////////////////////Put the Game on Full Screen Mode/////////////////////
+    gofull: function () {
+        if (this.game.scale.isFullScreen) {
+            this.game.scale.stopFullScreen();
+        }
+        else {
+            this.game.scale.startFullScreen(false);
+        }
+    },
+    ///////////////////////////Pausing the Game///////////////////
+    goPause: function () {
+        if (this.game.paused) {
+            this.game.paused = false;
+        }
+        else {
+            this.game.paused = true;
+            //Streak
+            // this.pauseText = this.game.add.text(this.player.x, this.player.y, "PAUSE", { font: "32px Arial", fill: "#ffffff", align: "center" });
+            // this.pauseText.fixedToCamera = true;
+            // this.pauseText.cameraOffset.setTo(1200, 750);
+        }
+    },
+    /////////////////////////////////////////////////Camera///////////////////////////////////////////
     cameraChange: function () {
         if (cameraBoolean) {
             cameraBoolean = false;
@@ -213,7 +235,7 @@ brawl.game.prototype = {
             this.game.camera.unfollow();
         }
     },
-    /////////////Timer/////////////
+    //////////////////////////////////////Timer//////////////////////////////////////
     updateCounter: function () {
         total++
     },
@@ -245,51 +267,7 @@ brawl.game.prototype = {
         }
 
     },
-    ///Creation of Text in Game
-    textCreator: function (sprite) {
-        this.text1 = this.game.add.text(sprite.x, sprite.y, sprite.textInput);
-        this.text1.font = sprite.font;
-        this.text1.fontSize = sprite.fontSize;
-        this.text1.fill = sprite.fill;
-        this.text1.fontWeight = sprite.fontWeight;
-        this.text1.positionInArray = sprite.positionInArray;
-    },
-    //Switching to Death State
-    deathState: function (victim, killer) {
-        // console.log(victim.body.x + ' '+ victim.body.y);
-        victim.kill();
-        game.state.start('deathState', true, false, respawnHolder.indexOfCurrentWorld, respawnHolder.indexOfPlayerPosition, respawnHolder.metroidvania);
-    },
-    //Character Respawn
-    respawn: function (player, flag) {
-        flag.kill();
-        respawnHolder.indexOfCurrentWorld = this.indexOfCurrentWorld;
-        respawnHolder.indexOfPlayerPosition = flag.indexOfPlayerPosition;
-        respawnHolder.metroidvania = this.metroidvania;
-        if (flag.specialCondition === 1) {
-            ///////////////Why did I make it so that the flag won't respawn Ever? There was a Reason///////////
-            // worldClassLevels[this.indexOfCurrentWorld].flagSpawn[flag.positionInArray].trigger = false;
-            //Destruction of a sprite at a different level
-            worldClassLevels[flag.specialWorld].immovableWallSpawn[flag.specialArray].trigger = false;
-        }
-    },
-    ballSpike(sprite1, sprite2) {
-        sprite2.kill();
-        //Removes Localized Sprites from Regenerating (Spikes)
-        if (sprite2.specialCondition === 0) {
-            //Destruction of Localized Sprite
-            worldClassLevels[this.indexOfCurrentWorld].spikeSpawn[sprite2.positionInArray].trigger = false;
-        }
-        //Removes Sprites from Different Levels (Spikes)
-        else if (sprite2.specialCondition === 1) {
-            worldClassLevels[this.indexOfCurrentWorld].spikeSpawn[sprite2.positionInArray].trigger = false;
-            //Destruction of a sprite at a different level
-            worldClassLevels[sprite2.specialWorld].spikeSpawn[sprite2.specialArray].trigger = false;
-        }
-        //////////////////////////Creates New Sprites After Spikes Destroyed///////////////////////
-        //worldClassLevels[sprite2.specialWorld].ledgeGreySpawn[sprite2.specialArray].trigger = true;
-    },
-    //////////////Creation of the World///////////////
+    //////////////////////////Creation of the World/////////////////////////////////
     worldCreator: function (levelGenerator) {
         /////////////////////Testing Entirety of Level/////////////////
         // console.log(levelGenerator);
@@ -458,25 +436,9 @@ brawl.game.prototype = {
         //     }
         // }
 
-
-
     },
     //////////////////////////Creating Game Objects/////////////////////////
     //SpikeFall
-    spikeFall: function (sprite) {
-        this.spikesFall = this.fallingSpikes.getFirstDead(true, sprite.x, sprite.y, 'spikeFall');
-        this.spikesFall.specialCondition = sprite.specialCondition;
-        this.spikesFall.specialWorld = sprite.specialWorld;
-        this.spikesFall.specialArray = sprite.specialArray;
-        this.spikesFall.positionInArray = sprite.positionInArray;
-        this.spikesFall.name = sprite.name
-        this.spikesFall.anchor.setTo(.5);
-        this.spikesFall.scale.setTo(.5);
-        this.spikesFall.checkWorldBounds = true;
-        this.spikesFall.outOfBoundsKill = true;
-        this.spikesFall.body.gravity.x = sprite.gravityX;
-        this.spikesFall.body.gravity.y = sprite.gravityY;
-    },
     coinSpawn: function (sprite) {
         this.coinX = this.coin.create(sprite.x, sprite.y, 'coin');
         this.coinX.anchor.setTo(.7);
@@ -486,22 +448,6 @@ brawl.game.prototype = {
         this.coinX.body.collideWorldBounds = true;
         this.coinX.body.bounce.setTo(1);
         this.coinX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
-    },
-    flagSpawn: function (sprite) {
-        this.flagX = this.flag.create(sprite.x, sprite.y, sprite.art);
-        this.flagX.name = sprite.name;
-        this.flagX.specialCondition = sprite.specialCondition;
-        this.flagX.specialWorld = sprite.specialWorld;
-        this.flagX.specialArray = sprite.specialArray;
-        this.flagX.positionInArray = sprite.positionInArray;
-        //this.flagX.scale(sprite.sizeX,sprite.sizeY);
-        this.flagX.body.mass = 1;
-        this.flagX.body.maxVelocity.setTo(1000);
-        this.flagX.body.collideWorldBounds = true;
-        this.flagX.body.bounce.setTo(1);
-        this.flagX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
-        ////////////////Special Property of Flag//////////////////
-        this.flagX.indexOfPlayerPosition = sprite.indexOfPlayerPosition;
     },
     undeniableDeathSpawn: function (sprite) {
         this.deathX = this.death.create(sprite.x, sprite.y, sprite.art);
@@ -517,28 +463,6 @@ brawl.game.prototype = {
         this.deathX.body.immovable = true;
         this.deathX.body.bounce.setTo(1);
         this.deathX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
-    },
-    wallSpawn: function (sprite) {
-        this.wallX = this.wall.create(sprite.x, sprite.y, sprite.art);
-        this.wallX.specialCondition = sprite.specialCondition;
-        this.wallX.specialWorld = sprite.specialWorld;
-        this.wallX.specialArray = sprite.specialArray;
-        this.wallX.positionInArray = sprite.positionInArray;
-        this.wallX.velocityVsImmovable = 100;
-        this.wallX.anchor.setTo(.5);
-        this.wallX.scale.setTo(sprite.sizeX, sprite.sizeY);
-        this.wallX.body.immovable = true;
-        this.wallX.body.mass = 150;
-        this.wallX.body.maxVelocity.setTo(500);
-        this.wallX.body.collideWorldBounds = true;
-        this.wallX.body.bounce.setTo(1);
-        this.wallX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
-        ///////////Drag Events///////////
-        // this.wallX.inputEnabled = true;
-        // this.wallX.input.enableDrag();
-        // this.wallX.events.onDragStart.add(this.startDrag, this);
-        // this.wallX.events.onDragStop.add(this.stopDrag, this);
-        // this.wallX.body.moves = false;
     },
     immovableWallSpawn: function (sprite) {
         this.immovableWallX = this.immovableWall.create(sprite.x, sprite.y, sprite.art);
@@ -562,22 +486,44 @@ brawl.game.prototype = {
         this.immovableWallX.body.bounce.setTo(1);
         this.immovableWallX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
     },
-    enemySpawn: function (sprite) {
-        this.trumpX = this.enemy.create(sprite.x, sprite.y, 'enemy');
-        this.trumpX.name = sprite.name;
-        this.trumpX.specialCondition = sprite.specialCondition;
-        this.trumpX.specialWorld = sprite.specialWorld;
-        this.trumpX.specialArray = sprite.specialArray;
-        this.trumpX.positionInArray = sprite.positionInArray;
-        this.trumpX.velocityVsWallX = 50;
-        this.trumpX.velocityVsWallY = 50;
-        this.trumpX.anchor.setTo(.5);
-        this.trumpX.scale.setTo(.6);
-        this.trumpX.body.mass = 20;
-        this.trumpX.body.maxVelocity.setTo(1000);
-        this.trumpX.body.collideWorldBounds = true;
-        this.trumpX.body.bounce.setTo(1);
-        this.trumpX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
+    wallSpawn: function (sprite) {
+        this.wallX = this.wall.create(sprite.x, sprite.y, sprite.art);
+        this.wallX.specialCondition = sprite.specialCondition;
+        this.wallX.specialWorld = sprite.specialWorld;
+        this.wallX.specialArray = sprite.specialArray;
+        this.wallX.positionInArray = sprite.positionInArray;
+        this.wallX.velocityVsImmovable = 100;
+        this.wallX.anchor.setTo(.5);
+        this.wallX.scale.setTo(sprite.sizeX, sprite.sizeY);
+        this.wallX.body.immovable = true;
+        this.wallX.body.mass = 150;
+        this.wallX.body.maxVelocity.setTo(500);
+        this.wallX.body.collideWorldBounds = true;
+        this.wallX.body.bounce.setTo(1);
+        this.wallX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
+        ///////////Drag Events///////////
+        // this.wallX.inputEnabled = true;
+        // this.wallX.input.enableDrag();
+        // this.wallX.events.onDragStart.add(this.startDrag, this);
+        // this.wallX.events.onDragStop.add(this.stopDrag, this);
+        // this.wallX.body.moves = false;
+    },
+    spikeSpawn: function (sprite) {
+        this.spikesX = this.spikes.create(sprite.x, sprite.y, sprite.art);
+        this.spikesX.name = sprite.name;
+        this.spikesX.specialCondition = sprite.specialCondition;
+        this.spikesX.specialWorld = sprite.specialWorld;
+        this.spikesX.specialArray = sprite.specialArray;
+        this.spikesX.positionInArray = sprite.positionInArray;
+        this.spikesX.anchor.setTo(.5);
+        this.spikesX.scale.setTo(sprite.sizeX, sprite.sizeY);
+        this.spikesX.body.immovable = true;
+        this.spikesX.body.mass = 150;
+        this.spikesX.body.collideWorldBounds = true;
+        this.spikesX.body.bounce.setTo(1.0);
+        this.spikesX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
+        // this.spikesX.alignIn(rect, positionInRectangle);
+        // this.spikeFall(this.spikesX);
     },
     ledgeSpawn: function (sprite) {
         this.ledgeX = this.ledge.create(sprite.x, sprite.y, sprite.art);
@@ -595,6 +541,23 @@ brawl.game.prototype = {
         this.ledgeX.body.collideWorldBounds = true;
         this.ledgeX.body.bounce.setTo(1);
         this.ledgeX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
+    },
+    enemySpawn: function (sprite) {
+        this.trumpX = this.enemy.create(sprite.x, sprite.y, 'enemy');
+        this.trumpX.name = sprite.name;
+        this.trumpX.specialCondition = sprite.specialCondition;
+        this.trumpX.specialWorld = sprite.specialWorld;
+        this.trumpX.specialArray = sprite.specialArray;
+        this.trumpX.positionInArray = sprite.positionInArray;
+        this.trumpX.velocityVsWallX = 50;
+        this.trumpX.velocityVsWallY = 50;
+        this.trumpX.anchor.setTo(.5);
+        this.trumpX.scale.setTo(.6);
+        this.trumpX.body.mass = 20;
+        this.trumpX.body.maxVelocity.setTo(1000);
+        this.trumpX.body.collideWorldBounds = true;
+        this.trumpX.body.bounce.setTo(1);
+        this.trumpX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
     },
     ballSpawn: function (sprite) {
         //Adding Ball
@@ -615,44 +578,46 @@ brawl.game.prototype = {
         this.ballX.body.bounce.setTo(1.0);
         this.ballX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
     },
-    spikeSpawn: function (sprite) {
-        this.spikesX = this.spikes.create(sprite.x, sprite.y, sprite.art);
-        this.spikesX.name = sprite.name;
-        this.spikesX.specialCondition = sprite.specialCondition;
-        this.spikesX.specialWorld = sprite.specialWorld;
-        this.spikesX.specialArray = sprite.specialArray;
-        this.spikesX.positionInArray = sprite.positionInArray;
-        this.spikesX.anchor.setTo(.5);
-        this.spikesX.scale.setTo(sprite.sizeX, sprite.sizeY);
-        this.spikesX.body.immovable = true;
-        this.spikesX.body.mass = 150;
-        this.spikesX.body.collideWorldBounds = true;
-        this.spikesX.body.bounce.setTo(1.0);
-        this.spikesX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
-        // this.spikesX.alignIn(rect, positionInRectangle);
-        // this.spikeFall(this.spikesX);
+    /////////////////////////////////Falling Spikes///////////////////////////
+    spikeFall: function (sprite) {
+        this.spikesFall = this.fallingSpikes.getFirstDead(true, sprite.x, sprite.y, 'spikeFall');
+        this.spikesFall.specialCondition = sprite.specialCondition;
+        this.spikesFall.specialWorld = sprite.specialWorld;
+        this.spikesFall.specialArray = sprite.specialArray;
+        this.spikesFall.positionInArray = sprite.positionInArray;
+        this.spikesFall.name = sprite.name
+        this.spikesFall.anchor.setTo(.5);
+        this.spikesFall.scale.setTo(.5);
+        this.spikesFall.checkWorldBounds = true;
+        this.spikesFall.outOfBoundsKill = true;
+        this.spikesFall.body.gravity.x = sprite.gravityX;
+        this.spikesFall.body.gravity.y = sprite.gravityY;
     },
-    //Put the Game on Full Screen Mode
-    gofull: function () {
-        if (this.game.scale.isFullScreen) {
-            this.game.scale.stopFullScreen();
-        }
-        else {
-            this.game.scale.startFullScreen(false);
-        }
+    //////////////////////////Flag Spawn(Checkpoints or Respawn Points)/////////////////////////
+    flagSpawn: function (sprite) {
+        this.flagX = this.flag.create(sprite.x, sprite.y, sprite.art);
+        this.flagX.name = sprite.name;
+        this.flagX.specialCondition = sprite.specialCondition;
+        this.flagX.specialWorld = sprite.specialWorld;
+        this.flagX.specialArray = sprite.specialArray;
+        this.flagX.positionInArray = sprite.positionInArray;
+        //this.flagX.scale(sprite.sizeX,sprite.sizeY);
+        this.flagX.body.mass = 1;
+        this.flagX.body.maxVelocity.setTo(1000);
+        this.flagX.body.collideWorldBounds = true;
+        this.flagX.body.bounce.setTo(1);
+        this.flagX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
+        ////////////////Special Property of Flag//////////////////
+        this.flagX.indexOfPlayerPosition = sprite.indexOfPlayerPosition;
     },
-    //Pausing the Game
-    goPause: function () {
-        if (this.game.paused) {
-            this.game.paused = false;
-        }
-        else {
-            this.game.paused = true;
-            //Streak
-            // this.pauseText = this.game.add.text(this.player.x, this.player.y, "PAUSE", { font: "32px Arial", fill: "#ffffff", align: "center" });
-            // this.pauseText.fixedToCamera = true;
-            // this.pauseText.cameraOffset.setTo(1200, 750);
-        }
+    /////////////////////////////Creation of Text in Game/////////////////////////////////
+    textCreator: function (sprite) {
+        this.text1 = this.game.add.text(sprite.x, sprite.y, sprite.textInput);
+        this.text1.font = sprite.font;
+        this.text1.fontSize = sprite.fontSize;
+        this.text1.fill = sprite.fill;
+        this.text1.fontWeight = sprite.fontWeight;
+        this.text1.positionInArray = sprite.positionInArray;
     },
     ///////////////////////Handling Jump Events (Double-Jump)//////////////////
     upInputReleased: function () {
@@ -693,8 +658,14 @@ brawl.game.prototype = {
         stopBoolean = true;
         // console.log("Pull: " + pullBoolean + " Push: " + pushBoolean + " Kill: " + stopBoolean);
     },
-    ////////////////////////////////////////Localized Physics Functions//////////////////////////////////////
-    //Enemy BUllets
+    //////////////////////////////////////Test Functions//////////////////////////////////
+    //Moveable Wall Test
+    // wallStop: function (wall) {
+    //     wall.body.immovable = false;
+    //     console.log(wall.body.immovable);
+    // },
+    ////////////////////////////////////Continious Updating In Game////////////////////////
+    //Enemy Bullets
     fireEnemyBullet: function () {
         // livingEnemies.length = 0; 
         // this.enemy.forEachAlive(function(enemy){
@@ -736,27 +707,168 @@ brawl.game.prototype = {
             }
         }
     },
-    // teleportationDoor: function (player, door) {
-    //     player.reset(door.teleportationX, door.teleportationY);
-    // },
-    //////////////////////////////////////////Localized Win Conditions////////////////////////////////////////////
-    coinWin: function () {
-        this.game.physics.arcade.overlap(this.player, this.coin, deathThree, null, this);
-        //Coin Mechanics
-        this.game.physics.arcade.collide(this.coin, [this.ball, this.wall, this.ledge, this.ledgeDown, this.ledgeSide, this.enemy, this.immovableWall], null, null, this);
-        if (this.coin.countDead() === this.coinAmount) {
-            nextLevel();
+    ///////////////////////////////////////////State Switches////////////////////////////////
+    deathState: function (victim, killer) {
+        victim.kill();
+        game.state.start('deathState', true, false, respawnHolder.indexOfCurrentWorld, respawnHolder.indexOfPlayerPosition, respawnHolder.metroidvania);
+    },
+    //Character Respawn
+    respawn: function (player, flag) {
+        flag.kill();
+        respawnHolder.indexOfCurrentWorld = this.indexOfCurrentWorld;
+        respawnHolder.indexOfPlayerPosition = flag.indexOfPlayerPosition;
+        respawnHolder.metroidvania = this.metroidvania;
+        if (flag.specialCondition === 1) {
+            ///////////////Why did I make it so that the flag won't respawn Ever? There was a Reason///////////
+            // worldClassLevels[this.indexOfCurrentWorld].flagSpawn[flag.positionInArray].trigger = false;
+            //Destruction of a sprite at a different level
+            worldClassLevels[flag.specialWorld].immovableWallSpawn[flag.specialArray].trigger = false;
         }
     },
-    //////////////////////////////Test Functions////////////////////////
-    //////////////////////////////Moveable Wall Test///////////////////
-    // wallStop: function (wall) {
-    //     wall.body.immovable = false;
-    //     console.log(wall.body.immovable);
+    //////////////////////////////////////////Weapon Functionality////////////////////////////////////////////
+    //When Weapon Hits Immovable/Unkillable Objects (It Dies);
+    weaponImmovable: function (weapon, wall) {
+        weapon.kill();
+    },
+    //When Weapon Hits Moveable Objects (It's Special Property Expressed)
+    weaponHandler: function (weapon, sprite) {
+        if (weapon.key === 'bulletPull') {
+            this.game.physics.arcade.moveToObject(sprite, this.player, 200);
+        }
+        else if (weapon.key === 'bulletStop') {
+            sprite.body.stop();
+        }
+        else if (weapon.key === 'bulletKill') {
+            sprite.kill();
+        }
+        weapon.kill();
+    },
+    //////////////////////////////////////////Coin Conditions////////////////////////////////////////////
+    // coinWin: function () {
+    //     this.game.physics.arcade.overlap(this.player, this.coin, deathThree, null, this);
+    //     //Coin Mechanics
+    //     this.game.physics.arcade.collide(this.coin, [this.ball, this.wall, this.ledge, this.ledgeDown, this.ledgeSide, this.enemy, this.immovableWall], null, null, this);
+    //     if (this.coin.countDead() === this.coinAmount) {
+    //         nextLevel();
+    //     }
     // },
-    // //How Game Updates Real-Time (Actual Controls)
+    //////////////////////////////////////Physics Handlers Between Objects////////////////////////////
+    //Dealing With Sprite Specific vs Group Deaths (Objects Kiling Each Other)
+    deathTwo: function (victim, killer) {
+        victim.kill();
+        if (killer.name === 'immovableWallPhase') {
+            killer.kill();
+        }
+    },
+    deathThree: function (killer, victim) {
+        victim.kill();
+    },
+    // wallStopper: function (wall, sprite2) {
+    //     if (sprite2.name === immovableWallKillWall) {
+    //     }
+    // },
+    wallGroupPhysics: function (sprite1, sprite2) {
+        // sprite2.body.stop();
+        // sprite1.body.immovable = true;
+        sprite1.body.stop();
+        sprite2.body.stopMovement();
+        //sprite2.body.stop();
+        if (sprite1.body.touching.up) {
+            // sprite2.body.acceleration.y = 100
+            // sprite2.body.acceleration.y = 0;
+            sprite2.body.velocity.y = -sprite2.velocityVsWallY;
+            // sprite1.body.velocity.y = sprite2.velocityVsWallY;
+            // console.log(sprite1.body.velocity.y, sprite2.body.velocity.y);
+            // sprite2.body.velocity.x = sprite1.body.velocity.x;
+        }
+        if (sprite1.body.touching.down) {
+            // sprite2.body.acceleration.y = 0;
+            sprite2.body.velocity.y = sprite2.velocityVsWallY;
+            // sprite2.body.velocity.x = sprite1.body.velocity.x;
+        }
+        if (sprite1.body.touching.left) {
+            // sprite2.body.acceleration.x = 0;
+            sprite2.body.velocity.x = -sprite2.velocityVsWallX;
+            // sprite2.body.velocity.y = sprite1.body.velocity.y;
+        }
+        if (sprite1.body.touching.right) {
+            // sprite2.body.acceleration.x = 0;
+            sprite2.body.velocity.x = sprite2.velocityVsWallX;
+            // sprite2.body.velocity.y = sprite1.body.velocity.y;
+        }
+    },
+    //Ball Interaction With Spikes
+    ballSpike: function (sprite1, sprite2) {
+        sprite2.kill();
+        //Removes Localized Sprites from Regenerating (Spikes)
+        if (sprite2.specialCondition === 0) {
+            //Destruction of Localized Sprite
+            worldClassLevels[this.indexOfCurrentWorld].spikeSpawn[sprite2.positionInArray].trigger = false;
+        }
+        //Removes Sprites from Different Levels (Spikes)
+        else if (sprite2.specialCondition === 1) {
+            worldClassLevels[this.indexOfCurrentWorld].spikeSpawn[sprite2.positionInArray].trigger = false;
+            //Destruction of a sprite at a different level
+            worldClassLevels[sprite2.specialWorld].spikeSpawn[sprite2.specialArray].trigger = false;
+        }
+        //////////////////////////Creates New Sprites After Spikes Destroyed///////////////////////
+        //worldClassLevels[sprite2.specialWorld].ledgeGreySpawn[sprite2.specialArray].trigger = true;
+    },
+    ledgePhysics: function (player, ledge) {
+        //////////Eleveator Ledges/////////
+        if (ledge.name === elevator) {
+            ledge.body.stop();
+            if (ledge.body.touching.up) {
+                ledge.body.velocity.y = -200;
+                player.body.velocity.y = -200
+                // if (player.body.velocity.x < 0) {
+                //   ledge.body.velocity.x = player.body.velocity.x - 100;
+                // }
+                // if (player.body.velocity.x > 0) {
+                //   ledge.body.velocity.x = player.body.velocity.x + 100;
+                // }
+                // {
+                //   ledge.body.velocity.x = 0;
+                // }
+            }
+            // When You're Hitting the Edge from the Sides (Right and Left)
+            else if (ledge.body.touching.left || ledge.body.touching.right) {
+                ledge.body.velocity.y = 0;
+                ledge.body.velocity.x = player.body.velocity.x;
+            }
+            /////////////////////////////////In Case Want to Change Side Ledge Velocity///////////
+            // if (ledge.body.touching.left) {
+            //   ledge.body.velocity.y = 0;
+            //   ledge.body.velocity.x = 300;
+            // }
+            // if (ledge.body.touching.right) {
+            //   ledge.body.velocity.y = 0;
+            //   ledge.body.velocity.x = -300;
+            // }
+            // if (ledge.body.touching.down && player.body.velocity.y < -1) {
+            //   player.body.velocity.y = -100;
+            // }
+            else if (ledge.body.touching.down) {
+                ledge.body.velocity.y = -300;
+                player.body.velocity.y = -100;
+            }
+        }
+        //////////Super Jump/////////
+        if (ledge.name === bounce) {
+            if (ledge.body.touching.up) {
+                player.body.velocity.y = -1200;
+            }
+        }
+        ////////Surfs Up Dude////////
+        if (ledge.name === surf) {
+            ledge.body.velocity.y = 200;
+            ledge.body.velocity.x = player.body.velocity.x;
+        }
+    },
+    // //How Game Updates Real-Time (Actual Controls)////
     update: function () {
 
+        console.log(this.player.body.immovable);
         ////////////////////////////////////FPS Debugging////////////////////////////////////////
         // console.log(this.game.time.fps);
         // this.wall.forEachAlive(this.wallStop,this);
@@ -764,15 +876,15 @@ brawl.game.prototype = {
         //Player Mechanics
         var onImmovable = this.game.physics.arcade.collide(this.player, this.immovableWall, null, null, this);
         var onWall = this.game.physics.arcade.collide(this.player, this.wall, null, null, this);
-        var onLedge = this.game.physics.arcade.collide(this.player, this.ledge, ledgePhysics, null, this);
-        var onBall = this.game.physics.arcade.collide(this.player, this.ball, ballMover, null, this);
+        var onLedge = this.game.physics.arcade.collide(this.player, this.ledge, this.ledgePhysics, null, this);
+        var onBall = this.game.physics.arcade.collide(this.player, this.ball, this.ballMover, null, this);
 
         //Respawn Point Mechanics
         this.game.physics.arcade.overlap(this.player, this.flag, this.respawn, null, this);
 
         //Weapon Mechanics
-        this.game.physics.arcade.collide([this.weapon1.bullets, this.weapon2.bullets, this.weapon3.bullets], [this.ball, this.wall, this.ledge, this.enemy], weaponHandler, null, this);
-        this.game.physics.arcade.overlap([this.weapon1.bullets, this.weapon2.bullets, this.weapon3.bullets], [this.immovableWall, this.spikes, this.death], weaponImmovable, null, this);
+        this.game.physics.arcade.collide([this.weapon1.bullets, this.weapon2.bullets, this.weapon3.bullets], [this.ball, this.wall, this.ledge, this.enemy], this.weaponHandler, null, this);
+        this.game.physics.arcade.overlap([this.weapon1.bullets, this.weapon2.bullets, this.weapon3.bullets], [this.immovableWall, this.spikes, this.death], this.weaponImmovable, null, this);
 
         //Immovable Wall vs Moveable Objects
         this.game.physics.arcade.collide(this.immovableWall, [this.ball, this.ledge, this.enemy], null, null, this);
@@ -781,13 +893,13 @@ brawl.game.prototype = {
         this.game.physics.arcade.collide(this.wall, [this.wall, this.immovableWall, this.spikes, this.death], null, null, this);
 
         //Movable Wall Mechanics vs. Moveable Objects
-        this.game.physics.arcade.collide(this.wall, [this.ledge, this.ball, this.enemy], wallGroupPhysics, null, this);
+        this.game.physics.arcade.collide(this.wall, [this.ledge, this.ball, this.enemy], this.wallGroupPhysics, null, this);
 
         //Enemy Bullet Mechanics
-        this.game.physics.arcade.overlap(this.enemyBullets, [this.ball, this.wall, this.immovableWall, this.ledge, this.spikes, this.death], deathTwo, null, this);
+        this.game.physics.arcade.overlap(this.enemyBullets, [this.ball, this.wall, this.immovableWall, this.ledge, this.spikes, this.death], this.deathTwo, null, this);
 
         //Falling Spikes Mechanics
-        this.game.physics.arcade.overlap(this.fallingSpikes, [this.ball, this.wall, this.immovableWall, this.ledge, this.spikes, this.enemy, this.death], deathTwo, null, this);
+        this.game.physics.arcade.overlap(this.fallingSpikes, [this.ball, this.wall, this.immovableWall, this.ledge, this.spikes, this.enemy, this.death], this.deathTwo, null, this);
 
         // Ball Mechanics
         this.game.physics.arcade.collide(this.ball, [this.ball, this.ledge, this.death], null, null, this);

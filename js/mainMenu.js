@@ -49,7 +49,7 @@ brawl.state1.prototype = {
     }
 };
 
-//How to Play (Controls)
+////////////////////////Play the Game//////////////////
 brawl.stateControls = function () { };
 brawl.stateControls.prototype = {
     init: function () {
