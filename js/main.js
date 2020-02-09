@@ -46,11 +46,76 @@ game.state.add('game', brawl.game);
 game.state.add('controlScreen', brawl.stateControls);
 //////////////////////////////////////////////////Starting States//////////////////////////////////////////////
 game.state.start('mainMenu');
+//////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
+var content = [
+  "MetroidVanian: Class Refactor",
+  "Be Reborn Once Again",
+  "Remember the Words",
+  "GLORY BRAWL"
+];
+
+var line = [];
+
+var wordIndex = 0;
+var lineIndex = 0;
+
+var wordDelay = 120;
+var lineDelay = 400;
+
+function nextLine() {
+
+  if (lineIndex === content.length) {
+    //  We're finished
+    return;
+  }
+
+  //  Split the current line on spaces, so one word per array element
+  line = content[lineIndex].split(' ');
+
+  //  Reset the word index to zero (the first word in the line)
+  wordIndex = 0;
+
+  //  Call the 'nextWord' function once for each word in the line (line.length)
+  game.time.events.repeat(wordDelay, line.length, nextWord, this);
+
+  //  Advance to the next line
+  lineIndex++;
+
+}
+
+function nextWord() {
+
+  //  Add the next word onto the text string, followed by a space
+  text.text = text.text.concat(line[wordIndex] + " ");
+
+  //  Advance the word index to the next word in the line
+  wordIndex++;
+
+  //  Last word?
+  if (wordIndex === line.length) {
+    //  Add a carriage return
+    text.text = text.text.concat("\n");
+
+    //  Get the next line after the lineDelay amount of ms has elapsed
+    game.time.events.add(lineDelay, nextLine, this);
+  }
+
+}
 //////////////////////////////////////////////////Global Variables//////////////////////////////////////////////
 //Weapon Variables to Change Bullet Type
 var pullBoolean = false;
 var pushBoolean = false;
 var stopBoolean = false;
+
+//Respawn Holder (The Level You Will Respawn In)
+var respawnHolder = {
+  indexOfCurrentWorld: 0,
+  indexOfPlayerPosition: 1,
+  metroidvania: null,
+}
+
+//Toggling Camera
+var cameraBoolean = true;
 
 // Global Timer
 var total = 0;
@@ -61,6 +126,7 @@ var deaths = 0;
 //////////////////////////Enemy Bullet Handler//////////////////////
 var livingEnemies = [];
 var enemyBulletTime = 0;
+
 
 /////////////////////////////////////////////////Array Shuffler///////////////////////////////////////
 function shuffle(array) {
@@ -214,7 +280,7 @@ var level_0 = new LevelCreator("Level 0-CL", 2800, 2400, new MetroidvaniaCreator
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_0.playerPosition = [
-  new PlayerPositionCreator(200, 0),
+  new PlayerPositionCreator(700, 300),
   new PlayerPositionCreator(300, 2200),
   new PlayerPositionCreator(200, 400),
   new PlayerPositionCreator(1400, 400),
@@ -373,7 +439,7 @@ level_1.immovableWallSpawn = [
   ///////////////////////////////////Second Wall That Gets Removed From Level 3//////////////////////
   new SpriteCreator(8, true, true, immovableWallRegular, immovableWallHorizontal, 773, 0, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
   /////////////////////////////////////First Wall That Gets Removed From Level 2//////////////////////
-  new SpriteCreator(9, true, true, immovableWallRegular, immovableWallHorizontal, 773, 300, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
+  // new SpriteCreator(9, true, true, immovableWallRegular, immovableWallHorizontal, 773, 300, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
   //Divider
   new SpriteCreator(10, true, true, immovableWallRegular, immovableWallVertical, 710, 0, 0, 0, .5, .8, 0, 0, null, null, null, null, null),
   //Divider 2
@@ -554,74 +620,6 @@ level_2.text = [
 //Push Level 2 Into World Class Array
 worldClassLevels.push(level_2);
 
-//Console Log
-//////////////////////////////////////All the Levels////////////////////////////
-
-//Respawn Holder (The Level You Will Respawn In)
-var respawnHolder = {
-  indexOfCurrentWorld: 0,
-  indexOfPlayerPosition: 1,
-  metroidvania: null,
-}
-
-//Toggling Camera
-var cameraBoolean = true;
-
-//////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
-var content = [
-  "MetroidVanian: Refactor",
-  "Be Reborn Once Again",
-  "Remember the Words",
-  "GLORY BRAWL"
-];
-
-var line = [];
-
-var wordIndex = 0;
-var lineIndex = 0;
-
-var wordDelay = 120;
-var lineDelay = 400;
-
-function nextLine() {
-
-  if (lineIndex === content.length) {
-    //  We're finished
-    return;
-  }
-
-  //  Split the current line on spaces, so one word per array element
-  line = content[lineIndex].split(' ');
-
-  //  Reset the word index to zero (the first word in the line)
-  wordIndex = 0;
-
-  //  Call the 'nextWord' function once for each word in the line (line.length)
-  game.time.events.repeat(wordDelay, line.length, nextWord, this);
-
-  //  Advance to the next line
-  lineIndex++;
-
-}
-
-function nextWord() {
-
-  //  Add the next word onto the text string, followed by a space
-  text.text = text.text.concat(line[wordIndex] + " ");
-
-  //  Advance the word index to the next word in the line
-  wordIndex++;
-
-  //  Last word?
-  if (wordIndex === line.length) {
-    //  Add a carriage return
-    text.text = text.text.concat("\n");
-
-    //  Get the next line after the lineDelay amount of ms has elapsed
-    game.time.events.add(lineDelay, nextLine, this);
-  }
-
-}
 ///////////////Reference Code/////////////
 // function moveTowardsPlayer(sprite1, player) {
 //   //   if (game.physics.arcade.distanceBetween(sprite1, player, false, true) < 500) {
@@ -643,49 +641,4 @@ function nextWord() {
 //     else {
 //       player.body.velocity.x = 1000;
 //     }
-
-// }
-// function ballMover(player, ball) {
-//   ///////////////////GOOOFY/////////////
-//   // ball.body.stop();
-//   // if (ball.body.touching.up) {
-//   //   ball.body.velocity.y= 200;
-//   // }
-//   // if (ball.body.touching.down) {
-//   //   ball.body.velocity.y = -200;
-//   //   player.body.velocity.y = -50;
-//   // }
-//   // if (ball.body.touching.left) {
-//   //   ball.body.velocity.x = 200;
-//   // }
-//   // if (ball.body.touching.right) {
-//   //   ball.body.velocity.x = -200;
-//   // }
-//   //////////////////Natural///////////////
-//   // if (ball.body.touching.up) {
-//   //   ball.body.velocity.y = 50;
-//   // }
-//   // else if (ball.body.touching.down) {
-//   //   ball.body.velocity.y = -50;
-//   //   player.body.velocity.y = -75;
-//   // }
-//   // else if (ball.body.touching.left) {
-//   //   ball.body.velocity.x = 50;
-//   // }
-//   // else if (ball.body.touching.right) {
-//   //   ball.body.velocity.x = -50;
-//   // }
-//   //////////////Control////////////
-//   // if (ball.body.touching.up) {
-//   //   ball.body.velocity.y = player.body.velocity.y;
-//   // }
-//   // if (ball.body.touching.down) {
-//   //   ball.body.velocity.y = player.body.velocity.y;
-//   // }
-//   // if (ball.body.touching.left) {
-//   //   ball.body.velocity.x = player.body.velocity.x;
-//   // }
-//   // if (ball.body.touching.right) {
-//   //   ball.body.velocity.x = player.body.velocity.x;
-//   // }
 // }
