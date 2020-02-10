@@ -60,7 +60,7 @@ brawl.game.prototype = {
         this.load.image('enemy', 'assets/trumpface.png');
         //Player
         // this.load.spritesheet('player', 'assets/player.png', 87.5, 93.5);
-        this.load.image('player','assets/playerFiller.png');
+        this.load.image('player', 'assets/playerFiller.png');
     },
     create: function () {
         //Desired FPS of game and fps and lag debugging
@@ -489,21 +489,26 @@ brawl.game.prototype = {
     },
     wallSpawn: function (sprite) {
         this.wallX = this.wall.create(sprite.x, sprite.y, sprite.art);
+        this.wallX.name = sprite.name;
         this.wallX.specialCondition = sprite.specialCondition;
         this.wallX.specialWorld = sprite.specialWorld;
         this.wallX.specialArray = sprite.specialArray;
         this.wallX.positionInArray = sprite.positionInArray;
         this.wallX.velocityVsImmovable = 100;
+        if (sprite.name === wallGhost) {
+            this.wallX.tint = Phaser.Color.ORANGE;
+            this.wallX.body.immovable = true;
+        }
         this.wallX.anchor.setTo(.5);
         this.wallX.scale.setTo(sprite.sizeX, sprite.sizeY);
         // this.wallX.body.immovable = true;
-        this.wallX.body.gravity.setTo(sprite.gravityX,sprite.gravityY);
+        this.wallX.body.gravity.setTo(sprite.gravityX, sprite.gravityY);
         this.wallX.body.mass = 150;
         this.wallX.body.maxVelocity.setTo(500);
-        // this.wallX.body.collideWorldBounds = true;
+        this.wallX.body.collideWorldBounds = true;
         ////////////////////////Testing/////////////////////////
-        this.wallX.checkWorldBounds = true;
-        this.wallX.events.onOutOfBounds.add(this.wallOut, this);
+        // this.wallX.checkWorldBounds = true;
+        // this.wallX.events.onOutOfBounds.add(this.wallOut, this);
         /////////////////////////Testing//////////////////
         this.wallX.body.bounce.setTo(1);
         this.wallX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
@@ -810,17 +815,16 @@ brawl.game.prototype = {
         }
     },
     //Wall Out
-    wallOut: function (wall) {
-        //Up
-        // if (wall.y <= this.metroidvania.roomUpValue || wall.y >= this.metroidvania.roomDownValue) {
-        //     wall.kill();
-        // }
-        // else if (wall.x >= this.metroidvania.roomRightValue || wall.x < this.metroidvania.roomLeftValue) {
-        //     // wall.reset(1400, wall.y)
-        //     // wall.body.velocity.x = -400;
-        //     wall.kill();
-        // }
-        wall.kill();
+    // wallOut: function (wall) {
+    //     wall.kill();
+    // },
+    ghostWall: function (wall, immovable) {
+        if (wall.name === wallGhost) {
+            return false;
+        }
+        else {
+            true;
+        }
     },
     //Ball Interaction With Spikes
     ballSpike: function (sprite1, sprite2) {
@@ -839,14 +843,23 @@ brawl.game.prototype = {
         //////////////////////////Creates New Sprites After Spikes Destroyed///////////////////////
         //worldClassLevels[sprite2.specialWorld].ledgeGreySpawn[sprite2.specialArray].trigger = true;
     },
-    playerWall: function (player,wall) {
-        wall.body.moves = true;
-        wall.tint = 0xFFFFFF;
-        wall.body.immovable = false;
-        if (player.body.touching.up) {
-            wall.body.velocity.y = -100;
-            player.body.velocity.y = 100;
+    playerWall: function (player, wall) {
+        if (wall.name !== wallGhost) {
+            wall.body.moves = true;
+            wall.tint = 0xFFFFFF;
+            wall.body.immovable = false;
+            if (player.body.touching.up) {
+                wall.body.velocity.y = -100;
+                player.body.velocity.y = 100;
+            }
         }
+        // wall.body.moves = true;
+        // wall.tint = 0xFFFFFF;
+        // wall.body.immovable = false;
+        // if (player.body.touching.up) {
+        //     wall.body.velocity.y = -100;
+        //     player.body.velocity.y = 100;
+        // }
         // if (player.body.touching.down) {
         //     wall.body.velocity.y = -50;
         // }
@@ -972,7 +985,7 @@ brawl.game.prototype = {
         this.game.physics.arcade.collide(this.immovableWall, [this.ball, this.ledge, this.enemy], null, null, this);
 
         //Moveable Wall vs Immoveable Objects (Defunct For Now)
-        this.game.physics.arcade.collide(this.wall, [this.wall, this.immovableWall, this.spikes, this.death], this.wallImmovable, null, this);
+        this.game.physics.arcade.collide(this.wall, [this.wall, this.immovableWall, this.spikes, this.death], this.wallImmovable, this.ghostWall, this);
 
         //Movable Wall Mechanics vs. Moveable Objects
         this.game.physics.arcade.collide(this.wall, [this.ledge, this.ball, this.enemy], this.wallMoveable, null, this);

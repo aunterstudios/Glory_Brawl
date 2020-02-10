@@ -221,6 +221,7 @@ var immovableWallPhase = 'immovableWallPhase';
 
 //Moveable Wall Names
 var wallRegular = 'wallRegular';
+var wallGhost = 'wallGhost';
 
 //Spikes
 var spikesRegular = 'spikesRegular'
@@ -637,12 +638,12 @@ worldClassLevels.push(level_2);
 
 
 ////////////////////////////////////////Level 3/////////////////////////////////////(Testing Ground)
-var level_3 = new LevelCreator("Level 2-CL", 1400, 800, new MetroidvaniaCreator(null, null, 2, 800, null, null, null, null), '#80235b');
+var level_3 = new LevelCreator("Level 3-PlayGroundEnivronment", 1400, 800, new MetroidvaniaCreator(null, null, 2, 800, null, null, null, null), '#80235b');
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_3.playerPosition = [
   new PlayerPositionCreator(200, 700),
-  new PlayerPositionCreator(400, 50),
+  new PlayerPositionCreator(400, 700),
   new PlayerPositionCreator(200, 700),
   new PlayerPositionCreator(1400, 700),
 ]
@@ -651,7 +652,8 @@ level_3.playerPosition = [
 
 level_3.undeniableDeathSpawn = [
   //Bottom At The End of the Map (INVISIBLE)
-  new SpriteCreator(0, true, true, undeniableDeathRegular, deathVertical, 1400, 0, 0, 0, .25, .5, 100, 0, null, null, null, null, null),
+  new SpriteCreator(0, true, true, undeniableDeathRegular, deathVertical, 1400, 0, 0, 0, .1, .5, 100, 0, null, null, null, null, null),
+  new SpriteCreator(0, true, true, undeniableDeathRegular, deathVertical, 0, 0, 0, 0, .1, .5, 100, 0, null, null, null, null, null),
 ];
 
 /////////////////////////Creation of ImmovableWalls
@@ -659,14 +661,14 @@ level_3.immovableWallSpawn = [
   //Ground
   new SpriteCreator(0, true, true, immovableWallRegular, immovableWallHorizontal, 300, 800, 0, 0, 1.2, .25, 0, 0, null, null, null, null, null),
   //Testing
-  new SpriteCreator(0, true, true, immovableWallRegular, immovableWallVertical, 0, 250, 100, 0, .5, .5, 0, 0, null, null, null, null, null),
+  new SpriteCreator(0, true, true, immovableWallRegular, immovableWallVertical, 200, 250, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
 ];
 
 //Moveable Walls
 ///Single Wall to Teach You  
 level_3.wallSpawn = [
   //Before Grey
-  new SpriteCreator(0, true, true, wallRegular, wallHorizontal, 400, 300, 0, 500, .5, .5, 0, 1000, null, null, null, null, null),
+  new SpriteCreator(0, true, true, wallGhost, wallHorizontal, 500, 300, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
   new SpriteCreator(0, true, true, wallRegular, wallVertical, 500, 600, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
 ];
 
