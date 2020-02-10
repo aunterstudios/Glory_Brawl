@@ -276,7 +276,7 @@ var spikeFall = 'spikeFall';
 //Flag
 var flag = 'flag';
 ///////////////////////////////////////////Level 0///////////////////////////////////////////////////////////
-var level_0 = new LevelCreator("Level 0-CL", 2800, 2400, new MetroidvaniaCreator(1, 100, 0, 2400, 0, 1, 0, 2800), "#4488AA");
+var level_0 = new LevelCreator("Level 0-CL", 3800, 2400, new MetroidvaniaCreator(1, 100, 0, 2400, 0, 1, 0, 2800), "#4488AA");
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_0.playerPosition = [
@@ -290,28 +290,28 @@ level_0.playerPosition = [
 
 level_0.undeniableDeathSpawn = [
   new SpriteCreator(0, true, true, undeniableDeathRegular, deathVertical, 0, 1470, 0, 0, .25, .619, 0, 0, null, null, null, null, null),
-  new SpriteCreator(1, true, true, undeniableDeathRegular, deathVertical, 2800, 0, 0, 0, .25, .857, 0, 0, null, null, null, null, null),
+  new SpriteCreator(1, true, true, undeniableDeathRegular, deathVertical, 3800, 0, 0, 0, .25, 1.669, 0, 0, null, null, null, null, null),
   // new SpriteCreator(2, true, true, undeniableDeathRegular, deathVertical, 2800, 1263, 0, 0, .25, .767, 0, 0, null, null, null, null, null),
   new SpriteCreator(2, true, true, undeniableDeathRegular, deathHorizontal, 1463, 900, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
-  new SpriteCreator(3, true, true, undeniableDeathRegular, deathHorizontal, 2060, 300, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
-  new SpriteCreator(4, true, true, undeniableDeathRegular, deathHorizontal, 1400, 0, 0, 0, 1, .5, 0, 0, null, null, null, null, null)
+  new SpriteCreator(3, true, true, undeniableDeathRegular, deathVertical, 2083, 480, 0, 0, .5, .3, 0, 0, null, null, null, null, null),
+  new SpriteCreator(4, true, true, undeniableDeathRegular, deathHorizontal, 1400, 0, 0, 0, 1.715, .5, 0, 0, null, null, null, null, null)
 ];
 
 /////////////////////////Creation of ImmovableWalls
 level_0.immovableWallSpawn = [
   //Ground
-  new SpriteCreator(0, true, true, immovableWallRegular, immovableWallHorizontal, 0, 2400, 0, 0, 3.29, .5, 0, 0, null, null, null, null, null),
+  new SpriteCreator(0, true, true, immovableWallRegular, immovableWallHorizontal, 0, 2400, 0, 0, 4.463, .5, 0, 0, null, null, null, null, null),
   //Practice Jump Levels
   new SpriteCreator(1, true, true, immovableWallRegular, immovableWallVertical, 700, 2210, 0, 0, .4, .15, 0, 0, null, null, null, null, null),
   new SpriteCreator(2, true, true, immovableWallRegular, immovableWallVertical, 1700, 1910, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
   //Tiny Box Practice Upside Down Jump
-  new SpriteCreator(3, true, true, immovableWallRegular, immovableWallVertical, 2500, 2200, 0, 0, .3, .05, 0, 0, null, null, null, null, null),
-  new SpriteCreator(4, true, true, immovableWallRegular, immovableWallVertical, 2500, 1800, 0, 0, .3, .05, 0, 0, null, null, null, null, null),
-  new SpriteCreator(5, true, true, immovableWallRegular, immovableWallVertical, 2700, 2000, 0, 0, .3, .05, 0, 0, null, null, null, null, null),
-  new SpriteCreator(6, true, true, immovableWallRegular, immovableWallVertical, 2700, 1600, 0, 0, .3, .05, 0, 0, null, null, null, null, null),
-  new SpriteCreator(7, true, true, immovableWallRegular, immovableWallVertical, 2700, 1375, 0, 0, .3, .05, 0, 0, null, null, null, null, null),
+  new SpriteCreator(3, true, true, immovableWallRegular, immovableWallVertical, 3000, 2200, 0, 0, .3, .05, 0, 0, null, null, null, null, null),
+  new SpriteCreator(4, true, true, immovableWallRegular, immovableWallVertical, 3460, 1800, 0, 0, .3, .05, 0, 0, null, null, null, null, null),
+  new SpriteCreator(5, true, true, immovableWallRegular, immovableWallVertical, 3230, 2000, 0, 0, .3, .05, 0, 0, null, null, null, null, null),
+  new SpriteCreator(6, true, true, immovableWallRegular, immovableWallVertical, 3200, 1600, 0, 0, .3, .05, 0, 0, null, null, null, null, null),
+  new SpriteCreator(7, true, true, immovableWallRegular, immovableWallVertical, 3200, 1375, 0, 0, .3, .05, 0, 0, null, null, null, null, null),
   //The Box
-  new SpriteCreator(8, true, true, immovableWallRegular, immovableWallHorizontal, 2375, 1200, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
+  new SpriteCreator(8, true, true, immovableWallRegular, immovableWallHorizontal, 2375, 700, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
   new SpriteCreator(9, true, true, immovableWallRegular, immovableWallVertical, 1400, 300, 0, 0, .5, 1.3, 0, 0, null, null, null, null, null),
   new SpriteCreator(10, true, true, immovableWallRegular, immovableWallHorizontal, 0, 1407, 0, 0, 1.72, .5, 0, 0, null, null, null, null, null),
   new SpriteCreator(11, true, true, immovableWallRegular, immovableWallVertical, 0, 0, 0, 0, .5, 1.653, 0, 0, null, null, null, null, null),
@@ -337,12 +337,17 @@ level_0.immovableWallSpawn = [
   new SpriteCreator(30, true, true, immovableWallRegular, immovableWallVertical, 1200, 1100, 0, 0, .3, .05, 0, 0, null, null, null, null, null),
   new SpriteCreator(31, true, true, immovableWallRegular, immovableWallVertical, 1200, 800, 0, 0, .3, .05, 0, 0, null, null, null, null, null),
   //New Item (Instead of Undeniable Death)
-  new SpriteCreator(32, true, true, immovableWallRegular, immovableWallVertical, 2800, 1263, 0, 0, .2, 1.262, 0, 0, null, null, null, null, null),
+  // new SpriteCreator(32, true, true, immovableWallRegular, immovableWallVertical, 3800, 1200, 0, 0, .2, 1.262, 0, 0, null, null, null, null, null),
+  //TIny Boxes part 2
+  new SpriteCreator(32, true, true, immovableWallRegular, immovableWallVertical, 3050, 1200, 0, 0, .3, .05, 0, 0, null, null, null, null, null),
+  new SpriteCreator(33, true, true, immovableWallRegular, immovableWallVertical, 2800, 1050, 0, 0, .3, .05, 0, 0, null, null, null, null, null),
+  new SpriteCreator(34, true, true, immovableWallRegular, immovableWallVertical, 2650, 900, 0, 0, .3, .05, 0, 0, null, null, null, null, null),
+  // new SpriteCreator(33, true, true, immovableWallRegular, immovableWallHorizontal, 2348, 1700, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
 ];
 
 //Moveable Walls
 ///Single Wall to Teach You  
-level_0.wallSpawn = [new SpriteCreator(0, true, true, wallRegular, wallHorizontal, 1900, 1100, 0, 0, .5, .5, 0, 0, null, null, null, null, null)];
+level_0.wallSpawn = [new SpriteCreator(0, true, true, wallRegular, wallHorizontal, 3000, 450, 0, 0, .5, .5, 0, 0, null, null, null, null, null)];
 
 //Spikes
 //Blocking Entrance to Level 1 (SPECIAL SPRITE)
@@ -357,8 +362,8 @@ level_0.text = [
   new textCreator(0, 100, 2000, "W or Spacebar- Jump\nA- Left\nS- Push or Move Downwards\nD- Right\nTapping Twice on the Jump Button Lets You Double Jump\nJump Over the Wall", 'Arial Black', 25, '#ffffff', 'bold'),
   new textCreator(1, 100, 1700, "Red is Death", 'Times New Roman', 30, "#FF0000", 'bold'),
   new textCreator(2, 1300, 1650, "You Automatically Stick on Surfaces When You Jump on It\nPress A or D while on the Wall to Jump Off It\nWhile in the Air Move Towards the Wall to Stick to it Again\nKeep Jumping Off and Moving Again Towards the Wall to Climb Over\nTry Holding D While Tapping A while on Sticking on the Left Side of the Wall", 'Arial Black', 25, '#ffffff', 'bold'),
-  new textCreator(3, 1800, 2000, "You Can Stick and Move on the Bottom of Surfaces\nPress S to go Downwards or Push\n\nWhenever You Touch A Surface You Can Double Jump Again", 'Arial Black', 25, '#ffffff', 'bold'),
-  new textCreator(4, 1550, 1200, "Press 1 to Access Pull Gun\nUse Mouse to Aim and Left Click to Shoot\nAny Object that is Moveable Can Be Pulled\n\nSurf the Grey Wall to the Top Using the Pull Gun\nHint: Jump While Shooting At the Grey Wall While Riding It", 'Arial Black', 25, '#ffffff', 'bold'),
+  new textCreator(3, 2180, 2000, "You Can Stick and Move on the Bottom of Surfaces\nPress S to go Downwards or Push\n\nWhenever You Touch A Surface You Can Double Jump Again", 'Arial Black', 25, '#ffffff', 'bold'),
+  new textCreator(4, 2850, 600, "Press 1 to Access Pull Gun\nUse Mouse to Aim and Left Click to Shoot\nAny Object that is Moveable Can Be Pulled\n\nSurf the Grey Wall to the Top \nUsing the Pull Gun\nHint: Jump While Shooting At \nthe Grey Wall While Riding It", 'Arial Black', 25, '#ffffff', 'bold'),
   new textCreator(5, 750, 1265, "Press 2 to Use the Stop Gun\nBalls Destroy Enemies and Traps\nDestroy the Spikes\nAny Object that is Moveable Can be Stopped", 'Arial Black', 25, '#ffffff', 'bold'),
   new textCreator(6, 400, 200, "As Long as the Ball Touches Any Part of the Spikes", 'Arial Black', 25, '#ffffff', 'bold'),
   new textCreator(7, 100, 25, "Level 1 ↑", 'Arial Black', 25, '#ffffff', 'bold'),

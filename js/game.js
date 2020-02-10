@@ -427,7 +427,7 @@ brawl.game.prototype = {
         }
 
         ///////////////////Debugging Purposes (Knowing The Placement of Each Sprites)/////////////////////////
-        // var distanceOfXandY = 200;
+        // var distanceOfXandY = 100;
         // var xIterator = Math.round(levelGenerator.xOfWorld / distanceOfXandY);
         // var yIterator = Math.round(levelGenerator.yOfWorld / distanceOfXandY);
 
