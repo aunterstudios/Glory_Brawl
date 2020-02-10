@@ -434,7 +434,7 @@ level_1.immovableWallSpawn = [
   //Mini Box (First Instance of Immovable Wall Destroying Regular Wall)
   new SpriteCreator(2, true, true, immovableWallKillWall, immovableWallVertical, 1062.5, 2600, 0, 0, .3, .05, 0, 0, null, null, null, null, null),
   //Top of First Grey Ledge
-  new SpriteCreator(3, true, true, immovableWallKillWall, immovableWallHorizontal, 430, 1690, 0, 0, 1.17, .5, 0, 0, null, null, null, null, null),
+  new SpriteCreator(3, true, true, immovableWallRegular, immovableWallHorizontal, 430, 1690, 0, 0, 1.17, .5, 0, 0, null, null, null, null, null),
   //End of Grey Ledge
   new SpriteCreator(4, true, true, immovableWallRegular, immovableWallHorizontal, 0, 1336.5, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
   //End of Green Ledge
@@ -463,16 +463,16 @@ level_1.immovableWallSpawn = [
 ///Single Wall to Teach You  
 level_1.wallSpawn = [
   //Before Grey
-  new SpriteCreator(0, true, true, wallRegular, wallHorizontal, 1100, 3000, 0, 0, .5, .5, null, null, null, null, null),
+  new SpriteCreator(0, true, true, wallRegular, wallHorizontal, 1100, 3000, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
   //After BLue
-  new SpriteCreator(1, true, true, wallRegular, wallHorizontal, 1100, 1250, 0, 0, .5, .5, null, null, null, null, null),
+  new SpriteCreator(1, true, true, wallRegular, wallHorizontal, 1100, 1250, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
   //Kill These
-  new SpriteCreator(2, true, true, wallRegular, wallHorizontal, 250, 600, 0, 0, .5, .5, null, null, null, null, null),
-  new SpriteCreator(3, true, true, wallRegular, wallHorizontal, 250, 700, 0, 0, .5, .5, null, null, null, null, null),
-  new SpriteCreator(4, true, true, wallRegular, wallHorizontal, 250, 800, 0, 0, .5, .5, null, null, null, null, null),
-  new SpriteCreator(5, true, true, wallRegular, wallHorizontal, 250, 900, 0, 0, .5, .5, null, null, null, null, null),
-  new SpriteCreator(6, true, true, wallRegular, wallHorizontal, 250, 1000, 0, 0, .5, .5, null, null, null, null, null),
-  new SpriteCreator(7, true, true, wallRegular, wallHorizontal, 250, 1100, 0, 0, .5, .5, null, null, null, null, null),
+  new SpriteCreator(2, true, true, wallRegular, wallHorizontal, 250, 600, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
+  new SpriteCreator(3, true, true, wallRegular, wallHorizontal, 250, 700, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
+  new SpriteCreator(4, true, true, wallRegular, wallHorizontal, 250, 800, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
+  new SpriteCreator(5, true, true, wallRegular, wallHorizontal, 250, 900, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
+  new SpriteCreator(6, true, true, wallRegular, wallHorizontal, 250, 1000, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
+  new SpriteCreator(7, true, true, wallRegular, wallHorizontal, 250, 1100, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
 ];
 
 //Spikes
@@ -505,7 +505,7 @@ level_1.text = [
   //Flag Respawn
   new textCreator(2, 400, 3000, 'Flags are Respawn Checkpoints', 'Arial Black', 25, '#ffffff', 'bold'),
   //Grey Ledge Tutorial
-  new textCreator(3, 900, 2300, "Get on Top of the Grey Ledge\n\nPull the Grey Ledge Towards You", 'Arial Black', 25, '#ffffff', 'bold'),
+  new textCreator(3, 900, 2300, "Pull the Grey Ledge Towards You\n\nGet on Top of the Grey Ledge", 'Arial Black', 25, '#ffffff', 'bold'),
   //Where to Land Grey Ledge
   new textCreator(4, 300, 1900, "Jump Down to the Grey Ledge at the Bottom", 'Arial Black', 25, '#ffffff', 'bold'),
   //Green Ledge Tutorial
@@ -513,9 +513,12 @@ level_1.text = [
   new textCreator(6, 1500, 1600, "↓", 'Arial Black', 25, '#ffffff', 'bold'),
   new textCreator(8, 1600, 3000, "Green Ledges Make You Bounce", 'Arial Black', 25, '#ffffff', 'bold'),
   //Blue Ledge Tutorial
-  new textCreator(9, 1500, 200, "You Can Surf Blue Ledges\n\nBe Warned They Are Unstable\n\nLand Perfectly in the Middle of the Blue Ledge\n\nHint: Hold S When Surfing", 'Arial Black', 25, '#ffffff', 'bold'),
+  new textCreator(9, 1500, 200, "You Can Surf Blue Ledges\n\nBe Warned They Are Unstable\n\nLand Perfectly in the Middle of the Blue Ledge\n\nHint: Holding S Can Let You Surf On Top of Objects", 'Arial Black', 25, '#ffffff', 'bold'),
   //Kill Instructions
   new textCreator(10, 100, 200, "Press 3 to Access Kill Gun\n\nAny Object that is Moveable can be Killed", 'Arial Black', 25, '#ffffff', 'bold'),
+  //These Kill Walls
+  new textCreator(11, 1150, 2600, "These Kill Walls", 'Arial Black', 25, '#ffffff', 'bold'),
+  new textCreator(12, 1700, 1300, "Properties of Objects Can Be Changed\n\nDepending What Hits It", 'Arial Black', 25, '#ffffff', 'bold'),
 ];
 
 level_1.flagSpawn = [
@@ -581,27 +584,27 @@ level_2.immovableWallSpawn = [
 ///Single Wall to Teach You  
 level_2.wallSpawn = [
   //Before Grey
-  new SpriteCreator(0, true, true, wallRegular, wallHorizontal, 4500, 400, 0, 0, .5, .5, null, null, null, null, null),
-  new SpriteCreator(0, true, true, wallRegular, wallVertical, 2000, 400, 0, 0, .5, .5, null, null, null, null, null),
+  new SpriteCreator(0, true, true, wallRegular, wallHorizontal, 4500, 400, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
+  new SpriteCreator(0, true, true, wallRegular, wallVertical, 2000, 400, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
 ];
 
 //Enemy Spawn
 level_2.enemySpawn = [
   //First Three Enemies
-  new SpriteCreator(0, true, true, enemyRegular, enemyOne, 4300, 200, 0, 0, .5, .5, null, null, null, null, null),
-  new SpriteCreator(1, true, true, enemyRegular, enemyOne, 4500, 200, 0, 0, .5, .5, null, null, null, null, null),
-  new SpriteCreator(2, true, true, enemyRegular, enemyOne, 4700, 200, 0, 0, .5, .5, null, null, null, null, null),
+  new SpriteCreator(0, true, true, enemyRegular, enemyOne, 4300, 200, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
+  new SpriteCreator(1, true, true, enemyRegular, enemyOne, 4500, 200, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
+  new SpriteCreator(2, true, true, enemyRegular, enemyOne, 4700, 200, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
   //Blocking the First Entrance
-  new SpriteCreator(3, true, true, enemyRegular, enemyOne, 4125, 50, 0, 0, .5, .5, null, null, null, null, null),
+  new SpriteCreator(3, true, true, enemyRegular, enemyOne, 4125, 50, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
   //Maximum Jump Enemy
-  new SpriteCreator(4, true, true, enemyRegular, enemyOne, 3500, 500, 0, 0, .5, .5, null, null, null, null, null),
+  new SpriteCreator(4, true, true, enemyRegular, enemyOne, 3500, 500, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
   //Four Enemies of the Gate
-  new SpriteCreator(5, true, true, enemyRegular, enemyOne, 1000, 50, 0, 0, .5, .5, null, null, null, null, null),
-  new SpriteCreator(6, true, true, enemyRegular, enemyOne, 1000, 250, 0, 0, .5, .5, null, null, null, null, null),
-  new SpriteCreator(7, true, true, enemyRegular, enemyOne, 1000, 450, 0, 0, .5, .5, null, null, null, null, null),
-  new SpriteCreator(8, true, true, enemyRegular, enemyOne, 1000, 650, 0, 0, .5, .5, null, null, null, null, null),
+  new SpriteCreator(5, true, true, enemyRegular, enemyOne, 1000, 50, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
+  new SpriteCreator(6, true, true, enemyRegular, enemyOne, 1000, 250, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
+  new SpriteCreator(7, true, true, enemyRegular, enemyOne, 1000, 450, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
+  new SpriteCreator(8, true, true, enemyRegular, enemyOne, 1000, 650, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
   //Last Enemy
-  new SpriteCreator(9, true, true, enemyRegular, enemyOne, 600, 600, 0, 0, .5, .5, null, null, null, null, null),
+  new SpriteCreator(9, true, true, enemyRegular, enemyOne, 600, 600, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
 ]
 
 //Falling Spikes
@@ -621,11 +624,98 @@ level_2.flagSpawn = [
 level_2.text = [
   //Entry to Level 1
   new textCreator(0, 4650, 650, "Level 1 →", 'Arial Black', 25, '#ffffff', 'bold'),
+  //WolfGang Kill Them
+  new textCreator(1, 4250, 450, "Kill Them Before They Kill You", 'Arial Black', 25, '#ffffff', 'bold'),
   //Camera Mode
+  new textCreator(2, 2400, 400, "Learn How to Do the Free-Look Shot\n\nBullets Are Killed Off Screen\n\nFollow The Bullet\n\nPress 4 For Free Look (WASD Movement)", 'Arial Black', 25, '#ffffff', 'bold'),
+  //Phase Wall
+  new textCreator(3, 400, 400, "These Purple Walls Are Killed\n\nBy Enemy Bullets\n\nOh Yeah Falling Spikes Kill You Too", 'Arial Black', 25, '#ffffff', 'bold'),
 ];
 
 //Push Level 2 Into World Class Array
 worldClassLevels.push(level_2);
+
+
+////////////////////////////////////////Level 3/////////////////////////////////////(Testing Ground)
+var level_3 = new LevelCreator("Level 2-CL", 1400, 800, new MetroidvaniaCreator(null, null, 2, 800, null, null, null, null), '#80235b');
+
+//Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
+level_3.playerPosition = [
+  new PlayerPositionCreator(200, 700),
+  new PlayerPositionCreator(400, 50),
+  new PlayerPositionCreator(200, 700),
+  new PlayerPositionCreator(1400, 700),
+]
+
+///////////////////////Creation of Undeniable Death
+
+level_3.undeniableDeathSpawn = [
+  //Bottom At The End of the Map (INVISIBLE)
+  new SpriteCreator(0, true, true, undeniableDeathRegular, deathVertical, 1400, 0, 0, 0, .25, .5, 100, 0, null, null, null, null, null),
+];
+
+/////////////////////////Creation of ImmovableWalls
+level_3.immovableWallSpawn = [
+  //Ground
+  new SpriteCreator(0, true, true, immovableWallRegular, immovableWallHorizontal, 300, 800, 0, 0, 1.2, .25, 0, 0, null, null, null, null, null),
+  //Testing
+  new SpriteCreator(0, true, true, immovableWallRegular, immovableWallVertical, 0, 250, 100, 0, .5, .5, 0, 0, null, null, null, null, null),
+];
+
+//Moveable Walls
+///Single Wall to Teach You  
+level_3.wallSpawn = [
+  //Before Grey
+  new SpriteCreator(0, true, true, wallRegular, wallHorizontal, 400, 300, 0, 500, .5, .5, 0, 1000, null, null, null, null, null),
+  new SpriteCreator(0, true, true, wallRegular, wallVertical, 500, 600, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
+];
+
+//Enemy Spawn
+level_3.enemySpawn = [
+  // //First Three Enemies
+  // new SpriteCreator(0, true, true, enemyRegular, enemyOne, 4300, 200, 0, 0, .5, .5, null, null, null, null, null),
+  // new SpriteCreator(1, true, true, enemyRegular, enemyOne, 4500, 200, 0, 0, .5, .5, null, null, null, null, null),
+  // new SpriteCreator(2, true, true, enemyRegular, enemyOne, 4700, 200, 0, 0, .5, .5, null, null, null, null, null),
+  // //Blocking the First Entrance
+  // new SpriteCreator(3, true, true, enemyRegular, enemyOne, 4125, 50, 0, 0, .5, .5, null, null, null, null, null),
+  // //Maximum Jump Enemy
+  // new SpriteCreator(4, true, true, enemyRegular, enemyOne, 3500, 500, 0, 0, .5, .5, null, null, null, null, null),
+  // //Four Enemies of the Gate
+  // new SpriteCreator(5, true, true, enemyRegular, enemyOne, 1000, 50, 0, 0, .5, .5, null, null, null, null, null),
+  // new SpriteCreator(6, true, true, enemyRegular, enemyOne, 1000, 250, 0, 0, .5, .5, null, null, null, null, null),
+  // new SpriteCreator(7, true, true, enemyRegular, enemyOne, 1000, 450, 0, 0, .5, .5, null, null, null, null, null),
+  // new SpriteCreator(8, true, true, enemyRegular, enemyOne, 1000, 650, 0, 0, .5, .5, null, null, null, null, null),
+  // //Last Enemy
+  // new SpriteCreator(9, true, true, enemyRegular, enemyOne, 600, 600, 0, 0, .5, .5, null, null, null, null, null),
+]
+
+//Falling Spikes
+// level_3.fallingSpikes = [
+//   new SpriteCreator(0, true, true, spikeRegular, spikeFall, 475, 50, null, null, .4, .4, 0, 500, null, null, null, 3, null),
+// ]
+
+//Flag Spawn
+// level_3.flagSpawn = [
+//   new SpriteCreator(0, true, true, regularFlag, flag, 4550, 650, 0, 0, .4, .4, 0, 0, null, null, null, null, 3),
+//   new SpriteCreator(1, true, true, regularFlag, flag, 220, 250, 0, 0, .4, .4, 0, 0, 1, 1, 9, null, 2),
+//   //Test
+//   // new SpriteCreator(1, true, true, regularFlag, flag, 4600, 650, 0, 0, .4, .4, 0, 0, 1, 1, 9, null, 2),
+// ]
+
+//Text Creator (Helpful Hints)
+// level_3.text = [
+//   //Entry to Level 1
+//   new textCreator(0, 4650, 650, "Level 1 →", 'Arial Black', 25, '#ffffff', 'bold'),
+//   //WolfGang Kill Them
+//   new textCreator(1, 4250, 450, "Kill Them Before They Kill You", 'Arial Black', 25, '#ffffff', 'bold'),
+//   //Camera Mode
+//   new textCreator(2, 2400, 400, "Learn How to Do the Free-Look Shot\n\nBullets Are Killed Off Screen\n\nFollow The Bullet\n\nPress 4 For Free Look (WASD Movement)", 'Arial Black', 25, '#ffffff', 'bold'),
+//   //Phase Wall
+//   new textCreator(3, 400, 400, "These Purple Walls Are Killed\n\nBy Enemy Bullets\n\nOh Yeah Falling Spikes Kill You Too", 'Arial Black', 25, '#ffffff', 'bold'),
+// ];
+
+//Push Level 2 Into World Class Array
+worldClassLevels.push(level_3);
 
 ///////////////Reference Code/////////////
 // function moveTowardsPlayer(sprite1, player) {

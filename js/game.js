@@ -427,7 +427,7 @@ brawl.game.prototype = {
         }
 
         ///////////////////Debugging Purposes (Knowing The Placement of Each Sprites)/////////////////////////
-        // var distanceOfXandY = 100;
+        // var distanceOfXandY = 200;
         // var xIterator = Math.round(levelGenerator.xOfWorld / distanceOfXandY);
         // var yIterator = Math.round(levelGenerator.yOfWorld / distanceOfXandY);
 
@@ -497,9 +497,14 @@ brawl.game.prototype = {
         this.wallX.anchor.setTo(.5);
         this.wallX.scale.setTo(sprite.sizeX, sprite.sizeY);
         // this.wallX.body.immovable = true;
+        this.wallX.body.gravity.setTo(sprite.gravityX,sprite.gravityY);
         this.wallX.body.mass = 150;
         this.wallX.body.maxVelocity.setTo(500);
-        this.wallX.body.collideWorldBounds = true;
+        // this.wallX.body.collideWorldBounds = true;
+        ////////////////////////Testing/////////////////////////
+        this.wallX.checkWorldBounds = true;
+        this.wallX.events.onOutOfBounds.add(this.wallOut, this);
+        /////////////////////////Testing//////////////////
         this.wallX.body.bounce.setTo(1);
         this.wallX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
         ///////////Drag Events///////////
@@ -803,6 +808,19 @@ brawl.game.prototype = {
             sprite2.body.velocity.x = sprite2.velocityVsWallX;
             // sprite2.body.velocity.y = sprite1.body.velocity.y;
         }
+    },
+    //Wall Out
+    wallOut: function (wall) {
+        //Up
+        // if (wall.y <= this.metroidvania.roomUpValue || wall.y >= this.metroidvania.roomDownValue) {
+        //     wall.kill();
+        // }
+        // else if (wall.x >= this.metroidvania.roomRightValue || wall.x < this.metroidvania.roomLeftValue) {
+        //     // wall.reset(1400, wall.y)
+        //     // wall.body.velocity.x = -400;
+        //     wall.kill();
+        // }
+        wall.kill();
     },
     //Ball Interaction With Spikes
     ballSpike: function (sprite1, sprite2) {
