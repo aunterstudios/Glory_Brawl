@@ -174,7 +174,7 @@ class PlayerPositionCreator {
 
 //Creates World Gravity Object
 class worldGravityCreator {
-  constructor(gravityX,gravityY) {
+  constructor(gravityX, gravityY) {
     this.gravityX = gravityX;
     this.gravityY = gravityY;
   }
@@ -400,6 +400,8 @@ level_0.text = [
   new textCreator(5, 750, 1265, "Press 2 to Use the Stop Gun\nBalls Destroy Enemies and Traps\nDestroy the Spikes\nAny Object that is Moveable Can be Stopped", 'Arial Black', 25, '#ffffff', 'bold'),
   new textCreator(6, 400, 200, "As Long as the Ball Touches Any Part of the Spikes", 'Arial Black', 25, '#ffffff', 'bold'),
   new textCreator(7, 100, 25, "Level 1 ↑", 'Arial Black', 25, '#ffffff', 'bold'),
+  new textCreator(8, 2500, 1400, "Once Again When You Hit a Fucking Surface\n\nYou Can Double Jump Again in the Air", 'Arial Black', 25, '#ffffff', 'bold'),
+  new textCreator(8, 1500, 600, "You Probably Realized\n\nYou Can Fuck Shit Up With One Mistake", 'Arial Black', 25, '#ffffff', 'bold'),
 ];
 
 //Push to worldClassLevelsGlobalArray
@@ -673,7 +675,7 @@ worldClassLevels.push(level_2);
 ////////////////////////////////////////Level 3/////////////////////////////////////(Testing Ground)
 var level_3 = new LevelCreator("Level 3-PlayGround", 1400, 800, new MetroidvaniaCreator(null, null, 2, 800, null, null, null, null), '#80235b');
 
-level_3.worldGravity = new worldGravityCreator(200,300);
+level_3.worldGravity = new worldGravityCreator(200, 300);
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_3.playerPosition = [
