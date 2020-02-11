@@ -786,9 +786,10 @@ brawl.game.prototype = {
     wallMoveable: function (sprite1, sprite2) {
         if (sprite1.name === wallRegular) {
             // sprite2.body.stop();
+            sprite1.name = 'frozen';
             sprite1.body.moves = false;
             sprite1.body.immovable = true;
-            sprite1.tint = 0xff0000;
+            sprite1.tint = 0x00ffff;
             // sprite2.body.stopMovement();
             //sprite2.body.stop();
             if (sprite1.body.touching.up) {
@@ -814,8 +815,10 @@ brawl.game.prototype = {
                 sprite2.body.velocity.x = sprite2.velocityVsWallX;
                 // sprite2.body.velocity.y = sprite1.body.velocity.y;
             }
+            return;
         }
-        else {
+        else if (sprite1.name === wallGhost) {
+            //Changing Name or Type
             sprite1.name = wallRegular;
             sprite1.body.moves = true;
             sprite1.tint = 0xFFFFFF;
@@ -858,7 +861,8 @@ brawl.game.prototype = {
         //worldClassLevels[sprite2.specialWorld].ledgeGreySpawn[sprite2.specialArray].trigger = true;
     },
     playerWall: function (player, wall) {
-        if (wall.name === wallRegular) {
+        if (wall.name === wallRegular || wall.name === wallFrozen) {
+            wall.name = wallRegular;
             wall.body.moves = true;
             wall.tint = 0xFFFFFF;
             wall.body.immovable = false;
