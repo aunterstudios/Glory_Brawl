@@ -209,6 +209,26 @@ class textCreator {
     this.fontWeight = fontWeight;
   }
 }
+/////////////////////////List of GROUP NAMES of Each Sprite (For Different Special Properties)////////////////
+/*
+Note: This is an extra name that denotes the entirety of a group. To keep physics consistent throughout.
+*/
+//Death Group
+var groupUndeniableDeath = 'groupUndeniableDeath';
+//Immovable Walls
+var groupImmovableWall = 'groupImmovableWall';
+//Moveable Walls
+var groupWall = 'groupWall';
+//Spikes
+var groupSpikes = 'groupSpikes';
+//Ledge
+var groupLedge = 'groupLedge';
+//Enemy
+var groupEnemy = 'groupEnemy';
+//Ball
+var groupBall = 'groupBall';
+//Flag
+var groupFlag = 'groupFlag';
 
 /////////////////////////List of Names of Each Sprite (For Different Special Properties)////////////////
 //Death Names

@@ -453,6 +453,7 @@ brawl.game.prototype = {
     undeniableDeathSpawn: function (sprite) {
         this.deathX = this.death.create(sprite.x, sprite.y, sprite.art);
         this.deathX.name = sprite.name;
+        this.deathX.groupName = groupUndeniableDeath;
         this.deathX.specialCondition = sprite.specialCondition;
         this.deathX.specialWorld = sprite.specialWorld;
         this.deathX.specialArray = sprite.specialArray;
@@ -469,6 +470,7 @@ brawl.game.prototype = {
         this.immovableWallX = this.immovableWall.create(sprite.x, sprite.y, sprite.art);
         // this.immovableWallX.anchor.setTo(.5);
         this.immovableWallX.name = sprite.name;
+        this.immovableWallX.groupName = groupImmovableWall;
         this.immovableWallX.specialCondition = sprite.specialCondition;
         this.immovableWallX.specialWorld = sprite.specialWorld;
         this.immovableWallX.specialArray = sprite.specialArray;
@@ -490,6 +492,7 @@ brawl.game.prototype = {
     wallSpawn: function (sprite) {
         this.wallX = this.wall.create(sprite.x, sprite.y, sprite.art);
         this.wallX.name = sprite.name;
+        this.wallX.groupName = groupWall;
         this.wallX.specialCondition = sprite.specialCondition;
         this.wallX.specialWorld = sprite.specialWorld;
         this.wallX.specialArray = sprite.specialArray;
@@ -784,9 +787,9 @@ brawl.game.prototype = {
         }
     },
     wallMoveable: function (sprite1, sprite2) {
-        if (sprite1.name === wallRegular) {
+        if (sprite1.name === wallRegular || sprite1.name === wallFrozen) {
             // sprite2.body.stop();
-            sprite1.name = 'frozen';
+            sprite1.name = wallFrozen;
             sprite1.body.moves = false;
             sprite1.body.immovable = true;
             sprite1.tint = 0x00ffff;
