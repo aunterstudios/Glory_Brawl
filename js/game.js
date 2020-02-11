@@ -97,6 +97,10 @@ brawl.game.prototype = {
 
         ////////////////////Game World Size//////////////////////
         this.game.world.setBounds(0, 0, worldClassLevels[this.indexOfCurrentWorld].xOfWorld, worldClassLevels[this.indexOfCurrentWorld].yOfWorld);
+        ///////////////////World Gravity////////////////////////
+        if ('worldGravity' in worldClassLevels[this.indexOfCurrentWorld] ) {
+            this.game.physics.arcade.gravity.setTo(worldClassLevels[this.indexOfCurrentWorld].worldGravity.gravityX, worldClassLevels[this.indexOfCurrentWorld].worldGravity.gravityY);
+        }
 
         ////////////////////////////////////Keyboard Controls/////////////////////////////////
         this.cursors = this.game.input.keyboard.createCursorKeys();
@@ -840,7 +844,7 @@ brawl.game.prototype = {
         }
         else if (sprite1.name === wallRegular && sprite2.groupName === groupBall) {
             sprite1.tint = 0x666666;
-            sprite1.body.gravity.y += 100;
+            // sprite1.body.gravity.y += 100;
         }
 
     },
