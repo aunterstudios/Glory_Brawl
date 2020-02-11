@@ -795,56 +795,59 @@ brawl.game.prototype = {
         if (sprite2.name === immovableWallPhase) {
             wall.kill();
         }
+        return;
     },
-    wallMoveable: function (sprite1, sprite2) {
-        if ((sprite1.name === wallRegular || sprite1.name === wallFrozen) && sprite2.groupName === groupLedge) {
-            // sprite2.body.stop();
-            sprite1.name = wallFrozen;
-            sprite1.body.moves = false;
-            sprite1.body.immovable = true;
-            sprite1.tint = 0x00ffff;
-            // sprite2.body.stopMovement();
-            //sprite2.body.stop();
-            if (sprite1.body.touching.up) {
-                // sprite2.body.acceleration.y = 100
-                // sprite2.body.acceleration.y = 0;
-                sprite2.body.velocity.y = -sprite2.velocityVsWallY;
-                // sprite1.body.velocity.y = sprite2.velocityVsWallY;
-                // console.log(sprite1.body.velocity.y, sprite2.body.velocity.y);
-                // sprite2.body.velocity.x = sprite1.body.velocity.x;
+    wallMoveable: function (wall, objMov) {
+        if ((wall.name === wallRegular || wall.name === wallFrozen) && objMov.groupName === groupLedge) {
+            // objMov.body.stop();
+            wall.name = wallFrozen;
+            wall.body.moves = false;
+            wall.body.immovable = true;
+            wall.tint = 0x00ffff;
+            // objMov.body.stopMovement();
+            //objMov.body.stop();
+            if (wall.body.touching.up) {
+                // objMov.body.acceleration.y = 100
+                // objMov.body.acceleration.y = 0;
+                objMov.body.velocity.y = -objMov.velocityVsWallY;
+                // wall.body.velocity.y = objMov.velocityVsWallY;
+                // console.log(wall.body.velocity.y, objMov.body.velocity.y);
+                // objMov.body.velocity.x = wall.body.velocity.x;
             }
-            if (sprite1.body.touching.down) {
-                // sprite2.body.acceleration.y = 0;
-                sprite2.body.velocity.y = sprite2.velocityVsWallY;
-                // sprite2.body.velocity.x = sprite1.body.velocity.x;
+            if (wall.body.touching.down) {
+                // objMov.body.acceleration.y = 0;
+                objMov.body.velocity.y = objMov.velocityVsWallY;
+                // objMov.body.velocity.x = wall.body.velocity.x;
             }
-            if (sprite1.body.touching.left) {
-                // sprite2.body.acceleration.x = 0;
-                sprite2.body.velocity.x = -sprite2.velocityVsWallX;
-                // sprite2.body.velocity.y = sprite1.body.velocity.y;
+            if (wall.body.touching.left) {
+                // objMov.body.acceleration.x = 0;
+                objMov.body.velocity.x = -objMov.velocityVsWallX;
+                // objMov.body.velocity.y = wall.body.velocity.y;
             }
-            if (sprite1.body.touching.right) {
-                // sprite2.body.acceleration.x = 0;
-                sprite2.body.velocity.x = sprite2.velocityVsWallX;
-                // sprite2.body.velocity.y = sprite1.body.velocity.y;
+            if (wall.body.touching.right) {
+                // objMov.body.acceleration.x = 0;
+                objMov.body.velocity.x = objMov.velocityVsWallX;
+                // objMov.body.velocity.y = wall.body.velocity.y;
             }
             return;
         }
-        else if (sprite1.name === wallGhost && sprite2.groupName === groupLedge) {
+        else if (wall.name === wallGhost && objMov.groupName === groupLedge) {
             //Changing Name or Type
-            sprite1.name = wallRegular;
-            sprite1.body.moves = true;
-            sprite1.tint = 0xFFFFFF;
-            sprite1.body.immovable = false;
+            wall.name = wallRegular;
+            wall.body.moves = true;
+            wall.tint = 0xFFFFFF;
+            wall.body.immovable = false;
             // if (player.body.touching.up) {
             //     wall.body.velocity.y = -100;
             //     player.body.velocity.y = 100;
             // }
             return;
         }
-        else if (sprite1.name === wallRegular && sprite2.groupName === groupBall) {
-            sprite1.tint = 0x666666;
-            // sprite1.body.gravity.y += 100;
+        else if (wall.name === wallRegular && objMov.groupName === groupBall) {
+            wall.name = wallGravity;
+            wall.tint = 0x666666;
+            wall.body.gravity.y = 500;
+            return;
         }
 
     },
