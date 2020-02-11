@@ -709,10 +709,15 @@ level_3.wallSpawn = [
 // ];
 
 //Enemy Spawn
-level_3.enemySpawn = [
-  // //First Three Enemies
-  new SpriteCreator(0, true, true, enemyRegular, enemyOne, 400, 200, 0, 0, .5, .5, null, null, null, null, null),
-]
+// level_3.enemySpawn = [
+//   // //First Three Enemies
+//   new SpriteCreator(0, true, true, enemyRegular, enemyOne, 400, 200, 0, 0, .5, .5, null, null, null, null, null),
+// ];
+
+//Ball
+level_3.ballSpawn = [
+  new SpriteCreator(0, true, true, ballRegular, ball, 400, 200, 0, 0, null, null, 0, 0, null, null, null, null, null)
+];
 
 //Falling Spikes
 // level_3.fallingSpikes = [

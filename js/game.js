@@ -838,8 +838,9 @@ brawl.game.prototype = {
             // }
             return;
         }
-        else if (sprite1.name === wallRegular && sprite2.groupName === groupEnemy) {
-            sprite1.kill();
+        else if (sprite1.name === wallRegular && sprite2.groupName === groupBall) {
+            sprite1.tint = 0x666666;
+            sprite1.body.gravity.y += 100;
         }
 
     },
