@@ -784,35 +784,49 @@ brawl.game.prototype = {
         }
     },
     wallMoveable: function (sprite1, sprite2) {
-        // sprite2.body.stop();
-        sprite1.body.moves = false;
-        sprite1.body.immovable = true;
-        sprite1.tint = 0xff0000;
-        // sprite2.body.stopMovement();
-        //sprite2.body.stop();
-        if (sprite1.body.touching.up) {
-            // sprite2.body.acceleration.y = 100
-            // sprite2.body.acceleration.y = 0;
-            sprite2.body.velocity.y = -sprite2.velocityVsWallY;
-            // sprite1.body.velocity.y = sprite2.velocityVsWallY;
-            // console.log(sprite1.body.velocity.y, sprite2.body.velocity.y);
-            // sprite2.body.velocity.x = sprite1.body.velocity.x;
+        if (sprite1.name === wallRegular) {
+            // sprite2.body.stop();
+            sprite1.body.moves = false;
+            sprite1.body.immovable = true;
+            sprite1.tint = 0xff0000;
+            // sprite2.body.stopMovement();
+            //sprite2.body.stop();
+            if (sprite1.body.touching.up) {
+                // sprite2.body.acceleration.y = 100
+                // sprite2.body.acceleration.y = 0;
+                sprite2.body.velocity.y = -sprite2.velocityVsWallY;
+                // sprite1.body.velocity.y = sprite2.velocityVsWallY;
+                // console.log(sprite1.body.velocity.y, sprite2.body.velocity.y);
+                // sprite2.body.velocity.x = sprite1.body.velocity.x;
+            }
+            if (sprite1.body.touching.down) {
+                // sprite2.body.acceleration.y = 0;
+                sprite2.body.velocity.y = sprite2.velocityVsWallY;
+                // sprite2.body.velocity.x = sprite1.body.velocity.x;
+            }
+            if (sprite1.body.touching.left) {
+                // sprite2.body.acceleration.x = 0;
+                sprite2.body.velocity.x = -sprite2.velocityVsWallX;
+                // sprite2.body.velocity.y = sprite1.body.velocity.y;
+            }
+            if (sprite1.body.touching.right) {
+                // sprite2.body.acceleration.x = 0;
+                sprite2.body.velocity.x = sprite2.velocityVsWallX;
+                // sprite2.body.velocity.y = sprite1.body.velocity.y;
+            }
         }
-        if (sprite1.body.touching.down) {
-            // sprite2.body.acceleration.y = 0;
-            sprite2.body.velocity.y = sprite2.velocityVsWallY;
-            // sprite2.body.velocity.x = sprite1.body.velocity.x;
+        else {
+            sprite1.name = wallRegular;
+            sprite1.body.moves = true;
+            sprite1.tint = 0xFFFFFF;
+            sprite1.body.immovable = false;
+            // if (player.body.touching.up) {
+            //     wall.body.velocity.y = -100;
+            //     player.body.velocity.y = 100;
+            // }
+            return;
         }
-        if (sprite1.body.touching.left) {
-            // sprite2.body.acceleration.x = 0;
-            sprite2.body.velocity.x = -sprite2.velocityVsWallX;
-            // sprite2.body.velocity.y = sprite1.body.velocity.y;
-        }
-        if (sprite1.body.touching.right) {
-            // sprite2.body.acceleration.x = 0;
-            sprite2.body.velocity.x = sprite2.velocityVsWallX;
-            // sprite2.body.velocity.y = sprite1.body.velocity.y;
-        }
+
     },
     //Wall Out
     // wallOut: function (wall) {
@@ -844,7 +858,7 @@ brawl.game.prototype = {
         //worldClassLevels[sprite2.specialWorld].ledgeGreySpawn[sprite2.specialArray].trigger = true;
     },
     playerWall: function (player, wall) {
-        if (wall.name !== wallGhost) {
+        if (wall.name === wallRegular) {
             wall.body.moves = true;
             wall.tint = 0xFFFFFF;
             wall.body.immovable = false;
@@ -984,10 +998,10 @@ brawl.game.prototype = {
         //Immovable Wall vs Moveable Objects
         this.game.physics.arcade.collide(this.immovableWall, [this.ball, this.ledge, this.enemy], null, null, this);
 
-        //Moveable Wall vs Immoveable Objects (Defunct For Now)
+        //Moveable Wall vs Immoveable Objects and Itself
         this.game.physics.arcade.collide(this.wall, [this.wall, this.immovableWall, this.spikes, this.death], this.wallImmovable, this.ghostWall, this);
 
-        //Movable Wall Mechanics vs. Moveable Objects
+        //Movable Wall Mechanics vs. Moveable Objects (NOT ITSELF)
         this.game.physics.arcade.collide(this.wall, [this.ledge, this.ball, this.enemy], this.wallMoveable, null, this);
 
         //Enemy Bullet Mechanics

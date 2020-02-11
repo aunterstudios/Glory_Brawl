@@ -589,6 +589,7 @@ level_2.wallSpawn = [
   new SpriteCreator(0, true, true, wallRegular, wallVertical, 2000, 400, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
 ];
 
+
 //Enemy Spawn
 level_2.enemySpawn = [
   //First Three Enemies
@@ -638,7 +639,7 @@ worldClassLevels.push(level_2);
 
 
 ////////////////////////////////////////Level 3/////////////////////////////////////(Testing Ground)
-var level_3 = new LevelCreator("Level 3-PlayGroundEnivronment", 1400, 800, new MetroidvaniaCreator(null, null, 2, 800, null, null, null, null), '#80235b');
+var level_3 = new LevelCreator("Level 3-PlayGround", 1400, 800, new MetroidvaniaCreator(null, null, 2, 800, null, null, null, null), '#80235b');
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_3.playerPosition = [
@@ -670,6 +671,16 @@ level_3.wallSpawn = [
   //Before Grey
   new SpriteCreator(0, true, true, wallGhost, wallHorizontal, 500, 300, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
   new SpriteCreator(0, true, true, wallRegular, wallVertical, 500, 600, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
+];
+
+//Ledges
+level_3.ledgeSpawn = [
+  //Elevator
+  new SpriteCreator(0, true, true, elevator, ledgeElevator, 600, 200, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+  //Bounce Ledges
+  new SpriteCreator(2, true, true, bounce, ledgeBounce, 600, 400, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+  //Surf Ledges
+  new SpriteCreator(5, true, true, surf, ledgeSurf, 600, 600, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
 ];
 
 //Enemy Spawn
