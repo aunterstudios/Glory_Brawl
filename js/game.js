@@ -525,6 +525,7 @@ brawl.game.prototype = {
     spikeSpawn: function (sprite) {
         this.spikesX = this.spikes.create(sprite.x, sprite.y, sprite.art);
         this.spikesX.name = sprite.name;
+        this.spikesX.groupName = groupSpikes;
         this.spikesX.specialCondition = sprite.specialCondition;
         this.spikesX.specialWorld = sprite.specialWorld;
         this.spikesX.specialArray = sprite.specialArray;
@@ -542,6 +543,7 @@ brawl.game.prototype = {
     ledgeSpawn: function (sprite) {
         this.ledgeX = this.ledge.create(sprite.x, sprite.y, sprite.art);
         this.ledgeX.name = sprite.name;
+        this.ledgeX.groupName = groupLedge;
         this.ledgeX.specialCondition = sprite.specialCondition;
         this.ledgeX.specialWorld = sprite.specialWorld;
         this.ledgeX.specialArray = sprite.specialArray;
@@ -559,6 +561,7 @@ brawl.game.prototype = {
     enemySpawn: function (sprite) {
         this.trumpX = this.enemy.create(sprite.x, sprite.y, 'enemy');
         this.trumpX.name = sprite.name;
+        this.trumpX.groupName = groupEnemy;
         this.trumpX.specialCondition = sprite.specialCondition;
         this.trumpX.specialWorld = sprite.specialWorld;
         this.trumpX.specialArray = sprite.specialArray;
@@ -577,6 +580,7 @@ brawl.game.prototype = {
         //Adding Ball
         this.ballX = this.ball.create(sprite.x, sprite.y, 'ball');
         this.ballX.name = sprite.name;
+        this.ballX.groupName = groupBall;
         this.ballX.specialCondition = sprite.specialCondition;
         this.ballX.specialWorld = sprite.specialWorld;
         this.ballX.specialArray = sprite.specialArray;
@@ -782,12 +786,14 @@ brawl.game.prototype = {
         victim.kill();
     },
     wallImmovable: function (wall, sprite2) {
-        if (sprite2.name === immovableWallKillWall) {
+        /////////////////Make Sure to Code In Objects Interacting With Each Other!!////////////////
+        ////////////////Interactions Coded in the Orientation of Immovable Walls//////////////////
+        if (sprite2.name === immovableWallPhase) {
             wall.kill();
         }
     },
     wallMoveable: function (sprite1, sprite2) {
-        if (sprite1.name === wallRegular || sprite1.name === wallFrozen) {
+        if ((sprite1.name === wallRegular || sprite1.name === wallFrozen) && sprite2.groupName === groupLedge) {
             // sprite2.body.stop();
             sprite1.name = wallFrozen;
             sprite1.body.moves = false;
@@ -820,7 +826,7 @@ brawl.game.prototype = {
             }
             return;
         }
-        else if (sprite1.name === wallGhost) {
+        else if (sprite1.name === wallGhost && sprite2.groupName === groupLedge) {
             //Changing Name or Type
             sprite1.name = wallRegular;
             sprite1.body.moves = true;
@@ -831,6 +837,9 @@ brawl.game.prototype = {
             //     player.body.velocity.y = 100;
             // }
             return;
+        }
+        else if (sprite1.name === wallRegular && sprite2.groupName === groupEnemy) {
+            sprite1.kill();
         }
 
     },

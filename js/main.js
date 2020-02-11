@@ -227,6 +227,8 @@ var groupLedge = 'groupLedge';
 var groupEnemy = 'groupEnemy';
 //Ball
 var groupBall = 'groupBall';
+//Falling Spikes
+var groupFallingSpikes = 'groupFallingSpikes';
 //Flag
 var groupFlag = 'groupFlag';
 
@@ -258,6 +260,7 @@ var enemyRegular = 'enemyRegular';
 //Ball Names
 var ballRegular = 'ballRegular';
 
+//Falling Spikes
 var spikeRegular = 'spikeRegular';
 
 //Flag Names
@@ -682,45 +685,33 @@ level_3.undeniableDeathSpawn = [
 level_3.immovableWallSpawn = [
   //Ground
   new SpriteCreator(0, true, true, immovableWallRegular, immovableWallHorizontal, 300, 800, 0, 0, 1.2, .25, 0, 0, null, null, null, null, null),
-  //Testing
-  new SpriteCreator(0, true, true, immovableWallRegular, immovableWallVertical, 200, 250, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
+  // //Testing
+  // new SpriteCreator(0, true, true, immovableWallRegular, immovableWallVertical, 200, 250, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
 ];
 
 //Moveable Walls
 ///Single Wall to Teach You  
 level_3.wallSpawn = [
   //Before Grey
-  new SpriteCreator(0, true, true, wallGhost, wallHorizontal, 500, 300, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
-  new SpriteCreator(0, true, true, wallRegular, wallVertical, 500, 600, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
+  new SpriteCreator("Test", true, true, wallRegular, wallVertical, 200, 200, 100, 0, .5, .5, 0, 0, null, null, null, null, null),
+  // new SpriteCreator("X", true, true, wallGhost, wallHorizontal, 800, 100, -100, 0, .5, .5, 0, 0, null, null, null, null, null),
+  // new SpriteCreator("Y", true, true, wallRegular, wallVertical, 300, 400, 0, -300, .5, .5, 0, 0, null, null, null, null, null),
 ];
 
 //Ledges
-level_3.ledgeSpawn = [
-  //Elevator
-  new SpriteCreator(0, true, true, elevator, ledgeElevator, 600, 200, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
-  //Bounce Ledges
-  new SpriteCreator(2, true, true, bounce, ledgeBounce, 600, 400, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
-  //Surf Ledges
-  new SpriteCreator(5, true, true, surf, ledgeSurf, 600, 600, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
-];
+// level_3.ledgeSpawn = [
+//   //Elevator
+//   new SpriteCreator(0, true, true, elevator, ledgeElevator, 600, 200, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+//   //Bounce Ledges
+//   new SpriteCreator(2, true, true, bounce, ledgeBounce, 600, 400, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+//   //Surf Ledges
+//   new SpriteCreator(5, true, true, surf, ledgeSurf, 600, 600, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+// ];
 
 //Enemy Spawn
 level_3.enemySpawn = [
   // //First Three Enemies
-  // new SpriteCreator(0, true, true, enemyRegular, enemyOne, 4300, 200, 0, 0, .5, .5, null, null, null, null, null),
-  // new SpriteCreator(1, true, true, enemyRegular, enemyOne, 4500, 200, 0, 0, .5, .5, null, null, null, null, null),
-  // new SpriteCreator(2, true, true, enemyRegular, enemyOne, 4700, 200, 0, 0, .5, .5, null, null, null, null, null),
-  // //Blocking the First Entrance
-  // new SpriteCreator(3, true, true, enemyRegular, enemyOne, 4125, 50, 0, 0, .5, .5, null, null, null, null, null),
-  // //Maximum Jump Enemy
-  // new SpriteCreator(4, true, true, enemyRegular, enemyOne, 3500, 500, 0, 0, .5, .5, null, null, null, null, null),
-  // //Four Enemies of the Gate
-  // new SpriteCreator(5, true, true, enemyRegular, enemyOne, 1000, 50, 0, 0, .5, .5, null, null, null, null, null),
-  // new SpriteCreator(6, true, true, enemyRegular, enemyOne, 1000, 250, 0, 0, .5, .5, null, null, null, null, null),
-  // new SpriteCreator(7, true, true, enemyRegular, enemyOne, 1000, 450, 0, 0, .5, .5, null, null, null, null, null),
-  // new SpriteCreator(8, true, true, enemyRegular, enemyOne, 1000, 650, 0, 0, .5, .5, null, null, null, null, null),
-  // //Last Enemy
-  // new SpriteCreator(9, true, true, enemyRegular, enemyOne, 600, 600, 0, 0, .5, .5, null, null, null, null, null),
+  new SpriteCreator(0, true, true, enemyRegular, enemyOne, 400, 200, 0, 0, .5, .5, null, null, null, null, null),
 ]
 
 //Falling Spikes
