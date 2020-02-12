@@ -804,7 +804,7 @@ brawl.game.prototype = {
     wallImmovable: function (wall, sprite2) {
         /////////////////Make Sure to Code In Objects Interacting With Each Other!!////////////////
         ////////////////Interactions Coded in the Orientation of Immovable Walls//////////////////
-        if (sprite2.name === immovableWallPhase) {
+        if (sprite2.name === immovableWallKillWall) {
             wall.kill();
         }
         return;
@@ -1159,20 +1159,20 @@ brawl.game.prototype = {
             else if (onTheRightSide) {
                 if (onWall || onImmovable) {
                     this.player.body.velocity.x = 100;
-                    this.player.body.velocity.y = 100;
+                    this.player.body.velocity.y = 100; //100 is original
                 }
                 // if (onWall || onImmovable || onLedge) {
                 //     this.player.frame = 6;
                 // }
                 if (this.movementLeft.isDown) {
-                    this.player.body.velocity.y = -500; 4
+                    this.player.body.velocity.y = -500;
                     this.player.body.velocity.x = -1000;
                 }
             }
             else if (onTheLeftSide) {
                 if (onWall || onImmovable) {
                     this.player.body.velocity.x = -100;
-                    this.player.body.velocity.y = 100;
+                    this.player.body.velocity.y = 100; //100 is Original
                 }
                 // if (onWall || onImmovable || onLedge) {
                 //     this.player.frame = 12;
