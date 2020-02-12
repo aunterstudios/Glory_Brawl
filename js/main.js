@@ -255,6 +255,9 @@ var wallGhost = 'wallGhost';
 var wallFrozen = 'wallFrozen';
 var wallGravity = 'wallGravity';
 var wallReverseGravity = 'wallReverseGravity';
+var wallLight = 'wallLight';
+var wallHeavy = 'wallHeavy';
+var wallBounce = 'wallBounce';
 
 //Spikes
 var spikesRegular = 'spikesRegular'
