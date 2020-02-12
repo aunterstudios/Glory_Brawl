@@ -257,7 +257,7 @@ var wallGravity = 'wallGravity';
 var wallReverseGravity = 'wallReverseGravity';
 var wallLight = 'wallLight';
 var wallHeavy = 'wallHeavy';
-var wallBounce = 'wallBounce';
+var wallYou = 'wallYou';
 
 //Spikes
 var spikesRegular = 'spikesRegular'
@@ -316,7 +316,7 @@ var flag = 'flag';
 ///////////////////////////////////////////Tint Specific Art//////////////////////////////////////////////
 //Walls
 var tintWallRegular = 0xFFFFFF; //wallRegular (Removes Tint)
-var tintWallBounce = 5358148.107386001; //wallBounce
+var tintWallYou = 5358148.107386001; //wallYou
 var tintWallHeavy = 11299401.19209293; //wallHeavy
 var tintWallGhost = 2131.658687827956; //wallGhost
 var tintWallFrozen = 0x00ffff;
@@ -728,7 +728,7 @@ level_3.immovableWallSpawn = [
 //Moveable Walls
 ///Single Wall to Teach You  
 level_3.wallSpawn = [
-  new SpriteCreator(0, true, true, wallRegular, wallHorizontal, 600, 200, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
+  new SpriteCreator(0, true, true, wallYou, wallHorizontal, 600, 200, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
   // new SpriteCreator(1, true, true, wallGhost, wallHorizontal, 600, 400, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
   // new SpriteCreator(2, true, true, wallGhost, wallHorizontal, 600, 600, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
   // new SpriteCreator(3, true, true, wallGhost, wallHorizontal, 600, 750, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
