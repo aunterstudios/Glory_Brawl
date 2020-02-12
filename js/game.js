@@ -825,19 +825,16 @@ brawl.game.prototype = {
             wall.name = wallLight;
             wall.tint = tintWallLight;
             wall.body.gravity.y = 0;
-            wall.body.mass = 50;
         }
         //Turns wallLight to wallHeavy (ledge)
         else if (wall.name === wallLight && objMov.groupName === groupLedge) {
             wall.name = wallHeavy;
             wall.tint = tintWallHeavy; 
-            wall.body.mass = 500;
         }
         //Turns wallHeavy to wallBounce (Ball)
         else if (wall.name === wallHeavy && objMov.groupName === groupBall) {
             wall.name = wallBounce;
             wall.tint = tintWallBounce;
-            wall.body.mass = 150;
         }
         //Turns wallBounce to Wall Ghost (Ledge)
         else if (wall.name === wallBounce && objMov.groupName === groupLedge) {
@@ -903,11 +900,51 @@ brawl.game.prototype = {
             wall.body.moves = true;
             wall.tint = tintWallRegular;
             wall.body.immovable = false;
+        }
+        else if (wall.name === wallLight) {
             if (player.body.touching.up) {
-                wall.body.velocity.y = -100;
-                player.body.velocity.y = 100;
+                wall.body.velocity.y = -500;
+            }
+            else if (player.body.touching.down) {
+                wall.body.velocity.y = 500;
+            }
+            else if (player.body.touching.left) {
+                wall.body.velocity.x = -500;
+            }
+            else if (player.body.touching.right) {
+                wall.body.velocity.x = 500;
             }
         }
+        else if (wall.name === wallHeavy) {
+            wall.body.stop();
+            if (player.body.touching.up) {
+                wall.body.velocity.y = -50;
+            }
+            else if (player.body.touching.down) {
+                wall.body.velocity.y = 50;
+            }
+            else if (player.body.touching.left) {
+                wall.body.velocity.x = -50;
+            }
+            else if (player.body.touching.right) {
+                wall.body.velocity.x = 50;
+            }
+        }
+        else if (wall.name === wallBounce) {
+            if (player.body.touching.up) {
+                player.body.velocity.y = 1000;
+            }
+            else if (player.body.touching.down) {
+                player.body.velocity.y = -1000;
+            }
+            else if (player.body.touching.left) {
+                player.body.velocity.x = 1000;
+            }
+            else if (player.body.touching.right) {
+                player.body.velocity.x = -1000;
+            }
+        }
+        return;
     },
     playerBall: function (player, ball) {
         //   ///////////////////GOOOFY/////////////
