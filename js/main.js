@@ -315,7 +315,23 @@ var spikeFall = 'spikeFall';
 var flag = 'flag';
 ///////////////////////////////////////////Tint Specific Art//////////////////////////////////////////////
 //Walls
+var tintWallRegular = 0xFFFFFF; //wallRegular (Removes Tint)
 var tintWallBounce = 5358148.107386001; //wallBounce
+var tintWallHeavy = 11299401.19209293; //wallHeavy
+var tintWallGhost = 2131.658687827956; //wallGhost
+var tintWallFrozen = 0x00ffff;
+var tintWallGravity = 0x666666;
+var tintWallReverseGravity = 5796018.4954396635;
+var tintWallLight = 16266338.5302869;
+// var tintWallImmovable = 7232137.110156179;
+//Colors I like
+var colorsArrays = [
+  7232137.110156179,//Dark Blue
+  2499878.036284214,//Enemy Wall Impact Tint
+  16266338.5302869,//Some Kind of Pinkish Color
+]
+
+
 ///////////////////////////////////////////Level 0///////////////////////////////////////////////////////////
 var level_0 = new LevelCreator("Level 0-CL", 3800, 2400, new MetroidvaniaCreator(1, 100, 0, 2400, 0, 1, 0, 2800), "#4488AA");
 
@@ -712,14 +728,10 @@ level_3.immovableWallSpawn = [
 //Moveable Walls
 ///Single Wall to Teach You  
 level_3.wallSpawn = [
-  //Before Grey
-  // new SpriteCreator("Test", true, true, wallRegular, wallVertical, 400, 200, 0, 0, .5, .5, 0, 300, null, null, null, null, null),
-  new SpriteCreator(0, true, true, wallGhost, wallHorizontal, 600, 200, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
-  new SpriteCreator(1, true, true, wallGhost, wallHorizontal, 600, 400, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
-  new SpriteCreator(2, true, true, wallGhost, wallHorizontal, 600, 600, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
-  new SpriteCreator(3, true, true, wallGhost, wallHorizontal, 600, 750, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
-  // new SpriteCreator("X", true, true, wallGhost, wallHorizontal, 800, 100, -100, 0, .5, .5, 0, 0, null, null, null, null, null),
-  // new SpriteCreator("Y", true, true, wallRegular, wallVertical, 300, 400, 0, -300, .5, .5, 0, 0, null, null, null, null, null),
+  new SpriteCreator(0, true, true, wallRegular, wallHorizontal, 600, 200, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
+  // new SpriteCreator(1, true, true, wallGhost, wallHorizontal, 600, 400, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
+  // new SpriteCreator(2, true, true, wallGhost, wallHorizontal, 600, 600, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
+  // new SpriteCreator(3, true, true, wallGhost, wallHorizontal, 600, 750, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
 ];
 
 //Ledges
