@@ -313,6 +313,9 @@ var spikeFall = 'spikeFall';
 
 //Flag
 var flag = 'flag';
+///////////////////////////////////////////Tint Specific Art//////////////////////////////////////////////
+//Walls
+var tintWallBounce = 5358148.107386001; //wallBounce
 ///////////////////////////////////////////Level 0///////////////////////////////////////////////////////////
 var level_0 = new LevelCreator("Level 0-CL", 3800, 2400, new MetroidvaniaCreator(1, 100, 0, 2400, 0, 1, 0, 2800), "#4488AA");
 
@@ -685,7 +688,7 @@ var level_3 = new LevelCreator("Level 3-PlayGround", 1400, 800, new Metroidvania
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_3.playerPosition = [
   new PlayerPositionCreator(200, 700),
-  new PlayerPositionCreator(400, 300), //400/700
+  new PlayerPositionCreator(400, 700), //400/700
   new PlayerPositionCreator(200, 700),
   new PlayerPositionCreator(1400, 700),
 ]
@@ -701,7 +704,7 @@ level_3.undeniableDeathSpawn = [
 /////////////////////////Creation of ImmovableWalls
 level_3.immovableWallSpawn = [
   //Ground
-  new SpriteCreator(0, true, true, immovableWallRegular, immovableWallHorizontal, 300, 600, 0, 0, 1.2, .25, 0, 0, null, null, null, null, null),
+  new SpriteCreator(0, true, true, immovableWallRegular, immovableWallHorizontal, 300, 800, 0, 0, 1.2, .25, 0, 0, null, null, null, null, null),
   // //Testing
   // new SpriteCreator(0, true, true, immovableWallRegular, immovableWallVertical, 200, 250, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
 ];
@@ -711,20 +714,23 @@ level_3.immovableWallSpawn = [
 level_3.wallSpawn = [
   //Before Grey
   // new SpriteCreator("Test", true, true, wallRegular, wallVertical, 400, 200, 0, 0, .5, .5, 0, 300, null, null, null, null, null),
-  new SpriteCreator("Test", true, true, wallRegular, wallHorizontal, 600, 200, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
+  new SpriteCreator(0, true, true, wallGhost, wallHorizontal, 600, 200, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
+  new SpriteCreator(1, true, true, wallGhost, wallHorizontal, 600, 400, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
+  new SpriteCreator(2, true, true, wallGhost, wallHorizontal, 600, 600, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
+  new SpriteCreator(3, true, true, wallGhost, wallHorizontal, 600, 750, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
   // new SpriteCreator("X", true, true, wallGhost, wallHorizontal, 800, 100, -100, 0, .5, .5, 0, 0, null, null, null, null, null),
   // new SpriteCreator("Y", true, true, wallRegular, wallVertical, 300, 400, 0, -300, .5, .5, 0, 0, null, null, null, null, null),
 ];
 
 //Ledges
-// level_3.ledgeSpawn = [
-//   //Elevator
-//   new SpriteCreator(0, true, true, elevator, ledgeElevator, 600, 200, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
-//   //Bounce Ledges
-//   new SpriteCreator(2, true, true, bounce, ledgeBounce, 600, 400, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
-//   //Surf Ledges
-//   new SpriteCreator(5, true, true, surf, ledgeSurf, 600, 600, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
-// ];
+level_3.ledgeSpawn = [
+  // //Elevator
+  // new SpriteCreator(0, true, true, elevator, ledgeElevator, 600, 200, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+  // //Bounce Ledges
+  // new SpriteCreator(2, true, true, bounce, ledgeBounce, 600, 400, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+  //Surf Ledges
+  new SpriteCreator(5, true, true, surf, ledgeSurf, 200, 200, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+];
 
 //Enemy Spawn
 // level_3.enemySpawn = [
@@ -734,7 +740,7 @@ level_3.wallSpawn = [
 
 //Ball
 level_3.ballSpawn = [
-  new SpriteCreator(0, true, true, ballRegular, ball, 400, 200, 0, 0, null, null, 0, 0, null, null, null, null, null)
+  new SpriteCreator(0, true, true, ballRegular, ball, 900, 200, 0, 0, null, null, 0, 0, null, null, null, null, null)
 ];
 
 //Falling Spikes
