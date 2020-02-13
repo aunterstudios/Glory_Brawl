@@ -503,10 +503,10 @@ brawl.game.prototype = {
         this.wallX.positionInArray = sprite.positionInArray;
         this.wallX.velocityVsImmovable = 100;
         if (sprite.name === wallGhost) {
-            this.wallX.tint = tintWallGhost;
             // var testTint = Math.random() * 0xffffff;
             // this.wallX.tint = testTint;
             // console.log(testTint, this.wallX.positionInArray);
+            this.wallX.tint = tintWallGhost;
             this.wallX.body.immovable = true;
         }
         else if (sprite.name === wallHeavy) {
@@ -831,7 +831,7 @@ brawl.game.prototype = {
         else if (wall.name === wallRegular && objMov.groupName === groupBall) {
             wall.name = wallGravity;
             wall.tint = tintWallGravity;
-            wall.body.gravity.y = 200; //500 Original
+            wall.body.gravity.y = 300; //500 Original
         }
         //Turns wallGravity to wallReverseGravity (Ledge)
         else if (wall.name === wallGravity && objMov.groupName === groupLedge) {
@@ -856,8 +856,7 @@ brawl.game.prototype = {
             wall.tint = tintWallCloud;
             wall.body.stop();
             wall.body.immovable = true;
-            /////Add Player Mechanics Here/////
-            wall.body.velocity.x = 500;
+            // wall.body.velocity.x = objMov.body.velocity.x;
         }
         //Turns wallCloud to Wall Ghost (Ledge)
         else if (wall.name === wallCloud && objMov.groupName === groupLedge) {
@@ -930,11 +929,12 @@ brawl.game.prototype = {
             // }
         }
         else if (wall.name === wallLight) {
+            player.body.gravity.y = 500;
             if (player.body.touching.up) {
                 wall.body.velocity.y = -500;
             }
             else if (player.body.touching.down) {
-                wall.body.velocity.y = 500;
+                wall.body.velocity.y = 200;
             }
             else if (player.body.touching.left) {
                 wall.body.velocity.x = -500;
@@ -958,9 +958,17 @@ brawl.game.prototype = {
                 wall.body.velocity.x = 5;
             }
         }
-        // else if (wall.name === wallCloud) {
-        //     wall.body.blocked.up = true;
-        // }
+        else if (wall.name === wallCloud) {
+            //Control
+            // wall.body.velocity.x = player.body.velocity.x;
+            //Let it Go
+            if (player.body.velocity.x<0) {
+                wall.body.velocity.x = -200;
+            }
+            else if (player.body.velocity.x>0) {
+                wall.body.velocity.x = 200;
+            }
+        }
         return;
     },
     playerBall: function (player, ball) {

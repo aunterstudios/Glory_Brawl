@@ -316,19 +316,21 @@ var flag = 'flag';
 ///////////////////////////////////////////Tint Specific Art//////////////////////////////////////////////
 //Walls
 var tintWallRegular = 0xFFFFFF; //wallRegular (Removes Tint)
-var tintWallCloud = 5358148.107386001; //wallCloud
-var tintWallHeavy = 11299401.19209293; //wallHeavy
+var tintWallCloud = 9583870.358153213; //wallCloud
+var tintWallHeavy = 6623573.181835621; //wallHeavy
 var tintWallGhost = 2131.658687827956; //wallGhost
 var tintWallFrozen = 0x00ffff;
 var tintWallGravity = 0x666666;
 var tintWallReverseGravity = 5796018.4954396635;
-var tintWallLight = 16266338.5302869;
+var tintWallLight = 15680658.67511709;
 // var tintWallImmovable = 7232137.110156179;
 //Colors I like
 var colorsArrays = [
   7232137.110156179,//Dark Blue
   2499878.036284214,//Enemy Wall Impact Tint
   16266338.5302869,//Some Kind of Pinkish Color
+  8314793.039214706,//some kind of green tinted color
+  2760456.417234472, //Enemy Wall
 ]
 
 
@@ -728,7 +730,7 @@ level_3.immovableWallSpawn = [
 //Moveable Walls
 ///Single Wall to Teach You  
 level_3.wallSpawn = [
-  new SpriteCreator(0, true, true, wallCloud, wallHorizontal, 600, 200, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
+  new SpriteCreator(0, true, true, wallRegular, wallHorizontal, 600, 200, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
   // new SpriteCreator(1, true, true, wallGhost, wallHorizontal, 600, 400, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
   // new SpriteCreator(2, true, true, wallGhost, wallHorizontal, 600, 600, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
   // new SpriteCreator(3, true, true, wallGhost, wallHorizontal, 600, 750, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
@@ -737,7 +739,7 @@ level_3.wallSpawn = [
 //Ledges
 level_3.ledgeSpawn = [
   // //Elevator
-  new SpriteCreator(0, true, true, elevator, ledgeElevator, 200, 200, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+  new SpriteCreator(0, true, true, elevator, ledgeElevator, 200, 700, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
   // //Bounce Ledges
   // new SpriteCreator(2, true, true, bounce, ledgeBounce, 600, 400, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
   //Surf Ledges
