@@ -98,7 +98,7 @@ brawl.game.prototype = {
         ////////////////////Game World Size//////////////////////
         this.game.world.setBounds(0, 0, worldClassLevels[this.indexOfCurrentWorld].xOfWorld, worldClassLevels[this.indexOfCurrentWorld].yOfWorld);
         ///////////////////World Gravity////////////////////////
-        if ('worldGravity' in worldClassLevels[this.indexOfCurrentWorld] ) {
+        if ('worldGravity' in worldClassLevels[this.indexOfCurrentWorld]) {
             this.game.physics.arcade.gravity.setTo(worldClassLevels[this.indexOfCurrentWorld].worldGravity.gravityX, worldClassLevels[this.indexOfCurrentWorld].worldGravity.gravityY);
         }
 
@@ -121,9 +121,6 @@ brawl.game.prototype = {
         //Adding Balls
         this.ball = this.game.add.group();
         this.ball.enableBody = true;
-        //Traps
-        this.spikes = this.game.add.group();
-        this.spikes.enableBody = true;
         //Timer Traps
         this.fallingSpikes = this.game.add.group();
         this.fallingSpikes.enableBody = true;
@@ -374,14 +371,6 @@ brawl.game.prototype = {
                 }
             }
         }
-        //Generating spikes
-        if ('spikeSpawn' in levelGenerator) {
-            for (var i = 0; i < levelGenerator.spikeSpawn.length; i++) {
-                if (levelGenerator.spikeSpawn[i].trigger) {
-                    this.spikeSpawn(levelGenerator.spikeSpawn[i]);
-                }
-            }
-        }
         //Generating Ledges
         if ('ledgeSpawn' in levelGenerator) {
             for (var i = 0; i < levelGenerator.ledgeSpawn.length; i++) {
@@ -457,7 +446,14 @@ brawl.game.prototype = {
     undeniableDeathSpawn: function (sprite) {
         this.deathX = this.death.create(sprite.x, sprite.y, sprite.art);
         this.deathX.name = sprite.name;
-        this.deathX.groupName = groupUndeniableDeath;
+        //Unkillable
+        if (sprite.name === undeniableDeathRegular) {
+            this.deathX.groupName = groupUndeniableDeath;
+        }
+        //Killable By Ball
+        else if (sprite.name === spikesRegular) {
+            this.deathX.groupName = groupSpikes;
+        }
         this.deathX.specialCondition = sprite.specialCondition;
         this.deathX.specialWorld = sprite.specialWorld;
         this.deathX.specialArray = sprite.specialArray;
@@ -479,7 +475,7 @@ brawl.game.prototype = {
         this.immovableWallX.specialWorld = sprite.specialWorld;
         this.immovableWallX.specialArray = sprite.specialArray;
         this.immovableWallX.positionInArray = sprite.positionInArray;
-        if (sprite.name === immovableWallPhase ) {
+        if (sprite.name === immovableWallPhase) {
             this.immovableWallX.tint = Phaser.Color.hexToRGB("#6a0dad");
         }
         if (sprite.name === immovableWallKillWall) {
@@ -538,24 +534,6 @@ brawl.game.prototype = {
         // this.wallX.events.onDragStart.add(this.startDrag, this);
         // this.wallX.events.onDragStop.add(this.stopDrag, this);
         // this.wallX.body.moves = false;
-    },
-    spikeSpawn: function (sprite) {
-        this.spikesX = this.spikes.create(sprite.x, sprite.y, sprite.art);
-        this.spikesX.name = sprite.name;
-        this.spikesX.groupName = groupSpikes;
-        this.spikesX.specialCondition = sprite.specialCondition;
-        this.spikesX.specialWorld = sprite.specialWorld;
-        this.spikesX.specialArray = sprite.specialArray;
-        this.spikesX.positionInArray = sprite.positionInArray;
-        this.spikesX.anchor.setTo(.5);
-        this.spikesX.scale.setTo(sprite.sizeX, sprite.sizeY);
-        this.spikesX.body.immovable = true;
-        this.spikesX.body.mass = 150;
-        this.spikesX.body.collideWorldBounds = true;
-        this.spikesX.body.bounce.setTo(1.0);
-        this.spikesX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
-        // this.spikesX.alignIn(rect, positionInRectangle);
-        // this.spikeFall(this.spikesX);
     },
     ledgeSpawn: function (sprite) {
         this.ledgeX = this.ledge.create(sprite.x, sprite.y, sprite.art);
@@ -783,7 +761,7 @@ brawl.game.prototype = {
         weapon.kill();
     },
     //Let Weapon Fire Pass Through
-    weaponGhost: function (weapon,ghost) {
+    weaponGhost: function (weapon, ghost) {
         if (ghost.name === wallCloud) {
             return false;
         }
@@ -848,7 +826,7 @@ brawl.game.prototype = {
         //Turns wallLight to wallHeavy (ledge)
         else if (wall.name === wallLight && objMov.groupName === groupLedge) {
             wall.name = wallHeavy;
-            wall.tint = tintWallHeavy; 
+            wall.tint = tintWallHeavy;
         }
         //Turns wallHeavy to wallCloud (Ball)
         else if (wall.name === wallHeavy && objMov.groupName === groupBall) {
@@ -900,22 +878,24 @@ brawl.game.prototype = {
             true;
         }
     },
-    //Ball Interaction With Spikes
-    ballSpike: function (sprite1, sprite2) {
-        sprite2.kill();
-        //Removes Localized Sprites from Regenerating (Spikes)
-        if (sprite2.specialCondition === 0) {
-            //Destruction of Localized Sprite
-            worldClassLevels[this.indexOfCurrentWorld].spikeSpawn[sprite2.positionInArray].trigger = false;
+    //Ball Interaction With Different Objects
+    ballHandler: function (sprite1, sprite2) {
+        if (sprite2.groupName === groupSpikes || groupEnemy) {
+            sprite2.kill();
+            //Removes Localized Sprites from Regenerating (Spikes)
+            if (sprite2.specialCondition === 0) {
+                //Destruction of Localized Sprite
+                worldClassLevels[this.indexOfCurrentWorld].undeniableDeathSpawn[sprite2.positionInArray].trigger = false;
+            }
+            //Removes Sprites from Different Levels (Spikes)
+            else if (sprite2.specialCondition === 1) {
+                worldClassLevels[this.indexOfCurrentWorld].undeniableDeathSpawn[sprite2.positionInArray].trigger = false;
+                //Destruction of a sprite at a different level
+                worldClassLevels[sprite2.specialWorld].undeniableDeathSpawn[sprite2.specialArray].trigger = false;
+            }
+            //////////////////////////Creates New Sprites After Spikes Destroyed///////////////////////
+            //worldClassLevels[sprite2.specialWorld].ledgeGreySpawn[sprite2.specialArray].trigger = true;
         }
-        //Removes Sprites from Different Levels (Spikes)
-        else if (sprite2.specialCondition === 1) {
-            worldClassLevels[this.indexOfCurrentWorld].spikeSpawn[sprite2.positionInArray].trigger = false;
-            //Destruction of a sprite at a different level
-            worldClassLevels[sprite2.specialWorld].spikeSpawn[sprite2.specialArray].trigger = false;
-        }
-        //////////////////////////Creates New Sprites After Spikes Destroyed///////////////////////
-        //worldClassLevels[sprite2.specialWorld].ledgeGreySpawn[sprite2.specialArray].trigger = true;
     },
     playerWall: function (player, wall) {
         if (wall.name === wallRegular || wall.name === wallFrozen) {
@@ -962,10 +942,10 @@ brawl.game.prototype = {
             //Control
             // wall.body.velocity.x = player.body.velocity.x;
             //Let it Go
-            if (player.body.velocity.x<0) {
+            if (player.body.velocity.x < 0) {
                 wall.body.velocity.x = -200;
             }
-            else if (player.body.velocity.x>0) {
+            else if (player.body.velocity.x > 0) {
                 wall.body.velocity.x = 200;
             }
         }
@@ -1086,35 +1066,34 @@ brawl.game.prototype = {
 
         //Weapon Mechanics
         this.game.physics.arcade.collide([this.weapon1.bullets, this.weapon2.bullets, this.weapon3.bullets], [this.ball, this.wall, this.ledge, this.enemy], this.weaponHandler, this.weaponGhost, this);
-        this.game.physics.arcade.overlap([this.weapon1.bullets, this.weapon2.bullets, this.weapon3.bullets], [this.immovableWall, this.spikes, this.death], this.weaponImmovable, null, this);
+        this.game.physics.arcade.overlap([this.weapon1.bullets, this.weapon2.bullets, this.weapon3.bullets], [this.immovableWall, this.death], this.weaponImmovable, null, this);
 
         //Immovable Wall vs Moveable Objects
         this.game.physics.arcade.collide(this.immovableWall, [this.ball, this.ledge, this.enemy], null, null, this);
 
         //Moveable Wall vs Immoveable Objects and Itself
-        this.game.physics.arcade.collide(this.wall, [this.wall, this.immovableWall, this.spikes, this.death], this.wallImmovable, this.ghostWall, this);
+        this.game.physics.arcade.collide(this.wall, [this.wall, this.immovableWall, this.death], this.wallImmovable, this.ghostWall, this);
 
         //Movable Wall Mechanics vs. Moveable Objects (NOT ITSELF)
         this.game.physics.arcade.collide(this.wall, [this.ledge, this.ball, this.enemy], this.wallMoveable, null, this);
 
         //Enemy Bullet Mechanics
-        this.game.physics.arcade.overlap(this.enemyBullets, [this.ball, this.wall, this.immovableWall, this.ledge, this.spikes, this.death], this.deathTwo, null, this);
+        this.game.physics.arcade.overlap(this.enemyBullets, [this.ball, this.wall, this.immovableWall, this.ledge, this.death], this.deathTwo, null, this);
 
         //Falling Spikes Mechanics
-        this.game.physics.arcade.overlap(this.fallingSpikes, [this.ball, this.wall, this.immovableWall, this.ledge, this.spikes, this.enemy, this.death], this.deathTwo, null, this);
+        this.game.physics.arcade.overlap(this.fallingSpikes, [this.ball, this.wall, this.immovableWall, this.ledge, this.enemy, this.death], this.deathTwo, null, this);
 
         // Ball Mechanics
-        this.game.physics.arcade.collide(this.ball, [this.ball, this.ledge, this.death], null, null, this);
-        this.game.physics.arcade.overlap(this.ball, [this.enemy, this.spikes], this.ballSpike, null, this);
+        this.game.physics.arcade.collide(this.ball, [this.ball, this.ledge, this.enemy, this.death], this.ballHandler, null, this);
 
         //Ledge and Enemy Interactions
-        this.game.physics.arcade.collide(this.ledge, [this.ledge, this.spikes, this.enemy, this.death], null, null, this); //preventPhysicsBug Removed
+        this.game.physics.arcade.collide(this.ledge, [this.ledge, this.enemy, this.death], null, null, this); 
 
         //Enemy Mechanics
-        this.game.physics.arcade.collide(this.enemy, [this.spikes, this.enemy], null, null, this);
+        this.game.physics.arcade.collide(this.enemy, [this.enemy], null, null, this);
 
         //Death Mechanics (Game State Change)
-        this.game.physics.arcade.overlap(this.player, [this.enemy, this.spikes, this.enemyBullets, this.death, this.fallingSpikes], this.deathState, null, this);
+        this.game.physics.arcade.overlap(this.player, [this.enemy, this.enemyBullets, this.death, this.fallingSpikes], this.deathState, null, this);
 
         ////////////////////////////////Actual Controls////////////////////////////////
 

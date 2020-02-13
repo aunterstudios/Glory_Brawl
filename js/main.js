@@ -223,12 +223,12 @@ Note: This is an extra name that denotes the entirety of a group. To keep physic
 */
 //Death Group
 var groupUndeniableDeath = 'groupUndeniableDeath';
+//Spikes
+var groupSpikes = 'groupSpikes';
 //Immovable Walls
 var groupImmovableWall = 'groupImmovableWall';
 //Moveable Walls
 var groupWall = 'groupWall';
-//Spikes
-var groupSpikes = 'groupSpikes';
 //Ledge
 var groupLedge = 'groupLedge';
 //Enemy
@@ -243,6 +243,8 @@ var groupFlag = 'groupFlag';
 /////////////////////////List of Names of Each Sprite (For Different Special Properties)////////////////
 //Death Names
 var undeniableDeathRegular = 'undeniableDeathRegular';
+//Spikes
+var spikesRegular = 'spikesRegular'
 
 //Immovable Wall Names
 var immovableWallRegular = 'immovableWallRegular';
@@ -258,9 +260,6 @@ var wallReverseGravity = 'wallReverseGravity';
 var wallLight = 'wallLight';
 var wallHeavy = 'wallHeavy';
 var wallCloud = 'wallCloud';
-
-//Spikes
-var spikesRegular = 'spikesRegular'
 
 //Ledge Names
 var elevator = 'elevator';
@@ -283,6 +282,10 @@ var regularFlag = 'regularFlag';
 //Death
 var deathHorizontal = 'deathHorizontal';
 var deathVertical = 'deathVertical';
+//Spikes
+var spikesVertical = 'spikesVertical';
+var spikesHorizontalOne = 'spikesHorizontalOne';
+var spikesHorizontalTwo = 'spikesHorizontalTwo';
 
 //Immovable Wall
 var immovableWallHorizontal = 'immovableWallHorizontal';
@@ -291,11 +294,6 @@ var immovableWallVertical = 'immovableWallVertical';
 //Moveable Wall
 var wallHorizontal = 'wallHorizontal';
 var wallVertical = 'wallVertical';
-
-//Spikes
-var spikesVertical = 'spikesVertical';
-var spikesHorizontalOne = 'spikesHorizontalOne';
-var spikesHorizontalTwo = 'spikesHorizontalTwo';
 
 //Ledge
 var ledgeElevator = 'ledgeElevator';
@@ -339,7 +337,7 @@ var level_0 = new LevelCreator("Level 0-CL", 3800, 2400, new MetroidvaniaCreator
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_0.playerPosition = [
-  new PlayerPositionCreator(700, 300),
+  new PlayerPositionCreator(150, 50),
   new PlayerPositionCreator(300, 2200),
   new PlayerPositionCreator(200, 400),
   new PlayerPositionCreator(1400, 400),
@@ -353,7 +351,10 @@ level_0.undeniableDeathSpawn = [
   // new SpriteCreator(2, true, true, undeniableDeathRegular, deathVertical, 2800, 1263, 0, 0, .25, .767, 0, 0, null, null, null, null, null),
   new SpriteCreator(2, true, true, undeniableDeathRegular, deathHorizontal, 1463, 900, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
   new SpriteCreator(3, true, true, undeniableDeathRegular, deathVertical, 2083, 480, 0, 0, .5, .3, 0, 0, null, null, null, null, null),
-  new SpriteCreator(4, true, true, undeniableDeathRegular, deathHorizontal, 1400, 0, 0, 0, 1.715, .5, 0, 0, null, null, null, null, null)
+  new SpriteCreator(4, true, true, undeniableDeathRegular, deathHorizontal, 1400, 0, 0, 0, 1.715, .5, 0, 0, null, null, null, null, null),
+  //Blocking Entrance to Level 1 (SPECIAL SPRITE)
+  new SpriteCreator(5, true, true, spikesRegular, spikesHorizontalOne, 0, 0, 0, 0, 1, 1, 0, 0, 0, null, null, null, null)
+  //Special Sprite (Removed From Game Once Killed);
 ];
 
 /////////////////////////Creation of ImmovableWalls
@@ -407,11 +408,6 @@ level_0.immovableWallSpawn = [
 //Moveable Walls
 ///Single Wall to Teach You  
 level_0.wallSpawn = [new SpriteCreator(0, true, true, wallRegular, wallHorizontal, 3000, 450, 0, 0, .5, .5, 0, 0, null, null, null, null, null)];
-
-//Spikes
-//Blocking Entrance to Level 1 (SPECIAL SPRITE)
-level_0.spikeSpawn = [new SpriteCreator(0, true, true, spikesRegular, spikesHorizontalOne, 0, 0, 0, 0, 1, 1, 0, 0, 0, null, null, null, null)];
-//Special Sprite (Removed From Game Once Killed);
 
 //Ball
 level_0.ballSpawn = [new SpriteCreator(0, true, true, ballRegular, ball, 700, 1350, 0, 0, null, null, 0, 0, null, null, null, null, null)];
@@ -484,6 +480,8 @@ level_1.undeniableDeathSpawn = [
   //Entry Way to Left Side of the Map
   new SpriteCreator(22, true, true, undeniableDeathRegular, deathHorizontal, 0, 0, 0, 0, .507, .25, 0, 0, null, null, null, null, null),
   new SpriteCreator(23, true, true, undeniableDeathRegular, deathVertical, 0, 0, 0, 0, .25, .82, 0, 0, null, null, null, null, null),
+  //////////////////////////////Blocking Entrance to Level 3///////////////////(Spikes)
+  new SpriteCreator(24, true, true, spikesRegular, spikesVertical, 2800, 2573, 0, 0, .6, .4, 0, 0, 0, null, null, null, null)
 ];
 
 /////////////////////////Creation of ImmovableWalls
@@ -535,10 +533,6 @@ level_1.wallSpawn = [
   new SpriteCreator(6, true, true, wallRegular, wallHorizontal, 250, 1000, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
   new SpriteCreator(7, true, true, wallRegular, wallHorizontal, 250, 1100, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
 ];
-
-//Spikes
-//////////////////////////////Blocking Entrance to Level 3///////////////////////
-level_1.spikeSpawn = [new SpriteCreator(0, true, true, spikesRegular, spikesVertical, 2800, 2853, 0, 0, .6, .4, 0, 0, 0, null, null, null, null)];//Special Sprite (Removed From Game Once Killed);
 
 //Ledges
 level_1.ledgeSpawn = [
