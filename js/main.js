@@ -250,6 +250,12 @@ var spikesRegular = 'spikesRegular'
 var immovableWallRegular = 'immovableWallRegular';
 var immovableWallKillWall = 'immovableWallKillWall';
 var immovableWallPhase = 'immovableWallPhase';
+var immovableWallMagnet = 'immovableWallMagnet';
+var immovableWallRepel = 'immovableWallRepel';
+var immovableWallActivation = 'immovableWallActivation'; //Triggers Movement in a Wall
+var immovableWallMario = 'immovableWallMario'; //Triggers Special Powers
+var immovableWallGravity = 'immovableWallGravity'; //Triggers World Gravity
+var immovableWallSkateBoard = 'immovableWallSkateboard'; //Triggers a Super OP Unchangeable Wall
 
 //Moveable Wall Names
 var wallRegular = 'wallRegular';
@@ -312,6 +318,10 @@ var spikeFall = 'spikeFall';
 //Flag
 var flag = 'flag';
 ///////////////////////////////////////////Tint Specific Art//////////////////////////////////////////////
+//Immovable Walls
+var tintImmovableWallKillWall = 7019278.306799905;
+var tintImmovableWallPhase = 15631118.030252509;
+var tintImmovableWallMagnet = 10804989.680595484;
 //Walls
 var tintWallRegular = 0xFFFFFF; //wallRegular (Removes Tint)
 var tintWallCloud = 9583870.358153213; //wallCloud
@@ -626,7 +636,7 @@ level_2.immovableWallSpawn = [
   //Ground Past Vertical Moveable Wall
   new SpriteCreator(5, true, true, immovableWallRegular, immovableWallHorizontal, 700, 800, 0, 0, .83, .5, 0, 0, null, null, null, null, null),
   //Divider At The End
-  new SpriteCreator(6, true, true, immovableWallRegular, immovableWallVertical, 300, 0, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
+  new SpriteCreator(6, true, true, immovableWallRegular, immovableWallVertical, 300, 0, 0, 0, .5, .455, 0, 0, null, null, null, null, null),
   //Ground For the Flag
   new SpriteCreator(7, true, true, immovableWallRegular, immovableWallHorizontal, 128, 388.3, 0, 0, .276, .297, 0, 0, null, null, null, null, null),
   //Border At the ENd of the Level
@@ -717,18 +727,28 @@ level_3.undeniableDeathSpawn = [
 level_3.immovableWallSpawn = [
   //Ground
   new SpriteCreator(0, true, true, immovableWallRegular, immovableWallHorizontal, 300, 800, 0, 0, 1.2, .25, 0, 0, null, null, null, null, null),
+  new SpriteCreator(0, true, true, immovableWallMagnet, immovableWallHorizontal, 300, 400, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
   // //Testing
   // new SpriteCreator(0, true, true, immovableWallRegular, immovableWallVertical, 200, 250, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
 ];
 
 //Moveable Walls
 ///Single Wall to Teach You  
-level_3.wallSpawn = [
-  new SpriteCreator(0, true, true, wallRegular, wallHorizontal, 600, 200, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
-  // new SpriteCreator(1, true, true, wallGhost, wallHorizontal, 600, 400, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
-  // new SpriteCreator(2, true, true, wallGhost, wallHorizontal, 600, 600, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
-  // new SpriteCreator(3, true, true, wallGhost, wallHorizontal, 600, 750, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
-];
+// level_3.wallSpawn = [
+//   new SpriteCreator(0, true, true, wallRegular, wallHorizontal, 600, 200, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
+//   // new SpriteCreator(1, true, true, wallGhost, wallHorizontal, 600, 400, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
+//   // new SpriteCreator(2, true, true, wallGhost, wallHorizontal, 600, 600, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
+//   // new SpriteCreator(3, true, true, wallGhost, wallHorizontal, 600, 750, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
+// ];
+
+//////////////Tint Testing///////////
+// level_3.wallSpawn = [
+//   new SpriteCreator(0, true, true, wallGhost, wallHorizontal, 600, 200, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
+//   new SpriteCreator(1, true, true, wallGhost, wallHorizontal, 600, 400, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
+//   new SpriteCreator(2, true, true, wallGhost, wallHorizontal, 600, 600, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
+//   new SpriteCreator(3, true, true, wallGhost, wallHorizontal, 600, 750, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
+// ];
+////////////Tint Testing/////////
 
 //Ledges
 level_3.ledgeSpawn = [
@@ -750,31 +770,6 @@ level_3.ledgeSpawn = [
 level_3.ballSpawn = [
   new SpriteCreator(0, true, true, ballRegular, ball, 900, 200, 0, 0, null, null, 0, 0, null, null, null, null, null)
 ];
-
-//Falling Spikes
-// level_3.fallingSpikes = [
-//   new SpriteCreator(0, true, true, spikeRegular, spikeFall, 475, 50, null, null, .4, .4, 0, 500, null, null, null, 3, null),
-// ]
-
-//Flag Spawn
-// level_3.flagSpawn = [
-//   new SpriteCreator(0, true, true, regularFlag, flag, 4550, 650, 0, 0, .4, .4, 0, 0, null, null, null, null, 3),
-//   new SpriteCreator(1, true, true, regularFlag, flag, 220, 250, 0, 0, .4, .4, 0, 0, 1, 1, 9, null, 2),
-//   //Test
-//   // new SpriteCreator(1, true, true, regularFlag, flag, 4600, 650, 0, 0, .4, .4, 0, 0, 1, 1, 9, null, 2),
-// ]
-
-//Text Creator (Helpful Hints)
-// level_3.text = [
-//   //Entry to Level 1
-//   new textCreator(0, 4650, 650, "Level 1 →", 'Arial Black', 25, '#ffffff', 'bold'),
-//   //WolfGang Kill Them
-//   new textCreator(1, 4250, 450, "Kill Them Before They Kill You", 'Arial Black', 25, '#ffffff', 'bold'),
-//   //Camera Mode
-//   new textCreator(2, 2400, 400, "Learn How to Do the Free-Look Shot\n\nBullets Are Killed Off Screen\n\nFollow The Bullet\n\nPress 4 For Free Look (WASD Movement)", 'Arial Black', 25, '#ffffff', 'bold'),
-//   //Phase Wall
-//   new textCreator(3, 400, 400, "These Purple Walls Are Killed\n\nBy Enemy Bullets\n\nOh Yeah Falling Spikes Kill You Too", 'Arial Black', 25, '#ffffff', 'bold'),
-// ];
 
 //Push Level 2 Into World Class Array
 worldClassLevels.push(level_3);
@@ -801,3 +796,8 @@ worldClassLevels.push(level_3);
 //       player.body.velocity.x = 1000;
 //     }
 // }
+
+/////////////Change Base Texture////////////////
+// game.add.loadTexture('key','frame')
+///////////////LifeSpan////////////
+///game.add.lifespan

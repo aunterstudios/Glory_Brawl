@@ -476,10 +476,13 @@ brawl.game.prototype = {
         this.immovableWallX.specialArray = sprite.specialArray;
         this.immovableWallX.positionInArray = sprite.positionInArray;
         if (sprite.name === immovableWallPhase) {
-            this.immovableWallX.tint = Phaser.Color.hexToRGB("#6a0dad");
+            this.immovableWallX.tint = tintImmovableWallPhase;
         }
-        if (sprite.name === immovableWallKillWall) {
-            this.immovableWallX.tint = Phaser.Color.hexToRGB("#cdf053");
+        else if (sprite.name === immovableWallKillWall) {
+            this.immovableWallX.tint = tintImmovableWallKillWall;
+        }
+        else if (sprite.name === immovableWallMagnet) {
+            this.immovableWallX.tint = tintImmovableWallMagnet;
         }
         this.immovableWallX.scale.setTo(sprite.sizeX, sprite.sizeY);
         this.immovableWallX.body.immovable = true;
@@ -499,10 +502,10 @@ brawl.game.prototype = {
         this.wallX.positionInArray = sprite.positionInArray;
         this.wallX.velocityVsImmovable = 100;
         if (sprite.name === wallGhost) {
-            // var testTint = Math.random() * 0xffffff;
-            // this.wallX.tint = testTint;
-            // console.log(testTint, this.wallX.positionInArray);
-            this.wallX.tint = tintWallGhost;
+            var testTint = Math.random() * 0xffffff;
+            this.wallX.tint = testTint;
+            console.log(testTint, this.wallX.positionInArray);
+            // this.wallX.tint = tintWallGhost;
             this.wallX.body.immovable = true;
         }
         else if (sprite.name === wallHeavy) {
@@ -720,10 +723,29 @@ brawl.game.prototype = {
             }
         }
     },
-    // turnMoveable: function (wall) {
-    //     wall.body.immovable = false;
-    //     console.log(wall.body.immovable);
-    // },
+    immovableWallMagnetHandler: function () {
+        var immovableWallMagnetFilter = this.immovableWall.filter(function (child, index, children) {
+            return child.name === immovableWallMagnet ? true : false;
+        }, true);
+
+        if (this.game.physics.arcade.distanceBetween(immovableWallMagnetFilter, this.player, false, true) < 400) {
+            this.game.physics.arcade.moveToObject(immovableWallMagnetFilter, this.player, 440);
+        }
+        // immovableWallMagnetFilter.forEachAlive(function (magnetWall) {
+        //     if (this.game.physics.arcade.distanceBetween(magnetWall, this.player, false, true) < 400) {
+        //         this.physics.arcade.moveToObject(this.player, magnetWall, 440);
+        //     }
+        // }, this, this.player)
+
+        /*
+        this.enemy.forEachAlive(function (enemy) {
+            if (this.game.physics.arcade.distanceBetween(enemy, this.player, false, true) < 400) {
+                livingEnemies.push(enemy)
+            }
+        }, this, this.player);
+        */
+
+    },
     ///////////////////////////////////////////State Switches////////////////////////////////
     deathState: function (victim, killer) {
         victim.kill();
@@ -880,7 +902,8 @@ brawl.game.prototype = {
     },
     //Ball Interaction With Different Objects
     ballHandler: function (sprite1, sprite2) {
-        if (sprite2.groupName === groupSpikes || groupEnemy) {
+        // console.log(sprite2.groupName);
+        if (sprite2.groupName === (groupSpikes || groupEnemy)) {
             sprite2.kill();
             //Removes Localized Sprites from Regenerating (Spikes)
             if (sprite2.specialCondition === 0) {
@@ -952,14 +975,13 @@ brawl.game.prototype = {
         return;
     },
     playerBall: function (player, ball) {
-        //   ///////////////////GOOOFY/////////////
+        /////////////////////GOOOFY///////////////
         ball.body.stop();
         if (ball.body.touching.up) {
             ball.body.velocity.y = 200;
         }
         if (ball.body.touching.down) {
             ball.body.velocity.y = -200;
-            player.body.velocity.y = -50;
         }
         if (ball.body.touching.left) {
             ball.body.velocity.x = 200;
@@ -1053,6 +1075,7 @@ brawl.game.prototype = {
         ////////////////////////////////////////Continious Updating//////////////////////////////////
         ///Enemy Sprites Firing Bullets
         this.fireEnemyBullet();
+        // this.immovableWallMagnetHandler();
         // this.wall.forEachAlive(this.turnMoveable,this);
         ////////////////////////Physics////////////////////////
         //Player Mechanics
@@ -1087,7 +1110,7 @@ brawl.game.prototype = {
         this.game.physics.arcade.collide(this.ball, [this.ball, this.ledge, this.enemy, this.death], this.ballHandler, null, this);
 
         //Ledge and Enemy Interactions
-        this.game.physics.arcade.collide(this.ledge, [this.ledge, this.enemy, this.death], null, null, this); 
+        this.game.physics.arcade.collide(this.ledge, [this.ledge, this.enemy, this.death], null, null, this);
 
         //Enemy Mechanics
         this.game.physics.arcade.collide(this.enemy, [this.enemy], null, null, this);
