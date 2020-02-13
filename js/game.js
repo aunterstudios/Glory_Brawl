@@ -515,8 +515,9 @@ brawl.game.prototype = {
         else if (sprite.name === wallLight) {
             this.wallX.tint = tintWallLight;
         }
-        else if (sprite.name === wallYou) {
-            this.wallX.tint = tintWallYou;
+        else if (sprite.name === wallCloud) {
+            this.wallX.tint = tintWallCloud;
+            this.wallX.body.immovable = true;
         }
         this.wallX.anchor.setTo(.5);
         this.wallX.scale.setTo(sprite.sizeX, sprite.sizeY);
@@ -781,6 +782,15 @@ brawl.game.prototype = {
         }
         weapon.kill();
     },
+    //Let Weapon Fire Pass Through
+    weaponGhost: function (weapon,ghost) {
+        if (ghost.name === wallCloud) {
+            return false;
+        }
+        else {
+            return true;
+        }
+    },
     //////////////////////////////////////////Coin Conditions////////////////////////////////////////////
     // coinWin: function () {
     //     this.game.physics.arcade.overlap(this.player, this.coin, deathThree, null, this);
@@ -821,7 +831,7 @@ brawl.game.prototype = {
         else if (wall.name === wallRegular && objMov.groupName === groupBall) {
             wall.name = wallGravity;
             wall.tint = tintWallGravity;
-            wall.body.gravity.y = 500;
+            wall.body.gravity.y = 200; //500 Original
         }
         //Turns wallGravity to wallReverseGravity (Ledge)
         else if (wall.name === wallGravity && objMov.groupName === groupLedge) {
@@ -840,15 +850,20 @@ brawl.game.prototype = {
             wall.name = wallHeavy;
             wall.tint = tintWallHeavy; 
         }
-        //Turns wallHeavy to wallYou (Ball)
+        //Turns wallHeavy to wallCloud (Ball)
         else if (wall.name === wallHeavy && objMov.groupName === groupBall) {
-            wall.name = wallYou;
-            wall.tint = tintWallBounce;
+            wall.name = wallCloud;
+            wall.tint = tintWallCloud;
+            wall.body.stop();
+            wall.body.immovable = true;
+            /////Add Player Mechanics Here/////
+            wall.body.velocity.x = 500;
         }
-        //Turns wallYou to Wall Ghost (Ledge)
-        else if (wall.name === wallYou && objMov.groupName === groupLedge) {
+        //Turns wallCloud to Wall Ghost (Ledge)
+        else if (wall.name === wallCloud && objMov.groupName === groupLedge) {
             wall.name = wallGhost;
             wall.tint = tintWallGhost;
+            wall.body.stop();
             wall.body.immovable = true;
         }
         //Turns wallGhost to wallFrozen (Ball)
@@ -943,10 +958,9 @@ brawl.game.prototype = {
                 wall.body.velocity.x = 5;
             }
         }
-        else if (wall.name === wallYou) {
-            wall.body.velocity.y = player.body.velocity.y;
-            wall.body.velocity.x = player.body.velocity.x;
-        }
+        // else if (wall.name === wallCloud) {
+        //     wall.body.blocked.up = true;
+        // }
         return;
     },
     playerBall: function (player, ball) {
@@ -1032,7 +1046,7 @@ brawl.game.prototype = {
                 player.body.velocity.y = -100;
             }
         }
-        //////////Super Jump/////////
+        //////////Super Jump Bounce/////////
         if (ledge.name === bounce) {
             if (ledge.body.touching.up) {
                 player.body.velocity.y = -1200;
@@ -1063,7 +1077,7 @@ brawl.game.prototype = {
         this.game.physics.arcade.overlap(this.player, this.flag, this.respawn, null, this);
 
         //Weapon Mechanics
-        this.game.physics.arcade.collide([this.weapon1.bullets, this.weapon2.bullets, this.weapon3.bullets], [this.ball, this.wall, this.ledge, this.enemy], this.weaponHandler, null, this);
+        this.game.physics.arcade.collide([this.weapon1.bullets, this.weapon2.bullets, this.weapon3.bullets], [this.ball, this.wall, this.ledge, this.enemy], this.weaponHandler, this.weaponGhost, this);
         this.game.physics.arcade.overlap([this.weapon1.bullets, this.weapon2.bullets, this.weapon3.bullets], [this.immovableWall, this.spikes, this.death], this.weaponImmovable, null, this);
 
         //Immovable Wall vs Moveable Objects
