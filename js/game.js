@@ -485,8 +485,8 @@ brawl.game.prototype = {
             this.immovableWallX.tint = tintImmovableWallMagnet;
             this.immovableWallX.anchor.setTo(.5);
         }
-        else if (sprite.name === immovableWallSlippery) {
-            this.immovableWallX.tint = tintImmovableWallSlippery;
+        else if (sprite.name === immovableWallActivation) {
+            this.immovableWallX.tint = tintimmovableWallActivation;
         }
         this.immovableWallX.scale.setTo(sprite.sizeX, sprite.sizeY);
         this.immovableWallX.body.immovable = true;
@@ -909,11 +909,12 @@ brawl.game.prototype = {
         }
     },
     playerImmovable: function (player,immovable) {
-        if (immovable.name === immovableWallSlippery) {
-            player.body.stop();
-        }
+        console.log("hitting");
     },
     playerWall: function (player, wall) {
+        if (player.body.touching.left) {
+            
+        }
         if (wall.name === wallRegular || wall.name === wallFrozen) {
             wall.name = wallRegular;
             wall.body.moves = true;
