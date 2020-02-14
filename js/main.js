@@ -251,7 +251,7 @@ var immovableWallRegular = 'immovableWallRegular';
 var immovableWallKillWall = 'immovableWallKillWall';
 var immovableWallPhase = 'immovableWallPhase';
 var immovableWallMagnet = 'immovableWallMagnet';
-var immovableWallRepel = 'immovableWallRepel';
+var immovableWallSlippery = 'immovableWallSlippery';
 var immovableWallActivation = 'immovableWallActivation'; //Triggers Movement in a Wall
 var immovableWallMario = 'immovableWallMario'; //Triggers Special Powers
 var immovableWallGravity = 'immovableWallGravity'; //Triggers World Gravity
@@ -322,6 +322,7 @@ var flag = 'flag';
 var tintImmovableWallKillWall = 7019278.306799905;
 var tintImmovableWallPhase = 15631118.030252509;
 var tintImmovableWallMagnet = 10804989.680595484;
+var tintImmovableWallSlippery = 8314793.039214706;
 //Walls
 var tintWallRegular = 0xFFFFFF; //wallRegular (Removes Tint)
 var tintWallCloud = 9583870.358153213; //wallCloud
@@ -727,7 +728,7 @@ level_3.undeniableDeathSpawn = [
 level_3.immovableWallSpawn = [
   //Ground
   new SpriteCreator(0, true, true, immovableWallRegular, immovableWallHorizontal, 300, 800, 0, 0, 1.2, .25, 0, 0, null, null, null, null, null),
-  new SpriteCreator(0, true, true, immovableWallMagnet, immovableWallHorizontal, 300, 400, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
+  new SpriteCreator(0, true, true, immovableWallSlippery, immovableWallVertical, 600, 200, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
   // //Testing
   // new SpriteCreator(0, true, true, immovableWallRegular, immovableWallVertical, 200, 250, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
 ];
@@ -801,3 +802,23 @@ worldClassLevels.push(level_3);
 // game.add.loadTexture('key','frame')
 ///////////////LifeSpan////////////
 ///game.add.lifespan
+
+////////////////Teleportation////////////////
+/*
+if (wall.name === immovableWallTeleportation) {
+        //     if (this.game.physics.arcade.distanceBetween(this.player, wall, false, true) < 250) {
+        //         if (this.player.body.y < wall.body.y) {
+        //             this.player.body.y = wall.body.y - 400;
+        //         }
+        //     };
+        // }
+*/
+
+//////////////////////For Each//////////////////////
+/*
+// this.wall.forEachAlive(function (wall) {
+            //     if (this.game.physics.arcade.distanceBetween(wall, magnet, false, true) < 400) {
+            //         this.game.physics.arcade.moveToObject(wall, magnet, 100);
+            //     }
+            // }, this, magnet);
+*/

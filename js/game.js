@@ -483,6 +483,10 @@ brawl.game.prototype = {
         }
         else if (sprite.name === immovableWallMagnet) {
             this.immovableWallX.tint = tintImmovableWallMagnet;
+            this.immovableWallX.anchor.setTo(.5);
+        }
+        else if (sprite.name === immovableWallSlippery) {
+            this.immovableWallX.tint = tintImmovableWallSlippery;
         }
         this.immovableWallX.scale.setTo(sprite.sizeX, sprite.sizeY);
         this.immovableWallX.body.immovable = true;
@@ -723,28 +727,12 @@ brawl.game.prototype = {
             }
         }
     },
-    immovableWallMagnetHandler: function () {
-        var immovableWallMagnetFilter = this.immovableWall.filter(function (child, index, children) {
-            return child.name === immovableWallMagnet ? true : false;
-        }, true);
-
-        if (this.game.physics.arcade.distanceBetween(immovableWallMagnetFilter, this.player, false, true) < 400) {
-            this.game.physics.arcade.moveToObject(immovableWallMagnetFilter, this.player, 440);
+    immovableWallContinious: function (wall) {
+        if (wall.name === immovableWallMagnet) {
+            if (this.game.physics.arcade.distanceBetween(this.player, wall, false, true) < 250) {
+                this.game.physics.arcade.moveToObject(this.player, wall, 100);
+            };
         }
-        // immovableWallMagnetFilter.forEachAlive(function (magnetWall) {
-        //     if (this.game.physics.arcade.distanceBetween(magnetWall, this.player, false, true) < 400) {
-        //         this.physics.arcade.moveToObject(this.player, magnetWall, 440);
-        //     }
-        // }, this, this.player)
-
-        /*
-        this.enemy.forEachAlive(function (enemy) {
-            if (this.game.physics.arcade.distanceBetween(enemy, this.player, false, true) < 400) {
-                livingEnemies.push(enemy)
-            }
-        }, this, this.player);
-        */
-
     },
     ///////////////////////////////////////////State Switches////////////////////////////////
     deathState: function (victim, killer) {
@@ -920,6 +908,11 @@ brawl.game.prototype = {
             //worldClassLevels[sprite2.specialWorld].ledgeGreySpawn[sprite2.specialArray].trigger = true;
         }
     },
+    playerImmovable: function (player,immovable) {
+        if (immovable.name === immovableWallSlippery) {
+            player.body.stop();
+        }
+    },
     playerWall: function (player, wall) {
         if (wall.name === wallRegular || wall.name === wallFrozen) {
             wall.name = wallRegular;
@@ -1075,11 +1068,11 @@ brawl.game.prototype = {
         ////////////////////////////////////////Continious Updating//////////////////////////////////
         ///Enemy Sprites Firing Bullets
         this.fireEnemyBullet();
-        // this.immovableWallMagnetHandler();
-        // this.wall.forEachAlive(this.turnMoveable,this);
+        ////Magnetism in Immovable Walls
+        this.immovableWall.forEachAlive(this.immovableWallContinious,this);
         ////////////////////////Physics////////////////////////
         //Player Mechanics
-        var onImmovable = this.game.physics.arcade.collide(this.player, this.immovableWall, null, null, this);
+        var onImmovable = this.game.physics.arcade.collide(this.player, this.immovableWall, this.playerImmovable, null, this);
         var onWall = this.game.physics.arcade.collide(this.player, this.wall, this.playerWall, null, this);
         var onLedge = this.game.physics.arcade.collide(this.player, this.ledge, this.playerLedge, null, this);
         var onBall = this.game.physics.arcade.collide(this.player, this.ball, this.playerBall, null, this);
