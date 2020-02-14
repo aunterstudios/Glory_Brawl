@@ -127,6 +127,17 @@ var deaths = 0;
 var livingEnemies = [];
 var enemyBulletTime = 0;
 
+/////////////////////////Player Attributes/////////////////////////(Can Be Used For Later Things)
+var playerSpeed = 400;
+var playerJump = -500;
+var playerWallJumpX = 1000;
+var playerWallJumpY = 500;
+var playerStickiness = 100;
+var playerSlippery = 100;
+var playerUpsideDownVelocity = -100;
+var playerUpsideDownMovement = 100;
+var playerDownwards = 500;
+
 
 /////////////////////////////////////////////////Array Shuffler///////////////////////////////////////
 function shuffle(array) {
@@ -252,9 +263,10 @@ var immovableWallKillWall = 'immovableWallKillWall';
 var immovableWallPhase = 'immovableWallPhase';
 var immovableWallMagnet = 'immovableWallMagnet';
 var immovableWallActivation = 'immovableWallActivation'; //Triggers Movement in a Wall
-var immovableWallMario = 'immovableWallMario'; //Triggers Special Powers
-var immovableWallGravity = 'immovableWallGravity'; //Triggers World Gravity
-var immovableWallSkateBoard = 'immovableWallSkateboard'; //Triggers a Super OP Unchangeable Wall
+var immovableWallMario = 'immovableWallMario'; //Triggers Special Powers in Player
+var immovableWallPadding = 'immovableWallPadding'; //Triggers Special Properties in Objects
+var immovableWallWorldGravity = 'immovableWallWorldGravity'; //Triggers World Gravity
+// var immovableWallSkateBoard = 'immovableWallSkateboard'; //Triggers a Super OP Unchangeable Wall
 
 //Moveable Wall Names
 var wallRegular = 'wallRegular';
@@ -317,13 +329,17 @@ var spikeFall = 'spikeFall';
 //Flag
 var flag = 'flag';
 ///////////////////////////////////////////Tint Specific Art//////////////////////////////////////////////
+//Tint Remover 
+var tintRemover = 0xFFFFFF; //wallRegular (Removes Tint)
 //Immovable Walls
 var tintImmovableWallKillWall = 7019278.306799905;
 var tintImmovableWallPhase = 15631118.030252509;
 var tintImmovableWallMagnet = 10804989.680595484;
-var tintimmovableWallActivation = 12843983.879879326;
+var tintImmovableWallActivation = 0xffff00;
+var tintImmovableWallPadding = 2499878.036284214;
+var tintImmovableWallWorldGravity = 8314793.039214706;
+var tintImmovableWallMario = 241917.63554178402;
 //Walls
-var tintWallRegular = 0xFFFFFF; //wallRegular (Removes Tint)
 var tintWallCloud = 9583870.358153213; //wallCloud
 var tintWallHeavy = 6623573.181835621; //wallHeavy
 var tintWallGhost = 2131.658687827956; //wallGhost
@@ -424,7 +440,7 @@ level_0.ballSpawn = [new SpriteCreator(0, true, true, ballRegular, ball, 700, 13
 
 //Text Creator (Helpful Hints)
 level_0.text = [
-  new textCreator(0, 100, 1800, "Alright This is How You Fucking Play\n\nP- Pause\nF- FullScreen\nW or Spacebar- Jump\nA- Left\nS- Push or Move Downwards\nD- Right\nTapping Twice on the Jump Button Lets You Double Jump\nJump Over the Wall", 'Arial Black', 25, '#ffffff', 'bold'),
+  new textCreator(0, 100, 1800, "This is How You'll Be Reborn\n\nP- Pause\nF- FullScreen\nW or Spacebar- Jump\nA- Left\nS- Push or Move Downwards\nD- Right\nTapping Twice on the Jump Button Lets You Double Jump\nJump Over the Wall", 'Arial Black', 25, '#ffffff', 'bold'),
   new textCreator(1, 3500, 1650, "RED IS DEATH!", 'Times New Roman', 30, "#FF0000", 'bold'),
   new textCreator(2, 1300, 1650, "You Automatically Stick on Surfaces When You Jump on It\nPress A or D while on the Wall to Jump Off It\nWhile in the Air Move Towards the Wall to Stick to it Again\nKeep Jumping Off and Moving Again Towards the Wall to Climb Over\nTry Holding D While Tapping A while on Sticking on the Left Side of the Wall", 'Arial Black', 25, '#ffffff', 'bold'),
   new textCreator(3, 2180, 1900, "You Can Stick and Move on the Bottom of Surfaces\n\nI Repeat Once Again You Automatically Stick to Surfaces\nPress S to go Downwards or Push\n\nWhenever You Touch A Surface You Can Double Jump Again", 'Arial Black', 25, '#ffffff', 'bold'),
@@ -695,7 +711,7 @@ level_2.text = [
   //Camera Mode
   new textCreator(2, 2400, 400, "Learn How to Do the Free-Look Shot\n\nBullets Are Killed Off Screen\n\nFollow The Bullet\n\nPress 4 For Free Look (WASD Movement)", 'Arial Black', 25, '#ffffff', 'bold'),
   //Phase Wall
-  new textCreator(3, 400, 400, "These Purple Walls Are Killed\n\nBy Enemy Bullets\n\nOh Yeah Falling Spikes Kill You Too", 'Arial Black', 25, '#ffffff', 'bold'),
+  new textCreator(3, 400, 400, "These Orange Walls Are Killed\n\nBy Enemy Bullets\n\nOh Yeah Falling Spikes Kill You Too", 'Arial Black', 25, '#ffffff', 'bold'),
 ];
 
 //Push Level 2 Into World Class Array
@@ -727,7 +743,7 @@ level_3.undeniableDeathSpawn = [
 level_3.immovableWallSpawn = [
   //Ground
   new SpriteCreator(0, true, true, immovableWallRegular, immovableWallHorizontal, 300, 800, 0, 0, 1.2, .25, 0, 0, null, null, null, null, null),
-  new SpriteCreator(0, true, true, immovableWallActivation, immovableWallHorizontal, 600, 500, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
+  // new SpriteCreator(0, true, true, immovableWallWorldGravity, immovableWallHorizontal, 600, 500, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
 ];
 
 //Moveable Walls
@@ -740,12 +756,12 @@ level_3.immovableWallSpawn = [
 // ];
 
 //////////////Tint Testing///////////
-// level_3.wallSpawn = [
-//   new SpriteCreator(0, true, true, wallGhost, wallHorizontal, 600, 200, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
-//   new SpriteCreator(1, true, true, wallGhost, wallHorizontal, 600, 400, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
-//   new SpriteCreator(2, true, true, wallGhost, wallHorizontal, 600, 600, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
-//   new SpriteCreator(3, true, true, wallGhost, wallHorizontal, 600, 750, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
-// ];
+level_3.wallSpawn = [
+  new SpriteCreator(0, true, true, wallGhost, wallHorizontal, 600, 200, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
+  new SpriteCreator(1, true, true, wallGhost, wallHorizontal, 600, 400, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
+  new SpriteCreator(2, true, true, wallGhost, wallHorizontal, 600, 600, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
+  new SpriteCreator(3, true, true, wallGhost, wallHorizontal, 600, 750, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
+];
 ////////////Tint Testing/////////
 
 //Ledges
