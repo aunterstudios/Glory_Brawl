@@ -21,16 +21,16 @@ brawl.state1.prototype = {
         this.trumpBackground.anchor.setTo(.5);
 
         //Adding Cool Looking Text
-        text = this.game.add.text(40, 50, '', { font: "25px Arial", fill: "#19de65" });
+        text = this.game.add.text(200, 50, '', { font: "30px Impact", fill: "#ffffff" });
         nextLine();
 
         //Skip Written Already.
-        this.text2 = game.add.text(800, 300, "Press SPACEBAR to Play.\nPress O to go Full-Screen");
+        this.text2 = game.add.text(200, 600, "Press SPACEBAR to Play.\nPress O to go Full-Screen");
 
         //	Font style
-        this.text2.font = 'Arial';
+        this.text2.font = 'Impact';
         this.text2.fontSize = 30;
-        this.text2.fill = "#19de65";
+        this.text2.fill = "#ffffff";
         this.text2.fontWeight = 'bold';
 
     },

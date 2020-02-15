@@ -1343,8 +1343,8 @@ brawl.game.prototype = {
             }
             if (onTheRightSide) {
                 if (onWall || onImmovable) {
-                    this.player.body.velocity.x = 100;
-                    this.player.body.velocity.y = 100;
+                    this.player.body.velocity.x = playerStickiness;
+                    this.player.body.velocity.y = playerSlippery;
                 }
                 // if (onWall || onImmovable || onLedge) {
                 //     this.player.frame = 6;
@@ -1352,8 +1352,8 @@ brawl.game.prototype = {
             }
             else if (onTheLeftSide) {
                 if (onWall || onImmovable) {
-                    this.player.body.velocity.x = -100;
-                    this.player.body.velocity.y = 100;
+                    this.player.body.velocity.x = -playerStickiness;
+                    this.player.body.velocity.y = playerSlippery;
                 }
                 // if (onWall || onImmovable || onLedge) {
                 //     this.player.frame = 12;
@@ -1363,7 +1363,7 @@ brawl.game.prototype = {
                 // this.player.animations.stop();
                 // this.player.frame = 8;
                 // this.player.angle = 180;
-                this.player.body.velocity.y = -100;
+                this.player.body.velocity.y = playerUpsideDownVelocity;
             }
             // else if (onNone) {
             //     this.player.frame = 10;
