@@ -364,7 +364,7 @@ var colorsArrays = [
 
 
 ///////////////////////////////////////////Level 0///////////////////////////////////////////////////////////
-var level_0 = new LevelCreator("Level 0-CL", 3800, 2400, new MetroidvaniaCreator(1, 100, 0, 2400, 0, 1, 0, 2800), "#4488AA");
+var level_0 = new LevelCreator("Level 0-CL", 3800, 2400, new MetroidvaniaCreator(1, 100, 0, 2400, 0, 1, 0, 2800), "#ffffff");
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_0.playerPosition = [
