@@ -452,7 +452,7 @@ level_0.flagSpawn = [
 //Text Creator (Helpful Hints)
 level_0.text = [
   new textCreator(0, 100, 1800, "This is How You'll Be Reborn\n\nP- Pause\nO- FullScreen\nW or Spacebar- Jump\nA- Left\nS- Push or Move Downwards\nD- Right\nTapping Twice on the Jump Button Lets You Double Jump\nJump Over the Wall", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(1, 3500, 1650, "RED IS DEATH!", 'Times New Roman', 30, "#FF0000", 'bold'),
+  new textCreator(1, 3500, 1650, "RED IS DEATH", 'Impact', 30, "#FF0000", 'bold'),
   new textCreator(2, 1300, 1650, "You Automatically Stick on Surfaces When You Jump on It\nPress A or D while on the Wall to Jump Off It\nWhile in the Air Move Towards the Wall to Stick to it Again\nKeep Jumping Off and Moving Again Towards the Wall to Climb Over\nTry Holding D While Tapping A while on Sticking on the Left Side of the Wall", 'Courier New', 25, '#000000', 'bold'),
   new textCreator(3, 2180, 1900, "You Can Stick and Move on the Bottom of Surfaces\n\nI Repeat Once Again You Automatically Stick to Surfaces\nPress S to go Downwards or Push\n\nWhenever You Touch A Surface You Can Double Jump Again", 'Courier New', 25, '#000000', 'bold'),
   new textCreator(4, 2850, 600, "Press 1 to Access Pull Gun\nUse Mouse to Aim and Left Click to Shoot\nAny Object that is Moveable Can Be Pulled\n\nSurf the Grey Wall to the Top \nUsing the Pull Gun\nHint: Jump While Shooting At \nthe Grey Wall While Riding It", 'Courier New', 25, '#000000', 'bold'),
@@ -500,7 +500,7 @@ level_1.undeniableDeathSpawn = [
   new SpriteCreator(8, true, true, undeniableDeathRegular, deathHorizontal, 1465, 3170, 0, 0, .5249, .4, 0, 0, null, null, null, null, null),
   //Final Hurdles Till You Get Respawn Twin Primes
   new SpriteCreator(9, true, true, undeniableDeathRegular, deathVertical, 2150, 2000, 0, 0, .25, .811, 0, 0, null, null, null, null, null),
-  new SpriteCreator(10, true, true, undeniableDeathRegular, deathVertical, 2250, 500, 0, 0, .25, 1.5, 0, 0, null, null, null, null, null),
+  new SpriteCreator(10, true, true, undeniableDeathRegular, deathVertical, 2250, 541, 0, 0, .25, 1.5, 0, 0, null, null, null, null, null),
   new SpriteCreator(11, true, true, undeniableDeathRegular, deathVertical, 2800, 0, 0, 0, .25, 1.837, 0, 0, null, null, null, null, null),
   //Long Pole Death
   new SpriteCreator(12, true, true, undeniableDeathRegular, deathVertical, 2495, 600, 0, 0, .375, .03, 0, 0, null, null, null, null, null),
@@ -593,7 +593,7 @@ level_1.text = [
   //Entry to Level 0
   new textCreator(0, 100, 3150, "Level 0 ↓", 'Courier New', 25, '#000000', 'bold'),
   //Camera Mode
-  new textCreator(1, 80, 2800, "Press 4 to Toggle Free-Look (WASD to Move)", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(1, 80, 2800, "Press 4 to Toggle Free-Look(WASD to Move)", 'Courier New', 25, '#000000', 'bold'),
   //Flag Respawn
   new textCreator(2, 400, 3000, 'Flags are Respawn Checkpoints', 'Courier New', 25, '#000000', 'bold'),
   //Grey Ledge Tutorial
@@ -730,7 +730,7 @@ worldClassLevels.push(level_2);
 
 
 ////////////////////////////////////////Level 3/////////////////////////////////////(Testing Ground)
-var level_3 = new LevelCreator("Level 3-PlayGround", 1400, 800, new MetroidvaniaCreator(null, null, 2, 800, null, null, null, null), '#80235b');
+var level_3 = new LevelCreator("Level 3-PlayGround", 1400, 800, new MetroidvaniaCreator(null, null, 2, 800, null, null, null, null), '#ffffff');
 
 // level_3.worldGravity = new worldGravityCreator(200, 300);
 

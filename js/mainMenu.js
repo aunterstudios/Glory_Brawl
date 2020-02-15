@@ -21,7 +21,7 @@ brawl.state1.prototype = {
         this.trumpBackground.anchor.setTo(.5);
 
         //Adding Cool Looking Text
-        text = this.game.add.text(200, 50, '', { font: "30px Impact", fill: "#ffffff" });
+        text = this.game.add.text(200, 50, '', { font: "30px Impact", fill: "#FF0000" });
         nextLine();
 
         //Skip Written Already.
@@ -30,7 +30,7 @@ brawl.state1.prototype = {
         //	Font style
         this.text2.font = 'Impact';
         this.text2.fontSize = 30;
-        this.text2.fill = "#ffffff";
+        this.text2.fill = "#FF0000";
         this.text2.fontWeight = 'bold';
 
     },
@@ -81,8 +81,9 @@ brawl.stateControls.prototype = {
             //Level 0
             // this.game.state.start('game', true, false, 0, 1, worldClassLevels[0].metroidvania);
             //Any Level I want to Test
+            this.game.state.start('game', true, false, 1, 1, worldClassLevels[1].metroidvania);
             //Level 3 (THE PLAYGROUND)
-            this.game.state.start('game', true, false, 3, 1, worldClassLevels[3].metroidvania);
+            // this.game.state.start('game', true, false, 3, 1, worldClassLevels[3].metroidvania);
 
         }
     }

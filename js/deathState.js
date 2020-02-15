@@ -10,7 +10,7 @@ brawl.state2.prototype = {
         this.metroidvania = metroidvania;
     },
     preload: function () {
-        this.load.image('background-three', 'assets/trumpBackground.png');
+        this.load.image('background-three', 'assets/trumpFirstBackground.jpg');
     },
     create: function () {
 
@@ -18,11 +18,11 @@ brawl.state2.prototype = {
         ++deaths;
 
         //Art
-        this.trump = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY, 'background-three');
+        this.trump = this.game.add.sprite(this.game.world.centerX+300, this.game.world.centerY, 'background-three');
         this.trump.anchor.setTo(.5);
         //this.trump.scale.setTo(.75);
 
-        this.text = this.game.add.text(this.game.world.centerX - 250, 220, "SPACEBAR to Try Again \n Deaths: " + deaths);
+        this.text = this.game.add.text(this.game.world.centerX - 250, 220, "SPACEBAR to Try Again \n Attemps to Be Reborn: " + deaths);
         this.text.anchor.setTo(0.5);
         this.text.align = 'center';
 

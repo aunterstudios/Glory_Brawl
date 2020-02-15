@@ -432,7 +432,7 @@ brawl.game.prototype = {
 
         // for (var x = 1; x < xIterator; x++) {
         //     for (var y = 1; y < yIterator; y++) {
-        //         this.text = this.game.add.text(x*distanceOfXandY, y*distanceOfXandY, x*distanceOfXandY+'X'+y*distanceOfXandY+'Y', { font: "10px Arial", fill: "#ffffff", align: "center" });
+        //         this.text = this.game.add.text(x*distanceOfXandY, y*distanceOfXandY, x*distanceOfXandY+'X'+y*distanceOfXandY+'Y', { font: "10px Arial", fill: "#ff0000", align: "center" });
         //     }
         // }
 
@@ -926,7 +926,6 @@ brawl.game.prototype = {
         }
     },
     playerImmovable: function (player, immovable) {
-        console.log("hitting");
         ///Activating immovableWallActivation(Like a Cloud)
         if (immovable.name === immovableWallActivation) {
             if (immovable.body.touching.up) {
@@ -950,7 +949,6 @@ brawl.game.prototype = {
             immovable.kill();
         }
         if (immovable.name === immovableWallMario) {
-            console.log("It Hits");
             if (player.body.touching.up) {
                 playerWallJumpX = 2000;
                 playerWallJumpY = 1000;
@@ -969,7 +967,6 @@ brawl.game.prototype = {
         // return;
     },
     playerWall: function (player, wall) {
-        console.log("Hitting");
         if (wall.name === wallRegular || wall.name === wallFrozen) {
             wall.name = wallRegular;
             wall.body.moves = true;
