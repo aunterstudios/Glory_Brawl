@@ -777,12 +777,12 @@ level_3.immovableWallSpawn = [
 
 //Ledges
 level_3.ledgeSpawn = [
-  // //Elevator
+  // //Surf
   new SpriteCreator(0, true, true, surf, ledgeSurf, 100, 200, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
   // //Bounce Ledges
-  // new SpriteCreator(2, true, true, bounce, ledgeBounce, 600, 400, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+  new SpriteCreator(2, true, true, bounce, ledgeBounce, 600, 400, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
   //Surf Ledges
-  // new SpriteCreator(5, true, true, surf, ledgeSurf, 200, 200, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+  new SpriteCreator(3, true, true, elevator, ledgeElevator, 200, 200, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
 ];
 
 //Enemy Spawn

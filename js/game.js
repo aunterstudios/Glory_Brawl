@@ -1023,16 +1023,16 @@ brawl.game.prototype = {
         /////////////////////GOOOFY///////////////
         ball.body.stop();
         if (ball.body.touching.up) {
-            ball.body.velocity.y = 200;
+            ball.body.velocity.y = 100;
         }
         if (ball.body.touching.down) {
-            ball.body.velocity.y = -200;
+            ball.body.velocity.y = -100;
         }
         if (ball.body.touching.left) {
-            ball.body.velocity.x = 200;
+            ball.body.velocity.x = 100;
         }
         if (ball.body.touching.right) {
-            ball.body.velocity.x = -200;
+            ball.body.velocity.x = -100;
         }
         //   //////////////////Natural///////////////
         //   // if (ball.body.touching.up) {
@@ -1082,7 +1082,7 @@ brawl.game.prototype = {
             // When You're Hitting the Edge from the Sides (Right and Left)
             else if (ledge.body.touching.left || ledge.body.touching.right) {
                 ledge.body.velocity.y = 0;
-                ledge.body.velocity.x = player.body.velocity.x;
+                ledge.body.velocity.x = 0;
             }
             /////////////////////////////////In Case Want to Change Side Ledge Velocity///////////
             // if (ledge.body.touching.left) {
@@ -1108,7 +1108,7 @@ brawl.game.prototype = {
             }
             else if (ledge.body.touching.left || ledge.body.touching.right) {
                 ledge.body.velocity.y = 0;
-                ledge.body.velocity.x = player.body.velocity.x;
+                ledge.body.velocity.x = 0;
             }
         }
         ////////Surfs Up Dude////////
@@ -1120,7 +1120,7 @@ brawl.game.prototype = {
             }
             else if (ledge.body.touching.left || ledge.body.touching.right) {
                 ledge.body.velocity.y = 0;
-                ledge.body.velocity.x = player.body.velocity.x;
+                ledge.body.velocity.x = 0;
             }
         }
     },
