@@ -138,6 +138,11 @@ var playerUpsideDownVelocity = -100;
 var playerUpsideDownMovement = 100;
 var playerDownwards = 500;
 
+/////////////////////////Weapon Attributes////////////
+var weaponFireRate = 500;
+var weaponBulletSpeed = 500;
+var weaponBulletAmount = 30;
+
 
 /////////////////////////////////////////////////Array Shuffler///////////////////////////////////////
 function shuffle(array) {
@@ -743,7 +748,7 @@ level_3.undeniableDeathSpawn = [
 level_3.immovableWallSpawn = [
   //Ground
   new SpriteCreator(0, true, true, immovableWallRegular, immovableWallHorizontal, 300, 800, 0, 0, 1.2, .25, 0, 0, null, null, null, null, null),
-  // new SpriteCreator(0, true, true, immovableWallWorldGravity, immovableWallHorizontal, 600, 500, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
+  new SpriteCreator(0, true, true, immovableWallMario, immovableWallHorizontal, 600, 500, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
 ];
 
 //Moveable Walls
@@ -756,12 +761,12 @@ level_3.immovableWallSpawn = [
 // ];
 
 //////////////Tint Testing///////////
-level_3.wallSpawn = [
-  new SpriteCreator(0, true, true, wallGhost, wallHorizontal, 600, 200, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
-  new SpriteCreator(1, true, true, wallGhost, wallHorizontal, 600, 400, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
-  new SpriteCreator(2, true, true, wallGhost, wallHorizontal, 600, 600, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
-  new SpriteCreator(3, true, true, wallGhost, wallHorizontal, 600, 750, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
-];
+// level_3.wallSpawn = [
+//   new SpriteCreator(0, true, true, wallGhost, wallHorizontal, 600, 200, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
+//   new SpriteCreator(1, true, true, wallGhost, wallHorizontal, 600, 400, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
+//   new SpriteCreator(2, true, true, wallGhost, wallHorizontal, 600, 600, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
+//   new SpriteCreator(3, true, true, wallGhost, wallHorizontal, 600, 750, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
+// ];
 ////////////Tint Testing/////////
 
 //Ledges

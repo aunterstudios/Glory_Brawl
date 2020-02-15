@@ -24,6 +24,10 @@ brawl.game.prototype = {
         playerUpsideDownVelocity = -100;
         playerUpsideDownMovement = 100;
         playerDownwards = 500;
+        ////////////////////These Are Resetting the Weapon Attributes For Each Level/////////////////////
+        weaponFireRate = 500;
+        weaponBulletSpeed = 500;
+        weaponBulletAmount = 30;
     },
     preload: function () {
         // this.game.forceSingleUpdate = true;
@@ -319,30 +323,30 @@ brawl.game.prototype = {
 
         /////////////////Push
         //  Creates 30 bullets, using the 'bullet' graphic
-        this.weapon2 = this.game.add.weapon(30, 'bulletStop');
+        this.weapon2 = this.game.add.weapon(weaponBulletAmount, 'bulletStop');
         //  The bullet will be automatically killed when it leaves the camera bounds
         this.weapon2.bulletKillType = Phaser.Weapon.KILL_CAMERA_BOUNDS;
         //  Because our bullet is drawn facing up, we need to offset its rotation:
         this.weapon2.bulletAngleOffset = 90;
         //  The speed at which the bullet is fired
-        this.weapon2.bulletSpeed = 500;
+        this.weapon2.bulletSpeed = weaponBulletSpeed;
         //  Speed-up the rate of fire, allowing them to shoot 1 bullet every 60ms
-        this.weapon2.fireRate = 500;
+        this.weapon2.fireRate = weaponFireRate;
         //Match Your Velocity?
         // Track Player
         this.weapon2.trackSprite(this.player, 0, 0);
 
         ////////////////Stop
         //  Creates 30 bullets, using the 'bullet' graphic
-        this.weapon3 = this.game.add.weapon(30, 'bulletKill');
+        this.weapon3 = this.game.add.weapon(weaponBulletAmount, 'bulletKill');
         //  The bullet will be automatically killed when it leaves the camera bounds
         this.weapon3.bulletKillType = Phaser.Weapon.KILL_CAMERA_BOUNDS;
         //  Because our bullet is drawn facing up, we need to offset its rotation:
         this.weapon3.bulletAngleOffset = 90;
         //  The speed at which the bullet is fired
-        this.weapon3.bulletSpeed = 500;
+        this.weapon3.bulletSpeed = weaponBulletSpeed;
         //  Speed-up the rate of fire, allowing them to shoot 1 bullet every 60ms
-        this.weapon3.fireRate = 500;
+        this.weapon3.fireRate = weaponFireRate;
         // Track Player
         this.weapon3.trackSprite(this.player, 0, 0);
 
@@ -498,11 +502,11 @@ brawl.game.prototype = {
             this.immovableWallX.tint = tintImmovableWallWorldGravity;
         }
         else if (sprite.name === immovableWallMario) {
-            this.immovableWallX.tint = tintImmovableWallMarioimmovableWallMario;
+            this.immovableWallX.tint = tintImmovableWallMario;
         }
         this.immovableWallX.scale.setTo(sprite.sizeX, sprite.sizeY);
         this.immovableWallX.body.immovable = true;
-        this.immovableWallX.body.mass = 400;
+        this.immovableWallX.body.mass = 100;
         this.immovableWallX.body.maxVelocity.setTo(1000);
         this.immovableWallX.body.collideWorldBounds = true;
         this.immovableWallX.body.bounce.setTo(1);
@@ -562,8 +566,8 @@ brawl.game.prototype = {
         this.ledgeX.specialWorld = sprite.specialWorld;
         this.ledgeX.specialArray = sprite.specialArray;
         this.ledgeX.positionInArray = sprite.positionInArray;
-        this.ledgeX.velocityVsWallX = 150;
-        this.ledgeX.velocityVsWallY = 150;
+        this.ledgeX.velocityVsWallX = 50;
+        this.ledgeX.velocityVsWallY = 50;
         this.ledgeX.anchor.setTo(.5);
         this.ledgeX.scale.setTo(.4);
         this.ledgeX.body.mass = 20;
@@ -599,12 +603,12 @@ brawl.game.prototype = {
         this.ballX.specialWorld = sprite.specialWorld;
         this.ballX.specialArray = sprite.specialArray;
         this.ballX.positionInArray = sprite.positionInArray;
-        this.ballX.velocityVsWallX = 300;
-        this.ballX.velocityVsWallY = 300;
+        this.ballX.velocityVsWallX = 50;
+        this.ballX.velocityVsWallY = 50;
         this.ballX.anchor.setTo(.5);
         this.ballX.scale.setTo(.5);
         this.ballX.body.setCircle(50);
-        this.ballX.body.mass = 30;
+        this.ballX.body.mass = 20;
         this.ballX.body.maxVelocity.setTo(1000);
         this.ballX.body.collideWorldBounds = true;
         this.ballX.body.bounce.setTo(1.0);
@@ -808,7 +812,7 @@ brawl.game.prototype = {
     },
     immovableMoveable: function (immovable, obj2) {
         if (immovable.name === immovableWallPadding) {
-            obj2.body.stop();
+            // obj2.body.stop();
             obj2.body.bounce.setTo(.5)
             obj2.velocityVsWallY = 50;
             obj2.velocityVsWallX = 50;
@@ -816,6 +820,7 @@ brawl.game.prototype = {
             ////Maybe Kill This Later///
         }
         //////////////Actual Collision Mechanics////////////
+        // obj2.body.stop();
         if (immovable.body.touching.up) {
             obj2.body.velocity.y = -obj2.velocityVsWallY;
         }
@@ -943,6 +948,19 @@ brawl.game.prototype = {
             immovable.kill();
         }
         else if (immovable.name === immovableWallMario) {
+            if (immovable.body.touching.up) {
+                playerWallJumpX = 2000;
+                playerWallJumpY = 1000;
+            }
+            else if (immovable.body.touching.down) {
+                playerSlippery = 25;
+            }
+            else if (immovable.body.touching.left) {
+                playerSpeed = 800;
+            }
+            else if (immovable.body.touching.right) {
+                playerJump = -1000;
+            }
             immovable.kill();
         }
         // return;
