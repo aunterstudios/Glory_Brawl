@@ -133,7 +133,7 @@ var playerJump = -500;
 var playerWallJumpX = 1000;
 var playerWallJumpY = 500;
 var playerStickiness = 100;
-var playerSlippery = 100;
+var playerSlippery = 20;
 var playerUpsideDownVelocity = -100;
 var playerUpsideDownMovement = 100;
 var playerDownwards = 500;
@@ -370,8 +370,8 @@ var level_0 = new LevelCreator("Level 0-CL", 3800, 2400, new MetroidvaniaCreator
 level_0.playerPosition = [
   new PlayerPositionCreator(150, 50),
   new PlayerPositionCreator(300, 2200),
-  new PlayerPositionCreator(200, 400),
-  new PlayerPositionCreator(1400, 400),
+  new PlayerPositionCreator(400, 1300),
+  new PlayerPositionCreator(2600, 600),
 ]
 
 ///////////////////////Creation of Undeniable Death
@@ -443,9 +443,15 @@ level_0.wallSpawn = [new SpriteCreator(0, true, true, wallRegular, wallHorizonta
 //Ball
 level_0.ballSpawn = [new SpriteCreator(0, true, true, ballRegular, ball, 700, 1350, 0, 0, null, null, 0, 0, null, null, null, null, null)];
 
+//FLag Respawn
+level_0.flagSpawn = [
+  new SpriteCreator(0, true, true, regularFlag, flag, 2400, 600, 0, 0, .4, .4, 0, 0, null, null, null, null, 3),
+  new SpriteCreator(1, true, true, regularFlag, flag, 200, 1300, 0, 0, .4, .4, 0, 0, null, null, null, null, 2),
+]
+
 //Text Creator (Helpful Hints)
 level_0.text = [
-  new textCreator(0, 100, 1800, "This is How You'll Be Reborn\n\nP- Pause\nF- FullScreen\nW or Spacebar- Jump\nA- Left\nS- Push or Move Downwards\nD- Right\nTapping Twice on the Jump Button Lets You Double Jump\nJump Over the Wall", 'Arial Black', 25, '#ffffff', 'bold'),
+  new textCreator(0, 100, 1800, "This is How You'll Be Reborn\n\nP- Pause\nO- FullScreen\nW or Spacebar- Jump\nA- Left\nS- Push or Move Downwards\nD- Right\nTapping Twice on the Jump Button Lets You Double Jump\nJump Over the Wall", 'Arial Black', 25, '#ffffff', 'bold'),
   new textCreator(1, 3500, 1650, "RED IS DEATH!", 'Times New Roman', 30, "#FF0000", 'bold'),
   new textCreator(2, 1300, 1650, "You Automatically Stick on Surfaces When You Jump on It\nPress A or D while on the Wall to Jump Off It\nWhile in the Air Move Towards the Wall to Stick to it Again\nKeep Jumping Off and Moving Again Towards the Wall to Climb Over\nTry Holding D While Tapping A while on Sticking on the Left Side of the Wall", 'Arial Black', 25, '#ffffff', 'bold'),
   new textCreator(3, 2180, 1900, "You Can Stick and Move on the Bottom of Surfaces\n\nI Repeat Once Again You Automatically Stick to Surfaces\nPress S to go Downwards or Push\n\nWhenever You Touch A Surface You Can Double Jump Again", 'Arial Black', 25, '#ffffff', 'bold'),
@@ -772,7 +778,7 @@ level_3.immovableWallSpawn = [
 //Ledges
 level_3.ledgeSpawn = [
   // //Elevator
-  new SpriteCreator(0, true, true, elevator, ledgeElevator, 200, 700, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+  new SpriteCreator(0, true, true, surf, ledgeSurf, 100, 200, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
   // //Bounce Ledges
   // new SpriteCreator(2, true, true, bounce, ledgeBounce, 600, 400, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
   //Surf Ledges

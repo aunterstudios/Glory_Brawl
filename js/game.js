@@ -20,14 +20,14 @@ brawl.game.prototype = {
         playerWallJumpX = 1000;
         playerWallJumpY = 500;
         playerStickiness = 100;
-        playerSlippery = 100;
+        playerSlippery = 20;
         playerUpsideDownVelocity = -100;
         playerUpsideDownMovement = 100;
         playerDownwards = 500;
         ////////////////////These Are Resetting the Weapon Attributes For Each Level/////////////////////
-        weaponFireRate = 500;
-        weaponBulletSpeed = 500;
-        weaponBulletAmount = 30;
+        // weaponFireRate = 500;
+        // weaponBulletSpeed = 500;
+        // weaponBulletAmount = 30;
     },
     preload: function () {
         // this.game.forceSingleUpdate = true;
@@ -89,7 +89,7 @@ brawl.game.prototype = {
         // Stretch to fill (Full Screen Mode)
         this.game.scale.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
 
-        this.fullSize = this.game.input.keyboard.addKey(Phaser.Keyboard.F);
+        this.fullSize = this.game.input.keyboard.addKey(Phaser.Keyboard.O);
 
         this.fullSize.onDown.add(this.gofull, this);
 
@@ -953,7 +953,7 @@ brawl.game.prototype = {
                 playerWallJumpY = 1000;
             }
             else if (immovable.body.touching.down) {
-                playerSlippery = 25;
+                playerSlippery = 0;
             }
             else if (immovable.body.touching.left) {
                 playerSpeed = 800;
@@ -1097,8 +1097,8 @@ brawl.game.prototype = {
             //   player.body.velocity.y = -100;
             // }
             else if (ledge.body.touching.down) {
-                ledge.body.velocity.y = -300;
-                player.body.velocity.y = -100;
+                ledge.body.velocity.y = -50;
+                // player.body.velocity.y = -100;
             }
         }
         //////////Super Jump Bounce/////////
@@ -1106,11 +1106,22 @@ brawl.game.prototype = {
             if (ledge.body.touching.up) {
                 player.body.velocity.y = -1200;
             }
+            else if (ledge.body.touching.left || ledge.body.touching.right) {
+                ledge.body.velocity.y = 0;
+                ledge.body.velocity.x = player.body.velocity.x;
+            }
         }
         ////////Surfs Up Dude////////
         if (ledge.name === surf) {
-            ledge.body.velocity.y = 200;
-            ledge.body.velocity.x = player.body.velocity.x;
+            ledge.body.stop();
+            ledge.body.velocity.y = 0;
+            if (player.body.touching.up || player.body.touching.down) {
+                ledge.body.velocity.x = player.body.velocity.x;
+            }
+            else if (ledge.body.touching.left || ledge.body.touching.right) {
+                ledge.body.velocity.y = 0;
+                ledge.body.velocity.x = player.body.velocity.x;
+            }
         }
     },
     //Ball Interaction With Different Objects
