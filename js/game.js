@@ -747,6 +747,7 @@ brawl.game.prototype = {
     },
     ///////////////////////////////////////////State Switches////////////////////////////////
     deathState: function (victim, killer) {
+        console.log("Hitting Death");
         victim.kill();
         game.state.start('deathState', true, false, respawnHolder.indexOfCurrentWorld, respawnHolder.indexOfPlayerPosition, respawnHolder.metroidvania);
     },
@@ -925,6 +926,7 @@ brawl.game.prototype = {
         }
     },
     playerImmovable: function (player, immovable) {
+        console.log("hitting");
         ///Activating immovableWallActivation(Like a Cloud)
         if (immovable.name === immovableWallActivation) {
             if (immovable.body.touching.up) {
@@ -948,17 +950,18 @@ brawl.game.prototype = {
             immovable.kill();
         }
         if (immovable.name === immovableWallMario) {
-            if (immovable.body.touching.up) {
+            console.log("It Hits");
+            if (player.body.touching.up) {
                 playerWallJumpX = 2000;
                 playerWallJumpY = 1000;
             }
-            if (immovable.body.touching.down) {
+            if (player.body.touching.down) {
                 playerSlippery = 0;
             }
-            if (immovable.body.touching.left) {
+            if (player.body.touching.left) {
                 playerSpeed = 800;
             }
-            if (immovable.body.touching.right) {
+            if (player.body.touching.right) {
                 playerJump = -1000;
             }
             immovable.kill();
@@ -966,6 +969,7 @@ brawl.game.prototype = {
         // return;
     },
     playerWall: function (player, wall) {
+        console.log("Hitting");
         if (wall.name === wallRegular || wall.name === wallFrozen) {
             wall.name = wallRegular;
             wall.body.moves = true;
@@ -1117,12 +1121,12 @@ brawl.game.prototype = {
             ledge.body.velocity.y = 0;
             if (player.body.touching.up || player.body.touching.down) {
                 ledge.body.velocity.x = player.body.velocity.x;
-                console.log(player.body.touching.up, 'up');
+                // console.log(player.body.touching.up, 'up');
             }
             if (ledge.body.touching.left || ledge.body.touching.right) {
                 ledge.body.velocity.y = 0;
                 ledge.body.velocity.x = 0;
-                console.log(player.body.touching.left, 'left', player.body.touching.right, 'right')
+                // console.log(player.body.touching.left, 'left', player.body.touching.right, 'right')
             }
         }
     },

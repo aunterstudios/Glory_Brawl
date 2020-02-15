@@ -451,16 +451,16 @@ level_0.flagSpawn = [
 
 //Text Creator (Helpful Hints)
 level_0.text = [
-  new textCreator(0, 100, 1800, "This is How You'll Be Reborn\n\nP- Pause\nO- FullScreen\nW or Spacebar- Jump\nA- Left\nS- Push or Move Downwards\nD- Right\nTapping Twice on the Jump Button Lets You Double Jump\nJump Over the Wall", 'Arial Black', 25, '#ffffff', 'bold'),
+  new textCreator(0, 100, 1800, "This is How You'll Be Reborn\n\nP- Pause\nO- FullScreen\nW or Spacebar- Jump\nA- Left\nS- Push or Move Downwards\nD- Right\nTapping Twice on the Jump Button Lets You Double Jump\nJump Over the Wall", 'Courier New', 25, '#ffffff', 'bold'),
   new textCreator(1, 3500, 1650, "RED IS DEATH!", 'Times New Roman', 30, "#FF0000", 'bold'),
-  new textCreator(2, 1300, 1650, "You Automatically Stick on Surfaces When You Jump on It\nPress A or D while on the Wall to Jump Off It\nWhile in the Air Move Towards the Wall to Stick to it Again\nKeep Jumping Off and Moving Again Towards the Wall to Climb Over\nTry Holding D While Tapping A while on Sticking on the Left Side of the Wall", 'Arial Black', 25, '#ffffff', 'bold'),
-  new textCreator(3, 2180, 1900, "You Can Stick and Move on the Bottom of Surfaces\n\nI Repeat Once Again You Automatically Stick to Surfaces\nPress S to go Downwards or Push\n\nWhenever You Touch A Surface You Can Double Jump Again", 'Arial Black', 25, '#ffffff', 'bold'),
-  new textCreator(4, 2850, 600, "Press 1 to Access Pull Gun\nUse Mouse to Aim and Left Click to Shoot\nAny Object that is Moveable Can Be Pulled\n\nSurf the Grey Wall to the Top \nUsing the Pull Gun\nHint: Jump While Shooting At \nthe Grey Wall While Riding It", 'Arial Black', 25, '#ffffff', 'bold'),
-  new textCreator(5, 750, 1265, "Press 2 to Use the Stop Gun\nBalls Destroy Enemies and Traps\nDestroy the Spikes\nAny Object that is Moveable Can be Stopped", 'Arial Black', 25, '#ffffff', 'bold'),
-  new textCreator(6, 400, 200, "As Long as the Ball Touches Any Part of the Spikes", 'Arial Black', 25, '#ffffff', 'bold'),
-  new textCreator(7, 100, 25, "Level 1 ↑", 'Arial Black', 25, '#ffffff', 'bold'),
-  new textCreator(8, 2500, 1400, "Once Again When You Hit a Fucking Surface\n\nYou Can Double Jump Again in the Air", 'Arial Black', 25, '#ffffff', 'bold'),
-  new textCreator(8, 1500, 600, "You Probably Realized\n\nYou Can Fuck Shit Up With One Mistake", 'Arial Black', 25, '#ffffff', 'bold'),
+  new textCreator(2, 1300, 1650, "You Automatically Stick on Surfaces When You Jump on It\nPress A or D while on the Wall to Jump Off It\nWhile in the Air Move Towards the Wall to Stick to it Again\nKeep Jumping Off and Moving Again Towards the Wall to Climb Over\nTry Holding D While Tapping A while on Sticking on the Left Side of the Wall", 'Courier New', 25, '#ffffff', 'bold'),
+  new textCreator(3, 2180, 1900, "You Can Stick and Move on the Bottom of Surfaces\n\nI Repeat Once Again You Automatically Stick to Surfaces\nPress S to go Downwards or Push\n\nWhenever You Touch A Surface You Can Double Jump Again", 'Courier New', 25, '#ffffff', 'bold'),
+  new textCreator(4, 2850, 600, "Press 1 to Access Pull Gun\nUse Mouse to Aim and Left Click to Shoot\nAny Object that is Moveable Can Be Pulled\n\nSurf the Grey Wall to the Top \nUsing the Pull Gun\nHint: Jump While Shooting At \nthe Grey Wall While Riding It", 'Courier New', 25, '#ffffff', 'bold'),
+  new textCreator(5, 750, 1265, "Press 2 to Use the Stop Gun\nBalls Destroy Enemies and Traps\nDestroy the Spikes\nAny Object that is Moveable Can be Stopped", 'Courier New', 25, '#ffffff', 'bold'),
+  new textCreator(6, 400, 200, "As Long as the Ball Touches Any Part of the Spikes", 'Courier New', 25, '#ffffff', 'bold'),
+  new textCreator(7, 100, 25, "Level 1 ↑", 'Courier New', 25, '#ffffff', 'bold'),
+  new textCreator(8, 2500, 1400, "Once Again When You Hit a Fucking Surface\n\nYou Can Double Jump Again in the Air", 'Courier New', 25, '#ffffff', 'bold'),
+  new textCreator(8, 1500, 600, "You Probably Realized\n\nYou Can Fuck Shit Up With One Mistake", 'Courier New', 25, '#ffffff', 'bold'),
 ];
 
 //Push to worldClassLevelsGlobalArray
@@ -591,26 +591,26 @@ level_1.ballSpawn = [new SpriteCreator(0, true, true, ballRegular, ball, 975, 20
 //Text Creator (Helpful Hints)
 level_1.text = [
   //Entry to Level 0
-  new textCreator(0, 100, 3150, "Level 0 ↓", 'Arial Black', 25, '#ffffff', 'bold'),
+  new textCreator(0, 100, 3150, "Level 0 ↓", 'Courier New', 25, '#ffffff', 'bold'),
   //Camera Mode
-  new textCreator(1, 80, 2800, "Press 4 to Toggle Free-Look (WASD to Move)", 'Arial Black', 25, '#ffffff', 'bold'),
+  new textCreator(1, 80, 2800, "Press 4 to Toggle Free-Look (WASD to Move)", 'Courier New', 25, '#ffffff', 'bold'),
   //Flag Respawn
-  new textCreator(2, 400, 3000, 'Flags are Respawn Checkpoints', 'Arial Black', 25, '#ffffff', 'bold'),
+  new textCreator(2, 400, 3000, 'Flags are Respawn Checkpoints', 'Courier New', 25, '#ffffff', 'bold'),
   //Grey Ledge Tutorial
-  new textCreator(3, 900, 2300, "Pull the Grey Ledge Towards You\n\nGet on Top of the Grey Ledge", 'Arial Black', 25, '#ffffff', 'bold'),
+  new textCreator(3, 900, 2300, "Pull the Grey Ledge Towards You\n\nGet on Top of the Grey Ledge", 'Courier New', 25, '#ffffff', 'bold'),
   //Where to Land Grey Ledge
-  new textCreator(4, 300, 1900, "Jump Down to the Grey Ledge at the Bottom", 'Arial Black', 25, '#ffffff', 'bold'),
+  new textCreator(4, 300, 1900, "Jump Down to the Grey Ledge at the Bottom", 'Courier New', 25, '#ffffff', 'bold'),
   //Green Ledge Tutorial
-  new textCreator(5, 900, 1525, "Trust the Green Ledges at the Bottom", 'Arial Black', 25, '#ffffff', 'bold'),
-  new textCreator(6, 1500, 1600, "↓", 'Arial Black', 25, '#ffffff', 'bold'),
-  new textCreator(8, 1600, 3000, "Green Ledges Make You Bounce", 'Arial Black', 25, '#ffffff', 'bold'),
+  new textCreator(5, 900, 1525, "Trust the Green Ledges at the Bottom", 'Courier New', 25, '#ffffff', 'bold'),
+  new textCreator(6, 1500, 1600, "↓", 'Courier New', 25, '#ffffff', 'bold'),
+  new textCreator(8, 1600, 3000, "Green Ledges Make You Bounce", 'Courier New', 25, '#ffffff', 'bold'),
   //Blue Ledge Tutorial
-  new textCreator(9, 1500, 200, "You Can Surf Blue Ledges\n\nBe Warned They Are Unstable\n\nLand Perfectly in the Middle of the Blue Ledge\n\nHint: Holding S Can Let You Surf On Top of Objects", 'Arial Black', 25, '#ffffff', 'bold'),
+  new textCreator(9, 1500, 200, "You Can Surf Blue Ledges(Control By Going Left or Right)\n\nBe Warned They Are Unstable\n\nLand Perfectly in the Middle of the Blue Ledge\n\nHint: Holding S Lets You Descend Faster", 'Courier New', 25, '#ffffff', 'bold'),
   //Kill Instructions
-  new textCreator(10, 100, 200, "Press 3 to Access Kill Gun\n\nAny Object that is Moveable can be Killed", 'Arial Black', 25, '#ffffff', 'bold'),
+  new textCreator(10, 100, 200, "Press 3 to Access Kill Gun\n\nAny Object that is Moveable can be Killed", 'Courier New', 25, '#ffffff', 'bold'),
   //These Kill Walls
-  new textCreator(11, 1150, 2600, "These Kill Walls", 'Arial Black', 25, '#ffffff', 'bold'),
-  new textCreator(12, 1700, 1300, "Properties of Objects Can Be Changed\n\nDepending What Hits It", 'Arial Black', 25, '#ffffff', 'bold'),
+  new textCreator(11, 1150, 2600, "These Kill Walls", 'Courier New', 25, '#ffffff', 'bold'),
+  new textCreator(12, 1700, 1300, "Properties of Objects Can Be Changed\n\nDepending What Hits It", 'Courier New', 25, '#ffffff', 'bold'),
 ];
 
 level_1.flagSpawn = [
@@ -716,13 +716,13 @@ level_2.flagSpawn = [
 //Text Creator (Helpful Hints)
 level_2.text = [
   //Entry to Level 1
-  new textCreator(0, 4650, 650, "Level 1 →", 'Arial Black', 25, '#ffffff', 'bold'),
+  new textCreator(0, 4650, 650, "Level 1 →", 'Courier New', 25, '#ffffff', 'bold'),
   //WolfGang Kill Them
-  new textCreator(1, 4250, 450, "Kill Them Before They Kill You", 'Arial Black', 25, '#ffffff', 'bold'),
+  new textCreator(1, 4250, 450, "Kill Them Before They Kill You", 'Courier New', 25, '#ffffff', 'bold'),
   //Camera Mode
-  new textCreator(2, 2400, 400, "Learn How to Do the Free-Look Shot\n\nBullets Are Killed Off Screen\n\nFollow The Bullet\n\nPress 4 For Free Look (WASD Movement)", 'Arial Black', 25, '#ffffff', 'bold'),
+  new textCreator(2, 2400, 400, "Learn How to Do the Free-Look Shot\n\nBullets Are Killed Off Screen\n\nFollow The Bullet\n\nPress 4 For Free Look (WASD Movement)", 'Courier New', 25, '#ffffff', 'bold'),
   //Phase Wall
-  new textCreator(3, 400, 400, "These Orange Walls Are Killed\n\nBy Enemy Bullets\n\nOh Yeah Falling Spikes Kill You Too", 'Arial Black', 25, '#ffffff', 'bold'),
+  new textCreator(3, 400, 400, "These Orange Walls Are Killed\n\nBy Enemy Bullets\n\nOh Yeah Falling Spikes Kill You Too", 'Courier New', 25, '#ffffff', 'bold'),
 ];
 
 //Push Level 2 Into World Class Array
@@ -746,25 +746,27 @@ level_3.playerPosition = [
 
 level_3.undeniableDeathSpawn = [
   //Bottom At The End of the Map (INVISIBLE)
-  new SpriteCreator(0, true, true, undeniableDeathRegular, deathVertical, 1400, 0, 0, 0, .1, .5, 100, 0, null, null, null, null, null),
-  new SpriteCreator(0, true, true, undeniableDeathRegular, deathVertical, 0, 0, 0, 0, .1, .5, 100, 0, null, null, null, null, null),
+  new SpriteCreator(0, true, true, undeniableDeathRegular, deathVertical, 1400, 0, 0, 0, .1, .5, 0, 0, null, null, null, null, null),
+  new SpriteCreator(0, true, true, undeniableDeathRegular, deathVertical, 0, 0, 0, 0, .1, .5, 0, 0, null, null, null, null, null),
+  // new SpriteCreator(0, true, true, undeniableDeathRegular, deathHorizontal, 300, 400, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
 ];
 
 /////////////////////////Creation of ImmovableWalls
 level_3.immovableWallSpawn = [
   //Ground
   new SpriteCreator(0, true, true, immovableWallRegular, immovableWallHorizontal, 300, 800, 0, 0, 1.2, .25, 0, 0, null, null, null, null, null),
-  new SpriteCreator(0, true, true, immovableWallMario, immovableWallHorizontal, 600, 500, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
+  // new SpriteCreator(0, true, true, immovableWallRegular, immovableWallHorizontal, 600, 500, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
+  // new SpriteCreator(0, true, true, immovableWallMario, immovableWallHorizontal, 600, 500, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
 ];
 
 //Moveable Walls
 ///Single Wall to Teach You  
-// level_3.wallSpawn = [
-//   new SpriteCreator(0, true, true, wallRegular, wallHorizontal, 600, 200, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
-//   // new SpriteCreator(1, true, true, wallGhost, wallHorizontal, 600, 400, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
-//   // new SpriteCreator(2, true, true, wallGhost, wallHorizontal, 600, 600, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
-//   // new SpriteCreator(3, true, true, wallGhost, wallHorizontal, 600, 750, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
-// ];
+level_3.wallSpawn = [
+  new SpriteCreator(0, true, true, wallRegular, wallHorizontal, 600, 200, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
+  // new SpriteCreator(1, true, true, wallGhost, wallHorizontal, 600, 400, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
+  // new SpriteCreator(2, true, true, wallGhost, wallHorizontal, 600, 600, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
+  // new SpriteCreator(3, true, true, wallGhost, wallHorizontal, 600, 750, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
+];
 
 //////////////Tint Testing///////////
 // level_3.wallSpawn = [
@@ -780,7 +782,7 @@ level_3.ledgeSpawn = [
   // //Surf
   new SpriteCreator(0, true, true, surf, ledgeSurf, 100, 200, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
   // //Bounce Ledges
-  new SpriteCreator(2, true, true, bounce, ledgeBounce, 600, 400, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+  new SpriteCreator(2, true, true, bounce, ledgeBounce, 600, 390, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
   //Surf Ledges
   new SpriteCreator(3, true, true, elevator, ledgeElevator, 200, 200, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
 ];
