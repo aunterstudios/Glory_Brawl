@@ -467,6 +467,7 @@ brawl.game.prototype = {
         this.deathX.scale.setTo(sprite.sizeX, sprite.sizeY);
         this.deathX.body.immovable = true;
         this.deathX.body.mass = 300;
+        this.deathX.body.maxVelocity.setTo(300);
         this.deathX.body.collideWorldBounds = true;
         this.deathX.body.immovable = true;
         this.deathX.body.bounce.setTo(1);
@@ -507,7 +508,7 @@ brawl.game.prototype = {
         this.immovableWallX.scale.setTo(sprite.sizeX, sprite.sizeY);
         this.immovableWallX.body.immovable = true;
         this.immovableWallX.body.mass = 100;
-        this.immovableWallX.body.maxVelocity.setTo(1000);
+        this.immovableWallX.body.maxVelocity.setTo(300);
         this.immovableWallX.body.collideWorldBounds = true;
         this.immovableWallX.body.bounce.setTo(1);
         this.immovableWallX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
@@ -543,7 +544,7 @@ brawl.game.prototype = {
         // this.wallX.body.immovable = true;
         this.wallX.body.gravity.setTo(sprite.gravityX, sprite.gravityY);
         this.wallX.body.mass = 150;
-        this.wallX.body.maxVelocity.setTo(500);
+        this.wallX.body.maxVelocity.setTo(300);
         this.wallX.body.collideWorldBounds = true;
         ////////////////////////Testing/////////////////////////
         // this.wallX.checkWorldBounds = true;
@@ -589,7 +590,7 @@ brawl.game.prototype = {
         this.trumpX.anchor.setTo(.5);
         this.trumpX.scale.setTo(.6);
         this.trumpX.body.mass = 20;
-        this.trumpX.body.maxVelocity.setTo(1000);
+        this.trumpX.body.maxVelocity.setTo(300);
         this.trumpX.body.collideWorldBounds = true;
         this.trumpX.body.bounce.setTo(1);
         this.trumpX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
@@ -609,7 +610,7 @@ brawl.game.prototype = {
         this.ballX.scale.setTo(.5);
         this.ballX.body.setCircle(50);
         this.ballX.body.mass = 20;
-        this.ballX.body.maxVelocity.setTo(1000);
+        this.ballX.body.maxVelocity.setTo(300);
         this.ballX.body.collideWorldBounds = true;
         this.ballX.body.bounce.setTo(1.0);
         this.ballX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
@@ -639,7 +640,7 @@ brawl.game.prototype = {
         this.flagX.positionInArray = sprite.positionInArray;
         //this.flagX.scale(sprite.sizeX,sprite.sizeY);
         this.flagX.body.mass = 1;
-        this.flagX.body.maxVelocity.setTo(1000);
+        this.flagX.body.maxVelocity.setTo(300);
         this.flagX.body.collideWorldBounds = true;
         this.flagX.body.bounce.setTo(1);
         this.flagX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
@@ -747,7 +748,6 @@ brawl.game.prototype = {
     },
     ///////////////////////////////////////////State Switches////////////////////////////////
     deathState: function (victim, killer) {
-        console.log("Hitting Death");
         victim.kill();
         game.state.start('deathState', true, false, respawnHolder.indexOfCurrentWorld, respawnHolder.indexOfPlayerPosition, respawnHolder.metroidvania);
     },

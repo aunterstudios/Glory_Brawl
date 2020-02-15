@@ -762,7 +762,7 @@ level_3.immovableWallSpawn = [
 //Moveable Walls
 ///Single Wall to Teach You  
 level_3.wallSpawn = [
-  new SpriteCreator(0, true, true, wallRegular, wallHorizontal, 600, 200, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
+  new SpriteCreator(0, true, true, wallRegular, wallHorizontal, 800, 700, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
   // new SpriteCreator(1, true, true, wallGhost, wallHorizontal, 600, 400, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
   // new SpriteCreator(2, true, true, wallGhost, wallHorizontal, 600, 600, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
   // new SpriteCreator(3, true, true, wallGhost, wallHorizontal, 600, 750, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
@@ -782,7 +782,7 @@ level_3.ledgeSpawn = [
   // //Surf
   new SpriteCreator(0, true, true, surf, ledgeSurf, 100, 200, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
   // //Bounce Ledges
-  new SpriteCreator(2, true, true, bounce, ledgeBounce, 600, 390, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+  new SpriteCreator(2, true, true, bounce, ledgeBounce, 900, 390, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
   //Surf Ledges
   new SpriteCreator(3, true, true, elevator, ledgeElevator, 200, 200, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
 ];
@@ -795,7 +795,7 @@ level_3.ledgeSpawn = [
 
 //Ball
 level_3.ballSpawn = [
-  new SpriteCreator(0, true, true, ballRegular, ball, 900, 200, 0, 0, null, null, 0, 0, null, null, null, null, null)
+  new SpriteCreator(0, true, true, ballRegular, ball, 400, 0, 0, 1000, null, null, 0, 0, null, null, null, null, null)
 ];
 
 //Push Level 2 Into World Class Array
