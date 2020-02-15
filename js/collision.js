@@ -229,20 +229,6 @@ brawl.game.prototype.playerBall = function (player, ball) {
     if (ball.body.touching.right) {
         ball.body.velocity.x = -100;
     }
-    //   //////////////////Natural///////////////
-    //   // if (ball.body.touching.up) {
-    //   //   ball.body.velocity.y = 50;
-    //   // }
-    //   // else if (ball.body.touching.down) {
-    //   //   ball.body.velocity.y = -50;
-    //   //   player.body.velocity.y = -75;
-    //   // }
-    //   // else if (ball.body.touching.left) {
-    //   //   ball.body.velocity.x = 50;
-    //   // }
-    //   // else if (ball.body.touching.right) {
-    //   //   ball.body.velocity.x = -50;
-    //   // }
     //   //////////////Control////////////
     //   // if (ball.body.touching.up) {
     //   //   ball.body.velocity.y = player.body.velocity.y;
@@ -264,33 +250,12 @@ brawl.game.prototype.playerLedge = function (player, ledge) {
         if (ledge.body.touching.up) {
             ledge.body.velocity.y = -200;
             player.body.velocity.y = -200
-            // if (player.body.velocity.x < 0) {
-            //   ledge.body.velocity.x = player.body.velocity.x - 100;
-            // }
-            // if (player.body.velocity.x > 0) {
-            //   ledge.body.velocity.x = player.body.velocity.x + 100;
-            // }
-            // {
-            //   ledge.body.velocity.x = 0;
-            // }
         }
         // When You're Hitting the Edge from the Sides (Right and Left)
         if (ledge.body.touching.left || ledge.body.touching.right) {
             ledge.body.velocity.y = 0;
             ledge.body.velocity.x = 0;
         }
-        /////////////////////////////////In Case Want to Change Side Ledge Velocity///////////
-        // if (ledge.body.touching.left) {
-        //   ledge.body.velocity.y = 0;
-        //   ledge.body.velocity.x = 300;
-        // }
-        // if (ledge.body.touching.right) {
-        //   ledge.body.velocity.y = 0;
-        //   ledge.body.velocity.x = -300;
-        // }
-        // if (ledge.body.touching.down && player.body.velocity.y < -1) {
-        //   player.body.velocity.y = -100;
-        // }
         if (ledge.body.touching.down) {
             ledge.body.velocity.y = -50;
             // player.body.velocity.y = -100;

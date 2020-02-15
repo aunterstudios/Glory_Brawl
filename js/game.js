@@ -140,9 +140,7 @@ brawl.game.prototype = {
         this.flag = this.game.add.group();
         this.flag.enableBody = true;
 
-
         /////////////////////Practice Specific Sprite Groups/////////////////
-
         /////////////////////Enemy Bullets///////////////
         // creates enemy bullets
         this.enemyBullets = this.game.add.group();
@@ -188,7 +186,7 @@ brawl.game.prototype = {
         this.cameraStyle.onDown.add(this.cameraChange, this);
 
         //World
-        this.text = this.game.add.text(200, 6208, "World: " + worldName, { font: "20px Arial", fill: "#ffffff", align: "center" });
+        this.text = this.game.add.text(200, 6208, "World: " + worldName, { font: "20px Arial", fill: "#000000", align: "center" });
         this.text.fixedToCamera = true;
         this.text.cameraOffset.setTo(1100, 725);
     },
@@ -254,17 +252,6 @@ brawl.game.prototype = {
             this.jumps = 2;
             this.jumping = false;
         }
-
-        //////////////////////////Double Jump Only from the ground/////////////////
-        // if (onTheGround) {
-        //     this.jumps = 2;
-        //     this.jumping = false;
-        // }
-
-        // if (onTheLeftSide || onTheRightSide || onUpsideDown) {
-        //     this.jumps = 0;
-        //     this.jumping = false;
-        // }
 
         // Jump!
         if (this.jumps > 0 && this.upInputIsActive(5)) {

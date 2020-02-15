@@ -5,6 +5,7 @@ body {
   margin: 0;
   /* position: fixed;  */
   overflow: hidden;
+  cursor: crosshair;
 }
 
 canvas {  margin: auto; }
