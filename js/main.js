@@ -474,7 +474,7 @@ level_1.playerPosition = [
   new PlayerPositionCreator(200, 0),
   new PlayerPositionCreator(400, 3120),
   new PlayerPositionCreator(100, 1320),
-  new PlayerPositionCreator(2600, 3140),
+  new PlayerPositionCreator(2600, 3100),
 ]
 
 ///////////////////////Creation of Undeniable Death
