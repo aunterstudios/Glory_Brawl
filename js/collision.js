@@ -96,18 +96,18 @@ brawl.game.prototype.wallMoveable = function (wall, objMov) {
     }
 
     /////////////////////The Actual Collision Physics/////////////////
-    if (wall.body.touching.up) {
-        objMov.body.velocity.y = -objMov.velocityVsWallY;
-    }
-    if (wall.body.touching.down) {
-        objMov.body.velocity.y = objMov.velocityVsWallY;
-    }
-    if (wall.body.touching.left) {
-        objMov.body.velocity.x = -objMov.velocityVsWallX;
-    }
-    if (wall.body.touching.right) {
-        objMov.body.velocity.x = objMov.velocityVsWallX;
-    }
+    // if (wall.body.touching.up) {
+    //     objMov.body.velocity.y = -objMov.velocityVsWallY;
+    // }
+    // if (wall.body.touching.down) {
+    //     objMov.body.velocity.y = objMov.velocityVsWallY;
+    // }
+    // if (wall.body.touching.left) {
+    //     objMov.body.velocity.x = -objMov.velocityVsWallX;
+    // }
+    // if (wall.body.touching.right) {
+    //     objMov.body.velocity.x = objMov.velocityVsWallX;
+    // }
     // console.log(wall.name);
     return;
 };

@@ -1,3 +1,45 @@
+//////////////////Initializing All the Sprite Groups///////////////
+brawl.game.prototype.spriteGroupGenerator = function () {
+    //Adding Moveable Walls
+    this.wall = this.game.add.group();
+    this.wall.enableBody = true; //enables physics for wall
+    //Adding Immovable Walls
+    this.immovableWall = this.game.add.group();
+    this.immovableWall.enableBody = true;
+    //Adding Ledges
+    this.ledge = this.game.add.group();
+    this.ledge.enableBody = true;
+    //Adding Enemies
+    this.enemy = this.game.add.group();
+    this.enemy.enableBody = true;
+    //Adding Balls
+    this.ball = this.game.add.group();
+    this.ball.enableBody = true;
+    //Timer Traps
+    this.fallingSpikes = this.game.add.group();
+    this.fallingSpikes.enableBody = true;
+    //Adding Coins (Win Game)
+    this.coin = this.game.add.group();
+    this.coin.enableBody = true;
+    //Adding This Undeniable Death
+    this.death = this.game.add.group();
+    this.death.enableBody = true;
+    //Adding Flag Group
+    this.flag = this.game.add.group();
+    this.flag.enableBody = true;
+
+    /////////////////////Practice Specific Sprite Groups/////////////////
+    /////////////////////Enemy Bullets///////////////
+    // creates enemy bullets
+    this.enemyBullets = this.game.add.group();
+    this.enemyBullets.enableBody = true;
+    this.enemyBullets.physicsBodyType = Phaser.Physics.ARCADE;
+    this.enemyBullets.createMultiple(30, 'bulletEnemy');
+    this.enemyBullets.setAll('anchor.x', 0.5);
+    this.enemyBullets.setAll('anchor.y', 1);
+    this.enemyBullets.setAll('outOfBoundsKill', true);
+    this.enemyBullets.setAll('checkWorldBounds', true);
+};
 /////////////////Undeniable Death Spawn////////////////////
 brawl.game.prototype.undeniableDeathSpawn = function (sprite) {
     this.deathX = this.death.create(sprite.x, sprite.y, sprite.art);
@@ -127,6 +169,9 @@ brawl.game.prototype.ledgeSpawn = function (sprite) {
     this.ledgeX.velocityVsWallY = 50;
     this.ledgeX.anchor.setTo(.5);
     this.ledgeX.scale.setTo(.4);
+    //////////////Immovable Testing//////////////
+    // this.ledgeX.body.immovable = true;
+    //////////////Immovable Testing//////////////
     this.ledgeX.body.mass = 20;
     this.ledgeX.body.maxVelocity.setTo(1000);
     this.ledgeX.body.collideWorldBounds = true;

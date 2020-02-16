@@ -74,25 +74,17 @@ brawl.game.prototype = {
 
         //Background Color of Game
         this.game.stage.backgroundColor = worldClassLevels[this.indexOfCurrentWorld].backgroundColor;
-        // this.game.stage.backgroundColor = Phaser.Color.getRandomColor(50, 255, 255);
-        // this.game.stage.backgroundColor = "#2F4F4F";
 
         //Sort Direction
         this.game.physics.arcade.sortDirection = Phaser.Physics.Arcade.SORT_NONE;
         //What Is This?
-        this.game.physics.arcade.forceX = true;
+        // this.game.physics.arcade.forceX = true;
 
         // Stretch to fill (Full Screen Mode)
-        this.game.scale.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
-
-        this.fullSize = this.game.input.keyboard.addKey(Phaser.Keyboard.O);
-
-        this.fullSize.onDown.add(this.gofull, this);
+        this.createFullScreen();
 
         //Pause Menu (Freeze TIME LOL)
-        this.pause = this.game.input.keyboard.addKey(Phaser.Keyboard.P);
-
-        this.pause.onDown.add(this.goPause, this);
+        this.createPause();
 
         //Overlap Bias to Prevent Sprite Tunneling
         this.game.physics.arcade.OVERLAP_BIAS = 10; //20 is original
@@ -104,79 +96,19 @@ brawl.game.prototype = {
             this.game.physics.arcade.gravity.setTo(worldClassLevels[this.indexOfCurrentWorld].worldGravity.gravityX, worldClassLevels[this.indexOfCurrentWorld].worldGravity.gravityY);
         }
 
-        /////////////////Adding Sprite Groups//////////////
-        //Adding Moveable Walls
-        this.wall = this.game.add.group();
-        this.wall.enableBody = true; //enables physics for wall
-        //Adding Immovable Walls
-        this.immovableWall = this.game.add.group();
-        this.immovableWall.enableBody = true;
-        //Adding Ledges
-        this.ledge = this.game.add.group();
-        this.ledge.enableBody = true;
-        //Adding Enemies
-        this.enemy = this.game.add.group();
-        this.enemy.enableBody = true;
-        //Adding Balls
-        this.ball = this.game.add.group();
-        this.ball.enableBody = true;
-        //Timer Traps
-        this.fallingSpikes = this.game.add.group();
-        this.fallingSpikes.enableBody = true;
-        //Adding Coins (Win Game)
-        this.coin = this.game.add.group();
-        this.coin.enableBody = true;
-        //Adding This Undeniable Death
-        this.death = this.game.add.group();
-        this.death.enableBody = true;
-        //Adding Flag Group
-        this.flag = this.game.add.group();
-        this.flag.enableBody = true;
-
-        /////////////////////Practice Specific Sprite Groups/////////////////
-        /////////////////////Enemy Bullets///////////////
-        // creates enemy bullets
-        this.enemyBullets = this.game.add.group();
-        this.enemyBullets.enableBody = true;
-        this.enemyBullets.physicsBodyType = Phaser.Physics.ARCADE;
-        this.enemyBullets.createMultiple(30, 'bulletEnemy');
-        this.enemyBullets.setAll('anchor.x', 0.5);
-        this.enemyBullets.setAll('anchor.y', 1);
-        this.enemyBullets.setAll('outOfBoundsKill', true);
-        this.enemyBullets.setAll('checkWorldBounds', true);
+        //////////////////Initializing Sprite Groups///////////////
+        this.spriteGroupGenerator();
 
         ////////////////////////////////Key Control Movements/////////////////////////
-        //Player Movement (WASD);
-        this.movementUp = this.game.input.keyboard.addKey(Phaser.Keyboard.W);
-        this.movementDown = this.game.input.keyboard.addKey(Phaser.Keyboard.S);
-        this.movementLeft = this.game.input.keyboard.addKey(Phaser.Keyboard.A);
-        this.movementRight = this.game.input.keyboard.addKey(Phaser.Keyboard.D)
-
-        //Change Weapon Fire Type
-        this.pullBullet = this.game.input.keyboard.addKey(Phaser.Keyboard.ONE);
-        this.pushBullet = this.game.input.keyboard.addKey(Phaser.Keyboard.TWO);
-        this.killBullet = this.game.input.keyboard.addKey(Phaser.Keyboard.THREE);
-
-        //Booleans to Trigger Different Weapon Types
-        this.pullBullet.onDown.add(this.goPull, this);
-        this.pushBullet.onDown.add(this.goPush, this);
-        this.killBullet.onDown.add(this.goKill, this);
-
-        //Fire from Keyboard
-        this.game.input.keyboard.addKeyCapture([Phaser.Keyboard.SHIFT]);
-        this.shiftFire = this.game.input.keyboard.addKey(Phaser.Keyboard.SHIFT);
+        this.initControls();
 
         /////////////////////////World Creation Initialization Grid///////////////////////
         var worldName;
         this.worldCreator(worldClassLevels[this.indexOfCurrentWorld]);
-
         worldName = worldClassLevels[this.indexOfCurrentWorld].worldName
 
-        ////////////////////////////////////////////Camera///////////////////////////////////////////////////////////
-        // this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_PLATFORMER);
-        this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_LOCKON);
-        this.cameraStyle = this.game.input.keyboard.addKey(Phaser.Keyboard.FOUR);
-        this.cameraStyle.onDown.add(this.cameraChange, this);
+        ////////////////////////////////////////////Camera on Player///////////////////////////////////////////////////////////
+        this.cameraPlayer();
 
         //World
         this.text = this.game.add.text(200, 6208, "World: " + worldName, { font: "20px Arial", fill: "#000000", align: "center" });
@@ -213,7 +145,7 @@ brawl.game.prototype = {
         this.game.physics.arcade.collide(this.wall, [this.wall, this.immovableWall, this.death], this.wallImmovable, this.ghostWall, this);
 
         //Movable Wall Mechanics vs. Moveable Objects (NOT ITSELF)
-        this.game.physics.arcade.collide(this.wall, [this.ledge, this.ball, this.enemy], this.wallMoveable, null, this);
+        this.game.physics.arcade.overlap(this.wall, [this.ledge, this.ball, this.enemy], this.wallMoveable, null, this);
 
         //Enemy Bullet Mechanics
         this.game.physics.arcade.overlap(this.enemyBullets, [this.ball, this.wall, this.immovableWall, this.ledge, this.death], this.deathTwo, null, this);

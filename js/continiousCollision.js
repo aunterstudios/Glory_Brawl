@@ -59,6 +59,7 @@ brawl.game.prototype.fireEnemyBullet = function () {
         }
     }
 };
+///////////////////////////Magnet Walls/////////////////////
 brawl.game.prototype.immovableWallContinious = function (wall) {
     if (wall.name === immovableWallMagnet) {
         if (this.game.physics.arcade.distanceBetween(this.player, wall, false, true) < 250) {
