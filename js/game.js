@@ -142,9 +142,9 @@ brawl.game.prototype = {
         this.game.physics.arcade.collide(this.immovableWall, [this.ball, this.ledge, this.enemy], this.immovableMoveable, null, this);
 
         //Moveable Wall vs Immoveable Objects and Itself
-        this.game.physics.arcade.collide(this.wall, [this.wall, this.immovableWall, this.death], this.wallImmovable, this.ghostWall, this);
+        this.game.physics.arcade.collide(this.wall, [this.immovableWall, this.death], this.wallImmovable, this.ghostWall, this);
 
-        //Movable Wall Mechanics vs. Moveable Objects (NOT ITSELF)
+        //Movable Wall Mechanics vs. Moveable Objects (NOT ITSELF) (OVERLAP)
         this.game.physics.arcade.overlap(this.wall, [this.ledge, this.ball, this.enemy], this.wallMoveable, null, this);
 
         //Enemy Bullet Mechanics
@@ -157,7 +157,7 @@ brawl.game.prototype = {
         this.game.physics.arcade.collide(this.ball, [this.ball, this.ledge, this.enemy, this.death], this.ballHandler, null, this);
 
         //Ledge and Enemy Interactions
-        this.game.physics.arcade.collide([this.ledge, this.enemy], [this.ledge, this.enemy, this.death], null, null, this);
+        this.game.physics.arcade.collide([this.ledge, this.enemy], [this.enemy, this.death], null, null, this);
 
         //Death Mechanics (Game State Change)
         this.game.physics.arcade.overlap(this.player, [this.enemy, this.enemyBullets, this.death, this.fallingSpikes], this.deathState, null, this);

@@ -628,7 +628,7 @@ var level_2 = new LevelCreator("Level 2-CL", 4800, 800, new MetroidvaniaCreator(
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_2.playerPosition = [
   new PlayerPositionCreator(200, 20),
-  new PlayerPositionCreator(200, 100),
+  new PlayerPositionCreator(1700, 690),
   new PlayerPositionCreator(200, 380),
   new PlayerPositionCreator(4700, 750),
 ]
@@ -665,11 +665,13 @@ level_2.immovableWallSpawn = [
   //Divider At The End
   new SpriteCreator(6, true, true, immovableWallRegular, immovableWallVertical, 300, 0, 0, 0, .5, .455, 0, 0, null, null, null, null, null),
   //Ground For the Flag
-  new SpriteCreator(7, true, true, immovableWallRegular, immovableWallHorizontal, 128, 388.3, 0, 0, .276, .297, 0, 0, null, null, null, null, null),
+  new SpriteCreator(7, true, true, immovableWallRegular, immovableWallHorizontal, 90, 388.3, 0, 0, .276, .297, 0, 0, null, null, null, null, null),
   //Border At the ENd of the Level
   new SpriteCreator(8, true, true, immovableWallRegular, immovableWallVertical, 0, 0, 0, 0, .3, .93, 0, 0, null, null, null, null, null),
   //First Phase Wall
-  new SpriteCreator(9, true, true, immovableWallPhase, immovableWallVertical, 300, 426, 0, 0, .5, .418, null, null, null, null, null)
+  new SpriteCreator(9, true, true, immovableWallPhase, immovableWallVertical, 300, 426, 0, 0, .5, .418, null, null, null, null, null),
+  //Ground for Flag Because People are stupid
+  new SpriteCreator(10, true, true, immovableWallRegular, immovableWallHorizontal, 1500, 700, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
 ];
 
 //Moveable Walls
@@ -709,6 +711,8 @@ level_2.fallingSpikes = [
 level_2.flagSpawn = [
   new SpriteCreator(0, true, true, regularFlag, flag, 4550, 650, 0, 0, .4, .4, 0, 0, null, null, null, null, 3),
   new SpriteCreator(1, true, true, regularFlag, flag, 220, 250, 0, 0, .4, .4, 0, 0, 1, 1, 9, null, 2),
+  ///Middle FLag
+  new SpriteCreator(2, true, true, regularFlag, flag, 1600, 620, 0, 0, .4, .4, 0, 0, null, null, null, null, 1),
   //Test
   // new SpriteCreator(1, true, true, regularFlag, flag, 4600, 650, 0, 0, .4, .4, 0, 0, 1, 1, 9, null, 2),
 ]
