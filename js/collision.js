@@ -43,6 +43,7 @@ brawl.game.prototype.wallImmovable = function (wall, sprite2) {
     return;
 };
 brawl.game.prototype.wallMoveable = function (wall, objMov) {
+    //////////////////////////Between Walls and Balls or Ledges//////////////////////
     //First Interaction!! (WallRegular to WallFrozen)
     if ((wall.name === wallRegular || wall.name === wallFrozen) && objMov.groupName === groupLedge) {
         wall.name = wallFrozen;
@@ -95,20 +96,12 @@ brawl.game.prototype.wallMoveable = function (wall, objMov) {
         wall.tint = tintWallFrozen;
     }
 
-    /////////////////////The Actual Collision Physics/////////////////
-    // if (wall.body.touching.up) {
-    //     objMov.body.velocity.y = -objMov.velocityVsWallY;
-    // }
-    // if (wall.body.touching.down) {
-    //     objMov.body.velocity.y = objMov.velocityVsWallY;
-    // }
-    // if (wall.body.touching.left) {
-    //     objMov.body.velocity.x = -objMov.velocityVsWallX;
-    // }
-    // if (wall.body.touching.right) {
-    //     objMov.body.velocity.x = objMov.velocityVsWallX;
-    // }
-    // console.log(wall.name);
+    //////////////////////////Between Walls and Balls or Ledges//////////////////////
+    if (wall.name === wallRegular && objMov.groupName === groupEnemy) {
+        wall.name = wallBlack;
+        wall.tint = tintWallBlack;
+    }
+    
     return;
 };
 brawl.game.prototype.ghostWall = function (wall, immovable) {
@@ -213,6 +206,14 @@ brawl.game.prototype.playerWall = function (player, wall) {
         }
     }
     return;
+};
+brawl.game.prototype.playerBlackWall = function (player, wall) {
+    if (wall.name === wallBlack) {
+        return false;
+    }
+    else {
+        return true;
+    }
 };
 brawl.game.prototype.playerBall = function (player, ball) {
     /////////////////////GOOOFY///////////////

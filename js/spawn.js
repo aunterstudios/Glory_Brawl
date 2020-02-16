@@ -119,10 +119,10 @@ brawl.game.prototype.wallSpawn = function (sprite) {
     this.wallX.positionInArray = sprite.positionInArray;
     this.wallX.velocityVsImmovable = 100;
     if (sprite.name === wallGhost) {
-        var testTint = Math.random() * 0xffffff;
-        this.wallX.tint = testTint;
-        console.log(testTint, this.wallX.positionInArray);
-        // this.wallX.tint = tintWallGhost;
+        // var testTint = Math.random() * 0xffffff;
+        // this.wallX.tint = testTint;
+        // console.log(testTint, this.wallX.positionInArray);
+        this.wallX.tint = tintWallGhost;
         this.wallX.body.immovable = true;
     }
     else if (sprite.name === wallHeavy) {
@@ -134,6 +134,9 @@ brawl.game.prototype.wallSpawn = function (sprite) {
     else if (sprite.name === wallCloud) {
         this.wallX.tint = tintWallCloud;
         this.wallX.body.immovable = true;
+    }
+    else if (sprite.name === wallBlack) {
+        this.wallX.tint = tintWallBlack;
     }
     this.wallX.anchor.setTo(.5);
     this.wallX.scale.setTo(sprite.sizeX, sprite.sizeY);
