@@ -19,9 +19,6 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     this.player.checkWorldBounds = true;
     this.player.events.onOutOfBounds.add(this.playerOut, this);
 
-    //Player Upwards Wall
-    // this.player.wallUp = 200;
-
     // // PLAYER ANIMATIONS
     // this.player.animations.add('left', [0, 1, 2, 3, 4, 5, 6, 7], 10, true);
     // this.player.animations.add('right', [9, 10, 11, 12, 13, 14, 15], 10, true);

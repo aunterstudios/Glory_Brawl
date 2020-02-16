@@ -24,10 +24,6 @@ brawl.game.prototype = {
         playerUpsideDownVelocity = -100;
         playerUpsideDownMovement = 100;
         playerDownwards = 500;
-        ////////////////////These Are Resetting the Weapon Attributes For Each Level/////////////////////
-        // weaponFireRate = 500;
-        // weaponBulletSpeed = 500;
-        // weaponBulletAmount = 30;
     },
     preload: function () {
         // this.game.forceSingleUpdate = true;
@@ -107,9 +103,6 @@ brawl.game.prototype = {
         if ('worldGravity' in worldClassLevels[this.indexOfCurrentWorld]) {
             this.game.physics.arcade.gravity.setTo(worldClassLevels[this.indexOfCurrentWorld].worldGravity.gravityX, worldClassLevels[this.indexOfCurrentWorld].worldGravity.gravityY);
         }
-
-        ////////////////////////////////////Keyboard Controls/////////////////////////////////
-        this.cursors = this.game.input.keyboard.createCursorKeys();
 
         /////////////////Adding Sprite Groups//////////////
         //Adding Moveable Walls
