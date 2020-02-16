@@ -154,7 +154,7 @@ brawl.game.prototype = {
         this.game.physics.arcade.overlap(this.fallingSpikes, [this.ball, this.wall, this.immovableWall, this.ledge, this.enemy, this.death], this.deathTwo, null, this);
 
         // Ball Mechanics
-        this.game.physics.arcade.collide(this.ball, [this.ball, this.ledge, this.enemy, this.death], this.ballHandler, null, this);
+        this.game.physics.arcade.collide(this.ball, [this.ledge, this.enemy, this.death], this.ballHandler, null, this);
 
         //Ledge and Enemy Interactions
         this.game.physics.arcade.collide([this.ledge, this.enemy], [this.enemy, this.death], null, null, this);
