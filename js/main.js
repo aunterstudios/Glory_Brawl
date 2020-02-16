@@ -756,7 +756,7 @@ level_3.immovableWallSpawn = [
   //Ground
   new SpriteCreator(0, true, true, immovableWallRegular, immovableWallHorizontal, 300, 800, 0, 0, 1.2, .25, 0, 0, null, null, null, null, null),
   // new SpriteCreator(0, true, true, immovableWallRegular, immovableWallHorizontal, 600, 500, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
-  new SpriteCreator(0, true, true, immovableWallMario, immovableWallHorizontal, 600, 500, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
+  // new SpriteCreator(0, true, true, immovableWallMario, immovableWallHorizontal, 600, 500, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
 ];
 
 //Moveable Walls
@@ -788,10 +788,10 @@ level_3.ledgeSpawn = [
 ];
 
 //Enemy Spawn
-// level_3.enemySpawn = [
-//   // //First Three Enemies
-//   new SpriteCreator(0, true, true, enemyRegular, enemyOne, 400, 200, 0, 0, .5, .5, null, null, null, null, null),
-// ];
+level_3.enemySpawn = [
+  // //First Three Enemies
+  new SpriteCreator(0, true, true, enemyRegular, enemyOne, 400, 200, 0, 0, .5, .5, null, null, null, null, null),
+];
 
 //Ball
 level_3.ballSpawn = [
