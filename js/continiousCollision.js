@@ -19,24 +19,6 @@ brawl.game.prototype.upInputIsActive = function (duration) {
 ////////////////////////////////////Continious Updating In Game////////////////////////
 //Enemy Bullets
 brawl.game.prototype.fireEnemyBullet = function () {
-    // livingEnemies.length = 0; 
-    // this.enemy.forEachAlive(function(enemy){
-    //     livingEnemies.push(enemy)
-    // });
-    // if(this.time.now > enemyBulletTime) { 
-    //     enemyBullet = this.enemyBullets.getFirstExists(false); 
-    //     if(enemyBullet && livingEnemies.length > 0) {
-    //         //enemyShotSound.play();
-    //         var random = this.rnd.integerInRange(0, livingEnemies.length - 1);
-    //         var shooter = livingEnemies[random];
-    //         enemyBullet.reset(shooter.body.x, shooter.body.y + 30);
-    //         enemyBulletTime = this.time.now + 100; //500 was the "default value"
-    //         // if (game.physics.arcade.distanceBetween(enemyBullet, this.player, false, true) < 500) {
-    //         //     this.physics.arcade.moveToObject(enemyBullet,this.player,600);
-    //         // }
-    //         this.physics.arcade.moveToObject(enemyBullet,this.player,600);
-    //     }
-    // }
     //Clears Array
     livingEnemies.length = 0;
     this.enemy.forEachAlive(function (enemy) {

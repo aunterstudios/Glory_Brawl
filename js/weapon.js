@@ -28,6 +28,7 @@ brawl.game.prototype.weaponGhost = function (weapon, ghost) {
 ///////////////////////////Weapon Switching/////////////////
 brawl.game.prototype.goPull = function () {
     // console.log("1");
+    this.player.tint = Phaser.Color.GREEN;
     pullBoolean = true;
     pushBoolean = false;
     stopBoolean = false;
@@ -35,6 +36,7 @@ brawl.game.prototype.goPull = function () {
 };
 brawl.game.prototype.goPush = function () {
     // console.log("2");
+    this.player.tint = Phaser.Color.YELLOW;
     pullBoolean = false;
     pushBoolean = true;
     stopBoolean = false;
@@ -42,6 +44,7 @@ brawl.game.prototype.goPush = function () {
 };
 brawl.game.prototype.goKill = function () {
     // console.log("3");
+    this.player.tint = Phaser.Color.RED;
     pullBoolean = false;
     pushBoolean = false;
     stopBoolean = true;

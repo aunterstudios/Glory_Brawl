@@ -8,6 +8,7 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     this.player.anchor.setTo(.5);
     // this.player.scale.setTo(.6);
     this.player.scale.setTo(.35);
+    this.player.tint = Phaser.Color.GREEN;
     // this.player.alpha = this.game.rnd.realInRange(.5, 1);
     // this.player.tint = Phaser.Color.getRandomColor(50, 255, 255);
     // this.player.body.setSize(63, 84, 5, 6);
