@@ -355,7 +355,7 @@ var tintImmovableWallPadding = 2499878.036284214;
 var tintImmovableWallWorldGravity = 8314793.039214706;
 var tintImmovableWallMario = 241917.63554178402;
 //Walls
-var tintWallGhost = 2131.658687827956; //wallGhost
+var tintWallGhost = 16771007.229130682; //wallGhost
 var tintWallFrozen = 0x00ffff;
 var tintWallGravity = 0x666666;
 var tintWallReverseGravity = 2070551.3881263782;
@@ -364,13 +364,13 @@ var tintWallHeavy = 6623573.181835621; //wallHeavy
 var tintWallCloud = 9583870.358153213; //wallCloud
 //Enemy Walls
 var tintWallBlack = 2499878.036284214;
-var tintWallBlackGhost = 2499878.036284214;
-var tintWallBlackFrozen = 2499878.036284214;
-var tintWallBlackGravity = 2499878.036284214;;
-var tintWallBlackReverseGravity = 2499878.036284214;;
-var tintWallBlackLight = 2499878.036284214;
-var tintWallBlackHeavy = 2499878.036284214;
-var tintWallBlackCloud = 2499878.036284214;
+var tintWallBlackGhost = 16238866.51884967;
+var tintWallBlackFrozen = 7681297.312763958;
+var tintWallBlackGravity = 5177744.807674141;
+var tintWallBlackReverseGravity = 10409939.733364154;
+var tintWallBlackLight = 6718053.241495901;
+var tintWallBlackHeavy = 16580675.642526744;
+var tintWallBlackCloud = 9971694.877510935;
 /*
 var wallBlack = 'wallBlack'; //No Player Collision
 var wallBlackGhost = 'wallBlackGhost'; //No Player Collision + Kills Any Object it Touches
@@ -793,26 +793,16 @@ level_3.immovableWallSpawn = [
 //Moveable Walls
 ///Single Wall to Teach You  
 level_3.wallSpawn = [
-  new SpriteCreator(0, true, true, wallRegular, wallHorizontal, 400, 100, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
-  new SpriteCreator(1, true, true, wallGhost, wallHorizontal, 400, 300, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
-  new SpriteCreator(2, true, true, wallFrozen, wallHorizontal, 400, 500, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
-  new SpriteCreator(3, true, true, wallGravity, wallHorizontal, 400, 700, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
-  new SpriteCreator(4, true, true, wallReverseGravity, wallHorizontal, 800, 100, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
-  new SpriteCreator(4, true, true, wallLight, wallHorizontal, 800, 300, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
-  new SpriteCreator(4, true, true, wallHeavy, wallHorizontal, 800, 500, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
-  new SpriteCreator(4, true, true, wallCloud, wallHorizontal, 800, 700, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+  new SpriteCreator(0, true, true, wallBlack, wallHorizontal, 400, 100, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+  new SpriteCreator(1, true, true, wallBlackGhost, wallHorizontal, 400, 300, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+  new SpriteCreator(2, true, true, wallBlackFrozen, wallHorizontal, 400, 500, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+  new SpriteCreator(3, true, true, wallBlackGravity, wallHorizontal, 400, 700, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+  new SpriteCreator(4, true, true, wallBlackReverseGravity, wallHorizontal, 800, 100, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+  new SpriteCreator(4, true, true, wallBlackLight, wallHorizontal, 800, 300, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+  new SpriteCreator(4, true, true, wallBlackHeavy, wallHorizontal, 800, 500, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+  new SpriteCreator(4, true, true, wallBlackCloud, wallHorizontal, 800, 700, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+  // new SpriteCreator(0, true, true, wallBlack, wallHorizontal, 400, 100, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
 ];
-
-/*
-var tintWallBlack = 2499878.036284214;
-var tintWallBlackGhost = 2499878.036284214;
-var tintWallBlackFrozen = 2499878.036284214;
-var tintWallBlackGravity = 2499878.036284214;;
-var tintWallBlackReverseGravity = 2499878.036284214;;
-var tintWallBlackLight = 2499878.036284214;
-var tintWallBlackHeavy = 2499878.036284214;
-var tintWallBlackCloud = 2499878.036284214;
-*/
 
 //////////////Tint Testing///////////
 // level_3.wallSpawn = [
