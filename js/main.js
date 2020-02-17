@@ -355,8 +355,6 @@ var tintImmovableWallPadding = 2499878.036284214;
 var tintImmovableWallWorldGravity = 8314793.039214706;
 var tintImmovableWallMario = 241917.63554178402;
 //Walls
-var tintWallHeavy = 6623573.181835621; //wallHeavy
-var tintWallCloud = 9583870.358153213; //wallCloud
 var tintWallGhost = 2131.658687827956; //wallGhost
 var tintWallFrozen = 0x00ffff;
 var tintWallGravity = 0x666666;
@@ -366,13 +364,13 @@ var tintWallHeavy = 6623573.181835621; //wallHeavy
 var tintWallCloud = 9583870.358153213; //wallCloud
 //Enemy Walls
 var tintWallBlack = 2499878.036284214;
-var tintWallBlackGhost;
-var tintWallBlackFrozen;
-var tintWallBlackGravity;
-var tintWallBlackReverseGravity;
-var tintWallBlackLight;
-var tintWallBlackHeavy;
-var tintWallBlackCloud;
+var tintWallBlackGhost = 2499878.036284214;
+var tintWallBlackFrozen = 2499878.036284214;
+var tintWallBlackGravity = 2499878.036284214;;
+var tintWallBlackReverseGravity = 2499878.036284214;;
+var tintWallBlackLight = 2499878.036284214;
+var tintWallBlackHeavy = 2499878.036284214;
+var tintWallBlackCloud = 2499878.036284214;
 /*
 var wallBlack = 'wallBlack'; //No Player Collision
 var wallBlackGhost = 'wallBlackGhost'; //No Player Collision + Kills Any Object it Touches
@@ -790,15 +788,13 @@ level_3.undeniableDeathSpawn = [
 level_3.immovableWallSpawn = [
   //Ground
   new SpriteCreator(0, true, true, immovableWallRegular, immovableWallHorizontal, 300, 800, 0, 0, 1.2, .25, 0, 0, null, null, null, null, null),
-  // new SpriteCreator(0, true, true, immovableWallRegular, immovableWallVertical, 600, 500, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
-  new SpriteCreator(0, true, true, immovableWallRegular, immovableWallHorizontal, 600, 500, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
 ];
 
 //Moveable Walls
 ///Single Wall to Teach You  
 level_3.wallSpawn = [
-  new SpriteCreator(0, true, true, wallRegular, wallHorizontal, 800, 700, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
-  new SpriteCreator(1, true, true, wallGhost, wallHorizontal, 600, 400, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
+  new SpriteCreator(0, true, true, wallRegular, wallHorizontal, 500, 600, 0, -200, .5, .5, 0, 0, null, null, null, null, null),
+  // new SpriteCreator(1, true, true, wallGhost, wallHorizontal, 600, 400, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
   // new SpriteCreator(2, true, true, wallGhost, wallHorizontal, 600, 600, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
   // new SpriteCreator(3, true, true, wallGhost, wallHorizontal, 600, 750, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
 ];
@@ -815,49 +811,27 @@ level_3.wallSpawn = [
 //Ledges
 level_3.ledgeSpawn = [
   // //Surf
-  new SpriteCreator(0, true, true, surf, ledgeSurf, 100, 200, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+  new SpriteCreator(0, true, true, surf, ledgeSurf, 500, 200, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
   // //Bounce Ledges
-  new SpriteCreator(2, true, true, bounce, ledgeBounce, 900, 390, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
-  //Surf Ledges
-  new SpriteCreator(3, true, true, elevator, ledgeElevator, 200, 200, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+  // new SpriteCreator(2, true, true, bounce, ledgeBounce, 900, 390, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+  // //Surf Ledges
+  // new SpriteCreator(3, true, true, elevator, ledgeElevator, 200, 200, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
 ];
 
 //Enemy Spawn
 level_3.enemySpawn = [
   // //First Three Enemies
-  new SpriteCreator(0, true, true, enemyRegular, enemyOne, 400, 200, 0, 0, .5, .5, null, null, null, null, null),
+  new SpriteCreator(0, true, true, enemyRegular, enemyOne, 600, 200, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
 ];
 
 //Ball
 level_3.ballSpawn = [
-  new SpriteCreator(0, true, true, ballRegular, ball, 400, 0, 0, 1000, null, null, 0, 0, null, null, null, null, null)
+  new SpriteCreator(0, true, true, ballRegular, ball, 400, 200, 0, 0, null, null, 0, 0, null, null, null, null, null)
 ];
 
 //Push Level 2 Into World Class Array
 worldClassLevels.push(level_3);
 
-///////////////Reference Code/////////////
-// function moveTowardsPlayer(sprite1, player) {
-//   //   if (game.physics.arcade.distanceBetween(sprite1, player, false, true) < 500) {
-//   //     /////Alpha Build One/////
-//   //     //At the very least we can use the daakath game mode for this.
-//   //     game.physics.arcade.moveToObject(sprite1, player, 300);
-//   //     /////Alpha Build Two/////
-//   //     //game.physics.arcade.moveToXY(sprite1, player.x, player.y, 60, 2000);
-//   //   }
-//   // }
-
-///////////////////////////////Player vs. Wall//////////////////
-///////////Leaner Walls///////////
-// function playerVsWall(player, wall) {
-//     console.log(player.body.overlapX, player.body.overlapY, 'playerOverlap');
-//     if (player.body.overlapX < 0) {
-//       player.body.velocity.x = 1000;
-//     }
-//     else {
-//       player.body.velocity.x = 1000;
-//     }
-// }
 
 /////////////Change Base Texture////////////////
 // game.add.loadTexture('key','frame')
@@ -873,13 +847,4 @@ if (wall.name === immovableWallTeleportation) {
         //         }
         //     };
         // }
-*/
-
-//////////////////////For Each//////////////////////
-/*
-// this.wall.forEachAlive(function (wall) {
-            //     if (this.game.physics.arcade.distanceBetween(wall, magnet, false, true) < 400) {
-            //         this.game.physics.arcade.moveToObject(wall, magnet, 100);
-            //     }
-            // }, this, magnet);
 */

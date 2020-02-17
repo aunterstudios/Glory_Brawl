@@ -13,8 +13,8 @@ brawl.game.prototype.immovableMoveable = function (immovable, obj2) {
     if (immovable.name === immovableWallPadding) {
         // obj2.body.stop();
         obj2.body.bounce.setTo(.5)
-        obj2.velocityVsWallY = 50;
-        obj2.velocityVsWallX = 50;
+        obj2.velocityVsWallY = 25;
+        obj2.velocityVsWallX = 25;
         obj2.tint = tintImmovableWallMagnet;
         ////Maybe Kill This Later///
     }
@@ -145,8 +145,9 @@ brawl.game.prototype.wallMoveable = function (wall, objMov) {
 
     ////////////////Special Handler for wallBlackGhost////////////
     if (wall.name === wallBlackGhost) {
-        obj2.kill(); //Even the Younglings
+        objMov.kill(); //Even the Younglings
     }
+    // console.log(wall.name);
 
 
     return;

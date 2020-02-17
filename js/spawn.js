@@ -216,7 +216,7 @@ brawl.game.prototype.ledgeSpawn = function (sprite) {
     this.ledgeX.velocityVsWallX = 50;
     this.ledgeX.velocityVsWallY = 50;
     this.ledgeX.anchor.setTo(.5);
-    this.ledgeX.scale.setTo(.4);
+    this.ledgeX.scale.setTo(.4); //.4
     //////////////Immovable Testing//////////////
     // this.ledgeX.body.immovable = true;
     //////////////Immovable Testing//////////////
@@ -248,7 +248,7 @@ brawl.game.prototype.enemySpawn = function (sprite) {
 };
 brawl.game.prototype.ballSpawn = function (sprite) {
     //Adding Ball
-    this.ballX = this.ball.create(sprite.x, sprite.y, 'ball');
+    this.ballX = this.ball.create(sprite.x, sprite.y, sprite.art);
     this.ballX.name = sprite.name;
     this.ballX.groupName = groupBall;
     this.ballX.specialCondition = sprite.specialCondition;
@@ -258,7 +258,7 @@ brawl.game.prototype.ballSpawn = function (sprite) {
     this.ballX.velocityVsWallX = 50;
     this.ballX.velocityVsWallY = 50;
     this.ballX.anchor.setTo(.5);
-    this.ballX.scale.setTo(.5);
+    this.ballX.scale.setTo(.5); //.5
     this.ballX.body.setCircle(50);
     this.ballX.body.mass = 20;
     this.ballX.body.maxVelocity.setTo(300);
