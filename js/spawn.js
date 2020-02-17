@@ -126,11 +126,11 @@ brawl.game.prototype.wallSpawn = function (sprite) {
     }
     else if (sprite.name === wallGravity) {
         this.wallX.tint = tintWallGravity;
-        this.wall.body.gravity.y = 300;
+        this.wallX.body.gravity.y = 300;
     }
-    else if (sprite.name === wallGravity) {
+    else if (sprite.name === wallReverseGravity) {
         this.wallX.tint = tintWallReverseGravity;
-        this.wallX.body.gravity.y = 0;
+        this.wallX.body.gravity.y = -500;
     }
     else if (sprite.name === wallHeavy) {
         this.wallX.tint = tintWallHeavy;
@@ -179,13 +179,11 @@ brawl.game.prototype.wallSpawn = function (sprite) {
     else if (sprite.name === wallBlackGhost) {
         this.wallX.tint = tintWallBlackGhost;
     }
-
     this.wallX.anchor.setTo(.5);
     this.wallX.scale.setTo(sprite.sizeX, sprite.sizeY);
     // this.wallX.body.immovable = true;
     if (!sprite.name === wallGravity || !sprite.name === wallReverseGravity || !sprite.name === wallBlackGravity || !sprite.name === wallBlackReverseGravity) {
         this.wallX.body.gravity.setTo(sprite.gravityX, sprite.gravityY);
-        console.log("Not Gravity Based Walls");
     }
     this.wallX.body.mass = 150;
     this.wallX.body.maxVelocity.setTo(300);

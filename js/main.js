@@ -358,7 +358,7 @@ var tintImmovableWallMario = 241917.63554178402;
 var tintWallGhost = 2131.658687827956; //wallGhost
 var tintWallFrozen = 0x00ffff;
 var tintWallGravity = 0x666666;
-var tintWallReverseGravity = 5796018.4954396635;
+var tintWallReverseGravity = 2070551.3881263782;
 var tintWallLight = 15680658.67511709;
 var tintWallHeavy = 6623573.181835621; //wallHeavy
 var tintWallCloud = 9583870.358153213; //wallCloud
@@ -793,11 +793,26 @@ level_3.immovableWallSpawn = [
 //Moveable Walls
 ///Single Wall to Teach You  
 level_3.wallSpawn = [
-  new SpriteCreator(0, true, true, wallRegular, wallHorizontal, 500, 600, 0, -200, .5, .5, 0, 0, null, null, null, null, null),
-  // new SpriteCreator(1, true, true, wallGhost, wallHorizontal, 600, 400, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
-  // new SpriteCreator(2, true, true, wallGhost, wallHorizontal, 600, 600, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
-  // new SpriteCreator(3, true, true, wallGhost, wallHorizontal, 600, 750, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
+  new SpriteCreator(0, true, true, wallRegular, wallHorizontal, 400, 100, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+  new SpriteCreator(1, true, true, wallGhost, wallHorizontal, 400, 300, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+  new SpriteCreator(2, true, true, wallFrozen, wallHorizontal, 400, 500, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+  new SpriteCreator(3, true, true, wallGravity, wallHorizontal, 400, 700, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+  new SpriteCreator(4, true, true, wallReverseGravity, wallHorizontal, 800, 100, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+  new SpriteCreator(4, true, true, wallLight, wallHorizontal, 800, 300, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+  new SpriteCreator(4, true, true, wallHeavy, wallHorizontal, 800, 500, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+  new SpriteCreator(4, true, true, wallCloud, wallHorizontal, 800, 700, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
 ];
+
+/*
+var tintWallBlack = 2499878.036284214;
+var tintWallBlackGhost = 2499878.036284214;
+var tintWallBlackFrozen = 2499878.036284214;
+var tintWallBlackGravity = 2499878.036284214;;
+var tintWallBlackReverseGravity = 2499878.036284214;;
+var tintWallBlackLight = 2499878.036284214;
+var tintWallBlackHeavy = 2499878.036284214;
+var tintWallBlackCloud = 2499878.036284214;
+*/
 
 //////////////Tint Testing///////////
 // level_3.wallSpawn = [
@@ -809,25 +824,25 @@ level_3.wallSpawn = [
 ////////////Tint Testing/////////
 
 //Ledges
-level_3.ledgeSpawn = [
-  // //Surf
-  new SpriteCreator(0, true, true, surf, ledgeSurf, 500, 200, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
-  // //Bounce Ledges
-  // new SpriteCreator(2, true, true, bounce, ledgeBounce, 900, 390, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
-  // //Surf Ledges
-  // new SpriteCreator(3, true, true, elevator, ledgeElevator, 200, 200, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
-];
+// level_3.ledgeSpawn = [
+//   // //Surf
+//   new SpriteCreator(0, true, true, surf, ledgeSurf, 500, 200, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+//   // //Bounce Ledges
+//   // new SpriteCreator(2, true, true, bounce, ledgeBounce, 900, 390, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+//   // //Surf Ledges
+//   // new SpriteCreator(3, true, true, elevator, ledgeElevator, 200, 200, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+// ];
 
 //Enemy Spawn
-level_3.enemySpawn = [
-  // //First Three Enemies
-  new SpriteCreator(0, true, true, enemyRegular, enemyOne, 600, 200, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
-];
+// level_3.enemySpawn = [
+//   // //First Three Enemies
+//   new SpriteCreator(0, true, true, enemyRegular, enemyOne, 600, 200, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
+// ];
 
-//Ball
-level_3.ballSpawn = [
-  new SpriteCreator(0, true, true, ballRegular, ball, 400, 200, 0, 0, null, null, 0, 0, null, null, null, null, null)
-];
+// //Ball
+// level_3.ballSpawn = [
+//   new SpriteCreator(0, true, true, ballRegular, ball, 400, 200, 0, 0, null, null, 0, 0, null, null, null, null, null)
+// ];
 
 //Push Level 2 Into World Class Array
 worldClassLevels.push(level_3);
