@@ -1,43 +1,43 @@
 var game = new Phaser.Game(1400, 800, Phaser.CANVAS);
 
 /////////////////////////////////////////////////Disable RightClick////////////////////////////////////
-window.onload = function() {
-  document.addEventListener("contextmenu", function(e){
-    e.preventDefault();
-  }, false);
-  document.addEventListener("keydown", function(e) {
-  //document.onkeydown = function(e) {
-    // "I" key
-    if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
-      disabledEvent(e);
-    }
-    // "J" key
-    if (e.ctrlKey && e.shiftKey && e.keyCode == 74) {
-      disabledEvent(e);
-    }
-    // "S" key + macOS
-    if (e.keyCode == 83 && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
-      disabledEvent(e);
-    }
-    // "U" key
-    if (e.ctrlKey && e.keyCode == 85) {
-      disabledEvent(e);
-    }
-    // "F12" key
-    if (event.keyCode == 123) {
-      disabledEvent(e);
-    }
-  }, false);
-  function disabledEvent(e){
-    if (e.stopPropagation){
-      e.stopPropagation();
-    } else if (window.event){
-      window.event.cancelBubble = true;
-    }
-    e.preventDefault();
-    return false;
-  }
-};
+// window.onload = function() {
+//   document.addEventListener("contextmenu", function(e){
+//     e.preventDefault();
+//   }, false);
+//   document.addEventListener("keydown", function(e) {
+//   //document.onkeydown = function(e) {
+//     // "I" key
+//     if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
+//       disabledEvent(e);
+//     }
+//     // "J" key
+//     if (e.ctrlKey && e.shiftKey && e.keyCode == 74) {
+//       disabledEvent(e);
+//     }
+//     // "S" key + macOS
+//     if (e.keyCode == 83 && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
+//       disabledEvent(e);
+//     }
+//     // "U" key
+//     if (e.ctrlKey && e.keyCode == 85) {
+//       disabledEvent(e);
+//     }
+//     // "F12" key
+//     if (event.keyCode == 123) {
+//       disabledEvent(e);
+//     }
+//   }, false);
+//   function disabledEvent(e){
+//     if (e.stopPropagation){
+//       e.stopPropagation();
+//     } else if (window.event){
+//       window.event.cancelBubble = true;
+//     }
+//     e.preventDefault();
+//     return false;
+//   }
+// };
 
 //////////////////////////////////////////////////Game States//////////////////////////////////////////////
 game.state.add('mainMenu', brawl.state1);
@@ -285,12 +285,12 @@ var wallHeavy = 'wallHeavy';
 var wallCloud = 'wallCloud';
 //Enemy Property Turned Walls
 var wallBlack = 'wallBlack'; //No Player Collision
-var wallBlackGhost = 'wallBlackGhost'; //No Player Collision + Kills Any Object it Touches
+var wallBlackGhost = 'wallBlackGhost'; //No Player Collision + Kills Any Object it Touches (Even Enemies)
 var wallBlackFrozen = 'wallBlackFrozen'; // Completely Immovable
-var wallBlackGravity = 'wallBlackGravity'; //Super Gravity (1500);
-var wallBlackReverseGravity = 'wallBlackReverseGravity'; //Super Reverse Gravity (-1500)
+var wallBlackGravity = 'wallBlackGravity'; //Gravity X(1500);
+var wallBlackReverseGravity = 'wallBlackReverseGravity'; //Gravity -x;
 var wallBlackLight = 'wallBlackLight'; //Gives You Even More Gravity
-var wallBlackHeavy = 'wallBlackHeavy';
+var wallBlackHeavy = 'wallBlackHeavy'; //Kills You
 var wallBlackCloud = 'wallBlackCloud'; //Reverse of Cloud (Moves Opposite)
 
 //Ledge Names
@@ -355,15 +355,35 @@ var tintImmovableWallPadding = 2499878.036284214;
 var tintImmovableWallWorldGravity = 8314793.039214706;
 var tintImmovableWallMario = 241917.63554178402;
 //Walls
-var tintWallCloud = 9583870.358153213; //wallCloud
 var tintWallHeavy = 6623573.181835621; //wallHeavy
+var tintWallCloud = 9583870.358153213; //wallCloud
 var tintWallGhost = 2131.658687827956; //wallGhost
 var tintWallFrozen = 0x00ffff;
 var tintWallGravity = 0x666666;
 var tintWallReverseGravity = 5796018.4954396635;
 var tintWallLight = 15680658.67511709;
+var tintWallHeavy = 6623573.181835621; //wallHeavy
+var tintWallCloud = 9583870.358153213; //wallCloud
+//Enemy Walls
 var tintWallBlack = 2499878.036284214;
-// var tintWallImmovable = 7232137.110156179;
+var tintWallBlackGhost;
+var tintWallBlackFrozen;
+var tintWallBlackGravity;
+var tintWallBlackReverseGravity;
+var tintWallBlackLight;
+var tintWallBlackHeavy;
+var tintWallBlackCloud;
+/*
+var wallBlack = 'wallBlack'; //No Player Collision
+var wallBlackGhost = 'wallBlackGhost'; //No Player Collision + Kills Any Object it Touches
+var wallBlackFrozen = 'wallBlackFrozen'; // Completely Immovable
+var wallBlackGravity = 'wallBlackGravity'; //Super Gravity (1500);
+var wallBlackReverseGravity = 'wallBlackReverseGravity'; //Super Reverse Gravity (-1500)
+var wallBlackLight = 'wallBlackLight'; //Gives You Even More Gravity
+var wallBlackHeavy = 'wallBlackHeavy'; //Kills You
+var wallBlackCloud = 'wallBlackCloud'; //Reverse of Cloud (Moves Opposite)
+*/
+
 //Colors I like
 var colorsArrays = [
   7232137.110156179,//Dark Blue

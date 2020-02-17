@@ -96,12 +96,59 @@ brawl.game.prototype.wallMoveable = function (wall, objMov) {
         wall.tint = tintWallFrozen;
     }
 
-    //////////////////////////Between Walls and Balls or Ledges//////////////////////
+    //////////////////////////Between Walls and Enemies//////////////////////
     if (wall.name === wallRegular && objMov.groupName === groupEnemy) {
         wall.name = wallBlack;
         wall.tint = tintWallBlack;
     }
-    
+    if (wall.name === wallFrozen && objMov.groupName === groupEnemy) {
+        wall.name = wallBlackFrozen;
+        /////////Might Be Unncessary///////
+        wall.body.moves = false;
+        wall.body.immovable = true;
+        wall.tint = tintWallBlackFrozen;
+    }
+    if (wall.name === wallGravity && objMov.groupName === groupEnemy) {
+        wall.name = wallBlackGravity;
+        /////////Might Be Unncessary///////
+        wall.body.moves = true;
+        wall.body.immovable = true;
+        wall.body.gravity.x = 500;
+        wall.tint = tintWallBlackGravity;
+    }
+    if (wall.name === wallReverseGravity && objMov.groupName === groupEnemy) {
+        wall.name = wallBlackReverseGravity;
+        wall.body.gravity.x = -500;
+        wall.tint = tintWallBlackReverseGravity;
+    }
+    if (wall.name === wallLight && objMov.groupName === groupEnemy) {
+        wall.name = wallBlackLight;
+        wall.body.gravity.x = 0;
+        wall.tint = tintWallBlackLight;
+    }
+    if (wall.name === wallHeavy && objMov.groupName === groupEnemy) {
+        wall.name = wallBlackHeavy;
+        wall.body.stop();
+        wall.tint = tintWallBlackHeavy;
+    }
+    if (wall.name === wallCloud && objMov.groupName === groupEnemy) {
+        wall.name = wallBlackCloud;
+        wall.body.stop();
+        wall.body.immovable = true;
+        wall.tint = tintWallBlackCloud;
+    }
+    if (wall.name === wallGhost && objMov.groupName === groupEnemy) {
+        wall.name = wallBlackGhost;
+        wall.body.immovable = true;
+        wall.tint = tintWallBlackGhost;
+    }
+
+    ////////////////Special Handler for wallBlackGhost////////////
+    if (wall.name === wallBlackGhost) {
+        obj2.kill(); //Even the Younglings
+    }
+
+
     return;
 };
 brawl.game.prototype.ghostWall = function (wall, immovable) {
@@ -149,7 +196,8 @@ brawl.game.prototype.playerImmovable = function (player, immovable) {
         if (player.body.touching.right) {
             playerJump = -1000;
         }
-        immovable.kill();
+        immovable.name = immovableWallRegular;
+        immovable.tint = tintRemover;
     }
     // return;
 };
@@ -167,16 +215,16 @@ brawl.game.prototype.playerWall = function (player, wall) {
     if (wall.name === wallLight) {
         player.body.gravity.y = 500;
         if (player.body.touching.up) {
-            wall.body.velocity.y = -500;
+            wall.body.velocity.y = -300;
         }
         if (player.body.touching.down) {
             wall.body.velocity.y = 200;
         }
         if (player.body.touching.left) {
-            wall.body.velocity.x = -500;
+            wall.body.velocity.x = -300;
         }
         if (player.body.touching.right) {
-            wall.body.velocity.x = 500;
+            wall.body.velocity.x = 300;
         }
     }
     if (wall.name === wallHeavy) {
@@ -205,10 +253,42 @@ brawl.game.prototype.playerWall = function (player, wall) {
             wall.body.velocity.x = 200;
         }
     }
+
+    ////Enemy Walls On You Baby////////
+    if (wall.name === wallBlackLight) {
+        player.body.gravity.y = 2500;
+        if (player.body.touching.up) {
+            wall.body.velocity.y = -300;
+        }
+        if (player.body.touching.down) {
+            wall.body.velocity.y = 200;
+        }
+        if (player.body.touching.left) {
+            wall.body.velocity.x = -300;
+        }
+        if (player.body.touching.right) {
+            wall.body.velocity.x = 300;
+        }
+    }
+    if (wall.name === wallBlackHeavy) {
+        victim.kill();
+        this.game.state.start('deathState', true, false, respawnHolder.indexOfCurrentWorld, respawnHolder.indexOfPlayerPosition, respawnHolder.metroidvania);
+    }
+    if (wall.name === wallBlackCloud) {
+        //Control
+        // wall.body.velocity.x = player.body.velocity.x;
+        //Let it Go
+        if (player.body.velocity.x < 0) {
+            wall.body.velocity.x = 200;
+        }
+        if (player.body.velocity.x > 0) {
+            wall.body.velocity.x = -200;
+        }
+    }
     return;
 };
 brawl.game.prototype.playerBlackWall = function (player, wall) {
-    if (wall.name === wallBlack) {
+    if (wall.name === wallBlack || wall.name === wallBlackGhost) {
         return false;
     }
     else {

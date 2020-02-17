@@ -18,7 +18,7 @@ brawl.game.prototype.weaponHandler = function (weapon, sprite) {
 };
 //Let Weapon Fire Pass Through
 brawl.game.prototype.weaponGhost = function (weapon, ghost) {
-    if (ghost.name === wallCloud) {
+    if (ghost.name === wallCloud || ghost.name === wallBlackCloud) {
         return false;
     }
     else {

@@ -118,12 +118,19 @@ brawl.game.prototype.wallSpawn = function (sprite) {
     this.wallX.specialArray = sprite.specialArray;
     this.wallX.positionInArray = sprite.positionInArray;
     this.wallX.velocityVsImmovable = 100;
-    if (sprite.name === wallGhost) {
-        // var testTint = Math.random() * 0xffffff;
-        // this.wallX.tint = testTint;
-        // console.log(testTint, this.wallX.positionInArray);
-        this.wallX.tint = tintWallGhost;
+    //////////Enemy Walls That Are Meant to Help/////////
+    if (sprite.name === wallFrozen) {
+        this.wallX.tint = tintWallFrozen;
+        this.wallX.body.moves = false;
         this.wallX.body.immovable = true;
+    }
+    else if (sprite.name === wallGravity) {
+        this.wallX.tint = tintWallGravity;
+        this.wall.body.gravity.y = 300;
+    }
+    else if (sprite.name === wallGravity) {
+        this.wallX.tint = tintWallReverseGravity;
+        this.wallX.body.gravity.y = 0;
     }
     else if (sprite.name === wallHeavy) {
         this.wallX.tint = tintWallHeavy;
@@ -135,13 +142,51 @@ brawl.game.prototype.wallSpawn = function (sprite) {
         this.wallX.tint = tintWallCloud;
         this.wallX.body.immovable = true;
     }
+    else if (sprite.name === wallGhost) {
+        // var testTint = Math.random() * 0xffffff;
+        // this.wallX.tint = testTint;
+        // console.log(testTint, this.wallX.positionInArray);
+        this.wallX.tint = tintWallGhost;
+        this.wallX.body.immovable = true;
+    }
+    //////////Enemy Walls////////////////
     else if (sprite.name === wallBlack) {
         this.wallX.tint = tintWallBlack;
     }
+    else if (sprite.name === wallBlackFrozen) {
+        this.wallX.tint = tintWallBlackFrozen;
+        this.wallX.body.moves = false;
+        this.wallX.body.immovable = true;
+    }
+    else if (sprite.name === wallBlackGravity) {
+        this.wallX.tint = tintWallBlackGravity;
+        this.wallX.body.gravity.x = 500;
+    }
+    else if (sprite.name === wallBlackReverseGravity) {
+        this.wallX.tint = tintWallBlackReverseGravity;
+        this.wallX.body.gravity.x = -500;
+    }
+    else if (sprite.name === wallBlackLight) {
+        this.wallX.tint = tintWallBlackLight;
+    }
+    else if (sprite.name === wallBlackHeavy) {
+        this.wallX.tint = tintWallBlackHeavy;
+    }
+    else if (sprite.name === wallBlackCloud) {
+        this.wallX.tint = tintWallBlackCloud;
+        this.wallX.body.immovable = true;
+    }
+    else if (sprite.name === wallBlackGhost) {
+        this.wallX.tint = tintWallBlackGhost;
+    }
+
     this.wallX.anchor.setTo(.5);
     this.wallX.scale.setTo(sprite.sizeX, sprite.sizeY);
     // this.wallX.body.immovable = true;
-    this.wallX.body.gravity.setTo(sprite.gravityX, sprite.gravityY);
+    if (!sprite.name === wallGravity || !sprite.name === wallReverseGravity || !sprite.name === wallBlackGravity || !sprite.name === wallBlackReverseGravity) {
+        this.wallX.body.gravity.setTo(sprite.gravityX, sprite.gravityY);
+        console.log("Not Gravity Based Walls");
+    }
     this.wallX.body.mass = 150;
     this.wallX.body.maxVelocity.setTo(300);
     this.wallX.body.collideWorldBounds = true;
