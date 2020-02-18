@@ -498,7 +498,7 @@ var level_1 = new LevelCreator("Level 1-CL", 2800, 3200, new MetroidvaniaCreator
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_1.playerPosition = [
-  new PlayerPositionCreator(200, 0),
+  new PlayerPositionCreator(1800, 1450),
   new PlayerPositionCreator(400, 3120),
   new PlayerPositionCreator(100, 1320),
   new PlayerPositionCreator(2600, 3100),
@@ -642,6 +642,7 @@ level_1.flagSpawn = [
   new SpriteCreator(0, true, true, regularFlag, flag, 600, 3050, 0, 0, .4, .4, 0, 0, null, null, null, null, 1),
   new SpriteCreator(1, true, true, regularFlag, flag, 2500, 3050, 0, 0, .4, .4, 0, 0, null, null, null, null, 3),
   new SpriteCreator(2, true, true, regularFlag, flag, 200, 1250, 0, 0, .4, .4, 0, 0, null, null, null, null, 2),
+  new SpriteCreator(3, true, true, regularFlag, flag, 1700, 1400, 0, 0, .4, .4, 0, 0, null, null, null, null, 0),
 ]
 
 //Push Level 1 Into World Class Array
