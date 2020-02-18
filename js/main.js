@@ -1,43 +1,43 @@
 var game = new Phaser.Game(1400, 800, Phaser.CANVAS);
 
 /////////////////////////////////////////////////Disable RightClick////////////////////////////////////
-window.onload = function() {
-  document.addEventListener("contextmenu", function(e){
-    e.preventDefault();
-  }, false);
-  document.addEventListener("keydown", function(e) {
-  //document.onkeydown = function(e) {
-    // "I" key
-    if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
-      disabledEvent(e);
-    }
-    // "J" key
-    if (e.ctrlKey && e.shiftKey && e.keyCode == 74) {
-      disabledEvent(e);
-    }
-    // "S" key + macOS
-    if (e.keyCode == 83 && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
-      disabledEvent(e);
-    }
-    // "U" key
-    if (e.ctrlKey && e.keyCode == 85) {
-      disabledEvent(e);
-    }
-    // "F12" key
-    if (event.keyCode == 123) {
-      disabledEvent(e);
-    }
-  }, false);
-  function disabledEvent(e){
-    if (e.stopPropagation){
-      e.stopPropagation();
-    } else if (window.event){
-      window.event.cancelBubble = true;
-    }
-    e.preventDefault();
-    return false;
-  }
-};
+// window.onload = function() {
+//   document.addEventListener("contextmenu", function(e){
+//     e.preventDefault();
+//   }, false);
+//   document.addEventListener("keydown", function(e) {
+//   //document.onkeydown = function(e) {
+//     // "I" key
+//     if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
+//       disabledEvent(e);
+//     }
+//     // "J" key
+//     if (e.ctrlKey && e.shiftKey && e.keyCode == 74) {
+//       disabledEvent(e);
+//     }
+//     // "S" key + macOS
+//     if (e.keyCode == 83 && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
+//       disabledEvent(e);
+//     }
+//     // "U" key
+//     if (e.ctrlKey && e.keyCode == 85) {
+//       disabledEvent(e);
+//     }
+//     // "F12" key
+//     if (event.keyCode == 123) {
+//       disabledEvent(e);
+//     }
+//   }, false);
+//   function disabledEvent(e){
+//     if (e.stopPropagation){
+//       e.stopPropagation();
+//     } else if (window.event){
+//       window.event.cancelBubble = true;
+//     }
+//     e.preventDefault();
+//     return false;
+//   }
+// };
 
 //////////////////////////////////////////////////Game States//////////////////////////////////////////////
 game.state.add('mainMenu', brawl.state1);
@@ -682,7 +682,7 @@ level_2.immovableWallSpawn = [
   //Wall Blocking First Ground
   new SpriteCreator(2, true, true, immovableWallRegular, immovableWallVertical, 4090, 100, 0, 0, .5, .83, 0, 0, null, null, null, null, null),
   //Wall With Little Hole
-  new SpriteCreator(3, true, true, immovableWallKillWall, immovableWallVertical, 3300, 0, 0, 0, .5, .83, 0, 0, null, null, null, null, null),
+  new SpriteCreator(3, true, true, immovableWallRegular, immovableWallVertical, 3300, 0, 0, 0, .5, .83, 0, 0, null, null, null, null, null),
   //Past Max Jump
   new SpriteCreator(4, true, true, immovableWallRegular, immovableWallHorizontal, 2800, 800, 0, 0, .83, .5, 0, 0, null, null, null, null, null),
   //Ground Past Vertical Moveable Wall

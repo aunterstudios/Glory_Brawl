@@ -85,7 +85,7 @@ brawl.game.prototype = {
         this.createPause();
 
         //Overlap Bias to Prevent Sprite Tunneling
-        this.game.physics.arcade.OVERLAP_BIAS = 10; //20 is original
+        this.game.physics.arcade.OVERLAP_BIAS = 12; //10 is original
 
         ////////////////////Game World Size//////////////////////
         this.game.world.setBounds(0, 0, worldClassLevels[this.indexOfCurrentWorld].xOfWorld, worldClassLevels[this.indexOfCurrentWorld].yOfWorld);
