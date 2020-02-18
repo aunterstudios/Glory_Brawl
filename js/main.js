@@ -328,9 +328,7 @@ var wallHorizontal = 'wallHorizontal';
 var wallVertical = 'wallVertical';
 
 //Ledge
-var ledgeElevator = 'ledgeElevator';
-var ledgeBounce = 'ledgeBounce';
-var ledgeSurf = 'ledgeSurf';
+var ledge = 'ledge';
 
 //enemy
 var enemyOne = 'enemy'
@@ -603,15 +601,15 @@ level_1.wallSpawn = [
 //Ledges
 level_1.ledgeSpawn = [
   //Elevator
-  new SpriteCreator(0, true, true, elevator, ledgeElevator, 100, 2600, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
-  new SpriteCreator(1, true, true, elevator, ledgeElevator, 1080, 2200, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+  new SpriteCreator(0, true, true, elevator, ledge, 100, 2600, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+  new SpriteCreator(1, true, true, elevator, ledge, 1080, 2200, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
   //Bounce Ledges
-  new SpriteCreator(2, true, true, bounce, ledgeBounce, 1525, 3000, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
-  new SpriteCreator(3, true, true, bounce, ledgeBounce, 1700, 2200, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
-  new SpriteCreator(4, true, true, bounce, ledgeBounce, 1900, 2700, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
-  new SpriteCreator(5, true, true, bounce, ledgeBounce, 2100, 2000, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+  new SpriteCreator(2, true, true, bounce, ledge, 1525, 3000, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+  new SpriteCreator(3, true, true, bounce, ledge, 1700, 2200, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+  new SpriteCreator(4, true, true, bounce, ledge, 1900, 2700, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+  new SpriteCreator(5, true, true, bounce, ledge, 2100, 2000, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
   //Surf Ledges
-  new SpriteCreator(5, true, true, surf, ledgeSurf, 2270, 300, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+  new SpriteCreator(5, true, true, surf, ledge, 2270, 300, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
 ];
 
 //Ball
@@ -623,23 +621,21 @@ level_1.text = [
   new textCreator(0, 100, 3150, "Level 0 ↓", 'Courier New', 25, '#000000', 'bold'),
   //Camera Mode
   new textCreator(1, 80, 2800, "Press 4 to Toggle Free-Look(WASD to Move)", 'Courier New', 25, '#000000', 'bold'),
-  //Flag Respawn
-  new textCreator(2, 400, 3000, 'Flags are Respawn Checkpoints', 'Courier New', 25, '#000000', 'bold'),
   //Grey Ledge Tutorial
-  new textCreator(3, 900, 2300, "Pull the Grey Ledge Towards You\n\nGet on Top of the Grey Ledge", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(2, 850, 2300, "Pull the Yellow Ledge Towards You\n\nGet on Top of the Grey Ledge", 'Courier New', 25, '#000000', 'bold'),
   //Where to Land Grey Ledge
-  new textCreator(4, 300, 1900, "Jump Down to the Grey Ledge at the Bottom", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(3, 300, 1900, "Jump Down to the Yellow Ledge at the Bottom", 'Courier New', 25, '#000000', 'bold'),
   //Green Ledge Tutorial
-  new textCreator(5, 900, 1525, "Trust the Green Ledges at the Bottom", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(6, 1500, 1600, "↓", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(8, 1600, 3000, "Green Ledges Make You Bounce", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(4, 900, 1525, "Trust the Green Ledges at the Bottom", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(5, 1500, 1600, "↓", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(6, 1600, 3000, "Green Ledges Make You Bounce", 'Courier New', 25, '#000000', 'bold'),
   //Blue Ledge Tutorial
-  new textCreator(9, 1500, 200, "You Can Surf Blue Ledges(Control By Going Left or Right)\n\nBe Warned They Are Unstable\n\nLand Perfectly in the Middle of the Blue Ledge\n\nHint: Holding S Lets You Descend Faster", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(7, 1500, 200, "You Can Surf Blue Ledges(Control By Going Left or Right)\n\nBe Warned They Are Unstable\n\nLand Perfectly in the Middle of the Blue Ledge\n\nHint: Holding S Lets You Descend Faster", 'Courier New', 25, '#000000', 'bold'),
   //Kill Instructions
-  new textCreator(10, 80, 200, "Press 3 to Access Kill Gun\n\nAny Object that is Moveable can be Killed", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(8, 80, 200, "Press 3 to Access Kill Gun\n\nAny Object that is Moveable can be Killed", 'Courier New', 25, '#000000', 'bold'),
   //These Kill Walls
-  new textCreator(11, 1150, 2600, "These Kill Walls", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(12, 1700, 1300, "Properties of Objects Can Be Changed\n\nDepending What Hits It", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(9, 1150, 2600, "These Kill Walls", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(10, 1700, 1300, "Properties of Objects Can Be Changed\n\nDepending What Hits It", 'Courier New', 25, '#000000', 'bold'),
 ];
 
 level_1.flagSpawn = [
@@ -673,8 +669,8 @@ level_2.undeniableDeathSpawn = [
   new SpriteCreator(2, true, true, undeniableDeathRegular, deathHorizontal, 1406.5, 4100, 0, 0, .995, .1, 0, 0, null, null, null, null, null),
   //Bottom Beginning of the Map
   new SpriteCreator(3, true, true, undeniableDeathRegular, deathHorizontal, 3506, 4100, 0, 0, .4169, .1, 0, 0, null, null, null, null, null),
-  //Spike of Death At Bottom to Prevent Glitch
-  new SpriteCreator(4, true, true, undeniableDeathRegular, deathHorizontal, 0, 800, 0, 0, 3.45, .1, 0, 0, null, null, null, null, null),
+  // //Spike of Death At Bottom to Prevent Glitch
+  // new SpriteCreator(4, true, true, undeniableDeathRegular, deathHorizontal, 0, 800, 0, 0, 3.45, .1, 0, 0, null, null, null, null, null),
 ];
 
 /////////////////////////Creation of ImmovableWalls
@@ -779,8 +775,8 @@ level_3.playerPosition = [
 
 level_3.undeniableDeathSpawn = [
   //Bottom At The End of the Map (INVISIBLE)
-  new SpriteCreator(0, true, true, undeniableDeathRegular, deathVertical, 1400, 0, 0, 0, .1, .5, 0, 0, null, null, null, null, null),
-  new SpriteCreator(0, true, true, undeniableDeathRegular, deathVertical, 0, 0, 0, 0, .1, .5, 0, 0, null, null, null, null, null),
+  new SpriteCreator(0, true, true, undeniableDeathRegular, deathVertical, 1400, 0, 0, 0, .25, .5, 0, 0, null, null, null, null, null),
+  new SpriteCreator(0, true, true, undeniableDeathRegular, deathVertical, 0, 0, 0, 0, .25, .5, 0, 0, null, null, null, null, null),
   // new SpriteCreator(0, true, true, undeniableDeathRegular, deathHorizontal, 300, 400, 0, 0, .5, .5, 0, 0, null, null, null, null, null),
 ];
 
@@ -793,6 +789,7 @@ level_3.immovableWallSpawn = [
 //Moveable Walls
 ///Single Wall to Teach You  
 level_3.wallSpawn = [
+  //Enemy Walls
   new SpriteCreator(0, true, true, wallBlack, wallHorizontal, 400, 100, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
   new SpriteCreator(1, true, true, wallBlackGhost, wallHorizontal, 400, 300, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
   new SpriteCreator(2, true, true, wallBlackFrozen, wallHorizontal, 400, 500, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
@@ -801,7 +798,15 @@ level_3.wallSpawn = [
   new SpriteCreator(4, true, true, wallBlackLight, wallHorizontal, 800, 300, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
   new SpriteCreator(4, true, true, wallBlackHeavy, wallHorizontal, 800, 500, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
   new SpriteCreator(4, true, true, wallBlackCloud, wallHorizontal, 800, 700, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
-  // new SpriteCreator(0, true, true, wallBlack, wallHorizontal, 400, 100, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+  //Regular Walls
+  // new SpriteCreator(0, true, true, wallRegular, wallHorizontal, 400, 100, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+  // new SpriteCreator(1, true, true, wallGhost, wallHorizontal, 400, 300, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+  // new SpriteCreator(2, true, true, wallFrozen, wallHorizontal, 400, 500, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+  // new SpriteCreator(3, true, true, wallGravity, wallHorizontal, 400, 700, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+  // new SpriteCreator(4, true, true, wallReverseGravity, wallHorizontal, 800, 100, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+  // new SpriteCreator(4, true, true, wallLight, wallHorizontal, 800, 300, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+  // new SpriteCreator(4, true, true, wallHeavy, wallHorizontal, 800, 500, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+  // new SpriteCreator(4, true, true, wallCloud, wallHorizontal, 800, 700, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
 ];
 
 //////////////Tint Testing///////////
@@ -816,11 +821,11 @@ level_3.wallSpawn = [
 //Ledges
 // level_3.ledgeSpawn = [
 //   // //Surf
-//   new SpriteCreator(0, true, true, surf, ledgeSurf, 500, 200, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+//   new SpriteCreator(0, true, true, surf, ledge, 500, 200, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
 //   // //Bounce Ledges
-//   // new SpriteCreator(2, true, true, bounce, ledgeBounce, 900, 390, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+//   // new SpriteCreator(2, true, true, bounce, ledge, 900, 390, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
 //   // //Surf Ledges
-//   // new SpriteCreator(3, true, true, elevator, ledgeElevator, 200, 200, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+//   // new SpriteCreator(3, true, true, elevator, ledge, 200, 200, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
 // ];
 
 //Enemy Spawn

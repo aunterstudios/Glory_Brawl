@@ -56,6 +56,7 @@ brawl.game.prototype.undeniableDeathSpawn = function (sprite) {
     this.deathX.specialWorld = sprite.specialWorld;
     this.deathX.specialArray = sprite.specialArray;
     this.deathX.positionInArray = sprite.positionInArray;
+    // this.deathX.tint = Phaser.Color.RED;
     this.deathX.scale.setTo(sprite.sizeX, sprite.sizeY);
     this.deathX.body.immovable = true;
     this.deathX.body.mass = 300;
@@ -211,6 +212,15 @@ brawl.game.prototype.ledgeSpawn = function (sprite) {
     this.ledgeX.specialWorld = sprite.specialWorld;
     this.ledgeX.specialArray = sprite.specialArray;
     this.ledgeX.positionInArray = sprite.positionInArray;
+    if (sprite.name === elevator) {
+        this.ledgeX.tint = Phaser.Color.YELLOW;
+    }
+    else if (sprite.name === bounce) {
+        this.ledgeX.tint = Phaser.Color.GREEN;
+    }
+    else if (sprite.name === surf) {
+        this.ledgeX.tint = Phaser.Color.AQUA;
+    }
     this.ledgeX.velocityVsWallX = 50;
     this.ledgeX.velocityVsWallY = 50;
     this.ledgeX.anchor.setTo(.5);

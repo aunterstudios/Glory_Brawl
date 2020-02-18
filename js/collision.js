@@ -330,7 +330,6 @@ brawl.game.prototype.playerLedge = function (player, ledge) {
         ledge.body.stop();
         if (ledge.body.touching.up) {
             ledge.body.velocity.y = -200;
-            player.body.velocity.y = -200
         }
         // When You're Hitting the Edge from the Sides (Right and Left)
         if (ledge.body.touching.left || ledge.body.touching.right) {

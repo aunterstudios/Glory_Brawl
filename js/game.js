@@ -35,9 +35,7 @@ brawl.game.prototype = {
         this.load.image('wallHorizontal', 'assets/wallHorizontal.png');
         this.load.image('wallBrown', 'assets/wallBrown.png');
         //Ledges
-        this.load.image('ledgeElevator', 'assets/ledgeElevator.png');
-        this.load.image('ledgeBounce', 'assets/ledgeBounce.png');
-        this.load.image('ledgeSurf', 'assets/ledgeSurf.png');
+        this.load.image('ledge', 'assets/ledge.png');
         //Traps
         this.load.image('spikeFall', 'assets/spikeFall.png');
         this.load.image('spikesHorizontalOne', 'assets/spikesHorizontalOne.png')
