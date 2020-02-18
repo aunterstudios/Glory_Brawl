@@ -17,7 +17,7 @@ brawl.state1.prototype = {
         this.game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
 
         //Trump Background
-        this.trumpBackground = this.game.add.sprite(this.game.world.centerX + 200, this.game.world.centerY + 150, 'background-one');
+        this.trumpBackground = this.game.add.sprite(this.game.world.centerX + 200, this.game.world.centerY, 'background-one');
         this.trumpBackground.anchor.setTo(.5);
 
         //Adding Cool Looking Text
@@ -79,9 +79,9 @@ brawl.stateControls.prototype = {
             ////////0-Up, 1-Down, 2-Left, 3-Right//////
             ///////(IndexOfCurrentWorld, Position, MetroidVania(Same as Index of Current World))
             //Level 0
-            // this.game.state.start('game', true, false, 0, 1, worldClassLevels[0].metroidvania);
+            this.game.state.start('game', true, false, 0, 1, worldClassLevels[0].metroidvania);
             //Any Level I want to Test
-            this.game.state.start('game', true, false, 1, 1, worldClassLevels[1].metroidvania);
+            // this.game.state.start('game', true, false, 1, 1, worldClassLevels[1].metroidvania);
             //Level 3 (THE PLAYGROUND)
             // this.game.state.start('game', true, false, 3, 1, worldClassLevels[3].metroidvania);
 
