@@ -39,6 +39,12 @@ brawl.game.prototype.spriteGroupGenerator = function () {
     this.enemyBullets.setAll('anchor.y', 1);
     this.enemyBullets.setAll('outOfBoundsKill', true);
     this.enemyBullets.setAll('checkWorldBounds', true);
+
+
+    ///////////////////Adding Emitters///////////////
+    this.emitter = game.add.emitter();
+    this.emitter.makeParticles('particles');
+    this.emitter.gravity = 100;
 };
 /////////////////Undeniable Death Spawn////////////////////
 brawl.game.prototype.undeniableDeathSpawn = function (sprite) {

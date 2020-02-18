@@ -187,10 +187,17 @@ brawl.game.prototype.playerOut = function (player) {
 
 };
 ///////////////////////////////////////////State Switches////////////////////////////////
+//Character Dying
 brawl.game.prototype.deathState = function (victim, killer) {
     victim.kill();
-    this.game.state.start('deathState', true, false, respawnHolder.indexOfCurrentWorld, respawnHolder.indexOfPlayerPosition, respawnHolder.metroidvania);
+    this.emitterFunction(victim);
+    this.game.time.events.add(2000, this.deathSwitch, this);
+    // this.game.state.start('deathState', true, false, respawnHolder.indexOfCurrentWorld, respawnHolder.indexOfPlayerPosition, respawnHolder.metroidvania);
 };
+//State Switch
+brawl.game.prototype.deathSwitch = function () {
+    this.game.state.start('deathState', true, false, respawnHolder.indexOfCurrentWorld, respawnHolder.indexOfPlayerPosition, respawnHolder.metroidvania);
+},
 //Character Respawn
 brawl.game.prototype.respawn = function (player, flag) {
     flag.kill();

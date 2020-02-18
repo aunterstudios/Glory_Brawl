@@ -59,6 +59,8 @@ brawl.game.prototype = {
         this.load.image('ball', 'assets/ball.png');
         //Enemies
         this.load.image('enemy', 'assets/trumpface.png');
+        //Emitter
+        this.load.image('particles', 'assets/z2.png');
         //Player
         // this.load.spritesheet('player', 'assets/player.png', 87.5, 93.5);
         this.load.image('player', 'assets/playerFiller.png');

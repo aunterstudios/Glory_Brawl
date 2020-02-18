@@ -41,6 +41,13 @@ brawl.game.prototype.fireEnemyBullet = function () {
         }
     }
 };
+//////////////////Emitter Function/////////////////////
+brawl.game.prototype.emitterFunction = function (sprite) {
+    this.emitter.x = sprite.x;
+    this.emitter.y = sprite.y;
+    this.emitter.start(true, 1500, null, 10);
+};
+
 ///////////////////////////Magnet Walls/////////////////////
 brawl.game.prototype.immovableWallContinious = function (wall) {
     if (wall.name === immovableWallMagnet) {
