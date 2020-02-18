@@ -272,7 +272,6 @@ brawl.game.prototype.playerWall = function (player, wall) {
         }
     }
     if (wall.name === wallBlackHeavy) {
-        victim.kill();
         this.game.state.start('deathState', true, false, respawnHolder.indexOfCurrentWorld, respawnHolder.indexOfPlayerPosition, respawnHolder.metroidvania);
     }
     if (wall.name === wallBlackCloud) {

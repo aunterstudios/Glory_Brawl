@@ -694,7 +694,7 @@ level_2.immovableWallSpawn = [
   //Divider At The End
   new SpriteCreator(6, true, true, immovableWallRegular, immovableWallVertical, 300, 0, 0, 0, .5, .455, 0, 0, null, null, null, null, null),
   //Ground For the Flag
-  new SpriteCreator(7, true, true, immovableWallRegular, immovableWallHorizontal, 90, 388.3, 0, 0, .276, .297, 0, 0, null, null, null, null, null),
+  new SpriteCreator(7, true, true, immovableWallRegular, immovableWallHorizontal, 85, 388.3, 0, 0, .276, .297, 0, 0, null, null, null, null, null),
   //Border At the ENd of the Level
   new SpriteCreator(8, true, true, immovableWallRegular, immovableWallVertical, 0, 0, 0, 0, .3, .93, 0, 0, null, null, null, null, null),
   //First Phase Wall
