@@ -51,17 +51,17 @@ brawl.game.prototype.wallMoveable = function (wall, objMov) {
         wall.body.immovable = true;
         wall.tint = tintWallFrozen;
     }
-    //Turns wallRegular to wallGravity (Ball);
+    //Turns wallRegular to wallHeavy (Ball);
     if (wall.name === wallRegular && objMov.groupName === groupBall) {
-        wall.name = wallGravity;
-        wall.tint = tintWallGravity;
-        wall.body.gravity.y = 300; //500 Original
+        wall.name = wallHeavy;
+        wall.tint = tintWallHeavy;
+        // wall.body.gravity.y = 300; //500 Original
     }
-    //Turns wallGravity to wallReverseGravity (Ledge)
-    if (wall.name === wallGravity && objMov.groupName === groupLedge) {
+    //Turns wallHeavy to wallReverseGravity (Ledge)
+    if (wall.name === wallHeavy && objMov.groupName === groupLedge) {
         wall.name = wallReverseGravity;
         wall.tint = tintWallReverseGravity;
-        wall.body.gravity.y = -500;
+        wall.body.gravity.y = -200;
     }
     //Turns wallReverseGravity to wallLight (Ball)
     if (wall.name === wallReverseGravity && objMov.groupName === groupBall) {
@@ -69,16 +69,18 @@ brawl.game.prototype.wallMoveable = function (wall, objMov) {
         wall.tint = tintWallLight;
         wall.body.gravity.y = 0;
     }
-    //Turns wallLight to wallHeavy (ledge)
+    //Turns wallLight to wallGravity(ledge)
     if (wall.name === wallLight && objMov.groupName === groupLedge) {
-        wall.name = wallHeavy;
-        wall.tint = tintWallHeavy;
+        wall.name = wallGravity;
+        wall.tint = tintWallGravity;
+        wall.body.gravity.y = 200;
     }
-    //Turns wallHeavy to wallCloud (Ball)
-    if (wall.name === wallHeavy && objMov.groupName === groupBall) {
+    //Turns wallGravity to wallCloud (Ball)
+    if (wall.name === wallGravity && objMov.groupName === groupBall) {
         wall.name = wallCloud;
         wall.tint = tintWallCloud;
         wall.body.stop();
+        wall.body.gravity.y = 0;
         wall.body.immovable = true;
         // wall.body.velocity.x = objMov.body.velocity.x;
     }

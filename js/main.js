@@ -792,16 +792,16 @@ level_3.immovableWallSpawn = [
 ///Single Wall to Teach You  
 level_3.wallSpawn = [
   //Enemy Walls
-  new SpriteCreator(0, true, true, wallBlack, wallHorizontal, 400, 100, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
-  new SpriteCreator(1, true, true, wallBlackGhost, wallHorizontal, 400, 300, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
-  new SpriteCreator(2, true, true, wallBlackFrozen, wallHorizontal, 400, 500, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
-  new SpriteCreator(3, true, true, wallBlackGravity, wallHorizontal, 400, 700, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
-  new SpriteCreator(4, true, true, wallBlackReverseGravity, wallHorizontal, 800, 100, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
-  new SpriteCreator(4, true, true, wallBlackLight, wallHorizontal, 800, 300, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
-  new SpriteCreator(4, true, true, wallBlackHeavy, wallHorizontal, 800, 500, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
-  new SpriteCreator(4, true, true, wallBlackCloud, wallHorizontal, 800, 700, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+  // new SpriteCreator(0, true, true, wallBlack, wallHorizontal, 400, 100, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+  // new SpriteCreator(1, true, true, wallBlackGhost, wallHorizontal, 400, 300, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+  // new SpriteCreator(2, true, true, wallBlackFrozen, wallHorizontal, 400, 500, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+  // new SpriteCreator(3, true, true, wallBlackGravity, wallHorizontal, 400, 700, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+  // new SpriteCreator(4, true, true, wallBlackReverseGravity, wallHorizontal, 800, 100, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+  // new SpriteCreator(4, true, true, wallBlackLight, wallHorizontal, 800, 300, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+  // new SpriteCreator(4, true, true, wallBlackHeavy, wallHorizontal, 800, 500, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+  // new SpriteCreator(4, true, true, wallBlackCloud, wallHorizontal, 800, 700, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
   //Regular Walls
-  // new SpriteCreator(0, true, true, wallRegular, wallHorizontal, 400, 100, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+  new SpriteCreator(0, true, true, wallRegular, wallHorizontal, 400, 100, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
   // new SpriteCreator(1, true, true, wallGhost, wallHorizontal, 400, 300, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
   // new SpriteCreator(2, true, true, wallFrozen, wallHorizontal, 400, 500, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
   // new SpriteCreator(3, true, true, wallGravity, wallHorizontal, 400, 700, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
@@ -821,14 +821,14 @@ level_3.wallSpawn = [
 ////////////Tint Testing/////////
 
 //Ledges
-// level_3.ledgeSpawn = [
-//   // //Surf
-//   new SpriteCreator(0, true, true, surf, ledge, 500, 200, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
-//   // //Bounce Ledges
-//   // new SpriteCreator(2, true, true, bounce, ledge, 900, 390, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
-//   // //Surf Ledges
-//   // new SpriteCreator(3, true, true, elevator, ledge, 200, 200, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
-// ];
+level_3.ledgeSpawn = [
+  // //Surf
+  new SpriteCreator(0, true, true, surf, ledge, 500, 200, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+  // //Bounce Ledges
+  // new SpriteCreator(2, true, true, bounce, ledge, 900, 390, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+  // //Surf Ledges
+  // new SpriteCreator(3, true, true, elevator, ledge, 200, 200, 0, 0, .4, .4, 0, 0, null, null, null, null, null),
+];
 
 //Enemy Spawn
 // level_3.enemySpawn = [
@@ -837,9 +837,9 @@ level_3.wallSpawn = [
 // ];
 
 // //Ball
-// level_3.ballSpawn = [
-//   new SpriteCreator(0, true, true, ballRegular, ball, 400, 200, 0, 0, null, null, 0, 0, null, null, null, null, null)
-// ];
+level_3.ballSpawn = [
+  new SpriteCreator(0, true, true, ballRegular, ball, 400, 200, 0, 0, null, null, 0, 0, null, null, null, null, null)
+];
 
 //Push Level 2 Into World Class Array
 worldClassLevels.push(level_3);
