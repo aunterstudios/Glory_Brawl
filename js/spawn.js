@@ -273,7 +273,7 @@ brawl.game.prototype.ballSpawn = function (sprite) {
     this.ballX.velocityVsWallY = 30;
     this.ballX.anchor.setTo(.5);
     this.ballX.scale.setTo(.5); //.5
-    this.ballX.body.setCircle(50);
+    // this.ballX.body.setCircle(50);
     this.ballX.body.mass = 20;
     this.ballX.body.maxVelocity.setTo(300);
     this.ballX.body.collideWorldBounds = true;

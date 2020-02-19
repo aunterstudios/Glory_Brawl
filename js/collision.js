@@ -9,6 +9,24 @@ brawl.game.prototype.deathTwo = function (victim, killer) {
 brawl.game.prototype.deathThree = function (killer, victim) {
     victim.kill();
 };
+
+brawl.game.prototype.ledgeEnemyDeath = function (le, death) {
+    // le.body.stop();
+    if (le.body.touching.up) {
+        le.body.velocity.y = le.velocityVsWallY;
+    }
+    if (le.body.touching.down) {
+        le.body.velocity.y = -le.velocityVsWallY;
+    }
+    if (le.body.touching.left) {
+        le.body.velocity.x = le.velocityVsWallX;
+    }
+    if (le.body.touching.right) {
+        le.body.velocity.x = -le.velocityVsWallX;
+    }
+    return;
+};
+
 brawl.game.prototype.immovableMoveable = function (immovable, obj2) {
     if (immovable.name === immovableWallPadding) {
         // obj2.body.stop();
@@ -20,17 +38,34 @@ brawl.game.prototype.immovableMoveable = function (immovable, obj2) {
     }
     //////////////Actual Collision Mechanics////////////
     // obj2.body.stop();
-    if (immovable.body.touching.up) {
-        obj2.body.velocity.y = -obj2.velocityVsWallY;
+    // if (immovable.body.touching.up) {
+    //     obj2.body.velocity.y = -obj2.velocityVsWallY;
+    // }
+    // if (immovable.body.touching.down) {
+    //     obj2.body.velocity.y = obj2.velocityVsWallY;
+    // }
+    // if (immovable.body.touching.left) {
+    //     obj2.body.velocity.x = -obj2.velocityVsWallX;
+    // }
+    // if (immovable.body.touching.right) {
+    //     obj2.body.velocity.x = obj2.velocityVsWallX;
+    // }
+    /////////////////////////Only Ball Specific/////////////////
+    if (obj2.groupName === groupBall) {
+        obj2.body.stop();
     }
-    if (immovable.body.touching.down) {
+    ///////////////////////Only Ball Specific///////////////////
+    if (obj2.body.touching.up) {
         obj2.body.velocity.y = obj2.velocityVsWallY;
     }
-    if (immovable.body.touching.left) {
-        obj2.body.velocity.x = -obj2.velocityVsWallX;
+    if (obj2.body.touching.down) {
+        obj2.body.velocity.y = -obj2.velocityVsWallY;
     }
-    if (immovable.body.touching.right) {
+    if (obj2.body.touching.left) {
         obj2.body.velocity.x = obj2.velocityVsWallX;
+    }
+    if (obj2.body.touching.right) {
+        obj2.body.velocity.x = -obj2.velocityVsWallX;
     }
     return;
 };
@@ -202,6 +237,7 @@ brawl.game.prototype.playerImmovable = function (player, immovable) {
         immovable.name = immovableWallRegular;
         immovable.tint = tintRemover;
     }
+    // console.log("Yes This is Hitting");
     // return;
 };
 brawl.game.prototype.playerWall = function (player, wall) {
@@ -369,7 +405,7 @@ brawl.game.prototype.playerLedge = function (player, ledge) {
     }
 };
 //Ball Interaction With Different Objects
-brawl.game.prototype.ballHandler = function (sprite1, sprite2) {
+brawl.game.prototype.ballHandler = function (ball, sprite2) {
     // console.log(sprite2.groupName);
     if (sprite2.groupName === (groupSpikes || groupEnemy)) {
         sprite2.kill();
@@ -387,4 +423,19 @@ brawl.game.prototype.ballHandler = function (sprite1, sprite2) {
         //////////////////////////Creates New Sprites After Spikes Destroyed///////////////////////
         //worldClassLevels[sprite2.specialWorld].ledgeGreySpawn[sprite2.specialArray].trigger = true;
     }
+    //////////////////////Otherwise Collision Mechanics//////////////////
+    ball.body.stop();
+    if (ball.body.touching.up) {
+        ball.body.velocity.y = ball.velocityVsWallY;
+    }
+    if (ball.body.touching.down) {
+        ball.body.velocity.y = -ball.velocityVsWallY;
+    }
+    if (ball.body.touching.left) {
+        ball.body.velocity.x = ball.velocityVsWallX;
+    }
+    if (ball.body.touching.right) {
+        ball.body.velocity.x = -ball.velocityVsWallX;
+    }
+    return;
 };
