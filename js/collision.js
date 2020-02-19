@@ -12,10 +12,10 @@ brawl.game.prototype.deathThree = function (killer, victim) {
 brawl.game.prototype.immovableMoveable = function (immovable, obj2) {
     if (immovable.name === immovableWallPadding) {
         // obj2.body.stop();
-        obj2.body.bounce.setTo(.5)
-        obj2.velocityVsWallY = 25;
-        obj2.velocityVsWallX = 25;
-        obj2.tint = tintImmovableWallMagnet;
+        obj2.body.bounce.setTo(.2)
+        obj2.velocityVsWallY = 20;
+        obj2.velocityVsWallX = 20;
+        // obj2.tint = tintImmovableWallMagnet;
         ////Maybe Kill This Later///
     }
     //////////////Actual Collision Mechanics////////////

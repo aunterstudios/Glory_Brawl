@@ -303,6 +303,9 @@ brawl.game.prototype.flagSpawn = function (sprite) {
     this.flagX.specialWorld = sprite.specialWorld;
     this.flagX.specialArray = sprite.specialArray;
     this.flagX.positionInArray = sprite.positionInArray;
+    if (sprite.name === flagSpecial) {
+        this.flagX.tint = Phaser.Color.BLUE;
+    }
     //this.flagX.scale(sprite.sizeX,sprite.sizeY);
     this.flagX.body.mass = 1;
     this.flagX.body.maxVelocity.setTo(300);

@@ -308,7 +308,8 @@ var ballRegular = 'ballRegular';
 var spikeRegular = 'spikeRegular';
 
 //Flag Names
-var regularFlag = 'regularFlag';
+var flagRegular = 'flagRegular';
+var flagSpecial = 'flagSpecial';
 
 /////////////////////////List of Art of Each Sprite/////////////////
 //Death
@@ -472,8 +473,8 @@ level_0.ballSpawn = [new SpriteCreator(0, true, true, ballRegular, ball, 700, 13
 
 //FLag Respawn
 level_0.flagSpawn = [
-  new SpriteCreator(0, true, true, regularFlag, flag, 2400, 600, 0, 0, .4, .4, 0, 0, null, null, null, null, 3),
-  new SpriteCreator(1, true, true, regularFlag, flag, 200, 1300, 0, 0, .4, .4, 0, 0, null, null, null, null, 2),
+  new SpriteCreator(0, true, true, flagRegular, flag, 2400, 600, 0, 0, .4, .4, 0, 0, null, null, null, null, 3),
+  new SpriteCreator(1, true, true, flagRegular, flag, 200, 1300, 0, 0, .4, .4, 0, 0, null, null, null, null, 2),
 ]
 
 //Text Creator (Helpful Hints)
@@ -639,10 +640,10 @@ level_1.text = [
 ];
 
 level_1.flagSpawn = [
-  new SpriteCreator(0, true, true, regularFlag, flag, 600, 3050, 0, 0, .4, .4, 0, 0, null, null, null, null, 1),
-  new SpriteCreator(1, true, true, regularFlag, flag, 2500, 3050, 0, 0, .4, .4, 0, 0, null, null, null, null, 3),
-  new SpriteCreator(2, true, true, regularFlag, flag, 200, 1250, 0, 0, .4, .4, 0, 0, null, null, null, null, 2),
-  new SpriteCreator(3, true, true, regularFlag, flag, 1700, 1400, 0, 0, .4, .4, 0, 0, null, null, null, null, 0),
+  new SpriteCreator(0, true, true, flagRegular, flag, 600, 3050, 0, 0, .4, .4, 0, 0, null, null, null, null, 1),
+  new SpriteCreator(1, true, true, flagRegular, flag, 2500, 3050, 0, 0, .4, .4, 0, 0, null, null, null, null, 3),
+  new SpriteCreator(2, true, true, flagRegular, flag, 200, 1250, 0, 0, .4, .4, 0, 0, null, null, null, null, 2),
+  new SpriteCreator(3, true, true, flagRegular, flag, 1700, 1400, 0, 0, .4, .4, 0, 0, null, null, null, null, 0),
 ]
 
 //Push Level 1 Into World Class Array
@@ -735,12 +736,12 @@ level_2.fallingSpikes = [
 
 //Flag Spawn
 level_2.flagSpawn = [
-  new SpriteCreator(0, true, true, regularFlag, flag, 4550, 650, 0, 0, .4, .4, 0, 0, null, null, null, null, 3),
-  new SpriteCreator(1, true, true, regularFlag, flag, 220, 250, 0, 0, .4, .4, 0, 0, 1, 1, 9, null, 2),
+  new SpriteCreator(0, true, true, flagRegular, flag, 4550, 650, 0, 0, .4, .4, 0, 0, null, null, null, null, 3),
+  new SpriteCreator(1, true, true, flagSpecial, flag, 220, 250, 0, 0, .4, .4, 0, 0, 1, 1, 9, null, 2),
   ///Middle FLag
-  new SpriteCreator(2, true, true, regularFlag, flag, 1600, 620, 0, 0, .4, .4, 0, 0, null, null, null, null, 1),
+  new SpriteCreator(2, true, true, flagRegular, flag, 1600, 620, 0, 0, .4, .4, 0, 0, null, null, null, null, 1),
   //Test
-  // new SpriteCreator(1, true, true, regularFlag, flag, 4600, 650, 0, 0, .4, .4, 0, 0, 1, 1, 9, null, 2),
+  // new SpriteCreator(1, true, true, flagRegular, flag, 4600, 650, 0, 0, .4, .4, 0, 0, 1, 1, 9, null, 2),
 ]
 
 //Text Creator (Helpful Hints)
@@ -752,7 +753,7 @@ level_2.text = [
   //Camera Mode
   new textCreator(2, 2400, 400, "Learn How to Do the Free-Look Shot\n\nBullets Are Killed Off Screen\n\nFollow The Bullet\n\nPress 4 For Free Look (WASD Movement)", 'Courier New', 25, '#000000', 'bold'),
   //Phase Wall
-  new textCreator(3, 400, 400, "These Orange Walls Are Killed\n\nBy Enemy Bullets\n\nOh Yeah Falling Spikes Kill You Too", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(3, 400, 400, "These Orange Walls Are Killed\n\nBy Enemy Bullets\n\nThat Falling Red Thing Kills You", 'Courier New', 25, '#000000', 'bold'),
 ];
 
 //Push Level 2 Into World Class Array
