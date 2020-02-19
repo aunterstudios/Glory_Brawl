@@ -227,8 +227,8 @@ brawl.game.prototype.ledgeSpawn = function (sprite) {
     else if (sprite.name === surf) {
         this.ledgeX.tint = Phaser.Color.AQUA;
     }
-    this.ledgeX.velocityVsWallX = 50;
-    this.ledgeX.velocityVsWallY = 50;
+    this.ledgeX.velocityVsWallX = 30;
+    this.ledgeX.velocityVsWallY = 30;
     this.ledgeX.anchor.setTo(.5);
     this.ledgeX.scale.setTo(.4); //.4
     //////////////Immovable Testing//////////////
@@ -237,7 +237,7 @@ brawl.game.prototype.ledgeSpawn = function (sprite) {
     this.ledgeX.body.mass = 20;
     this.ledgeX.body.maxVelocity.setTo(1000);
     this.ledgeX.body.collideWorldBounds = true;
-    this.ledgeX.body.bounce.setTo(1);
+    this.ledgeX.body.bounce.setTo(.5);
     this.ledgeX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
 };
 
@@ -250,14 +250,14 @@ brawl.game.prototype.enemySpawn = function (sprite) {
     this.trumpX.specialWorld = sprite.specialWorld;
     this.trumpX.specialArray = sprite.specialArray;
     this.trumpX.positionInArray = sprite.positionInArray;
-    this.trumpX.velocityVsWallX = 50;
-    this.trumpX.velocityVsWallY = 50;
+    this.trumpX.velocityVsWallX = 30;
+    this.trumpX.velocityVsWallY = 30;
     this.trumpX.anchor.setTo(.5);
     this.trumpX.scale.setTo(.6);
     this.trumpX.body.mass = 20;
     this.trumpX.body.maxVelocity.setTo(300);
     this.trumpX.body.collideWorldBounds = true;
-    this.trumpX.body.bounce.setTo(1);
+    this.trumpX.body.bounce.setTo(.5);
     this.trumpX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
 };
 brawl.game.prototype.ballSpawn = function (sprite) {
@@ -269,15 +269,15 @@ brawl.game.prototype.ballSpawn = function (sprite) {
     this.ballX.specialWorld = sprite.specialWorld;
     this.ballX.specialArray = sprite.specialArray;
     this.ballX.positionInArray = sprite.positionInArray;
-    this.ballX.velocityVsWallX = 50;
-    this.ballX.velocityVsWallY = 50;
+    this.ballX.velocityVsWallX = 30;
+    this.ballX.velocityVsWallY = 30;
     this.ballX.anchor.setTo(.5);
     this.ballX.scale.setTo(.5); //.5
     this.ballX.body.setCircle(50);
     this.ballX.body.mass = 20;
     this.ballX.body.maxVelocity.setTo(300);
     this.ballX.body.collideWorldBounds = true;
-    this.ballX.body.bounce.setTo(1.0);
+    this.ballX.body.bounce.setTo(.5);
     this.ballX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
 };
 /////////////////////////////////Falling Spikes///////////////////////////

@@ -299,16 +299,16 @@ brawl.game.prototype.playerBall = function (player, ball) {
     /////////////////////GOOOFY///////////////
     ball.body.stop();
     if (ball.body.touching.up) {
-        ball.body.velocity.y = 100;
+        ball.body.velocity.y = 75;
     }
     if (ball.body.touching.down) {
-        ball.body.velocity.y = -100;
+        ball.body.velocity.y = -75;
     }
     if (ball.body.touching.left) {
-        ball.body.velocity.x = 100;
+        ball.body.velocity.x = 75;
     }
     if (ball.body.touching.right) {
-        ball.body.velocity.x = -100;
+        ball.body.velocity.x = -75;
     }
     //   //////////////Control////////////
     //   // if (ball.body.touching.up) {
@@ -329,7 +329,7 @@ brawl.game.prototype.playerLedge = function (player, ledge) {
     if (ledge.name === elevator) {
         ledge.body.stop();
         if (ledge.body.touching.up) {
-            ledge.body.velocity.y = -200;
+            ledge.body.velocity.y = -400;
         }
         // When You're Hitting the Edge from the Sides (Right and Left)
         if (ledge.body.touching.left || ledge.body.touching.right) {
