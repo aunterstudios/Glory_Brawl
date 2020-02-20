@@ -49,7 +49,7 @@ game.state.add('controlScreen', brawl.stateControls);
 game.state.start('mainMenu');
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "MetroidVanian: Class Refactor",
+  "MetroidVanian: New Level 0",
   "Be Reborn Once Again",
   "Remember the Words",
   "GLORY BRAWL",
@@ -435,7 +435,7 @@ class MetroidvaniaCreator {
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_0.playerPosition = [
   new PlayerPositionCreator(200, 200),
-  new PlayerPositionCreator(300, 2200),
+  new PlayerPositionCreator(300, 4100),
   new PlayerPositionCreator(1250, 2000),
   new PlayerPositionCreator(2600, 600),
 ]
