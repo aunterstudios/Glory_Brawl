@@ -1,7 +1,7 @@
 //////////////////////////Creation of the World/////////////////////////////////
 brawl.game.prototype.worldCreator = function (levelGenerator) {
     /////////////////////Testing Entirety of Level/////////////////
-    // console.log(levelGenerator);
+    console.log(levelGenerator);
     ////////////////////Adding Player//////////////////////
     this.player = this.game.add.sprite(levelGenerator.playerPosition[this.indexOfPlayerPosition].x, levelGenerator.playerPosition[this.indexOfPlayerPosition].y, 'player');
     this.game.physics.arcade.enable(this.player); //enables physics for player
@@ -142,7 +142,9 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     ////////////////////////Text Generation///////////////////////////
     if ('text' in levelGenerator) {
         for (var i = 0; i < levelGenerator.text.length; i++) {
-            this.textCreator(levelGenerator.text[i]);
+            if (levelGenerator.text[i].trigger) {
+                this.textCreator(levelGenerator.text[i]);
+            }
         }
     }
 
@@ -204,10 +206,28 @@ brawl.game.prototype.respawn = function (player, flag) {
     respawnHolder.indexOfCurrentWorld = this.indexOfCurrentWorld;
     respawnHolder.indexOfPlayerPosition = flag.indexOfPlayerPosition;
     respawnHolder.metroidvania = this.metroidvania;
-    if (flag.specialCondition === 1) {
-        ///////////////Why did I make it so that the flag won't respawn Ever? There was a Reason///////////
-        // worldClassLevels[this.indexOfCurrentWorld].flagSpawn[flag.positionInArray].trigger = false;
-        //Destruction of a sprite at a different level
-        worldClassLevels[flag.specialWorld].immovableWallSpawn[flag.specialArray].trigger = false;
+    ///////////////////The Double Loops of Death//////////////////
+    if (flag.specialHandler) {
+        if ('undeniableDeathRemove' in flag.specialHandler) {
+            for (var i = 0; i<flag.specialHandler.specialWorld.length; i++) {
+                for (var j = 0; j<flag.specialHandler.undeniableDeathRemove[i].length; j++) {
+                    worldClassLevels[flag.specialHandler.specialWorld[i]].undeniableDeathSpawn[flag.specialHandler.undeniableDeathRemove[i][j]].trigger = false;
+                }
+            }
+        }
+        if ('textInsert' in flag.specialHandler) {
+            for (var i = 0; i<flag.specialHandler.specialWorld.length; i++) {
+                for (var j = 0; j<flag.specialHandler.textInsert[i].length; j++) {
+                    worldClassLevels[flag.specialHandler.specialWorld[i]].text[flag.specialHandler.textInsert[i][j]].trigger = true;
+                }
+            }
+        }
+        if ('textRemove' in flag.specialHandler) {
+            for (var i = 0; i<flag.specialHandler.specialWorld.length; i++) {
+                for (var j = 0; j<flag.specialHandler.textRemove[i].length; j++) {
+                    worldClassLevels[flag.specialHandler.specialWorld[i]].text[flag.specialHandler.textRemove[i][j]].trigger = false;
+                }
+            }
+        }
     }
 };

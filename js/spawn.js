@@ -59,8 +59,6 @@ brawl.game.prototype.undeniableDeathSpawn = function (sprite) {
         this.deathX.groupName = groupSpikes;
     }
     this.deathX.specialCondition = sprite.specialCondition;
-    this.deathX.specialWorld = sprite.specialWorld;
-    this.deathX.specialArray = sprite.specialArray;
     this.deathX.positionInArray = sprite.positionInArray;
     // this.deathX.tint = Phaser.Color.RED;
     this.deathX.scale.setTo(sprite.sizeX, sprite.sizeY);
@@ -80,8 +78,6 @@ brawl.game.prototype.immovableWallSpawn = function (sprite) {
     this.immovableWallX.name = sprite.name;
     this.immovableWallX.groupName = groupImmovableWall;
     this.immovableWallX.specialCondition = sprite.specialCondition;
-    this.immovableWallX.specialWorld = sprite.specialWorld;
-    this.immovableWallX.specialArray = sprite.specialArray;
     this.immovableWallX.positionInArray = sprite.positionInArray;
     if (sprite.name === immovableWallPhase) {
         this.immovableWallX.tint = tintImmovableWallPhase;
@@ -121,8 +117,6 @@ brawl.game.prototype.wallSpawn = function (sprite) {
     this.wallX.name = sprite.name;
     this.wallX.groupName = groupWall;
     this.wallX.specialCondition = sprite.specialCondition;
-    this.wallX.specialWorld = sprite.specialWorld;
-    this.wallX.specialArray = sprite.specialArray;
     this.wallX.positionInArray = sprite.positionInArray;
     this.wallX.velocityVsImmovable = 100;
     //////////Enemy Walls That Are Meant to Help/////////
@@ -215,8 +209,6 @@ brawl.game.prototype.ledgeSpawn = function (sprite) {
     this.ledgeX.name = sprite.name;
     this.ledgeX.groupName = groupLedge;
     this.ledgeX.specialCondition = sprite.specialCondition;
-    this.ledgeX.specialWorld = sprite.specialWorld;
-    this.ledgeX.specialArray = sprite.specialArray;
     this.ledgeX.positionInArray = sprite.positionInArray;
     if (sprite.name === elevator) {
         this.ledgeX.tint = Phaser.Color.YELLOW;
@@ -247,8 +239,6 @@ brawl.game.prototype.enemySpawn = function (sprite) {
     this.trumpX.name = sprite.name;
     this.trumpX.groupName = groupEnemy;
     this.trumpX.specialCondition = sprite.specialCondition;
-    this.trumpX.specialWorld = sprite.specialWorld;
-    this.trumpX.specialArray = sprite.specialArray;
     this.trumpX.positionInArray = sprite.positionInArray;
     this.trumpX.velocityVsWallX = 30;
     this.trumpX.velocityVsWallY = 30;
@@ -266,14 +256,12 @@ brawl.game.prototype.ballSpawn = function (sprite) {
     this.ballX.name = sprite.name;
     this.ballX.groupName = groupBall;
     this.ballX.specialCondition = sprite.specialCondition;
-    this.ballX.specialWorld = sprite.specialWorld;
-    this.ballX.specialArray = sprite.specialArray;
     this.ballX.positionInArray = sprite.positionInArray;
     this.ballX.velocityVsWallX = 30;
     this.ballX.velocityVsWallY = 30;
     this.ballX.anchor.setTo(.5);
     this.ballX.scale.setTo(.5); //.5
-    // this.ballX.body.setCircle(50);
+    // this.ballX.body.setCircle(50); //Maybe Change
     this.ballX.body.mass = 20;
     this.ballX.body.maxVelocity.setTo(300);
     this.ballX.body.collideWorldBounds = true;
@@ -284,8 +272,6 @@ brawl.game.prototype.ballSpawn = function (sprite) {
 brawl.game.prototype.spikeFall = function (sprite) {
     this.spikesFall = this.fallingSpikes.getFirstDead(true, sprite.x, sprite.y, 'spikeFall');
     this.spikesFall.specialCondition = sprite.specialCondition;
-    this.spikesFall.specialWorld = sprite.specialWorld;
-    this.spikesFall.specialArray = sprite.specialArray;
     this.spikesFall.positionInArray = sprite.positionInArray;
     this.spikesFall.name = sprite.name
     this.spikesFall.anchor.setTo(.5);
@@ -299,10 +285,7 @@ brawl.game.prototype.spikeFall = function (sprite) {
 brawl.game.prototype.flagSpawn = function (sprite) {
     this.flagX = this.flag.create(sprite.x, sprite.y, sprite.art);
     this.flagX.name = sprite.name;
-    this.flagX.specialCondition = sprite.specialCondition;
-    this.flagX.specialWorld = sprite.specialWorld;
-    this.flagX.specialArray = sprite.specialArray;
-    this.flagX.positionInArray = sprite.positionInArray;
+    this.flagX.specialHandler = sprite.specialHandler;
     if (sprite.name === flagSpecial) {
         this.flagX.tint = Phaser.Color.BLUE;
     }
