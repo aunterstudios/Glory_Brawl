@@ -215,6 +215,34 @@ brawl.game.prototype.respawn = function (player, flag) {
                 }
             }
         }
+        if ('immovableWallRemove' in flag.specialHandler) {
+            for (var i = 0; i<flag.specialHandler.specialWorld.length; i++) {
+                for (var j = 0; j<flag.specialHandler.immovableWallRemove[i].length; j++) {
+                    worldClassLevels[flag.specialHandler.specialWorld[i]].immovableWallSpawn[flag.specialHandler.immovableWallRemove[i][j]].trigger = false;
+                }
+            }
+        }
+        if ('enemyRemove' in flag.specialHandler) {
+            for (var i = 0; i<flag.specialHandler.specialWorld.length; i++) {
+                for (var j = 0; j<flag.specialHandler.enemyRemove[i].length; j++) {
+                    worldClassLevels[flag.specialHandler.specialWorld[i]].enemySpawn[flag.specialHandler.enemyRemove[i][j]].trigger = false;
+                }
+            }
+        }
+        if ('enemyInsert' in flag.specialHandler) {
+            for (var i = 0; i<flag.specialHandler.specialWorld.length; i++) {
+                for (var j = 0; j<flag.specialHandler.enemyInsert[i].length; j++) {
+                    worldClassLevels[flag.specialHandler.specialWorld[i]].enemySpawn[flag.specialHandler.enemyInsert[i][j]].trigger = true;
+                }
+            }
+        }
+        if ('fallingSpikesInsert' in flag.specialHandler) {
+            for (var i = 0; i<flag.specialHandler.specialWorld.length; i++) {
+                for (var j = 0; j<flag.specialHandler.fallingSpikesInsert[i].length; j++) {
+                    worldClassLevels[flag.specialHandler.specialWorld[i]].fallingSpikes[flag.specialHandler.fallingSpikesInsert[i][j]].trigger = true;
+                }
+            }
+        }
         if ('textInsert' in flag.specialHandler) {
             for (var i = 0; i<flag.specialHandler.specialWorld.length; i++) {
                 for (var j = 0; j<flag.specialHandler.textInsert[i].length; j++) {

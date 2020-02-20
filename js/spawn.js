@@ -240,14 +240,14 @@ brawl.game.prototype.enemySpawn = function (sprite) {
     this.trumpX.groupName = groupEnemy;
     this.trumpX.specialCondition = sprite.specialCondition;
     this.trumpX.positionInArray = sprite.positionInArray;
-    this.trumpX.velocityVsWallX = 30;
-    this.trumpX.velocityVsWallY = 30;
+    this.trumpX.velocityVsWallX = 150;
+    this.trumpX.velocityVsWallY = 150;
     this.trumpX.anchor.setTo(.5);
     this.trumpX.scale.setTo(.6);
     this.trumpX.body.mass = 20;
     this.trumpX.body.maxVelocity.setTo(300);
     this.trumpX.body.collideWorldBounds = true;
-    this.trumpX.body.bounce.setTo(.5);
+    this.trumpX.body.bounce.setTo(1.0);
     this.trumpX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
 };
 brawl.game.prototype.ballSpawn = function (sprite) {

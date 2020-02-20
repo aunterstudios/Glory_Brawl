@@ -415,7 +415,22 @@ var tintWallBlackHeavy = 16580675.642526744;
 var tintWallBlackCloud = 9971694.877510935;
 
 ///////////////////////////////////////////Level 0///////////////////////////////////////////////////////////
-var level_0 = new LevelCreator("Level 0-CL", 3800, 2400, new MetroidvaniaCreator(1, 100, 0, 2400, 0, 1, 0, 2800), "#ffffff");
+var level_0 = new LevelCreator("Level 0-CL", 3800, 4200, new MetroidvaniaCreator(1, 100, 0, 4200, 0, 1, 0, 3800), "#ffffff");
+/*
+///Creates Room Switching
+class MetroidvaniaCreator {
+  constructor(roomUpIndex, roomUpValue, roomDownIndex, roomDownValue, roomLeftIndex, roomLeftValue, roomRightIndex, roomRightValue) {
+    this.roomUpIndex = roomUpIndex;
+    this.roomUpValue = roomUpValue
+    this.roomDownIndex = roomDownIndex;
+    this.roomDownValue = roomDownValue;
+    this.roomLeftIndex = roomLeftIndex;
+    this.roomLeftValue = roomLeftValue;
+    this.roomRightIndex = roomRightIndex;
+    this.roomRightValue = roomRightValue;
+  }
+};
+*/
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_0.playerPosition = [
@@ -442,7 +457,7 @@ level_0.undeniableDeathSpawn = [
 /////////////////////////Creation of ImmovableWalls
 level_0.immovableWallSpawn = [
   //Ground
-  new SpriteCreator(0, true, true, immovableWallRegular, immovableWallHorizontal, 0, 2400, 0, 0, 4.463, .5, 0, 0, null, null),
+  new SpriteCreator(0, true, true, immovableWallRegular, immovableWallHorizontal, 0, 4200, 0, 0, 4.463, .5, 0, 0, null, null),
   //Practice Jump Levels
   new SpriteCreator(1, true, true, immovableWallRegular, immovableWallVertical, 700, 2210, 0, 0, .4, .15, 0, 0, null, null),
   new SpriteCreator(2, true, true, immovableWallRegular, immovableWallVertical, 1700, 1910, 0, 0, .5, .5, 0, 0, null, null),
@@ -659,8 +674,10 @@ level_1.text = [
   new textCreator(8, true, 80, 200, "Press 3 to Access Kill Gun\n\nAny Object that is Moveable can be Killed", 'Courier New', 25, '#000000', 'bold'),
   //These Kill Walls
   //////////////////////////////////Triggering After Special Flag in Level 2 is Reached/////////////////////////////
-  new textCreator(9, false, 650, 800, "Properties of Objects Can Be Changed\n\nDepending What Hits It\n\nGet The Ball to the Spikes", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(9, false, 650, 700, "Properties of Objects Can Be Changed\n\nDepending What Hits It\n\nGet The Ball to the Spikes\n\nWith This New Wall(Jump and Shoot)", 'Courier New', 25, '#000000', 'bold'),
   new textCreator(10, false, 80, 200, "Trying Using the Pull Gun\n\nOn The Walls Next Time", 'Courier New', 25, '#000000', 'bold'),
+  /////////////////////////////////Adding New Things////////////////////////////
+  new textCreator(11, true, 1700, 1300, "You Can Surf On Top of Surfaces", 'Courier New', 25, '#000000', 'bold'),
 ];
 //650, 1300
 level_1.flagSpawn = [
@@ -750,14 +767,33 @@ level_2.enemySpawn = [
   new SpriteCreator(8, true, true, enemyRegular, enemyOne, 1000, 650, 0, 0, .5, .5, 0, 0, null, null),
   //Last Enemy
   new SpriteCreator(9, true, true, enemyRegular, enemyOne, 600, 600, 0, 0, .5, .5, 0, 0, null, null),
+  /////////////////////////////////Shadow Level//////////////////////////////////
+  //Up and Down Enemies
+  new SpriteCreator(10, false, true, enemyRegular, enemyOne, 800, 50, 0, 200, .5, .5, 0, 0, null, null),
+  new SpriteCreator(11, false, true, enemyRegular, enemyOne, 1000, 50, 0, 200, .5, .5, 0, 0, null, null),
+  new SpriteCreator(12, false, true, enemyRegular, enemyOne, 1200, 50, 0, 200, .5, .5, 0, 0, null, null),
+  //Blocking the Little Hole
+  new SpriteCreator(13, false, true, enemyRegular, enemyOne, 3200, 100, 0, 200, .5, .5, 0, 0, null, null),
+  //First Enemy of the Shadow Level You'll Encounter
+  new SpriteCreator(14, false, true, enemyRegular, enemyOne, 600, 600, 0, 200, .5, .5, 0, 0, null, null),
+  //First or Last Enemies
+  new SpriteCreator(15, false, true, enemyRegular, enemyOne, 4300, 400, 200, 0, .5, .5, 0, 0, null, null),
+  new SpriteCreator(16, false, true, enemyRegular, enemyOne, 4500, 400, 200, 0, .5, .5, 0, 0, null, null),
+  new SpriteCreator(17, false, true, enemyRegular, enemyOne, 4700, 400, 200, 0, .5, .5, 0, 0, null, null),
+  //New Up and Down Enemy
+  new SpriteCreator(18, false, true, enemyRegular, enemyOne, 1400, 50, 0, 200, .5, .5, 0, 0, null, null),
 ];
 
 //Falling Spikes
 level_2.fallingSpikes = [
   new SpriteCreator(0, true, true, spikeRegular, spikeFall, 475, 50, null, null, .4, .4, 0, 500, null, 3),
+  /////////////////////////////////////Shadow Level////////////////////////////////////////////
+  new SpriteCreator(1, false, true, spikeRegular, spikeFall, 2100, 50, null, null, .4, .4, 0, 500, null, 3),
+  new SpriteCreator(2, false, true, spikeRegular, spikeFall, 2300, 50, null, null, .4, .4, 0, 500, null, 4),
+  new SpriteCreator(3, false, true, spikeRegular, spikeFall, 2500, 50, null, null, .4, .4, 0, 500, null, 5),
 ];
 
-// Special Handler For Changing Conditions
+// Special Handler For Changing Conditions of Levels
 var flagSpecial_Level2 = {
   storyTrigger: {
     page: 0,
@@ -765,7 +801,11 @@ var flagSpecial_Level2 = {
     backgroundColor: "#000000",
   },
   specialWorld: [1, 2],
-  undeniableDeathRemove: [[10]],
+  // undeniableDeathRemove: [[10], []],
+  immovableWallRemove: [[9], []],
+  enemyInsert: [[], [10, 11, 12, 13, 14, 15, 16, 17, 18]],
+  enemyRemove: [[], [0, 1, 2, 5, 6, 7, 8, 9]],
+  fallingSpikesInsert: [[], [1, 2, 3]],
   textInsert: [[9, 10], [4, 5, 6, 7]],
   textRemove: [[8], [0, 1, 2, 3]],
 };
@@ -787,11 +827,20 @@ level_2.text = [
   //Entry to Level 1
   new textCreator(0, true, 4650, 650, "Level 1 →", 'Courier New', 25, '#000000', 'bold'),
   //WolfGang Kill Them
-  new textCreator(1, true, 4250, 450, "Kill Them Before They Kill You", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(1, true, 4250, 450, "Kill Them Before They Kill You\nYou Can Move Them Too", 'Courier New', 25, '#000000', 'bold'),
   //Camera Mode
   new textCreator(2, true, 2400, 400, "Learn How to Do the Free-Look Shot\n\nBullets Are Killed Off Screen\n\nFollow The Bullet\n\nPress 4 For Free Look (WASD Movement)", 'Courier New', 25, '#000000', 'bold'),
   //Phase Wall
   new textCreator(3, true, 400, 400, "These Orange Walls Are Killed\n\nBy Enemy Bullets\n\nThat Falling Red Thing Kills You", 'Courier New', 25, '#000000', 'bold'),
+  ////////////////////////////////////Shadow Level//////////////////////////////////
+  //Entry to Level 1
+  new textCreator(4, false, 4650, 650, "Level 1 →", 'Courier New', 25, '#ff0000', 'bold'),
+  //WolfGang Kill Them
+  new textCreator(5, false, 4250, 450, "I'll Always Be With You", 'Courier New', 25, '#ff0000', 'bold'),
+  //Camera Mode
+  new textCreator(6, false, 2200, 400, "Feel My Wrath", 'Courier New', 25, '#ff0000', 'bold'),
+  //Phase Wall
+  new textCreator(7, false, 400, 400, "This is A Level of the Shadow", 'Courier New', 25, '#ff0000', 'bold'),
 ];
 
 //Push Level 2 Into World Class Array
