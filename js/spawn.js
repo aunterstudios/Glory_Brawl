@@ -259,6 +259,7 @@ brawl.game.prototype.ballSpawn = function (sprite) {
     this.ballX.positionInArray = sprite.positionInArray;
     this.ballX.velocityVsWallX = 30;
     this.ballX.velocityVsWallY = 30;
+    this.ballX.tint = Phaser.Color.BLUE;
     this.ballX.anchor.setTo(.5);
     this.ballX.scale.setTo(.5); //.5
     // this.ballX.body.setCircle(50); //Maybe Change
