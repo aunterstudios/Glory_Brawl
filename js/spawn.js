@@ -287,7 +287,7 @@ brawl.game.prototype.flagSpawn = function (sprite) {
     this.flagX.name = sprite.name;
     this.flagX.specialHandler = sprite.specialHandler;
     if (sprite.name === flagSpecial) {
-        this.flagX.tint = Phaser.Color.BLUE;
+        this.flagX.tint = Phaser.Color.AQUA;
     }
     //this.flagX.scale(sprite.sizeX,sprite.sizeY);
     this.flagX.body.mass = 1;

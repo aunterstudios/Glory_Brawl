@@ -1,7 +1,7 @@
 //////////////////////////Creation of the World/////////////////////////////////
 brawl.game.prototype.worldCreator = function (levelGenerator) {
     /////////////////////Testing Entirety of Level/////////////////
-    console.log(levelGenerator);
+    // console.log(levelGenerator);
     ////////////////////Adding Player//////////////////////
     this.player = this.game.add.sprite(levelGenerator.playerPosition[this.indexOfPlayerPosition].x, levelGenerator.playerPosition[this.indexOfPlayerPosition].y, 'player');
     this.game.physics.arcade.enable(this.player); //enables physics for player
@@ -228,6 +228,10 @@ brawl.game.prototype.respawn = function (player, flag) {
                     worldClassLevels[flag.specialHandler.specialWorld[i]].text[flag.specialHandler.textRemove[i][j]].trigger = false;
                 }
             }
+        }
+        if ('storyTrigger' in flag.specialHandler) {
+            worldClassLevels[flag.specialHandler.storyTrigger.level].backgroundColor = flag.specialHandler.storyTrigger.backgroundColor;
+            this.game.state.start('story', true, false, respawnHolder.indexOfCurrentWorld, respawnHolder.indexOfPlayerPosition, respawnHolder.metroidvania, flag.specialHandler.storyTrigger.page);
         }
     }
 };

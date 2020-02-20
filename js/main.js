@@ -43,6 +43,7 @@ var game = new Phaser.Game(1400, 800, Phaser.CANVAS);
 game.state.add('mainMenu', brawl.state1);
 game.state.add('deathState', brawl.state2);
 game.state.add('game', brawl.game);
+game.state.add('story', brawl.story);
 game.state.add('controlScreen', brawl.stateControls);
 //////////////////////////////////////////////////Starting States//////////////////////////////////////////////
 game.state.start('mainMenu');
@@ -52,7 +53,7 @@ var content = [
   "Be Reborn Once Again",
   "Remember the Words",
   "GLORY BRAWL",
-  "SEAN TESTING"
+  "Pat Kiriyanthin You Suck At This Game!"
 ];
 
 var line = [];
@@ -578,7 +579,7 @@ level_1.immovableWallSpawn = [
   //Vertical Wall Connector to Level 0
   new SpriteCreator(1, true, true, immovableWallRegular, immovableWallVertical, 0, 2772, 0, 0, .5, .5, 0, 0, null, null),
   //Mini Box (First Instance of Immovable Wall Destroying Regular Wall)
-  new SpriteCreator(2, true, true, immovableWallKillWall, immovableWallVertical, 1062.5, 2600, 0, 0, .3, .05, 0, 0, null, null),
+  new SpriteCreator(2, true, true, immovableWallRegular, immovableWallVertical, 1062.5, 2600, 0, 0, .3, .05, 0, 0, null, null),
   //Top of First Grey Ledge
   new SpriteCreator(3, true, true, immovableWallRegular, immovableWallHorizontal, 430, 1690, 0, 0, 1.17, .5, 0, 0, null, null),
   //End of Grey Ledge
@@ -657,10 +658,9 @@ level_1.text = [
   //Kill Instructions
   new textCreator(8, true, 80, 200, "Press 3 to Access Kill Gun\n\nAny Object that is Moveable can be Killed", 'Courier New', 25, '#000000', 'bold'),
   //These Kill Walls
-  new textCreator(9, true, 150, 2600, "These Kill Walls", 'Courier New', 25, '#000000', 'bold'),
   //////////////////////////////////Triggering After Special Flag in Level 2 is Reached/////////////////////////////
-  new textCreator(10, false, 650, 800, "Properties of Objects Can Be Changed\n\nDepending What Hits It\n\nGet The Ball to the Spikes", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(11, false, 80, 200, "Trying Using the Pull Gun\n\nOn The Walls Next Time", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(9, false, 650, 800, "Properties of Objects Can Be Changed\n\nDepending What Hits It\n\nGet The Ball to the Spikes", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(10, false, 80, 200, "Trying Using the Pull Gun\n\nOn The Walls Next Time", 'Courier New', 25, '#000000', 'bold'),
 ];
 //650, 1300
 level_1.flagSpawn = [
@@ -759,20 +759,25 @@ level_2.fallingSpikes = [
 
 // Special Handler For Changing Conditions
 var flagSpecial_Level2 = {
-  storyTrigger: 0,
-  specialWorld: [1],
+  storyTrigger: {
+    page: 0,
+    level: 2,
+    backgroundColor: "#000000",
+  },
+  specialWorld: [1, 2],
   undeniableDeathRemove: [[10]],
-  textInsert: [[10, 11]],
-  textRemove: [[8]],
+  textInsert: [[9, 10], [4, 5, 6, 7]],
+  textRemove: [[8], [0, 1, 2, 3]],
 };
 
 //Flag Spawn
 level_2.flagSpawn = [
+  //First Flag from Level 1;
   new flagCreator(3, true, flagRegular, flag, 4550, 650, 0, 0, .4, .4, 0, 0, null),
-  //Special Flag
+  //Special Flag At The ENd
   new flagCreator(2, true, flagSpecial, flag, 220, 250, 0, 0, .4, .4, 0, 0, flagSpecial_Level2),
   //Testing For Special Properties
-  // new flagCreator(2, true, flagSpecial, flag, 4550, 650, 0, 0, .4, .4, 0, 0, flagSpecial_Level2),
+  // new flagCreator(3, true, flagSpecial, flag, 4550, 650, 0, 0, .4, .4, 0, 0, flagSpecial_Level2),
   ///Middle FLag
   new flagCreator(1, true, flagRegular, flag, 1600, 620, 0, 0, .4, .4, 0, 0, null),
 ];
