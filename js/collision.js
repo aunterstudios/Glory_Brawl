@@ -243,6 +243,8 @@ brawl.game.prototype.playerImmovable = function (player, immovable) {
 brawl.game.prototype.playerWall = function (player, wall) {
     if (wall.name === wallRegular || wall.name === wallFrozen) {
         wall.name = wallRegular;
+        // player.body.velocity.y = 0;
+        // wall.body.velocity.y += player.body.velocity.y;
         wall.body.moves = true;
         wall.tint = tintRemover;
         wall.body.immovable = false;
@@ -267,19 +269,8 @@ brawl.game.prototype.playerWall = function (player, wall) {
         }
     }
     if (wall.name === wallHeavy) {
-        wall.body.stop();
-        if (player.body.touching.up) {
-            wall.body.velocity.y = -5;
-        }
-        if (player.body.touching.down) {
-            wall.body.velocity.y = 5;
-        }
-        if (player.body.touching.left) {
-            wall.body.velocity.x = -5;
-        }
-        if (player.body.touching.right) {
-            wall.body.velocity.x = 5;
-        }
+        player.body.velocity.y = 0;
+        wall.body.velocity.y += player.body.velocity.y;
     }
     if (wall.name === wallCloud) {
         //Control

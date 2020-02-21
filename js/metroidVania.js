@@ -193,7 +193,7 @@ brawl.game.prototype.playerOut = function (player) {
 brawl.game.prototype.deathState = function (victim, killer) {
     victim.kill();
     this.emitterFunction(victim);
-    this.game.time.events.add(2000, this.deathSwitch, this);
+    this.game.time.events.add(1000, this.deathSwitch, this);
     // this.game.state.start('deathState', true, false, respawnHolder.indexOfCurrentWorld, respawnHolder.indexOfPlayerPosition, respawnHolder.metroidvania);
 };
 //State Switch

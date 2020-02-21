@@ -53,7 +53,7 @@ var content = [
   "Be Reborn Once Again",
   "Remember the Words",
   "GLORY BRAWL",
-  "Pat Kiriyanthin You Suck At This Game!"
+  "MS"
 ];
 
 var line = [];
@@ -130,15 +130,16 @@ var livingEnemies = [];
 var enemyBulletTime = 0;
 
 /////////////////////////Player Attributes/////////////////////////(Can Be Used For Later Things)
-var playerSpeed = 400;
-var playerJump = -500;
-var playerWallJumpX = 1000;
-var playerWallJumpY = 500;
-var playerStickiness = 100;
-var playerSlippery = 15;
-var playerUpsideDownVelocity = -100;
-var playerUpsideDownMovement = 100;
-var playerDownwards = 500;
+//Remember All These Things Are changed in the Init Function of game.js
+var playerSpeed;
+var playerJump;
+var playerWallJumpX;
+var playerWallJumpY;
+var playerStickiness;
+var playerSlippery;
+var playerUpsideDownVelocity;
+var playerUpsideDownMovement;
+var playerDownwards;
 
 /////////////////////////Weapon Attributes////////////
 var weaponFireRate = 500;
@@ -472,9 +473,9 @@ level_0.immovableWallSpawn = [
   //Last Fast Climb Tutorial
   new SpriteCreator(4, true, true, immovableWallRegular, immovableWallVertical, 1200, 2900, 0, 0, .5, .5, 0, 0, null, null),
   //Teach You How to Slide Down
-  new SpriteCreator(5, true, true, immovableWallRegular, immovableWallHorizontal, 837, 3335, 0, 0, .5, .5, 0, 0, null, null),
+  new SpriteCreator(5, true, true, immovableWallRegular, immovableWallHorizontal, 45, 3335, 0, 0, 1.44, .5, 0, 0, null, null),
   //First Mini Wall Before Explaining How to Side Ways Jump from the Wall
-  new SpriteCreator(6, true, true, immovableWallRegular, immovableWallVertical, 500, 3200, 0, 0, .3, .05, 0, 0, null, null),
+  new SpriteCreator(6, false, true, immovableWallRegular, immovableWallVertical, 500, 3200, 0, 0, .3, .05, 0, 0, null, null),
   //Sideways Jump
   new SpriteCreator(7, true, true, immovableWallRegular, immovableWallVertical, 0, 2800, 0, 0, .5, .5, 0, 0, null, null),
   //Sideways Jump This!
@@ -484,15 +485,15 @@ level_0.immovableWallSpawn = [
   //Landing Pad of the Check Point and Dislodge
   new SpriteCreator(10, true, true, immovableWallRegular, immovableWallHorizontal, 950, 2100, 0, 0, 1, .5, 0, 0, null, null),
   //Mini Walls After Launch Pad
-  new SpriteCreator(11, true, true, immovableWallRegular, immovableWallVertical, 2100, 2400, 0, 0, .3, .1, 0, 0, null, null),
-  new SpriteCreator(12, true, true, immovableWallRegular, immovableWallVertical, 2500, 2600, 0, 0, .3, .1, 0, 0, null, null),
-  new SpriteCreator(13, true, true, immovableWallRegular, immovableWallVertical, 3000, 2500, 0, 0, .3, .1, 0, 0, null, null),
-  new SpriteCreator(14, true, true, immovableWallRegular, immovableWallVertical, 3300, 2300, 0, 0, .3, .1, 0, 0, null, null),
+  new SpriteCreator(11, true, true, immovableWallRegular, immovableWallVertical, 2100, 2400, 0, 0, .4, .2, 0, 0, null, null),
+  new SpriteCreator(12, true, true, immovableWallRegular, immovableWallVertical, 2500, 2600, 0, 0, .4, .2, 0, 0, null, null),
+  new SpriteCreator(13, true, true, immovableWallRegular, immovableWallVertical, 3000, 2500, 0, 0, .4, .2, 0, 0, null, null),
+  new SpriteCreator(14, true, true, immovableWallRegular, immovableWallVertical, 3300, 2300, 0, 0, .4, .2, 0, 0, null, null),
   //Upside Down Mini-Wall
-  new SpriteCreator(15, true, true, immovableWallRegular, immovableWallVertical, 3300, 2075, 0, 0, .3, .05, 0, 0, null, null),
+  new SpriteCreator(15, true, true, immovableWallRegular, immovableWallVertical, 3300, 2075, 0, 0, .4, .1, 0, 0, null, null),
   //Mini Walls Part Two After Upside Down
-  new SpriteCreator(16, true, true, immovableWallRegular, immovableWallVertical, 3300, 2075, 0, 0, .3, .05, 0, 0, null, null),
-  new SpriteCreator(17, true, true, immovableWallRegular, immovableWallVertical, 3000, 1900, 0, 0, .3, .05, 0, 0, null, null),
+  new SpriteCreator(16, true, true, immovableWallRegular, immovableWallVertical, 3300, 2075, 0, 0, .3, .1, 0, 0, null, null),
+  new SpriteCreator(17, true, true, immovableWallRegular, immovableWallVertical, 3000, 1900, 0, 0, .3, .1, 0, 0, null, null),
   //NOT MINI-WALL BUT TO TEACH YOU HOW TO DO OG SIDEWAYS JUMP SEAN MOODY
   new SpriteCreator(18, true, true, immovableWallRegular, immovableWallVertical, 3300, 1450, 0, 0, .4, .4, 0, 0, null, null),
   //Tap D this time.
@@ -552,7 +553,7 @@ level_0.text = [
   new textCreator(1, true, 100, 4000, "RED IS DEATH", 'Impact', 30, "#FF0000", 'bold'),
   new textCreator(2, true, 1900, 3950, "You Automatically Stick on Surfaces\n\nWhen You Jump on It\n\nHold D While Tapping A to Fast Climb", 'Courier New', 25, '#000000', 'bold'),
   new textCreator(3, true, 1750, 3300, "This Time Hold A While Tapping D", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(4, true, 650, 3000, "While Sticking to a Side of a Wall\n\nHold S to Slide Down Faster", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(4, true, 650, 3000, "While Sticking to a Side of a Wall\n\nHold S to Slide Down", 'Courier New', 25, '#000000', 'bold'),
   new textCreator(5, true, 200, 2870, "You Can Jump Off Walls\n\nHold D and Then Double Jump", 'Courier New', 25, '#000000', 'bold'),
   new textCreator(6, true, 200, 2100, "As Long As You Touch a Surface\n\nYou Can Double Jump Again and Again\n\nThis is Fucking Important So Remember It", 'Courier New', 25, '#000000', 'bold'),
   new textCreator(6, true, 150, 2500, "This Time Hold A\n\nThen Double Jump", 'Courier New', 25, '#000000', 'bold'),
@@ -562,7 +563,7 @@ level_0.text = [
   ////////////////////////////New Text//////////////////////
   new textCreator(9, true, 1200, 3800, "Double Jump to the Top of the Wall", 'Courier New', 25, '#000000', 'bold'),
   new textCreator(10, true, 1000, 1600, "Press S to Dislodge Yourself\n\nHolding S While Falling\n\nSlows Down Your Fall", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(11, true, 1300, 2000, "Checkpoint", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(11, true, 1300, 1800, "Checkpoint\n\nPress 4 to Toggle Free-Look\n\n(WASD Movement)", 'Courier New', 25, '#000000', 'bold'),
   new textCreator(12, true, 1900, 1900, "You Can Control Your Movement in the Air\n\nAnd Remember You Can Fucking\n\nDouble Jump Again\n\nOnce You Hit A Surface", 'Courier New', 25, '#000000', 'bold'),
   new textCreator(13, true, 2800, 3600, "We've Done This Countless of Times\n\nThe Same Thing Over and Over Again\n\nTrying to Become Reborn\n\nJust Remember the Words\n\n\nGLORY BRAWL ", 'Courier New', 25, '#000000', 'bold'),
   new textCreator(14, true, 2900, 2150, "Stick to the Bottom\n\nDislodge Yourself\n\nDouble Jump to the Top", 'Courier New', 25, '#000000', 'bold'),
@@ -708,7 +709,7 @@ level_1.text = [
   //Entry to Level 0
   new textCreator(0, true, 100, 3150, "Level 0 ↓", 'Courier New', 25, '#000000', 'bold'),
   //Camera Mode
-  new textCreator(1, true, 80, 2800, "Press 4 to Toggle Free-Look(WASD to Move)", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(1, false, 80, 2800, "Press 4 to Toggle Free-Look(WASD to Move)", 'Courier New', 25, '#000000', 'bold'),
   //Grey Ledge Tutorial
   new textCreator(2, true, 850, 2300, "Pull the Yellow Ledge Towards You\n\nGet on Top of the Grey Ledge", 'Courier New', 25, '#000000', 'bold'),
   //Where to Land Grey Ledge
@@ -937,7 +938,7 @@ level_3.wallSpawn = [
   // new SpriteCreator(4, true, true, wallBlackHeavy, wallHorizontal, 800, 500, 0, 0, .4, .4, 0, 0, null, null),
   // new SpriteCreator(4, true, true, wallBlackCloud, wallHorizontal, 800, 700, 0, 0, .4, .4, 0, 0, null, null),
   //Regular Walls
-  new SpriteCreator(0, true, true, wallRegular, wallHorizontal, 400, 100, 0, 0, .4, .4, 0, 0, null, null),
+  new SpriteCreator(0, true, true, wallHeavy, wallHorizontal, 400, 100, 0, 0, .4, .4, 0, 0, null, null),
   // new SpriteCreator(1, true, true, wallGhost, wallHorizontal, 400, 300, 0, 0, .4, .4, 0, 0, null, null),
   // new SpriteCreator(2, true, true, wallFrozen, wallHorizontal, 400, 500, 0, 0, .4, .4, 0, 0, null, null),
   // new SpriteCreator(3, true, true, wallGravity, wallHorizontal, 400, 700, 0, 0, .4, .4, 0, 0, null, null),
