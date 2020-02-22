@@ -1,43 +1,43 @@
 var game = new Phaser.Game(1400, 800, Phaser.CANVAS);
 
 /////////////////////////////////////////////////Disable RightClick////////////////////////////////////
-window.onload = function() {
-  document.addEventListener("contextmenu", function(e){
-    e.preventDefault();
-  }, false);
-  document.addEventListener("keydown", function(e) {
-  //document.onkeydown = function(e) {
-    // "I" key
-    if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
-      disabledEvent(e);
-    }
-    // "J" key
-    if (e.ctrlKey && e.shiftKey && e.keyCode == 74) {
-      disabledEvent(e);
-    }
-    // "S" key + macOS
-    if (e.keyCode == 83 && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
-      disabledEvent(e);
-    }
-    // "U" key
-    if (e.ctrlKey && e.keyCode == 85) {
-      disabledEvent(e);
-    }
-    // "F12" key
-    if (event.keyCode == 123) {
-      disabledEvent(e);
-    }
-  }, false);
-  function disabledEvent(e){
-    if (e.stopPropagation){
-      e.stopPropagation();
-    } else if (window.event){
-      window.event.cancelBubble = true;
-    }
-    e.preventDefault();
-    return false;
-  }
-};
+// window.onload = function() {
+//   document.addEventListener("contextmenu", function(e){
+//     e.preventDefault();
+//   }, false);
+//   document.addEventListener("keydown", function(e) {
+//   //document.onkeydown = function(e) {
+//     // "I" key
+//     if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
+//       disabledEvent(e);
+//     }
+//     // "J" key
+//     if (e.ctrlKey && e.shiftKey && e.keyCode == 74) {
+//       disabledEvent(e);
+//     }
+//     // "S" key + macOS
+//     if (e.keyCode == 83 && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
+//       disabledEvent(e);
+//     }
+//     // "U" key
+//     if (e.ctrlKey && e.keyCode == 85) {
+//       disabledEvent(e);
+//     }
+//     // "F12" key
+//     if (event.keyCode == 123) {
+//       disabledEvent(e);
+//     }
+//   }, false);
+//   function disabledEvent(e){
+//     if (e.stopPropagation){
+//       e.stopPropagation();
+//     } else if (window.event){
+//       window.event.cancelBubble = true;
+//     }
+//     e.preventDefault();
+//     return false;
+//   }
+// };
 
 //////////////////////////////////////////////////Game States//////////////////////////////////////////////
 game.state.add('mainMenu', brawl.state1);
@@ -322,8 +322,8 @@ var immovableWallWorldGravity = 'immovableWallWorldGravity'; //Triggers World Gr
 var wallRegular = 'wallRegular';
 var wallGhost = 'wallGhost';
 var wallFrozen = 'wallFrozen';
-var wallGravity = 'wallGravity';
-var wallReverseGravity = 'wallReverseGravity';
+var wallControl = 'wallControl';
+var wallInverse = 'wallInverse';
 var wallLight = 'wallLight';
 var wallHeavy = 'wallHeavy';
 var wallCloud = 'wallCloud';
@@ -400,8 +400,8 @@ var tintImmovableWallMario = 241917.63554178402;
 //Walls
 var tintWallGhost = 16771007.229130682; //wallGhost
 var tintWallFrozen = 0x00ffff;
-var tintWallGravity = 0x666666;
-var tintWallReverseGravity = 2070551.3881263782;
+var tintWallControl = 0x666666;
+var tintWallInverse = 2070551.3881263782;
 var tintWallLight = 15680658.67511709;
 var tintWallHeavy = 6623573.181835621; //wallHeavy
 var tintWallCloud = 9583870.358153213; //wallCloud
@@ -554,17 +554,17 @@ level_0.text = [
   new textCreator(2, true, 1900, 3950, "You Automatically Stick on Surfaces\n\nWhen You Jump on It\n\nHold D While Tapping A to Fast Climb", 'Courier New', 25, '#000000', 'bold'),
   new textCreator(3, true, 1750, 3300, "This Time Hold A While Tapping D", 'Courier New', 25, '#000000', 'bold'),
   new textCreator(4, true, 650, 3000, "While Sticking to a Side of a Wall\n\nHold S to Slide Down", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(5, true, 200, 2870, "You Can Jump Off Walls\n\nHold D and Then Double Jump", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(5, true, 150, 2870, "You Can Jump Off Walls\n\nBy Moving Left or Right\n\nDouble Jump While in the Air", 'Courier New', 25, '#000000', 'bold'),
   new textCreator(6, true, 200, 2100, "As Long As You Touch a Surface\n\nYou Can Double Jump Again and Again\n\nThis is Fucking Important So Remember It", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(6, true, 150, 2500, "This Time Hold A\n\nThen Double Jump", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(6, true, 150, 2500, "It's Obvious\n\nWhat You Need to Do", 'Courier New', 25, '#000000', 'bold'),
   new textCreator(7, true, 100, 25, "Level 1 ↑", 'Courier New', 25, '#000000', 'bold'),
   // new textCreator(9, true, 2500, 1400, "Once Again When You Hit a Fucking 4wSurface\n\nYou Can Double Jump Again in the Air", 'Courier New', 25, '#000000', 'bold'),
   new textCreator(8, true, 300, 1600, "You Can Go Upside Down\n\nJump to the Bottom of The Wall\n\nYou Can Move While Upside Down", 'Courier New', 25, '#000000', 'bold'),
   ////////////////////////////New Text//////////////////////
   new textCreator(9, true, 1200, 3800, "Double Jump to the Top of the Wall", 'Courier New', 25, '#000000', 'bold'),
   new textCreator(10, true, 1000, 1600, "Press S to Dislodge Yourself\n\nHolding S While Falling\n\nSlows Down Your Fall", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(11, true, 1300, 1800, "Checkpoint\n\nPress 4 to Toggle Free-Look\n\n(WASD Movement)", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(12, true, 1900, 1900, "You Can Control Your Movement in the Air\n\nAnd Remember You Can Fucking\n\nDouble Jump Again\n\nOnce You Hit A Surface", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(11, true, 1300, 1875, "Checkpoint\n\nPress 4 to Toggle Free-Look\n\n(WASD Movement)", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(12, true, 1900, 1900, "You Can Control Your Movement in the Air\n\nPressing S Lets You Move Downwards", 'Courier New', 25, '#000000', 'bold'),
   new textCreator(13, true, 2800, 3600, "We've Done This Countless of Times\n\nThe Same Thing Over and Over Again\n\nTrying to Become Reborn\n\nJust Remember the Words\n\n\nGLORY BRAWL ", 'Courier New', 25, '#000000', 'bold'),
   new textCreator(14, true, 2900, 2150, "Stick to the Bottom\n\nDislodge Yourself\n\nDouble Jump to the Top", 'Courier New', 25, '#000000', 'bold'),
   new textCreator(15, true, 2700, 1600, "Trying Tap A Once\n\nWhile Sticking on the Wall\n\nThen Double Jump", 'Courier New', 25, '#000000', 'bold'),
@@ -711,7 +711,7 @@ level_1.text = [
   //Camera Mode
   new textCreator(1, false, 80, 2800, "Press 4 to Toggle Free-Look(WASD to Move)", 'Courier New', 25, '#000000', 'bold'),
   //Grey Ledge Tutorial
-  new textCreator(2, true, 850, 2300, "Pull the Yellow Ledge Towards You\n\nGet on Top of the Grey Ledge", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(2, true, 850, 2300, "Pull the Yellow Ledge Towards You\n\nGet on Top of the Yellow Ledge", 'Courier New', 25, '#000000', 'bold'),
   //Where to Land Grey Ledge
   new textCreator(3, true, 300, 1900, "Jump Down to the Yellow Ledge at the Bottom", 'Courier New', 25, '#000000', 'bold'),
   //Green Ledge Tutorial
@@ -790,6 +790,8 @@ level_2.immovableWallSpawn = [
   new SpriteCreator(9, true, true, immovableWallPhase, immovableWallVertical, 300, 426, 0, 0, .5, .418, null, null),
   //Ground for Flag Because People are stupid
   new SpriteCreator(10, true, true, immovableWallRegular, immovableWallHorizontal, 1500, 700, 0, 0, .5, .5, 0, 0, null, null),
+  //Preventing You From Killing Last Enemy Sprite
+  new SpriteCreator(11, true, true, immovableWallRegular, immovableWallVertical, 700, 565, 0, 0, .5, .2, 0, 0, null, null),
 ];
 
 //Moveable Walls
@@ -932,19 +934,19 @@ level_3.wallSpawn = [
   // new SpriteCreator(0, true, true, wallBlack, wallHorizontal, 400, 100, 0, 0, .4, .4, 0, 0, null, null),
   // new SpriteCreator(1, true, true, wallBlackGhost, wallHorizontal, 400, 300, 0, 0, .4, .4, 0, 0, null, null),
   // new SpriteCreator(2, true, true, wallBlackFrozen, wallHorizontal, 400, 500, 0, 0, .4, .4, 0, 0, null, null),
-  // new SpriteCreator(3, true, true, wallBlackGravity, wallHorizontal, 400, 700, 0, 0, .4, .4, 0, 0, null, null),
+  // new SpriteCreator(3, true, true, wallBlackGravity, wallHorizontal, 400, 600, 0, 0, .4, .4, 0, 0, null, null),
   // new SpriteCreator(4, true, true, wallBlackReverseGravity, wallHorizontal, 800, 100, 0, 0, .4, .4, 0, 0, null, null),
   // new SpriteCreator(4, true, true, wallBlackLight, wallHorizontal, 800, 300, 0, 0, .4, .4, 0, 0, null, null),
   // new SpriteCreator(4, true, true, wallBlackHeavy, wallHorizontal, 800, 500, 0, 0, .4, .4, 0, 0, null, null),
   // new SpriteCreator(4, true, true, wallBlackCloud, wallHorizontal, 800, 700, 0, 0, .4, .4, 0, 0, null, null),
   //Regular Walls
-  new SpriteCreator(0, true, true, wallHeavy, wallHorizontal, 400, 100, 0, 0, .4, .4, 0, 0, null, null),
+  new SpriteCreator(0, true, true, wallHeavy, wallHorizontal, 400, 200, 0, 0, .4, .4, 0, 0, null, null),
   // new SpriteCreator(1, true, true, wallGhost, wallHorizontal, 400, 300, 0, 0, .4, .4, 0, 0, null, null),
   // new SpriteCreator(2, true, true, wallFrozen, wallHorizontal, 400, 500, 0, 0, .4, .4, 0, 0, null, null),
-  // new SpriteCreator(3, true, true, wallGravity, wallHorizontal, 400, 700, 0, 0, .4, .4, 0, 0, null, null),
-  // new SpriteCreator(4, true, true, wallReverseGravity, wallHorizontal, 800, 100, 0, 0, .4, .4, 0, 0, null, null),
+  new SpriteCreator(3, true, true, wallControl, wallHorizontal, 400, 400, 0, 0, .4, .4, 0, 0, null, null),
+  // new SpriteCreator(4, true, true, wallInverse, wallHorizontal, 400, 600, 0, 0, .4, .4, 0, 0, null, null),
   // new SpriteCreator(4, true, true, wallLight, wallHorizontal, 800, 300, 0, 0, .4, .4, 0, 0, null, null),
-  // new SpriteCreator(4, true, true, wallHeavy, wallHorizontal, 800, 500, 0, 0, .4, .4, 0, 0, null, null),
+  new SpriteCreator(4, true, true, wallRegular, wallHorizontal, 800, 500, 0, 0, .4, .4, 0, 0, null, null),
   // new SpriteCreator(4, true, true, wallCloud, wallHorizontal, 800, 700, 0, 0, .4, .4, 0, 0, null, null),
 ];
 
@@ -958,14 +960,14 @@ level_3.wallSpawn = [
 ////////////Tint Testing/////////
 
 //Ledges
-level_3.ledgeSpawn = [
-  // //Surf
-  new SpriteCreator(0, true, true, surf, ledge, 500, 200, 0, 0, .4, .4, 0, 0, null, null),
-  // //Bounce Ledges
-  // new SpriteCreator(2, true, true, bounce, ledge, 900, 390, 0, 0, .4, .4, 0, 0, null, null),
-  // //Surf Ledges
-  // new SpriteCreator(3, true, true, elevator, ledge, 200, 200, 0, 0, .4, .4, 0, 0, null, null),
-];
+// level_3.ledgeSpawn = [
+//   // //Surf
+//   new SpriteCreator(0, true, true, surf, ledge, 1100, 200, 0, 0, .4, .4, 0, 0, null, null),
+//   // //Bounce Ledges
+//   // new SpriteCreator(2, true, true, bounce, ledge, 900, 390, 0, 0, .4, .4, 0, 0, null, null),
+//   // //Surf Ledges
+//   // new SpriteCreator(3, true, true, elevator, ledge, 200, 200, 0, 0, .4, .4, 0, 0, null, null),
+// ];
 
 //Enemy Spawn
 // level_3.enemySpawn = [
@@ -974,9 +976,9 @@ level_3.ledgeSpawn = [
 // ];
 
 // //Ball
-level_3.ballSpawn = [
-  new SpriteCreator(0, true, true, ballRegular, ball, 400, 200, 0, 0, null, null, 0, 0, null, null)
-];
+// level_3.ballSpawn = [
+//   new SpriteCreator(0, true, true, ballRegular, ball, 800, 200, 0, 0, null, null, 0, 0, null, null)
+// ];
 
 //Push Level 2 Into World Class Array
 worldClassLevels.push(level_3);

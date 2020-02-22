@@ -125,13 +125,11 @@ brawl.game.prototype.wallSpawn = function (sprite) {
         this.wallX.body.moves = false;
         this.wallX.body.immovable = true;
     }
-    else if (sprite.name === wallGravity) {
-        this.wallX.tint = tintWallGravity;
-        this.wallX.body.gravity.y = 300;
+    else if (sprite.name === wallControl) {
+        this.wallX.tint = tintWallControl;
     }
-    else if (sprite.name === wallReverseGravity) {
-        this.wallX.tint = tintWallReverseGravity;
-        this.wallX.body.gravity.y = -500;
+    else if (sprite.name === wallInverse) {
+        this.wallX.tint = tintWallInverse;
     }
     else if (sprite.name === wallHeavy) {
         this.wallX.tint = tintWallHeavy;
@@ -161,11 +159,13 @@ brawl.game.prototype.wallSpawn = function (sprite) {
     }
     else if (sprite.name === wallBlackGravity) {
         this.wallX.tint = tintWallBlackGravity;
-        this.wallX.body.gravity.x = 500;
+        this.wallX.body.gravity.x = 100;
+        this.wallX.body.immovable = true;
     }
     else if (sprite.name === wallBlackReverseGravity) {
         this.wallX.tint = tintWallBlackReverseGravity;
         this.wallX.body.gravity.x = -500;
+        this.wallX.body.immovable = true;
     }
     else if (sprite.name === wallBlackLight) {
         this.wallX.tint = tintWallBlackLight;
@@ -183,11 +183,17 @@ brawl.game.prototype.wallSpawn = function (sprite) {
     this.wallX.anchor.setTo(.5);
     this.wallX.scale.setTo(sprite.sizeX, sprite.sizeY);
     // this.wallX.body.immovable = true;
-    if (!sprite.name === wallGravity || !sprite.name === wallReverseGravity || !sprite.name === wallBlackGravity || !sprite.name === wallBlackReverseGravity) {
+    if (!sprite.name === (wallBlackGravity || wallBlackReverseGravity)) {
         this.wallX.body.gravity.setTo(sprite.gravityX, sprite.gravityY);
     }
-    this.wallX.body.mass = 150;
-    this.wallX.body.maxVelocity.setTo(300);
+    this.wallX.body.mass = 20; //150
+    if (sprite.name === (wallRegular || wallControl)) {
+        this.wallX.body.maxVelocity.setTo(300);
+    }
+    else {
+        this.wallX.body.maxVelocity.setTo(1000);
+    }
+    ////////////////////Testing///////////////////
     this.wallX.body.collideWorldBounds = true;
     ////////////////////////Testing/////////////////////////
     // this.wallX.checkWorldBounds = true;

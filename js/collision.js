@@ -92,26 +92,23 @@ brawl.game.prototype.wallMoveable = function (wall, objMov) {
         wall.tint = tintWallHeavy;
         // wall.body.gravity.y = 300; //500 Original
     }
-    //Turns wallHeavy to wallReverseGravity (Ledge)
+    //Turns wallHeavy to wallInverse (Ledge)
     if (wall.name === wallHeavy && objMov.groupName === groupLedge) {
-        wall.name = wallReverseGravity;
-        wall.tint = tintWallReverseGravity;
-        wall.body.gravity.y = -200;
+        wall.name = wallInverse;
+        wall.tint = tintwallInverse;
     }
-    //Turns wallReverseGravity to wallLight (Ball)
-    if (wall.name === wallReverseGravity && objMov.groupName === groupBall) {
+    //Turns wallInverse to wallLight (Ball)
+    if (wall.name === wallInverse && objMov.groupName === groupBall) {
         wall.name = wallLight;
         wall.tint = tintWallLight;
-        wall.body.gravity.y = 0;
     }
-    //Turns wallLight to wallGravity(ledge)
+    //Turns wallLight to wallControl(ledge)
     if (wall.name === wallLight && objMov.groupName === groupLedge) {
-        wall.name = wallGravity;
-        wall.tint = tintWallGravity;
-        wall.body.gravity.y = 200;
+        wall.name = wallControl;
+        wall.tint = tintWallControl;
     }
-    //Turns wallGravity to wallCloud (Ball)
-    if (wall.name === wallGravity && objMov.groupName === groupBall) {
+    //Turns wallControl to wallCloud (Ball)
+    if (wall.name === wallControl && objMov.groupName === groupBall) {
         wall.name = wallCloud;
         wall.tint = tintWallCloud;
         wall.body.stop();
@@ -145,16 +142,16 @@ brawl.game.prototype.wallMoveable = function (wall, objMov) {
         wall.body.immovable = true;
         wall.tint = tintWallBlackFrozen;
     }
-    if (wall.name === wallGravity && objMov.groupName === groupEnemy) {
+    if (wall.name === wallControl && objMov.groupName === groupEnemy) {
         wall.name = wallBlackGravity;
         /////////Might Be Unncessary///////
-        wall.body.moves = true;
         wall.body.immovable = true;
         wall.body.gravity.x = 500;
         wall.tint = tintWallBlackGravity;
     }
-    if (wall.name === wallReverseGravity && objMov.groupName === groupEnemy) {
+    if (wall.name === wallInverse && objMov.groupName === groupEnemy) {
         wall.name = wallBlackReverseGravity;
+        wall.body.immovable = true;
         wall.body.gravity.x = -500;
         wall.tint = tintWallBlackReverseGravity;
     }
@@ -243,15 +240,84 @@ brawl.game.prototype.playerImmovable = function (player, immovable) {
 brawl.game.prototype.playerWall = function (player, wall) {
     if (wall.name === wallRegular || wall.name === wallFrozen) {
         wall.name = wallRegular;
-        // player.body.velocity.y = 0;
-        // wall.body.velocity.y += player.body.velocity.y;
         wall.body.moves = true;
         wall.tint = tintRemover;
         wall.body.immovable = false;
-        ////////////////////Maybe//////////////////////
-        // if (player.body.touching.up) {
-        //     wall.body.velocity.y = -100;
+        //////////Testing///////////////
+        // wall.body.stop();
+        // player.body.velocity.y = 0;
+        // wall.body.velocity.y += player.body.velocity.y;
+        // if (this.movementDown.isDown) {
+        //     wall.body.velocity.y = 300;
         // }
+        // else if (this.movementLeft.isDown) {
+        //     wall.body.velocity.x = -300;
+        // }
+        // else if (this.movementRight.isDown) {
+        //     wall.body.velocity.x = 300;
+        // }
+        //////////////Testing 2///////////////
+        wall.body.stop();
+        wall.body.velocity.y = -150;
+        if (player.body.touching.up || player.body.touching.down) {
+            wall.body.velocity.x += player.body.velocity.x;
+            // console.log(player.body.touching.up, 'up');
+        }
+        if (wall.body.touching.left || wall.body.touching.right) {
+            wall.body.velocity.y = 0;
+            wall.body.velocity.x = 0;
+            // console.log(player.body.touching.left, 'left', player.body.touching.right, 'right')
+        }
+    }
+    if (wall.name === wallHeavy) {
+        // player.body.velocity.y = 0;
+        // wall.body.velocity.y += player.body.velocity.y;
+        ////////////Testing 1 ///////////
+        // wall.body.stop();
+        // wall.body.velocity.y = 0;
+        // player.body.velocity.y = -100;
+        // wall.body.velocity.y = player.body.velocity.y;
+        // wall.body.velocity.x = player.body.velocity.x;
+        ///////////Testing 2///////////
+        wall.body.stop();
+        wall.body.velocity.y = -200;
+        if (player.body.touching.up || player.body.touching.down) {
+            wall.body.velocity.x = player.body.velocity.x;
+            // console.log(player.body.touching.up, 'up');
+        }
+        if (wall.body.touching.left || wall.body.touching.right) {
+            wall.body.velocity.y = 0;
+            wall.body.velocity.x = 0;
+            // console.log(player.body.touching.left, 'left', player.body.touching.right, 'right')
+        }
+    }
+    if (wall.name === wallControl) {
+        ////////Testing One
+        // wall.body.velocity.y = -200;
+        // if (player.body.velocity.x < 0) {
+        //     wall.body.velocity.x = -100;
+        // }
+        // else if (player.body.velocity.x > 0) {
+        //     wall.body.velocity.x = 100;
+        // }
+        ////////Testing Two
+        player.body.velocity.y = 0;
+        wall.body.velocity.y = -100;
+        if (this.movementLeft.isDown) {
+            wall.body.velocity.x = -300;
+        }
+        else if (this.movementRight.isDown) {
+            wall.body.velocity.x = 300;
+        }
+        if (this.movementDown.isDown) {
+            wall.body.stop();
+        }
+    }
+    if (wall.name === wallInverse) {
+        // player.body.velocity.y = 0;
+        wall.body.velocity.y = 100;
+        // wall.body.velocity.y += player.body.velocity.y;
+        wall.body.velocity.x = player.body.velocity.x;
     }
     if (wall.name === wallLight) {
         player.body.gravity.y = 500;
@@ -267,10 +333,6 @@ brawl.game.prototype.playerWall = function (player, wall) {
         if (player.body.touching.right) {
             wall.body.velocity.x = 300;
         }
-    }
-    if (wall.name === wallHeavy) {
-        player.body.velocity.y = 0;
-        wall.body.velocity.y += player.body.velocity.y;
     }
     if (wall.name === wallCloud) {
         //Control
