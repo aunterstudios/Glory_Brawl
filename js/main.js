@@ -944,7 +944,7 @@ level_3.wallSpawn = [
   // new SpriteCreator(1, true, true, wallGhost, wallHorizontal, 400, 300, 0, 0, .4, .4, 0, 0, null, null),
   // new SpriteCreator(2, true, true, wallFrozen, wallHorizontal, 400, 500, 0, 0, .4, .4, 0, 0, null, null),
   // new SpriteCreator(3, true, true, wallRegular, wallHorizontal, 400, 400, 0, 0, .4, .4, 0, 0, null, null),
-  new SpriteCreator(3, true, true, wallInverse, wallHorizontal, 600, 400, 0, 0, .4, .4, 0, 0, null, null),
+  new SpriteCreator(3, true, true, wallRegular, wallHorizontal, 600, 400, 0, 0, .4, .4, 0, 0, null, null),
   // new SpriteCreator(4, true, true, wallInverse, wallHorizontal, 400, 600, 0, 0, .4, .4, 0, 0, null, null),
   // new SpriteCreator(4, true, true, wallLight, wallHorizontal, 800, 300, 0, 0, .4, .4, 0, 0, null, null),
   // new SpriteCreator(4, true, true, wallRegular, wallVertical, 800, 500, 0, 0, .4, .4, 0, 0, null, null),
@@ -961,14 +961,14 @@ level_3.wallSpawn = [
 ////////////Tint Testing/////////
 
 //Ledges
-// level_3.ledgeSpawn = [
-//   // //Surf
-//   new SpriteCreator(0, true, true, surf, ledge, 1100, 200, 0, 0, .4, .4, 0, 0, null, null),
-//   // //Bounce Ledges
-//   // new SpriteCreator(2, true, true, bounce, ledge, 900, 390, 0, 0, .4, .4, 0, 0, null, null),
-//   // //Surf Ledges
-//   // new SpriteCreator(3, true, true, elevator, ledge, 200, 200, 0, 0, .4, .4, 0, 0, null, null),
-// ];
+level_3.ledgeSpawn = [
+  // //Surf
+  new SpriteCreator(0, true, true, surf, ledge, 1100, 200, 0, 0, .4, .4, 0, 0, null, null),
+  // //Bounce Ledges
+  // new SpriteCreator(2, true, true, bounce, ledge, 900, 390, 0, 0, .4, .4, 0, 0, null, null),
+  // //Surf Ledges
+  // new SpriteCreator(3, true, true, elevator, ledge, 200, 200, 0, 0, .4, .4, 0, 0, null, null),
+];
 
 //Enemy Spawn
 // level_3.enemySpawn = [
