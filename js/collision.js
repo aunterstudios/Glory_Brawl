@@ -308,7 +308,12 @@ brawl.game.prototype.playerWall = function (player, wall) {
     if (wall.name === wallControl) {
         if (wall.key === wallHorizontal) {
             player.body.velocity.y = 0;
-            wall.body.velocity.y = -100;
+            if (player.body.touching.down) {
+                wall.body.velocity.y = -100;
+            }
+            if (player.body.touching.up) {
+                wall.body.stop();
+            }
             if (this.movementLeft.isDown) {
                 wall.body.velocity.x = -200;
             }
@@ -321,6 +326,9 @@ brawl.game.prototype.playerWall = function (player, wall) {
             }
         }
         else {
+            if (player.body.touching.down || player.body.touching.up) {
+                wall.body.stop();
+            }
             // player.body.velocity.y = 0;
             if (player.body.velocity.x > 0) {
                 wall.body.stop();
@@ -333,11 +341,15 @@ brawl.game.prototype.playerWall = function (player, wall) {
         }
     }
     if (wall.name === wallInverse) {
-        wall.body.stop();
         if (wall.key === wallHorizontal) {
             wall.body.stop();
             player.body.velocity.y = 0;
-            wall.body.velocity.y = -100;
+            if (player.body.touching.down) {
+                wall.body.velocity.y = -100;
+            }
+            else if (player.body.touching.up) {
+                wall.body.stop();
+            }
             if (player.x < wall.x) {
                 wall.body.velocity.x = -100;
                 // console.log(player.body.touching.up, 'up');
@@ -348,6 +360,7 @@ brawl.game.prototype.playerWall = function (player, wall) {
             }
         }
         else {
+            wall.body.stop();
             if (player.body.touching.left) {
                 wall.body.velocity.x = 100;
             }

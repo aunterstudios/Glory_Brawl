@@ -188,7 +188,10 @@ brawl.game.prototype.wallSpawn = function (sprite) {
         this.wallX.body.gravity.setTo(sprite.gravityX, sprite.gravityY);
     }
     this.wallX.body.mass = 20; //150
-    if (sprite.name === (wallRegular || wallControl)) {
+    // if (sprite.name === (wallRegular || wallControl)) {
+    //     this.wallX.body.maxVelocity.setTo(300);
+    // }
+    if (sprite.name === wallRegular) {
         this.wallX.body.maxVelocity.setTo(300);
     }
     else {
