@@ -53,7 +53,7 @@ var content = [
   "Be Reborn Once Again",
   "Remember the Words",
   "GLORY BRAWL",
-  "MS"
+  "SurfTest"
 ];
 
 var line = [];
@@ -940,13 +940,14 @@ level_3.wallSpawn = [
   // new SpriteCreator(4, true, true, wallBlackHeavy, wallHorizontal, 800, 500, 0, 0, .4, .4, 0, 0, null, null),
   // new SpriteCreator(4, true, true, wallBlackCloud, wallHorizontal, 800, 700, 0, 0, .4, .4, 0, 0, null, null),
   //Regular Walls
-  new SpriteCreator(0, true, true, wallHeavy, wallHorizontal, 400, 200, 0, 0, .4, .4, 0, 0, null, null),
+  // new SpriteCreator(0, true, true, wallHeavy, wallHorizontal, 400, 200, 0, 0, .4, .4, 0, 0, null, null),
   // new SpriteCreator(1, true, true, wallGhost, wallHorizontal, 400, 300, 0, 0, .4, .4, 0, 0, null, null),
   // new SpriteCreator(2, true, true, wallFrozen, wallHorizontal, 400, 500, 0, 0, .4, .4, 0, 0, null, null),
-  new SpriteCreator(3, true, true, wallControl, wallHorizontal, 400, 400, 0, 0, .4, .4, 0, 0, null, null),
+  // new SpriteCreator(3, true, true, wallRegular, wallHorizontal, 400, 400, 0, 0, .4, .4, 0, 0, null, null),
+  new SpriteCreator(3, true, true, wallControl, wallVertical, 600, 400, 0, 0, .4, .4, 0, 0, null, null),
   // new SpriteCreator(4, true, true, wallInverse, wallHorizontal, 400, 600, 0, 0, .4, .4, 0, 0, null, null),
   // new SpriteCreator(4, true, true, wallLight, wallHorizontal, 800, 300, 0, 0, .4, .4, 0, 0, null, null),
-  new SpriteCreator(4, true, true, wallRegular, wallHorizontal, 800, 500, 0, 0, .4, .4, 0, 0, null, null),
+  // new SpriteCreator(4, true, true, wallRegular, wallVertical, 800, 500, 0, 0, .4, .4, 0, 0, null, null),
   // new SpriteCreator(4, true, true, wallCloud, wallHorizontal, 800, 700, 0, 0, .4, .4, 0, 0, null, null),
 ];
 
@@ -975,10 +976,10 @@ level_3.wallSpawn = [
 //   new SpriteCreator(0, true, true, enemyRegular, enemyOne, 600, 200, 0, 0, .5, .5, 0, 0, null, null),
 // ];
 
-// //Ball
-// level_3.ballSpawn = [
-//   new SpriteCreator(0, true, true, ballRegular, ball, 800, 200, 0, 0, null, null, 0, 0, null, null)
-// ];
+//Ball
+level_3.ballSpawn = [
+  new SpriteCreator(0, true, true, ballRegular, ball, 800, 200, 0, 0, null, null, 0, 0, null, null)
+];
 
 //Push Level 2 Into World Class Array
 worldClassLevels.push(level_3);

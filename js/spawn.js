@@ -183,6 +183,7 @@ brawl.game.prototype.wallSpawn = function (sprite) {
     this.wallX.anchor.setTo(.5);
     this.wallX.scale.setTo(sprite.sizeX, sprite.sizeY);
     // this.wallX.body.immovable = true;
+    ////////////////Special Properties////////////
     if (!sprite.name === (wallBlackGravity || wallBlackReverseGravity)) {
         this.wallX.body.gravity.setTo(sprite.gravityX, sprite.gravityY);
     }
@@ -191,7 +192,7 @@ brawl.game.prototype.wallSpawn = function (sprite) {
         this.wallX.body.maxVelocity.setTo(300);
     }
     else {
-        this.wallX.body.maxVelocity.setTo(1000);
+        this.wallX.body.maxVelocity.setTo(450);
     }
     ////////////////////Testing///////////////////
     this.wallX.body.collideWorldBounds = true;
