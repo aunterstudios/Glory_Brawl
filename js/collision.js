@@ -260,7 +260,7 @@ brawl.game.prototype.playerWall = function (player, wall) {
         //////////////Testing 2///////////////
         wall.body.stop();
         wall.body.velocity.y = -150;
-        if (player.body.touching.up || player.body.touching.down) {
+        if (player.body.touching.down) {
             //////Testing
             // if (this.movementRight.isDown) {
             //     wall.body.velocity.x = 300;
@@ -268,6 +268,10 @@ brawl.game.prototype.playerWall = function (player, wall) {
             // else if (this.movementLeft.isDown) {
             //     wall.body.velocity.x = -300;
             // }
+            wall.body.velocity.x += player.body.velocity.x;
+        }
+        if (player.body.touching.up) {
+            wall.body.stop();
             wall.body.velocity.x += player.body.velocity.x;
         }
         if (wall.body.touching.left || wall.body.touching.right) {
@@ -287,10 +291,14 @@ brawl.game.prototype.playerWall = function (player, wall) {
         // wall.body.velocity.x = player.body.velocity.x;
         ///////////Testing 2///////////
         wall.body.stop();
-        if (player.body.touching.up || player.body.touching.down) {
+        if (player.body.touching.down) {
             wall.body.velocity.y = -150;
             wall.body.velocity.x = player.body.velocity.x;
             // console.log(player.body.touching.up, 'up');
+        }
+        if (player.body.touching.up) {
+            wall.body.stop();
+            wall.body.velocity.x = player.body.velocity.x;
         }
         if (wall.body.touching.left || wall.body.touching.right) {
             wall.body.stop();
@@ -314,22 +322,39 @@ brawl.game.prototype.playerWall = function (player, wall) {
         }
         else {
             // player.body.velocity.y = 0;
-            wall.body.velocity.x = 0;
-            if (this.movementUp.isDown) {
+            if (player.body.velocity.x > 0) {
                 wall.body.stop();
-                wall.body.velocity.y = -100;
+                wall.body.velocity.y = -50;
             }
-            else if (this.movementDown.isDown) {
+            else if (player.body.velocity.x < 0) {
                 wall.body.stop();
-                wall.body.velocity.y = 100;
+                wall.body.velocity.y = 50;
             }
         }
     }
     if (wall.name === wallInverse) {
-        // player.body.velocity.y = 0;
-        wall.body.velocity.y = 100;
-        // wall.body.velocity.y += player.body.velocity.y;
-        wall.body.velocity.x = player.body.velocity.x;
+        wall.body.stop();
+        if (wall.key === wallHorizontal) {
+            wall.body.stop();
+            player.body.velocity.y = 0;
+            wall.body.velocity.y = -100;
+            if (player.x < wall.x) {
+                wall.body.velocity.x = -100;
+                // console.log(player.body.touching.up, 'up');
+            }
+            if (player.x > wall.x) {
+                wall.body.velocity.x = 100;
+                // console.log(player.body.touching.left, 'left', player.body.touching.right, 'right')
+            }
+        }
+        else {
+            if (player.body.touching.left) {
+                wall.body.velocity.x = 100;
+            }
+            if (player.body.touching.right) {
+                wall.body.velocity.x = -100;
+            }
+        }
     }
     if (wall.name === wallLight) {
         player.body.gravity.y = 500;
