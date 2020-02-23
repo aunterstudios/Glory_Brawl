@@ -19,39 +19,23 @@ brawl.game.prototype.upInputIsActive = function (duration) {
 ////////////////////////////////////Continious Updating In Game////////////////////////
 //Enemy Bullets
 brawl.game.prototype.fireEnemyBullet = function () {
-    //Clears Array
-    livingEnemies.length = 0;
-    console.log(enemyBulletTime, 'enemyBulletTime');
     this.enemy.forEachAlive(function (enemy) {
         if (this.game.physics.arcade.distanceBetween(enemy, this.player, false, true) < 400) {
-            enemyBullet = this.enemyBullets.getFirstExists(false);
-            if (this.time.now > enemyBulletTime) {
-                enemyBullet.reset(enemy.body.x, enemy.body.y + 30);
-                enemyBulletTime = this.time.now + 200; //500 was the "default value"
-                this.physics.arcade.moveToObject(enemyBullet, this.player, 300);
+            if (enemy.name === enemyShooter) {
+                enemyBullet = this.enemyBullets.getFirstExists(false);
+                if (this.time.now >= enemyBulletTime) {
+                    // enemyBullet.reset(enemy.body.x, enemy.body.y + 30);
+                    enemyBulletTime = this.time.now + 300; //500 was the "default value"
+                    enemyBullet.reset(enemy.body.x, enemy.body.y + 30);
+                    this.game.physics.arcade.moveToObject(enemyBullet, this.player, 300);
+                }
+            }
+            //Daakath
+            if (enemy.name === enemyDaakath) {
+                this.game.physics.arcade.moveToObject(enemy, this.player, 300);
             }
         }
     }, this, this.player);
-    // if (this.time.now > enemyBulletTime) {
-    //     enemyBullet = this.enemyBullets.getFirstExists(false);
-    //     if (enemyBullet && livingEnemies.length > 0) {
-    //         //enemyShotSound.play();
-    //         // var random = this.rnd.integerInRange(0, livingEnemies.length - 1);
-    //         // var shooter = livingEnemies[random];
-    //         // enemyBullet.reset(shooter.body.x, shooter.body.y + 30);
-    //         // enemyBulletTime = this.time.now + 500; //500 was the "default value"
-    //         // // if (game.physics.arcade.distanceBetween(enemyBullet, this.player, false, true) < 500) {
-    //         // //     this.physics.arcade.moveToObject(enemyBullet,this.player,600);
-    //         // // }
-    //         // this.physics.arcade.moveToObject(enemyBullet, this.player, 440);
-    //         //////////////////////////////Testing///////////////////////////////
-    //         livingEnemies.forEach(shooter => {
-    //             enemyBullet.reset(shooter.body.x, shooter.body.y + 30);
-    //             enemyBulletTime = this.time.now + 500; //500 was the "default value"
-    //             this.physics.arcade.moveToObject(enemyBullet, this.player, 440);
-    //         });
-    //     }
-    // }
 };
 //////////////////Emitter Function/////////////////////
 brawl.game.prototype.emitterFunction = function (sprite) {

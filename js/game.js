@@ -5,8 +5,6 @@ brawl.game.prototype = {
         //GENERAL MAP SETTINGS 
         this.game.physics.startSystem(Phaser.Physics.ARCADE); // We're going to be using physics, so enable the Arcade Physics system
         this.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT; //Scales our Game
-        //Reset Enemy Bullet Array
-        livingEnemies = [];
         /*
         Essentially the room initializes with the index of the current world, where the player should spawn in the world, and lastly the rooms available to switch to depending on the side.
         */

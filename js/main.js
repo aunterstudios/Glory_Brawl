@@ -343,7 +343,8 @@ var bounce = 'bounce';
 var surf = 'surf';
 
 //Enemy Names
-var enemyRegular = 'enemyRegular';
+var enemyShooter = 'enemyShooter';
+var enemyDaakath = 'enemyDaakath';
 
 //Ball Names
 var ballRegular = 'ballRegular';
@@ -414,6 +415,9 @@ var tintWallBlackReverseGravity = 10409939.733364154;
 var tintWallBlackLight = 6718053.241495901;
 var tintWallBlackHeavy = 16580675.642526744;
 var tintWallBlackCloud = 9971694.877510935;
+//Enemy Tint
+var tintEnemyShooter;
+var tintEnemyDaakath;
 
 ///////////////////////////////////////////Level 0///////////////////////////////////////////////////////////
 var level_0 = new LevelCreator("Level 0-CL", 3800, 4200, new MetroidvaniaCreator(1, 100, 0, 4200, 0, 1, 0, 3800), "#ffffff");
@@ -805,35 +809,35 @@ level_2.wallSpawn = [
 //Enemy Spawn
 level_2.enemySpawn = [
   //First Three Enemies
-  new SpriteCreator(0, true, true, enemyRegular, enemyOne, 4300, 200, 0, 0, .5, .5, 0, 0, null, null),
-  new SpriteCreator(1, true, true, enemyRegular, enemyOne, 4500, 200, 0, 0, .5, .5, 0, 0, null, null),
-  new SpriteCreator(2, true, true, enemyRegular, enemyOne, 4700, 200, 0, 0, .5, .5, 0, 0, null, null),
+  new SpriteCreator(0, true, true, enemyDaakath, enemyOne, 4300, 200, 0, 0, .5, .5, 0, 0, null, null),
+  new SpriteCreator(1, true, true, enemyShooter, enemyOne, 4500, 200, 0, 0, .5, .5, 0, 0, null, null),
+  new SpriteCreator(2, true, true, enemyDaakath, enemyOne, 4700, 200, 0, 0, .5, .5, 0, 0, null, null),
   //Blocking the First Entrance
-  new SpriteCreator(3, true, true, enemyRegular, enemyOne, 4125, 50, 0, 0, .5, .5, 0, 0, null, null),
+  new SpriteCreator(3, true, true, enemyShooter, enemyOne, 4125, 50, 0, 0, .5, .5, 0, 0, null, null),
   //Maximum Jump Enemy
-  new SpriteCreator(4, true, true, enemyRegular, enemyOne, 3500, 500, 0, 0, .5, .5, 0, 0, null, null),
+  new SpriteCreator(4, true, true, enemyShooter, enemyOne, 3500, 500, 0, 0, .5, .5, 0, 0, null, null),
   //Four Enemies of the Gate
-  new SpriteCreator(5, true, true, enemyRegular, enemyOne, 1000, 50, 0, 0, .5, .5, 0, 0, null, null),
-  new SpriteCreator(6, true, true, enemyRegular, enemyOne, 1000, 250, 0, 0, .5, .5, 0, 0, null, null),
-  new SpriteCreator(7, true, true, enemyRegular, enemyOne, 1000, 450, 0, 0, .5, .5, 0, 0, null, null),
-  new SpriteCreator(8, true, true, enemyRegular, enemyOne, 1000, 650, 0, 0, .5, .5, 0, 0, null, null),
+  new SpriteCreator(5, true, true, enemyShooter, enemyOne, 1000, 50, 0, 0, .5, .5, 0, 0, null, null),
+  new SpriteCreator(6, true, true, enemyShooter, enemyOne, 1000, 250, 0, 0, .5, .5, 0, 0, null, null),
+  new SpriteCreator(7, true, true, enemyShooter, enemyOne, 1000, 450, 0, 0, .5, .5, 0, 0, null, null),
+  new SpriteCreator(8, true, true, enemyShooter, enemyOne, 1000, 650, 0, 0, .5, .5, 0, 0, null, null),
   //Last Enemy
-  new SpriteCreator(9, true, true, enemyRegular, enemyOne, 600, 600, 0, 0, .5, .5, 0, 0, null, null),
+  new SpriteCreator(9, true, true, enemyShooter, enemyOne, 600, 600, 0, 0, .5, .5, 0, 0, null, null),
   /////////////////////////////////Shadow Level//////////////////////////////////
   //Up and Down Enemies
-  new SpriteCreator(10, false, true, enemyRegular, enemyOne, 800, 50, 0, 200, .5, .5, 0, 0, null, null),
-  new SpriteCreator(11, false, true, enemyRegular, enemyOne, 1000, 50, 0, 200, .5, .5, 0, 0, null, null),
-  new SpriteCreator(12, false, true, enemyRegular, enemyOne, 1200, 50, 0, 200, .5, .5, 0, 0, null, null),
+  new SpriteCreator(10, false, true, enemyShooter, enemyOne, 800, 50, 0, 200, .5, .5, 0, 0, null, null),
+  new SpriteCreator(11, false, true, enemyShooter, enemyOne, 1000, 50, 0, 200, .5, .5, 0, 0, null, null),
+  new SpriteCreator(12, false, true, enemyShooter, enemyOne, 1200, 50, 0, 200, .5, .5, 0, 0, null, null),
   //Blocking the Little Hole
-  new SpriteCreator(13, false, true, enemyRegular, enemyOne, 3200, 100, 0, 200, .5, .5, 0, 0, null, null),
+  new SpriteCreator(13, false, true, enemyShooter, enemyOne, 3200, 100, 0, 200, .5, .5, 0, 0, null, null),
   //First Enemy of the Shadow Level You'll Encounter
-  new SpriteCreator(14, false, true, enemyRegular, enemyOne, 600, 600, 0, 200, .5, .5, 0, 0, null, null),
+  new SpriteCreator(14, false, true, enemyShooter, enemyOne, 600, 600, 0, 200, .5, .5, 0, 0, null, null),
   //First or Last Enemies
-  new SpriteCreator(15, false, true, enemyRegular, enemyOne, 4300, 400, 200, 0, .5, .5, 0, 0, null, null),
-  new SpriteCreator(16, false, true, enemyRegular, enemyOne, 4500, 400, 200, 0, .5, .5, 0, 0, null, null),
-  new SpriteCreator(17, false, true, enemyRegular, enemyOne, 4700, 400, 200, 0, .5, .5, 0, 0, null, null),
+  new SpriteCreator(15, false, true, enemyShooter, enemyOne, 4300, 400, 200, 0, .5, .5, 0, 0, null, null),
+  new SpriteCreator(16, false, true, enemyShooter, enemyOne, 4500, 400, 200, 0, .5, .5, 0, 0, null, null),
+  new SpriteCreator(17, false, true, enemyShooter, enemyOne, 4700, 400, 200, 0, .5, .5, 0, 0, null, null),
   //New Up and Down Enemy
-  new SpriteCreator(18, false, true, enemyRegular, enemyOne, 1400, 50, 0, 200, .5, .5, 0, 0, null, null),
+  new SpriteCreator(18, false, true, enemyShooter, enemyOne, 1400, 50, 0, 200, .5, .5, 0, 0, null, null),
 ];
 
 //Falling Spikes
@@ -971,10 +975,10 @@ level_3.ledgeSpawn = [
 ];
 
 //Enemy Spawn
-// level_3.enemySpawn = [
-//   // //First Three Enemies
-//   new SpriteCreator(0, true, true, enemyRegular, enemyOne, 600, 200, 0, 0, .5, .5, 0, 0, null, null),
-// ];
+level_3.enemySpawn = [
+  new SpriteCreator(0, true, true, enemyDaakath, enemyOne, 4300, 200, 0, 0, .5, .5, 0, 0, null, null),
+  new SpriteCreator(1, true, true, enemyShooter, enemyOne, 4500, 200, 0, 0, .5, .5, 0, 0, null, null),
+];
 
 //Ball
 level_3.ballSpawn = [
