@@ -251,18 +251,18 @@ brawl.game.prototype.enemySpawn = function (sprite) {
     this.trumpX.specialCondition = sprite.specialCondition;
     this.trumpX.positionInArray = sprite.positionInArray;
     if (sprite.name === enemyShooter) {
-        var testTint = Math.random() * 0xffffff;
-        this.trumpX.tint = testTint;
-        console.log(testTint, this.trumpX.positionInArray);
+        // var testTint = Math.random() * 0xffffff;
+        // this.trumpX.tint = testTint;
+        // console.log(testTint, this.trumpX.positionInArray);
         //True
-        // this.trumpX.tint = tintEnemyShooter;
+        this.trumpX.tint = tintEnemyShooter;
     }
     else if (sprite.name === enemyDaakath) {
-        var testTint = Math.random() * 0xffffff;
-        this.trumpX.tint = testTint;
-        console.log(testTint, this.trumpX.positionInArray);
+        // var testTint = Math.random() * 0xffffff;
+        // this.trumpX.tint = testTint;
+        // console.log(testTint, this.trumpX.positionInArray);
         //True
-        // this.trumpX.tint = tintEnemyDaakath;
+        this.trumpX.tint = tintEnemyDaakath;
     }
     this.trumpX.velocityVsWallX = 150;
     this.trumpX.velocityVsWallY = 150;

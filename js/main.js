@@ -416,8 +416,8 @@ var tintWallBlackLight = 6718053.241495901;
 var tintWallBlackHeavy = 16580675.642526744;
 var tintWallBlackCloud = 9971694.877510935;
 //Enemy Tint
-var tintEnemyShooter;
-var tintEnemyDaakath;
+var tintEnemyShooter = 12758247.409111453;
+var tintEnemyDaakath = 15269906.933038201;
 
 ///////////////////////////////////////////Level 0///////////////////////////////////////////////////////////
 var level_0 = new LevelCreator("Level 0-CL", 3800, 4200, new MetroidvaniaCreator(1, 100, 0, 4200, 0, 1, 0, 3800), "#ffffff");
@@ -818,24 +818,24 @@ level_2.enemySpawn = [
   new SpriteCreator(4, true, true, enemyShooter, enemyOne, 3500, 500, 0, 0, .5, .5, 0, 0, null, null),
   //Four Enemies of the Gate
   new SpriteCreator(5, true, true, enemyShooter, enemyOne, 1000, 50, 0, 0, .5, .5, 0, 0, null, null),
-  new SpriteCreator(6, true, true, enemyShooter, enemyOne, 1000, 250, 0, 0, .5, .5, 0, 0, null, null),
-  new SpriteCreator(7, true, true, enemyShooter, enemyOne, 1000, 450, 0, 0, .5, .5, 0, 0, null, null),
-  new SpriteCreator(8, true, true, enemyShooter, enemyOne, 1000, 650, 0, 0, .5, .5, 0, 0, null, null),
+  new SpriteCreator(6, true, true, enemyDaakath, enemyOne, 1000, 250, 0, 0, .5, .5, 0, 0, null, null),
+  new SpriteCreator(7, true, true, enemyDaakath, enemyOne, 1000, 450, 0, 0, .5, .5, 0, 0, null, null),
+  new SpriteCreator(8, true, true, enemyDaakath, enemyOne, 1000, 650, 0, 0, .5, .5, 0, 0, null, null),
   //Last Enemy
   new SpriteCreator(9, true, true, enemyShooter, enemyOne, 600, 600, 0, 0, .5, .5, 0, 0, null, null),
   /////////////////////////////////Shadow Level//////////////////////////////////
   //Up and Down Enemies
-  new SpriteCreator(10, false, true, enemyShooter, enemyOne, 800, 50, 0, 200, .5, .5, 0, 0, null, null),
-  new SpriteCreator(11, false, true, enemyShooter, enemyOne, 1000, 50, 0, 200, .5, .5, 0, 0, null, null),
-  new SpriteCreator(12, false, true, enemyShooter, enemyOne, 1200, 50, 0, 200, .5, .5, 0, 0, null, null),
+  new SpriteCreator(10, false, true, enemyDaakath, enemyOne, 800, 50, 0, 200, .5, .5, 0, 0, null, null),
+  new SpriteCreator(11, false, true, enemyDaakath, enemyOne, 1000, 50, 0, 200, .5, .5, 0, 0, null, null),
+  new SpriteCreator(12, false, true, enemyDaakath, enemyOne, 1200, 50, 0, 200, .5, .5, 0, 0, null, null),
   //Blocking the Little Hole
   new SpriteCreator(13, false, true, enemyShooter, enemyOne, 3200, 100, 0, 200, .5, .5, 0, 0, null, null),
   //First Enemy of the Shadow Level You'll Encounter
   new SpriteCreator(14, false, true, enemyShooter, enemyOne, 600, 600, 0, 200, .5, .5, 0, 0, null, null),
   //First or Last Enemies
-  new SpriteCreator(15, false, true, enemyShooter, enemyOne, 4300, 400, 200, 0, .5, .5, 0, 0, null, null),
-  new SpriteCreator(16, false, true, enemyShooter, enemyOne, 4500, 400, 200, 0, .5, .5, 0, 0, null, null),
-  new SpriteCreator(17, false, true, enemyShooter, enemyOne, 4700, 400, 200, 0, .5, .5, 0, 0, null, null),
+  new SpriteCreator(15, false, true, enemyDaakath, enemyOne, 4300, 400, 0, 200, .5, .5, 0, 0, null, null),
+  new SpriteCreator(16, false, true, enemyDaakath, enemyOne, 4500, 400, 0, 200, .5, .5, 0, 0, null, null),
+  new SpriteCreator(17, false, true, enemyShooter, enemyOne, 4700, 400, 0, 200, .5, .5, 0, 0, null, null),
   //New Up and Down Enemy
   new SpriteCreator(18, false, true, enemyShooter, enemyOne, 1400, 50, 0, 200, .5, .5, 0, 0, null, null),
 ];
@@ -892,11 +892,11 @@ level_2.text = [
   //Entry to Level 1
   new textCreator(4, false, 4650, 650, "Level 1 →", 'Courier New', 25, '#ff0000', 'bold'),
   //WolfGang Kill Them
-  new textCreator(5, false, 4250, 450, "I'll Always Be With You", 'Courier New', 25, '#ff0000', 'bold'),
+  new textCreator(5, false, 4300, 450, "I'll Always Be With You", 'Courier New', 25, '#ff0000', 'bold'),
   //Camera Mode
-  new textCreator(6, false, 2200, 400, "Feel My Wrath", 'Courier New', 25, '#ff0000', 'bold'),
+  new textCreator(6, false, 2250, 400, "Feel My Wrath", 'Courier New', 25, '#ff0000', 'bold'),
   //Phase Wall
-  new textCreator(7, false, 400, 400, "This is A Level of the Shadow", 'Courier New', 25, '#ff0000', 'bold'),
+  new textCreator(7, false, 400, 400, "This is A Level of The Shadow", 'Courier New', 25, '#ff0000', 'bold'),
 ];
 
 //Push Level 2 Into World Class Array
@@ -976,8 +976,8 @@ level_3.ledgeSpawn = [
 
 //Enemy Spawn
 level_3.enemySpawn = [
-  new SpriteCreator(0, true, true, enemyDaakath, enemyOne, 4300, 200, 0, 0, .5, .5, 0, 0, null, null),
-  new SpriteCreator(1, true, true, enemyShooter, enemyOne, 4500, 200, 0, 0, .5, .5, 0, 0, null, null),
+  new SpriteCreator(0, true, true, enemyDaakath, enemyOne, 400, 200, 0, 0, .5, .5, 0, 0, null, null),
+  new SpriteCreator(1, true, true, enemyShooter, enemyOne, 700, 200, 0, 0, .5, .5, 0, 0, null, null),
 ];
 
 //Ball

@@ -155,6 +155,9 @@ brawl.game.prototype = {
         //Ledge and Enemy Interactions With Death
         this.game.physics.arcade.collide([this.ledge, this.enemy], this.death, this.ledgeEnemyDeath, null, this);
 
+        //Enemy Interactions With Each other (Tabled For Now)
+        // this.game.physics.arcade.overlap(this.enemy, this.enemy, this.deathTwo, null, this)
+
         ////////////////////////////////Actual Controls////////////////////////////////
 
         //Jump Mechanics
