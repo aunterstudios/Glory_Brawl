@@ -49,11 +49,11 @@ game.state.add('controlScreen', brawl.stateControls);
 game.state.start('mainMenu');
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "MetroidVanian: This is The Physics",
+  "MetroidVanian: Play Testing Physics",
   "Be Reborn Once Again",
   "Remember the Words",
   "GLORY BRAWL",
-  "PK Playing"
+  "Change Wall"
 ];
 
 var line = [];
