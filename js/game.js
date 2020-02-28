@@ -15,13 +15,15 @@ brawl.game.prototype = {
         ///////////////////////These Are Resetting the Player Attributes For Each Level////////////////////
         playerSpeed = 400;
         playerJump = -500;
+        playerGravity = 1500;
+        playerDoubleJumps = 2;
         playerWallJumpX = 1000;
         playerWallJumpY = 500;
         playerStickiness = 100;
         playerSlippery = -25;
         playerUpsideDownVelocity = -100;
         playerUpsideDownMovement = 100;
-        playerDownwards = 500;
+        playerDownwards = 400;
     },
     preload: function () {
         // this.game.forceSingleUpdate = true;
@@ -84,7 +86,7 @@ brawl.game.prototype = {
         this.createPause();
 
         //Overlap Bias to Prevent Sprite Tunneling
-        this.game.physics.arcade.OVERLAP_BIAS = 12; //10 is original
+        this.game.physics.arcade.OVERLAP_BIAS = 17; //10 is original
 
         ////////////////////Game World Size//////////////////////
         this.game.world.setBounds(0, 0, worldClassLevels[this.indexOfCurrentWorld].xOfWorld, worldClassLevels[this.indexOfCurrentWorld].yOfWorld);
@@ -170,7 +172,7 @@ brawl.game.prototype = {
 
         // If the player is touching a surface, let him have 2 jumps
         if (onTheGround || onTheLeftSide || onTheRightSide || onUpsideDown) {
-            this.jumps = 2;
+            this.jumps = playerDoubleJumps;
             this.jumping = false;
         }
 

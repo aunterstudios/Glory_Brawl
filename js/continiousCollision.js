@@ -27,13 +27,13 @@ brawl.game.prototype.fireEnemyBullet = function () {
                     // enemyBullet.reset(enemy.body.x, enemy.body.y + 30);
                     enemyBulletTime = this.time.now + 400; //500 was the "default value"
                     enemyBullet.reset(enemy.body.x, enemy.body.y + 30);
-                    this.game.physics.arcade.moveToObject(enemyBullet, this.player, 300);
+                    this.game.physics.arcade.moveToObject(enemyBullet, this.player, 400);
                 }
             }
             //Daakath
             if (enemy.name === enemyDaakath) {
                 this.game.physics.arcade.moveToObject(enemy, this.player, 350);
-            }
+            }3
         }
     }, this, this.player);
 };

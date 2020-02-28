@@ -120,23 +120,25 @@ brawl.game.prototype.wallSpawn = function (sprite) {
     this.wallX.positionInArray = sprite.positionInArray;
     this.wallX.velocityVsImmovable = 100;
     //////////Enemy Walls That Are Meant to Help/////////
-    if (sprite.name === wallFrozen) {
+    if (sprite.name === wallBlackFrozen) {
         this.wallX.tint = tintWallFrozen;
         this.wallX.body.moves = false;
         this.wallX.body.immovable = true;
     }
-    else if (sprite.name === wallControl) {
-        this.wallX.tint = tintWallControl;
+    else if (sprite.name === wallBlackTrap) {
+        this.wallX.tint = tintWallBlackTrap;
     }
+    else if (sprite.name === wallBlackKiller) {
+        this.wallX.tint = tintWallBlackKiller;
+    }
+    ////////////Object Descendent Walls/////////// 
     else if (sprite.name === wallInverse) {
         this.wallX.tint = tintWallInverse;
     }
-    else if (sprite.name === wallHeavy) {
-        this.wallX.tint = tintWallHeavy;
+    else if (sprite.name === wallControl) {
+        this.wallX.tint = tintWallControl;
     }
-    else if (sprite.name === wallLight) {
-        this.wallX.tint = tintWallLight;
-    }
+    ///////////////Special Walls////////////////
     else if (sprite.name === wallCloud) {
         this.wallX.tint = tintWallCloud;
         this.wallX.body.immovable = true;
@@ -148,55 +150,13 @@ brawl.game.prototype.wallSpawn = function (sprite) {
         this.wallX.tint = tintWallGhost;
         this.wallX.body.immovable = true;
     }
-    //////////Enemy Walls////////////////
-    else if (sprite.name === wallBlack) {
-        this.wallX.tint = tintWallBlack;
-    }
-    else if (sprite.name === wallBlackFrozen) {
-        this.wallX.tint = tintWallBlackFrozen;
-        this.wallX.body.moves = false;
-        this.wallX.body.immovable = true;
-    }
-    else if (sprite.name === wallBlackGravity) {
-        this.wallX.tint = tintWallBlackGravity;
-        this.wallX.body.gravity.x = 100;
-        this.wallX.body.immovable = true;
-    }
-    else if (sprite.name === wallBlackReverseGravity) {
-        this.wallX.tint = tintWallBlackReverseGravity;
-        this.wallX.body.gravity.x = -500;
-        this.wallX.body.immovable = true;
-    }
-    else if (sprite.name === wallBlackLight) {
-        this.wallX.tint = tintWallBlackLight;
-    }
-    else if (sprite.name === wallBlackHeavy) {
-        this.wallX.tint = tintWallBlackHeavy;
-    }
-    else if (sprite.name === wallBlackCloud) {
-        this.wallX.tint = tintWallBlackCloud;
-        this.wallX.body.immovable = true;
-    }
-    else if (sprite.name === wallBlackGhost) {
-        this.wallX.tint = tintWallBlackGhost;
-    }
     this.wallX.anchor.setTo(.5);
     this.wallX.scale.setTo(sprite.sizeX, sprite.sizeY);
     // this.wallX.body.immovable = true;
     ////////////////Special Properties////////////
-    if (!sprite.name === (wallBlackGravity || wallBlackReverseGravity)) {
-        this.wallX.body.gravity.setTo(sprite.gravityX, sprite.gravityY);
-    }
-    this.wallX.body.mass = 20; //150
-    // if (sprite.name === (wallRegular || wallControl)) {
-    //     this.wallX.body.maxVelocity.setTo(300);
-    // }
-    if (sprite.name === wallRegular) {
-        this.wallX.body.maxVelocity.setTo(300);
-    }
-    else {
-        this.wallX.body.maxVelocity.setTo(450);
-    }
+    this.wallX.body.gravity.setTo(sprite.gravityX, sprite.gravityY);
+    this.wallX.body.mass = 200; //150
+    this.wallX.body.maxVelocity.setTo(400);
     ////////////////////Testing///////////////////
     this.wallX.body.collideWorldBounds = true;
     ////////////////////////Testing/////////////////////////
