@@ -42,9 +42,9 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     // Track Player
     this.weapon1.trackSprite(this.player, 0, 0);
 
-    /////////////////Push
+    /////////////////PUSH
     //  Creates 30 bullets, using the 'bullet' graphic
-    this.weapon2 = this.game.add.weapon(weaponBulletAmount, 'bulletStop');
+    this.weapon2 = this.game.add.weapon(weaponBulletAmount, 'bulletPush');
     //  The bullet will be automatically killed when it leaves the camera bounds
     this.weapon2.bulletKillType = Phaser.Weapon.KILL_CAMERA_BOUNDS;
     //  Because our bullet is drawn facing up, we need to offset its rotation:
@@ -57,9 +57,9 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     // Track Player
     this.weapon2.trackSprite(this.player, 0, 0);
 
-    ////////////////Stop
+    /////////////////Stop
     //  Creates 30 bullets, using the 'bullet' graphic
-    this.weapon3 = this.game.add.weapon(weaponBulletAmount, 'bulletKill');
+    this.weapon3 = this.game.add.weapon(weaponBulletAmount, 'bulletStop');
     //  The bullet will be automatically killed when it leaves the camera bounds
     this.weapon3.bulletKillType = Phaser.Weapon.KILL_CAMERA_BOUNDS;
     //  Because our bullet is drawn facing up, we need to offset its rotation:
@@ -68,8 +68,23 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     this.weapon3.bulletSpeed = weaponBulletSpeed;
     //  Speed-up the rate of fire, allowing them to shoot 1 bullet every 60ms
     this.weapon3.fireRate = weaponFireRate;
+    //Match Your Velocity?
     // Track Player
     this.weapon3.trackSprite(this.player, 0, 0);
+
+    ////////////////Kill
+    //  Creates 30 bullets, using the 'bullet' graphic
+    this.weapon4 = this.game.add.weapon(weaponBulletAmount, 'bulletKill');
+    //  The bullet will be automatically killed when it leaves the camera bounds
+    this.weapon4.bulletKillType = Phaser.Weapon.KILL_CAMERA_BOUNDS;
+    //  Because our bullet is drawn facing up, we need to offset its rotation:
+    this.weapon4.bulletAngleOffset = 90;
+    //  The speed at which the bullet is fired
+    this.weapon4.bulletSpeed = weaponBulletSpeed;
+    //  Speed-up the rate of fire, allowing them to shoot 1 bullet every 60ms
+    this.weapon4.fireRate = weaponFireRate;
+    // Track Player
+    this.weapon4.trackSprite(this.player, 0, 0);
 
     // - 20 for Tracking//
 

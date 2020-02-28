@@ -27,10 +27,6 @@ brawl.game.prototype.goPause = function () {
     }
     else {
         this.game.paused = true;
-        //Streak
-        // this.pauseText = this.game.add.text(this.player.x, this.player.y, "PAUSE", { font: "32px Arial", fill: "#ffffff", align: "center" });
-        // this.pauseText.fixedToCamera = true;
-        // this.pauseText.cameraOffset.setTo(1200, 750);
     }
 };
 /////////////////////////////////////////////////Camera///////////////////////////////////////////
@@ -38,7 +34,7 @@ brawl.game.prototype.cameraPlayer = function () {
     ////////////////////////////////////////////Camera on Player///////////////////////////////////////////////////////////
     // this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_PLATFORMER);
     this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_LOCKON);
-    this.cameraStyle = this.game.input.keyboard.addKey(Phaser.Keyboard.FOUR);
+    this.cameraStyle = this.game.input.keyboard.addKey(Phaser.Keyboard.FIVE);
     this.cameraStyle.onDown.add(this.cameraChange, this);
 };
 brawl.game.prototype.cameraChange = function () {

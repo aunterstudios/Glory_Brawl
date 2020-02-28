@@ -106,24 +106,13 @@ brawl.game.prototype.wallMoveable = function (wall, objMov) {
     }
     if (wall.name === wallInverse && objMov.groupName === groupEnemy) {
         wall.name = wallBlackTrap;
+        wall.tint = tintWallBlackTrap;
         wall.body.stop();
         wall.body.immovable = true;
-        if (wall.body.touching.up) {
-            wall.body.velocity.y = -100;
-        }
-        else if (wall.body.touching.down) {
-            wall.body.velocity.y = 100;
-        }
-        else if (wall.body.touching.left) {
-            wall.body.velocity.x = -100;
-        }
-        else if (wall.body.touching.right) {
-            wall.body.velocity.x = 100;
-        }
-        wall.tint = tintWallBlackTrap;
+        wall.body.velocity.y = 100;
     }
 
-    if (wall.name === wallBlackTrap) {
+    if (wall.name === wallBlackTrap || wall.name === wallBlackFrozen || wall.name === wallBlackKiller) {
         this.emitterFunction(objMov);
         objMov.kill();
     }
@@ -215,6 +204,10 @@ brawl.game.prototype.playerWall = function (player, wall) {
             // console.log(player.body.touching.left, 'left', player.body.touching.right, 'right')
         }
     }
+    //Enemy Walls
+    if (wall.name === wallBlackFrozen) {
+        player.body.stop();
+    }
     if (wall.name === wallCloud) {
         //Control
         // wall.body.velocity.x = player.body.velocity.x;
@@ -257,16 +250,16 @@ brawl.game.prototype.playerBall = function (player, ball) {
     ball.body.stop();
     //75 is Original
     if (ball.body.touching.up) {
-        ball.body.velocity.y = 200;
+        ball.body.velocity.y = 100;
     }
     if (ball.body.touching.down) {
-        ball.body.velocity.y = -200;
+        ball.body.velocity.y = -100;
     }
     if (ball.body.touching.left) {
-        ball.body.velocity.x = 200;
+        ball.body.velocity.x = 100;
     }
     if (ball.body.touching.right) {
-        ball.body.velocity.x = -200;
+        ball.body.velocity.x = -100;
     }
     //   //////////////Control////////////
     //   // if (ball.body.touching.up) {

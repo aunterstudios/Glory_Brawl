@@ -108,6 +108,7 @@ function nextWord() {
 var pullBoolean = false;
 var pushBoolean = false;
 var stopBoolean = false;
+var killBoolean = false;
 
 //Respawn Holder (The Level You Will Respawn In)
 var respawnHolder = {
@@ -981,15 +982,15 @@ level_3.wallSpawn = [
 // ];
 
 //Enemy Spawn
-// level_3.enemySpawn = [
-//   new SpriteCreator(0, true, true, enemyDaakath, enemyOne, 400, 200, 0, 0, .5, .5, 0, 0, null, null),
-//   new SpriteCreator(1, true, true, enemyShooter, enemyOne, 700, 200, 0, 0, .5, .5, 0, 0, null, null),
-// ];
+level_3.enemySpawn = [
+  // new SpriteCreator(0, true, true, enemyDaakath, enemyOne, 400, 200, 0, 0, .5, .5, 0, 0, null, null),
+  new SpriteCreator(1, true, true, enemyShooter, enemyOne, 1200, 300, 0, 0, .5, .5, 0, 0, null, null),
+];
 
 //Ball
-// level_3.ballSpawn = [
-//   new SpriteCreator(0, true, true, ballRegular, ball, 800, 200, 0, 0, null, null, 0, 0, null, null)
-// ];
+level_3.ballSpawn = [
+  new SpriteCreator(0, true, true, ballRegular, ball, 800, 400, 0, 0, null, null, 0, 0, null, null)
+];
 
 //Push Level 2 Into World Class Array
 worldClassLevels.push(level_3);

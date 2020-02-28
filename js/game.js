@@ -46,6 +46,7 @@ brawl.game.prototype = {
         //Bullets
         this.load.image('bulletKill', 'assets/bulletKill.png');
         this.load.image('bulletStop', 'assets/bulletStop.png');
+        this.load.image('bulletPush', 'assets/bulletPush.png');
         this.load.image('bulletPull', 'assets/bulletPull.png');
         this.load.image('bulletEnemy', 'assets/bulletEnemy.png');
         //Coin
@@ -136,8 +137,8 @@ brawl.game.prototype = {
         this.game.physics.arcade.overlap(this.player, this.flag, this.respawn, null, this);
 
         //Weapon Mechanics
-        this.game.physics.arcade.collide([this.weapon1.bullets, this.weapon2.bullets, this.weapon3.bullets], [this.ball, this.wall, this.ledge, this.enemy], this.weaponHandler, this.weaponGhost, this);
-        this.game.physics.arcade.overlap([this.weapon1.bullets, this.weapon2.bullets, this.weapon3.bullets], [this.immovableWall, this.death], this.weaponImmovable, null, this);
+        this.game.physics.arcade.collide([this.weapon1.bullets, this.weapon2.bullets, this.weapon3.bullets, this.weapon4.bullets], [this.ball, this.wall, this.ledge, this.enemy], this.weaponHandler, this.weaponGhost, this);
+        this.game.physics.arcade.overlap([this.weapon1.bullets, this.weapon2.bullets, this.weapon3.bullets, this.weapon4.bullets], [this.immovableWall, this.death], this.weaponImmovable, null, this);
 
         //Immovable Wall vs Moveable Objects
         this.game.physics.arcade.collide(this.immovableWall, [this.ball, this.ledge, this.enemy], this.immovableMoveable, null, this);
@@ -335,6 +336,10 @@ brawl.game.prototype = {
             else if (stopBoolean) {
                 this.weapon3.fireAtPointer();
                 this.weapon3.fire();
+            }
+            else if (killBoolean) {
+                this.weapon4.fireAtPointer();
+                this.weapon4.fire();
             }
         }
     },
