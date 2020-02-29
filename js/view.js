@@ -34,7 +34,9 @@ brawl.game.prototype.cameraPlayer = function () {
     ////////////////////////////////////////////Camera on Player///////////////////////////////////////////////////////////
     // this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_PLATFORMER);
     this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_LOCKON);
-    this.cameraStyle = this.game.input.keyboard.addKey(Phaser.Keyboard.FIVE);
+    //Toggle Camera
+    this.game.input.keyboard.addKeyCapture([Phaser.Keyboard.SHIFT]);
+    this.cameraStyle = this.game.input.keyboard.addKey(Phaser.Keyboard.SHIFT);
     this.cameraStyle.onDown.add(this.cameraChange, this);
 };
 brawl.game.prototype.cameraChange = function () {

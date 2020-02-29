@@ -545,7 +545,7 @@ level_0.text = [
   ////////////////////////////New Text//////////////////////
   new textCreator(9, true, 1050, 3800, "Tapping Twice on the Jump Button Lets You Double Jump\n\nDouble Jump to the Top of the Wall", 'Courier New', 25, '#000000', 'bold'),
   new textCreator(10, true, 1000, 1600, "Press S to Dislodge Yourself\n\nHolding S While Falling\n\nSlows Down Your Fall", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(11, true, 1300, 1850, "Checkpoint\n\nPress 5 to Toggle Free-Look\n\n(WASD Movement)\n\nLOOK AT THE FUCKING MAP NOW", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(11, true, 1300, 1850, "Checkpoint\n\nPress Shift to Toggle Free-Look\n\n(WASD Movement)\n\nLOOK AT THE FUCKING MAP NOW", 'Courier New', 25, '#000000', 'bold'),
   new textCreator(12, true, 1900, 1900, "You Can Control Your Movement in the Air\n\nPressing S Lets You Move Downwards", 'Courier New', 25, '#000000', 'bold'),
   new textCreator(13, true, 2800, 3450, "I'm Telling You to Read the Fucking Instructions\n\nHoly Shit It's Fucking Important\n\nI'm Telling You How To Become Reborn\n\nNow We've Done This Countless of Times\n\nThe Same Thing Over and Over Again\n\nGo Back to the Beginning With This in Mind\n\nJust Remember the Words\n\n\nGLORY BRAWL ", 'Courier New', 25, '#000000', 'bold'),
   new textCreator(14, true, 2900, 2150, "Stick to the Bottom\n\nDislodge Yourself\n\nDouble Jump to the Top", 'Courier New', 25, '#000000', 'bold'),
@@ -891,7 +891,7 @@ level_2.text = [
   //WolfGang Kill Them
   new textCreator(1, true, 4250, 580, "Kill Them Before They Kill You\nYou Can Move Them Too", 'Courier New', 25, '#000000', 'bold'),
   //Camera Mode
-  new textCreator(2, true, 2400, 400, "Learn How to Do the Free-Look Shot\n\nBullets Are Killed Off Screen\n\nFollow The Bullet\n\nPress 5 For Free Look (WASD Movement)", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(2, true, 2400, 400, "Learn How to Do the Free-Look Shot\n\nBullets Are Killed Off Screen\n\nFollow The Bullet\n\nPress Shift For Free Look (WASD Movement)", 'Courier New', 25, '#000000', 'bold'),
   //Phase Wall
   new textCreator(3, true, 400, 400, "These Orange Walls Are Killed\n\nBy Enemy Bullets\n\nThat Falling Red Thing Kills You", 'Courier New', 25, '#000000', 'bold'),
   ////////////////////////////////////Shadow Level//////////////////////////////////

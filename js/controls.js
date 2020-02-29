@@ -18,8 +18,4 @@ brawl.game.prototype.initControls = function () {
     this.pushBullet.onDown.add(this.goPush, this);
     this.stopBullet.onDown.add(this.goStop, this);
     this.killBullet.onDown.add(this.goKill, this);
-
-    //Fire from Keyboard
-    this.game.input.keyboard.addKeyCapture([Phaser.Keyboard.SHIFT]);
-    this.shiftFire = this.game.input.keyboard.addKey(Phaser.Keyboard.SHIFT);
 };
