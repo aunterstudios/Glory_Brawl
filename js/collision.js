@@ -319,8 +319,7 @@ brawl.game.prototype.playerLedge = function (player, ledge) {
 };
 //Ball Interaction With Different Objects
 brawl.game.prototype.ballHandler = function (ball, sprite2) {
-    // console.log(sprite2.groupName);
-    if (sprite2.groupName === (groupSpikes || groupEnemy)) {
+    if (sprite2.groupName === groupEnemy || sprite2.groupName === groupSpikes) {
         sprite2.kill();
         this.emitterFunction(sprite2);
         //Removes Localized Sprites from Regenerating (Spikes)
@@ -337,6 +336,7 @@ brawl.game.prototype.ballHandler = function (ball, sprite2) {
         //////////////////////////Creates New Sprites After Spikes Destroyed///////////////////////
         //worldClassLevels[sprite2.specialWorld].ledgeGreySpawn[sprite2.specialArray].trigger = true;
     }
+    console.log(sprite2.groupName);
     //////////////////////Otherwise Collision Mechanics//////////////////
     ball.body.stop();
     if (ball.body.touching.up) {

@@ -1,43 +1,43 @@
 var game = new Phaser.Game(1400, 800, Phaser.CANVAS);
 
 /////////////////////////////////////////////////Disable RightClick////////////////////////////////////
-// window.onload = function() {
-//   document.addEventListener("contextmenu", function(e){
-//     e.preventDefault();
-//   }, false);
-//   document.addEventListener("keydown", function(e) {
-//   //document.onkeydown = function(e) {
-//     // "I" key
-//     if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
-//       disabledEvent(e);
-//     }
-//     // "J" key
-//     if (e.ctrlKey && e.shiftKey && e.keyCode == 74) {
-//       disabledEvent(e);
-//     }
-//     // "S" key + macOS
-//     if (e.keyCode == 83 && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
-//       disabledEvent(e);
-//     }
-//     // "U" key
-//     if (e.ctrlKey && e.keyCode == 85) {
-//       disabledEvent(e);
-//     }
-//     // "F12" key
-//     if (event.keyCode == 123) {
-//       disabledEvent(e);
-//     }
-//   }, false);
-//   function disabledEvent(e){
-//     if (e.stopPropagation){
-//       e.stopPropagation();
-//     } else if (window.event){
-//       window.event.cancelBubble = true;
-//     }
-//     e.preventDefault();
-//     return false;
-//   }
-// };
+window.onload = function() {
+  document.addEventListener("contextmenu", function(e){
+    e.preventDefault();
+  }, false);
+  document.addEventListener("keydown", function(e) {
+  //document.onkeydown = function(e) {
+    // "I" key
+    if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
+      disabledEvent(e);
+    }
+    // "J" key
+    if (e.ctrlKey && e.shiftKey && e.keyCode == 74) {
+      disabledEvent(e);
+    }
+    // "S" key + macOS
+    if (e.keyCode == 83 && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
+      disabledEvent(e);
+    }
+    // "U" key
+    if (e.ctrlKey && e.keyCode == 85) {
+      disabledEvent(e);
+    }
+    // "F12" key
+    if (event.keyCode == 123) {
+      disabledEvent(e);
+    }
+  }, false);
+  function disabledEvent(e){
+    if (e.stopPropagation){
+      e.stopPropagation();
+    } else if (window.event){
+      window.event.cancelBubble = true;
+    }
+    e.preventDefault();
+    return false;
+  }
+};
 
 //////////////////////////////////////////////////Game States//////////////////////////////////////////////
 game.state.add('mainMenu', brawl.state1);
@@ -413,7 +413,7 @@ var tintEnemyShooter = 12758247.409111453;
 var tintEnemyDaakath = 15269906.933038201;
 
 ///////////////////////////////////////////Level 0///////////////////////////////////////////////////////////
-var level_0 = new LevelCreator("Level 0-CL", 3800, 4200, new MetroidvaniaCreator(1, 100, 0, 4200, 0, 1, 0, 3800), "#ffffff");
+var level_0 = new LevelCreator("Level 0-CL", 3800, 4200, new MetroidvaniaCreator(1, 100, 0, 4200, 0, 1, 0, 3800), "#ffffff"); //3800
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_0.playerPosition = [
@@ -531,7 +531,7 @@ level_0.flagSpawn = [
 
 //Text Creator (Helpful Hints)
 level_0.text = [
-  new textCreator(0, true, 100, 3600, "This is How You'll Be Reborn\n\nP- Pause\nO- FullScreen\nW or Spacebar- Jump\nA- Left\nS- Push or Move Downwards\nD- Right\nTapping Twice on the Jump Button Lets You Double Jump", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(0, true, 100, 3600, "This is How You'll Be Reborn\n\nP- Pause\nO- FullScreen\nW or Spacebar- Jump\nA- Left\nS- Push or Move Downwards\nD- Right", 'Courier New', 25, '#000000', 'bold'),
   new textCreator(1, true, 100, 4000, "RED IS DEATH", 'Impact', 30, "#FF0000", 'bold'),
   new textCreator(2, true, 1900, 3950, "You Automatically Stick on Surfaces\n\nWhen You Jump on It\n\nHold D While Tapping A to Fast Climb", 'Courier New', 25, '#000000', 'bold'),
   new textCreator(3, true, 1750, 3350, "This Time Hold A While Tapping D", 'Courier New', 25, '#000000', 'bold'),
@@ -543,22 +543,22 @@ level_0.text = [
   // new textCreator(9, true, 2500, 1400, "Once Again When You Hit a Fucking 4wSurface\n\nYou Can Double Jump Again in the Air", 'Courier New', 25, '#000000', 'bold'),
   new textCreator(8, true, 300, 1600, "You Can Go Upside Down\n\nJump to the Bottom of The Wall\n\nYou Can Move While Upside Down", 'Courier New', 25, '#000000', 'bold'),
   ////////////////////////////New Text//////////////////////
-  new textCreator(9, true, 1200, 3800, "Double Jump to the Top of the Wall", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(9, true, 1050, 3800, "Tapping Twice on the Jump Button Lets You Double Jump\n\nDouble Jump to the Top of the Wall", 'Courier New', 25, '#000000', 'bold'),
   new textCreator(10, true, 1000, 1600, "Press S to Dislodge Yourself\n\nHolding S While Falling\n\nSlows Down Your Fall", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(11, true, 1300, 1850, "Checkpoint\n\nPress 4 to Toggle Free-Look\n\n(WASD Movement)\n\nLOOK AT THE FUCKING MAP NOW", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(11, true, 1300, 1850, "Checkpoint\n\nPress 5 to Toggle Free-Look\n\n(WASD Movement)\n\nLOOK AT THE FUCKING MAP NOW", 'Courier New', 25, '#000000', 'bold'),
   new textCreator(12, true, 1900, 1900, "You Can Control Your Movement in the Air\n\nPressing S Lets You Move Downwards", 'Courier New', 25, '#000000', 'bold'),
   new textCreator(13, true, 2800, 3450, "I'm Telling You to Read the Fucking Instructions\n\nHoly Shit It's Fucking Important\n\nI'm Telling You How To Become Reborn\n\nNow We've Done This Countless of Times\n\nThe Same Thing Over and Over Again\n\nGo Back to the Beginning With This in Mind\n\nJust Remember the Words\n\n\nGLORY BRAWL ", 'Courier New', 25, '#000000', 'bold'),
   new textCreator(14, true, 2900, 2150, "Stick to the Bottom\n\nDislodge Yourself\n\nDouble Jump to the Top", 'Courier New', 25, '#000000', 'bold'),
   new textCreator(15, true, 2700, 1600, "Trying Tap A Once\n\nWhile Sticking on the Wall\n\nThen Double Jump", 'Courier New', 25, '#000000', 'bold'),
   new textCreator(16, true, 2200, 1000, "Do I Need To Say It Again?\n\nYou Can Double Jump in the Air\n\nOnce You Hit a Surface", 'Courier New', 25, '#000000', 'bold'),
   new textCreator(17, true, 3050, 1275, "Tap D Once This Time\n\nThen Double Jump", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(18, true, 3200, 300, "Press 1 to Access Pull Gun\n\nPoint and Click to Shoot\n\nPull the Wall Towards You\n\nJump on top of the Wall\n\nSurf By Moving", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(19, true, 2400, 200, "Pressing S Stabilizes The Wall\n\nRemember You're Surfing It", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(18, true, 3200, 300, "Press 1 to Access Pull Gun\n\nPoint and Click to Shoot\n\nUse the Pull Gun\n\nWhile on Top of the Wall\n\nPull Yourself Along and Surf", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(19, true, 2400, 200, "Pressing S Pushes Down the Wall\n\nRemember You're Surfing It\n\n←", 'Courier New', 25, '#000000', 'bold'),
   new textCreator(20, true, 1600, 450, "Any Object That is Moveable\n\nCan Be Pulled", 'Courier New', 25, '#000000', 'bold'),
   new textCreator(21, true, 800, 150, "DO NOT TOUCH ORANGE\n\nIT WILL KILL YOU\n\nGet to The Checkpoint on the Left\n\nThen Go to the Bottom", 'Courier New', 25, '#000000', 'bold'),
   new textCreator(22, true, 100, 1300, "The Ball Can Kill Orange\nAmong Other Things", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(23, true, 900, 1300, "Press 2 To Access the Stop Gun\nIt Can Stop Things From Moving\nMove the Ball", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(24, true, 200, 600, "The Ball Can Be Pulled\nThings That Can Be Moved\nCan Be Stopped\nRemember That", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(23, true, 750, 1300, "Press 2 To Access the Push Gun\nIt Does the Opposite From Pull\nAny Object That is Moveable Can Be Pushed", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(24, true, 200, 600, "Are You Stuggling?\nPress 3 to Access the Stop Gun\nIt Stops Things\nAny Object That is Moveable\nCan Be Stopped", 'Courier New', 25, '#000000', 'bold'),
   ///Addition Text
   new textCreator(25, true, 2250, 3600, "Go Here First →\n\nFucking Read It", 'Courier New', 25, '#000000', 'bold'),
   //Arrows
@@ -869,7 +869,7 @@ var flagSpecial_Level2 = {
   enemyRemove: [[], [0, 1, 2, 5, 6, 7, 8, 9]],
   fallingSpikesInsert: [[], [1, 2, 3]],
   textInsert: [[9, 10], [4, 5, 6, 7]],
-  textRemove: [[8], [0, 1, 2, 3]],
+  textRemove: [[8], [0, 1, 2, 3, 8]],
 };
 
 //Flag Spawn
@@ -891,7 +891,7 @@ level_2.text = [
   //WolfGang Kill Them
   new textCreator(1, true, 4250, 580, "Kill Them Before They Kill You\nYou Can Move Them Too", 'Courier New', 25, '#000000', 'bold'),
   //Camera Mode
-  new textCreator(2, true, 2400, 400, "Learn How to Do the Free-Look Shot\n\nBullets Are Killed Off Screen\n\nFollow The Bullet\n\nPress 4 For Free Look (WASD Movement)", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(2, true, 2400, 400, "Learn How to Do the Free-Look Shot\n\nBullets Are Killed Off Screen\n\nFollow The Bullet\n\nPress 5 For Free Look (WASD Movement)", 'Courier New', 25, '#000000', 'bold'),
   //Phase Wall
   new textCreator(3, true, 400, 400, "These Orange Walls Are Killed\n\nBy Enemy Bullets\n\nThat Falling Red Thing Kills You", 'Courier New', 25, '#000000', 'bold'),
   ////////////////////////////////////Shadow Level//////////////////////////////////
@@ -903,6 +903,8 @@ level_2.text = [
   new textCreator(6, false, 2250, 400, "Feel My Wrath", 'Courier New', 25, '#ff0000', 'bold'),
   //Phase Wall
   new textCreator(7, false, 400, 400, "This is A Level of The Shadow", 'Courier New', 25, '#ff0000', 'bold'),
+  /////////////////////////////New Text/////////////////
+  new textCreator(8, true, 1400, 200, "The Wall Can Be Used\n\nAgainst The Enemy\n\nThere's a Price Though", 'Courier New', 25, '#000000', 'bold'),
 ];
 
 //Push Level 2 Into World Class Array

@@ -39,8 +39,8 @@ brawl.game.prototype.fireEnemyBullet = function () {
 };
 //////////////////Emitter Function/////////////////////
 brawl.game.prototype.emitterFunction = function (sprite) {
-    this.emitter.x = sprite.x;
-    this.emitter.y = sprite.y;
+    this.emitter.x = sprite.centerX;
+    this.emitter.y = sprite.centerY;
     this.emitter.start(true, 1500, null, 10);
 };
 

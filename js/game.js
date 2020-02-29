@@ -111,9 +111,9 @@ brawl.game.prototype = {
         this.cameraPlayer();
 
         //World
-        this.text = this.game.add.text(200, 6208, "World: " + worldName, { font: "20px Arial", fill: "#000000", align: "center" });
+        this.text = this.game.add.text(200, 6208, worldName, { font: "20px Arial", fill: "#000000", align: "center" });
         this.text.fixedToCamera = true;
-        this.text.cameraOffset.setTo(1100, 725);
+        this.text.cameraOffset.setTo(1100, 700);
     },
     // //How Game Updates Real-Time (Actual Controls)////
     update: function () {

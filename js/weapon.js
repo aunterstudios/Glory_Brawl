@@ -9,6 +9,10 @@ brawl.game.prototype.weaponHandler = function (weapon, sprite) {
         this.game.physics.arcade.moveToObject(sprite, this.player, 200);
     }
     else if (weapon.key === 'bulletPush') {
+        // sprite.body.velocity.x = weapon.body.velocity.x;
+        // sprite.body.velocity.y = weapon.body.velocity.y;
+        //Test One
+        sprite.body.stop();
         if (sprite.body.touching.up) {
             sprite.body.velocity.y = 200;
         }
@@ -21,6 +25,44 @@ brawl.game.prototype.weaponHandler = function (weapon, sprite) {
         if (sprite.body.touching.right) {
             sprite.body.velocity.x = -200;
         }
+        //Test Two
+        // if (sprite.body.touching.up) {
+        //     if (sprite.body.velocity.x < 0) {
+        //         sprite.body.velocity.x = Math.abs(sprite.body.velocity.x); 
+        //     }
+        //     else if (sprite.body.velocity.x > 0) {
+        //         sprite.body.velocity.x = -sprite.body.velocity.x;
+        //     }
+        //     sprite.body.velocity.x = -sprite.body.velocity.x; 
+        //     sprite.body.velocity.y = 200;
+        // }
+        // if (sprite.body.touching.down) {
+        //     if (sprite.body.velocity.x < 0) {
+        //         sprite.body.velocity.x = Math.abs(sprite.body.velocity.x); 
+        //     }
+        //     else if (sprite.body.velocity.x > 0) {
+        //         sprite.body.velocity.x = -sprite.body.velocity.x;
+        //     }
+        //     sprite.body.velocity.y = -200;
+        // }
+        // if (sprite.body.touching.left) {
+        //     if (sprite.body.velocity.y < 0) {
+        //         sprite.body.velocity.y = Math.abs(sprite.body.velocity.y); 
+        //     }
+        //     else if (sprite.body.velocity.y > 0) {
+        //         sprite.body.velocity.y = -sprite.body.velocity.y;
+        //     }
+        //     sprite.body.velocity.x = 200;
+        // }
+        // if (sprite.body.touching.right) {
+        //     if (sprite.body.velocity.y < 0) {
+        //         sprite.body.velocity.y = Math.abs(sprite.body.velocity.y); 
+        //     }
+        //     else if (sprite.body.velocity.y > 0) {
+        //         sprite.body.velocity.y = -sprite.body.velocity.y;
+        //     }
+        //     sprite.body.velocity.x = -200;
+        // }
 
     }
     else if (weapon.key === 'bulletStop') {
