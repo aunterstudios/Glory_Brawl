@@ -9,22 +9,24 @@ brawl.game.prototype.weaponHandler = function (weapon, sprite) {
         this.game.physics.arcade.moveToObject(sprite, this.player, 200);
     }
     else if (weapon.key === 'bulletPush') {
+        console.log(weapon.body.angle, 'angle');
+        this.game.physics.arcade.velocityFromAngle(weapon.body.angle, 300, sprite.velocity);
         // sprite.body.velocity.x = weapon.body.velocity.x;
         // sprite.body.velocity.y = weapon.body.velocity.y;
         //Test One
-        sprite.body.stop();
-        if (sprite.body.touching.up) {
-            sprite.body.velocity.y = 200;
-        }
-        if (sprite.body.touching.down) {
-            sprite.body.velocity.y = -200;
-        }
-        if (sprite.body.touching.left) {
-            sprite.body.velocity.x = 200;
-        }
-        if (sprite.body.touching.right) {
-            sprite.body.velocity.x = -200;
-        }
+        // sprite.body.stop();
+        // if (sprite.body.touching.up) {
+        //     sprite.body.velocity.y = 200;
+        // }
+        // if (sprite.body.touching.down) {
+        //     sprite.body.velocity.y = -200;
+        // }
+        // if (sprite.body.touching.left) {
+        //     sprite.body.velocity.x = 200;
+        // }
+        // if (sprite.body.touching.right) {
+        //     sprite.body.velocity.x = -200;
+        // }
         //Test Two
         // if (sprite.body.touching.up) {
         //     if (sprite.body.velocity.x < 0) {

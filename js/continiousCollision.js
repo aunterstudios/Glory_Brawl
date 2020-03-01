@@ -36,6 +36,7 @@ brawl.game.prototype.fireEnemyBullet = function () {
             }3
         }
     }, this, this.player);
+    //Acceleration to Object (Another Type of Enemy)
 };
 //////////////////Emitter Function/////////////////////
 brawl.game.prototype.emitterFunction = function (sprite) {

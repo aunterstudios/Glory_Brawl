@@ -102,6 +102,9 @@ brawl.game.prototype.immovableWallSpawn = function (sprite) {
     else if (sprite.name === immovableWallMario) {
         this.immovableWallX.tint = tintImmovableWallMario;
     }
+    else if (sprite.name === immovableWallSlippery) {
+        this.immovableWallX.tint = tintImmovableWallSlippery;
+    }
     this.immovableWallX.scale.setTo(sprite.sizeX, sprite.sizeY);
     this.immovableWallX.body.immovable = true;
     this.immovableWallX.body.mass = 100;

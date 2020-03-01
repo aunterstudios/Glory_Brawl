@@ -128,6 +128,17 @@ brawl.game.prototype.ghostWall = function (wall, immovable) {
     }
 };
 brawl.game.prototype.playerImmovable = function (player, immovable) {
+    //Activating Slippery Walls and Unactivating It
+    // console.log(this.game.physics.arcade.getOverlapX(player,immovable));
+    // console.log(this.game.physics.arcade.getOverlapY(player,immovable));
+    // this.game.physics.arcade.getOverlapX(player,immovable);
+    // player.body.stop();
+    if (immovable.name === immovableWallSlippery) {
+        playerSlippery = 150;
+    }
+    else {
+        playerSlippery = -25;
+    }
     ///Activating immovableWallActivation(Like a Cloud)
     if (immovable.name === immovableWallActivation) {
         if (immovable.body.touching.up) {
@@ -188,20 +199,32 @@ brawl.game.prototype.playerWall = function (player, wall) {
     }
     if (wall.name === wallInverse) {
         wall.body.stop();
-        player.body.velocity.y = 0;
+        player.body.stop();
+        player.body.velocity.y = -150;
         if (player.body.touching.down) {
             wall.body.velocity.y = -150;
+            if (player.x < wall.x) {
+                wall.body.velocity.x = -150;
+                // console.log(player.body.touching.up, 'up');
+            }
+            if (player.x > wall.x) {
+                wall.body.velocity.x = 150;
+                // console.log(player.body.touching.left, 'left', player.body.touching.right, 'right')
+            }
         }
-        else if (player.body.touching.up) {
+        if (player.body.touching.up) {
             wall.body.stop();
+            if (player.x < wall.x) {
+                wall.body.velocity.x = -150;
+                // console.log(player.body.touching.up, 'up');
+            }
+            if (player.x > wall.x) {
+                wall.body.velocity.x = 150;
+                // console.log(player.body.touching.left, 'left', player.body.touching.right, 'right')
+            }
         }
-        if (player.x < wall.x) {
-            wall.body.velocity.x = -150;
-            // console.log(player.body.touching.up, 'up');
-        }
-        if (player.x > wall.x) {
-            wall.body.velocity.x = 150;
-            // console.log(player.body.touching.left, 'left', player.body.touching.right, 'right')
+        if (player.body.touching.left || player.body.touching.right) {
+            wall.body.velocity.y = 150;
         }
     }
     //Enemy Walls

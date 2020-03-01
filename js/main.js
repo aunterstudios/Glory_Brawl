@@ -1,43 +1,43 @@
 var game = new Phaser.Game(1400, 800, Phaser.CANVAS);
 
 /////////////////////////////////////////////////Disable RightClick////////////////////////////////////
-window.onload = function() {
-  document.addEventListener("contextmenu", function(e){
-    e.preventDefault();
-  }, false);
-  document.addEventListener("keydown", function(e) {
-  //document.onkeydown = function(e) {
-    // "I" key
-    if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
-      disabledEvent(e);
-    }
-    // "J" key
-    if (e.ctrlKey && e.shiftKey && e.keyCode == 74) {
-      disabledEvent(e);
-    }
-    // "S" key + macOS
-    if (e.keyCode == 83 && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
-      disabledEvent(e);
-    }
-    // "U" key
-    if (e.ctrlKey && e.keyCode == 85) {
-      disabledEvent(e);
-    }
-    // "F12" key
-    if (event.keyCode == 123) {
-      disabledEvent(e);
-    }
-  }, false);
-  function disabledEvent(e){
-    if (e.stopPropagation){
-      e.stopPropagation();
-    } else if (window.event){
-      window.event.cancelBubble = true;
-    }
-    e.preventDefault();
-    return false;
-  }
-};
+// window.onload = function() {
+//   document.addEventListener("contextmenu", function(e){
+//     e.preventDefault();
+//   }, false);
+//   document.addEventListener("keydown", function(e) {
+//   //document.onkeydown = function(e) {
+//     // "I" key
+//     if (e.ctrlKey && e.shiftKey && e.keyCode == 73) {
+//       disabledEvent(e);
+//     }
+//     // "J" key
+//     if (e.ctrlKey && e.shiftKey && e.keyCode == 74) {
+//       disabledEvent(e);
+//     }
+//     // "S" key + macOS
+//     if (e.keyCode == 83 && (navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey)) {
+//       disabledEvent(e);
+//     }
+//     // "U" key
+//     if (e.ctrlKey && e.keyCode == 85) {
+//       disabledEvent(e);
+//     }
+//     // "F12" key
+//     if (event.keyCode == 123) {
+//       disabledEvent(e);
+//     }
+//   }, false);
+//   function disabledEvent(e){
+//     if (e.stopPropagation){
+//       e.stopPropagation();
+//     } else if (window.event){
+//       window.event.cancelBubble = true;
+//     }
+//     e.preventDefault();
+//     return false;
+//   }
+// };
 
 //////////////////////////////////////////////////Game States//////////////////////////////////////////////
 game.state.add('mainMenu', brawl.state1);
@@ -397,6 +397,7 @@ var tintImmovableWallActivation = 0xffff00;
 var tintImmovableWallPadding = 2499878.036284214;
 var tintImmovableWallWorldGravity = 8314793.039214706;
 var tintImmovableWallMario = 241917.63554178402;
+var tintImmovableWallSlippery = 766012.4141677661;
 
 //Walls
 var tintWallControl = 0x666666;
@@ -937,7 +938,8 @@ level_3.undeniableDeathSpawn = [
 level_3.immovableWallSpawn = [
   //Ground
   new SpriteCreator(0, true, true, immovableWallRegular, immovableWallHorizontal, 300, 800, 0, 0, 1.2, .25, 0, 0, null, null),
-  new SpriteCreator(0, true, true, immovableWallMario, immovableWallHorizontal, 400, 200, 0, 0, .5, .5, 0, 0, null, null),
+  new SpriteCreator(0, true, true, immovableWallSlippery, immovableWallVertical, 400, 200, 0, 0, .5, .5, 0, 0, null, null),
+  new SpriteCreator(0, true, true, immovableWallRegular, immovableWallVertical, 700, 200, 0, 0, .5, .5, 0, 0, null, null),
 ];
 
 //Moveable Walls
@@ -956,9 +958,9 @@ level_3.wallSpawn = [
   // new SpriteCreator(0, true, true, wallHeavy, wallHorizontal, 400, 200, 0, 0, .4, .4, 0, 0, null, null),
   // new SpriteCreator(1, true, true, wallGhost, wallHorizontal, 400, 300, 0, 0, .4, .4, 0, 0, null, null),
   // new SpriteCreator(2, true, true, wallFrozen, wallHorizontal, 400, 500, 0, 0, .4, .4, 0, 0, null, null),
-  new SpriteCreator(3, true, true, wallRegular, wallHorizontal, 400, 400, 0, 0, .4, .4, 0, 0, null, null),
+  new SpriteCreator(3, true, true, wallInverse, wallVertical, 600, 400, 0, 0, .4, .4, 0, 0, null, null),
   new SpriteCreator(3, true, true, wallControl, wallHorizontal, 600, 400, 0, 0, .4, .4, 0, 0, null, null),
-  new SpriteCreator(4, true, true, wallInverse, wallVertical, 400, 600, 0, 0, .4, .4, 0, 0, null, null),
+  new SpriteCreator(4, true, true, wallRegular, wallVertical, 400, 600, 0, 0, .4, .4, 0, 0, null, null),
   // new SpriteCreator(4, true, true, wallLight, wallHorizontal, 800, 300, 0, 0, .4, .4, 0, 0, null, null),
   // new SpriteCreator(4, true, true, wallRegular, wallVertical, 800, 500, 0, 0, .4, .4, 0, 0, null, null),
   // new SpriteCreator(4, true, true, wallCloud, wallHorizontal, 800, 700, 0, 0, .4, .4, 0, 0, null, null),
