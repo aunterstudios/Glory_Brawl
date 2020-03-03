@@ -23,7 +23,7 @@ brawl.game.prototype.initControls = function () {
     this.killBullet.onDown.add(this.goKill, this);
 
     //Trigger Killing Yourself
-    this.killYourself.onDown.add(this.killSelf,this);
+    this.killYourself.onDown.add(this.killSelf, this);
 
 
 };
