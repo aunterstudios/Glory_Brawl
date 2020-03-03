@@ -60,10 +60,9 @@ brawl.game.prototype.undeniableDeathSpawn = function (sprite) {
     }
     this.deathX.specialCondition = sprite.specialCondition;
     this.deathX.positionInArray = sprite.positionInArray;
-    // this.deathX.tint = Phaser.Color.RED;
     this.deathX.scale.setTo(sprite.sizeX, sprite.sizeY);
     this.deathX.body.immovable = true;
-    this.deathX.body.mass = 300;
+    this.deathX.body.mass = 100;
     this.deathX.body.maxVelocity.setTo(300);
     this.deathX.body.collideWorldBounds = true;
     this.deathX.body.immovable = true;
@@ -192,8 +191,8 @@ brawl.game.prototype.ledgeSpawn = function (sprite) {
     else if (sprite.name === surf) {
         this.ledgeX.tint = Phaser.Color.AQUA;
     }
-    this.ledgeX.velocityVsWallX = 30;
-    this.ledgeX.velocityVsWallY = 30;
+    this.ledgeX.velocityVsWallX = 50; //30
+    this.ledgeX.velocityVsWallY = 50;
     this.ledgeX.anchor.setTo(.5);
     this.ledgeX.scale.setTo(.4); //.4
     //////////////Immovable Testing//////////////
@@ -202,7 +201,7 @@ brawl.game.prototype.ledgeSpawn = function (sprite) {
     this.ledgeX.body.mass = 20;
     this.ledgeX.body.maxVelocity.setTo(1000);
     this.ledgeX.body.collideWorldBounds = true;
-    this.ledgeX.body.bounce.setTo(.5);
+    this.ledgeX.body.bounce.setTo(.5);//.5;
     this.ledgeX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
 };
 
@@ -249,7 +248,7 @@ brawl.game.prototype.ballSpawn = function (sprite) {
     this.ballX.tint = Phaser.Color.BLUE;
     this.ballX.anchor.setTo(.5);
     this.ballX.scale.setTo(.5); //.5
-    // this.ballX.body.setCircle(50); //Maybe Change
+    this.ballX.body.setCircle(50); //Maybe Change
     this.ballX.body.mass = 20;
     this.ballX.body.maxVelocity.setTo(300);
     this.ballX.body.collideWorldBounds = true;

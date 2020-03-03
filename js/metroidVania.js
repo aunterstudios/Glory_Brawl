@@ -164,15 +164,15 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     }
 
     ///////////////////Debugging Purposes (Knowing The Placement of Each Sprites)/////////////////////////
-    // var distanceOfXandY = 200;
-    // var xIterator = Math.round(levelGenerator.xOfWorld / distanceOfXandY);
-    // var yIterator = Math.round(levelGenerator.yOfWorld / distanceOfXandY);
+    var distanceOfXandY = 200;
+    var xIterator = Math.round(levelGenerator.xOfWorld / distanceOfXandY);
+    var yIterator = Math.round(levelGenerator.yOfWorld / distanceOfXandY);
 
-    // for (var x = 1; x < xIterator; x++) {
-    //     for (var y = 1; y < yIterator; y++) {
-    //         this.text = this.game.add.text(x*distanceOfXandY, y*distanceOfXandY, x*distanceOfXandY+'X'+y*distanceOfXandY+'Y', { font: "10px Arial", fill: "#ff0000", align: "center" });
-    //     }
-    // }
+    for (var x = 1; x < xIterator; x++) {
+        for (var y = 1; y < yIterator; y++) {
+            this.text = this.game.add.text(x*distanceOfXandY, y*distanceOfXandY, x*distanceOfXandY+'X'+y*distanceOfXandY+'Y', { font: "10px Arial", fill: "#ff0000", align: "center" });
+        }
+    }
 
 };
 //////////////////////////Room Switching (Metroidvania) Events//////////////////////////
@@ -204,10 +204,17 @@ brawl.game.prototype.playerOut = function (player) {
 
 };
 ///////////////////////////////////////////State Switches////////////////////////////////
-//Character Dying
+//Character Dying From Enemies and Such
 brawl.game.prototype.deathState = function (victim, killer) {
     victim.kill();
     this.emitterFunction(victim);
+    this.game.time.events.add(1000, this.deathSwitch, this);
+    // this.game.state.start('deathState', true, false, respawnHolder.indexOfCurrentWorld, respawnHolder.indexOfPlayerPosition, respawnHolder.metroidvania);
+};
+//Killing Yourself Literally
+brawl.game.prototype.killSelf = function () {
+    this.player.kill();
+    this.emitterFunction(this.player);
     this.game.time.events.add(1000, this.deathSwitch, this);
     // this.game.state.start('deathState', true, false, respawnHolder.indexOfCurrentWorld, respawnHolder.indexOfPlayerPosition, respawnHolder.metroidvania);
 };

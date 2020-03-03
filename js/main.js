@@ -405,9 +405,9 @@ var tintWallInverse = 2070551.3881263782;
 var tintWallBlackTrap = 15680658.67511709;
 var tintWallBlackFrozen = 0x00ffff;
 var tintWallBlackKiller = 10409939.733364154;
-var tintWallHeavy = 6623573.181835621; 
+var tintWallHeavy = 6623573.181835621;
 var tintWallCloud = 9583870.358153213;
-var tintWallGhost = 16771007.229130682; 
+var tintWallGhost = 16771007.229130682;
 
 //Enemies
 var tintEnemyShooter = 12758247.409111453;
@@ -532,7 +532,7 @@ level_0.flagSpawn = [
 
 //Text Creator (Helpful Hints)
 level_0.text = [
-  new textCreator(0, true, 100, 3600, "This is How You'll Be Reborn\n\nP- Pause\nO- FullScreen\nW or Spacebar- Jump\nA- Left\nS- Push or Move Downwards\nD- Right", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(0, true, 100, 3600, "This is How You'll Be Reborn\n\nP- Pause\nO- FullScreen\nR- To Literally Kill Yourself\nW or Spacebar- Jump\nA- Left\nS- Push or Move Downwards\nD- Right", 'Courier New', 25, '#000000', 'bold'),
   new textCreator(1, true, 100, 4000, "RED IS DEATH", 'Impact', 30, "#FF0000", 'bold'),
   new textCreator(2, true, 1900, 3950, "You Automatically Stick on Surfaces\n\nWhen You Jump on It\n\nHold D While Tapping A to Fast Climb", 'Courier New', 25, '#000000', 'bold'),
   new textCreator(3, true, 1750, 3350, "This Time Hold A While Tapping D", 'Courier New', 25, '#000000', 'bold'),
@@ -589,7 +589,7 @@ level_0.text = [
 worldClassLevels.push(level_0);
 
 ///////////////////////////////////////////Level 1/////////////////////////////////////////////////////////////
-var level_1 = new LevelCreator("Level 1-CL", 2800, 3200, new MetroidvaniaCreator(4, 0, 0, 3200, 2, 1, 3, 2800), '#ffffff');
+var level_1 = new LevelCreator("Level 1-CL", 2800, 3200, new MetroidvaniaCreator(4, 0, 0, 3200, 2, 1, 5, 2800), '#ffffff');
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_1.playerPosition = [
@@ -727,7 +727,7 @@ level_1.text = [
   //Blue Ledge Tutorial
   new textCreator(7, true, 1500, 200, "You Can Surf Blue Ledges(Control By Going Left or Right)\n\nBe Warned They Are Unstable\n\nLand Perfectly in the Middle of the Blue Ledge\n\nHint: Holding S Lets You Descend Faster", 'Courier New', 25, '#000000', 'bold'),
   //Kill Instructions
-  new textCreator(8, true, 80, 200, "Press 3 to Access Kill Gun\n\nAny Object that is Moveable can be Killed", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(8, true, 80, 200, "Press 4 to Access Kill Gun\n\nAny Object that is Moveable can be Killed", 'Courier New', 25, '#000000', 'bold'),
   //These Kill Walls
   //////////////////////////////////Triggering After Special Flag in Level 2 is Reached/////////////////////////////
   new textCreator(9, false, 650, 700, "Properties of Objects Can Be Changed\n\nDepending What Hits It\n\nGet The Ball to the Spikes\n\nThis Wall is Easier to Control", 'Courier New', 25, '#000000', 'bold'),
@@ -944,27 +944,10 @@ level_3.immovableWallSpawn = [
 
 //Moveable Walls
 ///Single Wall to Teach You  
-level_3.wallSpawn = [
-  //Enemy Walls
-  // new SpriteCreator(0, true, true, wallBlack, wallHorizontal, 400, 100, 0, 0, .4, .4, 0, 0, null, null),
-  // new SpriteCreator(1, true, true, wallBlackGhost, wallHorizontal, 400, 300, 0, 0, .4, .4, 0, 0, null, null),
-  // new SpriteCreator(2, true, true, wallBlackFrozen, wallHorizontal, 400, 500, 0, 0, .4, .4, 0, 0, null, null),
-  // new SpriteCreator(3, true, true, wallBlackGravity, wallHorizontal, 400, 600, 0, 0, .4, .4, 0, 0, null, null),
-  // new SpriteCreator(4, true, true, wallBlackReverseGravity, wallHorizontal, 800, 100, 0, 0, .4, .4, 0, 0, null, null),
-  // new SpriteCreator(4, true, true, wallBlackLight, wallHorizontal, 800, 300, 0, 0, .4, .4, 0, 0, null, null),
-  // new SpriteCreator(4, true, true, wallBlackHeavy, wallHorizontal, 800, 500, 0, 0, .4, .4, 0, 0, null, null),
-  // new SpriteCreator(4, true, true, wallBlackCloud, wallHorizontal, 800, 700, 0, 0, .4, .4, 0, 0, null, null),
-  //Regular Walls
-  // new SpriteCreator(0, true, true, wallHeavy, wallHorizontal, 400, 200, 0, 0, .4, .4, 0, 0, null, null),
-  // new SpriteCreator(1, true, true, wallGhost, wallHorizontal, 400, 300, 0, 0, .4, .4, 0, 0, null, null),
-  // new SpriteCreator(2, true, true, wallFrozen, wallHorizontal, 400, 500, 0, 0, .4, .4, 0, 0, null, null),
-  new SpriteCreator(3, true, true, wallInverse, wallVertical, 600, 400, 0, 0, .4, .4, 0, 0, null, null),
-  new SpriteCreator(3, true, true, wallControl, wallHorizontal, 600, 400, 0, 0, .4, .4, 0, 0, null, null),
-  new SpriteCreator(4, true, true, wallRegular, wallVertical, 400, 600, 0, 0, .4, .4, 0, 0, null, null),
-  // new SpriteCreator(4, true, true, wallLight, wallHorizontal, 800, 300, 0, 0, .4, .4, 0, 0, null, null),
-  // new SpriteCreator(4, true, true, wallRegular, wallVertical, 800, 500, 0, 0, .4, .4, 0, 0, null, null),
-  // new SpriteCreator(4, true, true, wallCloud, wallHorizontal, 800, 700, 0, 0, .4, .4, 0, 0, null, null),
-];
+// level_3.wallSpawn = [
+//   new SpriteCreator(3, true, true, wallCloud, wallHorizontal, 600, 400, 0, 0, .4, .4, 0, 0, null, null),
+//   // new SpriteCreator(4, true, true, wallRegular, wallVertical, 400, 600, 0, 0, .4, .4, 0, 0, null, null),
+// ];
 
 //////////////Tint Testing///////////
 // level_3.wallSpawn = [
@@ -976,14 +959,14 @@ level_3.wallSpawn = [
 ////////////Tint Testing/////////
 
 //Ledges
-// level_3.ledgeSpawn = [
-//   // //Surf
-//   new SpriteCreator(0, true, true, surf, ledge, 1100, 200, 0, 0, .4, .4, 0, 0, null, null),
-//   // //Bounce Ledges
-//   // new SpriteCreator(2, true, true, bounce, ledge, 900, 390, 0, 0, .4, .4, 0, 0, null, null),
-//   // //Surf Ledges
-//   // new SpriteCreator(3, true, true, elevator, ledge, 200, 200, 0, 0, .4, .4, 0, 0, null, null),
-// ];
+level_3.ledgeSpawn = [
+  // //Surf
+  new SpriteCreator(0, true, true, surf, ledge, 1100, 200, 0, 0, .4, .4, 0, 0, null, null),
+  // //Bounce Ledges
+  // new SpriteCreator(2, true, true, bounce, ledge, 900, 390, 0, 0, .4, .4, 0, 0, null, null),
+  // //Surf Ledges
+  // new SpriteCreator(3, true, true, elevator, ledge, 200, 200, 0, 0, .4, .4, 0, 0, null, null),
+];
 
 //Enemy Spawn
 level_3.enemySpawn = [
@@ -996,9 +979,102 @@ level_3.ballSpawn = [
   new SpriteCreator(0, true, true, ballRegular, ball, 800, 400, 0, 0, null, null, 0, 0, null, null)
 ];
 
-//Push Level 2 Into World Class Array
+//Push Level 3 Into World Class Array
 worldClassLevels.push(level_3);
 
+////////////////////////////////////////Level 4/////////////////////////////////////(Testing Ground)
+var level_4 = new LevelCreator("Level 4-SurfWorld", 5000, 3000, new MetroidvaniaCreator(5, 0, 1, 4000, 1, 20, null, null), '#ffffff');
+
+// level_4.worldGravity = new worldGravityCreator(200, 300);
+
+//Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
+level_4.playerPosition = [
+  new PlayerPositionCreator(300, 700),
+  new PlayerPositionCreator(400, 700), 
+  new PlayerPositionCreator(600, 200), //100x,2950y ORG
+  new PlayerPositionCreator(1400, 700),
+]
+
+///////////////////////Creation of Undeniable Death
+
+level_4.undeniableDeathSpawn = [
+  //First Hat of First Phase Death
+  new SpriteCreator(0, true, true, undeniableDeathRegular, deathHorizontal, 500, 2387, 0, 0, .5545, .5, 0, 0, null, null),
+  //Left Side Border (Guarding Level One)
+  new SpriteCreator(1, true, true, undeniableDeathRegular, deathVertical, 0, 0, 0, 0, .25, 2, 0, 0, null, null),
+  //Divider For the Regular Walls
+  new SpriteCreator(2, true, true, undeniableDeathRegular, deathVertical, 1277, 400, 0, 0, .3895, 1.4185, 0, 0, null, null),
+  //Second Obstacle of Regular Wall Horizontal
+  new SpriteCreator(3, true, true, undeniableDeathRegular, deathHorizontal, 41.5, 1700, 0, 0, .5545, .5, 0, 0, null, null),
+  //Third Obstacle of Regular Wall Horizontal
+  new SpriteCreator(4, true, true, undeniableDeathRegular, deathHorizontal, 500, 1013, 0, 0, .5545, .5, 0, 0, null, null),
+  //First Obstacle of Control Wall Horizontal
+  new SpriteCreator(5, true, true, undeniableDeathRegular, deathHorizontal, 1339.5, 1013, 0, 0, .5545, .5, 0, 0, null, null),
+  //Divider For The Control Wall
+  new SpriteCreator(6, true, true, undeniableDeathRegular, deathVertical, 2617.5, 0, 0, 0, .3895, 1.7, 0, 0, null, null),
+  //Last Death Wall For Control Wall
+  new SpriteCreator(0, true, true, undeniableDeathRegular, deathHorizontal, 1840.5, 1700, 0, 0, .5545, .5, 0, 0, null, null),
+];
+
+/////////////////////////Creation of ImmovableWalls
+level_4.immovableWallSpawn = [
+  //First Ground (Near Level 1);
+  new SpriteCreator(0, true, true, immovableWallRegular, immovableWallHorizontal, 0, 3000, 0, 0, 1.5, .5, 0, 0, null, null),
+  //First Vertical Wall After Ground
+  new SpriteCreator(1, true, true, immovableWallRegular, immovableWallVertical, 1277, 2400, 0, 0, .5, .72, 0, 0, null, null),
+  //The First Hat of the Regular Wall Surf Test
+  new SpriteCreator(2, true, true, immovableWallKillWall, immovableWallHorizontal, 300, 336, 0, 0, 1.221, .5, 0, 0, null, null),
+  //Second Ground (After Control Wall End)
+  new SpriteCreator(3, true, true, immovableWallRegular, immovableWallHorizontal, 1340.5, 3000, 0, 0, 1.5, .5, 0, 0, null, null),
+  //Divider Testing PlaceHolder For Control Wallz PLACE
+  new SpriteCreator(4, true, true, immovableWallRegular, immovableWallVertical, 2617.5, 2400, 0, 0, .5, .72, 0, 0, null, null),
+  //All The Unkillable Walls AT The Bottom of Control Wall
+];
+
+//Moveable Walls
+///Single Wall to Teach You  
+level_4.wallSpawn = [
+  new SpriteCreator(0, true, true, wallRegular, wallHorizontal, 800, 2850, 0, 0, .4, .4, 0, 0, null, null),
+  new SpriteCreator(1, true, true, wallControl, wallHorizontal, 1700, 600, 0, 0, .4, .4, 0, 0, null, null),
+];
+
+//Ledges
+// level_4.ledgeSpawn = [
+//   // //Surf
+//   new SpriteCreator(0, true, true, surf, ledge, 1100, 200, 0, 0, .4, .4, 0, 0, null, null),
+//   // //Bounce Ledges
+//   // new SpriteCreator(2, true, true, bounce, ledge, 900, 390, 0, 0, .4, .4, 0, 0, null, null),
+//   // //Surf Ledges
+//   // new SpriteCreator(3, true, true, elevator, ledge, 200, 200, 0, 0, .4, .4, 0, 0, null, null),
+// ];
+
+//Enemy Spawn
+// level_4.enemySpawn = [
+//   // new SpriteCreator(0, true, true, enemyDaakath, enemyOne, 400, 200, 0, 0, .5, .5, 0, 0, null, null),
+//   new SpriteCreator(1, true, true, enemyShooter, enemyOne, 1200, 300, 0, 0, .5, .5, 0, 0, null, null),
+// ];
+
+// //Ball
+// level_4.ballSpawn = [
+//   new SpriteCreator(0, true, true, ballRegular, ball, 800, 400, 0, 0, null, null, 0, 0, null, null)
+// ];
+
+//Text Creator (Helpful Hints)
+level_4.text = [
+  //Entry to Level 1 (Lets See if You Remember!)
+  new textCreator(0, true, 550, 2550, "Let's See If You Remember How to Surf\n\nRemember to Use A Combination of Your Guns\n\nAlso If You Haven't Realized Fuckhead\n\nYou Can Stick To The Bottom", 'Courier New', 25, '#000000', 'bold'),
+  //WolfGang Kill Them-Pull The Wall
+  new textCreator(1, true, 600, 2000, "It's All About Pulling The Wall Along\n\nAs You Jump\n\nRemember To Press S To Push Downwards\n\nAnd To Use The Different Guns Idiot!", 'Courier New', 25, '#000000', 'bold'),
+  //Stick to the Side
+  new textCreator(2, true, 600, 1350, "You Can Stick To The Side\n\nIt Stablizes The Wall", 'Courier New', 25, '#000000', 'bold'),
+  //These Kill Walls (Wasn't So Bad)
+  new textCreator(3, true, 600, 450, "These Kill Walls By The Way\n\n\n\n\n\n\n\n\nThat Wasn't So Bad Was It?\n\nI Hope This Was Easy\n\nOr Else You're Straight Fucked", 'Courier New', 25, '#000000', 'bold'),
+  //Control Wall First Text
+  new textCreator(3, true, 1600, 300, "Remember This?\n\nSurf Down With It\n\nPress S To Move Downwards", 'Courier New', 25, '#000000', 'bold'),
+];
+
+//Push Level 4 Into World Class Array
+worldClassLevels.push(level_4);
 
 /////////////Change Base Texture////////////////
 // game.add.loadTexture('key','frame')

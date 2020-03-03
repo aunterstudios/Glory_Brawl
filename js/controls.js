@@ -13,9 +13,17 @@ brawl.game.prototype.initControls = function () {
     this.stopBullet = this.game.input.keyboard.addKey(Phaser.Keyboard.THREE);
     this.killBullet = this.game.input.keyboard.addKey(Phaser.Keyboard.FOUR);
 
+    //Kill Yourself
+    this.killYourself = this.game.input.keyboard.addKey(Phaser.Keyboard.R);
+
     //Booleans to Trigger Different Weapon Types
     this.pullBullet.onDown.add(this.goPull, this);
     this.pushBullet.onDown.add(this.goPush, this);
     this.stopBullet.onDown.add(this.goStop, this);
     this.killBullet.onDown.add(this.goKill, this);
+
+    //Trigger Killing Yourself
+    this.killYourself.onDown.add(this.killSelf,this);
+
+
 };

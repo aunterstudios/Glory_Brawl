@@ -76,6 +76,7 @@ brawl.game.prototype.wallImmovable = function (wall, sprite2) {
     // wall.body.stop();
     if (sprite2.name === immovableWallKillWall) {
         wall.kill();
+        this.emitterFunction(wall);
     }
     return;
 };
@@ -253,6 +254,11 @@ brawl.game.prototype.playerWall = function (player, wall) {
         }
     }
 
+    //Special Walls
+    // if (wall.name === wallGhost) {
+    //     player.body.stop();
+    // }
+
     ////Enemy Walls On You Baby////////
     if (wall.name === wallBlackTrap) {
         this.deathState(this.player);
@@ -299,6 +305,7 @@ brawl.game.prototype.playerBall = function (player, ball) {
     //   // }
 };
 brawl.game.prototype.playerLedge = function (player, ledge) {
+    // player.body.velocity.y = 0;
     //////////Eleveator Ledges/////////
     if (ledge.name === elevator) {
         ledge.body.stop();
@@ -359,7 +366,6 @@ brawl.game.prototype.ballHandler = function (ball, sprite2) {
         //////////////////////////Creates New Sprites After Spikes Destroyed///////////////////////
         //worldClassLevels[sprite2.specialWorld].ledgeGreySpawn[sprite2.specialArray].trigger = true;
     }
-    console.log(sprite2.groupName);
     //////////////////////Otherwise Collision Mechanics//////////////////
     ball.body.stop();
     if (ball.body.touching.up) {
