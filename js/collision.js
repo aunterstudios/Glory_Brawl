@@ -89,7 +89,7 @@ brawl.game.prototype.wallMoveable = function (wall, objMov) {
         // wall.body.gravity.y = 300; //500 Original
     }
     //Turns wallRegular to wallInverse (Ball)
-    if (wall.name === wallRegular && objMov.groupName === groupBall) {
+    if (wall.name === wallRegular && objMov.groupName === groupLedge) {
         wall.name = wallInverse;
         wall.tint = tintWallInverse;
     }
