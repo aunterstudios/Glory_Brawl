@@ -59,14 +59,14 @@ brawl.stateControls.prototype = {
     preload: function () {
     },
     create: function () {
-        var newText = new textCreator(null, null, 100, 200, "I know you don't know what's going on.\n\nBut we've been here countless times.\n\nDoing the same thing over and over again.\n\nTrying to become reborn again.\n\nTo defeat The Shadow.\n\nSo I ask you to remember the words.\n\nGLORY BRAWL", 'Courier New', 25, '#ffffff', 'bold');
+        var newText = new textCreator(null, 100, 200, "I know you don't know what's going on.\n\nBut we've been here countless times.\n\nDoing the same thing over and over again.\n\nTrying to become reborn again.\n\nTo defeat The Shadow.\n\nSo I ask you to remember the words.\n\nGLORY BRAWL", 'Courier New', 25, '#ffffff', 'bold');
         this.text1 = this.game.add.text(newText.x, newText.y, newText.textInput);
         this.text1.font = newText.font;
         this.text1.fontSize = newText.fontSize;
         this.text1.fill = newText.fill;
         this.text1.fontWeight = newText.fontWeight;
 
-        var newText2 = new textCreator(null, null, 600, 700, "Press X to Play", 'Courier New', 25, '#ff0000', 'bold');
+        var newText2 = new textCreator(null, 600, 700, "Press X to Play", 'Courier New', 25, '#ff0000', 'bold');
         this.text2 = this.game.add.text(newText2.x, newText2.y, newText2.textInput);
         this.text2.font = newText2.font;
         this.text2.fontSize = newText2.fontSize;
@@ -79,9 +79,9 @@ brawl.stateControls.prototype = {
             ////////0-Up, 1-Down, 2-Left, 3-Right//////
             ///////(IndexOfCurrentWorld, Position, MetroidVania(Same as Index of Current World))
             //Level 0 (Beginning)
-            this.game.state.start('game', true, false, 0, 1, worldClassLevels[0].metroidvania);
+            // this.game.state.start('game', true, false, 0, 1, worldClassLevels[0].metroidvania);
             //Any Level I want to Test
-            // this.game.state.start('game', true, false, 2, 1, worldClassLevels[2].metroidvania);
+            this.game.state.start('game', true, false, 3, 3, worldClassLevels[3].metroidvania);
             //Level 3 (THE PLAYGROUND)
             // this.game.state.start('game', true, false, 4, 1, worldClassLevels[4].metroidvania);
 

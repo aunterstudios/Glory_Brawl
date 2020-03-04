@@ -47,7 +47,8 @@ brawl.game.prototype.spriteGroupGenerator = function () {
     this.emitter.gravity = 100;
 };
 /////////////////Undeniable Death Spawn////////////////////
-brawl.game.prototype.undeniableDeathSpawn = function (sprite) {
+brawl.game.prototype.undeniableDeathSpawn = function (sprite, positionInArray) {
+    // console.log(sprite, positionInArray);
     this.deathX = this.death.create(sprite.x, sprite.y, sprite.art);
     this.deathX.name = sprite.name;
     //Unkillable
@@ -59,7 +60,7 @@ brawl.game.prototype.undeniableDeathSpawn = function (sprite) {
         this.deathX.groupName = groupSpikes;
     }
     this.deathX.specialCondition = sprite.specialCondition;
-    this.deathX.positionInArray = sprite.positionInArray;
+    this.deathX.positionInArray = positionInArray;
     this.deathX.scale.setTo(sprite.sizeX, sprite.sizeY);
     this.deathX.body.immovable = true;
     this.deathX.body.mass = 100;
@@ -71,13 +72,14 @@ brawl.game.prototype.undeniableDeathSpawn = function (sprite) {
 };
 
 /////////////////Immovable Walls/////////////////////
-brawl.game.prototype.immovableWallSpawn = function (sprite) {
+brawl.game.prototype.immovableWallSpawn = function (sprite, positionInArray) {
+    // console.log(sprite, positionInArray);
     this.immovableWallX = this.immovableWall.create(sprite.x, sprite.y, sprite.art);
     // this.immovableWallX.anchor.setTo(.5);
     this.immovableWallX.name = sprite.name;
     this.immovableWallX.groupName = groupImmovableWall;
     this.immovableWallX.specialCondition = sprite.specialCondition;
-    this.immovableWallX.positionInArray = sprite.positionInArray;
+    this.immovableWallX.positionInArray = positionInArray;
     if (sprite.name === immovableWallPhase) {
         this.immovableWallX.tint = tintImmovableWallPhase;
     }
@@ -114,12 +116,13 @@ brawl.game.prototype.immovableWallSpawn = function (sprite) {
 };
 
 ////////////////////////Wall Spawn///////////////////////
-brawl.game.prototype.wallSpawn = function (sprite) {
+brawl.game.prototype.wallSpawn = function (sprite, positionInArray) {
+    // console.log(sprite, positionInArray);
     this.wallX = this.wall.create(sprite.x, sprite.y, sprite.art);
     this.wallX.name = sprite.name;
     this.wallX.groupName = groupWall;
     this.wallX.specialCondition = sprite.specialCondition;
-    this.wallX.positionInArray = sprite.positionInArray;
+    this.wallX.positionInArray = positionInArray;
     this.wallX.velocityVsImmovable = 100;
     //////////Enemy Walls That Are Meant to Help/////////
     if (sprite.name === wallBlackFrozen) {
@@ -176,12 +179,13 @@ brawl.game.prototype.wallSpawn = function (sprite) {
 };
 
 /////////////////////////////Ledge Spawn///////////////////////////
-brawl.game.prototype.ledgeSpawn = function (sprite) {
+brawl.game.prototype.ledgeSpawn = function (sprite, positionInArray) {
+    // console.log(sprite, positionInArray);
     this.ledgeX = this.ledge.create(sprite.x, sprite.y, sprite.art);
     this.ledgeX.name = sprite.name;
     this.ledgeX.groupName = groupLedge;
     this.ledgeX.specialCondition = sprite.specialCondition;
-    this.ledgeX.positionInArray = sprite.positionInArray;
+    this.ledgeX.positionInArray = positionInArray;
     if (sprite.name === elevator) {
         this.ledgeX.tint = Phaser.Color.YELLOW;
     }
@@ -206,12 +210,13 @@ brawl.game.prototype.ledgeSpawn = function (sprite) {
 };
 
 //////////////////////////Creating Game Objects/////////////////////////
-brawl.game.prototype.enemySpawn = function (sprite) {
+brawl.game.prototype.enemySpawn = function (sprite, positionInArray) {
+    // console.log(sprite, positionInArray);
     this.trumpX = this.enemy.create(sprite.x, sprite.y, 'enemy');
     this.trumpX.name = sprite.name;
     this.trumpX.groupName = groupEnemy;
     this.trumpX.specialCondition = sprite.specialCondition;
-    this.trumpX.positionInArray = sprite.positionInArray;
+    this.trumpX.positionInArray = positionInArray;
     if (sprite.name === enemyShooter) {
         // var testTint = Math.random() * 0xffffff;
         // this.trumpX.tint = testTint;
@@ -236,13 +241,13 @@ brawl.game.prototype.enemySpawn = function (sprite) {
     this.trumpX.body.bounce.setTo(1.0);
     this.trumpX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
 };
-brawl.game.prototype.ballSpawn = function (sprite) {
-    //Adding Ball
+brawl.game.prototype.ballSpawn = function (sprite, positionInArray) {
+    // console.log(sprite, positionInArray);
     this.ballX = this.ball.create(sprite.x, sprite.y, sprite.art);
     this.ballX.name = sprite.name;
     this.ballX.groupName = groupBall;
     this.ballX.specialCondition = sprite.specialCondition;
-    this.ballX.positionInArray = sprite.positionInArray;
+    this.ballX.positionInArray = positionInArray;
     this.ballX.velocityVsWallX = 30;
     this.ballX.velocityVsWallY = 30;
     this.ballX.tint = Phaser.Color.BLUE;
@@ -256,10 +261,10 @@ brawl.game.prototype.ballSpawn = function (sprite) {
     this.ballX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
 };
 /////////////////////////////////Falling Spikes///////////////////////////
-brawl.game.prototype.spikeFall = function (sprite) {
+brawl.game.prototype.spikeFall = function (sprite, positionInArray) {
     this.spikesFall = this.fallingSpikes.getFirstDead(true, sprite.x, sprite.y, 'spikeFall');
     this.spikesFall.specialCondition = sprite.specialCondition;
-    this.spikesFall.positionInArray = sprite.positionInArray;
+    this.spikesFall.positionInArray = positionInArray;
     this.spikesFall.name = sprite.name
     this.spikesFall.anchor.setTo(.5);
     this.spikesFall.scale.setTo(.5);
@@ -287,23 +292,13 @@ brawl.game.prototype.flagSpawn = function (sprite) {
 };
 /////////////////////////////////Text Generator////////////////////////
 /////////////////////////////Creation of Text in Game/////////////////////////////////
-brawl.game.prototype.textCreator = function (sprite) {
+brawl.game.prototype.textCreator = function (sprite, positionInArray) {
     this.text1 = this.game.add.text(sprite.x, sprite.y, sprite.textInput);
     this.text1.font = sprite.font;
     this.text1.fontSize = sprite.fontSize;
     this.text1.fill = sprite.fill;
     this.text1.fontWeight = sprite.fontWeight;
-    this.text1.positionInArray = sprite.positionInArray;
+    this.text1.positionInArray = positionInArray
 };
-//////////////////////////////////Test Spawn//////////////////////////
-brawl.game.prototype.coinSpawn = function (sprite) {
-    this.coinX = this.coin.create(sprite.x, sprite.y, 'coin');
-    this.coinX.anchor.setTo(.7);
-    this.coinX.scale.setTo(.7);
-    this.coinX.body.mass = 1;
-    this.coinX.body.maxVelocity.setTo(1000);
-    this.coinX.body.collideWorldBounds = true;
-    this.coinX.body.bounce.setTo(1);
-    this.coinX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
-}
+
 

@@ -61,7 +61,7 @@ brawl.story.prototype = {
         if (this.page === 0) {
             this.game.stage.backgroundColor = '#000000';
 
-            var newText = new textCreator(null, null, 550, 200, "The Shadow is Eternal.\n\nI'm burned in your soul.\n\nWe Will Keep Doing This\n\nForever.", 'Courier New', 25, '#ff0000', 'bold');
+            var newText = new textCreator(null, 550, 200, "The Shadow is Eternal.\n\nI'm burned in your soul.\n\nWe Will Keep Doing This\n\nForever.", 'Courier New', 25, '#ff0000', 'bold');
             this.text1 = this.game.add.text(newText.x, newText.y, newText.textInput);
             this.text1.font = newText.font;
             this.text1.fontSize = newText.fontSize;
@@ -69,7 +69,7 @@ brawl.story.prototype = {
             this.text1.fontWeight = newText.fontWeight;
             this.text1.align = 'center';
 
-            var newText2 = new textCreator(null, null, 600, 700, "Spacebar to Skip", 'Courier New', 25, '#ff0000', 'bold');
+            var newText2 = new textCreator(null, 600, 700, "Spacebar to Skip", 'Courier New', 25, '#ff0000', 'bold');
             this.text2 = this.game.add.text(newText2.x, newText2.y, newText2.textInput);
             this.text2.font = newText2.font;
             this.text2.fontSize = newText2.fontSize;

@@ -93,7 +93,7 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     if ('undeniableDeathSpawn' in levelGenerator) {
         for (var i = 0; i < levelGenerator.undeniableDeathSpawn.length; i++) {
             if (levelGenerator.undeniableDeathSpawn[i].trigger) {
-                this.undeniableDeathSpawn(levelGenerator.undeniableDeathSpawn[i]);
+                this.undeniableDeathSpawn(levelGenerator.undeniableDeathSpawn[i], i);
             }
         }
     }
@@ -101,7 +101,7 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     if ('immovableWallSpawn' in levelGenerator) {
         for (var i = 0; i < levelGenerator.immovableWallSpawn.length; i++) {
             if (levelGenerator.immovableWallSpawn[i].trigger) {
-                this.immovableWallSpawn(levelGenerator.immovableWallSpawn[i]);
+                this.immovableWallSpawn(levelGenerator.immovableWallSpawn[i], i);
             }
         }
     }
@@ -109,7 +109,7 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     if ('wallSpawn' in levelGenerator) {
         for (var i = 0; i < levelGenerator.wallSpawn.length; i++) {
             if (levelGenerator.wallSpawn[i].trigger) {
-                this.wallSpawn(levelGenerator.wallSpawn[i]);
+                this.wallSpawn(levelGenerator.wallSpawn[i], i);
             }
         }
     }
@@ -117,7 +117,7 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     if ('ledgeSpawn' in levelGenerator) {
         for (var i = 0; i < levelGenerator.ledgeSpawn.length; i++) {
             if (levelGenerator.ledgeSpawn[i].trigger) {
-                this.ledgeSpawn(levelGenerator.ledgeSpawn[i]);
+                this.ledgeSpawn(levelGenerator.ledgeSpawn[i], i);
             }
         }
     }
@@ -125,7 +125,7 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     if ('enemySpawn' in levelGenerator) {
         for (var i = 0; i < levelGenerator.enemySpawn.length; i++) {
             if (levelGenerator.enemySpawn[i].trigger) {
-                this.enemySpawn(levelGenerator.enemySpawn[i]);
+                this.enemySpawn(levelGenerator.enemySpawn[i], i);
             }
         }
     }
@@ -133,7 +133,7 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     if ('ballSpawn' in levelGenerator) {
         for (var i = 0; i < levelGenerator.ballSpawn.length; i++) {
             if (levelGenerator.ballSpawn[i].trigger) {
-                this.ballSpawn(levelGenerator.ballSpawn[i]);
+                this.ballSpawn(levelGenerator.ballSpawn[i], i);
             }
         }
     }
@@ -141,7 +141,7 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     if ('fallingSpikes' in levelGenerator) {
         for (var i = 0; i < levelGenerator.fallingSpikes.length; i++) {
             if (levelGenerator.fallingSpikes[i].trigger) {
-                this.game.time.events.loop(Phaser.Timer.SECOND * levelGenerator.fallingSpikes[i].seconds, this.spikeFall, this, levelGenerator.fallingSpikes[i]);
+                this.game.time.events.loop(Phaser.Timer.SECOND * levelGenerator.fallingSpikes[i].seconds, this.spikeFall, this, levelGenerator.fallingSpikes[i], i);
             }
         }
     }
@@ -158,7 +158,7 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     if ('text' in levelGenerator) {
         for (var i = 0; i < levelGenerator.text.length; i++) {
             if (levelGenerator.text[i].trigger) {
-                this.textCreator(levelGenerator.text[i]);
+                this.textCreator(levelGenerator.text[i], i);
             }
         }
     }
