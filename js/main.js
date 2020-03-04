@@ -553,7 +553,7 @@ level_0.text = [
   new textCreator(15, true, 2800, 1500, "←", 'Courier New', 25, '#000000', 'bold'),
   new textCreator(16, true, 3000, 1200, "Do I Need To Say It Again?\n\nYou Can Double Jump in the Air\n\nOnce You Hit a Surface", 'Courier New', 25, '#000000', 'bold'),
   new textCreator(17, true, 3400, 1400, "←", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(18, true, 3200, 300, "Press 1 to Access Pull Gun\n\nPoint and Click to Shoot\n\nUse the Pull Gun\n\nWhile on Top of the Wall\n\nPull Yourself Along and Surf", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(18, true, 3200, 300, "Press 1 to Access Pull Gun\n\nPoint and Click to Shoot\n\nUse the Pull Gun\n\nWhile on Top of the Wall\n\nJump and Pull Yourself Along", 'Courier New', 25, '#000000', 'bold'),
   new textCreator(19, true, 2400, 200, "Pressing S Pushes Down the Wall\n\nRemember You're Surfing It\n\n←", 'Courier New', 25, '#000000', 'bold'),
   new textCreator(20, true, 1600, 450, "Any Object That is Moveable\n\nCan Be Pulled", 'Courier New', 25, '#000000', 'bold'),
   new textCreator(21, true, 800, 150, "DO NOT TOUCH ORANGE\n\nIT WILL KILL YOU\n\nGet to The Checkpoint on the Left\n\nThen Go to the Bottom", 'Courier New', 25, '#000000', 'bold'),
@@ -589,11 +589,178 @@ level_0.text = [
 //Push to worldClassLevelsGlobalArray
 worldClassLevels.push(level_0);
 
-///////////////////////////////////////////Level 1/////////////////////////////////////////////////////////////
-var level_1 = new LevelCreator("Level 1-CL", 3200, 3200, new MetroidvaniaCreator(4, 0, 0, 3200, 2, 1, 5, 3200), '#ffffff');
+////////////////////////////////////////Level 1/////////////////////////////////////(Testing Ground)
+var level_1 = new LevelCreator("Level 1-SurfWorld", 6000, 3000, new MetroidvaniaCreator(2, 0, 0, 2990, null, null, null, null), '#ffffff');
+
+// level_1.worldGravity = new worldGravityCreator(200, 300);
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_1.playerPosition = [
+  new PlayerPositionCreator(5700, 100),
+  new PlayerPositionCreator(400, 2920), 
+  new PlayerPositionCreator(1800, 2920), //100x,2950y ORG
+  new PlayerPositionCreator(3800, 325),
+]
+
+///////////////////////Creation of Undeniable Death
+
+level_1.undeniableDeathSpawn = [
+  //First Hat of First Phase Death
+  new SpriteCreator(0, true, true, undeniableDeathRegular, deathHorizontal, 500, 2387, 0, 0, .5545, .5, 0, 0, null, null),
+  //Left Side Border (Guarding Level One)
+  new SpriteCreator(1, true, true, undeniableDeathRegular, deathVertical, 0, 0, 0, 0, .25, 2.0975, 0, 0, null, null),
+  //Divider For the Regular Walls
+  new SpriteCreator(2, true, true, undeniableDeathRegular, deathVertical, 1277, 400, 0, 0, .3895, 1.4185, 0, 0, null, null),
+  //Second Obstacle of Regular Wall Horizontal
+  new SpriteCreator(3, true, true, undeniableDeathRegular, deathHorizontal, 41.5, 1700, 0, 0, .5545, .5, 0, 0, null, null),
+  //Third Obstacle of Regular Wall Horizontal
+  new SpriteCreator(4, true, true, undeniableDeathRegular, deathHorizontal, 500, 1013, 0, 0, .5545, .5, 0, 0, null, null),
+  //First Obstacle of Control Wall Horizontal
+  new SpriteCreator(5, true, true, undeniableDeathRegular, deathHorizontal, 1339.5, 1013, 0, 0, .5545, .5, 0, 0, null, null),
+  //Divider For The Control Wall
+  new SpriteCreator(6, true, true, undeniableDeathRegular, deathVertical, 2617.5, 0, 0, 0, .3895, 2, 0, 0, null, null),
+  //Last Death Wall For Control Wall
+  new SpriteCreator(0, true, true, undeniableDeathRegular, deathHorizontal, 1840.5, 1700, 0, 0, .5545, .5, 0, 0, null, null),
+  //Divider For The Invese Wall
+  new SpriteCreator(6, true, true, undeniableDeathRegular, deathVertical, 3979, 400, 0, 0, .3895, 1.8565, 0, 0, null, null),
+  //First Obstacle For Inverse
+  new SpriteCreator(0, true, true, undeniableDeathRegular, deathHorizontal, 2681, 2387, 0, 0, .5545, .5, 0, 0, null, null),
+  //Second Obstacle For Inverse
+  new SpriteCreator(3, true, true, undeniableDeathRegular, deathHorizontal, 3201.8, 1700, 0, 0, .5545, .5, 0, 0, null, null),
+  //Third Obstacle of Inverse Horizontal
+  new SpriteCreator(5, true, true, undeniableDeathRegular, deathHorizontal, 2680.5, 1013, 0, 0, .5545, .5, 0, 0, null, null),
+  //First Obstacle of Inverse Vertical
+  new SpriteCreator(5, true, true, undeniableDeathRegular, deathHorizontal, 4042, 1013, 0, 0, .5545, .5, 0, 0, null, null),
+  //Second Obstacle of Inverse Vertical
+  new SpriteCreator(0, true, true, undeniableDeathRegular, deathHorizontal, 4042, 2387, 0, 0, .5545, .5, 0, 0, null, null),
+  //Divider of Inverse Vertical Wall
+  new SpriteCreator(3, true, true, undeniableDeathRegular, deathHorizontal, 4622.8, 1700, 0, 0, .5545, .5, 0, 0, null, null),
+  //Top Borders
+  new SpriteCreator(3, true, true, undeniableDeathRegular, deathHorizontal, 30, 0, 0, 0, 1.8475, .25, 0, 0, null, null),
+  new SpriteCreator(3, true, true, undeniableDeathRegular, deathHorizontal, 2680.7, 0, 0, 0, 1.9415, .25, 0, 0, null, null),
+  
+];
+
+/////////////////////////Creation of ImmovableWalls
+level_1.immovableWallSpawn = [
+  //First Ground (Near Level 1);
+  new SpriteCreator(0, true, true, immovableWallRegular, immovableWallHorizontal, 0, 3000, 0, 0, .6, .5, 0, 0, null, null),
+  //Second Ground (near Level 1)
+  new SpriteCreator(0, true, true, immovableWallRegular, immovableWallHorizontal, 800, 3000, 0, 0, .56, .5, 0, 0, null, null),
+  //First Vertical Wall After Ground
+  new SpriteCreator(1, true, true, immovableWallRegular, immovableWallVertical, 1277, 2400, 0, 0, .5, .72, 0, 0, null, null),
+  //The First Hat of the Regular Wall Surf Test
+  new SpriteCreator(2, true, true, immovableWallKillWall, immovableWallHorizontal, 300, 336, 0, 0, 1.221, .5, 0, 0, null, null),
+  //Second Ground (After Control Wall End)
+  new SpriteCreator(3, true, true, immovableWallRegular, immovableWallHorizontal, 1340.5, 3000, 0, 0, 3.1, .5, 0, 0, null, null),
+  //Divider Testing PlaceHolder For Control Wallz PLACE
+  // new SpriteCreator(4, true, true, immovableWallRegular, immovableWallVertical, 2617.5, 2400, 0, 0, .5, .72, 0, 0, null, null),
+  //All The wallkillable Walls AT The Bottom of Control Wall
+  new SpriteCreator(5, true, true, immovableWallKillWall, immovableWallHorizontal, 1340.5, 2387, 0, 0, .7, .63, 0, 0, null, null),
+  new SpriteCreator(6, true, true, immovableWallKillWall, immovableWallHorizontal, 2021, 2387, 0, 0, .7, .63, 0, 0, null, null),
+  //Kill Wall At Top of Inverse
+  new SpriteCreator(2, true, true, immovableWallKillWall, immovableWallHorizontal, 3003, 336, 0, 0, 1.221, .5, 0, 0, null, null),
+  //Third Ground Inverse Walls;
+  new SpriteCreator(0, true, true, immovableWallRegular, immovableWallHorizontal, 4041.5, 3000, 0, 0, 2.3, .5, 0, 0, null, null),
+  //Last Divider For The Walls Then To Change Walls
+  new SpriteCreator(0, true, true, immovableWallRegular, immovableWallVertical, 5400, 0, 0, 0, .5, 3.25, 0, 0, null, null),
+  //Third Ground Inverse Walls;
+  new SpriteCreator(0, true, true, immovableWallRegular, immovableWallVertical, 5935, 0, 0, 0, .5, 3.45, 0, 0, null, null),
+];
+
+//Moveable Walls
+///Single Wall to Teach You  
+level_1.wallSpawn = [
+  new SpriteCreator(0, true, true, wallRegular, wallHorizontal, 800, 2850, 0, 0, .4, .4, 0, 0, null, null),
+  new SpriteCreator(1, true, true, wallControl, wallHorizontal, 1700, 600, 0, 0, .4, .4, 0, 0, null, null),
+  new SpriteCreator(2, true, true, wallInverse, wallHorizontal, 3300, 2850, 0, 0, .4, .4, 0, 0, null, null),
+  new SpriteCreator(3, true, true, wallInverse, wallVertical, 4570, 450, 0, 0, .4, .4, 0, 0, null, null),
+  //Walls That Change
+  //Ledge
+  new SpriteCreator(4, true, true, wallRegular, wallHorizontal, 5645, 2200, 0, 0, .4, .4, 0, 0, null, null),
+  new SpriteCreator(4, true, true, wallRegular, wallHorizontal, 5750, 2200, 0, 0, .4, .4, 0, 0, null, null),
+  //Ball
+  new SpriteCreator(4, true, true, wallRegular, wallHorizontal, 5645, 600, 0, 0, .4, .4, 0, 0, null, null),
+  new SpriteCreator(4, true, true, wallRegular, wallHorizontal, 5750, 600, 0, 0, .4, .4, 0, 0, null, null),
+  // new SpriteCreator(4, true, true, wallRegular, wallHorizontal, 5720, 1800, 0, 0, .4, .4, 0, 0, null, null),
+];
+
+level_1.ledgeSpawn = [
+  // //Surf
+  new SpriteCreator(0, true, true, surf, ledge, 5510, 1600, 0, 0, .4, .4, 0, 0, null, null),
+  new SpriteCreator(0, true, true, surf, ledge, 5600, 1600, 0, 0, .4, .4, 0, 0, null, null),
+  new SpriteCreator(0, true, true, surf, ledge, 5690, 1600, 0, 0, .4, .4, 0, 0, null, null),
+  new SpriteCreator(0, true, true, surf, ledge, 5780, 1600, 0, 0, .4, .4, 0, 0, null, null),
+  new SpriteCreator(0, true, true, surf, ledge, 5870, 1600, 0, 0, .4, .4, 0, 0, null, null),
+
+  // //Bounce Ledges
+  // new SpriteCreator(2, true, true, bounce, ledge, 900, 390, 0, 0, .4, .4, 0, 0, null, null),
+  // //Surf Ledges
+  // new SpriteCreator(3, true, true, elevator, ledge, 200, 200, 0, 0, .4, .4, 0, 0, null, null),
+];
+
+//Enemy Spawn
+// level_1.enemySpawn = [
+//   // new SpriteCreator(0, true, true, enemyDaakath, enemyOne, 400, 200, 0, 0, .5, .5, 0, 0, null, null),
+//   new SpriteCreator(1, true, true, enemyShooter, enemyOne, 1200, 300, 0, 0, .5, .5, 0, 0, null, null),
+// ];
+
+//Ball
+level_1.ballSpawn = [
+  new SpriteCreator(0, true, true, ballRegular, ball, 5510, 1000, 0, 0, .4, .4, 0, 0, null, null),
+  new SpriteCreator(1, true, true, ballRegular, ball, 5600, 1000, 0, 0, .4, .4, 0, 0, null, null),
+  new SpriteCreator(2, true, true, ballRegular, ball, 5690, 1000, 0, 0, .4, .4, 0, 0, null, null),
+  new SpriteCreator(3, true, true, ballRegular, ball, 5780, 1000, 0, 0, .4, .4, 0, 0, null, null),
+  new SpriteCreator(4, true, true, ballRegular, ball, 5870, 1000, 0, 0, .4, .4, 0, 0, null, null),
+];
+
+//Flag Spawn
+level_1.flagSpawn = [
+  //First Flag
+  new flagCreator(1, true, flagRegular, flag, 200, 2850, 0, 0, .4, .4, 0, 0, null),
+  new flagCreator(2, true, flagRegular, flag, 1600, 2850, 0, 0, .4, .4, 0, 0, null),
+  new flagCreator(3, true, flagRegular, flag, 3600, 250, 0, 0, .4, .4, 0, 0, null),
+];
+
+//Text Creator (Helpful Hints)
+level_1.text = [
+  //Marker For Level 0
+  //Entry to Level 0
+  new textCreator(0, true, 600, 2950, "Level 0 ↓", 'Courier New', 25, '#000000', 'bold'),
+  //Entry to Level 1 (Lets See if You Remember!)
+  new textCreator(0, true, 550, 2550, "Get On The Wall and Surfs Up\n\nRemember to Use A Combination of Your Guns\n\nAlso If You Haven't Realized Fuckhead\n\nYou Can Stick To The Bottom", 'Courier New', 25, '#000000', 'bold'),
+  //WolfGang Kill Them-Pull The Wall
+  new textCreator(1, true, 600, 2000, "It's All About Pulling The Wall Along\n\nAs You Jump And Shoot\n\nRemember To Press S To Push Downwards\n\nAnd To Use The Different Guns Idiot!", 'Courier New', 25, '#000000', 'bold'),
+  //Stick to the Side
+  new textCreator(2, true, 600, 1350, "You Can Stick To The Side\n\nIt Stablizes The Wall", 'Courier New', 25, '#000000', 'bold'),
+  //These Kill Walls (Wasn't So Bad)
+  new textCreator(3, true, 600, 450, "These Kill Walls By The Way\n\n\n\n\n\n\n\n\nThat Wasn't So Bad Was It?\n\nI Hope This Was Easy\n\nOr Else You're Straight Fucked", 'Courier New', 25, '#000000', 'bold'),
+  //Control Wall First Text
+  new textCreator(3, true, 1600, 300, "These Walls Stop Movement\n\nAs Soon As You Touch It\n\nPress S To Push Down", 'Courier New', 25, '#000000', 'bold'),
+  //First Horizontal Inverse Wall
+  new textCreator(0, true, 2800, 2550, "These Walls Are Special\n\nIt Will Move Based On\n\nWhich Side You're On\n\nGet On Top of It", 'Courier New', 25, '#000000', 'bold'),
+  //First Vertical Inverse Wall
+  new textCreator(0, true, 4100, 400, "Stick To The Side Of This\n\nOr Get On Top\n\nIt Will Move Depending\n\nWhich Side You're On\n\nOh Yeah Press S To Push Down!!!", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(0, true, 4800, 1400, "The Push Gun Works Here Pretty Well", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(0, true, 4300, 2000, "Remember You Can Double Jump Again\n\nOnce You Hit A Fucking Surface", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(0, true, 5555, 2600, "Walls Transform\n\nBased What Hits It", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(0, true, 5540, 1800, "Oh Yeah\n\nYou Can Stick Upside Down", 'Courier New', 25, '#000000', 'bold')
+  ,
+  new textCreator(0, true, 2800, 2050, "Move From Side To Side\n\nOr Even Jump", 'Courier New', 25, '#000000', 'bold')
+  ,
+  //Level 1 ↑
+  new textCreator(0, true, 5625, 50, "Level 2 ↑", 'Courier New', 25, '#000000', 'bold')
+
+];
+
+//Push Level 1 Into World Class Array
+worldClassLevels.push(level_1);
+
+///////////////////////////////////////////Level 2/////////////////////////////////////////////////////////////
+var level_2 = new LevelCreator("Level 2-CLObstacle", 3200, 3200, new MetroidvaniaCreator(null, null, 1, 3200, 3, 1, 5, 3200), '#ffffff');
+
+//Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
+level_2.playerPosition = [
   new PlayerPositionCreator(1800, 1450),
   new PlayerPositionCreator(400, 3120),
   new PlayerPositionCreator(100, 1320),
@@ -602,7 +769,7 @@ level_1.playerPosition = [
 
 ///////////////////////Creation of Undeniable Death
 
-level_1.undeniableDeathSpawn = [
+level_2.undeniableDeathSpawn = [
   //Ground Next To Flag
   new SpriteCreator(0, true, true, undeniableDeathRegular, deathHorizontal, 725, 3170, 0, 0, .5, .4, 0, 0, null, null),
   //Top of the Yellow at the Bottom
@@ -645,7 +812,7 @@ level_1.undeniableDeathSpawn = [
 ];
 
 /////////////////////////Creation of ImmovableWalls
-level_1.immovableWallSpawn = [
+level_2.immovableWallSpawn = [
   //Ground
   new SpriteCreator(0, true, true, immovableWallRegular, immovableWallHorizontal, 300, 3136, 0, 0, .5, .5, 0, 0, null, null),
   //Vertical Wall Connector to Level 0
@@ -680,7 +847,7 @@ level_1.immovableWallSpawn = [
 
 //Moveable Walls
 ///Single Wall to Teach You  
-level_1.wallSpawn = [
+level_2.wallSpawn = [
   //Before Grey
   new SpriteCreator(0, true, true, wallRegular, wallHorizontal, 1100, 3000, 0, 0, .5, .5, 0, 0, null, null),
   //After BLue
@@ -695,7 +862,7 @@ level_1.wallSpawn = [
 ];
 
 //Ledges
-level_1.ledgeSpawn = [
+level_2.ledgeSpawn = [
   //Elevator
   new SpriteCreator(0, true, true, elevator, ledge, 100, 2600, 0, 0, .4, .4, 0, 0, null, null),
   new SpriteCreator(1, true, true, elevator, ledge, 1080, 2200, 0, 0, .4, .4, 0, 0, null, null),
@@ -709,12 +876,20 @@ level_1.ledgeSpawn = [
 ];
 
 //Ball
-level_1.ballSpawn = [new SpriteCreator(0, true, true, ballRegular, ball, 975, 200, 0, 0, null, null, 0, 0, null, null)];
+level_2.ballSpawn = [new SpriteCreator(0, true, true, ballRegular, ball, 975, 200, 0, 0, null, null, 0, 0, null, null)];
+
+//650, 1300
+level_2.flagSpawn = [
+  new flagCreator(1, true, flagRegular, flag, 600, 3050, 0, 0, .4, .4, 0, 0, null),
+  new flagCreator(3, true, flagRegular, flag, 2500, 3050, 0, 0, .4, .4, 0, 0, null),
+  new flagCreator(2, true, flagRegular, flag, 200, 1250, 0, 0, .4, .4, 0, 0, null),
+  new flagCreator(0, true, flagRegular, flag, 1700, 1400, 0, 0, .4, .4, 0, 0, null),
+];
 
 //Text Creator (Helpful Hints)
-level_1.text = [
+level_2.text = [
   //Entry to Level 0
-  new textCreator(0, true, 100, 3150, "Level 0 ↓", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(0, true, 100, 3150, "Level 1 ↓", 'Courier New', 25, '#000000', 'bold'),
   //Camera Mode
   new textCreator(1, false, 80, 2800, "Press 4 to Toggle Free-Look(WASD to Move)", 'Courier New', 25, '#000000', 'bold'),
   //Grey Ledge Tutorial
@@ -736,27 +911,21 @@ level_1.text = [
   /////////////////////////////////Adding New Things////////////////////////////
   new textCreator(11, true, 1700, 1300, "You Can Surf On Top of Surfaces", 'Courier New', 25, '#000000', 'bold'),
   //Level Two Indicator
-  new textCreator(12, true, 25, 1225, "← Level 2", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(12, true, 25, 1225, "← Level 3", 'Courier New', 25, '#000000', 'bold'),
   new textCreator(13, true, 150, 2850, "Hey Dumbass!\n\nRemember Shift is Free Look!\n\nWASD Movement", 'Courier New', 25, '#000000', 'bold'),
   new textCreator(14, true, 2250, 2800, "Tap A or D\n\nThen Double Jump\n\nBack On To The Wall", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(15, true, 900, 2800, "If You Ever Fuck Up\n\nPress R To Kill Yourself\n\nTry It", 'Courier New', 25, '#000000', 'bold'),
 
 ];
-//650, 1300
-level_1.flagSpawn = [
-  new flagCreator(1, true, flagRegular, flag, 600, 3050, 0, 0, .4, .4, 0, 0, null),
-  new flagCreator(3, true, flagRegular, flag, 2500, 3050, 0, 0, .4, .4, 0, 0, null),
-  new flagCreator(2, true, flagRegular, flag, 200, 1250, 0, 0, .4, .4, 0, 0, null),
-  new flagCreator(0, true, flagRegular, flag, 1700, 1400, 0, 0, .4, .4, 0, 0, null),
-];
 
-//Push Level 1 Into World Class Array
-worldClassLevels.push(level_1);
+//Push Level 2 Into World Class Array
+worldClassLevels.push(level_2);
 
-////////////////////////////////////////Level 2/////////////////////////////////////
-var level_2 = new LevelCreator("Level 2-CL", 4800, 800, new MetroidvaniaCreator(3, 0, 4, 800, 1, 1, 1, 4800), '#ffffff');
+////////////////////////////////////////Level 3/////////////////////////////////////
+var level_3 = new LevelCreator("Level 3-CLEnemies", 4800, 800, new MetroidvaniaCreator(4, 0, 4, 800, 1, 1, 2, 4800), '#ffffff');
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
-level_2.playerPosition = [
+level_3.playerPosition = [
   new PlayerPositionCreator(200, 20),
   new PlayerPositionCreator(1700, 690),
   new PlayerPositionCreator(200, 380),
@@ -765,7 +934,7 @@ level_2.playerPosition = [
 
 ///////////////////////Creation of Undeniable Death
 
-level_2.undeniableDeathSpawn = [
+level_3.undeniableDeathSpawn = [
   //Bottom At The End of the Map (INVISIBLE)
   new SpriteCreator(0, true, true, undeniableDeathRegular, deathHorizontal, 0, 4100, 0, 0, .5, .1, 0, 0, null, null),
   //Top of Map
@@ -779,7 +948,7 @@ level_2.undeniableDeathSpawn = [
 ];
 
 /////////////////////////Creation of ImmovableWalls
-level_2.immovableWallSpawn = [
+level_3.immovableWallSpawn = [
   //Border of Level One and Level Two
   new SpriteCreator(0, true, true, immovableWallRegular, immovableWallVertical, 4800, 0, 0, 0, .3, .7, 0, 0, null, null),
   //Ground
@@ -810,14 +979,14 @@ level_2.immovableWallSpawn = [
 
 //Moveable Walls
 ///Single Wall to Teach You  
-level_2.wallSpawn = [
+level_3.wallSpawn = [
   //Before Grey
   new SpriteCreator(0, true, true, wallRegular, wallVertical, 2000, 400, 0, 0, .5, .5, 0, 0, null, null),
 ];
 
 
 //Enemy Spawn
-level_2.enemySpawn = [
+level_3.enemySpawn = [
   //First Three Enemies
   new SpriteCreator(0, true, true, enemyDaakath, enemyOne, 4250, 200, 0, 0, .5, .5, 0, 0, null, null),
   new SpriteCreator(1, true, true, enemyShooter, enemyOne, 4450, 200, 0, 0, .5, .5, 0, 0, null, null),
@@ -851,7 +1020,7 @@ level_2.enemySpawn = [
 ];
 
 //Falling Spikes
-level_2.fallingSpikes = [
+level_3.fallingSpikes = [
   new SpriteCreator(0, true, true, spikeRegular, spikeFall, 475, 50, null, null, .4, .4, 0, 500, null, 3),
   /////////////////////////////////////Shadow Level////////////////////////////////////////////
   new SpriteCreator(1, false, true, spikeRegular, spikeFall, 2100, 50, null, null, .4, .4, 0, 500, null, 3),
@@ -860,13 +1029,13 @@ level_2.fallingSpikes = [
 ];
 
 // Special Handler For Changing Conditions of Levels
-var flagSpecial_Level2 = {
+var flagSpecial_Level3 = {
   storyTrigger: {
     page: 0,
-    level: 2,
+    level: 3,
     backgroundColor: "#000000",
   },
-  specialWorld: [1, 2],
+  specialWorld: [2, 3],
   // undeniableDeathRemove: [[10], []],
   immovableWallRemove: [[9], []],
   enemyInsert: [[], [10, 11, 12, 13, 14, 15, 16, 17, 18]],
@@ -877,11 +1046,11 @@ var flagSpecial_Level2 = {
 };
 
 //Flag Spawn
-level_2.flagSpawn = [
+level_3.flagSpawn = [
   //First Flag from Level 1;
   new flagCreator(3, true, flagRegular, flag, 4550, 650, 0, 0, .4, .4, 0, 0, null),
   //Special Flag At The ENd
-  new flagCreator(2, true, flagSpecial, flag, 220, 250, 0, 0, .4, .4, 0, 0, flagSpecial_Level2),
+  new flagCreator(2, true, flagSpecial, flag, 220, 250, 0, 0, .4, .4, 0, 0, flagSpecial_Level3),
   //Testing For Special Properties
   // new flagCreator(3, true, flagSpecial, flag, 4550, 650, 0, 0, .4, .4, 0, 0, flagSpecial_Level2),
   ///Middle FLag
@@ -889,9 +1058,9 @@ level_2.flagSpawn = [
 ];
 
 //Text Creator (Helpful Hints)
-level_2.text = [
+level_3.text = [
   //Entry to Level 1
-  new textCreator(0, true, 4650, 650, "Level 1 →", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(0, true, 4650, 650, "Level 2 →", 'Courier New', 25, '#000000', 'bold'),
   //WolfGang Kill Them
   new textCreator(1, true, 4250, 580, "Kill Them Before They Kill You\nYou Can Move Them Too", 'Courier New', 25, '#000000', 'bold'),
   //Camera Mode
@@ -900,7 +1069,7 @@ level_2.text = [
   new textCreator(3, true, 400, 400, "These Orange Walls Are Killed\n\nBy Enemy Bullets\n\nThat Falling Red Thing Kills You", 'Courier New', 25, '#000000', 'bold'),
   ////////////////////////////////////Shadow Level//////////////////////////////////
   //Entry to Level 1
-  new textCreator(4, false, 4650, 650, "Level 1 →", 'Courier New', 25, '#ff0000', 'bold'),
+  new textCreator(4, false, 4650, 650, "Level 2 →", 'Courier New', 25, '#ff0000', 'bold'),
   //WolfGang Kill Them
   new textCreator(5, false, 4250, 580, "I'll Always Be With You", 'Courier New', 25, '#ff0000', 'bold'),
   //Camera Mode
@@ -911,17 +1080,17 @@ level_2.text = [
   new textCreator(8, true, 1400, 200, "The Wall Can Be Used\n\nAgainst The Enemy\n\nThere's a Price Though", 'Courier New', 25, '#000000', 'bold'),
 ];
 
-//Push Level 2 Into World Class Array
-worldClassLevels.push(level_2);
+//Push Level 3 Into World Class Array
+worldClassLevels.push(level_3);
 
 
-////////////////////////////////////////Level 3/////////////////////////////////////(Testing Ground)
-var level_3 = new LevelCreator("Level 3-PlayGround", 1400, 800, new MetroidvaniaCreator(null, null, 2, 800, null, null, null, null), '#ffffff');
+////////////////////////////////////////Level 4/////////////////////////////////////(Testing Ground)
+var level_4 = new LevelCreator("Level 4-PlayGround", 1400, 800, new MetroidvaniaCreator(null, null, 3, 800, null, null, null, null), '#ffffff');
 
-// level_3.worldGravity = new worldGravityCreator(200, 300);
+// level_4.worldGravity = new worldGravityCreator(200, 300);
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
-level_3.playerPosition = [
+level_4.playerPosition = [
   new PlayerPositionCreator(200, 700),
   new PlayerPositionCreator(400, 700), //400/700
   new PlayerPositionCreator(200, 700),
@@ -930,7 +1099,7 @@ level_3.playerPosition = [
 
 ///////////////////////Creation of Undeniable Death
 
-level_3.undeniableDeathSpawn = [
+level_4.undeniableDeathSpawn = [
   //Bottom At The End of the Map (INVISIBLE)
   new SpriteCreator(0, true, true, undeniableDeathRegular, deathVertical, 1400, 0, 0, 0, .25, .5, 0, 0, null, null),
   new SpriteCreator(0, true, true, undeniableDeathRegular, deathVertical, 0, 0, 0, 0, .25, .5, 0, 0, null, null),
@@ -938,7 +1107,7 @@ level_3.undeniableDeathSpawn = [
 ];
 
 /////////////////////////Creation of ImmovableWalls
-level_3.immovableWallSpawn = [
+level_4.immovableWallSpawn = [
   //Ground
   new SpriteCreator(0, true, true, immovableWallRegular, immovableWallHorizontal, 300, 800, 0, 0, 1.2, .25, 0, 0, null, null),
   new SpriteCreator(0, true, true, immovableWallSlippery, immovableWallVertical, 400, 200, 0, 0, .5, .5, 0, 0, null, null),
@@ -947,13 +1116,13 @@ level_3.immovableWallSpawn = [
 
 //Moveable Walls
 ///Single Wall to Teach You  
-// level_3.wallSpawn = [
+// level_4.wallSpawn = [
 //   new SpriteCreator(3, true, true, wallCloud, wallHorizontal, 600, 400, 0, 0, .4, .4, 0, 0, null, null),
 //   // new SpriteCreator(4, true, true, wallRegular, wallVertical, 400, 600, 0, 0, .4, .4, 0, 0, null, null),
 // ];
 
 //////////////Tint Testing///////////
-// level_3.wallSpawn = [
+// level_4.wallSpawn = [
 //   new SpriteCreator(0, true, true, wallGhost, wallHorizontal, 600, 200, 0, 0, .5, .5, 0, 0, null, null),
 //   new SpriteCreator(1, true, true, wallGhost, wallHorizontal, 600, 400, 0, 0, .5, .5, 0, 0, null, null),
 //   new SpriteCreator(2, true, true, wallGhost, wallHorizontal, 600, 600, 0, 0, .5, .5, 0, 0, null, null),
@@ -962,7 +1131,7 @@ level_3.immovableWallSpawn = [
 ////////////Tint Testing/////////
 
 //Ledges
-level_3.ledgeSpawn = [
+level_4.ledgeSpawn = [
   // //Surf
   new SpriteCreator(0, true, true, surf, ledge, 1100, 200, 0, 0, .4, .4, 0, 0, null, null),
   // //Bounce Ledges
@@ -972,181 +1141,14 @@ level_3.ledgeSpawn = [
 ];
 
 //Enemy Spawn
-level_3.enemySpawn = [
+level_4.enemySpawn = [
   // new SpriteCreator(0, true, true, enemyDaakath, enemyOne, 400, 200, 0, 0, .5, .5, 0, 0, null, null),
   new SpriteCreator(1, true, true, enemyShooter, enemyOne, 1200, 300, 0, 0, .5, .5, 0, 0, null, null),
 ];
 
 //Ball
-level_3.ballSpawn = [
-  new SpriteCreator(0, true, true, ballRegular, ball, 800, 400, 0, 0, null, null, 0, 0, null, null)
-];
-
-//Push Level 3 Into World Class Array
-worldClassLevels.push(level_3);
-
-////////////////////////////////////////Level 4/////////////////////////////////////(Testing Ground)
-var level_4 = new LevelCreator("Level 4-SurfWorld", 6000, 3000, new MetroidvaniaCreator(1, 0, 0, 2990, null, null, null, null), '#ffffff');
-
-// level_4.worldGravity = new worldGravityCreator(200, 300);
-
-//Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
-level_4.playerPosition = [
-  new PlayerPositionCreator(5700, 100),
-  new PlayerPositionCreator(400, 2920), 
-  new PlayerPositionCreator(1800, 2920), //100x,2950y ORG
-  new PlayerPositionCreator(3800, 325),
-]
-
-///////////////////////Creation of Undeniable Death
-
-level_4.undeniableDeathSpawn = [
-  //First Hat of First Phase Death
-  new SpriteCreator(0, true, true, undeniableDeathRegular, deathHorizontal, 500, 2387, 0, 0, .5545, .5, 0, 0, null, null),
-  //Left Side Border (Guarding Level One)
-  new SpriteCreator(1, true, true, undeniableDeathRegular, deathVertical, 0, 0, 0, 0, .25, 2.0975, 0, 0, null, null),
-  //Divider For the Regular Walls
-  new SpriteCreator(2, true, true, undeniableDeathRegular, deathVertical, 1277, 400, 0, 0, .3895, 1.4185, 0, 0, null, null),
-  //Second Obstacle of Regular Wall Horizontal
-  new SpriteCreator(3, true, true, undeniableDeathRegular, deathHorizontal, 41.5, 1700, 0, 0, .5545, .5, 0, 0, null, null),
-  //Third Obstacle of Regular Wall Horizontal
-  new SpriteCreator(4, true, true, undeniableDeathRegular, deathHorizontal, 500, 1013, 0, 0, .5545, .5, 0, 0, null, null),
-  //First Obstacle of Control Wall Horizontal
-  new SpriteCreator(5, true, true, undeniableDeathRegular, deathHorizontal, 1339.5, 1013, 0, 0, .5545, .5, 0, 0, null, null),
-  //Divider For The Control Wall
-  new SpriteCreator(6, true, true, undeniableDeathRegular, deathVertical, 2617.5, 0, 0, 0, .3895, 2, 0, 0, null, null),
-  //Last Death Wall For Control Wall
-  new SpriteCreator(0, true, true, undeniableDeathRegular, deathHorizontal, 1840.5, 1700, 0, 0, .5545, .5, 0, 0, null, null),
-  //Divider For The Invese Wall
-  new SpriteCreator(6, true, true, undeniableDeathRegular, deathVertical, 3979, 400, 0, 0, .3895, 1.8565, 0, 0, null, null),
-  //First Obstacle For Inverse
-  new SpriteCreator(0, true, true, undeniableDeathRegular, deathHorizontal, 2681, 2387, 0, 0, .5545, .5, 0, 0, null, null),
-  //Second Obstacle For Inverse
-  new SpriteCreator(3, true, true, undeniableDeathRegular, deathHorizontal, 3201.8, 1700, 0, 0, .5545, .5, 0, 0, null, null),
-  //Third Obstacle of Inverse Horizontal
-  new SpriteCreator(5, true, true, undeniableDeathRegular, deathHorizontal, 2680.5, 1013, 0, 0, .5545, .5, 0, 0, null, null),
-  //First Obstacle of Inverse Vertical
-  new SpriteCreator(5, true, true, undeniableDeathRegular, deathHorizontal, 4042, 1013, 0, 0, .5545, .5, 0, 0, null, null),
-  //Second Obstacle of Inverse Vertical
-  new SpriteCreator(0, true, true, undeniableDeathRegular, deathHorizontal, 4042, 2387, 0, 0, .5545, .5, 0, 0, null, null),
-  //Divider of Inverse Vertical Wall
-  new SpriteCreator(3, true, true, undeniableDeathRegular, deathHorizontal, 4622.8, 1700, 0, 0, .5545, .5, 0, 0, null, null),
-  //Top Borders
-  new SpriteCreator(3, true, true, undeniableDeathRegular, deathHorizontal, 30, 0, 0, 0, 1.8475, .25, 0, 0, null, null),
-  new SpriteCreator(3, true, true, undeniableDeathRegular, deathHorizontal, 2680.7, 0, 0, 0, 1.9415, .25, 0, 0, null, null),
-  
-];
-
-/////////////////////////Creation of ImmovableWalls
-level_4.immovableWallSpawn = [
-  //First Ground (Near Level 1);
-  new SpriteCreator(0, true, true, immovableWallRegular, immovableWallHorizontal, 0, 3000, 0, 0, .6, .5, 0, 0, null, null),
-  //Second Ground (near Level 1)
-  new SpriteCreator(0, true, true, immovableWallRegular, immovableWallHorizontal, 800, 3000, 0, 0, .56, .5, 0, 0, null, null),
-  //First Vertical Wall After Ground
-  new SpriteCreator(1, true, true, immovableWallRegular, immovableWallVertical, 1277, 2400, 0, 0, .5, .72, 0, 0, null, null),
-  //The First Hat of the Regular Wall Surf Test
-  new SpriteCreator(2, true, true, immovableWallKillWall, immovableWallHorizontal, 300, 336, 0, 0, 1.221, .5, 0, 0, null, null),
-  //Second Ground (After Control Wall End)
-  new SpriteCreator(3, true, true, immovableWallRegular, immovableWallHorizontal, 1340.5, 3000, 0, 0, 3.1, .5, 0, 0, null, null),
-  //Divider Testing PlaceHolder For Control Wallz PLACE
-  // new SpriteCreator(4, true, true, immovableWallRegular, immovableWallVertical, 2617.5, 2400, 0, 0, .5, .72, 0, 0, null, null),
-  //All The wallkillable Walls AT The Bottom of Control Wall
-  new SpriteCreator(5, true, true, immovableWallKillWall, immovableWallHorizontal, 1340.5, 2387, 0, 0, .7, .63, 0, 0, null, null),
-  new SpriteCreator(6, true, true, immovableWallKillWall, immovableWallHorizontal, 2021, 2387, 0, 0, .7, .63, 0, 0, null, null),
-  //Kill Wall At Top of Inverse
-  new SpriteCreator(2, true, true, immovableWallKillWall, immovableWallHorizontal, 3003, 336, 0, 0, 1.221, .5, 0, 0, null, null),
-  //Third Ground Inverse Walls;
-  new SpriteCreator(0, true, true, immovableWallRegular, immovableWallHorizontal, 4041.5, 3000, 0, 0, 2.3, .5, 0, 0, null, null),
-  //Last Divider For The Walls Then To Change Walls
-  new SpriteCreator(0, true, true, immovableWallRegular, immovableWallVertical, 5400, 0, 0, 0, .5, 3.25, 0, 0, null, null),
-  //Third Ground Inverse Walls;
-  new SpriteCreator(0, true, true, immovableWallRegular, immovableWallVertical, 5935, 0, 0, 0, .5, 3.45, 0, 0, null, null),
-];
-
-//Moveable Walls
-///Single Wall to Teach You  
-level_4.wallSpawn = [
-  new SpriteCreator(0, true, true, wallRegular, wallHorizontal, 800, 2850, 0, 0, .4, .4, 0, 0, null, null),
-  new SpriteCreator(1, true, true, wallControl, wallHorizontal, 1700, 600, 0, 0, .4, .4, 0, 0, null, null),
-  new SpriteCreator(2, true, true, wallInverse, wallHorizontal, 3300, 2850, 0, 0, .4, .4, 0, 0, null, null),
-  new SpriteCreator(3, true, true, wallInverse, wallVertical, 4570, 450, 0, 0, .4, .4, 0, 0, null, null),
-  //Walls That Change
-  //Ledge
-  new SpriteCreator(4, true, true, wallRegular, wallHorizontal, 5645, 2200, 0, 0, .4, .4, 0, 0, null, null),
-  new SpriteCreator(4, true, true, wallRegular, wallHorizontal, 5750, 2200, 0, 0, .4, .4, 0, 0, null, null),
-  //Ball
-  new SpriteCreator(4, true, true, wallRegular, wallHorizontal, 5645, 600, 0, 0, .4, .4, 0, 0, null, null),
-  new SpriteCreator(4, true, true, wallRegular, wallHorizontal, 5750, 600, 0, 0, .4, .4, 0, 0, null, null),
-  // new SpriteCreator(4, true, true, wallRegular, wallHorizontal, 5720, 1800, 0, 0, .4, .4, 0, 0, null, null),
-];
-
-level_4.ledgeSpawn = [
-  // //Surf
-  new SpriteCreator(0, true, true, surf, ledge, 5510, 1600, 0, 0, .4, .4, 0, 0, null, null),
-  new SpriteCreator(0, true, true, surf, ledge, 5600, 1600, 0, 0, .4, .4, 0, 0, null, null),
-  new SpriteCreator(0, true, true, surf, ledge, 5690, 1600, 0, 0, .4, .4, 0, 0, null, null),
-  new SpriteCreator(0, true, true, surf, ledge, 5780, 1600, 0, 0, .4, .4, 0, 0, null, null),
-  new SpriteCreator(0, true, true, surf, ledge, 5870, 1600, 0, 0, .4, .4, 0, 0, null, null),
-
-  // //Bounce Ledges
-  // new SpriteCreator(2, true, true, bounce, ledge, 900, 390, 0, 0, .4, .4, 0, 0, null, null),
-  // //Surf Ledges
-  // new SpriteCreator(3, true, true, elevator, ledge, 200, 200, 0, 0, .4, .4, 0, 0, null, null),
-];
-
-//Enemy Spawn
-// level_4.enemySpawn = [
-//   // new SpriteCreator(0, true, true, enemyDaakath, enemyOne, 400, 200, 0, 0, .5, .5, 0, 0, null, null),
-//   new SpriteCreator(1, true, true, enemyShooter, enemyOne, 1200, 300, 0, 0, .5, .5, 0, 0, null, null),
-// ];
-
-//Ball
 level_4.ballSpawn = [
-  new SpriteCreator(0, true, true, ballRegular, ball, 5510, 1000, 0, 0, .4, .4, 0, 0, null, null),
-  new SpriteCreator(1, true, true, ballRegular, ball, 5600, 1000, 0, 0, .4, .4, 0, 0, null, null),
-  new SpriteCreator(2, true, true, ballRegular, ball, 5690, 1000, 0, 0, .4, .4, 0, 0, null, null),
-  new SpriteCreator(3, true, true, ballRegular, ball, 5780, 1000, 0, 0, .4, .4, 0, 0, null, null),
-  new SpriteCreator(4, true, true, ballRegular, ball, 5870, 1000, 0, 0, .4, .4, 0, 0, null, null),
-];
-
-//Flag Spawn
-level_4.flagSpawn = [
-  //First Flag
-  new flagCreator(1, true, flagRegular, flag, 200, 2850, 0, 0, .4, .4, 0, 0, null),
-  new flagCreator(2, true, flagRegular, flag, 1600, 2850, 0, 0, .4, .4, 0, 0, null),
-  new flagCreator(3, true, flagRegular, flag, 3600, 250, 0, 0, .4, .4, 0, 0, null),
-];
-
-//Text Creator (Helpful Hints)
-level_4.text = [
-  //Marker For Level 0
-  //Entry to Level 0
-  new textCreator(0, true, 600, 2950, "Level 0 ↓", 'Courier New', 25, '#000000', 'bold'),
-  //Entry to Level 1 (Lets See if You Remember!)
-  new textCreator(0, true, 550, 2550, "Get On The Wall and Surfs Up\n\nRemember to Use A Combination of Your Guns\n\nAlso If You Haven't Realized Fuckhead\n\nYou Can Stick To The Bottom", 'Courier New', 25, '#000000', 'bold'),
-  //WolfGang Kill Them-Pull The Wall
-  new textCreator(1, true, 600, 2000, "It's All About Pulling The Wall Along\n\nAs You Jump And Shoot\n\nRemember To Press S To Push Downwards\n\nAnd To Use The Different Guns Idiot!", 'Courier New', 25, '#000000', 'bold'),
-  //Stick to the Side
-  new textCreator(2, true, 600, 1350, "You Can Stick To The Side\n\nIt Stablizes The Wall", 'Courier New', 25, '#000000', 'bold'),
-  //These Kill Walls (Wasn't So Bad)
-  new textCreator(3, true, 600, 450, "These Kill Walls By The Way\n\n\n\n\n\n\n\n\nThat Wasn't So Bad Was It?\n\nI Hope This Was Easy\n\nOr Else You're Straight Fucked", 'Courier New', 25, '#000000', 'bold'),
-  //Control Wall First Text
-  new textCreator(3, true, 1600, 300, "These Walls Stop Movement\n\nAs Soon As You Touch It\n\nPress S To Push Down", 'Courier New', 25, '#000000', 'bold'),
-  //First Horizontal Inverse Wall
-  new textCreator(0, true, 2800, 2550, "These Walls Are Special\n\nIt Will Move Based On\n\nWhich Side You're On\n\nGet On Top of It", 'Courier New', 25, '#000000', 'bold'),
-  //First Vertical Inverse Wall
-  new textCreator(0, true, 4100, 400, "Stick To The Side Of This\n\nOr Get On Top\n\nIt Will Move Depending\n\nWhich Side You're On\n\nOh Yeah Press S To Push Down!!!", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(0, true, 4800, 1400, "The Push Gun Works Here Pretty Well", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(0, true, 4300, 2000, "Remember You Can Double Jump Again\n\nOnce You Hit A Fucking Surface", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(0, true, 5555, 2600, "Walls Transform\n\nBased What Hits It", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(0, true, 5540, 1800, "Oh Yeah\n\nYou Can Stick Upside Down", 'Courier New', 25, '#000000', 'bold')
-  ,
-  new textCreator(0, true, 2800, 2050, "Jump From Side To Side", 'Courier New', 25, '#000000', 'bold')
-  ,
-  //Level 1 ↑
-  new textCreator(0, true, 5625, 50, "Level 2 ↑", 'Courier New', 25, '#000000', 'bold')
-
+  new SpriteCreator(0, true, true, ballRegular, ball, 800, 400, 0, 0, null, null, 0, 0, null, null)
 ];
 
 //Push Level 4 Into World Class Array
