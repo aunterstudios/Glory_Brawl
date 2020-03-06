@@ -24,6 +24,10 @@ brawl.game.prototype = {
         playerUpsideDownVelocity = -100;
         playerUpsideDownMovement = 100;
         playerDownwards = 400;
+        //////////////////////Weapon Attributes//////////////////////
+        weaponFireRate = 500; //500
+        weaponBulletSpeed = 500; //500
+        weaponBulletAmount = 30; //30
     },
     preload: function () {
         // this.game.forceSingleUpdate = true;

@@ -13,7 +13,7 @@ brawl.game.prototype.weaponHandler = function (weapon, sprite) {
         // console.log(weapon.body.angle, 'angle');
         // this.game.physics.arcade.velocityFromAngle(weapon.body.angle, 300, sprite.velocity);
         //Test One
-        sprite.body.stop();
+        // sprite.body.stop();
         if (sprite.body.touching.up) {
             sprite.body.velocity.y = 200;
         }

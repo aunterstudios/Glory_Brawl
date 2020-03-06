@@ -34,9 +34,9 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     //  Because our bullet is drawn facing up, we need to offset its rotation:
     this.weapon1.bulletAngleOffset = 90;
     //  The speed at which the bullet is fired
-    this.weapon1.bulletSpeed = 500;
+    this.weapon1.bulletSpeed = weaponBulletSpeed;
     //  Speed-up the rate of fire, allowing them to shoot 1 bullet every 60ms
-    this.weapon1.fireRate = 500;
+    this.weapon1.fireRate = weaponFireRate;
     //Size of Bullet
     // this.weapon1.setBulletBodyOffset(5,2,-20,0); //setSize(32 / Math.abs(this.scale.x), 32 / Math.abs(this.scale.y), 24, 34)
     // Track Player

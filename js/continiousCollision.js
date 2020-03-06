@@ -33,7 +33,10 @@ brawl.game.prototype.fireEnemyBullet = function () {
             //Daakath
             if (enemy.name === enemyDaakath) {
                 this.game.physics.arcade.moveToObject(enemy, this.player, 350);
-            }3
+            }
+            if (enemy.name === enemyAccelerate) {
+                this.game.physics.arcade.accelerateToObject(enemy, this.player, 350);
+            }
         }
     }, this, this.player);
     //Acceleration to Object (Another Type of Enemy)

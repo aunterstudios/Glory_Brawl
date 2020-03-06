@@ -113,9 +113,14 @@ brawl.game.prototype.wallMoveable = function (wall, objMov) {
         wall.body.velocity.y = 100;
     }
 
+    ///////////////////////////////Experimental///////////////////////////////
     if (wall.name === wallBlackTrap || wall.name === wallBlackFrozen || wall.name === wallBlackKiller) {
-        this.emitterFunction(objMov);
-        objMov.kill();
+        if (objMov.groupName === groupEnemy) {
+            this.emitterFunction(objMov);
+            objMov.kill();
+        }
+        // this.emitterFunction(objMov);
+        // objMov.kill();
     }
 
     return;
