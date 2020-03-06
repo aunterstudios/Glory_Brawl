@@ -1094,7 +1094,7 @@ level_4.playerPosition = [
   new PlayerPositionCreator(200, 700),
   new PlayerPositionCreator(400, 700), //400/700
   new PlayerPositionCreator(200, 700),
-  new PlayerPositionCreator(3800, 3800),
+  new PlayerPositionCreator(1400, 700),
 ]
 
 ///////////////////////Creation of Undeniable Death
@@ -1157,7 +1157,7 @@ level_5.playerPosition = [
   new PlayerPositionCreator(200, 700),
   new PlayerPositionCreator(1000, 3800), //400/700
   new PlayerPositionCreator(100, 3800),
-  new PlayerPositionCreator(1400, 700),
+  new PlayerPositionCreator(3800, 3750),
 ]
 
 ///////////////////////Creation of Undeniable Death
@@ -1177,6 +1177,10 @@ level_5.undeniableDeathSpawn = [
   new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 3460, 3042, 0, 0, .25, .535, 0, 0, null, null),
   //Ground For Enemies
   new SpriteCreator(true, true, undeniableDeathRegular, deathHorizontal, 1062, 4000, 0, 0, 1.741, .25, 0, 0, null, null),
+  //Second Divider For Checkpoint
+  new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 4266.5, 2500, 0, 0, .25, 1.071, 0, 0, null, null),
+  //Prevent You From Going to Level 1;
+  new SpriteCreator(true, false, undeniableDeathRegular, deathVertical, 0, 0, 0, 0, .005, 1.96, 0, 0, null, null),
 ];
 
 /////////////////////////Creation of ImmovableWalls
@@ -1191,6 +1195,11 @@ level_5.immovableWallSpawn = [
   new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 3500, 4000, 0, 0, .9, .45, 0, 0, null, null),
   //Prevent You From Spam Killing Enemies
   new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 2300, 3400, 0, 0, .25, .655, 0, 0, null, null),
+  //Ground For Cloud Wall
+  new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 3600, 2500, 0, 0, .7817, .5, 0, 0, null, null),
+  //Barriers For Cloud Wall
+  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 600, 0, 0, 0, .5, 3.23, 0, 0, null, null),
+  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 0, 0, 0, 0, .5, 3.23, 0, 0, null, null),
 ];
 
 //Walls
@@ -1199,13 +1208,15 @@ level_5.wallSpawn = [
   // new SpriteCreator(true, true, wallRegular, wallHorizontal, 600, 3600, 0, 0, .4, .4, 0, 0, null, null),
   new SpriteCreator(true, true, wallControl, wallVertical, 1200, 3000, 0, 0, .4, .4, 0, 0, null, null),
   new SpriteCreator(true, true, wallInverse, wallHorizontal, 1900, 3650, 0, 0, .4, .4, 0, 0, null, null),
+  new SpriteCreator(true, true, wallCloud, wallHorizontal, 3150, 2400, 0, 0, .4, .4, 0, 0, null, null),
 ];
 
 
 //Ledges
 level_5.ledgeSpawn = [
-  // //Surf
+  //Surf Tool
   new SpriteCreator(true, true, surf, ledge, 600, 3600, 0, 0, .4, .4, 0, 0, null, null),
+  new SpriteCreator(true, true, elevator, ledge, 3900, 3750, 0, 0, .4, .4, 0, 0, null, null),
 ];
 
 //Enemy Spawn
@@ -1247,7 +1258,7 @@ level_5.enemySpawn = [
 
 //Falling Spikes
 level_5.fallingSpikes = [
-  new SpriteCreator(true, true, spikeRegular, spikeFall, 2250, 3075, null, null, .4, .4, 0, 700, null, 3),
+  new SpriteCreator(true, true, spikeRegular, spikeFall, 2255, 3075, null, null, .4, .4, 0, 700, null, 3),
   new SpriteCreator(true, true, spikeRegular, spikeFall, 2315, 3075, null, null, .4, .4, 0, 700, null, 3),
   new SpriteCreator(true, true, spikeRegular, spikeFall, 2600, 3075, null, null, .4, .4, 0, 700, null, 3),
   new SpriteCreator(true, true, spikeRegular, spikeFall, 2800, 3075, null, null, .4, .4, 0, 700, null, 3),
@@ -1263,7 +1274,7 @@ level_5.text = [
   new textCreator(true, 500, 2900, "This New Wall Kills Everything\n\nThere's a Price To Use It\n\nYou're Going To Need It\n\nTill The Next Checkpoint\n\nDon't Let It Touch The Ledge", 'Courier New', 25, '#000000', 'bold'),
   new textCreator(true, 1400, 2900, "Do I Need To Remind You Dumbass?\n\nDon't Forget To Use Free-Look\n\nAnd Your Fucking Guns", 'Courier New', 25, '#000000', 'bold'),
   new textCreator(true, 1150, 3300, "An Unshootable Trap\n\nAvoid It\n\nOr Kill It Before\n\nIt Transforms", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(true, 1500, 3800, "The Trick Is To Try And Get The Wall\n\nTo The Other Side", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(true, 1500, 3800, "Get The Wall To The Other Side\n\nUSE YOUR FUCKING GUN", 'Courier New', 25, '#000000', 'bold'),
   new textCreator(true, 3650, 3600, "If You Didn't Realize Yet Fuckhead\n\nYou Could Stick To These Upside Down", 'Courier New', 25, '#000000', 'bold'),
 ];
 

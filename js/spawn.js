@@ -1,26 +1,28 @@
 //////////////////Initializing All the Sprite Groups///////////////
 brawl.game.prototype.spriteGroupGenerator = function () {
+    ////////////////////////////////Z-Index Order/////////////////////////////
+    ////////////////////////////////Initializing Groups///////////////////////
     //Adding Moveable Walls
     this.wall = this.game.add.group();
     this.wall.enableBody = true; //enables physics for wall
-    //Adding Immovable Walls
-    this.immovableWall = this.game.add.group();
-    this.immovableWall.enableBody = true;
     //Adding Ledges
     this.ledge = this.game.add.group();
     this.ledge.enableBody = true;
-    //Adding Enemies
-    this.enemy = this.game.add.group();
-    this.enemy.enableBody = true;
     //Adding Balls
     this.ball = this.game.add.group();
     this.ball.enableBody = true;
+    //Adding Enemies
+    this.enemy = this.game.add.group();
+    this.enemy.enableBody = true;
     //Timer Traps
     this.fallingSpikes = this.game.add.group();
     this.fallingSpikes.enableBody = true;
     //Adding Coins (Win Game)
     this.coin = this.game.add.group();
     this.coin.enableBody = true;
+    //Adding Immovable Walls
+    this.immovableWall = this.game.add.group();
+    this.immovableWall.enableBody = true;
     //Adding This Undeniable Death
     this.death = this.game.add.group();
     this.death.enableBody = true;
@@ -42,7 +44,7 @@ brawl.game.prototype.spriteGroupGenerator = function () {
 
 
     ///////////////////Adding Emitters///////////////
-    this.emitter = game.add.emitter();
+    this.emitter = this.game.add.emitter();
     this.emitter.makeParticles('particles');
     this.emitter.gravity = 100;
 };
@@ -50,6 +52,7 @@ brawl.game.prototype.spriteGroupGenerator = function () {
 brawl.game.prototype.undeniableDeathSpawn = function (sprite, positionInArray) {
     // console.log(sprite, positionInArray);
     this.deathX = this.death.create(sprite.x, sprite.y, sprite.art);
+    this.deathX.visible = sprite.visible;
     this.deathX.name = sprite.name;
     //Unkillable
     if (sprite.name === undeniableDeathRegular) {
@@ -75,7 +78,7 @@ brawl.game.prototype.undeniableDeathSpawn = function (sprite, positionInArray) {
 brawl.game.prototype.immovableWallSpawn = function (sprite, positionInArray) {
     // console.log(sprite, positionInArray);
     this.immovableWallX = this.immovableWall.create(sprite.x, sprite.y, sprite.art);
-    // this.immovableWallX.anchor.setTo(.5);
+    this.immovableWallX.visible = sprite.visible;
     this.immovableWallX.name = sprite.name;
     this.immovableWallX.groupName = groupImmovableWall;
     this.immovableWallX.specialCondition = sprite.specialCondition;
@@ -119,6 +122,7 @@ brawl.game.prototype.immovableWallSpawn = function (sprite, positionInArray) {
 brawl.game.prototype.wallSpawn = function (sprite, positionInArray) {
     // console.log(sprite, positionInArray);
     this.wallX = this.wall.create(sprite.x, sprite.y, sprite.art);
+    this.wallX.visible = sprite.visible;
     this.wallX.name = sprite.name;
     this.wallX.groupName = groupWall;
     this.wallX.specialCondition = sprite.specialCondition;
@@ -182,6 +186,7 @@ brawl.game.prototype.wallSpawn = function (sprite, positionInArray) {
 brawl.game.prototype.ledgeSpawn = function (sprite, positionInArray) {
     // console.log(sprite, positionInArray);
     this.ledgeX = this.ledge.create(sprite.x, sprite.y, sprite.art);
+    this.ledgeX.visible = sprite.visible;
     this.ledgeX.name = sprite.name;
     this.ledgeX.groupName = groupLedge;
     this.ledgeX.specialCondition = sprite.specialCondition;
@@ -213,6 +218,7 @@ brawl.game.prototype.ledgeSpawn = function (sprite, positionInArray) {
 brawl.game.prototype.enemySpawn = function (sprite, positionInArray) {
     // console.log(sprite, positionInArray);
     this.trumpX = this.enemy.create(sprite.x, sprite.y, 'enemy');
+    this.trumpX.visible = sprite.visible;
     this.trumpX.name = sprite.name;
     this.trumpX.groupName = groupEnemy;
     this.trumpX.specialCondition = sprite.specialCondition;
@@ -251,6 +257,7 @@ brawl.game.prototype.enemySpawn = function (sprite, positionInArray) {
 brawl.game.prototype.ballSpawn = function (sprite, positionInArray) {
     // console.log(sprite, positionInArray);
     this.ballX = this.ball.create(sprite.x, sprite.y, sprite.art);
+    this.ballX.visible = sprite.visible;
     this.ballX.name = sprite.name;
     this.ballX.groupName = groupBall;
     this.ballX.specialCondition = sprite.specialCondition;
