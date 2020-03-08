@@ -361,7 +361,6 @@ var deathVertical = 'deathVertical';
 //Spikes
 var spikesVertical = 'spikesVertical';
 var spikesHorizontalOne = 'spikesHorizontalOne';
-var spikesHorizontalTwo = 'spikesHorizontalTwo';
 
 //Immovable Wall
 var immovableWallHorizontal = 'immovableWallHorizontal';
@@ -420,6 +419,7 @@ var flagSpecial_Level3 = {
     page: 0,
     level: 3,
     backgroundColor: "#000000",
+    fontColor: '#ff0000'
   },
   specialWorld: [2, 3],
   // undeniableDeathRemove: [[10], []],
@@ -435,16 +435,28 @@ var flagSpecial_Level5 = {
   storyTrigger: {
     page: 1,
     level: 5,
-    backgroundColor: "#ffff00",
+    backgroundColor: "#fff44f",
+    fontColor: '#00008b'
   },
   specialWorld: [2, 5],
-  // undeniableDeathRemove: [[10], []],
-  immovableWallRemove: [[9], []],
-  enemyInsert: [[], [10, 11, 12, 13, 14, 15, 16, 17, 18]],
-  enemyRemove: [[], [0, 1, 2, 5, 6, 7, 8, 9]],
-  fallingSpikesInsert: [[], [1, 2, 3]],
-  textInsert: [[9, 10], [4, 5, 6, 7]],
-  textRemove: [[8], [0, 1, 2, 3, 8]],
+  undeniableDeathInsert: [[], [28, 29, 30, 31, 32, 33, 34, 35]],
+  undeniableDeathRemove: [[], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 26, 27]],
+  immovableWallInsert: [[], [14, 15]],
+  immovableWallRemove: [[8], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]],
+  wallInsert: [[], [4]],
+  wallRemove: [[], [0, 1, 2, 3]],
+  // ledgeInsert: [[], []],
+  ledgeRemove: [[], [0, 1]],
+  ballInsert: [[], [0]],
+  // ballRemove: [[], []],
+  // enemyInsert: [[], []],
+  enemyRemove: [[], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28]],
+  fallingSpikesInsert: [[], [6, 7, 8, 9, 10]],
+  fallingSpikesRemove: [[], [0, 1, 2, 3, 4, 5]],
+  // flagInsert: [[],[]],
+  flagRemove: [[], [0, 1, 2, 3]],
+  // textInsert: [[], []],
+  textRemove: [[], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]],
 };
 
 ///////////////////////////////////////////Level 0///////////////////////////////////////////////////////////
@@ -1218,11 +1230,25 @@ level_5.undeniableDeathSpawn = [
   //The Box Bottom 664.5, 1600,
   new SpriteCreator(true, true, undeniableDeathRegular, deathHorizontal, 4307.5, 1600, 0, 0, .73, .25, 0, 0, null, null),
   //Right Border of Map
-  new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 6000, 0, 0, 0, .25, 2.856, 0, 0, null, null),
+  new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 6000, 0, 0, 0, .25, 2.858, 0, 0, null, null),
   //Left Border of Map
   new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 0, 2792, 0, 0, .25, .6, 0, 0, null, null),
   //Don't Do This Ever Again
   new SpriteCreator(true, true, undeniableDeathRegular, deathHorizontal, 0, 0, 0, 0, 4.2565, .25, 0, 0, null, null),
+  ///////////////////////////////////////////The Yellow Level///////////////////////////////////////////////
+  //Top Border
+  new SpriteCreator(false, true, undeniableDeathRegular, deathHorizontal, 0, 0, 0, 0, 4.285, .25, 0, 0, null, null),
+  //Bottom Border
+  new SpriteCreator(false, true, undeniableDeathRegular, deathHorizontal, 0, 4000, 0, 0, 4.285, .25, 0, 0, null, null),
+  //Moving Death Traps lmao
+  new SpriteCreator(false, true, undeniableDeathRegular, deathVertical, 800, 1000, 0, 500, .25, .5, 0, 0, null, null),
+  new SpriteCreator(false, true, undeniableDeathRegular, deathVertical, 1600, 1200, 0, 500, .25, .5, 0, 0, null, null),
+  new SpriteCreator(false, true, undeniableDeathRegular, deathVertical, 2400, 1800, 0, 500, .25, .5, 0, 0, null, null),
+  new SpriteCreator(false, true, undeniableDeathRegular, deathVertical, 3200, 2400, 0, 500, .25, .5, 0, 0, null, null),
+  new SpriteCreator(false, true, undeniableDeathRegular, deathVertical, 4000, 500, 0, 500, .25, .5, 0, 0, null, null),
+  //Barrier to Level 2
+  new SpriteCreator(false, true, spikeRegular, spikesVertical, 0, 0, 0, 0, .5, 2.829, 0, 0, null, null),
+
 ];
 
 /////////////////////////Creation of ImmovableWalls
@@ -1252,7 +1278,17 @@ level_5.immovableWallSpawn = [
   //Last Obstacle For Ghost Wall
   new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 4310, 3620, 0, 0, 1.937, .25, 0, 0, null, null),
   new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 4310, 4000, 0, 0, 1.937, .25, 0, 0, null, null),
+  ////////////////////////////////////The Yellow Level////////////////////////////////////////////
+  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 1300, 2400, 0, 0, .25, .5, 0, 0, null, null),
+  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 1300, 1600, 0, 0, .25, .5, 0, 0, null, null),
 ];
+/*
+new SpriteCreator(false, true, spikeRegular, spikeFall, 1100, 75, null, null, .4, .4, 0, 700, null, 3),
+  new SpriteCreator(false, true, spikeRegular, spikeFall, 1900, 3925, null, null, .4, .4, 0, -700, null, 3),
+  new SpriteCreator(false, true, spikeRegular, spikeFall, 2700, 75, null, null, .4, .4, 0, 700, null, 3),
+  new SpriteCreator(false, true, spikeRegular, spikeFall, 3500, 3925, null, null, .4, .4, 0, -700, null, 3),
+  new SpriteCreator(false, true, spikeRegular, spikeFall, 4300, 75, null, null, .4, .4, 0, 700, null, 3),
+*/
 
 //Walls
 level_5.wallSpawn = [
@@ -1262,6 +1298,9 @@ level_5.wallSpawn = [
   new SpriteCreator(true, true, wallInverse, wallHorizontal, 1900, 3650, 0, 0, .4, .4, 0, 0, null, null),
   new SpriteCreator(true, true, wallCloud, wallHorizontal, 3150, 2400, 0, 0, .4, .4, 0, 0, null, null),
   new SpriteCreator(true, true, wallGhost, wallHorizontal, 330, 1650, 0, 0, .4, .4, 0, 0, null, null),
+  ////////////////////////////////////The Yellow Level////////////////////////////////////////////
+  new SpriteCreator(false, true, wallCloud, wallHorizontal, 5500, 2000, 0, 0, .4, .4, 0, 0, null, null),
+
 ];
 
 
@@ -1270,6 +1309,12 @@ level_5.ledgeSpawn = [
   //Surf Tool
   new SpriteCreator(true, true, surf, ledge, 600, 3600, 0, 0, .4, .4, 0, 0, null, null),
   new SpriteCreator(true, true, elevator, ledge, 3900, 3750, 0, 0, .4, .4, 0, 0, null, null),
+];
+
+//Ball
+level_5.ballSpawn = [
+  //Surf Tool
+  new SpriteCreator(false, true, ballRegular, ball, 5000, 1800, 0, 0, .4, .4, 0, 0, null, null),
 ];
 
 //Enemy Spawn
@@ -1324,18 +1369,13 @@ level_5.fallingSpikes = [
   new SpriteCreator(true, true, spikeRegular, spikeFall, 3000, 3075, null, null, .4, .4, 0, 700, null, 3),
   new SpriteCreator(true, true, spikeRegular, spikeFall, 3200, 3075, null, null, .4, .4, 0, 700, null, 3),
   /////////////////////////////////////Shadow Level////////////////////////////////////////////
+  new SpriteCreator(false, true, spikeRegular, spikeFall, 1100, 75, null, null, .4, .4, 0, 700, null, 3),
+  new SpriteCreator(false, true, spikeRegular, spikeFall, 1900, 3925, null, null, .4, .4, 0, -700, null, 3),
+  new SpriteCreator(false, true, spikeRegular, spikeFall, 2700, 75, null, null, .4, .4, 0, 700, null, 3),
+  new SpriteCreator(false, true, spikeRegular, spikeFall, 3500, 3925, null, null, .4, .4, 0, -700, null, 3),
+  new SpriteCreator(false, true, spikeRegular, spikeFall, 4300, 75, null, null, .4, .4, 0, 700, null, 3),
 ];
 
-
-/////////////////////////////////////Flag Spawn////////////////////////////
-/*
-level_5.playerPosition = [
-  new PlayerPositionCreator(200, 700),
-  new PlayerPositionCreator(400, 1950), //400/700
-  new PlayerPositionCreator(100, 3800),
-  new PlayerPositionCreator(4000, 3830),
-]
-*/
 //Flag Spawn
 level_5.flagSpawn = [
   //First Flag from Level 1;
@@ -1346,6 +1386,8 @@ level_5.flagSpawn = [
   new flagCreator(1, true, flagRegular, flag, 400, 1910, 0, 0, .4, .4, 0, 0, null),
   //End Flag
   new flagCreator(0, true, flagSpecial, flag, 5400, 3875, 0, 0, .4, .4, 0, 0, null),
+  //Testing End Flag
+  new flagCreator(0, true, flagSpecial, flag, 5500, 300, 0, 0, .4, .4, 0, 0, flagSpecial_Level5),
 ];
 
 //Text Creator (Helpful Hints)

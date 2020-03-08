@@ -66,12 +66,12 @@ brawl.stateControls.prototype = {
         this.text1.fill = newText.fill;
         this.text1.fontWeight = newText.fontWeight;
 
-        var newText2 = new textCreator(null, 600, 700, "Press X to Play", 'Courier New', 25, '#ff0000', 'bold');
-        this.text2 = this.game.add.text(newText2.x, newText2.y, newText2.textInput);
-        this.text2.font = newText2.font;
-        this.text2.fontSize = newText2.fontSize;
-        this.text2.fill = newText2.fill;
-        this.text2.fontWeight = newText2.fontWeight;
+        var pressXToPlay = new textCreator(null, 600, 700, "Press X to Play", 'Courier New', 25, '#ff0000', 'bold');
+        this.xToPlay = this.game.add.text(pressXToPlay.x, pressXToPlay.y, pressXToPlay.textInput);
+        this.xToPlay.font = pressXToPlay.font;
+        this.xToPlay.fontSize = pressXToPlay.fontSize;
+        this.xToPlay.fill = pressXToPlay.fill;
+        this.xToPlay.fontWeight = pressXToPlay.fontWeight;
     },
     update: function () {
         if (this.game.input.keyboard.isDown(Phaser.Keyboard.X)) {
@@ -81,7 +81,7 @@ brawl.stateControls.prototype = {
             //Level 0 (Beginning)
             // this.game.state.start('game', true, false, 0, 1, worldClassLevels[0].metroidvania);
             //Any Level I want to Test
-            this.game.state.start('game', true, false, 5, 2, worldClassLevels[5].metroidvania);
+            this.game.state.start('game', true, false, 5, 0, worldClassLevels[5].metroidvania);
             //Level 3 (THE PLAYGROUND)
             // this.game.state.start('game', true, false, 4, 1, worldClassLevels[4].metroidvania);
 

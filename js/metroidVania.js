@@ -164,15 +164,15 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     }
 
     ///////////////////Debugging Purposes (Knowing The Placement of Each Sprites)/////////////////////////
-    // var distanceOfXandY = 200;
-    // var xIterator = Math.round(levelGenerator.xOfWorld / distanceOfXandY);
-    // var yIterator = Math.round(levelGenerator.yOfWorld / distanceOfXandY);
+    var distanceOfXandY = 200;
+    var xIterator = Math.round(levelGenerator.xOfWorld / distanceOfXandY);
+    var yIterator = Math.round(levelGenerator.yOfWorld / distanceOfXandY);
 
-    // for (var x = 1; x < xIterator; x++) {
-    //     for (var y = 1; y < yIterator; y++) {
-    //         this.text = this.game.add.text(x*distanceOfXandY, y*distanceOfXandY, x*distanceOfXandY+'X'+y*distanceOfXandY+'Y', { font: "10px Arial", fill: "#ff0000", align: "center" });
-    //     }
-    // }
+    for (var x = 1; x < xIterator; x++) {
+        for (var y = 1; y < yIterator; y++) {
+            this.text = this.game.add.text(x*distanceOfXandY, y*distanceOfXandY, x*distanceOfXandY+'X'+y*distanceOfXandY+'Y', { font: "10px Arial", fill: "#ff0000", align: "center" });
+        }
+    }
 
 };
 //////////////////////////Room Switching (Metroidvania) Events//////////////////////////
@@ -230,10 +230,24 @@ brawl.game.prototype.respawn = function (player, flag) {
     respawnHolder.metroidvania = this.metroidvania;
     ///////////////////The Double Loops of Death//////////////////
     if (flag.specialHandler) {
+        if ('undeniableDeathInsert' in flag.specialHandler) {
+            for (var i = 0; i<flag.specialHandler.specialWorld.length; i++) {
+                for (var j = 0; j<flag.specialHandler.undeniableDeathInsert[i].length; j++) {
+                    worldClassLevels[flag.specialHandler.specialWorld[i]].undeniableDeathSpawn[flag.specialHandler.undeniableDeathInsert[i][j]].trigger = true;
+                }
+            }
+        }
         if ('undeniableDeathRemove' in flag.specialHandler) {
             for (var i = 0; i<flag.specialHandler.specialWorld.length; i++) {
                 for (var j = 0; j<flag.specialHandler.undeniableDeathRemove[i].length; j++) {
                     worldClassLevels[flag.specialHandler.specialWorld[i]].undeniableDeathSpawn[flag.specialHandler.undeniableDeathRemove[i][j]].trigger = false;
+                }
+            }
+        }
+        if ('immovableWallInsert' in flag.specialHandler) {
+            for (var i = 0; i<flag.specialHandler.specialWorld.length; i++) {
+                for (var j = 0; j<flag.specialHandler.immovableWallInsert[i].length; j++) {
+                    worldClassLevels[flag.specialHandler.specialWorld[i]].immovableWallSpawn[flag.specialHandler.immovableWallInsert[i][j]].trigger = true;
                 }
             }
         }
@@ -244,10 +258,45 @@ brawl.game.prototype.respawn = function (player, flag) {
                 }
             }
         }
-        if ('enemyRemove' in flag.specialHandler) {
+        if ('wallInsert' in flag.specialHandler) {
             for (var i = 0; i<flag.specialHandler.specialWorld.length; i++) {
-                for (var j = 0; j<flag.specialHandler.enemyRemove[i].length; j++) {
-                    worldClassLevels[flag.specialHandler.specialWorld[i]].enemySpawn[flag.specialHandler.enemyRemove[i][j]].trigger = false;
+                for (var j = 0; j<flag.specialHandler.wallInsert[i].length; j++) {
+                    worldClassLevels[flag.specialHandler.specialWorld[i]].wallSpawn[flag.specialHandler.wallInsert[i][j]].trigger = true;
+                }
+            }
+        }
+        if ('wallRemove' in flag.specialHandler) {
+            for (var i = 0; i<flag.specialHandler.specialWorld.length; i++) {
+                for (var j = 0; j<flag.specialHandler.wallRemove[i].length; j++) {
+                    worldClassLevels[flag.specialHandler.specialWorld[i]].wallSpawn[flag.specialHandler.wallRemove[i][j]].trigger = false;
+                }
+            }
+        }
+        if ('ledgeInsert' in flag.specialHandler) {
+            for (var i = 0; i<flag.specialHandler.specialWorld.length; i++) {
+                for (var j = 0; j<flag.specialHandler.ledgeInsert[i].length; j++) {
+                    worldClassLevels[flag.specialHandler.specialWorld[i]].ledgeSpawn[flag.specialHandler.ledgeInsert[i][j]].trigger = true;
+                }
+            }
+        }
+        if ('ledgeRemove' in flag.specialHandler) {
+            for (var i = 0; i<flag.specialHandler.specialWorld.length; i++) {
+                for (var j = 0; j<flag.specialHandler.ledgeRemove[i].length; j++) {
+                    worldClassLevels[flag.specialHandler.specialWorld[i]].ledgeSpawn[flag.specialHandler.ledgeRemove[i][j]].trigger = false;
+                }
+            }
+        }
+        if ('ballInsert' in flag.specialHandler) {
+            for (var i = 0; i<flag.specialHandler.specialWorld.length; i++) {
+                for (var j = 0; j<flag.specialHandler.ballInsert[i].length; j++) {
+                    worldClassLevels[flag.specialHandler.specialWorld[i]].ballSpawn[flag.specialHandler.ballInsert[i][j]].trigger = true;
+                }
+            }
+        }
+        if ('ballRemove' in flag.specialHandler) {
+            for (var i = 0; i<flag.specialHandler.specialWorld.length; i++) {
+                for (var j = 0; j<flag.specialHandler.ballRemove[i].length; j++) {
+                    worldClassLevels[flag.specialHandler.specialWorld[i]].ballSpawn[flag.specialHandler.ballRemove[i][j]].trigger = false;
                 }
             }
         }
@@ -258,10 +307,38 @@ brawl.game.prototype.respawn = function (player, flag) {
                 }
             }
         }
+        if ('enemyRemove' in flag.specialHandler) {
+            for (var i = 0; i<flag.specialHandler.specialWorld.length; i++) {
+                for (var j = 0; j<flag.specialHandler.enemyRemove[i].length; j++) {
+                    worldClassLevels[flag.specialHandler.specialWorld[i]].enemySpawn[flag.specialHandler.enemyRemove[i][j]].trigger = false;
+                }
+            }
+        }
         if ('fallingSpikesInsert' in flag.specialHandler) {
             for (var i = 0; i<flag.specialHandler.specialWorld.length; i++) {
                 for (var j = 0; j<flag.specialHandler.fallingSpikesInsert[i].length; j++) {
                     worldClassLevels[flag.specialHandler.specialWorld[i]].fallingSpikes[flag.specialHandler.fallingSpikesInsert[i][j]].trigger = true;
+                }
+            }
+        }
+        if ('fallingSpikesRemove' in flag.specialHandler) {
+            for (var i = 0; i<flag.specialHandler.specialWorld.length; i++) {
+                for (var j = 0; j<flag.specialHandler.fallingSpikesRemove[i].length; j++) {
+                    worldClassLevels[flag.specialHandler.specialWorld[i]].fallingSpikes[flag.specialHandler.fallingSpikesRemove[i][j]].trigger = false;
+                }
+            }
+        }
+        if ('flagInsert' in flag.specialHandler) {
+            for (var i = 0; i<flag.specialHandler.specialWorld.length; i++) {
+                for (var j = 0; j<flag.specialHandler.flagInsert[i].length; j++) {
+                    worldClassLevels[flag.specialHandler.specialWorld[i]].flagSpawn[flag.specialHandler.flagInsert[i][j]].trigger = true;
+                }
+            }
+        }
+        if ('flagRemove' in flag.specialHandler) {
+            for (var i = 0; i<flag.specialHandler.specialWorld.length; i++) {
+                for (var j = 0; j<flag.specialHandler.flagRemove[i].length; j++) {
+                    worldClassLevels[flag.specialHandler.specialWorld[i]].flagSpawn[flag.specialHandler.flagRemove[i][j]].trigger = false;
                 }
             }
         }
@@ -281,7 +358,7 @@ brawl.game.prototype.respawn = function (player, flag) {
         }
         if ('storyTrigger' in flag.specialHandler) {
             worldClassLevels[flag.specialHandler.storyTrigger.level].backgroundColor = flag.specialHandler.storyTrigger.backgroundColor;
-            this.game.state.start('story', true, false, respawnHolder.indexOfCurrentWorld, respawnHolder.indexOfPlayerPosition, respawnHolder.metroidvania, flag.specialHandler.storyTrigger.page);
+            this.game.state.start('story', true, false, respawnHolder.indexOfCurrentWorld, respawnHolder.indexOfPlayerPosition, respawnHolder.metroidvania, flag.specialHandler.storyTrigger.page,flag.specialHandler.storyTrigger.backgroundColor, flag.specialHandler.storyTrigger.fontColor);
         }
     }
 };

@@ -1,5 +1,7 @@
 //////////////////Initializing All the Sprite Groups///////////////
 brawl.game.prototype.spriteGroupGenerator = function () {
+    //Toggle Console Log
+    this.toggleConsoleLog = true;
     ////////////////////////////////Z-Index Order/////////////////////////////
     ////////////////////////////////Initializing Groups///////////////////////
     //Adding Moveable Walls
@@ -50,7 +52,9 @@ brawl.game.prototype.spriteGroupGenerator = function () {
 };
 /////////////////Undeniable Death Spawn////////////////////
 brawl.game.prototype.undeniableDeathSpawn = function (sprite, positionInArray) {
-    // console.log(sprite, positionInArray);
+    if (this.toggleConsoleLog) {
+        console.log(sprite, positionInArray);
+    }
     this.deathX = this.death.create(sprite.x, sprite.y, sprite.art);
     this.deathX.name = sprite.name;
     //Unkillable
@@ -67,7 +71,7 @@ brawl.game.prototype.undeniableDeathSpawn = function (sprite, positionInArray) {
     this.deathX.visible = sprite.visible;
     this.deathX.body.immovable = true;
     this.deathX.body.mass = 100;
-    this.deathX.body.maxVelocity.setTo(300);
+    this.deathX.body.maxVelocity.setTo(600);
     this.deathX.body.collideWorldBounds = true;
     this.deathX.body.immovable = true;
     this.deathX.body.bounce.setTo(1);
@@ -76,7 +80,9 @@ brawl.game.prototype.undeniableDeathSpawn = function (sprite, positionInArray) {
 
 /////////////////Immovable Walls/////////////////////
 brawl.game.prototype.immovableWallSpawn = function (sprite, positionInArray) {
-    // console.log(sprite, positionInArray);
+    if (this.toggleConsoleLog) {
+        console.log(sprite, positionInArray);
+    }
     this.immovableWallX = this.immovableWall.create(sprite.x, sprite.y, sprite.art);
     this.immovableWallX.name = sprite.name;
     this.immovableWallX.groupName = groupImmovableWall;
@@ -120,7 +126,9 @@ brawl.game.prototype.immovableWallSpawn = function (sprite, positionInArray) {
 
 ////////////////////////Wall Spawn///////////////////////
 brawl.game.prototype.wallSpawn = function (sprite, positionInArray) {
-    // console.log(sprite, positionInArray);
+    if (this.toggleConsoleLog) {
+        console.log(sprite, positionInArray);
+    }
     this.wallX = this.wall.create(sprite.x, sprite.y, sprite.art);
     this.wallX.name = sprite.name;
     this.wallX.groupName = groupWall;
@@ -184,7 +192,9 @@ brawl.game.prototype.wallSpawn = function (sprite, positionInArray) {
 
 /////////////////////////////Ledge Spawn///////////////////////////
 brawl.game.prototype.ledgeSpawn = function (sprite, positionInArray) {
-    // console.log(sprite, positionInArray);
+    if (this.toggleConsoleLog) {
+        console.log(sprite, positionInArray);
+    }
     this.ledgeX = this.ledge.create(sprite.x, sprite.y, sprite.art);
     this.ledgeX.name = sprite.name;
     this.ledgeX.groupName = groupLedge;
@@ -214,9 +224,35 @@ brawl.game.prototype.ledgeSpawn = function (sprite, positionInArray) {
     this.ledgeX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
 };
 
-//////////////////////////Creating Game Objects/////////////////////////
+brawl.game.prototype.ballSpawn = function (sprite, positionInArray) {
+    if (this.toggleConsoleLog) {
+        console.log(sprite, positionInArray);
+    }
+    this.ballX = this.ball.create(sprite.x, sprite.y, sprite.art);
+    this.ballX.name = sprite.name;
+    this.ballX.groupName = groupBall;
+    this.ballX.specialCondition = sprite.specialCondition;
+    this.ballX.positionInArray = positionInArray;
+    this.ballX.velocityVsWallX = 30;
+    this.ballX.velocityVsWallY = 30;
+    this.ballX.tint = Phaser.Color.BLUE;
+    this.ballX.anchor.setTo(.5);
+    this.ballX.scale.setTo(.5); //.5
+    this.ballX.visible = sprite.visible;
+    this.ballX.body.setCircle(50); //Maybe Change
+    this.ballX.body.mass = 20;
+    this.ballX.body.maxVelocity.setTo(300);
+    this.ballX.body.collideWorldBounds = true;
+    this.ballX.body.bounce.setTo(.5);
+    this.ballX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
+};
+
+
+//////////////////////////Creating Enemies/////////////////////////
 brawl.game.prototype.enemySpawn = function (sprite, positionInArray) {
-    // console.log(sprite, positionInArray);
+    if (this.toggleConsoleLog) {
+        console.log(sprite, positionInArray);
+    }
     this.trumpX = this.enemy.create(sprite.x, sprite.y, 'enemy');
     this.trumpX.name = sprite.name;
     this.trumpX.groupName = groupEnemy;
@@ -254,28 +290,11 @@ brawl.game.prototype.enemySpawn = function (sprite, positionInArray) {
     this.trumpX.body.bounce.setTo(1.0);
     this.trumpX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
 };
-brawl.game.prototype.ballSpawn = function (sprite, positionInArray) {
-    // console.log(sprite, positionInArray);
-    this.ballX = this.ball.create(sprite.x, sprite.y, sprite.art);
-    this.ballX.name = sprite.name;
-    this.ballX.groupName = groupBall;
-    this.ballX.specialCondition = sprite.specialCondition;
-    this.ballX.positionInArray = positionInArray;
-    this.ballX.velocityVsWallX = 30;
-    this.ballX.velocityVsWallY = 30;
-    this.ballX.tint = Phaser.Color.BLUE;
-    this.ballX.anchor.setTo(.5);
-    this.ballX.scale.setTo(.5); //.5
-    this.ballX.visible = sprite.visible;
-    this.ballX.body.setCircle(50); //Maybe Change
-    this.ballX.body.mass = 20;
-    this.ballX.body.maxVelocity.setTo(300);
-    this.ballX.body.collideWorldBounds = true;
-    this.ballX.body.bounce.setTo(.5);
-    this.ballX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
-};
 /////////////////////////////////Falling Spikes///////////////////////////
 brawl.game.prototype.spikeFall = function (sprite, positionInArray) {
+    if (this.toggleConsoleLog) {
+        console.log(sprite, positionInArray);
+    }
     this.spikesFall = this.fallingSpikes.getFirstDead(true, sprite.x, sprite.y, 'spikeFall');
     this.spikesFall.specialCondition = sprite.specialCondition;
     this.spikesFall.positionInArray = positionInArray;
@@ -307,6 +326,9 @@ brawl.game.prototype.flagSpawn = function (sprite) {
 /////////////////////////////////Text Generator////////////////////////
 /////////////////////////////Creation of Text in Game/////////////////////////////////
 brawl.game.prototype.textCreator = function (sprite, positionInArray) {
+    if (this.toggleConsoleLog) {
+        console.log(sprite, positionInArray);
+    }
     this.text1 = this.game.add.text(sprite.x, sprite.y, sprite.textInput);
     this.text1.font = sprite.font;
     this.text1.fontSize = sprite.fontSize;

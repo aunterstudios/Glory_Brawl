@@ -45,7 +45,7 @@ brawl.state2.prototype = {
 //Death State
 brawl.story = function () { };
 brawl.story.prototype = {
-    init: function (indexOfCurrentWorld, indexOfPlayerPosition, metroidvania, page) {
+    init: function (indexOfCurrentWorld, indexOfPlayerPosition, metroidvania, page, backgroundColor, fontColor) {
         this.game.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT;
         this.game.world.setBounds(0, 0, 1400, 800);
         //Init To Get to the Next State
@@ -53,30 +53,38 @@ brawl.story.prototype = {
         this.indexOfPlayerPosition = indexOfPlayerPosition;
         this.metroidvania = metroidvania;
         this.page = page;
+        this.backgroundColor = backgroundColor;
+        this.fontColor = fontColor;
     },
     preload: function () {
 
     },
     create: function () {
+        this.game.stage.backgroundColor = this.backgroundColor;
         if (this.page === 0) {
-            this.game.stage.backgroundColor = '#000000';
-
-            var newText = new textCreator(null, 550, 200, "The Shadow is Eternal.\n\nI'm burned in your soul.\n\nWe Will Keep Doing This\n\nForever.", 'Courier New', 25, '#ff0000', 'bold');
+            var newText = new textCreator(null, 550, 200, "The Shadow is Eternal.\n\nI'm burned in your soul.\n\nWe Will Keep Doing This\n\nForever.", 'Courier New', 25, this.fontColor, 'bold');
             this.text1 = this.game.add.text(newText.x, newText.y, newText.textInput);
             this.text1.font = newText.font;
             this.text1.fontSize = newText.fontSize;
             this.text1.fill = newText.fill;
             this.text1.fontWeight = newText.fontWeight;
             this.text1.align = 'center';
-
-            var newText2 = new textCreator(null, 600, 700, "Spacebar to Skip", 'Courier New', 25, '#ff0000', 'bold');
-            this.text2 = this.game.add.text(newText2.x, newText2.y, newText2.textInput);
-            this.text2.font = newText2.font;
-            this.text2.fontSize = newText2.fontSize;
-            this.text2.fill = newText2.fill;
-            this.text2.fontWeight = newText2.fontWeight;
-
         }
+        else if (this.page === 1) {
+            var newText = new textCreator(null, 100, 200, "Don't Believe The Lies of The White\n\nYou Know In Your Heart\n\nWhat's Really True", 'Courier New', 25, this.fontColor, 'bold');
+            this.text1 = this.game.add.text(newText.x, newText.y, newText.textInput);
+            this.text1.font = newText.font;
+            this.text1.fontSize = newText.fontSize;
+            this.text1.fill = newText.fill;
+            this.text1.fontWeight = newText.fontWeight;
+            this.text1.align = 'left';
+        }
+        var spacebarToPlay = new textCreator(null, 590, 700, "Spacebar to Skip", 'Courier New', 25, this.fontColor, 'bold');
+        this.spaceBarPlay = this.game.add.text(spacebarToPlay.x, spacebarToPlay.y, spacebarToPlay.textInput);
+        this.spaceBarPlay.font = spacebarToPlay.font;
+        this.spaceBarPlay.fontSize = spacebarToPlay.fontSize;
+        this.spaceBarPlay.fill = spacebarToPlay.fill;
+        this.spaceBarPlay.fontWeight = spacebarToPlay.fontWeight;
     },
     update: function () {
         if (this.game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
