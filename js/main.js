@@ -414,6 +414,39 @@ var tintEnemyShooter = 12758247.409111453;
 var tintEnemyDaakath = 15269906.933038201;
 var tintEnemyAccelerate = 2885804.4944837275;
 
+/////////////////////////////Special Handlers For Changing Conditions of Levels//////////////////
+var flagSpecial_Level3 = {
+  storyTrigger: {
+    page: 0,
+    level: 3,
+    backgroundColor: "#000000",
+  },
+  specialWorld: [2, 3],
+  // undeniableDeathRemove: [[10], []],
+  immovableWallRemove: [[9], []],
+  enemyInsert: [[], [10, 11, 12, 13, 14, 15, 16, 17, 18]],
+  enemyRemove: [[], [0, 1, 2, 5, 6, 7, 8, 9]],
+  fallingSpikesInsert: [[], [1, 2, 3]],
+  textInsert: [[9, 10], [4, 5, 6, 7]],
+  textRemove: [[8], [0, 1, 2, 3, 8]],
+};
+
+var flagSpecial_Level5 = {
+  storyTrigger: {
+    page: 1,
+    level: 5,
+    backgroundColor: "#ffff00",
+  },
+  specialWorld: [2, 5],
+  // undeniableDeathRemove: [[10], []],
+  immovableWallRemove: [[9], []],
+  enemyInsert: [[], [10, 11, 12, 13, 14, 15, 16, 17, 18]],
+  enemyRemove: [[], [0, 1, 2, 5, 6, 7, 8, 9]],
+  fallingSpikesInsert: [[], [1, 2, 3]],
+  textInsert: [[9, 10], [4, 5, 6, 7]],
+  textRemove: [[8], [0, 1, 2, 3, 8]],
+};
+
 ///////////////////////////////////////////Level 0///////////////////////////////////////////////////////////
 var level_0 = new LevelCreator("Level 0-CL", 3800, 4200, new MetroidvaniaCreator(1, 100, 0, 4200, 0, 1, 0, 3800), "#ffffff"); //3800
 
@@ -830,9 +863,9 @@ level_2.immovableWallSpawn = [
   new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 2200, 3136, 0, 0, 1.1737, .5, 0, 0, null, null),
   //Long Pole
   new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 2700, 400, 0, 0, .4, 3, 0, 0, null, null),
-  ///////////////////////////////////Second Wall That Gets Removed From Level 3//////////////////////
+  ///////////////////////////////////Second Wall That Gets Removed From Level 5//////////////////////
   new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 773, 0, 0, 0, .5, .5, 0, 0, null, null),
-  /////////////////////////////////////First Wall That Gets Removed From Level 2//////////////////////
+  /////////////////////////////////////First Wall That Gets Removed From Level 3//////////////////////
   new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 773, 300, 0, 0, .5, .5, 0, 0, null, null),
   //Divider
   new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 710, 0, 0, 0, .5, .8, 0, 0, null, null),
@@ -1028,23 +1061,6 @@ level_3.fallingSpikes = [
   new SpriteCreator(false, true, spikeRegular, spikeFall, 2500, 50, null, null, .4, .4, 0, 500, null, 5),
 ];
 
-// Special Handler For Changing Conditions of Levels
-var flagSpecial_Level3 = {
-  storyTrigger: {
-    page: 0,
-    level: 3,
-    backgroundColor: "#000000",
-  },
-  specialWorld: [2, 3],
-  // undeniableDeathRemove: [[10], []],
-  immovableWallRemove: [[9], []],
-  enemyInsert: [[], [10, 11, 12, 13, 14, 15, 16, 17, 18]],
-  enemyRemove: [[], [0, 1, 2, 5, 6, 7, 8, 9]],
-  fallingSpikesInsert: [[], [1, 2, 3]],
-  textInsert: [[9, 10], [4, 5, 6, 7]],
-  textRemove: [[8], [0, 1, 2, 3, 8]],
-};
-
 //Flag Spawn
 level_3.flagSpawn = [
   //First Flag from Level 1;
@@ -1154,10 +1170,10 @@ var level_5 = new LevelCreator("Level 5-SpecialWalls", 6000, 4000, new Metroidva
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_5.playerPosition = [
-  new PlayerPositionCreator(200, 700),
-  new PlayerPositionCreator(1000, 3800), //400/700
+  new PlayerPositionCreator(5500, 100),
+  new PlayerPositionCreator(250, 1975),
   new PlayerPositionCreator(100, 3800),
-  new PlayerPositionCreator(3800, 3750),
+  new PlayerPositionCreator(4000, 3830),
 ]
 
 ///////////////////////Creation of Undeniable Death
@@ -1178,9 +1194,35 @@ level_5.undeniableDeathSpawn = [
   //Ground For Enemies
   new SpriteCreator(true, true, undeniableDeathRegular, deathHorizontal, 1062, 4000, 0, 0, 1.741, .25, 0, 0, null, null),
   //Second Divider For Checkpoint
-  new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 4266.5, 2500, 0, 0, .25, 1.071, 0, 0, null, null),
-  //Prevent You From Going to Level 1;
-  new SpriteCreator(true, false, undeniableDeathRegular, deathVertical, 0, 0, 0, 0, .005, 1.96, 0, 0, null, null),
+  new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 4266.5, 1600, 0, 0, .25, 1.73, 0, 0, null, null),
+  /////////////////////////////Prevent You From Going to Level 1/////////////////////////////////
+  new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 0, 0, 0, 0, .001, 1.96, 0, 0, null, null),
+  new SpriteCreator(true, true, undeniableDeathRegular, deathHorizontal, 3500, 4000, 0, 0, .54, .001, 0, 0, null, null),
+  new SpriteCreator(true, true, undeniableDeathRegular, deathHorizontal, 4310, 4000, 0, 0, 1.17, .001, 0, 0, null, null),
+  //Obstacles For Ghost Wall THE DEATH ONES
+  new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 3400, 0, 0, 0, .25, .6, 0, 0, null, null),
+  new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 2800, 700, 0, 0, .25, .5, 0, 0, null, null),
+  new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 1900, 700, 0, 0, .25, .5, 0, 0, null, null),
+  new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 3900, 700, 0, 0, .25, .5, 0, 0, null, null),
+  new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 4600, 0, 0, 0, .25, .5, 0, 0, null, null),
+  new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 5000, 899, 0, 0, .25, .5, 0, 0, null, null),
+  new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 5400, 500, 0, 0, .25, .5, 0, 0, null, null),
+  new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 5500, 1900, 0, 0, .25, .5, 0, 0, null, null),
+  new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 5100, 2000, 0, 0, .25, .5, 0, 0, null, null),
+  new SpriteCreator(true, true, undeniableDeathRegular, deathHorizontal, 5200, 2650, 0, 0, .5, .25, 0, 0, null, null),
+  new SpriteCreator(true, true, undeniableDeathRegular, deathHorizontal, 4400, 3000, 0, 0, .5, .25, 0, 0, null, null),
+  new SpriteCreator(true, true, undeniableDeathRegular, deathHorizontal, 5200, 3400, 0, 0, .5, .25, 0, 0, null, null),
+  //The Box Bottom 664.5, 1600,
+  new SpriteCreator(true, true, undeniableDeathRegular, deathHorizontal, 664.5, 1600, 0, 0, 2.572, .25, 0, 0, null, null),
+  //The Box Part Two
+  //The Box Bottom 664.5, 1600,
+  new SpriteCreator(true, true, undeniableDeathRegular, deathHorizontal, 4307.5, 1600, 0, 0, .73, .25, 0, 0, null, null),
+  //Right Border of Map
+  new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 6000, 0, 0, 0, .25, 2.856, 0, 0, null, null),
+  //Left Border of Map
+  new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 0, 2792, 0, 0, .25, .6, 0, 0, null, null),
+  //Don't Do This Ever Again
+  new SpriteCreator(true, true, undeniableDeathRegular, deathHorizontal, 0, 0, 0, 0, 4.2565, .25, 0, 0, null, null),
 ];
 
 /////////////////////////Creation of ImmovableWalls
@@ -1200,6 +1242,16 @@ level_5.immovableWallSpawn = [
   //Barriers For Cloud Wall
   new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 600, 0, 0, 0, .5, 3.23, 0, 0, null, null),
   new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 0, 0, 0, 0, .5, 3.23, 0, 0, null, null),
+  //CheckPoint GhostWall
+  new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 200, 2000, 0, 0, .3, .25, 0, 0, null, null),
+  //Connector to Checkpoint Undeniable Wall
+  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 4266.5, 0, 0, 0, .322, 1.852, 0, 0, null, null),
+  ////////////////////////Obstacles For Ghost Walls////////////////
+  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 1400, 0, 0, 0, .322, 1.878, 0, 0, null, null),
+  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 2400, 0, 0, 0, .322, 1.878, 0, 0, null, null),
+  //Last Obstacle For Ghost Wall
+  new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 4310, 3620, 0, 0, 1.937, .25, 0, 0, null, null),
+  new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 4310, 4000, 0, 0, 1.937, .25, 0, 0, null, null),
 ];
 
 //Walls
@@ -1209,6 +1261,7 @@ level_5.wallSpawn = [
   new SpriteCreator(true, true, wallControl, wallVertical, 1200, 3000, 0, 0, .4, .4, 0, 0, null, null),
   new SpriteCreator(true, true, wallInverse, wallHorizontal, 1900, 3650, 0, 0, .4, .4, 0, 0, null, null),
   new SpriteCreator(true, true, wallCloud, wallHorizontal, 3150, 2400, 0, 0, .4, .4, 0, 0, null, null),
+  new SpriteCreator(true, true, wallGhost, wallHorizontal, 330, 1650, 0, 0, .4, .4, 0, 0, null, null),
 ];
 
 
@@ -1237,14 +1290,14 @@ level_5.enemySpawn = [
   new SpriteCreator(true, true, enemyDaakath, enemyOne, 2900, 3750, 0, 300, .5, .5, 0, 0, null, null),
   new SpriteCreator(true, true, enemyDaakath, enemyOne, 3100, 3800, 0, 300, .5, .5, 0, 0, null, null),
   //Enemy Shoots For WallBlackTrap
-  new SpriteCreator(true, true, enemyShooter, enemyOne, 2450, 3100, 0, 300, .5, .5, 0, 0, null, null),
+  new SpriteCreator(true, true, enemyShooter, enemyOne, 2450, 3300, 0, 300, .5, .5, 0, 0, null, null),
   new SpriteCreator(true, true, enemyShooter, enemyOne, 3300, 3400, 0, 300, .5, .5, 0, 0, null, null),
   //Enemies Accelerate
   new SpriteCreator(true, true, enemyAccelerate, enemyOne, 2500, 3500, 0, 0, .5, .5, 0, 0, null, null),
   new SpriteCreator(true, true, enemyAccelerate, enemyOne, 2500, 3550, 0, 0, .5, .5, 0, 0, null, null),
   new SpriteCreator(true, true, enemyAccelerate, enemyOne, 2700, 3400, 0, 0, .5, .5, 0, 0, null, null),
   new SpriteCreator(true, true, enemyAccelerate, enemyOne, 2800, 3200, 0, 0, .5, .5, 0, 0, null, null),
-  new SpriteCreator(true, true, enemyAccelerate, enemyOne, 2900, 3100, 0, 0, .5, .5, 0, 0, null, null),
+  new SpriteCreator(true, true, enemyAccelerate, enemyOne, 2900, 3300, 0, 0, .5, .5, 0, 0, null, null),
   new SpriteCreator(true, true, enemyAccelerate, enemyOne, 3000, 3800, 0, 0, .5, .5, 0, 0, null, null),
   new SpriteCreator(true, true, enemyAccelerate, enemyOne, 3000, 3600, 0, 0, .5, .5, 0, 0, null, null),
   //More Enemies To Fuck With You
@@ -1254,6 +1307,12 @@ level_5.enemySpawn = [
   new SpriteCreator(true, true, enemyDaakath, enemyOne, 3000, 3600, 0, 0, .5, .5, 0, 0, null, null),
   new SpriteCreator(true, true, enemyDaakath, enemyOne, 3300, 3700, 0, 0, .5, .5, 0, 0, null, null),
   new SpriteCreator(true, true, enemyDaakath, enemyOne, 3200, 3750, 0, 0, .5, .5, 0, 0, null, null),
+  //Cloud Walls
+  new SpriteCreator(true, true, enemyDaakath, enemyOne, 2400, 2600, 0, 0, .5, .5, 0, 0, null, null),
+  new SpriteCreator(true, true, enemyDaakath, enemyOne, 2600, 2600, 0, 0, .5, .5, 0, 0, null, null),
+  new SpriteCreator(true, true, enemyDaakath, enemyOne, 2800, 2600, 0, 0, .5, .5, 0, 0, null, null),
+  // new SpriteCreator(true, true, enemyDaakath, enemyOne, 3300, 3700, 0, 0, .5, .5, 0, 0, null, null),
+  // new SpriteCreator(true, true, enemyDaakath, enemyOne, 3200, 3750, 0, 0, .5, .5, 0, 0, null, null),
 ];
 
 //Falling Spikes
@@ -1267,20 +1326,54 @@ level_5.fallingSpikes = [
   /////////////////////////////////////Shadow Level////////////////////////////////////////////
 ];
 
+
+/////////////////////////////////////Flag Spawn////////////////////////////
+/*
+level_5.playerPosition = [
+  new PlayerPositionCreator(200, 700),
+  new PlayerPositionCreator(400, 1950), //400/700
+  new PlayerPositionCreator(100, 3800),
+  new PlayerPositionCreator(4000, 3830),
+]
+*/
+//Flag Spawn
+level_5.flagSpawn = [
+  //First Flag from Level 1;
+  new flagCreator(2, true, flagRegular, flag, 400, 3875, 0, 0, .4, .4, 0, 0, null),
+  //Special Flag At The ENd
+  new flagCreator(3, true, flagRegular, flag, 4100, 3850, 0, 0, .4, .4, 0, 0, null),
+  ///Middle FLag
+  new flagCreator(1, true, flagRegular, flag, 400, 1910, 0, 0, .4, .4, 0, 0, null),
+  //End Flag
+  new flagCreator(0, true, flagSpecial, flag, 5400, 3875, 0, 0, .4, .4, 0, 0, null),
+];
+
 //Text Creator (Helpful Hints)
 level_5.text = [
   //Entry to Level 1
+  new textCreator(true, 75, 3800, "← Level 2", 'Courier New', 25, '#000000', 'bold'),
   new textCreator(true, 500, 3700, "Bring This With You\n\nYou're Going To Need It\n\nTill The Next Checkpoint", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(true, 500, 2900, "This New Wall Kills Everything\n\nThere's a Price To Use It\n\nYou're Going To Need It\n\nTill The Next Checkpoint\n\nDon't Let It Touch The Ledge", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(true, 500, 2900, "This New Wall Kills Everything\n\nThere's a Price To Use It\n\nYou're Going To Need It\n\nTill The Next Checkpoint", 'Courier New', 25, '#000000', 'bold'),
   new textCreator(true, 1400, 2900, "Do I Need To Remind You Dumbass?\n\nDon't Forget To Use Free-Look\n\nAnd Your Fucking Guns", 'Courier New', 25, '#000000', 'bold'),
   new textCreator(true, 1150, 3300, "An Unshootable Trap\n\nAvoid It\n\nOr Kill It Before\n\nIt Transforms", 'Courier New', 25, '#000000', 'bold'),
   new textCreator(true, 1500, 3800, "Get The Wall To The Other Side\n\nUSE YOUR FUCKING GUN", 'Courier New', 25, '#000000', 'bold'),
   new textCreator(true, 3650, 3600, "If You Didn't Realize Yet Fuckhead\n\nYou Could Stick To These Upside Down", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(true, 3500, 2200, "Move Left Or Right On This Wall", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(true, 2600, 2200, "You Can Shoot Through This Wall", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(true, 1150, 2200, "Stand Perfectly Still On The Wall And Believe", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(true, 100, 2200, "Breaking The Rules Of This World\n\nGets You Punished", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(true, 150, 1750, "Moveable With Your Gun\n\nYou Can Pass Through Walls\n\nIf You Perfectly Stand Still", 'Courier New', 25, '#000000', 'bold'),
+  //Hints For Ghost Wall
+  new textCreator(true, 4800, 3525, "Stick Upside Down For This To Work", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(true, 800, 1000, "You Need To Use All Your Guns\n\nExcept KILL Ofcourse", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(true, 1550, 1000, "PULL Depends On\n\nWhich Part\n\nYou Are On", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(true, 3000, 1000, "Use STOP\n\nStick To The Side\n\nThen PULL", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(true, 4800, 3800, "You Can KILL The Wall", 'Courier New', 25, '#000000', 'bold'),
 ];
 
 
 
-//Push Level 4 Into World Class Array
+//Push Level 5 Into World Class Array
 worldClassLevels.push(level_5);
 
 /////////////Change Base Texture////////////////

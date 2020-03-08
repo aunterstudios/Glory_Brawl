@@ -52,7 +52,6 @@ brawl.game.prototype.spriteGroupGenerator = function () {
 brawl.game.prototype.undeniableDeathSpawn = function (sprite, positionInArray) {
     // console.log(sprite, positionInArray);
     this.deathX = this.death.create(sprite.x, sprite.y, sprite.art);
-    this.deathX.visible = sprite.visible;
     this.deathX.name = sprite.name;
     //Unkillable
     if (sprite.name === undeniableDeathRegular) {
@@ -65,6 +64,7 @@ brawl.game.prototype.undeniableDeathSpawn = function (sprite, positionInArray) {
     this.deathX.specialCondition = sprite.specialCondition;
     this.deathX.positionInArray = positionInArray;
     this.deathX.scale.setTo(sprite.sizeX, sprite.sizeY);
+    this.deathX.visible = sprite.visible;
     this.deathX.body.immovable = true;
     this.deathX.body.mass = 100;
     this.deathX.body.maxVelocity.setTo(300);
@@ -78,7 +78,6 @@ brawl.game.prototype.undeniableDeathSpawn = function (sprite, positionInArray) {
 brawl.game.prototype.immovableWallSpawn = function (sprite, positionInArray) {
     // console.log(sprite, positionInArray);
     this.immovableWallX = this.immovableWall.create(sprite.x, sprite.y, sprite.art);
-    this.immovableWallX.visible = sprite.visible;
     this.immovableWallX.name = sprite.name;
     this.immovableWallX.groupName = groupImmovableWall;
     this.immovableWallX.specialCondition = sprite.specialCondition;
@@ -110,6 +109,7 @@ brawl.game.prototype.immovableWallSpawn = function (sprite, positionInArray) {
         this.immovableWallX.tint = tintImmovableWallSlippery;
     }
     this.immovableWallX.scale.setTo(sprite.sizeX, sprite.sizeY);
+    this.immovableWallX.visible = sprite.visible;
     this.immovableWallX.body.immovable = true;
     this.immovableWallX.body.mass = 100;
     this.immovableWallX.body.maxVelocity.setTo(300);
@@ -122,7 +122,6 @@ brawl.game.prototype.immovableWallSpawn = function (sprite, positionInArray) {
 brawl.game.prototype.wallSpawn = function (sprite, positionInArray) {
     // console.log(sprite, positionInArray);
     this.wallX = this.wall.create(sprite.x, sprite.y, sprite.art);
-    this.wallX.visible = sprite.visible;
     this.wallX.name = sprite.name;
     this.wallX.groupName = groupWall;
     this.wallX.specialCondition = sprite.specialCondition;
@@ -161,6 +160,7 @@ brawl.game.prototype.wallSpawn = function (sprite, positionInArray) {
     }
     this.wallX.anchor.setTo(.5);
     this.wallX.scale.setTo(sprite.sizeX, sprite.sizeY);
+    this.wallX.visible = sprite.visible;
     // this.wallX.body.immovable = true;
     ////////////////Special Properties////////////
     this.wallX.body.gravity.setTo(sprite.gravityX, sprite.gravityY);
@@ -186,7 +186,6 @@ brawl.game.prototype.wallSpawn = function (sprite, positionInArray) {
 brawl.game.prototype.ledgeSpawn = function (sprite, positionInArray) {
     // console.log(sprite, positionInArray);
     this.ledgeX = this.ledge.create(sprite.x, sprite.y, sprite.art);
-    this.ledgeX.visible = sprite.visible;
     this.ledgeX.name = sprite.name;
     this.ledgeX.groupName = groupLedge;
     this.ledgeX.specialCondition = sprite.specialCondition;
@@ -204,6 +203,7 @@ brawl.game.prototype.ledgeSpawn = function (sprite, positionInArray) {
     this.ledgeX.velocityVsWallY = 50;
     this.ledgeX.anchor.setTo(.5);
     this.ledgeX.scale.setTo(.4); //.4
+    this.ledgeX.visible = sprite.visible;
     //////////////Immovable Testing//////////////
     // this.ledgeX.body.immovable = true;
     //////////////Immovable Testing//////////////
@@ -218,7 +218,6 @@ brawl.game.prototype.ledgeSpawn = function (sprite, positionInArray) {
 brawl.game.prototype.enemySpawn = function (sprite, positionInArray) {
     // console.log(sprite, positionInArray);
     this.trumpX = this.enemy.create(sprite.x, sprite.y, 'enemy');
-    this.trumpX.visible = sprite.visible;
     this.trumpX.name = sprite.name;
     this.trumpX.groupName = groupEnemy;
     this.trumpX.specialCondition = sprite.specialCondition;
@@ -248,6 +247,7 @@ brawl.game.prototype.enemySpawn = function (sprite, positionInArray) {
     this.trumpX.velocityVsWallY = 300;
     this.trumpX.anchor.setTo(.5);
     this.trumpX.scale.setTo(.6);
+    this.trumpX.visible = sprite.visible;
     this.trumpX.body.mass = 20;
     this.trumpX.body.maxVelocity.setTo(1000);
     this.trumpX.body.collideWorldBounds = true;
@@ -257,7 +257,6 @@ brawl.game.prototype.enemySpawn = function (sprite, positionInArray) {
 brawl.game.prototype.ballSpawn = function (sprite, positionInArray) {
     // console.log(sprite, positionInArray);
     this.ballX = this.ball.create(sprite.x, sprite.y, sprite.art);
-    this.ballX.visible = sprite.visible;
     this.ballX.name = sprite.name;
     this.ballX.groupName = groupBall;
     this.ballX.specialCondition = sprite.specialCondition;
@@ -267,6 +266,7 @@ brawl.game.prototype.ballSpawn = function (sprite, positionInArray) {
     this.ballX.tint = Phaser.Color.BLUE;
     this.ballX.anchor.setTo(.5);
     this.ballX.scale.setTo(.5); //.5
+    this.ballX.visible = sprite.visible;
     this.ballX.body.setCircle(50); //Maybe Change
     this.ballX.body.mass = 20;
     this.ballX.body.maxVelocity.setTo(300);

@@ -81,7 +81,7 @@ brawl.stateControls.prototype = {
             //Level 0 (Beginning)
             // this.game.state.start('game', true, false, 0, 1, worldClassLevels[0].metroidvania);
             //Any Level I want to Test
-            this.game.state.start('game', true, false, 5, 3, worldClassLevels[5].metroidvania);
+            this.game.state.start('game', true, false, 5, 2, worldClassLevels[5].metroidvania);
             //Level 3 (THE PLAYGROUND)
             // this.game.state.start('game', true, false, 4, 1, worldClassLevels[4].metroidvania);
 
