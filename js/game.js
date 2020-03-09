@@ -91,7 +91,7 @@ brawl.game.prototype = {
         this.createPause();
 
         //Overlap Bias to Prevent Sprite Tunneling
-        this.game.physics.arcade.OVERLAP_BIAS = 17; //10 is original
+        this.game.physics.arcade.OVERLAP_BIAS = 17; //17 is original
 
         ////////////////////Game World Size//////////////////////
         this.game.world.setBounds(0, 0, worldClassLevels[this.indexOfCurrentWorld].xOfWorld, worldClassLevels[this.indexOfCurrentWorld].yOfWorld);
@@ -141,8 +141,7 @@ brawl.game.prototype = {
         this.game.physics.arcade.overlap(this.player, this.flag, this.respawn, null, this);
 
         //Weapon Mechanics
-        this.game.physics.arcade.collide([this.weapon1.bullets, this.weapon2.bullets, this.weapon3.bullets, this.weapon4.bullets], [this.ball, this.wall, this.ledge, this.enemy], this.weaponHandler, this.weaponGhost, this);
-        this.game.physics.arcade.overlap([this.weapon1.bullets, this.weapon2.bullets, this.weapon3.bullets, this.weapon4.bullets], [this.immovableWall, this.death], this.weaponImmovable, null, this);
+        this.game.physics.arcade.overlap([this.weapon1.bullets, this.weapon2.bullets, this.weapon3.bullets, this.weapon4.bullets], [this.ball, this.wall, this.ledge, this.enemy, this.immovableWall, this.death], this.weaponHandler, this.weaponGhost, this);
 
         //Immovable Wall vs Moveable Objects
         this.game.physics.arcade.collide(this.immovableWall, [this.ball, this.ledge, this.enemy], this.immovableMoveable, null, this);
