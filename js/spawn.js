@@ -233,13 +233,13 @@ brawl.game.prototype.ballSpawn = function (sprite, positionInArray) {
     this.ballX.groupName = groupBall;
     this.ballX.specialCondition = sprite.specialCondition;
     this.ballX.positionInArray = positionInArray;
-    this.ballX.velocityVsWallX = 30;
-    this.ballX.velocityVsWallY = 30;
+    this.ballX.velocityVsWallX = 50;
+    this.ballX.velocityVsWallY = 50;
     this.ballX.tint = Phaser.Color.BLUE;
     this.ballX.anchor.setTo(.5);
     this.ballX.scale.setTo(.5); //.5
     this.ballX.visible = sprite.visible;
-    this.ballX.body.setCircle(50); //Maybe Change
+    // this.ballX.body.setCircle(50); //Maybe Change
     this.ballX.body.mass = 20;
     this.ballX.body.maxVelocity.setTo(300);
     this.ballX.body.collideWorldBounds = true;

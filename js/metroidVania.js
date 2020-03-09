@@ -164,15 +164,15 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     }
 
     ///////////////////Debugging Purposes (Knowing The Placement of Each Sprites)/////////////////////////
-    var distanceOfXandY = 200;
-    var xIterator = Math.round(levelGenerator.xOfWorld / distanceOfXandY);
-    var yIterator = Math.round(levelGenerator.yOfWorld / distanceOfXandY);
+    // var distanceOfXandY = 200;
+    // var xIterator = Math.round(levelGenerator.xOfWorld / distanceOfXandY);
+    // var yIterator = Math.round(levelGenerator.yOfWorld / distanceOfXandY);
 
-    for (var x = 1; x < xIterator; x++) {
-        for (var y = 1; y < yIterator; y++) {
-            this.text = this.game.add.text(x*distanceOfXandY, y*distanceOfXandY, x*distanceOfXandY+'X'+y*distanceOfXandY+'Y', { font: "10px Arial", fill: "#ff0000", align: "center" });
-        }
-    }
+    // for (var x = 1; x < xIterator; x++) {
+    //     for (var y = 1; y < yIterator; y++) {
+    //         this.text = this.game.add.text(x*distanceOfXandY, y*distanceOfXandY, x*distanceOfXandY+'X'+y*distanceOfXandY+'Y', { font: "10px Arial", fill: "#ff0000", align: "center" });
+    //     }
+    // }
 
 };
 //////////////////////////Room Switching (Metroidvania) Events//////////////////////////

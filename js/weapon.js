@@ -9,6 +9,8 @@ brawl.game.prototype.weaponHandler = function (weapon, sprite) {
         this.game.physics.arcade.moveToObject(sprite, this.player, 200);
     }
     else if (weapon.key === 'bulletPush') {
+        // sprite.body.velocity.x = sprite.body.velocity.x*-1;
+        // sprite.body.velocity.y = sprite.body.velocity.y*-1;
         //Test Zero
         // console.log(weapon.body.angle, 'angle');
         // this.game.physics.arcade.velocityFromAngle(weapon.body.angle, 300, sprite.velocity);

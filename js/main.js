@@ -435,13 +435,13 @@ var flagSpecial_Level5 = {
   storyTrigger: {
     page: 1,
     level: 5,
-    backgroundColor: "#fff44f",
+    backgroundColor: "#E0FFFF",
     fontColor: '#00008b'
   },
   specialWorld: [2, 5],
-  undeniableDeathInsert: [[], [28, 29, 30, 31, 32, 33, 34, 35]],
+  undeniableDeathInsert: [[], [28, 29, 30, 31, 32, 33, 34, 35, 36]],
   undeniableDeathRemove: [[], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 26, 27]],
-  immovableWallInsert: [[], [14, 15]],
+  immovableWallInsert: [[], [14, 15, 16, 17, 18]],
   immovableWallRemove: [[8], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]],
   wallInsert: [[], [4]],
   wallRemove: [[], [0, 1, 2, 3]],
@@ -449,12 +449,12 @@ var flagSpecial_Level5 = {
   ledgeRemove: [[], [0, 1]],
   ballInsert: [[], [0]],
   // ballRemove: [[], []],
-  // enemyInsert: [[], []],
+  enemyInsert: [[], [29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43]],
   enemyRemove: [[], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28]],
   fallingSpikesInsert: [[], [6, 7, 8, 9, 10]],
   fallingSpikesRemove: [[], [0, 1, 2, 3, 4, 5]],
   // flagInsert: [[],[]],
-  flagRemove: [[], [0, 1, 2, 3]],
+  flagRemove: [[], [0, 1, 2, 3, 4]],
   // textInsert: [[], []],
   textRemove: [[], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]],
 };
@@ -1247,7 +1247,9 @@ level_5.undeniableDeathSpawn = [
   new SpriteCreator(false, true, undeniableDeathRegular, deathVertical, 3200, 2400, 0, 500, .25, .5, 0, 0, null, null),
   new SpriteCreator(false, true, undeniableDeathRegular, deathVertical, 4000, 500, 0, 500, .25, .5, 0, 0, null, null),
   //Barrier to Level 2
-  new SpriteCreator(false, true, spikeRegular, spikesVertical, 0, 0, 0, 0, .5, 2.829, 0, 0, null, null),
+  new SpriteCreator(false, true, spikesRegular, spikesVertical, 0, 0, 0, 0, .5, 2.829, 0, 0, null, null),
+  //More Moving Death Traps
+  new SpriteCreator(false, true, undeniableDeathRegular, deathVertical, 4600, 0, 0, 500, .25, .5, 0, 0, null, null),
 
 ];
 
@@ -1279,16 +1281,12 @@ level_5.immovableWallSpawn = [
   new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 4310, 3620, 0, 0, 1.937, .25, 0, 0, null, null),
   new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 4310, 4000, 0, 0, 1.937, .25, 0, 0, null, null),
   ////////////////////////////////////The Yellow Level////////////////////////////////////////////
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 1300, 2400, 0, 0, .25, .5, 0, 0, null, null),
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 1300, 1600, 0, 0, .25, .5, 0, 0, null, null),
+  new SpriteCreator(false, true, immovableWallRegular, immovableWallVertical, 1300, 2100, 0, 0, .25, .5, 0, 0, null, null),
+  new SpriteCreator(false, true, immovableWallRegular, immovableWallVertical, 2000, 1500, 0, 0, .25, .5, 0, 0, null, null),
+  new SpriteCreator(false, true, immovableWallRegular, immovableWallVertical, 2800, 2100, 0, 0, .25, .5, 0, 0, null, null),
+  new SpriteCreator(false, true, immovableWallRegular, immovableWallVertical, 3600, 1500, 0, 0, .25, .5, 0, 0, null, null),
+  new SpriteCreator(false, true, immovableWallRegular, immovableWallVertical, 4400, 2100, 0, 0, .25, .5, 0, 0, null, null),
 ];
-/*
-new SpriteCreator(false, true, spikeRegular, spikeFall, 1100, 75, null, null, .4, .4, 0, 700, null, 3),
-  new SpriteCreator(false, true, spikeRegular, spikeFall, 1900, 3925, null, null, .4, .4, 0, -700, null, 3),
-  new SpriteCreator(false, true, spikeRegular, spikeFall, 2700, 75, null, null, .4, .4, 0, 700, null, 3),
-  new SpriteCreator(false, true, spikeRegular, spikeFall, 3500, 3925, null, null, .4, .4, 0, -700, null, 3),
-  new SpriteCreator(false, true, spikeRegular, spikeFall, 4300, 75, null, null, .4, .4, 0, 700, null, 3),
-*/
 
 //Walls
 level_5.wallSpawn = [
@@ -1356,8 +1354,27 @@ level_5.enemySpawn = [
   new SpriteCreator(true, true, enemyDaakath, enemyOne, 2400, 2600, 0, 0, .5, .5, 0, 0, null, null),
   new SpriteCreator(true, true, enemyDaakath, enemyOne, 2600, 2600, 0, 0, .5, .5, 0, 0, null, null),
   new SpriteCreator(true, true, enemyDaakath, enemyOne, 2800, 2600, 0, 0, .5, .5, 0, 0, null, null),
-  // new SpriteCreator(true, true, enemyDaakath, enemyOne, 3300, 3700, 0, 0, .5, .5, 0, 0, null, null),
-  // new SpriteCreator(true, true, enemyDaakath, enemyOne, 3200, 3750, 0, 0, .5, .5, 0, 0, null, null),
+  /////////////////////////////////////The Yellow Level//////////////////////////////
+  //Step One
+  new SpriteCreator(false, true, enemyDaakath, enemyOne, 4375, 2150, 0, 0, .5, .5, 0, 0, null, null),
+  new SpriteCreator(false, true, enemyDaakath, enemyOne, 4375, 2250, 0, 0, .5, .5, 0, 0, null, null),
+  new SpriteCreator(false, true, enemyAccelerate, enemyOne, 4375, 2350, 0, 0, .5, .5, 0, 0, null, null),
+  //Step Two
+  new SpriteCreator(false, true, enemyDaakath, enemyOne, 3575, 1850, 0, 0, .5, .5, 0, 0, null, null),
+  new SpriteCreator(false, true, enemyAccelerate, enemyOne, 3575, 1750, 0, 0, .5, .5, 0, 0, null, null),
+  new SpriteCreator(false, true, enemyDaakath, enemyOne, 3575, 1650, 0, 0, .5, .5, 0, 0, null, null),
+  //Step Three
+  new SpriteCreator(false, true, enemyAccelerate, enemyOne, 2775, 2150, 0, 0, .5, .5, 0, 0, null, null),
+  new SpriteCreator(false, true, enemyDaakath, enemyOne, 2775, 2250, 0, 0, .5, .5, 0, 0, null, null),
+  new SpriteCreator(false, true, enemyDaakath, enemyOne, 2775, 2350, 0, 0, .5, .5, 0, 0, null, null),
+  //Step Four
+  new SpriteCreator(false, true, enemyDaakath, enemyOne, 1975, 1850, 0, 0, .5, .5, 0, 0, null, null),
+  new SpriteCreator(false, true, enemyDaakath, enemyOne, 1975, 1750, 0, 0, .5, .5, 0, 0, null, null),
+  new SpriteCreator(false, true, enemyShooter, enemyOne, 1975, 2000, 0, 0, .5, .5, 0, 0, null, null),
+  //Step Five
+  new SpriteCreator(false, true, enemyShooter, enemyOne, 1275, 2000, 0, 0, .5, .5, 0, 0, null, null),
+  new SpriteCreator(false, true, enemyDaakath, enemyOne, 1275, 2250, 0, 0, .5, .5, 0, 0, null, null),
+  new SpriteCreator(false, true, enemyDaakath, enemyOne, 1275, 2350, 0, 0, .5, .5, 0, 0, null, null),
 ];
 
 //Falling Spikes

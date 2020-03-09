@@ -52,9 +52,9 @@ brawl.game.prototype.immovableMoveable = function (immovable, obj2) {
     //     obj2.body.velocity.x = obj2.velocityVsWallX;
     // }
     /////////////////////////Only Ball Specific/////////////////
-    if (obj2.groupName === groupBall) {
-        obj2.body.stop();
-    }
+    // if (obj2.groupName === groupBall) {
+    //     obj2.body.stop();
+    // }
     ///////////////////////The Rest Applies to Every Object///////////////////
     if (obj2.body.touching.up) {
         obj2.body.velocity.y = obj2.velocityVsWallY;
@@ -281,7 +281,7 @@ brawl.game.prototype.playerBlackWall = function (player, wall) {
 };
 brawl.game.prototype.playerBall = function (player, ball) {
     /////////////////////GOOOFY///////////////
-    ball.body.stop();
+    // ball.body.stop();
     //75 is Original
     if (ball.body.touching.up) {
         ball.body.velocity.y = 100;
@@ -372,7 +372,7 @@ brawl.game.prototype.ballHandler = function (ball, sprite2) {
         //worldClassLevels[sprite2.specialWorld].ledgeGreySpawn[sprite2.specialArray].trigger = true;
     }
     //////////////////////Otherwise Collision Mechanics//////////////////
-    ball.body.stop();
+    // ball.body.stop();
     if (ball.body.touching.up) {
         ball.body.velocity.y = ball.velocityVsWallY;
     }
