@@ -278,6 +278,9 @@ class textCreator {
     this.fontWeight = fontWeight;
   }
 };
+/////////////////////////List Of Experimental Sprites/////////////////////////
+var wallPoint = 'wallPoint';
+
 /////////////////////////List of GROUP NAMES of Each Sprite (For Different Special Properties)////////////////
 /*
 Note: This is an extra name that denotes the entirety of a group. To keep physics consistent throughout.
@@ -435,8 +438,8 @@ var flagSpecial_Level5 = {
   storyTrigger: {
     page: 1,
     level: 5,
-    backgroundColor: "#E0FFFF",
-    fontColor: '#00008b'
+    backgroundColor: "#00A6CF",
+    fontColor: '#B339CE'
   },
   specialWorld: [2, 5],
   undeniableDeathInsert: [[], [28, 29, 30, 31, 32, 33, 34, 35, 36]],

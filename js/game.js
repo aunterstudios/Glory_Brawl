@@ -124,8 +124,8 @@ brawl.game.prototype = {
         ////////////////////////////////////FPS Debugging////////////////////////////////////////
         // console.log(this.game.time.fps);
         ////////////////////////////////////////Continious Updating//////////////////////////////////
-        ///Enemy Sprites Firing Bullets
-        this.fireEnemyBullet();
+        ///Enemies Attacking
+        this.enemyAttack();
         ////Magnetism in Immovable Walls
         this.immovableWall.forEachAlive(this.immovableWallContinious, this);
         ////////////////////////Physics////////////////////////

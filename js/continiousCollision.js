@@ -18,7 +18,7 @@ brawl.game.prototype.upInputIsActive = function (duration) {
 
 ////////////////////////////////////Continious Updating In Game////////////////////////
 //Enemy Bullets
-brawl.game.prototype.fireEnemyBullet = function () {
+brawl.game.prototype.enemyAttack = function () {
     this.enemy.forEachAlive(function (enemy) {
         if (this.game.physics.arcade.distanceBetween(enemy, this.player, false, true) < 400) {
             if (enemy.name === enemyShooter) {
@@ -35,7 +35,7 @@ brawl.game.prototype.fireEnemyBullet = function () {
                 this.game.physics.arcade.moveToObject(enemy, this.player, 350);
             }
             if (enemy.name === enemyAccelerate) {
-                this.game.physics.arcade.accelerateToObject(enemy, this.player, 350);
+                this.game.physics.arcade.moveToPointer(enemy, 600);
             }
         }
     }, this, this.player);
