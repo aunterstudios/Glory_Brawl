@@ -172,8 +172,9 @@ brawl.game.prototype.wallSpawn = function (sprite, positionInArray) {
     // this.wallX.body.immovable = true;
     ////////////////Special Properties////////////
     this.wallX.body.gravity.setTo(sprite.gravityX, sprite.gravityY);
-    this.wallX.body.mass = 200; //150
+    this.wallX.body.mass = 200; //200
     this.wallX.body.maxVelocity.setTo(400);
+    this.wallX.body.friction.setTo(100);
     ////////////////////Testing///////////////////
     this.wallX.body.collideWorldBounds = true;
     ////////////////////////Testing/////////////////////////

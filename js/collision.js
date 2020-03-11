@@ -269,6 +269,17 @@ brawl.game.prototype.playerWall = function (player, wall) {
         this.deathState(this.player);
     }
 
+    //Test Wall
+    if (wall.name === wallTest) {
+        wall.name = wallPlayerFrozen;
+        player.body.stop();
+        wall.body.stop();
+        // player.body.velocity.y = wall.body.velocity.y;
+        wall.body.moves = false;
+        wall.body.immovable = true;
+        wall.tint = tintWallBlackFrozen;
+    }
+
     return;
 };
 brawl.game.prototype.playerBlackWall = function (player, wall) {

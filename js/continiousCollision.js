@@ -44,8 +44,14 @@ brawl.game.prototype.enemyAttack = function () {
 
 brawl.game.prototype.wallSpecial = function () {
     this.wall.forEachAlive(function (wall) {
-        if (this.game.physics.arcade.distanceBetween(wall, this.player, false, true) < 400 && wall.name === wallPoint) {
-            this.game.physics.arcade.moveToPointer(wall, 200);
+        // if (this.game.physics.arcade.distanceBetween(wall, this.player, false, true) < 400 && wall.name === wallPoint) {
+        //     this.game.physics.arcade.moveToPointer(wall, 200);
+        // }
+        if (wall.name === wallPlayerFrozen ) {
+            wall.name = wallTest;
+            wall.body.moves = true;
+            wall.body.immovable = false;
+            wall.tint = tintRemover;
         }
     }, this, this.player);
     //Acceleration to Object (Another Type of Enemy)
@@ -61,10 +67,12 @@ brawl.game.prototype.emitterFunction = function (sprite) {
 };
 
 ///////////////////////////Magnet Walls/////////////////////
-brawl.game.prototype.immovableWallContinious = function (wall) {
-    if (wall.name === immovableWallMagnet) {
-        if (this.game.physics.arcade.distanceBetween(this.player, wall, false, true) < 250) {
-            this.game.physics.arcade.moveToObject(this.player, wall, 100);
-        };
-    }
+brawl.game.prototype.immovableWallContinious = function () {
+    this.immovableWall.forEachAlive(function (immovableWall) {
+        if (immovableWall.name === immovableWallMagnet) {
+            if (this.game.physics.arcade.distanceBetween(this.player, immovableWall, false, true) < 300) {
+                this.game.physics.arcade.moveToObject(this.player, immovableWall, 100);
+            };
+        }
+    }, this, this.player);
 };

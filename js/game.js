@@ -21,7 +21,7 @@ brawl.game.prototype = {
         playerWallJumpY = 500;
         playerStickiness = 100;
         playerSlippery = -25;
-        playerUpsideDownVelocity = -100;
+        playerUpsideDownVelocity = -100; //-100
         playerUpsideDownMovement = 100;
         playerDownwards = 400;
         //////////////////////Weapon Attributes//////////////////////
@@ -126,10 +126,10 @@ brawl.game.prototype = {
         ////////////////////////////////////////Continious Updating//////////////////////////////////
         ///Enemies Attacking
         this.enemyAttack();
-        //Special Walls
-        // this.wallSpecial(); //Work in Progress
-        ////Magnetism in Immovable Walls
-        this.immovableWall.forEachAlive(this.immovableWallContinious, this);
+        //Walls
+        this.wallSpecial(); //Work in Progress
+        ////Immovable Walls
+        this.immovableWallContinious();
         ////////////////////////Physics////////////////////////
         //Player Mechanics
         var onImmovable = this.game.physics.arcade.collide(this.player, this.immovableWall, this.playerImmovable, null, this);

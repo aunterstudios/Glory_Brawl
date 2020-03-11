@@ -3,10 +3,14 @@
 brawl.game.prototype.weaponHandler = function (weapon, sprite) {
     if (sprite.groupName === groupBall || sprite.groupName === groupEnemy || sprite.groupName === groupWall || sprite.groupName === groupLedge) {
         if (weapon.key === 'bulletPull') {
-            this.game.physics.arcade.moveToObject(sprite, this.player, 200);
+            this.game.physics.arcade.moveToObject(sprite, this.player, 200); //200
+            // sprite.body.velocity.x = 0;
+            // sprite.body.velocity.y = -100;
         }
         else if (weapon.key === 'bulletPush') {
-            sprite.body.velocity.x = weapon.body.velocity.x/2;
+            // sprite.body.velocity.x = 0;
+            // sprite.body.velocity.y = 100;
+            sprite.body.velocity.x = weapon.body.velocity.x/2; //Divided By 2
             sprite.body.velocity.y = weapon.body.velocity.y/2;
             //Test Zero
             // console.log(weapon.body.angle, 'angle');
@@ -71,11 +75,15 @@ brawl.game.prototype.weaponHandler = function (weapon, sprite) {
         }
         else if (weapon.key === 'bulletStop') {
             sprite.body.stop();
+            // sprite.body.velocity.x = 100;
+            // sprite.body.velocity.y = 0;
         }
         else if (weapon.key === 'bulletKill') {
             this.emitterFunction(sprite);
             // this.emitter.explode(1000);
             sprite.kill();
+            // sprite.body.velocity.x = -100;
+            // sprite.body.velocity.y = 0;
         }
     }
     weapon.kill();
