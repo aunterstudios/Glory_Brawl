@@ -81,7 +81,7 @@ brawl.game.prototype.weaponHandler = function (weapon, sprite) {
         else if (weapon.key === 'bulletKill') {
             this.emitterFunction(sprite);
             // this.emitter.explode(1000);
-            sprite.kill();
+            sprite.destroy();
             // sprite.body.velocity.x = -100;
             // sprite.body.velocity.y = 0;
         }

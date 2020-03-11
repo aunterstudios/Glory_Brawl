@@ -224,7 +224,7 @@ brawl.game.prototype.deathSwitch = function () {
 },
 //Character Respawn
 brawl.game.prototype.respawn = function (player, flag) {
-    flag.kill();
+    flag.destroy();
     respawnHolder.indexOfCurrentWorld = this.indexOfCurrentWorld;
     respawnHolder.indexOfPlayerPosition = flag.indexOfPlayerPosition;
     respawnHolder.metroidvania = this.metroidvania;

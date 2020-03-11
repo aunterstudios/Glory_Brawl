@@ -1,14 +1,11 @@
 //////////////////////////////////////Physics Handlers Between Objects////////////////////////////
 //Dealing With Sprite Specific vs Group Deaths (Objects Kiling Each Other)
-brawl.game.prototype.deathTwo = function (victim, killer) {
+brawl.game.prototype.bulletsAndSpikes = function (victim, killer) {
     victim.kill();
     if (killer.name === 'immovableWallPhase') {
         this.emitterFunction(killer);
         killer.kill();
     }
-};
-brawl.game.prototype.deathThree = function (killer, victim) {
-    victim.kill();
 };
 
 brawl.game.prototype.ledgeEnemyDeath = function (le, death) {
@@ -75,7 +72,7 @@ brawl.game.prototype.wallImmovable = function (wall, sprite2) {
     ////////////////Interactions Coded in the Orientation of Immovable Walls//////////////////
     // wall.body.stop();
     if (sprite2.name === immovableWallKillWall) {
-        wall.kill();
+        wall.destroy();
         this.emitterFunction(wall);
     }
     return;
@@ -117,10 +114,10 @@ brawl.game.prototype.wallMoveable = function (wall, objMov) {
     if (wall.name === wallBlackTrap || wall.name === wallBlackFrozen || wall.name === wallBlackKiller) {
         if (objMov.groupName === groupEnemy) {
             this.emitterFunction(objMov);
-            objMov.kill();
+            objMov.destroy();
         }
         // this.emitterFunction(objMov);
-        // objMov.kill();
+        // objMov.destroy();
     }
 
     return;
@@ -165,7 +162,7 @@ brawl.game.prototype.playerImmovable = function (player, immovable) {
     //Activating immovableWallWorldGravity (World Gravity)
     if (immovable.name === immovableWallWorldGravity) {
         this.game.physics.arcade.gravity.setTo(0, 500);
-        immovable.kill();
+        immovable.destroy();
     }
     if (immovable.name === immovableWallMario) {
         if (player.body.touching.up) {
@@ -366,7 +363,7 @@ brawl.game.prototype.playerLedge = function (player, ledge) {
 //Ball Interaction With Different Objects
 brawl.game.prototype.ballHandler = function (ball, sprite2) {
     if (sprite2.groupName === groupEnemy || sprite2.groupName === groupSpikes) {
-        sprite2.kill();
+        sprite2.destroy();
         this.emitterFunction(sprite2);
         //Removes Localized Sprites from Regenerating (Spikes)
         if (sprite2.specialCondition === 0) {
