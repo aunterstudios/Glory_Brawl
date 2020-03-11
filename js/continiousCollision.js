@@ -41,6 +41,18 @@ brawl.game.prototype.enemyAttack = function () {
     }, this, this.player);
     //Acceleration to Object (Another Type of Enemy)
 };
+
+brawl.game.prototype.wallSpecial = function () {
+    this.wall.forEachAlive(function (wall) {
+        if (this.game.physics.arcade.distanceBetween(wall, this.player, false, true) < 400 && wall.name === wallPoint) {
+            this.game.physics.arcade.moveToPointer(wall, 200);
+        }
+    }, this, this.player);
+    //Acceleration to Object (Another Type of Enemy)
+};
+
+
+
 //////////////////Emitter Function/////////////////////
 brawl.game.prototype.emitterFunction = function (sprite) {
     this.emitter.x = sprite.centerX;

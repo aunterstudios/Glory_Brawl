@@ -71,7 +71,7 @@ brawl.story.prototype = {
             this.text1.align = 'center';
         }
         else if (this.page === 1) {
-            var newText = new textCreator(null, 100, 200, "It's All A Lie\n\nYou've Never Been Reborn", 'Courier New', 25, this.fontColor, 'bold');
+            var newText = new textCreator(null, 100, 200, "It's All A Lie\n\nWe've Never Been Reborn", 'Courier New', 25, this.fontColor, 'bold');
             this.text1 = this.game.add.text(newText.x, newText.y, newText.textInput);
             this.text1.font = newText.font;
             this.text1.fontSize = newText.fontSize;

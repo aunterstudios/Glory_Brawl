@@ -1,7 +1,7 @@
 //////////////////Initializing All the Sprite Groups///////////////
 brawl.game.prototype.spriteGroupGenerator = function () {
     //Toggle Console Log
-    this.toggleConsoleLog = false;
+    this.toggleConsoleLog = true;
     ////////////////////////////////Z-Index Order/////////////////////////////
     ////////////////////////////////Initializing Groups///////////////////////
     //Adding Moveable Walls
@@ -118,7 +118,7 @@ brawl.game.prototype.immovableWallSpawn = function (sprite, positionInArray) {
     this.immovableWallX.visible = sprite.visible;
     this.immovableWallX.body.immovable = true;
     this.immovableWallX.body.mass = 100;
-    this.immovableWallX.body.maxVelocity.setTo(300);
+    this.immovableWallX.body.maxVelocity.setTo(600);
     this.immovableWallX.body.collideWorldBounds = true;
     this.immovableWallX.body.bounce.setTo(1);
     this.immovableWallX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);

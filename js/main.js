@@ -458,8 +458,36 @@ var flagSpecial_Level5 = {
   fallingSpikesRemove: [[], [0, 1, 2, 3, 4, 5]],
   // flagInsert: [[],[]],
   flagRemove: [[], [0, 1, 2, 3, 4]],
-  // textInsert: [[], []],
+  textInsert: [[], [17, 18, 19, 20, 21, 22]],
   textRemove: [[], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]],
+};
+
+var experimental_Level5 = {
+  storyTrigger: {
+    page: 1,
+    level: 5,
+    backgroundColor: "#00A6CF",
+    fontColor: '#B339CE'
+  },
+  specialWorld: [2, 5],
+  undeniableDeathInsert: [[], [28, 29, 30, 31, 32, 33, 34, 35, 36]],
+  undeniableDeathRemove: [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 26, 27]],
+  immovableWallInsert: [[], [14, 15, 16, 17, 18]],
+  immovableWallRemove: [[8, 0, 1, 2, 3, 4, 5, 7, 9, 10, 11, 12, 13, 14, 15, 16], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]],
+  wallInsert: [[], [4]],
+  wallRemove: [[0, 1, 2, 3, 4, 5, 6, 7], [0, 1, 2, 3]],
+  // ledgeInsert: [[], []],
+  ledgeRemove: [[0, 1, 2, 3, 4, 5, 6], [0, 1]],
+  ballInsert: [[], [0]],
+  ballRemove: [[0], []],
+  enemyInsert: [[], [29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43]],
+  enemyRemove: [[], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28]],
+  fallingSpikesInsert: [[], [6, 7, 8, 9, 10]],
+  fallingSpikesRemove: [[], [0, 1, 2, 3, 4, 5]],
+  // flagInsert: [[],[]],
+  flagRemove: [[0, 2, 3], [0, 1, 2, 3, 4]],
+  textInsert: [[], [17, 18, 19, 20, 21, 22]],
+  textRemove: [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]],
 };
 
 ///////////////////////////////////////////Level 0///////////////////////////////////////////////////////////
@@ -857,7 +885,13 @@ level_2.undeniableDeathSpawn = [
   new SpriteCreator(true, true, undeniableDeathRegular, deathHorizontal, 0, 0, 0, 0, .507, .25, 0, 0, null, null),
   new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 0, 0, 0, 0, .25, .82, 0, 0, null, null),
   //////////////////////////////Blocking Entrance to Level 3///////////////////(Spikes)
-  new SpriteCreator(true, true, spikesRegular, spikesVertical, 3200, 2573, 0, 0, .6, .4, 0, 0, 0, null)
+  new SpriteCreator(true, true, spikesRegular, spikesVertical, 3200, 2573, 0, 0, .6, .4, 0, 0, 0, null),
+  /////////////////////////////Shadow Level///////////////////////////////
+  //Border Right
+  new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 3200, 0, 0, 0, .25, 2.239, 0, 0, null, null),
+  //Border Left
+  new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 0, 0, 0, 0, .25, 2.285, 0, 0, null, null),
+  new SpriteCreator(true, true, undeniableDeathRegular, deathHorizontal, 40.7, 4000, 0, 0, 1.542, .25, 0, 0, null, null),
 ];
 
 /////////////////////////Creation of ImmovableWalls
@@ -878,7 +912,6 @@ level_2.immovableWallSpawn = [
   new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 2200, 3136, 0, 0, 1.1737, .5, 0, 0, null, null),
   //Long Pole
   new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 2700, 400, 0, 0, .4, 3, 0, 0, null, null),
-  ///////////////////////////////////Second Wall That Gets Removed From Level 5//////////////////////
   new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 773, 0, 0, 0, .5, .5, 0, 0, null, null),
   /////////////////////////////////////First Wall That Gets Removed From Level 3//////////////////////
   new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 773, 300, 0, 0, .5, .5, 0, 0, null, null),
@@ -892,6 +925,7 @@ level_2.immovableWallSpawn = [
   new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 600, 400, 0, 0, .3, .05, 0, 0, null, null),
   new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 700, 500, 0, 0, .3, .05, 0, 0, null, null),
   new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 300, 1000, 0, 0, .3, .05, 0, 0, null, null),
+  ////////////////////////////////////////////////Shadow Level///////////////////////////////////////////////
 ];
 
 //Moveable Walls
@@ -930,7 +964,8 @@ level_2.ballSpawn = [new SpriteCreator(true, true, ballRegular, ball, 975, 200, 
 //650, 1300
 level_2.flagSpawn = [
   new flagCreator(1, true, flagRegular, flag, 600, 3050, 0, 0, .4, .4, 0, 0, null),
-  new flagCreator(3, true, flagRegular, flag, 2500, 3050, 0, 0, .4, .4, 0, 0, null),
+  // new flagCreator(3, true, flagRegular, flag, 2500, 3050, 0, 0, .4, .4, 0, 0, null),
+  new flagCreator(3, true, flagSpecial, flag, 2500, 3050, 0, 0, .4, .4, 0, 0, experimental_Level5),
   new flagCreator(2, true, flagRegular, flag, 200, 1250, 0, 0, .4, .4, 0, 0, null),
   new flagCreator(0, true, flagRegular, flag, 1700, 1400, 0, 0, .4, .4, 0, 0, null),
 ];
@@ -1147,10 +1182,10 @@ level_4.immovableWallSpawn = [
 
 //Moveable Walls
 ///Single Wall to Teach You  
-// level_4.wallSpawn = [
-//   new SpriteCreator(3, true, true, wallCloud, wallHorizontal, 600, 400, 0, 0, .4, .4, 0, 0, null, null),
-//   // new SpriteCreator(4, true, true, wallRegular, wallVertical, 400, 600, 0, 0, .4, .4, 0, 0, null, null),
-// ];
+level_4.wallSpawn = [
+  new SpriteCreator(true, true, wallPoint, wallHorizontal, 600, 400, 0, 0, .4, .4, 0, 0, null, null),
+  // new SpriteCreator(4, true, true, wallRegular, wallVertical, 400, 600, 0, 0, .4, .4, 0, 0, null, null),
+];
 
 
 //Ledges
@@ -1431,6 +1466,13 @@ level_5.text = [
   new textCreator(true, 1550, 1000, "PULL Depends On\n\nWhich Part\n\nYou Are On", 'Courier New', 25, '#000000', 'bold'),
   new textCreator(true, 3000, 1000, "Use STOP\n\nStick To The Side\n\nThen PULL", 'Courier New', 25, '#000000', 'bold'),
   new textCreator(true, 4800, 3800, "You Can KILL The Wall", 'Courier New', 25, '#000000', 'bold'),
+  //////////////////////////////////////The Yellow Shadow Level///////////////////////////////////////
+  new textCreator(false, 5100, 1700, "It Was Always About Being Free", 'Courier New', 25, '#ffffff', 'bold'),
+  new textCreator(false, 3800, 1700, "Breaking The Cage That Holds You", 'Courier New', 25, '#ffffff', 'bold'),
+  new textCreator(false, 2800, 1700, "To Let Go Of Your Rage", 'Courier New', 25, '#ffffff', 'bold'),
+  new textCreator(false, 1200, 1700, "To Move Foward", 'Courier New', 25, '#ffffff', 'bold'),
+  new textCreator(false, 500, 1700, "That's The Only Choice", 'Courier New', 25, '#ffffff', 'bold'),
+  new textCreator(false, 200, 1700, "← Level 2", 'Courier New', 25, '#ffffff', 'bold'),
 ];
 
 

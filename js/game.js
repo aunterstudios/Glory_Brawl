@@ -126,6 +126,8 @@ brawl.game.prototype = {
         ////////////////////////////////////////Continious Updating//////////////////////////////////
         ///Enemies Attacking
         this.enemyAttack();
+        //Special Walls
+        // this.wallSpecial(); //Work in Progress
         ////Magnetism in Immovable Walls
         this.immovableWall.forEachAlive(this.immovableWallContinious, this);
         ////////////////////////Physics////////////////////////

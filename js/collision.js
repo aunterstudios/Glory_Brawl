@@ -31,9 +31,9 @@ brawl.game.prototype.ledgeEnemyDeath = function (le, death) {
 brawl.game.prototype.immovableMoveable = function (immovable, obj2) {
     if (immovable.name === immovableWallPadding) {
         // obj2.body.stop();
-        obj2.body.bounce.setTo(.2)
-        obj2.velocityVsWallY = 20;
-        obj2.velocityVsWallX = 20;
+        obj2.body.bounce.setTo(1.3)
+        obj2.velocityVsWallY = 100;
+        obj2.velocityVsWallX = 100;
         // obj2.tint = tintImmovableWallMagnet;
         ////Maybe Kill This Later///
     }
