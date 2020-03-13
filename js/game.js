@@ -19,9 +19,9 @@ brawl.game.prototype = {
         playerDoubleJumps = 2;
         playerWallJumpX = 1000;
         playerWallJumpY = 500;
-        playerStickiness = 100;
+        playerStickiness = 200;
         playerSlippery = -25;
-        playerUpsideDownVelocity = -100; //-100
+        playerUpsideDownVelocity = -200; //-100
         playerUpsideDownMovement = 100;
         playerDownwards = 400;
         //////////////////////Weapon Attributes//////////////////////
@@ -123,7 +123,7 @@ brawl.game.prototype = {
     update: function () {
         ////////////////////////////////////FPS Debugging////////////////////////////////////////
         // console.log(this.game.time.fps);
-        ////////////////////////////////////////Continious Updating//////////////////////////////////
+        ////////////////////////////////////////Continious Collision//////////////////////////////////
         ///Enemies Attacking
         this.enemyAttack();
         //Walls
@@ -152,7 +152,8 @@ brawl.game.prototype = {
         this.game.physics.arcade.collide(this.wall, [this.immovableWall, this.death], this.wallImmovable, this.ghostWall, this);
 
         //Movable Wall Mechanics vs. Moveable Objects (NOT ITSELF) (OVERLAP)
-        this.game.physics.arcade.overlap(this.wall, [this.ledge, this.ball, this.enemy], this.wallMoveable, null, this);
+        // this.game.physics.arcade.overlap(this.wall, [this.ledge, this.ball, this.enemy], this.wallMoveable, null, this);
+        this.game.physics.arcade.collide(this.wall, [this.ledge, this.ball, this.enemy], this.wallMoveable, null, this);
 
         //Enemy Bullet and Falling Spike Mechanics
         this.game.physics.arcade.overlap([this.enemyBullets, this.fallingSpikes], [this.ball, this.wall, this.immovableWall, this.ledge, this.death], this.bulletsAndSpikes, null, this);

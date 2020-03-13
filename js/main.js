@@ -1152,7 +1152,7 @@ worldClassLevels.push(level_3);
 
 
 ////////////////////////////////////////Level 4/////////////////////////////////////(Testing Ground)
-var level_4 = new LevelCreator("Level 4-PlayGround", 1400, 800, new MetroidvaniaCreator(null, null, 3, 800, null, null, null, null), '#ffffff');
+var level_4 = new LevelCreator("Level 4-PlayGround", 2400, 1600, new MetroidvaniaCreator(null, null, 3, 800, null, null, null, null), '#ffffff');
 
 // level_4.worldGravity = new worldGravityCreator(200, 300);
 
@@ -1168,35 +1168,33 @@ level_4.playerPosition = [
 
 level_4.undeniableDeathSpawn = [
   //Bottom At The End of the Map (INVISIBLE)
-  new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 1400, 0, 0, 0, .25, .5, 0, 0, null, null),
-  new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 0, 0, 0, 0, .25, .5, 0, 0, null, null),
+  new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 2800, 0, 0, 0, .25, 1.1, 0, 0, null, null),
+  new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 0, 0, 0, 0, .25, 1.1, 0, 0, null, null),
   // new SpriteCreator(0, true, true, undeniableDeathRegular, deathHorizontal, 300, 400, 0, 0, .5, .5, 0, 0, null, null),
 ];
 
 /////////////////////////Creation of ImmovableWalls
 level_4.immovableWallSpawn = [
   //Ground
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 300, 800, 0, 0, 1.2, .25, 0, 0, null, null),
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 700, 200, 0, 0, .5, .5, 0, 0, null, null),
+  new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 300, 1600, 0, 0, 1.2, .25, 0, 0, null, null),
+  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 700, 1000, 0, 0, .5, .5, 0, 0, null, null),
 ];
 
 //Moveable Walls
 ///Single Wall to Teach You  
 level_4.wallSpawn = [
-  new SpriteCreator(true, true, wallControl, wallHorizontal, 600, 400, 0, 0, .4, .4, 0, 0, null, null),
-  // new SpriteCreator(4, true, true, wallRegular, wallVertical, 400, 600, 0, 0, .4, .4, 0, 0, null, null),
+  new SpriteCreator(true, true, wallGhost, wallHorizontal, 600, 400, 0, 0, .3, .3, 0, 0, null, null),
+  new SpriteCreator(true, true, wallBlackKiller, wallVertical, 600, 400, 0, 0, .3, .3, 0, 0, null, null),
+  new SpriteCreator(true, true, wallTest, wallVertical, 400, 700, 0, 0, .3, .3, 0, 0, null, null),
+  new SpriteCreator(true, true, wallTest, wallHorizontal, 400, 800, 0, 0, .3, .3, 0, 0, null, null),
 ];
 
 
 // //Ledges
-// level_4.ledgeSpawn = [
-//   // //Surf
-//   new SpriteCreator(true, true, surf, ledge, 1100, 200, 0, 0, .4, .4, 0, 0, null, null),
-//   // //Bounce Ledges
-//   // new SpriteCreator(2, true, true, bounce, ledge, 900, 390, 0, 0, .4, .4, 0, 0, null, null),
-//   // //Surf Ledges
-//   // new SpriteCreator(3, true, true, elevator, ledge, 200, 200, 0, 0, .4, .4, 0, 0, null, null),
-// ];
+level_4.ledgeSpawn = [
+  // //Surf
+  new SpriteCreator(true, true, elevator, ledge, 1100, 200, 0, 0, .4, .4, 0, 0, null, null),
+];
 
 // //Enemy Spawn
 // level_4.enemySpawn = [
@@ -1205,9 +1203,9 @@ level_4.wallSpawn = [
 // ];
 
 // //Ball
-// level_4.ballSpawn = [
-//   new SpriteCreator(true, true, ballRegular, ball, 800, 400, 0, 0, null, null, 0, 0, null, null)
-// ];
+level_4.ballSpawn = [
+  new SpriteCreator(true, true, ballRegular, ball, 800, 400, 0, 0, null, null, 0, 0, null, null)
+];
 
 //Push Level 4 Into World Class Array
 worldClassLevels.push(level_4);

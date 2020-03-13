@@ -4,79 +4,14 @@ brawl.game.prototype.weaponHandler = function (weapon, sprite) {
     if (sprite.groupName === groupBall || sprite.groupName === groupEnemy || sprite.groupName === groupWall || sprite.groupName === groupLedge) {
         if (weapon.key === 'bulletPull') {
             this.game.physics.arcade.moveToObject(sprite, this.player, 200); //200
-            // sprite.body.velocity.x = 0;
-            // sprite.body.velocity.y = -100;
         }
         else if (weapon.key === 'bulletPush') {
-            // sprite.body.velocity.x = 0;
-            // sprite.body.velocity.y = 100;
             sprite.body.velocity.x = weapon.body.velocity.x/2; //Divided By 2
             sprite.body.velocity.y = weapon.body.velocity.y/2;
-            //Test Zero
-            // console.log(weapon.body.angle, 'angle');
-            // this.game.physics.arcade.velocityFromAngle(weapon.body.angle, 300, sprite.velocity);
-            //Test One
-            // sprite.body.stop();
-            // if (sprite.body.touching.up) {
-            //     console.log("Up");
-            //     sprite.body.velocity.y = 200;
-            // }
-            // if (sprite.body.touching.down) {
-            //     console.log("Down");
-            //     sprite.body.velocity.y = -200;
-            // }
-            // if (sprite.body.touching.left) {
-            //     console.log("Left");
-            //     sprite.body.velocity.x = 200;
-            // }
-            // if (sprite.body.touching.right) {
-            //     console.log("Right");
-            //     sprite.body.velocity.x = -200;
-            // }
-            //Test Two
-            // if (sprite.body.touching.up) {
-            //     if (sprite.body.velocity.x < 0) {
-            //         sprite.body.velocity.x = Math.abs(sprite.body.velocity.x); 
-            //     }
-            //     else if (sprite.body.velocity.x > 0) {
-            //         sprite.body.velocity.x = -sprite.body.velocity.x;
-            //     }
-            //     sprite.body.velocity.x = -sprite.body.velocity.x; 
-            //     sprite.body.velocity.y = 200;
-            // }
-            // if (sprite.body.touching.down) {
-            //     if (sprite.body.velocity.x < 0) {
-            //         sprite.body.velocity.x = Math.abs(sprite.body.velocity.x); 
-            //     }
-            //     else if (sprite.body.velocity.x > 0) {
-            //         sprite.body.velocity.x = -sprite.body.velocity.x;
-            //     }
-            //     sprite.body.velocity.y = -200;
-            // }
-            // if (sprite.body.touching.left) {
-            //     if (sprite.body.velocity.y < 0) {
-            //         sprite.body.velocity.y = Math.abs(sprite.body.velocity.y); 
-            //     }
-            //     else if (sprite.body.velocity.y > 0) {
-            //         sprite.body.velocity.y = -sprite.body.velocity.y;
-            //     }
-            //     sprite.body.velocity.x = 200;
-            // }
-            // if (sprite.body.touching.right) {
-            //     if (sprite.body.velocity.y < 0) {
-            //         sprite.body.velocity.y = Math.abs(sprite.body.velocity.y); 
-            //     }
-            //     else if (sprite.body.velocity.y > 0) {
-            //         sprite.body.velocity.y = -sprite.body.velocity.y;
-            //     }
-            //     sprite.body.velocity.x = -200;
-            // }
-
         }
         else if (weapon.key === 'bulletStop') {
             sprite.body.stop();
-            // sprite.body.velocity.x = 100;
-            // sprite.body.velocity.y = 0;
+            sprite.scale.setTo(.1);
         }
         else if (weapon.key === 'bulletKill') {
             this.emitterFunction(sprite);
@@ -84,6 +19,22 @@ brawl.game.prototype.weaponHandler = function (weapon, sprite) {
             sprite.destroy();
             // sprite.body.velocity.x = -100;
             // sprite.body.velocity.y = 0;
+            //Experimental
+            // if (sprite.name === wallPlayerFrozen) {
+            //     sprite.name = wallTest;
+            //     sprite.body.moves = true;
+            //     sprite.body.immovable = false;
+            //     sprite.tint = tintRemover;
+            // }
+            // else if (sprite.name === wallTest) {
+            //     sprite.name = wallPlayerFrozen
+            //     sprite.body.moves = false;
+            //     sprite.body.immovable = true;
+            //     sprite.tint = tintWallBlackFrozen;
+            // }
+            // sprite.body.stop();
+            // this.player.body.stop();
+
         }
     }
     weapon.kill();
