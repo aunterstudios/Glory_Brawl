@@ -64,7 +64,7 @@ brawl.game.prototype.wallImmovable = function (wall, immovable) {
     return;
 };
 brawl.game.prototype.wallMoveable = function (wall, objMov) {
-    if (wall.name === wallRegular || wall.name === wallSurfKiller || (wall.name === wallGhost && wall.body.speed > 0)) {
+    if (wall.name === wallRegular || wall.name === wallSurfKiller || (wall.name === wallGhost && wall.body.speed > 0) || (wall.name === wallInverse && wall.body.speed <= 0)) {
         if (objMov.groupName === groupEnemy) {
             this.emitterFunction(objMov);
             objMov.destroy();
@@ -72,7 +72,7 @@ brawl.game.prototype.wallMoveable = function (wall, objMov) {
         // this.emitterFunction(objMov);
         // objMov.destroy();
     }
-    
+
     /////////////////////////Experimental Two////////////////////
     if (objMov.groupName === groupBall || objMov.groupName === groupLedge) {
         // wall.name = wallPlayerFrozen;
