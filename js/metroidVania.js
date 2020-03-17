@@ -87,7 +87,14 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     this.weapon4.trackSprite(this.player, 0, 0);
 
     // - 20 for Tracking//
-
+    ////////////////////////////Image Creation/////////////////////////
+    if ('imageSpawn' in levelGenerator) {
+        for (var i = 0; i < levelGenerator.imageSpawn.length; i++) {
+            if (levelGenerator.imageSpawn[i].trigger) {
+                this.imageSpawn(levelGenerator.imageSpawn[i], i);
+            }
+        }
+    }
     ///////////////////////////Sprite Generation in World/////////////////////////////
     // Generating Undeniable Death
     if ('undeniableDeathSpawn' in levelGenerator) {

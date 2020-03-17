@@ -1,9 +1,13 @@
 //////////////////Initializing All the Sprite Groups///////////////
 brawl.game.prototype.spriteGroupGenerator = function () {
     //Toggle Console Log
-    this.toggleConsoleLog = true;
+    this.toggleConsoleLog = false;
+    // this.toggleConsoleLog = true;
     ////////////////////////////////Z-Index Order/////////////////////////////
     ////////////////////////////////Initializing Groups///////////////////////
+    //Adding Images
+    this.imageGroup = this.game.add.group();
+    this.imageGroup.classType = Phaser.Image;
     //Adding Moveable Walls
     this.wall = this.game.add.group();
     this.wall.enableBody = true; //enables physics for wall
@@ -49,6 +53,15 @@ brawl.game.prototype.spriteGroupGenerator = function () {
     this.emitter = this.game.add.emitter();
     this.emitter.makeParticles('particles');
     this.emitter.gravity = 100;
+};
+/////////////////////////Image Creation//////////////////////////
+brawl.game.prototype.imageSpawn = function (sprite, positionInArray) {
+    this.imageGroupX = this.imageGroup.create(sprite.x, sprite.y, sprite.art);
+    this.imageGroupX.name = sprite.name;
+    this.imageGroupX.scale.setTo(sprite.scale)
+    this.imageGroupX.anchor.set(.5);
+    this.imageGroupX.pivot.x = 100;
+    this.imageGroupX.pivot.y = 100;
 };
 /////////////////Undeniable Death Spawn////////////////////
 brawl.game.prototype.undeniableDeathSpawn = function (sprite, positionInArray) {
@@ -135,35 +148,29 @@ brawl.game.prototype.wallSpawn = function (sprite, positionInArray) {
     this.wallX.specialCondition = sprite.specialCondition;
     this.wallX.positionInArray = positionInArray;
     this.wallX.velocityVsImmovable = 100;
-    //////////Enemy Walls That Are Meant to Help/////////
-    if (sprite.name === wallBlackFrozen) {
-        this.wallX.tint = tintWallFrozen;
-        this.wallX.body.moves = false;
-        this.wallX.body.immovable = true;
-    }
-    else if (sprite.name === wallBlackTrap) {
-        this.wallX.tint = tintWallBlackTrap;
-    }
-    else if (sprite.name === wallBlackKiller) {
-        this.wallX.tint = tintWallBlackKiller;
-    }
-    ////////////Object Descendent Walls/////////// 
-    else if (sprite.name === wallInverse) {
+    ////////////Moving Walls/////////// 
+    if (sprite.name === wallInverse) {
+        // var testTint = Math.random() * 0xffffff;
+        // this.wallX.tint = testTint;
+        // console.log(testTint, this.wallX.positionInArray);
         this.wallX.tint = tintWallInverse;
     }
-    else if (sprite.name === wallControl) {
-        this.wallX.tint = tintWallControl;
-    }
-    ///////////////Special Walls////////////////
-    else if (sprite.name === wallCloud) {
-        this.wallX.tint = tintWallCloud;
-        this.wallX.body.immovable = true;
+    else if (sprite.name === wallSurf) {
+        // var testTint = Math.random() * 0xffffff;
+        // this.wallX.tint = testTint;
+        // console.log(testTint, this.wallX.positionInArray);
+        this.wallX.tint = tintWallSurf;
     }
     else if (sprite.name === wallGhost) {
         // var testTint = Math.random() * 0xffffff;
         // this.wallX.tint = testTint;
         // console.log(testTint, this.wallX.positionInArray);
         this.wallX.tint = tintWallGhost;
+        this.wallX.body.immovable = true;
+    }
+    ///////////////Special Walls////////////////
+    else if (sprite.name === wallCloud) {
+        this.wallX.tint = tintWallCloud;
         this.wallX.body.immovable = true;
     }
     this.wallX.anchor.setTo(.5);

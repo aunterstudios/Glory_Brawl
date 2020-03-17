@@ -64,49 +64,7 @@ brawl.game.prototype.wallImmovable = function (wall, immovable) {
     return;
 };
 brawl.game.prototype.wallMoveable = function (wall, objMov) {
-    //////////////////////////Between Walls and Balls or Ledges//////////////////////
-    //Turns wallRegular to Control (Ball);
-    if (wall.name === wallRegular && objMov.groupName === groupBall) {
-        wall.name = wallControl;
-        wall.tint = tintWallControl;
-        // wall.body.gravity.y = 300; //500 Original
-    }
-    //Turns wallRegular to wallInverse (Ball)
-    if (wall.name === wallRegular && objMov.groupName === groupLedge) {
-        wall.name = wallInverse;
-        wall.tint = tintWallInverse;
-    }
-
-    //////////////////////////Between Walls and Enemies//////////////////////
-    if (wall.name === wallRegular && objMov.groupName === groupEnemy) {
-        wall.name = wallBlackFrozen;
-        wall.body.moves = false;
-        wall.body.immovable = true;
-        wall.tint = tintWallBlackFrozen;
-    }
-    if (wall.name === wallControl && objMov.groupName === groupEnemy) {
-        wall.name = wallBlackKiller;
-        wall.tint = tintWallBlackKiller;
-    }
-    if (wall.name === wallInverse && objMov.groupName === groupEnemy) {
-        wall.name = wallBlackTrap;
-        wall.tint = tintWallBlackTrap;
-        wall.body.stop();
-        wall.body.immovable = true;
-        wall.body.velocity.y = 100;
-    }
-
-    ///////////////////////////////Experimental///////////////////////////////
-    // if (wall.name === wallBlackTrap || wall.name === wallBlackFrozen || wall.name === wallBlackKiller) {
-    //     if (objMov.groupName === groupEnemy) {
-    //         this.emitterFunction(objMov);
-    //         objMov.destroy();
-    //     }
-    //     // this.emitterFunction(objMov);
-    //     // objMov.destroy();
-    // }
-
-    if (wall.name === wallTest) {
+    if (wall.name === wallRegular || wall.name === wallSurfKiller || (wall.name === wallGhost && wall.body.speed > 0)) {
         if (objMov.groupName === groupEnemy) {
             this.emitterFunction(objMov);
             objMov.destroy();
@@ -116,7 +74,7 @@ brawl.game.prototype.wallMoveable = function (wall, objMov) {
     }
     
     /////////////////////////Experimental Two////////////////////
-    if ((wall.name === wallTest || wall.name === wallPlayerFrozen) && objMov.groupName === groupBall) {
+    if (objMov.groupName === groupBall || objMov.groupName === groupLedge) {
         // wall.name = wallPlayerFrozen;
         // objMov.body.stop();
         // wall.body.stop();
@@ -186,21 +144,24 @@ brawl.game.prototype.playerImmovable = function (player, immovable) {
     // return;
 };
 brawl.game.prototype.playerWall = function (player, wall) {
+    //WallRegular?
     if (wall.name === wallRegular) {
-        //Actual Collision Mechanics
+        wall.name = wallPlayerFrozen;
         player.body.stop();
+        wall.body.stop();
+        wall.body.moves = false;
+        wall.body.immovable = true;
+        wall.tint = tintWallPlayerFrozen;
+    }
+    //Wall Surf
+    if (wall.name === wallSurf || wall.name === wallSurfKiller) {
+        //Actual Collision Mechanics
+        // player.body.stop();
+        wall.name = wallSurfKiller;
+        player.body.velocity.y = 10;
         wall.body.velocity.y = 0;
         wall.body.velocity.y += player.body.velocity.y;
-    }
-    if (wall.name === wallControl) {
-        wall.body.stop();
-        player.body.stop();
-        if (player.body.touching.down) {
-            wall.body.velocity.y = -25
-        }
-        else if (player.body.touching.up) {
-            wall.body.velocity.y = 50;
-        }
+        wall.tint = tintWallSurfKiller;
     }
     if (wall.name === wallInverse) {
         wall.body.stop();
@@ -232,10 +193,7 @@ brawl.game.prototype.playerWall = function (player, wall) {
             wall.body.velocity.y = 150;
         }
     }
-    //Enemy Walls
-    if (wall.name === wallBlackFrozen) {
-        player.body.stop();
-    }
+    ///////////////////////////////Special Walls///////////////////////////
     if (wall.name === wallCloud) {
         //Control
         // wall.body.velocity.x = player.body.velocity.x;
@@ -258,29 +216,9 @@ brawl.game.prototype.playerWall = function (player, wall) {
         }
     }
 
-    //Special Walls
-    // if (wall.name === wallGhost) {
-    //     player.body.stop();
-    // }
-
-    ////Enemy Walls On You Baby////////
-    if (wall.name === wallBlackTrap) {
-        this.deathState(this.player);
-    }
-
-    //Test Wall
-    if (wall.name === wallTest) {
-        wall.name = wallPlayerFrozen;
-        player.body.stop();
-        wall.body.stop();
-        wall.body.moves = false;
-        wall.body.immovable = true;
-        wall.tint = tintWallBlackFrozen;
-    }
-
     return;
 };
-brawl.game.prototype.playerBlackWall = function (player, wall) {
+brawl.game.prototype.playerProcessArgument = function (player, wall) {
     if (wall.name === wallBlackKiller) {
         return false;
     }
@@ -297,6 +235,7 @@ brawl.game.prototype.playerBall = function (player, ball) {
     }
     if (ball.body.touching.down) {
         ball.body.velocity.y = -100;
+        // ball.body.velocity.y = -200;
     }
     if (ball.body.touching.left) {
         ball.body.velocity.x = 100;
@@ -349,6 +288,7 @@ brawl.game.prototype.playerLedge = function (player, ledge) {
     ////////Surfs Up Dude////////
     if (ledge.name === surf) {
         ledge.body.stop();
+        // player.body.velocity.y = 500;
         ledge.body.velocity.y = 0;
         if (player.body.touching.up || player.body.touching.down) {
             ledge.body.velocity.x = player.body.velocity.x;

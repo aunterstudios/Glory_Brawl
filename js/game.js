@@ -31,6 +31,8 @@ brawl.game.prototype = {
     },
     preload: function () {
         // this.game.forceSingleUpdate = true;
+        //Images
+        this.load.image('star', 'assets/star.png');
         //Immovable Walls
         this.load.image('immovableWallVertical', 'assets/immovableWallVertical.png');
         this.load.image('immovableWallHorizontal', 'assets/immovableWallHorizontal.png');
@@ -124,6 +126,8 @@ brawl.game.prototype = {
         ////////////////////////////////////FPS Debugging////////////////////////////////////////
         // console.log(this.game.time.fps);
         ////////////////////////////////////////Continious Collision//////////////////////////////////
+        //Images
+        this.imageMovement();
         ///Enemies Attacking
         this.enemyAttack();
         //Walls
@@ -133,7 +137,7 @@ brawl.game.prototype = {
         ////////////////////////Physics////////////////////////
         //Player Mechanics
         var onImmovable = this.game.physics.arcade.collide(this.player, this.immovableWall, this.playerImmovable, null, this);
-        var onWall = this.game.physics.arcade.collide(this.player, this.wall, this.playerWall, this.playerBlackWall, this);
+        var onWall = this.game.physics.arcade.collide(this.player, this.wall, this.playerWall, null, this);
         var onLedge = this.game.physics.arcade.collide(this.player, this.ledge, this.playerLedge, null, this);
         var onBall = this.game.physics.arcade.collide(this.player, this.ball, this.playerBall, null, this);
         //Death Mechanics (Game State Change)
@@ -152,8 +156,8 @@ brawl.game.prototype = {
         this.game.physics.arcade.collide(this.wall, [this.immovableWall, this.death], this.wallImmovable, this.ghostWall, this);
 
         //Movable Wall Mechanics vs. Moveable Objects (NOT ITSELF) (OVERLAP)
-        // this.game.physics.arcade.overlap(this.wall, [this.ledge, this.ball, this.enemy], this.wallMoveable, null, this);
-        this.game.physics.arcade.collide(this.wall, [this.ledge, this.ball, this.enemy], this.wallMoveable, null, this);
+        this.game.physics.arcade.overlap(this.wall, [this.ledge, this.ball, this.enemy], this.wallMoveable, null, this);
+        // this.game.physics.arcade.collide(this.wall, [this.ledge, this.ball, this.enemy], this.wallMoveable, null, this);
 
         //Enemy Bullet and Falling Spike Mechanics
         this.game.physics.arcade.overlap([this.enemyBullets, this.fallingSpikes], [this.ball, this.wall, this.immovableWall, this.ledge, this.death], this.bulletsAndSpikes, null, this);

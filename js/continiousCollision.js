@@ -17,6 +17,13 @@ brawl.game.prototype.upInputIsActive = function (duration) {
 };
 
 ////////////////////////////////////Continious Updating In Game////////////////////////
+//Images
+brawl.game.prototype.imageMovement = function () {
+    this.imageGroup.forEachAlive(function (image) {
+        image.rotation += 0.001;
+    }, this);
+};
+
 //Enemy Bullets
 brawl.game.prototype.enemyAttack = function () {
     this.enemy.forEachAlive(function (enemy) {
@@ -47,16 +54,31 @@ brawl.game.prototype.wallSpecial = function () {
         // if (this.game.physics.arcade.distanceBetween(wall, this.player, false, true) < 400 && wall.name === wallPoint) {
         //     this.game.physics.arcade.moveToPointer(wall, 200);
         // }
-        if (wall.name === wallPlayerFrozen ) {
-            wall.name = wallTest;
+        if (wall.name === wallPlayerFrozen) {
+            wall.name = wallRegular;
             wall.body.moves = true;
             wall.body.immovable = false;
             wall.tint = tintRemover;
         }
+        if (wall.name === wallSurfKiller) {
+            wall.name = wallSurf;
+            wall.tint = tintWallSurf;
+        }
+        if (wall.name === wallGhost && wall.body.speed > 0) {
+            wall.tint = tintWallGhostKiller;
+        }
+        else if (wall.name === wallGhost && wall.body.speed <= 0) {
+            wall.tint = tintWallGhost;
+        }
+        if (wall.name === wallInverse && wall.body.speed > 0) {
+            wall.tint = tintWallInverse;
+        }
+        else if (wall.name === wallInverse && wall.body.speed <= 0) {
+            wall.tint = tintWallInverseKiller;
+        }
     }, this, this.player);
     //Acceleration to Object (Another Type of Enemy)
 };
-
 
 
 //////////////////Emitter Function/////////////////////

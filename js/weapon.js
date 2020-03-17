@@ -11,12 +11,10 @@ brawl.game.prototype.weaponHandler = function (weapon, sprite) {
         }
         else if (weapon.key === 'bulletStop') {
             sprite.body.stop();
-            sprite.scale.setTo(.1);
         }
         else if (weapon.key === 'bulletKill') {
-            this.emitterFunction(sprite);
-            // this.emitter.explode(1000);
-            sprite.destroy();
+            // this.emitterFunction(sprite);
+            // sprite.destroy();
             // sprite.body.velocity.x = -100;
             // sprite.body.velocity.y = 0;
             //Experimental
@@ -34,6 +32,7 @@ brawl.game.prototype.weaponHandler = function (weapon, sprite) {
             // }
             // sprite.body.stop();
             // this.player.body.stop();
+            sprite.scale.setTo(.1);
 
         }
     }
@@ -41,7 +40,7 @@ brawl.game.prototype.weaponHandler = function (weapon, sprite) {
 };
 //Let Weapon Fire Pass Through
 brawl.game.prototype.weaponGhost = function (weapon, ghost) {
-    if (ghost.name === wallCloud || ghost.name === wallBlackTrap) {
+    if (ghost.name === wallCloud) {
         return false;
     }
     else {
@@ -78,7 +77,7 @@ brawl.game.prototype.goStop = function () {
 };
 brawl.game.prototype.goKill = function () {
     // console.log("4");
-    this.player.tint = Phaser.Color.RED;
+    this.player.tint = Phaser.Color.VIOLET;
     pullBoolean = false;
     pushBoolean = false;
     stopBoolean = false;

@@ -221,6 +221,18 @@ class SpriteCreator {
   }
 };
 
+//Creates Images
+class imageCreator {
+  constructor(trigger, name, art, x, y, scale) {
+    this.trigger = trigger;
+    this.name = name;
+    this.art = art;
+    this.x = x;
+    this.y = y;
+    this.scale = scale;
+  }
+}
+
 //////////////////Flag Specific Classes/////////
 class flagCreator {
   constructor(indexOfPlayerPosition, trigger, name, art, x, y, velocityX, velocityY, sizeX, sizeY, gravityX, gravityY, specialHandler) {
@@ -278,9 +290,6 @@ class textCreator {
     this.fontWeight = fontWeight;
   }
 };
-/////////////////////////List Of Experimental Sprites/////////////////////////
-var wallTest = 'wallTest';
-var wallPlayerFrozen = 'wallPlayerFrozen';
 
 /////////////////////////List of GROUP NAMES of Each Sprite (For Different Special Properties)////////////////
 /*
@@ -324,19 +333,18 @@ var immovableWallWorldGravity = 'immovableWallWorldGravity'; //Triggers World Gr
 var immovableWallSlippery = 'immovableWallSlippery'; //Makes you SLIPPERY!wa 
 
 //Moveable Wall Namesa
-//Base Walls
+//The Frozen Walls (Gets Frozen At Stopped)
 var wallRegular = 'wallRegular';
-//First Line Ball Descedeant Walls
-var wallControl = 'wallControl'; //First Turn (Control Wall BALL!)
-//Ledge-Tree Descendent Walls
+var wallPlayerFrozen = 'wallPlayerFrozen';
+//The Surf Walls (Moving Walls)
+var wallSurf = 'wallSurf';
+var wallSurfKiller = 'wallSurfKiller';
+//The Inverse Wall
 var wallInverse = 'wallInverse'; //First Turn (Leaners Walls From Ledge)
-//Third Line Enemy Descendant Walls
-var wallBlackFrozen = 'wallBlackFrozen'; //Completely Immovable But Kills 
-var wallBlackTrap = 'wallBlackTrap'; //Immovable But Moving Trap (That Kills
-var wallBlackKiller = 'wallBlackKiller'; //No Player Collision But Moveable Everything Incuding Yu)Everything
+//Ghost Wall
+var wallGhost = 'wallGhost'; //Immovable Wall That Let's You Get Through Objects
 //Special Walls (Can't Be Transuted Too or From)
 var wallCloud = 'wallCloud'; //Stationary Shooting Platform Heh
-var wallGhost = 'wallGhost'; //Immovable Wall That Let's You Get Through Objects
 
 //Ledge Names
 var elevator = 'elevator';
@@ -357,6 +365,9 @@ var spikeRegular = 'spikeRegular';
 //Flag Names
 var flagRegular = 'flagRegular';
 var flagSpecial = 'flagSpecial';
+
+/////////////////////////List of Art of Each Image/////////////////
+var star = 'star';
 
 /////////////////////////List of Art of Each Sprite/////////////////
 //Death
@@ -401,16 +412,19 @@ var tintImmovableWallWorldGravity = 8314793.039214706;
 var tintImmovableWallMario = 241917.63554178402;
 var tintImmovableWallSlippery = 766012.4141677661;
 
-//Walls
-var tintWallControl = 0x666666;
-var tintWallInverse = 2070551.3881263782;
-// var tintWallBlackTrap = 15680658.67511709;
-var tintWallBlackTrap = Phaser.Color.RED;
-var tintWallBlackFrozen = 0x00ffff;
-var tintWallBlackKiller = 10409939.733364154;
-var tintWallHeavy = 6623573.181835621;
-var tintWallCloud = 9583870.358153213;
+//Frozen Wall Tints
+var tintWallPlayerFrozen = 0x00ffff;
+//Surf Wall Tints
+var tintWallSurf = 10409939.733364154;
+var tintWallSurfKiller = 5703742.041983781;
+//Inverse Tints
+var tintWallInverse = 1181911.9307258818;
+var tintWallInverseKiller = Phaser.Color.ORANGE;
+//Ghost Tints
 var tintWallGhost = 16771007.229130682;
+var tintWallGhostKiller = 7142565.312501035;
+//Special Wall Tints
+var tintWallCloud = 9583870.358153213;
 
 //Enemies
 var tintEnemyShooter = 12758247.409111453;
@@ -750,7 +764,7 @@ level_1.immovableWallSpawn = [
 ///Single Wall to Teach You  
 level_1.wallSpawn = [
   new SpriteCreator(true, true, wallRegular, wallHorizontal, 800, 2850, 0, 0, .4, .4, 0, 0, null, null),
-  new SpriteCreator(true, true, wallControl, wallHorizontal, 1700, 600, 0, 0, .4, .4, 0, 0, null, null),
+  new SpriteCreator(true, true, wallSurf, wallHorizontal, 1700, 600, 0, 0, .4, .4, 0, 0, null, null),
   new SpriteCreator(true, true, wallInverse, wallHorizontal, 3300, 2850, 0, 0, .4, .4, 0, 0, null, null),
   new SpriteCreator(true, true, wallInverse, wallVertical, 4570, 450, 0, 0, .4, .4, 0, 0, null, null),
   //Walls That Change
@@ -1152,7 +1166,7 @@ worldClassLevels.push(level_3);
 
 
 ////////////////////////////////////////Level 4/////////////////////////////////////(Testing Ground)
-var level_4 = new LevelCreator("Level 4-PlayGround", 2400, 1600, new MetroidvaniaCreator(null, null, 3, 800, null, null, null, null), '#ffffff');
+var level_4 = new LevelCreator("Level 4-PlayGround", 5000, 1600, new MetroidvaniaCreator(null, null, 3, 800, null, null, null, null), '#ffffff'); //2400
 
 // level_4.worldGravity = new worldGravityCreator(200, 300);
 
@@ -1162,6 +1176,11 @@ level_4.playerPosition = [
   new PlayerPositionCreator(400, 700), //400/700
   new PlayerPositionCreator(200, 700),
   new PlayerPositionCreator(1400, 700),
+]
+
+//Images
+level_4.imageSpawn = [
+  new imageCreator(true, star, star, 2500, 800, 4),
 ]
 
 ///////////////////////Creation of Undeniable Death
@@ -1183,24 +1202,26 @@ level_4.immovableWallSpawn = [
 //Moveable Walls
 ///Single Wall to Teach You  
 level_4.wallSpawn = [
-  new SpriteCreator(true, true, wallGhost, wallHorizontal, 600, 400, 0, 0, .3, .3, 0, 0, null, null),
-  new SpriteCreator(true, true, wallBlackKiller, wallVertical, 600, 400, 0, 0, .3, .3, 0, 0, null, null),
-  new SpriteCreator(true, true, wallTest, wallVertical, 400, 700, 0, 0, .3, .3, 0, 0, null, null),
-  new SpriteCreator(true, true, wallTest, wallHorizontal, 400, 800, 0, 0, .3, .3, 0, 0, null, null),
+  new SpriteCreator(true, true, wallRegular, wallHorizontal, 1000, 400, 0, 0, .3, .3, 0, 0, null, null),
+  new SpriteCreator(true, true, wallRegular, wallVertical, 400, 700, 0, 0, .3, .3, 0, 0, null, null),
+  new SpriteCreator(true, true, wallInverse, wallHorizontal, 400, 800, 0, 0, .3, .3, 0, 0, null, null),
 ];
 
 
 // //Ledges
 level_4.ledgeSpawn = [
   // //Surf
-  new SpriteCreator(true, true, elevator, ledge, 1100, 200, 0, 0, .4, .4, 0, 0, null, null),
+  new SpriteCreator(true, true, surf, ledge, 1100, 200, 0, 0, .4, .4, 0, 0, null, null),
 ];
 
 // //Enemy Spawn
-// level_4.enemySpawn = [
-//   // new SpriteCreator(0, true, true, enemyDaakath, enemyOne, 400, 200, 0, 0, .5, .5, 0, 0, null, null),
-//   new SpriteCreator(true, true, enemyShooter, enemyOne, 1200, 300, 0, 0, .5, .5, 0, 0, null, null),
-// ];
+level_4.enemySpawn = [
+  // new SpriteCreator(0, true, true, enemyDaakath, enemyOne, 400, 200, 0, 0, .5, .5, 0, 0, null, null),
+  new SpriteCreator(true, true, enemyShooter, enemyOne, 1200, 300, 0, 0, .5, .5, 0, 0, null, null),
+  new SpriteCreator(true, true, enemyAccelerate, enemyOne, 1400, 300, 0, 0, .5, .5, 0, 0, null, null),
+  new SpriteCreator(true, true, enemyDaakath, enemyOne, 1600, 300, 0, 0, .5, .5, 0, 0, null, null),
+  new SpriteCreator(true, true, enemyAccelerate, enemyOne, 1800, 300, 0, 0, .5, .5, 0, 0, null, null),
+];
 
 // //Ball
 level_4.ballSpawn = [
@@ -1328,7 +1349,7 @@ level_5.immovableWallSpawn = [
 level_5.wallSpawn = [
   //First Control Wall Turned Into WallBlackKiller
   // new SpriteCreator(true, true, wallRegular, wallHorizontal, 600, 3600, 0, 0, .4, .4, 0, 0, null, null),
-  new SpriteCreator(true, true, wallControl, wallVertical, 1200, 3000, 0, 0, .4, .4, 0, 0, null, null),
+  new SpriteCreator(true, true, wallSurf, wallVertical, 1200, 3000, 0, 0, .4, .4, 0, 0, null, null),
   new SpriteCreator(true, true, wallInverse, wallHorizontal, 1900, 3650, 0, 0, .4, .4, 0, 0, null, null),
   new SpriteCreator(true, true, wallCloud, wallHorizontal, 3150, 2400, 0, 0, .4, .4, 0, 0, null, null),
   new SpriteCreator(true, true, wallGhost, wallHorizontal, 330, 1650, 0, 0, .4, .4, 0, 0, null, null),
