@@ -13,27 +13,24 @@ brawl.game.prototype.weaponHandler = function (weapon, sprite) {
             sprite.body.stop();
         }
         else if (weapon.key === 'bulletKill') {
-            // this.emitterFunction(sprite);
-            // sprite.destroy();
-            // sprite.body.velocity.x = -100;
-            // sprite.body.velocity.y = 0;
-            //Experimental
-            // if (sprite.name === wallPlayerFrozen) {
-            //     sprite.name = wallTest;
-            //     sprite.body.moves = true;
-            //     sprite.body.immovable = false;
-            //     sprite.tint = tintRemover;
-            // }
-            // else if (sprite.name === wallTest) {
-            //     sprite.name = wallPlayerFrozen
-            //     sprite.body.moves = false;
-            //     sprite.body.immovable = true;
-            //     sprite.tint = tintWallBlackFrozen;
-            // }
-            // sprite.body.stop();
-            // this.player.body.stop();
-            sprite.scale.setTo(.1);
-
+            //Regular Walls
+            if (sprite.name === wallRegular) {
+                sprite.name = wallRegularKiller;
+                sprite.tint = 8494971.358153213;
+            }
+            else if (sprite.name === wallRegularKiller) {
+                sprite.name = wallRegular;
+                sprite.tint = tintRemover;
+            }
+            //Ghost Walls
+            if (sprite.name === wallGhost) {
+                sprite.name = wallGhostKiller;
+                sprite.scale.setTo(sprite.scale.x/3, sprite.scale.y/3);
+            }
+            else if (sprite.name === wallGhostKiller) {
+                sprite.name = wallGhost;
+                sprite.scale.setTo(sprite.scale.x*3, sprite.scale.y*3);
+            }
         }
     }
     weapon.kill();

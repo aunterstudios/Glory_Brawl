@@ -330,17 +330,20 @@ var immovableWallWorldGravity = 'immovableWallWorldGravity'; //Triggers World Gr
 // var immovableWallSkateBoard = 'immovableWallSkateboard'; //Triggers a Super OP Unchangeable Wall
 var immovableWallSlippery = 'immovableWallSlippery'; //Makes you SLIPPERY!wa 
 
-//Moveable Wall Namesa
-//The Frozen Walls (Gets Frozen At Stopped)
+//Moveable Wall Names
+//The Walls That Get Frozen and Unfrozen
 var wallRegular = 'wallRegular';
+var wallRegularKiller = 'wallRegularKiller';
 var wallPlayerFrozen = 'wallPlayerFrozen';
 //The Surf Walls (Moving Walls)
 var wallSurf = 'wallSurf';
 var wallSurfKiller = 'wallSurfKiller';
 //The Inverse Wall
 var wallInverse = 'wallInverse'; //First Turn (Leaners Walls From Ledge)
+var wallInverseKiller = 'wallInverseKiller';
 //Ghost Wall
 var wallGhost = 'wallGhost'; //Immovable Wall That Let's You Get Through Objects
+var wallGhostKiller = 'wallGhostKiller';
 //Special Walls (Can't Be Transuted Too or From)
 var wallCloud = 'wallCloud'; //Stationary Shooting Platform Heh
 
@@ -1200,7 +1203,7 @@ level_4.immovableWallSpawn = [
 //Moveable Walls
 ///Single Wall to Teach You  
 level_4.wallSpawn = [
-  new SpriteCreator(true, true, wallRegular, wallHorizontal, 1000, 400, 0, 0, .3, .3, 0, 0, null, null),
+  new SpriteCreator(true, true, wallGhost, wallHorizontal, 1000, 400, 0, 0, .3, .3, 0, 0, null, null),
   new SpriteCreator(true, true, wallSurf, wallHorizontal, 1490, 400, 0, 0, .3, .3, 0, 0, null, null),
   new SpriteCreator(true, true, wallRegular, wallVertical, 400, 700, 0, 0, .3, .3, 0, 0, null, null),
   new SpriteCreator(true, true, wallInverse, wallHorizontal, 400, 800, 0, 0, .3, .3, 0, 0, null, null),

@@ -64,7 +64,17 @@ brawl.game.prototype.wallImmovable = function (wall, immovable) {
     return;
 };
 brawl.game.prototype.wallMoveable = function (wall, objMov) {
-    if (wall.name === wallRegular || wall.name === wallSurfKiller || (wall.name === wallGhost && wall.body.speed > 0) || (wall.name === wallInverse && wall.body.speed <= 0)) {
+    //////////////////////////////////////////////Testing////////////////////////////////
+    // if (wall.name === wallRegular || wall.name === wallSurfKiller || (wall.name === wallGhost && wall.body.speed > 0) || (wall.name === wallInverse && wall.body.speed <= 0)) {
+    //     if (objMov.groupName === groupEnemy) {
+    //         this.emitterFunction(objMov);
+    //         objMov.destroy();
+    //     }
+    //     // this.emitterFunction(objMov);
+    //     // objMov.destroy();
+    // }
+
+    if (wall.name === wallRegularKiller || wall.name === wallSurfKiller || wall.name === wallGhostKiller || wall.name === wallInverseKiller) {
         if (objMov.groupName === groupEnemy) {
             this.emitterFunction(objMov);
             objMov.destroy();
@@ -72,6 +82,7 @@ brawl.game.prototype.wallMoveable = function (wall, objMov) {
         // this.emitterFunction(objMov);
         // objMov.destroy();
     }
+
 
     /////////////////////////Experimental Two////////////////////
     if (objMov.groupName === groupBall || objMov.groupName === groupLedge) {
@@ -153,8 +164,12 @@ brawl.game.prototype.playerWall = function (player, wall) {
         wall.body.stop();
         wall.tint = tintWallPlayerFrozen;
     }
+    if (wall.name === wallPlayerFrozen) {
+        wall.body.stop();
+        player.body.stop();
+    }
     //Wall Surf
-    if (wall.name === wallSurf || wall.name === wallSurfKiller) {
+    if (wall.name === wallSurf) {
         //Actual Collision Mechanics
         // player.body.stop();
         wall.name = wallSurfKiller;
@@ -219,7 +234,7 @@ brawl.game.prototype.playerWall = function (player, wall) {
     return;
 };
 brawl.game.prototype.playerProcessArgument = function (player, wall) {
-    if (wall.name === wallBlackKiller) {
+    if (wall.name === wallRegularKiller) {
         return false;
     }
     else {

@@ -60,7 +60,7 @@ brawl.game.prototype.wallSpecial = function () {
             wall.body.immovable = false;
             wall.tint = tintRemover;
         }
-        //Defunct But Still Useful
+        //Defunct But Still Useful For Different Walls
         // if (wall.name === wallSurfKiller) {
         //     wall.name = wallSurf;
         //     wall.tint = tintWallSurf;

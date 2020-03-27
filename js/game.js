@@ -137,7 +137,7 @@ brawl.game.prototype = {
         ////////////////////////Physics////////////////////////
         //Player Mechanics
         var onImmovable = this.game.physics.arcade.collide(this.player, this.immovableWall, this.playerImmovable, null, this);
-        var onWall = this.game.physics.arcade.collide(this.player, this.wall, this.playerWall, null, this);
+        var onWall = this.game.physics.arcade.collide(this.player, this.wall, this.playerWall, this.playerProcessArgument, this);
         var onLedge = this.game.physics.arcade.collide(this.player, this.ledge, this.playerLedge, null, this);
         var onBall = this.game.physics.arcade.collide(this.player, this.ball, this.playerBall, null, this);
         //Death Mechanics (Game State Change)
