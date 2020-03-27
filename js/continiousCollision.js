@@ -60,22 +60,23 @@ brawl.game.prototype.wallSpecial = function () {
             wall.body.immovable = false;
             wall.tint = tintRemover;
         }
-        if (wall.name === wallSurfKiller) {
-            wall.name = wallSurf;
-            wall.tint = tintWallSurf;
-        }
-        if (wall.name === wallGhost && wall.body.speed > 0) {
-            wall.tint = tintWallGhostKiller;
-        }
-        else if (wall.name === wallGhost && wall.body.speed <= 0) {
-            wall.tint = tintWallGhost;
-        }
-        if (wall.name === wallInverse && wall.body.speed > 0) {
-            wall.tint = tintWallInverse;
-        }
-        else if (wall.name === wallInverse && wall.body.speed <= 0) {
-            wall.tint = tintWallInverseKiller;
-        }
+        //Defunct But Still Useful
+        // if (wall.name === wallSurfKiller) {
+        //     wall.name = wallSurf;
+        //     wall.tint = tintWallSurf;
+        // }
+        // if (wall.name === wallGhost && wall.body.speed > 0) {
+        //     wall.tint = tintWallGhostKiller;
+        // }
+        // else if (wall.name === wallGhost && wall.body.speed <= 0) {
+        //     wall.tint = tintWallGhost;
+        // }
+        // if (wall.name === wallInverse && wall.body.speed > 0) {
+        //     wall.tint = tintWallInverse;
+        // }
+        // else if (wall.name === wallInverse && wall.body.speed <= 0) {
+        //     wall.tint = tintWallInverseKiller;
+        // }
     }, this, this.player);
     //Acceleration to Object (Another Type of Enemy)
 };

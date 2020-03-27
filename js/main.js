@@ -49,11 +49,9 @@ game.state.add('controlScreen', brawl.stateControls);
 game.state.start('mainMenu');
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "MetroidVanian: Play Testing Physics",
-  "Be Reborn Once Again",
+  "Summon All Your Hatred And Anger",
   "Remember the Words",
   "GLORY BRAWL",
-  "Change Wall"
 ];
 
 var line = [];
@@ -1203,6 +1201,7 @@ level_4.immovableWallSpawn = [
 ///Single Wall to Teach You  
 level_4.wallSpawn = [
   new SpriteCreator(true, true, wallRegular, wallHorizontal, 1000, 400, 0, 0, .3, .3, 0, 0, null, null),
+  new SpriteCreator(true, true, wallSurf, wallHorizontal, 1490, 400, 0, 0, .3, .3, 0, 0, null, null),
   new SpriteCreator(true, true, wallRegular, wallVertical, 400, 700, 0, 0, .3, .3, 0, 0, null, null),
   new SpriteCreator(true, true, wallInverse, wallHorizontal, 400, 800, 0, 0, .3, .3, 0, 0, null, null),
 ];
