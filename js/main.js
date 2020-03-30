@@ -507,12 +507,12 @@ var experimental_Level5 = {
 };
 
 ///////////////////////////////////////////Level 0///////////////////////////////////////////////////////////
-var level_0 = new LevelCreator("Level 0-CL", 3800, 4200, new MetroidvaniaCreator(1, 100, 0, 4200, 0, 1, 0, 3800), "#ffffff"); //3800
+var level_0 = new LevelCreator("Level 0-CL", 3000, 4000, new MetroidvaniaCreator(1, 100, 0, 4200, 0, 1, 0, 3800), "#ffffff"); //3800
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_0.playerPosition = [
   new PlayerPositionCreator(200, 200),
-  new PlayerPositionCreator(300, 4100),
+  new PlayerPositionCreator(1200, 3900),
   new PlayerPositionCreator(1250, 2000),
   new PlayerPositionCreator(2600, 600),
 ]
@@ -521,92 +521,16 @@ level_0.playerPosition = [
 
 level_0.undeniableDeathSpawn = [
   //Leftward Boundary
-  new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 0, 1470, 0, 0, .25, .945, 0, 0, null, null),
-  new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 3800, 0, 0, 0, .25, 1.995, 0, 0, null, null),
-  // new SpriteCreator(2, true, true, undeniableDeathRegular, deathVertical, 2800, 1263, 0, 0, .25, .767, 0, 0, null, null),
-  new SpriteCreator(true, true, undeniableDeathRegular, deathHorizontal, 1463, 900, 0, 0, .5, .5, 0, 0, null, null),
-  new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 2083, 480, 0, 0, .5, .3, 0, 0, null, null),
-  new SpriteCreator(true, true, undeniableDeathRegular, deathHorizontal, 1400, 0, 0, 0, 1.715, .5, 0, 0, null, null),
-  //Blocking Entrance to Level 1 (SPECIAL SPRITE)
-  new SpriteCreator(true, true, spikesRegular, spikesHorizontalOne, 0, 0, 0, 0, 1, .5, 0, 0, 0, null),
-  //Special Sprite (Removed From Game Once Killed);
+  // new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 0, 0, 0, 0, .25, 2.5, 0, 0, null, null),
   /////////////////////////Make Sure You Don't Have to Re-Do From the Launch Pad//////////////////////
   new SpriteCreator(true, true, undeniableDeathRegular, deathHorizontal, 1800, 2800, 0, 0, 1.427, .5, 0, 0, null, null),
   ///Border Left Bottom
-  new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 0, 3230, 0, 0, .25, .645, 0, 0, null, null),
 ];
 
 /////////////////////////Creation of ImmovableWalls
 level_0.immovableWallSpawn = [
-  //Ground
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 0, 4200, 0, 0, 4.463, .5, 0, 0, null, null),
-  //The Double Jump
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 1800, 4000, 0, 0, .4, .15, 0, 0, null, null),
-  //Fast Climb
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 2100, 3500, 0, 0, .5, .5, 0, 0, null, null),
-  //Fast Climb Other Side
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 1600, 3200, 0, 0, .5, .5, 0, 0, null, null),
-  //Last Fast Climb Tutorial
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 1200, 2900, 0, 0, .5, .5, 0, 0, null, null),
-  //Teach You How to Slide Down
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 45, 3335, 0, 0, 1.44, .5, 0, 0, null, null),
-  //First Mini Wall Before Explaining How to Side Ways Jump from the Wall
-  new SpriteCreator(false, true, immovableWallRegular, immovableWallVertical, 500, 3200, 0, 0, .3, .05, 0, 0, null, null),
-  //Sideways Jump
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 0, 2800, 0, 0, .5, .5, 0, 0, null, null),
-  //Sideways Jump This!
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 600, 2400, 0, 0, .5, .5, 0, 0, null, null),
-  //Side Ways Jump Again!
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 50, 1480, 0, 0, .5, 1, 0, 0, null, null),
-  //Landing Pad of the Check Point and Dislodge
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 950, 2100, 0, 0, 1, .5, 0, 0, null, null),
-  //Mini Walls After Launch Pad
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 2100, 2400, 0, 0, .4, .2, 0, 0, null, null),
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 2500, 2600, 0, 0, .4, .2, 0, 0, null, null),
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 2600, 1400, 0, 0, .4, .2, 0, 0, null, null),
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 3300, 2300, 0, 0, .4, .2, 0, 0, null, null),
-  //Upside Down Mini-Wall
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 3300, 1950, 0, 0, .4, .2, 0, 0, null, null),
-  //Mini Walls Part Two After Upside Down
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 2800, 2300, 0, 0, .4, .2, 0, 0, null, null),
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 3000, 1600, 0, 0, .4, .2, 0, 0, null, null),
-  //NOT MINI-WALL BUT TO TEACH YOU HOW TO DO OG SIDEWAYS JUMP SEAN MOODY
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 3600, 1450, 0, 0, .4, .4, 0, 0, null, null),
-  //Tap D this time.
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 2300, 1100, 0, 0, .4, .4, 0, 0, null, null),
-  //
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 3000, 600, 0, 0, .3, .05, 0, 0, null, null),
-  //Last Divider of The Right Side
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 3800, 2885, 0, 0, .5, 1.465, 0, 0, null, null),
-  //The Box
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 2375, 700, 0, 0, .5, .5, 0, 0, null, null),
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 1400, 300, 0, 0, .5, 1.3, 0, 0, null, null),
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 0, 1407, 0, 0, 1.72, .5, 0, 0, null, null),
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 0, 0, 0, 0, .5, 1.653, 0, 0, null, null),
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 400, 1200, 0, 0, .9, .4, 0, 0, null, null),
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 63, 800, 0, 0, .5, .5, 0, 0, null, null),
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 974, 500, 0, 0, .5, .5, 0, 0, null, null),
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 63, 300, 0, 0, .5, .5, 0, 0, null, null),
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 700, 600, 0, 0, .4, .5, 0, 0, null, null),
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 400, 500, 0, 0, .4, .5, 0, 0, null, null),
-  //Tiny Boxes Inside THE BOX
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 200, 950, 0, 0, .3, .05, 0, 0, null, null),
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 200, 1150, 0, 0, .3, .05, 0, 0, null, null),
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 500, 1000, 0, 0, .3, .05, 0, 0, null, null),
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 600, 800, 0, 0, .3, .05, 0, 0, null, null),
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 700, 775, 0, 0, .3, .05, 0, 0, null, null),
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 800, 700, 0, 0, .3, .05, 0, 0, null, null),
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 800, 900, 0, 0, .3, .05, 0, 0, null, null),
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 800, 1100, 0, 0, .3, .05, 0, 0, null, null),
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 1000, 800, 0, 0, .3, .05, 0, 0, null, null),
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 1000, 600, 0, 0, .3, .05, 0, 0, null, null),
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 1100, 1000, 0, 0, .3, .05, 0, 0, null, null),
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 1100, 600, 0, 0, .3, .05, 0, 0, null, null),
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 1200, 1100, 0, 0, .3, .05, 0, 0, null, null),
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 1200, 800, 0, 0, .3, .05, 0, 0, null, null),
-  //TIny Boxes part 2
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 3300, 1050, 0, 0, .3, .05, 0, 0, null, null),
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 2650, 900, 0, 0, .3, .05, 0, 0, null, null),
+  new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 0, 4000, 0, 0, 1.8, .5, 0, 0, null, null),
+  
 ];
 
 //Moveable Walls
@@ -625,58 +549,29 @@ level_0.flagSpawn = [
 
 //Text Creator (Helpful Hints)
 level_0.text = [
-  new textCreator(true, 100, 3600, "This is How You'll Be Reborn\n\nP- Pause\nO- FullScreen\nR- To Literally Kill Yourself\nW or Spacebar- Jump\nA- Left\nS- Push or Move Downwards\nD- Right", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(true, 100, 4000, "RED IS DEATH", 'Impact', 30, "#FF0000", 'bold'),
-  new textCreator(true, 1900, 3950, "You Automatically Stick on Surfaces\n\nWhen You Jump on It\n\nHold D While Tapping A to Fast Climb", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(true, 1750, 3350, "This Time Hold A While Tapping D", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(true, 650, 3000, "While Sticking to a Side of a Wall\n\nHold S to Slide Down", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(true, 150, 2870, "You Can Jump Off Walls\n\nMove/Hold Right\n\nDouble Jump While in the Air", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(true, 200, 2100, "As Long As You Touch a Surface\n\nYou Can Double Jump Again and Again\n\nThis is Fucking Important So Remember It", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(true, 150, 2500, "It's Obvious\n\nWhat You Need to Do", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(true, 100, 25, "Level 1 ↑", 'Courier New', 25, '#000000', 'bold'),
-  // new textCreator(9, true, 2500, 1400, "Once Again When You Hit a Fucking 4wSurface\n\nYou Can Double Jump Again in the Air", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(true, 300, 1600, "You Can Go Upside Down\n\nJump to the Bottom of The Wall\n\nYou Can Move While Upside Down", 'Courier New', 25, '#000000', 'bold'),
-  ////////////////////////////New Text//////////////////////
-  new textCreator(true, 1050, 3800, "Tapping Twice on the Jump Button Lets You Double Jump\n\nDouble Jump to the Top of the Wall", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(true, 1000, 1600, "Press S to Dislodge Yourself\n\nHolding S While Falling\n\nSlows Down Your Fall", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(true, 1300, 1850, "Checkpoint\n\nPress Shift to Toggle Free-Look\n\n(WASD Movement)\n\nLOOK AT THE FUCKING MAP NOW", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(true, 1900, 1900, "You Can Control Your Movement in the Air\n\nPressing S Lets You Move Downwards", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(true, 2800, 3450, "I'm Telling You to Read the Fucking Instructions\n\nHoly Shit It's Fucking Important\n\nI'm Telling You How To Become Reborn\n\nNow We've Done This Countless of Times\n\nThe Same Thing Over and Over Again\n\nGo Back to the Beginning With This in Mind\n\nJust Remember the Words\n\n\nGLORY BRAWL ", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(true, 2900, 2000, "Stick to the Bottom\n\nDislodge Yourself\n\nDouble Jump to the Top", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(true, 2800, 1500, "←", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(true, 3000, 1200, "Do I Need To Say It Again?\n\nYou Can Double Jump in the Air\n\nOnce You Hit a Surface", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(true, 3400, 1400, "←", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(true, 3200, 300, "Press 1 to Access Pull Gun\n\nPoint and Click to Shoot\n\nUse the Pull Gun\n\nWhile on Top of the Wall\n\nJump and Pull Yourself Along", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(true, 2400, 200, "Pressing S Pushes Down the Wall\n\nRemember You're Surfing It\n\n←", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(true, 1600, 450, "Any Object That is Moveable\n\nCan Be Pulled", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(true, 800, 150, "DO NOT TOUCH ORANGE\n\nIT WILL KILL YOU\n\nGet to The Checkpoint on the Left\n\nThen Go to the Bottom", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(true, 100, 1300, "The Ball Can Kill Orange\nAmong Other Things", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(true, 750, 1300, "Press 2 To Access the Push Gun\nIt Does the Opposite From Pull\nAny Object That is Moveable Can Be Pushed", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(true, 200, 600, "Are You Stuggling?\nPress 3 to Access the Stop Gun\nIt Stops Things\nAny Object That is Moveable\nCan Be Stopped", 'Courier New', 25, '#000000', 'bold'),
-  ///Addition Text
-  new textCreator(true, 2250, 3600, "Go Here First →\n\nFucking Read It", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(true, 950, 3600, "Time To Be Reborn\n\nP- Pause\nO- FullScreen\nR- To Literally Kill Yourself\nW or Spacebar- Jump\nA- Left\nS- Push or Move Downwards\nD- Right", 'Courier New', 25, '#000000', 'bold'),
   //Arrows
-  new textCreator(true, 1900, 3500, "←", 'Courier New', 30, '#000000', 'bold'),
-  new textCreator(true, 1900, 3800, "↑", 'Courier New', 30, '#000000', 'bold'),
-  new textCreator(true, 1400, 3200, "←", 'Courier New', 30, '#000000', 'bold'),
-  new textCreator(true, 1050, 2900, "↓", 'Courier New', 30, '#000000', 'bold'),
-  new textCreator(true, 200, 3100, "↑", 'Courier New', 30, '#000000', 'bold'),
-  new textCreator(true, 1000, 3250, "←", 'Courier New', 30, '#000000', 'bold'),
-  new textCreator(true, 1000, 3250, "←", 'Courier New', 30, '#000000', 'bold'),
-  new textCreator(true, 300, 2700, "→", 'Courier New', 30, '#000000', 'bold'),
-  new textCreator(true, 500, 2600, "↑", 'Courier New', 30, '#000000', 'bold'),
-  new textCreator(true, 300, 2700, "→", 'Courier New', 30, '#000000', 'bold'),
-  new textCreator(true, 300, 2350, "←", 'Courier New', 30, '#000000', 'bold'),
-  new textCreator(true, 200, 1900, "↑", 'Courier New', 30, '#000000', 'bold'),
-  new textCreator(true, 400, 1525, "→", 'Courier New', 30, '#000000', 'bold'),
-  new textCreator(true, 1100, 1525, "↓", 'Courier New', 30, '#000000', 'bold'),
-  new textCreator(true, 2100, 2100, "↓", 'Courier New', 30, '#000000', 'bold'),
-  new textCreator(true, 2300, 2400, "→", 'Courier New', 30, '#000000', 'bold'),
-  new textCreator(true, 3500, 2200, "↑", 'Courier New', 30, '#000000', 'bold'),
-  new textCreator(true, 2400, 1000, "↑", 'Courier New', 30, '#000000', 'bold'),
-  new textCreator(true, 2900, 1000, "←", 'Courier New', 30, '#000000', 'bold'),
-  new textCreator(true, 2800, 600, "→", 'Courier New', 30, '#000000', 'bold'),
-  new textCreator(true, 3500, 1800, "→", 'Courier New', 30, '#000000', 'bold'),
+  // new textCreator(true, 1900, 3500, "←", 'Courier New', 30, '#000000', 'bold'),
+  // new textCreator(true, 1900, 3800, "↑", 'Courier New', 30, '#000000', 'bold'),
+  // new textCreator(true, 1400, 3200, "←", 'Courier New', 30, '#000000', 'bold'),
+  // new textCreator(true, 1050, 2900, "↓", 'Courier New', 30, '#000000', 'bold'),
+  // new textCreator(true, 200, 3100, "↑", 'Courier New', 30, '#000000', 'bold'),
+  // new textCreator(true, 1000, 3250, "←", 'Courier New', 30, '#000000', 'bold'),
+  // new textCreator(true, 1000, 3250, "←", 'Courier New', 30, '#000000', 'bold'),
+  // new textCreator(true, 300, 2700, "→", 'Courier New', 30, '#000000', 'bold'),
+  // new textCreator(true, 500, 2600, "↑", 'Courier New', 30, '#000000', 'bold'),
+  // new textCreator(true, 300, 2700, "→", 'Courier New', 30, '#000000', 'bold'),
+  // new textCreator(true, 300, 2350, "←", 'Courier New', 30, '#000000', 'bold'),
+  // new textCreator(true, 200, 1900, "↑", 'Courier New', 30, '#000000', 'bold'),
+  // new textCreator(true, 400, 1525, "→", 'Courier New', 30, '#000000', 'bold'),
+  // new textCreator(true, 1100, 1525, "↓", 'Courier New', 30, '#000000', 'bold'),
+  // new textCreator(true, 2100, 2100, "↓", 'Courier New', 30, '#000000', 'bold'),
+  // new textCreator(true, 2300, 2400, "→", 'Courier New', 30, '#000000', 'bold'),
+  // new textCreator(true, 3500, 2200, "↑", 'Courier New', 30, '#000000', 'bold'),
+  // new textCreator(true, 2400, 1000, "↑", 'Courier New', 30, '#000000', 'bold'),
+  // new textCreator(true, 2900, 1000, "←", 'Courier New', 30, '#000000', 'bold'),
+  // new textCreator(true, 2800, 600, "→", 'Courier New', 30, '#000000', 'bold'),
+  // new textCreator(true, 3500, 1800, "→", 'Courier New', 30, '#000000', 'bold'),
 ];
 
 //Push to worldClassLevelsGlobalArray

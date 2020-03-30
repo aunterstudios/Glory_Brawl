@@ -164,20 +164,17 @@ brawl.game.prototype.playerWall = function (player, wall) {
         wall.body.stop();
         wall.tint = tintWallPlayerFrozen;
     }
-    if (wall.name === wallPlayerFrozen) {
-        wall.body.stop();
-        player.body.stop();
-    }
     //Wall Surf
     if (wall.name === wallSurf) {
-        //Actual Collision Mechanics
-        // player.body.stop();
-        wall.name = wallSurfKiller;
         player.body.velocity.y = 0;
         wall.body.velocity.y = 0;
-        // wall.body.velocity.y += player.body.velocity.y;
-        wall.tint = tintWallSurfKiller;
     }
+    if (wall.name === wallSurfKiller) {
+        player.body.stop();
+        wall.body.stop();
+        this.game.physics.arcade.moveToPointer(wall, 200);
+    }
+    //Wall Inverse
     if (wall.name === wallInverse) {
         wall.body.stop();
         player.body.stop();
@@ -206,6 +203,13 @@ brawl.game.prototype.playerWall = function (player, wall) {
         }
         if (player.body.touching.left || player.body.touching.right) {
             wall.body.velocity.y = 150;
+        }
+    }
+    if (wall.name === wallInverseKiller) {
+        player.body.velocity.y = -500;
+        wall.body.velocity.y = 50;
+        if (player.body.touching.up) {
+            wall.body.velocity.y = -300;
         }
     }
     ///////////////////////////////Special Walls///////////////////////////

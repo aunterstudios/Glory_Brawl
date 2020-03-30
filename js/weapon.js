@@ -22,6 +22,24 @@ brawl.game.prototype.weaponHandler = function (weapon, sprite) {
                 sprite.name = wallRegular;
                 sprite.tint = tintRemover;
             }
+            //Surf Walls
+            if (sprite.name === wallSurf) {
+                sprite.name = wallSurfKiller;
+                sprite.tint = tintWallSurfKiller;
+            }
+            else if (sprite.name === wallSurfKiller) {
+                sprite.name = wallSurf;
+                sprite.tint = tintWallSurf;
+            }
+            //Inverse Walls
+            if (sprite.name === wallInverse) {
+                sprite.name = wallInverseKiller;
+                sprite.tint = tintWallInverseKiller;
+            }
+            else if (sprite.name === wallInverseKiller) {
+                sprite.name = wallInverse;
+                sprite.tint = tintWallInverse;
+            }
             //Ghost Walls
             if (sprite.name === wallGhost) {
                 sprite.name = wallGhostKiller;
