@@ -11,7 +11,7 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     this.player.tint = Phaser.Color.GREEN;
     // this.player.alpha = this.game.rnd.realInRange(.5, 1);
     // this.player.tint = Phaser.Color.getRandomColor(50, 255, 255);
-    this.player.body.setSize(36, 55.5, 13, 6);
+    this.player.body.setSize(34, 55.5, 15, 7);
     // this.player.body.bounce.y = 0;
     this.player.body.mass = 6; //6
     this.player.body.gravity.y = playerGravity;

@@ -530,7 +530,7 @@ level_0.undeniableDeathSpawn = [
 /////////////////////////Creation of ImmovableWalls
 level_0.immovableWallSpawn = [
   new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 0, 4000, 0, 0, 1.8, .5, 0, 0, null, null),
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 1000, 3600, 0, 0, .5, .5, 0, 0, null, null),
+  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 1000, 3000, 0, 0, .5, 1, 0, 0, null, null),
   
 ];
 
@@ -1094,6 +1094,9 @@ level_4.immovableWallSpawn = [
   //Ground
   new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 300, 1600, 0, 0, 1.2, .25, 0, 0, null, null),
   new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 700, 1000, 0, 0, .5, .5, 0, 0, null, null),
+  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 400, 1000, 0, 0, .5, .5, 0, 0, null, null),
+
+  new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 800, 1000, 0, 0, 1.2, .25, 0, 0, null, null),
 ];
 
 //Moveable Walls
