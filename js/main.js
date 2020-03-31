@@ -512,7 +512,7 @@ var level_0 = new LevelCreator("Level 0-CL", 3000, 4000, new MetroidvaniaCreator
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_0.playerPosition = [
   new PlayerPositionCreator(200, 200),
-  new PlayerPositionCreator(1200, 3900),
+  new PlayerPositionCreator(300, 3900),
   new PlayerPositionCreator(1250, 2000),
   new PlayerPositionCreator(2600, 600),
 ]
@@ -530,6 +530,7 @@ level_0.undeniableDeathSpawn = [
 /////////////////////////Creation of ImmovableWalls
 level_0.immovableWallSpawn = [
   new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 0, 4000, 0, 0, 1.8, .5, 0, 0, null, null),
+  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 1000, 3600, 0, 0, .5, .5, 0, 0, null, null),
   
 ];
 
@@ -549,7 +550,7 @@ level_0.flagSpawn = [
 
 //Text Creator (Helpful Hints)
 level_0.text = [
-  new textCreator(true, 950, 3600, "Time To Be Reborn\n\nP- Pause\nO- FullScreen\nR- To Literally Kill Yourself\nW or Spacebar- Jump\nA- Left\nS- Push or Move Downwards\nD- Right", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(true, 200, 3500, "Time To Be Reborn\n\nP- Pause\nO- FullScreen\nR- To Literally Kill Yourself\nW or Spacebar- Jump\nA- Left\nS- Push or Move Downwards\nD- Right", 'Courier New', 25, '#000000', 'bold'),
   //Arrows
   // new textCreator(true, 1900, 3500, "←", 'Courier New', 30, '#000000', 'bold'),
   // new textCreator(true, 1900, 3800, "↑", 'Courier New', 30, '#000000', 'bold'),
