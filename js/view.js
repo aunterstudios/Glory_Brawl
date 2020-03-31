@@ -53,3 +53,16 @@ brawl.game.prototype.cameraChange = function () {
         this.game.camera.unfollow();
     }
 };
+
+///////////////////////////////////////////////Slow Motion///////////////////////////////////////////
+brawl.game.prototype.slowMotionActivate = function () {
+    if (slowMotionLimit > 0) {
+        slowMotionLimit--;
+        this.game.time.slowMotion = 3.0;
+        this.game.time.events.add(5000, this.slowMotionStop, this);
+    }
+};
+
+brawl.game.prototype.slowMotionStop = function () {
+    this.game.time.slowMotion = 1.0;
+};

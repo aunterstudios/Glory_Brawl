@@ -121,6 +121,9 @@ var cameraBoolean = true;
 // Global Timer
 var total = 0;
 
+//Slow Motion
+var slowMotionLimit = 3;
+
 // Total Deaths
 var deaths = 0;
 
@@ -520,17 +523,20 @@ level_0.playerPosition = [
 ///////////////////////Creation of Undeniable Death
 
 level_0.undeniableDeathSpawn = [
-  //Leftward Boundary
-  // new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 0, 0, 0, 0, .25, 2.5, 0, 0, null, null),
-  /////////////////////////Make Sure You Don't Have to Re-Do From the Launch Pad//////////////////////
-  new SpriteCreator(true, true, undeniableDeathRegular, deathHorizontal, 1800, 2800, 0, 0, 1.427, .5, 0, 0, null, null),
-  ///Border Left Bottom
+  //Little Death to Prevent Running At Wall Cheese Glitch
+  new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 1469, 3810, 0, 0, .39, .09, 0, 0, null, null),
+  ///Force You to Double Jump
+  new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 1469, 2400, 0, 0, .39, .428, 0, 0, null, null),
+  //Holds The Second Ground Wall
+  new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 850, 1700, 0, 0, .39, .428, 0, 0, null, null),
 ];
 
 /////////////////////////Creation of ImmovableWalls
 level_0.immovableWallSpawn = [
   new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 0, 4000, 0, 0, 1.8, .5, 0, 0, null, null),
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 1000, 3000, 0, 0, .5, 1, 0, 0, null, null),
+  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 1469, 3000, 0, 0, .5, .95, 0, 0, null, null),
+  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 850, 2300, 0, 0, .5, .95, 0, 0, null, null),
+  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 1469, 1591, 0, 0, .5, .95, 0, 0, null, null),
   
 ];
 
@@ -550,7 +556,12 @@ level_0.flagSpawn = [
 
 //Text Creator (Helpful Hints)
 level_0.text = [
-  new textCreator(true, 200, 3500, "Time To Be Reborn\n\nP- Pause\nO- FullScreen\nR- To Literally Kill Yourself\nW or Spacebar- Jump\nA- Left\nS- Push or Move Downwards\nD- Right", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(true, 150, 3500, "Time To Be Reborn\n\nP- Pause\nO- FullScreen\nR- To Literally Kill Yourself\nW or Spacebar- Jump\nA- Left\nS- Push or Move Downwards\nD- Right", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(true, 1100, 3700, "Double Jump", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(true, 1100, 3400, "Hold D and Tap A\n\nTo Fast Climb", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(true, 1100, 3100, "Move Left\n\nThen Double Jump", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(true, 1100, 2750, "Hold A and Tap D\n\nThis Time", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(true, 1100, 2450, "Move Right\n\nThen.....", 'Courier New', 25, '#000000', 'bold'),
   //Arrows
   // new textCreator(true, 1900, 3500, "←", 'Courier New', 30, '#000000', 'bold'),
   // new textCreator(true, 1900, 3800, "↑", 'Courier New', 30, '#000000', 'bold'),

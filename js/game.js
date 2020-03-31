@@ -441,13 +441,13 @@ brawl.game.prototype = {
     //     }
     // }
     /////////////////////////Debugging + Timer///////////////////////////
-    render: function () {
-        // this.game.debug.text('Elapsed seconds: ' + this.game.time.totalElapsedSeconds(), 32, 32);
-        // this.game.debug.text('Global Timer: ' + total, 32, 32);
-        // this.game.debug.text('Heat Timer: ' + total, 32, 64);
-        this.game.debug.body(this.player);
-        // this.game.debug.physicsGroup(this.weapon1.bullets, '#ffffff');
-        //Debugging FPS
-        // this.game.debug.text(game.time.fps,500,500);
-    },
+    // render: function () {
+    //     // this.game.debug.text('Elapsed seconds: ' + this.game.time.totalElapsedSeconds(), 32, 32);
+    //     // this.game.debug.text('Global Timer: ' + total, 32, 32);
+    //     // this.game.debug.text('Heat Timer: ' + total, 32, 64);
+    //     this.game.debug.body(this.player);
+    //     // this.game.debug.physicsGroup(this.weapon1.bullets, '#ffffff');
+    //     //Debugging FPS
+    //     // this.game.debug.text(game.time.fps,500,500);
+    // },
 };
