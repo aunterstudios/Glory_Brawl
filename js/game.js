@@ -264,12 +264,16 @@ brawl.game.prototype = {
 
             }
             else if (onNone) {
-                this.player.frame = 2;
+                if (this.player.body.velocity.x === 0) {
+                    this.player.frame = 2;
+                }
                 if (this.movementLeft.isDown && !this.movementRight.isDown) {
                     this.player.body.velocity.x = -playerSpeed;
+                    this.player.frame = 8;
                 }
                 else if (this.movementRight.isDown && !this.movementLeft.isDown) {
                     this.player.body.velocity.x = playerSpeed;
+                    this.player.frame = 14;
                 }
                 else if (this.movementLeft.isDown && this.movementRight.isDown) {
                     this.player.body.velocity.x = 0;
@@ -284,7 +288,15 @@ brawl.game.prototype = {
 
             //Downward Mechanics
             if (this.movementDown.isDown) {
-                this.player.frame = 3;
+                if (onNone || onUpsideDown || onTheGround) {
+                    this.player.frame = 3;
+                }
+                else if (onTheLeftSide) {
+                    this.player.frame = 13;
+                }
+                else if (onTheRightSide) {
+                    this.player.frame = 7;
+                }
                 this.player.body.velocity.y = playerDownwards;
             }
         }
@@ -409,13 +421,13 @@ brawl.game.prototype = {
     //     }
     // }
     /////////////////////////Debugging + Timer///////////////////////////
-    // render: function () {
-    //     // this.game.debug.text('Elapsed seconds: ' + this.game.time.totalElapsedSeconds(), 32, 32);
-    //     // this.game.debug.text('Global Timer: ' + total, 32, 32);
-    //     // this.game.debug.text('Heat Timer: ' + total, 32, 64);
-    //     // this.game.debug.body(this.player);
-    //     // this.game.debug.physicsGroup(this.weapon1.bullets, '#ffffff');
-    //     //Debugging FPS
-    //     // this.game.debug.text(game.time.fps,500,500);
-    // },
+    render: function () {
+        // this.game.debug.text('Elapsed seconds: ' + this.game.time.totalElapsedSeconds(), 32, 32);
+        // this.game.debug.text('Global Timer: ' + total, 32, 32);
+        // this.game.debug.text('Heat Timer: ' + total, 32, 64);
+        this.game.debug.body(this.player);
+        // this.game.debug.physicsGroup(this.weapon1.bullets, '#ffffff');
+        //Debugging FPS
+        // this.game.debug.text(game.time.fps,500,500);
+    },
 };
