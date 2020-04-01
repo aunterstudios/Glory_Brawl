@@ -25,7 +25,9 @@ brawl.game.prototype = {
         playerUpsideDownMovement = 100;
         playerDownwards = 400;
         //////////////////////Slow Motion Reset//////////////////
-        slowMotionLimit = 1;
+        slowMotionLimit = 3;
+        timerEvents = [];
+        this.game.time.slowMotion = 1.0;
         //////////////////////Weapon Attributes//////////////////////
         weaponFireRate = 500; //500
         weaponBulletSpeed = 500; //500
@@ -69,6 +71,8 @@ brawl.game.prototype = {
         this.load.image('enemy', 'assets/trumpface.png');
         //Emitter
         this.load.image('particles', 'assets/z2.png');
+        //Slow Motion Indicator
+        this.load.image('slowMotion', 'assets/z5SlowMotion.png');
         //Player
         this.load.spritesheet('player', 'assets/player.png', 64, 64);
     },
@@ -452,16 +456,16 @@ brawl.game.prototype = {
     //     }
     // }
     /////////////////////////Debugging + Timer///////////////////////////
-    render: function () {
-        // this.game.debug.text('Elapsed seconds: ' + this.game.time.totalElapsedSeconds(), 32, 32);
-        // this.game.debug.text('Global Timer: ' + total, 32, 32);
-        // this.game.debug.text('Heat Timer: ' + total, 32, 64);
-        this.game.debug.body(this.player);
-        this.game.debug.bodyInfo(this.player, 200, 200);
-        // this.game.debug.physicsGroup(this.death);
-        // this.game.debug.physicsGroup(this.immovableWall);
-        // this.game.debug.physicsGroup(this.weapon1.bullets, '#ffffff');
-        //Debugging FPS
-        // this.game.debug.text(game.time.fps,500,500);
-    },
+    // render: function () {
+    //     // this.game.debug.text('Elapsed seconds: ' + this.game.time.totalElapsedSeconds(), 32, 32);
+    //     // this.game.debug.text('Global Timer: ' + total, 32, 32);
+    //     // this.game.debug.text('Heat Timer: ' + total, 32, 64);
+    //     this.game.debug.body(this.player);
+    //     this.game.debug.bodyInfo(this.player, 200, 200);
+    //     // this.game.debug.physicsGroup(this.death);
+    //     // this.game.debug.physicsGroup(this.immovableWall);
+    //     // this.game.debug.physicsGroup(this.weapon1.bullets, '#ffffff');
+    //     //Debugging FPS
+    //     // this.game.debug.text(game.time.fps,500,500);
+    // },
 };

@@ -26,6 +26,19 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     this.player.animations.add('right', [13, 14, 15], 10, true);
     this.player.animations.add('upsideDownRight', [10, 11, 12], 10, true);
 
+    ///////////////////////Slow Motion Indicator////////////////////
+    this.slowMotionArray = [];
+    for (var i = 0; i < 3; i++) {
+        // this.slowMotionFollow = this.imageGroup.create(0, 0, slowMotion);
+        // this.slowMotionFollow = this.imageGroup.create(this.player.x + (i * 40), this.player.y - 50, slowMotion);
+        this.slowMotionFollow = this.imageGroup.create(i*100+50, 6208, slowMotion);
+        this.slowMotionFollow.fixedToCamera = true;
+        this.slowMotionFollow.cameraOffset.setTo(i*100+50, 700);
+        this.slowMotionFollow.name = slowMotion;
+        // this.slowMotionFollow.fixedToCamera = true;
+        this.slowMotionArray.push(this.slowMotionFollow);
+    }
+
     //////////////////Adding Weapons////////////////////
     /////////////Pull as Default
     pullBoolean = true;

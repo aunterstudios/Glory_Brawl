@@ -19,8 +19,21 @@ brawl.game.prototype.upInputIsActive = function (duration) {
 ////////////////////////////////////Continious Updating In Game////////////////////////
 //Images
 brawl.game.prototype.imageMovement = function () {
+    //Slow Motion
+    // this.slowMotionGroup.forEachAlive(function (slowMotion) {
+    //     if (this.game.physics.arcade.distanceBetween(slowMotion, this.player, false, true) > 50) {
+    //         this.game.physics.arcade.moveToObject(slowMotion, this.player, 400);
+    //     }
+    //     else {
+    //         slowMotion.body.stop();
+    //     }
+    // }, this);
+    //Images
     this.imageGroup.forEachAlive(function (image) {
-        image.rotation += 0.001;
+        // image.rotation += 0.001;
+        // if (image.name === slowMotion) {
+        //     this.game.physics.arcade.moveToObject(image, this.player, 400);
+        // }
     }, this);
 };
 

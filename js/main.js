@@ -125,8 +125,8 @@ var total = 0;
 var bmd;
 
 //Slow Motion
-var slowMotionLimit = 1;
-var timerEvents = [];
+var slowMotionLimit;
+var timerEvents;
 
 // Total Deaths
 var deaths = 0;
@@ -407,6 +407,9 @@ var spikeFall = 'spikeFall';
 
 //Flag
 var flag = 'flag';
+
+//Slow Motion
+var slowMotion = 'slowMotion';
 ///////////////////////////////////////////Tint Specific Art//////////////////////////////////////////////
 //Tint Remover 
 var tintRemover = 0xFFFFFF; //wallRegular (Removes Tint)
