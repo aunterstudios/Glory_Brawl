@@ -121,8 +121,12 @@ var cameraBoolean = true;
 // Global Timer
 var total = 0;
 
+//BMD
+var bmd;
+
 //Slow Motion
-var slowMotionLimit = 3;
+var slowMotionLimit = 1;
+var timerEvents = [];
 
 // Total Deaths
 var deaths = 0;
@@ -524,11 +528,13 @@ level_0.playerPosition = [
 
 level_0.undeniableDeathSpawn = [
   //Little Death to Prevent Running At Wall Cheese Glitch
-  new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 1469, 3810, 0, 0, .39, .09, 0, 0, null, null),
+  new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 1468, 3810, 0, 0, .41, .09, 0, 0, null, null),
+  // new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 1468, 3710, 0, 0, .43, .09, 0, 0, null, null),
+
   ///Force You to Double Jump
-  new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 1469, 2400, 0, 0, .39, .428, 0, 0, null, null),
+  new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 1468, 2400, 0, 0, .41, .428, 0, 0, null, null),
   //Holds The Second Ground Wall
-  new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 850, 1700, 0, 0, .39, .428, 0, 0, null, null),
+  new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 849, 1700, 0, 0, .41, .428, 0, 0, null, null),
 ];
 
 /////////////////////////Creation of ImmovableWalls
@@ -542,7 +548,17 @@ level_0.immovableWallSpawn = [
 
 //Moveable Walls
 ///Single Wall to Teach You  
-level_0.wallSpawn = [new SpriteCreator(true, true, wallRegular, wallHorizontal, 3500, 950, 0, 0, .5, .5, 0, 0, null, null)];
+// level_0.wallSpawn = [new SpriteCreator(true, true, wallSurf, wallHorizontal, 800, 3400, 0, 0, .5, .5, 0, 0, null, null)];
+
+level_0.ledgeSpawn = [
+  // //Surf
+  new SpriteCreator(true, true, surf, ledge, 800, 3400, 0, 0, .4, .4, 0, 0, null, null),
+
+  // //Bounce Ledges
+  // new SpriteCreator(2, true, true, bounce, ledge, 900, 390, 0, 0, .4, .4, 0, 0, null, null),
+  // //Surf Ledges
+  // new SpriteCreator(3, true, true, elevator, ledge, 200, 200, 0, 0, .4, .4, 0, 0, null, null),
+];
 
 //Ball
 level_0.ballSpawn = [new SpriteCreator(true, true, ballRegular, ball, 700, 1350, 0, 0, null, null, 0, 0, null, null)];
@@ -1425,4 +1441,11 @@ if (wall.name === immovableWallTeleportation) {
         //         }
         //     };
         // }
+*/
+
+/////Playing Around with Delta
+/*
+if (this.player.body.deltaAbsY() > 10) {
+            this.player.kill();
+        }
 */

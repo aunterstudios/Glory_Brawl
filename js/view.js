@@ -58,11 +58,13 @@ brawl.game.prototype.cameraChange = function () {
 brawl.game.prototype.slowMotionActivate = function () {
     if (slowMotionLimit > 0) {
         slowMotionLimit--;
+        this.game.time.desiredFps = 180;
         this.game.time.slowMotion = 3.0;
-        this.game.time.events.add(5000, this.slowMotionStop, this);
+        this.game.time.events.add(7000, this.slowMotionStop, this);
     }
 };
 
 brawl.game.prototype.slowMotionStop = function () {
+    this.game.time.desiredFps = 60;
     this.game.time.slowMotion = 1.0;
 };

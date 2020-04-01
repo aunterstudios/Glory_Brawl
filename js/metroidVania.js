@@ -218,14 +218,12 @@ brawl.game.prototype.deathState = function (victim, killer) {
     victim.kill();
     this.emitterFunction(victim);
     this.game.time.events.add(1000, this.deathSwitch, this);
-    // this.game.state.start('deathState', true, false, respawnHolder.indexOfCurrentWorld, respawnHolder.indexOfPlayerPosition, respawnHolder.metroidvania);
 };
 //Killing Yourself Literally
 brawl.game.prototype.killSelf = function () {
     this.player.kill();
     this.emitterFunction(this.player);
     this.game.time.events.add(1000, this.deathSwitch, this);
-    // this.game.state.start('deathState', true, false, respawnHolder.indexOfCurrentWorld, respawnHolder.indexOfPlayerPosition, respawnHolder.metroidvania);
 };
 //State Switch
 brawl.game.prototype.deathSwitch = function () {

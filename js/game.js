@@ -24,6 +24,8 @@ brawl.game.prototype = {
         playerUpsideDownVelocity = -200; //-100
         playerUpsideDownMovement = 100;
         playerDownwards = 400;
+        //////////////////////Slow Motion Reset//////////////////
+        slowMotionLimit = 1;
         //////////////////////Weapon Attributes//////////////////////
         weaponFireRate = 500; //500
         weaponBulletSpeed = 500; //500
@@ -113,7 +115,13 @@ brawl.game.prototype = {
         worldName = worldClassLevels[this.indexOfCurrentWorld].worldName
 
         ////////////////////////////////////////////Camera on Player///////////////////////////////////////////////////////////
-        this.cameraPlayer();
+        this.cameraPlayer()
+
+        //////////////////////////////////////////Creating BMD///////////////////////////////
+        // this.bmd = this.game.add.bitmapData(worldClassLevels[this.indexOfCurrentWorld].xOfWorld, worldClassLevels[this.indexOfCurrentWorld].yOfWorld);
+        // this.bmd.context.fillStyle = '#FF0000';
+
+        // this.bg = game.add.sprite(0, 0, this.bmd);
 
         //World
         this.text = this.game.add.text(200, 6208, worldName, { font: "20px Arial", fill: "#000000", align: "center" });
@@ -124,6 +132,8 @@ brawl.game.prototype = {
     update: function () {
         ////////////////////////////////////FPS Debugging////////////////////////////////////////
         // console.log(this.game.time.fps);
+        // this.bmd.context.fillRect(this.player.x-100, this.player.y-100, 50, 50);
+        // this.bmd.dirty = true;
         ////////////////////////////////////////Continious Collision//////////////////////////////////
         //Images
         this.imageMovement();
@@ -224,7 +234,7 @@ brawl.game.prototype = {
                 }
             }
             else if (onTheRightSide) {
-                this.player.body.setSize(30, 53, 19, 10);
+                this.player.body.setSize(30, 52, 19, 10);
                 if (onWall || onImmovable) {
                     this.player.body.velocity.x = playerStickiness;
                     this.player.body.velocity.y = playerSlippery; //100 is original
@@ -238,7 +248,7 @@ brawl.game.prototype = {
                 }
             }
             else if (onTheLeftSide) {
-                this.player.body.setSize(30, 53, 15, 10);
+                this.player.body.setSize(30, 52, 15, 10);
                 if (onWall || onImmovable) {
                     this.player.body.velocity.x = -playerStickiness;
                     this.player.body.velocity.y = playerSlippery; //100 is Original
@@ -441,13 +451,16 @@ brawl.game.prototype = {
     //     }
     // }
     /////////////////////////Debugging + Timer///////////////////////////
-    // render: function () {
-    //     // this.game.debug.text('Elapsed seconds: ' + this.game.time.totalElapsedSeconds(), 32, 32);
-    //     // this.game.debug.text('Global Timer: ' + total, 32, 32);
-    //     // this.game.debug.text('Heat Timer: ' + total, 32, 64);
-    //     this.game.debug.body(this.player);
-    //     // this.game.debug.physicsGroup(this.weapon1.bullets, '#ffffff');
-    //     //Debugging FPS
-    //     // this.game.debug.text(game.time.fps,500,500);
-    // },
+    render: function () {
+        // this.game.debug.text('Elapsed seconds: ' + this.game.time.totalElapsedSeconds(), 32, 32);
+        // this.game.debug.text('Global Timer: ' + total, 32, 32);
+        // this.game.debug.text('Heat Timer: ' + total, 32, 64);
+        this.game.debug.body(this.player);
+        this.game.debug.bodyInfo(this.player, 200, 200);
+        // this.game.debug.physicsGroup(this.death);
+        // this.game.debug.physicsGroup(this.immovableWall);
+        // this.game.debug.physicsGroup(this.weapon1.bullets, '#ffffff');
+        //Debugging FPS
+        // this.game.debug.text(game.time.fps,500,500);
+    },
 };
