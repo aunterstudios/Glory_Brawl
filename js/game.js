@@ -208,11 +208,10 @@ brawl.game.prototype = {
             this.jumping = false;
         }
 
-        //Player Standing Still
+        //////////////////////////////////Player Motion//////////////////////////
+        //Standing Still
+        // this.player.body.acceleration.x = 0;
         this.player.body.velocity.x = 0;
-
-        // //Player Angle Still
-        // this.player.angle = 0;
 
         //////////////////////////////////////////WASD Controls and Player Touch Mechanics//////////////////////////////////////////////
         //Camera Focused on Player
@@ -221,10 +220,12 @@ brawl.game.prototype = {
                 //Set HitBox Size
                 this.player.body.setSize(34, 55.5, 15, 7);
                 if (this.movementLeft.isDown && !this.movementRight.isDown) {
+                    // this.player.body.acceleration.x = -30000;
                     this.player.body.velocity.x = -playerSpeed;
                     this.player.animations.play('left');
                 }
                 else if (this.movementRight.isDown && !this.movementLeft.isDown) {
+                    // this.player.body.acceleration.x = 30000;
                     this.player.body.velocity.x = playerSpeed;
                     this.player.animations.play('right');
                 }
@@ -234,7 +235,7 @@ brawl.game.prototype = {
                 }
             }
             else if (onTheRightSide) {
-                this.player.body.setSize(30, 52, 19, 10);
+                this.player.body.setSize(30, 50, 19, 10);
                 if (onWall || onImmovable) {
                     this.player.body.velocity.x = playerStickiness;
                     this.player.body.velocity.y = playerSlippery; //100 is original
@@ -248,7 +249,7 @@ brawl.game.prototype = {
                 }
             }
             else if (onTheLeftSide) {
-                this.player.body.setSize(30, 52, 15, 10);
+                this.player.body.setSize(30, 50, 15, 10);
                 if (onWall || onImmovable) {
                     this.player.body.velocity.x = -playerStickiness;
                     this.player.body.velocity.y = playerSlippery; //100 is Original

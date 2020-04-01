@@ -550,15 +550,15 @@ level_0.immovableWallSpawn = [
 ///Single Wall to Teach You  
 // level_0.wallSpawn = [new SpriteCreator(true, true, wallSurf, wallHorizontal, 800, 3400, 0, 0, .5, .5, 0, 0, null, null)];
 
-level_0.ledgeSpawn = [
-  // //Surf
-  new SpriteCreator(true, true, surf, ledge, 800, 3400, 0, 0, .4, .4, 0, 0, null, null),
+// level_0.ledgeSpawn = [
+//   // //Surf
+//   new SpriteCreator(true, true, surf, ledge, 800, 3400, 0, 0, .4, .4, 0, 0, null, null),
 
-  // //Bounce Ledges
-  // new SpriteCreator(2, true, true, bounce, ledge, 900, 390, 0, 0, .4, .4, 0, 0, null, null),
-  // //Surf Ledges
-  // new SpriteCreator(3, true, true, elevator, ledge, 200, 200, 0, 0, .4, .4, 0, 0, null, null),
-];
+//   // //Bounce Ledges
+//   // new SpriteCreator(2, true, true, bounce, ledge, 900, 390, 0, 0, .4, .4, 0, 0, null, null),
+//   // //Surf Ledges
+//   // new SpriteCreator(3, true, true, elevator, ledge, 200, 200, 0, 0, .4, .4, 0, 0, null, null),
+// ];
 
 //Ball
 level_0.ballSpawn = [new SpriteCreator(true, true, ballRegular, ball, 700, 1350, 0, 0, null, null, 0, 0, null, null)];
