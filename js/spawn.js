@@ -35,6 +35,9 @@ brawl.game.prototype.spriteGroupGenerator = function () {
     //Adding Flag Group
     this.flag = this.game.add.group();
     this.flag.enableBody = true;
+    //Slow Motion
+    this.slowMotionGroup = this.game.add.group();
+    this.slowMotionGroup.classType = Phaser.Image;
 
     /////////////////////Practice Specific Sprite Groups/////////////////
     /////////////////////Enemy Bullets///////////////

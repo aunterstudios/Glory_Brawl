@@ -28,10 +28,10 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
 
     ///////////////////////Slow Motion Indicator////////////////////
     this.slowMotionArray = [];
-    for (var i = 0; i < 3; i++) {
+    for (var i = 0; i < slowMotionLimit; i++) {
         // this.slowMotionFollow = this.imageGroup.create(0, 0, slowMotion);
         // this.slowMotionFollow = this.imageGroup.create(this.player.x + (i * 40), this.player.y - 50, slowMotion);
-        this.slowMotionFollow = this.imageGroup.create(i*100+50, 6208, slowMotion);
+        this.slowMotionFollow = this.slowMotionGroup.create(i*100+50, 6208, slowMotion);
         this.slowMotionFollow.fixedToCamera = true;
         this.slowMotionFollow.cameraOffset.setTo(i*100+50, 700);
         this.slowMotionFollow.name = slowMotion;

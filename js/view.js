@@ -58,7 +58,7 @@ brawl.game.prototype.cameraChange = function () {
 brawl.game.prototype.slowMotionActivate = function () {
     if (slowMotionLimit > 0) {
         slowMotionLimit--;
-        this.imageGroup.remove(this.slowMotionArray[slowMotionLimit]);
+        this.slowMotionGroup.remove(this.slowMotionArray[slowMotionLimit]);
         if (this.game.time.slowMotion === 3.0) {
             this.game.time.events.remove(timerEvents[0]);
         }
