@@ -48,9 +48,11 @@ brawl.game.prototype.cameraChange = function () {
     }
     if (cameraBoolean) {
         this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_LOCKON);
+        this.cameraImage.kill();
     }
     else {
         this.game.camera.unfollow();
+        this.cameraImage.revive();
     }
 };
 

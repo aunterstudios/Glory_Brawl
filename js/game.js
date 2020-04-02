@@ -75,6 +75,8 @@ brawl.game.prototype = {
         this.load.image('slowMotion', 'assets/z5SlowMotion.png');
         //Player
         this.load.spritesheet('player', 'assets/player.png', 64, 64);
+        //Camera
+        this.load.image('camera', 'assets/camera.png');
     },
     create: function () {
         //Desired FPS of game and fps and lag debugging

@@ -26,6 +26,12 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     this.player.animations.add('right', [13, 14, 15], 10, true);
     this.player.animations.add('upsideDownRight', [10, 11, 12], 10, true);
 
+    //Camera Indicator
+    this.cameraImage = this.game.add.image(0, 0, 'camera');
+    this.cameraImage.fixedToCamera = true;
+    this.cameraImage.cameraOffset.setTo(200, 100);
+    this.cameraImage.kill();
+
     ///////////////////////Slow Motion Indicator////////////////////
     this.slowMotionArray = [];
     for (var i = 0; i < slowMotionLimit; i++) {
