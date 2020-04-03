@@ -30,6 +30,7 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     this.cameraImage = this.game.add.image(0, 0, 'camera');
     this.cameraImage.fixedToCamera = true;
     this.cameraImage.cameraOffset.setTo(200, 100);
+    //Kill Right Away To Remove it From View Then to Revive
     this.cameraImage.kill();
 
     ///////////////////////Slow Motion Indicator////////////////////

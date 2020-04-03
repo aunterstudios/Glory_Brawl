@@ -517,7 +517,7 @@ var experimental_Level5 = {
 };
 
 ///////////////////////////////////////////Level 0///////////////////////////////////////////////////////////
-var level_0 = new LevelCreator("Level 0-CL", 3000, 4000, new MetroidvaniaCreator(1, 100, 0, 4200, 0, 1, 0, 3800), "#ffffff"); //3800
+var level_0 = new LevelCreator("Level 0-CL", 3000, 4000, new MetroidvaniaCreator(1, 100, 0, 4200, 0, 1, 0, 3800), "#ff99ff"); //3800
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_0.playerPosition = [
@@ -538,14 +538,22 @@ level_0.undeniableDeathSpawn = [
   new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 1468, 2400, 0, 0, .41, .428, 0, 0, null, null),
   //Holds The Second Ground Wall
   new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 849, 1700, 0, 0, .41, .428, 0, 0, null, null),
+  //Divider For The First Half
+  new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 1468, 200, 0, 0, .41, .992, 0, 0, null, null),
 ];
 
 /////////////////////////Creation of ImmovableWalls
 level_0.immovableWallSpawn = [
+  //Ground
   new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 0, 4000, 0, 0, 1.8, .5, 0, 0, null, null),
+  //First Wall (Double Jump)
   new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 1469, 3000, 0, 0, .5, .95, 0, 0, null, null),
+  //Second Wall (And Then...)
   new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 850, 2300, 0, 0, .5, .95, 0, 0, null, null),
+  //Before Jumping To the Landing Pad
   new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 1469, 1591, 0, 0, .5, .95, 0, 0, null, null),
+  //Landing Pad (Once You Touching a Surface You Can Double Jump)
+  new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 0, 1635, 0, 0, 1.08, .5, 0, 0, null, null),
   
 ];
 
@@ -564,7 +572,7 @@ level_0.immovableWallSpawn = [
 // ];
 
 //Ball
-level_0.ballSpawn = [new SpriteCreator(true, true, ballRegular, ball, 700, 1350, 0, 0, null, null, 0, 0, null, null)];
+// level_0.ballSpawn = [new SpriteCreator(true, true, ballRegular, ball, 700, 1350, 0, 0, null, null, 0, 0, null, null)];
 
 //FLag Respawn
 level_0.flagSpawn = [
@@ -581,6 +589,7 @@ level_0.text = [
   new textCreator(true, 1100, 3100, "Move Left\n\nThen Double Jump", 'Courier New', 25, '#000000', 'bold'),
   new textCreator(true, 1100, 2750, "Hold A and Tap D\n\nThis Time", 'Courier New', 25, '#000000', 'bold'),
   new textCreator(true, 1100, 2450, "Move Right\n\nThen.....", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(true, 150, 1400, "Once You Hit A Surface\n\nThis is Fucking Important\n\nYou Can Double Jump Again", 'Courier New', 25, '#000000', 'bold'),
   //Arrows
   // new textCreator(true, 1900, 3500, "←", 'Courier New', 30, '#000000', 'bold'),
   // new textCreator(true, 1900, 3800, "↑", 'Courier New', 30, '#000000', 'bold'),
