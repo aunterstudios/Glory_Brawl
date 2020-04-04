@@ -121,8 +121,11 @@ var cameraBoolean = true;
 // Global Timer
 var total = 0;
 
-//BMD
-var bmd;
+//BMD Text (Toggle On or Off)
+// var bitmapBoolean = true;
+var bitmapBoolean = false;
+//BMD Font
+var fontGrind = 'fontGrind';
 
 //Slow Motion
 var slowMotionLimit;
@@ -282,19 +285,17 @@ class flagCreator {
 //   }
 // };
 
-//Creates the Text Class
+//Creating Bitmap Text Class
 class textCreator {
-  constructor(trigger, x, y, textInput, font, fontSize, fill, fontWeight) {
+  constructor(trigger, x, y, textInput, font, fontSize) {
     this.trigger = trigger;
     this.x = x;
     this.y = y;
     this.textInput = textInput;
     this.font = font;
     this.fontSize = fontSize;
-    this.fill = fill;
-    this.fontWeight = fontWeight;
   }
-};
+}
 
 /////////////////////////List of GROUP NAMES of Each Sprite (For Different Special Properties)////////////////
 /*
@@ -517,7 +518,7 @@ var experimental_Level5 = {
 };
 
 ///////////////////////////////////////////Level 0///////////////////////////////////////////////////////////
-var level_0 = new LevelCreator("Level 0-CL", 3000, 4000, new MetroidvaniaCreator(1, 100, 0, 4200, 0, 1, 0, 3800), "#ff99ff"); //3800
+var level_0 = new LevelCreator("The Beginning", 3000, 4000, new MetroidvaniaCreator(1, 100, 0, 4200, 0, 1, 0, 3800), "#ffffff"); //3800
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_0.playerPosition = [
@@ -583,13 +584,13 @@ level_0.flagSpawn = [
 
 //Text Creator (Helpful Hints)
 level_0.text = [
-  new textCreator(true, 150, 3500, "Time To Be Reborn\n\nP- Pause\nO- FullScreen\nR- To Literally Kill Yourself\nW or Spacebar- Jump\nA- Left\nS- Push or Move Downwards\nD- Right", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(true, 1100, 3700, "Double Jump", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(true, 1100, 3400, "Hold D and Tap A\n\nTo Fast Climb", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(true, 1100, 3100, "Move Left\n\nThen Double Jump", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(true, 1100, 2750, "Hold A and Tap D\n\nThis Time", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(true, 1100, 2450, "Move Right\n\nThen.....", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(true, 150, 1400, "Once You Hit A Surface\n\nThis is Fucking Important\n\nYou Can Double Jump Again", 'Courier New', 25, '#000000', 'bold'),
+  new textCreator(true, 150, 3500, "Time To Be Reborn\n\nP- Pause\nO- FullScreen\nW or Spacebar- Jump\nA- Left\nS- Push or Move Downwards\nD- Right", fontGrind, 25),
+  new textCreator(true, 1100, 3700, "Double Jump", fontGrind, 25),
+  new textCreator(true, 1100, 3400, "Hold D and Tap A\n\nTo Fast Climb", fontGrind, 25),
+  new textCreator(true, 1100, 3100, "Move Left\n\nThen Double Jump", fontGrind, 25),
+  new textCreator(true, 1100, 2750, "Hold A and Tap D\n\nThis Time", fontGrind, 25),
+  new textCreator(true, 1100, 2450, "Move Right\n\nThen.....", fontGrind, 25),
+  new textCreator(true, 150, 1400, "Once You Hit A Surface\n\nThis is Fucking Important\n\nYou Can Double Jump Again", fontGrind, 25),
   //Arrows
   // new textCreator(true, 1900, 3500, "←", 'Courier New', 30, '#000000', 'bold'),
   // new textCreator(true, 1900, 3800, "↑", 'Courier New', 30, '#000000', 'bold'),
@@ -751,35 +752,6 @@ level_1.flagSpawn = [
 ];
 
 //Text Creator (Helpful Hints)
-level_1.text = [
-  //Marker For Level 0
-  //Entry to Level 0
-  new textCreator(true, 600, 2950, "Level 0 ↓", 'Courier New', 25, '#000000', 'bold'),
-  //Entry to Level 1 (Lets See if You Remember!)
-  new textCreator(true, 550, 2550, "Get On The Wall and Surfs Up\n\nRemember to Use A Combination of Your Guns\n\nAlso If You Haven't Realized Fuckhead\n\nYou Can Stick To The Bottom", 'Courier New', 25, '#000000', 'bold'),
-  //WolfGang Kill Them-Pull The Wall
-  new textCreator(true, 600, 2000, "It's All About Pulling The Wall Along\n\nAs You Jump And Shoot\n\nRemember To Press S To Push Downwards\n\nAnd To Use The Different Guns Idiot!", 'Courier New', 25, '#000000', 'bold'),
-  //Stick to the Side
-  new textCreator(true, 600, 1350, "You Can Stick To The Side\n\nIt Stablizes The Wall", 'Courier New', 25, '#000000', 'bold'),
-  //These Kill Walls (Wasn't So Bad)
-  new textCreator(true, 600, 450, "These Kill Walls By The Way\n\n\n\n\n\n\n\n\nThat Wasn't So Bad Was It?\n\nI Hope This Was Easy\n\nOr Else You're Straight Fucked", 'Courier New', 25, '#000000', 'bold'),
-  //Control Wall First Text
-  new textCreator(true, 1600, 300, "These Walls Stop Movement\n\nAs Soon As You Touch It\n\nPress S To Push Down", 'Courier New', 25, '#000000', 'bold'),
-  //First Horizontal Inverse Wall
-  new textCreator(true, 2800, 2550, "These Walls Are Special\n\nIt Will Move Based On\n\nWhich Side You're On\n\nGet On Top of It", 'Courier New', 25, '#000000', 'bold'),
-  //First Vertical Inverse Wall
-  new textCreator(true, 4100, 400, "Stick To The Side Of This\n\nOr Get On Top\n\nIt Will Move Depending\n\nWhich Side You're On\n\nOh Yeah Press S To Push Down!!!", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(true, 4800, 1400, "The Push Gun Works Here Pretty Well", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(true, 4300, 2000, "Remember You Can Double Jump Again\n\nOnce You Hit A Fucking Surface", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(true, 5555, 2600, "Walls Transform\n\nBased What Hits It", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(true, 5540, 1800, "Oh Yeah\n\nYou Can Stick Upside Down", 'Courier New', 25, '#000000', 'bold')
-  ,
-  new textCreator(true, 2800, 2050, "Move From Side To Side\n\nOr Even Jump", 'Courier New', 25, '#000000', 'bold')
-  ,
-  //Level 1 ↑
-  new textCreator(true, 5625, 50, "Level 2 ↑", 'Courier New', 25, '#000000', 'bold')
-
-];
 
 //Push Level 1 Into World Class Array
 worldClassLevels.push(level_1);
@@ -922,36 +894,6 @@ level_2.flagSpawn = [
 ];
 
 //Text Creator (Helpful Hints)
-level_2.text = [
-  //Entry to Level 0
-  new textCreator(true, 100, 3150, "Level 1 ↓", 'Courier New', 25, '#000000', 'bold'),
-  //Camera Mode
-  new textCreator(false, 80, 2800, "Press 4 to Toggle Free-Look(WASD to Move)", 'Courier New', 25, '#000000', 'bold'),
-  //Grey Ledge Tutorial
-  new textCreator(true, 850, 2300, "Pull the Yellow Ledge Towards You\n\nGet on Top of the Yellow Ledge", 'Courier New', 25, '#000000', 'bold'),
-  //Where to Land Grey Ledge
-  new textCreator(true, 300, 1850, "Jump Down to the Yellow Ledge at the Bottom\n\nHold S To Slow Down Your Fall", 'Courier New', 25, '#000000', 'bold'),
-  //Green Ledge Tutorial
-  new textCreator(true, 900, 1525, "Trust the Green Ledges at the Bottom", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(true, 1500, 1600, "↓", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(true, 1600, 3000, "Green Ledges Make You Bounce", 'Courier New', 25, '#000000', 'bold'),
-  //Blue Ledge Tutorial
-  new textCreator(true, 1850, 200, "You Can Surf Blue Ledges(Control By Going Left or Right)\n\nLand Perfectly in the Middle of the Blue Ledge\n\nHolding S Lets You Descend Faster (Obviously)", 'Courier New', 25, '#000000', 'bold'),
-  //Kill Instructions
-  new textCreator(true, 80, 250, "Press 4 to Access Kill Gun\n\nAny Object that is Moveable can be Killed", 'Courier New', 25, '#000000', 'bold'),
-  //These Kill Walls
-  //////////////////////////////////Triggering After Special Flag in Level 2 is Reached/////////////////////////////
-  new textCreator(false, 650, 700, "Get The Ball To The Spikes", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(false, 80, 200, "Trying Using the Pull Gun\n\nOn The Walls Next Time", 'Courier New', 25, '#000000', 'bold'),
-  /////////////////////////////////Adding New Things////////////////////////////
-  new textCreator(true, 1700, 1300, "You Can Surf On Top of Surfaces", 'Courier New', 25, '#000000', 'bold'),
-  //Level Two Indicator
-  new textCreator(true, 25, 1225, "← Level 3", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(true, 150, 2850, "Hey Dumbass!\n\nRemember Shift is Free Look!\n\nWASD Movement", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(true, 2250, 2800, "Tap A or D\n\nThen Double Jump\n\nBack On To The Wall", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(true, 900, 2800, "If You Ever Fuck Up\n\nPress R To Kill Yourself\n\nTry It", 'Courier New', 25, '#000000', 'bold'),
-
-];
 
 //Push Level 2 Into World Class Array
 worldClassLevels.push(level_2);
@@ -1075,27 +1017,6 @@ level_3.flagSpawn = [
 ];
 
 //Text Creator (Helpful Hints)
-level_3.text = [
-  //Entry to Level 1
-  new textCreator(true, 4650, 650, "Level 2 →", 'Courier New', 25, '#000000', 'bold'),
-  //WolfGang Kill Them
-  new textCreator(true, 4250, 580, "Kill Them Before They Kill You\nYou Can Move Them Too", 'Courier New', 25, '#000000', 'bold'),
-  //Camera Mode
-  new textCreator(true, 2400, 400, "Learn How to Do the Free-Look Shot\n\nBullets Are Killed Off Screen\n\nFollow The Bullet\n\nPress Shift For Free Look (WASD Movement)", 'Courier New', 25, '#000000', 'bold'),
-  //Phase Wall
-  new textCreator(true, 400, 400, "These Orange Walls Are Killed\n\nBy Enemy Bullets\n\nThat Falling Red Thing Kills You", 'Courier New', 25, '#000000', 'bold'),
-  ////////////////////////////////////Shadow Level//////////////////////////////////
-  //Entry to Level 1
-  new textCreator(false, 4650, 650, "Level 2 →", 'Courier New', 25, '#ff0000', 'bold'),
-  //WolfGang Kill Them
-  new textCreator(false, 4250, 580, "I'll Always Be With You", 'Courier New', 25, '#ff0000', 'bold'),
-  //Camera Mode
-  new textCreator(false, 2250, 400, "Feel My Wrath", 'Courier New', 25, '#ff0000', 'bold'),
-  //Phase Wall
-  new textCreator(false, 400, 400, "This is A Level of The Shadow", 'Courier New', 25, '#ff0000', 'bold'),
-  /////////////////////////////New Text/////////////////
-  new textCreator(true, 1400, 200, "The Wall Can Be Used\n\nAgainst The Enemy\n\nThere's a Price Though", 'Courier New', 25, '#000000', 'bold'),
-];
 
 //Push Level 3 Into World Class Array
 worldClassLevels.push(level_3);
@@ -1405,36 +1326,6 @@ level_5.flagSpawn = [
 ];
 
 //Text Creator (Helpful Hints)
-level_5.text = [
-  //Entry to Level 1
-  new textCreator(true, 75, 3800, "← Level 2", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(true, 500, 3700, "Bring This With You\n\nYou're Going To Need It\n\nTill The Next Checkpoint", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(true, 500, 2900, "This New Wall Kills Everything\n\nThere's a Price To Use It\n\nYou're Going To Need It\n\nTill The Next Checkpoint", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(true, 1400, 2900, "Do I Need To Remind You Dumbass?\n\nDon't Forget To Use Free-Look\n\nAnd Your Fucking Guns", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(true, 1150, 3300, "An Unshootable Trap\n\nAvoid It\n\nOr Kill It Before\n\nIt Transforms", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(true, 1500, 3800, "Get The Wall To The Other Side\n\nUSE YOUR FUCKING GUN", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(true, 3650, 3600, "If You Didn't Realize Yet Fuckhead\n\nYou Could Stick To These Upside Down", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(true, 3500, 2200, "Move Left Or Right On This Wall", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(true, 2600, 2200, "You Can Shoot Through This Wall", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(true, 1150, 2200, "Stand Perfectly Still On The Wall And Believe", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(true, 100, 2200, "Breaking The Rules Of This World\n\nGets You Punished", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(true, 150, 1750, "Moveable With Your Gun\n\nYou Can Pass Through Walls\n\nIf You Perfectly Stand Still", 'Courier New', 25, '#000000', 'bold'),
-  //Hints For Ghost Wall
-  new textCreator(true, 4800, 3525, "Stick Upside Down For This To Work", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(true, 800, 1000, "You Need To Use All Your Guns\n\nExcept KILL Ofcourse", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(true, 1550, 1000, "PULL Depends On\n\nWhich Part\n\nYou Are On", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(true, 3000, 1000, "Use STOP\n\nStick To The Side\n\nThen PULL", 'Courier New', 25, '#000000', 'bold'),
-  new textCreator(true, 4800, 3800, "You Can KILL The Wall", 'Courier New', 25, '#000000', 'bold'),
-  //////////////////////////////////////The Yellow Shadow Level///////////////////////////////////////
-  new textCreator(false, 5100, 1700, "It Was Always About Being Free", 'Courier New', 25, '#ffffff', 'bold'),
-  new textCreator(false, 3800, 1700, "Breaking The Cage That Holds You", 'Courier New', 25, '#ffffff', 'bold'),
-  new textCreator(false, 2800, 1700, "To Let Go Of Your Rage", 'Courier New', 25, '#ffffff', 'bold'),
-  new textCreator(false, 1200, 1700, "To Move Foward", 'Courier New', 25, '#ffffff', 'bold'),
-  new textCreator(false, 500, 1700, "That's The Only Choice", 'Courier New', 25, '#ffffff', 'bold'),
-  new textCreator(false, 200, 1700, "← Level 2", 'Courier New', 25, '#ffffff', 'bold'),
-];
-
-
 
 //Push Level 5 Into World Class Array
 worldClassLevels.push(level_5);

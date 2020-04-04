@@ -78,7 +78,9 @@ brawl.game.prototype = {
         //Camera
         this.load.image('camera', 'assets/camera.png');
         //Bit Map Font
-        this.game.load.bitmapFont('myFont', 'assets/font.png', 'assets/font.fnt');
+        if (bitmapBoolean) {
+            this.game.load.bitmapFont('fontGrind', 'assets/fontGrind.png', 'assets/fontGrind.fnt');
+        }
     },
     create: function () {
         //Desired FPS of game and fps and lag debugging
@@ -131,14 +133,16 @@ brawl.game.prototype = {
 
         // this.bg = game.add.sprite(0, 0, this.bmd);
 
-        // //World
-        // this.text = this.game.add.text(200, 6208, worldName, { font: "20px Arial", fill: "#000000", align: "center" });
-        // this.text.fixedToCamera = true;
-        // this.text.cameraOffset.setTo(1100, 700);
-
-        this.text = this.game.add.bitmapText(200, 6208, 'myFont', worldName, 32);
-        this.text.fixedToCamera = true;
-        this.text.cameraOffset.setTo(1100, 700);
+        if (bitmapBoolean) {
+            this.text = this.game.add.bitmapText(200, 6208, 'fontGrind', worldName, 32);
+            this.text.fixedToCamera = true;
+            this.text.cameraOffset.setTo(1100, 700);
+        }
+        else {
+            this.text = this.game.add.text(200, 6208, worldName, { font: "20px Arial", fill: "#000000", align: "center" });
+            this.text.fixedToCamera = true;
+            this.text.cameraOffset.setTo(1100, 700);
+        }
     },
     // //How Game Updates Real-Time (Actual Controls)////
     update: function () {

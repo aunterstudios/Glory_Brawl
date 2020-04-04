@@ -62,29 +62,26 @@ brawl.story.prototype = {
     create: function () {
         this.game.stage.backgroundColor = this.backgroundColor;
         if (this.page === 0) {
-            var newText = new textCreator(null, 550, 200, "The Shadow is Eternal.\n\nI'm burned in your soul.\n\nWe Will Keep Doing This\n\nForever.", 'Courier New', 25, this.fontColor, 'bold');
-            this.text1 = this.game.add.text(newText.x, newText.y, newText.textInput);
-            this.text1.font = newText.font;
-            this.text1.fontSize = newText.fontSize;
-            this.text1.fill = newText.fill;
-            this.text1.fontWeight = newText.fontWeight;
+            this.text1 = this.game.add.text(550, 200, "The Shadow is Eternal.\n\nI'm burned in your soul.\n\nWe Will Keep Doing This\n\nForever.");
+            this.text1.font = 'Courier New'
+            this.text1.fontSize = 25;
+            this.text1.fill = this.fontColor;
+            this.text1.fontWeight = 'bold';
             this.text1.align = 'center';
         }
         else if (this.page === 1) {
-            var newText = new textCreator(null, 100, 200, "It's All A Lie\n\nWe've Never Been Reborn", 'Courier New', 25, this.fontColor, 'bold');
-            this.text1 = this.game.add.text(newText.x, newText.y, newText.textInput);
-            this.text1.font = newText.font;
-            this.text1.fontSize = newText.fontSize;
-            this.text1.fill = newText.fill;
-            this.text1.fontWeight = newText.fontWeight;
+            this.text1 = this.game.add.text(100, 200, "It's All A Lie\n\nWe've Never Been Reborn");
+            this.text1.font = 'Courier New'
+            this.text1.fontSize = 25;
+            this.text1.fill = this.fontColor;
+            this.text1.fontWeight = 'bold';
             this.text1.align = 'left';
         }
-        var spacebarToPlay = new textCreator(null, 590, 700, "Spacebar to Skip", 'Courier New', 25, this.fontColor, 'bold');
-        this.spaceBarPlay = this.game.add.text(spacebarToPlay.x, spacebarToPlay.y, spacebarToPlay.textInput);
-        this.spaceBarPlay.font = spacebarToPlay.font;
-        this.spaceBarPlay.fontSize = spacebarToPlay.fontSize;
-        this.spaceBarPlay.fill = spacebarToPlay.fill;
-        this.spaceBarPlay.fontWeight = spacebarToPlay.fontWeight;
+        this.spaceBarPlay = this.game.add.text(590, 700, "Spacebar to Skip");
+        this.spaceBarPlay.font = 'Courier New';
+        this.spaceBarPlay.fontSize = 25;
+        this.spaceBarPlay.fill = this.fontColor;
+        this.spaceBarPlay.fontWeight = 'bold';
     },
     update: function () {
         if (this.game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {

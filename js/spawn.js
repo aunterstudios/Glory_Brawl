@@ -340,12 +340,17 @@ brawl.game.prototype.textCreator = function (sprite, positionInArray) {
     if (this.toggleConsoleLog) {
         console.log(sprite, positionInArray);
     }
-    this.text1 = this.game.add.text(sprite.x, sprite.y, sprite.textInput);
-    this.text1.font = sprite.font;
-    this.text1.fontSize = sprite.fontSize;
-    this.text1.fill = sprite.fill;
-    this.text1.fontWeight = sprite.fontWeight;
-    this.text1.positionInArray = positionInArray
+    if (bitmapBoolean) {
+        this.text1 = this.game.add.bitmapText(sprite.x, sprite.y, sprite.font, sprite.textInput, sprite.fontSize);
+    }
+    else {
+        this.text1 = this.game.add.text(sprite.x, sprite.y, sprite.textInput);
+        this.text1.font = 'Courier New'
+        this.text1.fontSize = 25;
+        this.text1.fill = '#000000';
+        this.text1.fontWeight = 'bold';
+    }
+    this.text1.positionInArray = positionInArray;
 };
 
 

@@ -59,19 +59,17 @@ brawl.stateControls.prototype = {
     preload: function () {
     },
     create: function () {
-        var newText = new textCreator(null, 100, 200, "I know you don't know what's going on.\n\nBut we've been here countless times.\n\nDoing the same thing over and over again.\n\nTrying to become reborn again.\n\nTo defeat The Shadow.\n\nSo I ask you to remember the words.\n\nGLORY BRAWL", 'Courier New', 25, '#ffffff', 'bold');
-        this.text1 = this.game.add.text(newText.x, newText.y, newText.textInput);
-        this.text1.font = newText.font;
-        this.text1.fontSize = newText.fontSize;
-        this.text1.fill = newText.fill;
-        this.text1.fontWeight = newText.fontWeight;
+        this.text1 = this.game.add.text(100, 200, "I know you don't know what's going on.\n\nBut we've been here countless times.\n\nDoing the same thing over and over again.\n\nTrying to become reborn again.\n\nTo defeat The Shadow.\n\nSo I ask you to remember the words.\n\nGLORY BRAWL");
+        this.text1.font = 'Courier New';
+        this.text1.fontSize = 25
+        this.text1.fill = '#ffffff';
+        this.text1.fontWeight = 'bold';
 
-        var pressXToPlay = new textCreator(null, 600, 700, "Press X to Play", 'Courier New', 25, '#ff0000', 'bold');
-        this.xToPlay = this.game.add.text(pressXToPlay.x, pressXToPlay.y, pressXToPlay.textInput);
-        this.xToPlay.font = pressXToPlay.font;
-        this.xToPlay.fontSize = pressXToPlay.fontSize;
-        this.xToPlay.fill = pressXToPlay.fill;
-        this.xToPlay.fontWeight = pressXToPlay.fontWeight;
+        this.xToPlay = this.game.add.text(600, 700, "Press X to Play");
+        this.xToPlay.font = 'Courier New';
+        this.xToPlay.fontSize = 25;
+        this.xToPlay.fill = '#ff0000'
+        this.xToPlay.fontWeight = 'bold';
     },
     update: function () {
         if (this.game.input.keyboard.isDown(Phaser.Keyboard.X)) {
