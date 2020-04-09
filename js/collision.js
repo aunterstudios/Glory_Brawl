@@ -1,6 +1,6 @@
 //////////////////////////////////////Physics Handlers Between Objects////////////////////////////
 //Dealing With Sprite Specific vs Group Deaths (Objects Kiling Each Other)
-brawl.game.prototype.bulletsAndSpikes = function (victim, killer) {
+brawl.game.prototype.trapProjectiles = function (victim, killer) {
     victim.kill();
     if (killer.name === 'immovableWallPhase') {
         this.emitterFunction(killer);
@@ -8,24 +8,26 @@ brawl.game.prototype.bulletsAndSpikes = function (victim, killer) {
     }
 };
 
-brawl.game.prototype.ledgeEnemyDeath = function (le, death) {
-    // le.body.stop();
-    if (le.body.touching.up) {
-        le.body.velocity.y = le.velocityVsWallY;
-    }
-    if (le.body.touching.down) {
-        le.body.velocity.y = -le.velocityVsWallY;
-    }
-    if (le.body.touching.left) {
-        le.body.velocity.x = le.velocityVsWallX;
-    }
-    if (le.body.touching.right) {
-        le.body.velocity.x = -le.velocityVsWallX;
-    }
-    return;
-};
-
 brawl.game.prototype.immovableMoveable = function (immovable, obj2) {
+    ////////////////////Ball Against Spikes///////////////
+    if (immovable.groupName === groupSpikes && obj2.groupName === groupBall) {
+        immovable.destroy();
+        this.emitterFunction(obj2);
+        //Removes Localized Sprites from Regenerating (Spikes)
+        if (immovable.specialCondition === 0) {
+            //Destruction of Localized Sprite
+            worldClassLevels[this.indexOfCurrentWorld].undeniableDeathSpawn[immovable.positionInArray].trigger = false;
+        }
+        //Removes Sprites from Different Levels (Spikes)
+        else if (immovable.specialCondition === 1) {
+            worldClassLevels[this.indexOfCurrentWorld].undeniableDeathSpawn[immovable.positionInArray].trigger = false;
+            //Destruction of a sprite at a different level
+            worldClassLevels[immovable.specialWorld].undeniableDeathSpawn[immovable.specialArray].trigger = false;
+        }
+        //////////////////////////Creates New Sprites After Spikes Destroyed///////////////////////
+        //worldClassLevels[immovable.specialWorld].ledgeGreySpawn[immovable.specialArray].trigger = true;
+    }
+    //////////////////////////Wall Effects////////////////////////////
     if (immovable.name === immovableWallPadding) {
         // obj2.body.stop();
         obj2.body.bounce.setTo(1.3)
@@ -34,11 +36,7 @@ brawl.game.prototype.immovableMoveable = function (immovable, obj2) {
         // obj2.tint = tintImmovableWallMagnet;
         ////Maybe Kill This Later///
     }
-    /////////////////////////Only Ball Specific/////////////////
-    // if (obj2.groupName === groupBall) {
-    //     obj2.body.stop();
-    // }
-    ///////////////////////The Rest Applies to Every Object///////////////////
+    ///////////////////////Motion to Every Object///////////////////
     if (obj2.body.touching.up) {
         obj2.body.velocity.y = obj2.velocityVsWallY;
     }
@@ -58,8 +56,8 @@ brawl.game.prototype.wallImmovable = function (wall, immovable) {
     ////////////////Interactions Coded in the Orientation of Immovable Walls//////////////////
     // wall.body.stop();
     if (immovable.name === immovableWallKillWall) {
-        wall.destroy();
         this.emitterFunction(wall);
+        wall.destroy();
     }
     return;
 };
@@ -237,7 +235,7 @@ brawl.game.prototype.playerWall = function (player, wall) {
 
     return;
 };
-brawl.game.prototype.playerProcessArgument = function (player, wall) {
+brawl.game.prototype.playerWallProcessArgument = function (player, wall) {
     if (wall.name === wallRegularKiller) {
         return false;
     }
@@ -245,6 +243,16 @@ brawl.game.prototype.playerProcessArgument = function (player, wall) {
         return true;
     }
 };
+
+// brawl.game.prototype.playerLedgeProcessArgument = function (player, ledge) {
+//     if (player.body.touching) {
+//         return true;
+//     }
+//     else {
+//         return false;
+//     }
+// };
+
 brawl.game.prototype.playerBall = function (player, ball) {
     /////////////////////GOOOFY///////////////
     // ball.body.stop();
@@ -319,39 +327,4 @@ brawl.game.prototype.playerLedge = function (player, ledge) {
             // console.log(player.body.touching.left, 'left', player.body.touching.right, 'right')
         }
     }
-};
-//Ball Interaction With Different Objects
-brawl.game.prototype.ballHandler = function (ball, sprite2) {
-    if (sprite2.groupName === groupEnemy || sprite2.groupName === groupSpikes) {
-        sprite2.destroy();
-        this.emitterFunction(sprite2);
-        //Removes Localized Sprites from Regenerating (Spikes)
-        if (sprite2.specialCondition === 0) {
-            //Destruction of Localized Sprite
-            worldClassLevels[this.indexOfCurrentWorld].undeniableDeathSpawn[sprite2.positionInArray].trigger = false;
-        }
-        //Removes Sprites from Different Levels (Spikes)
-        else if (sprite2.specialCondition === 1) {
-            worldClassLevels[this.indexOfCurrentWorld].undeniableDeathSpawn[sprite2.positionInArray].trigger = false;
-            //Destruction of a sprite at a different level
-            worldClassLevels[sprite2.specialWorld].undeniableDeathSpawn[sprite2.specialArray].trigger = false;
-        }
-        //////////////////////////Creates New Sprites After Spikes Destroyed///////////////////////
-        //worldClassLevels[sprite2.specialWorld].ledgeGreySpawn[sprite2.specialArray].trigger = true;
-    }
-    //////////////////////Otherwise Collision Mechanics//////////////////
-    // ball.body.stop();
-    if (ball.body.touching.up) {
-        ball.body.velocity.y = ball.velocityVsWallY;
-    }
-    if (ball.body.touching.down) {
-        ball.body.velocity.y = -ball.velocityVsWallY;
-    }
-    if (ball.body.touching.left) {
-        ball.body.velocity.x = ball.velocityVsWallX;
-    }
-    if (ball.body.touching.right) {
-        ball.body.velocity.x = -ball.velocityVsWallX;
-    }
-    return;
 };

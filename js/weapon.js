@@ -54,7 +54,7 @@ brawl.game.prototype.weaponHandler = function (weapon, sprite) {
     weapon.kill();
 };
 //Let Weapon Fire Pass Through
-brawl.game.prototype.weaponGhost = function (weapon, ghost) {
+brawl.game.prototype.weaponProcessArgument = function (weapon, ghost) {
     if (ghost.name === wallCloud) {
         return false;
     }

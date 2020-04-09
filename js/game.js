@@ -151,7 +151,7 @@ brawl.game.prototype = {
         // this.bmd.context.fillRect(this.player.x-100, this.player.y-100, 50, 50);
         // this.bmd.dirty = true;
         ////////////////////////////////////////Continious Collision//////////////////////////////////
-        //Images
+        //Images Moving
         this.imageMovement();
         ///Enemies Attacking
         this.enemyAttack();
@@ -159,10 +159,10 @@ brawl.game.prototype = {
         this.wallSpecial(); //Work in Progress
         ////Immovable Walls
         this.immovableWallContinious();
-        ////////////////////////Physics////////////////////////
+        ///////////////////////////////////////////Physics////////////////////////////////////////
         //Player Mechanics
         var onImmovable = this.game.physics.arcade.collide(this.player, this.immovableWall, this.playerImmovable, null, this);
-        var onWall = this.game.physics.arcade.collide(this.player, this.wall, this.playerWall, this.playerProcessArgument, this);
+        var onWall = this.game.physics.arcade.collide(this.player, this.wall, this.playerWall, this.playerWallProcessArgument, this);
         var onLedge = this.game.physics.arcade.collide(this.player, this.ledge, this.playerLedge, null, this);
         var onBall = this.game.physics.arcade.collide(this.player, this.ball, this.playerBall, null, this);
         //Death Mechanics (Game State Change)
@@ -172,29 +172,19 @@ brawl.game.prototype = {
         this.game.physics.arcade.overlap(this.player, this.flag, this.respawn, null, this);
 
         //Weapon Mechanics
-        this.game.physics.arcade.overlap([this.weapon1.bullets, this.weapon2.bullets, this.weapon3.bullets, this.weapon4.bullets], [this.ball, this.wall, this.ledge, this.enemy, this.immovableWall, this.death], this.weaponHandler, this.weaponGhost, this);
+        this.game.physics.arcade.overlap([this.weapon1.bullets, this.weapon2.bullets, this.weapon3.bullets, this.weapon4.bullets], [this.ball, this.wall, this.ledge, this.enemy, this.immovableWall, this.death], this.weaponHandler, this.weaponProcessArgument, this);
 
-        //Immovable Wall vs Moveable Objects
-        this.game.physics.arcade.collide(this.immovableWall, [this.ball, this.ledge, this.enemy], this.immovableMoveable, null, this);
+        //Immovable Wall and Death vs. Moveable Objects
+        this.game.physics.arcade.collide([this.immovableWall, this.death], [this.ball, this.ledge, this.enemy], this.immovableMoveable, null, this);
 
-        //Moveable Wall vs Immoveable Objects and Itself
+        //Moveable Wall vs Immoveable Wall and Death
         this.game.physics.arcade.collide(this.wall, [this.immovableWall, this.death], this.wallImmovable, this.ghostWall, this);
 
         //Movable Wall Mechanics vs. Moveable Objects (NOT ITSELF) (OVERLAP)
         this.game.physics.arcade.overlap(this.wall, [this.ledge, this.ball, this.enemy], this.wallMoveable, null, this);
-        // this.game.physics.arcade.collide(this.wall, [this.ledge, this.ball, this.enemy], this.wallMoveable, null, this);
 
-        //Enemy Bullet and Falling Spike Mechanics
-        this.game.physics.arcade.overlap([this.enemyBullets, this.fallingSpikes], [this.ball, this.wall, this.immovableWall, this.ledge, this.death], this.bulletsAndSpikes, null, this);
-
-        // Ball Mechanics
-        this.game.physics.arcade.collide(this.ball, [this.ledge, this.enemy, this.death], this.ballHandler, null, this);
-
-        //Ledge and Enemy Interactions With Death
-        this.game.physics.arcade.collide([this.ledge, this.enemy], this.death, this.ledgeEnemyDeath, null, this);
-
-        //Enemy Interactions With Each other (Tabled For Now)
-        // this.game.physics.arcade.overlap(this.enemy, this.enemy, this.deathTwo, null, this)
+        //Enemy Bullet and Falling Spike Mechanics (trapProjectiles)
+        this.game.physics.arcade.overlap([this.enemyBullets, this.fallingSpikes], [this.ball, this.wall, this.immovableWall, this.ledge, this.death], this.trapProjectiles, null, this);
 
         ////////////////////////////////Actual Controls////////////////////////////////
 

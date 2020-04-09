@@ -38,9 +38,9 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     for (var i = 0; i < slowMotionLimit; i++) {
         // this.slowMotionFollow = this.imageGroup.create(0, 0, slowMotion);
         // this.slowMotionFollow = this.imageGroup.create(this.player.x + (i * 40), this.player.y - 50, slowMotion);
-        this.slowMotionFollow = this.slowMotionGroup.create(i*100+50, 6208, slowMotion);
+        this.slowMotionFollow = this.slowMotionGroup.create(i * 100 + 50, 6208, slowMotion);
         this.slowMotionFollow.fixedToCamera = true;
-        this.slowMotionFollow.cameraOffset.setTo(i*100+50, 700);
+        this.slowMotionFollow.cameraOffset.setTo(i * 100 + 50, 700);
         this.slowMotionFollow.name = slowMotion;
         // this.slowMotionFollow.fixedToCamera = true;
         this.slowMotionArray.push(this.slowMotionFollow);
@@ -248,144 +248,145 @@ brawl.game.prototype.killSelf = function () {
 //State Switch
 brawl.game.prototype.deathSwitch = function () {
     this.game.state.start('deathState', true, false, respawnHolder.indexOfCurrentWorld, respawnHolder.indexOfPlayerPosition, respawnHolder.metroidvania);
-},
-    //Character Respawn
-    brawl.game.prototype.respawn = function (player, flag) {
-        flag.destroy();
-        respawnHolder.indexOfCurrentWorld = this.indexOfCurrentWorld;
-        respawnHolder.indexOfPlayerPosition = flag.indexOfPlayerPosition;
-        respawnHolder.metroidvania = this.metroidvania;
-        ///////////////////The Double Loops of Death//////////////////
-        if (flag.specialHandler) {
-            if ('undeniableDeathInsert' in flag.specialHandler) {
-                for (var i = 0; i < flag.specialHandler.specialWorld.length; i++) {
-                    for (var j = 0; j < flag.specialHandler.undeniableDeathInsert[i].length; j++) {
-                        worldClassLevels[flag.specialHandler.specialWorld[i]].undeniableDeathSpawn[flag.specialHandler.undeniableDeathInsert[i][j]].trigger = true;
-                    }
+};
+
+//Character Respawn
+brawl.game.prototype.respawn = function (player, flag) {
+    flag.destroy();
+    respawnHolder.indexOfCurrentWorld = this.indexOfCurrentWorld;
+    respawnHolder.indexOfPlayerPosition = flag.indexOfPlayerPosition;
+    respawnHolder.metroidvania = this.metroidvania;
+    ///////////////////The Double Loops of Death//////////////////
+    if (flag.specialHandler) {
+        if ('undeniableDeathInsert' in flag.specialHandler) {
+            for (var i = 0; i < flag.specialHandler.specialWorld.length; i++) {
+                for (var j = 0; j < flag.specialHandler.undeniableDeathInsert[i].length; j++) {
+                    worldClassLevels[flag.specialHandler.specialWorld[i]].undeniableDeathSpawn[flag.specialHandler.undeniableDeathInsert[i][j]].trigger = true;
                 }
-            }
-            if ('undeniableDeathRemove' in flag.specialHandler) {
-                for (var i = 0; i < flag.specialHandler.specialWorld.length; i++) {
-                    for (var j = 0; j < flag.specialHandler.undeniableDeathRemove[i].length; j++) {
-                        worldClassLevels[flag.specialHandler.specialWorld[i]].undeniableDeathSpawn[flag.specialHandler.undeniableDeathRemove[i][j]].trigger = false;
-                    }
-                }
-            }
-            if ('immovableWallInsert' in flag.specialHandler) {
-                for (var i = 0; i < flag.specialHandler.specialWorld.length; i++) {
-                    for (var j = 0; j < flag.specialHandler.immovableWallInsert[i].length; j++) {
-                        worldClassLevels[flag.specialHandler.specialWorld[i]].immovableWallSpawn[flag.specialHandler.immovableWallInsert[i][j]].trigger = true;
-                    }
-                }
-            }
-            if ('immovableWallRemove' in flag.specialHandler) {
-                for (var i = 0; i < flag.specialHandler.specialWorld.length; i++) {
-                    for (var j = 0; j < flag.specialHandler.immovableWallRemove[i].length; j++) {
-                        worldClassLevels[flag.specialHandler.specialWorld[i]].immovableWallSpawn[flag.specialHandler.immovableWallRemove[i][j]].trigger = false;
-                    }
-                }
-            }
-            if ('wallInsert' in flag.specialHandler) {
-                for (var i = 0; i < flag.specialHandler.specialWorld.length; i++) {
-                    for (var j = 0; j < flag.specialHandler.wallInsert[i].length; j++) {
-                        worldClassLevels[flag.specialHandler.specialWorld[i]].wallSpawn[flag.specialHandler.wallInsert[i][j]].trigger = true;
-                    }
-                }
-            }
-            if ('wallRemove' in flag.specialHandler) {
-                for (var i = 0; i < flag.specialHandler.specialWorld.length; i++) {
-                    for (var j = 0; j < flag.specialHandler.wallRemove[i].length; j++) {
-                        worldClassLevels[flag.specialHandler.specialWorld[i]].wallSpawn[flag.specialHandler.wallRemove[i][j]].trigger = false;
-                    }
-                }
-            }
-            if ('ledgeInsert' in flag.specialHandler) {
-                for (var i = 0; i < flag.specialHandler.specialWorld.length; i++) {
-                    for (var j = 0; j < flag.specialHandler.ledgeInsert[i].length; j++) {
-                        worldClassLevels[flag.specialHandler.specialWorld[i]].ledgeSpawn[flag.specialHandler.ledgeInsert[i][j]].trigger = true;
-                    }
-                }
-            }
-            if ('ledgeRemove' in flag.specialHandler) {
-                for (var i = 0; i < flag.specialHandler.specialWorld.length; i++) {
-                    for (var j = 0; j < flag.specialHandler.ledgeRemove[i].length; j++) {
-                        worldClassLevels[flag.specialHandler.specialWorld[i]].ledgeSpawn[flag.specialHandler.ledgeRemove[i][j]].trigger = false;
-                    }
-                }
-            }
-            if ('ballInsert' in flag.specialHandler) {
-                for (var i = 0; i < flag.specialHandler.specialWorld.length; i++) {
-                    for (var j = 0; j < flag.specialHandler.ballInsert[i].length; j++) {
-                        worldClassLevels[flag.specialHandler.specialWorld[i]].ballSpawn[flag.specialHandler.ballInsert[i][j]].trigger = true;
-                    }
-                }
-            }
-            if ('ballRemove' in flag.specialHandler) {
-                for (var i = 0; i < flag.specialHandler.specialWorld.length; i++) {
-                    for (var j = 0; j < flag.specialHandler.ballRemove[i].length; j++) {
-                        worldClassLevels[flag.specialHandler.specialWorld[i]].ballSpawn[flag.specialHandler.ballRemove[i][j]].trigger = false;
-                    }
-                }
-            }
-            if ('enemyInsert' in flag.specialHandler) {
-                for (var i = 0; i < flag.specialHandler.specialWorld.length; i++) {
-                    for (var j = 0; j < flag.specialHandler.enemyInsert[i].length; j++) {
-                        worldClassLevels[flag.specialHandler.specialWorld[i]].enemySpawn[flag.specialHandler.enemyInsert[i][j]].trigger = true;
-                    }
-                }
-            }
-            if ('enemyRemove' in flag.specialHandler) {
-                for (var i = 0; i < flag.specialHandler.specialWorld.length; i++) {
-                    for (var j = 0; j < flag.specialHandler.enemyRemove[i].length; j++) {
-                        worldClassLevels[flag.specialHandler.specialWorld[i]].enemySpawn[flag.specialHandler.enemyRemove[i][j]].trigger = false;
-                    }
-                }
-            }
-            if ('fallingSpikesInsert' in flag.specialHandler) {
-                for (var i = 0; i < flag.specialHandler.specialWorld.length; i++) {
-                    for (var j = 0; j < flag.specialHandler.fallingSpikesInsert[i].length; j++) {
-                        worldClassLevels[flag.specialHandler.specialWorld[i]].fallingSpikes[flag.specialHandler.fallingSpikesInsert[i][j]].trigger = true;
-                    }
-                }
-            }
-            if ('fallingSpikesRemove' in flag.specialHandler) {
-                for (var i = 0; i < flag.specialHandler.specialWorld.length; i++) {
-                    for (var j = 0; j < flag.specialHandler.fallingSpikesRemove[i].length; j++) {
-                        worldClassLevels[flag.specialHandler.specialWorld[i]].fallingSpikes[flag.specialHandler.fallingSpikesRemove[i][j]].trigger = false;
-                    }
-                }
-            }
-            if ('flagInsert' in flag.specialHandler) {
-                for (var i = 0; i < flag.specialHandler.specialWorld.length; i++) {
-                    for (var j = 0; j < flag.specialHandler.flagInsert[i].length; j++) {
-                        worldClassLevels[flag.specialHandler.specialWorld[i]].flagSpawn[flag.specialHandler.flagInsert[i][j]].trigger = true;
-                    }
-                }
-            }
-            if ('flagRemove' in flag.specialHandler) {
-                for (var i = 0; i < flag.specialHandler.specialWorld.length; i++) {
-                    for (var j = 0; j < flag.specialHandler.flagRemove[i].length; j++) {
-                        worldClassLevels[flag.specialHandler.specialWorld[i]].flagSpawn[flag.specialHandler.flagRemove[i][j]].trigger = false;
-                    }
-                }
-            }
-            if ('textInsert' in flag.specialHandler) {
-                for (var i = 0; i < flag.specialHandler.specialWorld.length; i++) {
-                    for (var j = 0; j < flag.specialHandler.textInsert[i].length; j++) {
-                        worldClassLevels[flag.specialHandler.specialWorld[i]].text[flag.specialHandler.textInsert[i][j]].trigger = true;
-                    }
-                }
-            }
-            if ('textRemove' in flag.specialHandler) {
-                for (var i = 0; i < flag.specialHandler.specialWorld.length; i++) {
-                    for (var j = 0; j < flag.specialHandler.textRemove[i].length; j++) {
-                        worldClassLevels[flag.specialHandler.specialWorld[i]].text[flag.specialHandler.textRemove[i][j]].trigger = false;
-                    }
-                }
-            }
-            if ('storyTrigger' in flag.specialHandler) {
-                worldClassLevels[flag.specialHandler.storyTrigger.level].backgroundColor = flag.specialHandler.storyTrigger.backgroundColor;
-                this.game.state.start('story', true, false, respawnHolder.indexOfCurrentWorld, respawnHolder.indexOfPlayerPosition, respawnHolder.metroidvania, flag.specialHandler.storyTrigger.page, flag.specialHandler.storyTrigger.backgroundColor, flag.specialHandler.storyTrigger.fontColor);
             }
         }
-    };
+        if ('undeniableDeathRemove' in flag.specialHandler) {
+            for (var i = 0; i < flag.specialHandler.specialWorld.length; i++) {
+                for (var j = 0; j < flag.specialHandler.undeniableDeathRemove[i].length; j++) {
+                    worldClassLevels[flag.specialHandler.specialWorld[i]].undeniableDeathSpawn[flag.specialHandler.undeniableDeathRemove[i][j]].trigger = false;
+                }
+            }
+        }
+        if ('immovableWallInsert' in flag.specialHandler) {
+            for (var i = 0; i < flag.specialHandler.specialWorld.length; i++) {
+                for (var j = 0; j < flag.specialHandler.immovableWallInsert[i].length; j++) {
+                    worldClassLevels[flag.specialHandler.specialWorld[i]].immovableWallSpawn[flag.specialHandler.immovableWallInsert[i][j]].trigger = true;
+                }
+            }
+        }
+        if ('immovableWallRemove' in flag.specialHandler) {
+            for (var i = 0; i < flag.specialHandler.specialWorld.length; i++) {
+                for (var j = 0; j < flag.specialHandler.immovableWallRemove[i].length; j++) {
+                    worldClassLevels[flag.specialHandler.specialWorld[i]].immovableWallSpawn[flag.specialHandler.immovableWallRemove[i][j]].trigger = false;
+                }
+            }
+        }
+        if ('wallInsert' in flag.specialHandler) {
+            for (var i = 0; i < flag.specialHandler.specialWorld.length; i++) {
+                for (var j = 0; j < flag.specialHandler.wallInsert[i].length; j++) {
+                    worldClassLevels[flag.specialHandler.specialWorld[i]].wallSpawn[flag.specialHandler.wallInsert[i][j]].trigger = true;
+                }
+            }
+        }
+        if ('wallRemove' in flag.specialHandler) {
+            for (var i = 0; i < flag.specialHandler.specialWorld.length; i++) {
+                for (var j = 0; j < flag.specialHandler.wallRemove[i].length; j++) {
+                    worldClassLevels[flag.specialHandler.specialWorld[i]].wallSpawn[flag.specialHandler.wallRemove[i][j]].trigger = false;
+                }
+            }
+        }
+        if ('ledgeInsert' in flag.specialHandler) {
+            for (var i = 0; i < flag.specialHandler.specialWorld.length; i++) {
+                for (var j = 0; j < flag.specialHandler.ledgeInsert[i].length; j++) {
+                    worldClassLevels[flag.specialHandler.specialWorld[i]].ledgeSpawn[flag.specialHandler.ledgeInsert[i][j]].trigger = true;
+                }
+            }
+        }
+        if ('ledgeRemove' in flag.specialHandler) {
+            for (var i = 0; i < flag.specialHandler.specialWorld.length; i++) {
+                for (var j = 0; j < flag.specialHandler.ledgeRemove[i].length; j++) {
+                    worldClassLevels[flag.specialHandler.specialWorld[i]].ledgeSpawn[flag.specialHandler.ledgeRemove[i][j]].trigger = false;
+                }
+            }
+        }
+        if ('ballInsert' in flag.specialHandler) {
+            for (var i = 0; i < flag.specialHandler.specialWorld.length; i++) {
+                for (var j = 0; j < flag.specialHandler.ballInsert[i].length; j++) {
+                    worldClassLevels[flag.specialHandler.specialWorld[i]].ballSpawn[flag.specialHandler.ballInsert[i][j]].trigger = true;
+                }
+            }
+        }
+        if ('ballRemove' in flag.specialHandler) {
+            for (var i = 0; i < flag.specialHandler.specialWorld.length; i++) {
+                for (var j = 0; j < flag.specialHandler.ballRemove[i].length; j++) {
+                    worldClassLevels[flag.specialHandler.specialWorld[i]].ballSpawn[flag.specialHandler.ballRemove[i][j]].trigger = false;
+                }
+            }
+        }
+        if ('enemyInsert' in flag.specialHandler) {
+            for (var i = 0; i < flag.specialHandler.specialWorld.length; i++) {
+                for (var j = 0; j < flag.specialHandler.enemyInsert[i].length; j++) {
+                    worldClassLevels[flag.specialHandler.specialWorld[i]].enemySpawn[flag.specialHandler.enemyInsert[i][j]].trigger = true;
+                }
+            }
+        }
+        if ('enemyRemove' in flag.specialHandler) {
+            for (var i = 0; i < flag.specialHandler.specialWorld.length; i++) {
+                for (var j = 0; j < flag.specialHandler.enemyRemove[i].length; j++) {
+                    worldClassLevels[flag.specialHandler.specialWorld[i]].enemySpawn[flag.specialHandler.enemyRemove[i][j]].trigger = false;
+                }
+            }
+        }
+        if ('fallingSpikesInsert' in flag.specialHandler) {
+            for (var i = 0; i < flag.specialHandler.specialWorld.length; i++) {
+                for (var j = 0; j < flag.specialHandler.fallingSpikesInsert[i].length; j++) {
+                    worldClassLevels[flag.specialHandler.specialWorld[i]].fallingSpikes[flag.specialHandler.fallingSpikesInsert[i][j]].trigger = true;
+                }
+            }
+        }
+        if ('fallingSpikesRemove' in flag.specialHandler) {
+            for (var i = 0; i < flag.specialHandler.specialWorld.length; i++) {
+                for (var j = 0; j < flag.specialHandler.fallingSpikesRemove[i].length; j++) {
+                    worldClassLevels[flag.specialHandler.specialWorld[i]].fallingSpikes[flag.specialHandler.fallingSpikesRemove[i][j]].trigger = false;
+                }
+            }
+        }
+        if ('flagInsert' in flag.specialHandler) {
+            for (var i = 0; i < flag.specialHandler.specialWorld.length; i++) {
+                for (var j = 0; j < flag.specialHandler.flagInsert[i].length; j++) {
+                    worldClassLevels[flag.specialHandler.specialWorld[i]].flagSpawn[flag.specialHandler.flagInsert[i][j]].trigger = true;
+                }
+            }
+        }
+        if ('flagRemove' in flag.specialHandler) {
+            for (var i = 0; i < flag.specialHandler.specialWorld.length; i++) {
+                for (var j = 0; j < flag.specialHandler.flagRemove[i].length; j++) {
+                    worldClassLevels[flag.specialHandler.specialWorld[i]].flagSpawn[flag.specialHandler.flagRemove[i][j]].trigger = false;
+                }
+            }
+        }
+        if ('textInsert' in flag.specialHandler) {
+            for (var i = 0; i < flag.specialHandler.specialWorld.length; i++) {
+                for (var j = 0; j < flag.specialHandler.textInsert[i].length; j++) {
+                    worldClassLevels[flag.specialHandler.specialWorld[i]].text[flag.specialHandler.textInsert[i][j]].trigger = true;
+                }
+            }
+        }
+        if ('textRemove' in flag.specialHandler) {
+            for (var i = 0; i < flag.specialHandler.specialWorld.length; i++) {
+                for (var j = 0; j < flag.specialHandler.textRemove[i].length; j++) {
+                    worldClassLevels[flag.specialHandler.specialWorld[i]].text[flag.specialHandler.textRemove[i][j]].trigger = false;
+                }
+            }
+        }
+        if ('storyTrigger' in flag.specialHandler) {
+            worldClassLevels[flag.specialHandler.storyTrigger.level].backgroundColor = flag.specialHandler.storyTrigger.backgroundColor;
+            this.game.state.start('story', true, false, respawnHolder.indexOfCurrentWorld, respawnHolder.indexOfPlayerPosition, respawnHolder.metroidvania, flag.specialHandler.storyTrigger.page, flag.specialHandler.storyTrigger.backgroundColor, flag.specialHandler.storyTrigger.fontColor);
+        }
+    }
+};

@@ -589,7 +589,7 @@ level_0.text = [
   new textCreator(true, 1100, 3400, "Hold D and Tap A\n\nTo Fast Climb", fontGrind, 25),
   new textCreator(true, 1100, 3100, "Move Left\n\nThen Double Jump", fontGrind, 25),
   new textCreator(true, 1100, 2750, "Hold A and Tap D\n\nThis Time", fontGrind, 25),
-  new textCreator(true, 1100, 2450, "Move Right\n\nThen.....", fontGrind, 25),
+  new textCreator(true, 1100, 2450, "Move Right\n\nThen Double Jump", fontGrind, 25),
   new textCreator(true, 150, 1400, "Once You Hit A Surface\n\nThis is Fucking Important\n\nYou Can Double Jump Again", fontGrind, 25),
   //Arrows
   // new textCreator(true, 1900, 3500, "←", 'Courier New', 30, '#000000', 'bold'),
@@ -1046,7 +1046,7 @@ level_4.undeniableDeathSpawn = [
   //Bottom At The End of the Map (INVISIBLE)
   new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 2800, 0, 0, 0, .25, 1.1, 0, 0, null, null),
   new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 0, 0, 0, 0, .25, 1.1, 0, 0, null, null),
-  // new SpriteCreator(0, true, true, undeniableDeathRegular, deathHorizontal, 300, 400, 0, 0, .5, .5, 0, 0, null, null),
+  // new SpriteCreator(true, true, spikesRegular, spikesVertical, 700, 800, 0, 0, .25, 1.1, 0, 0, 0, null),
 ];
 
 /////////////////////////Creation of ImmovableWalls
@@ -1086,7 +1086,7 @@ level_4.enemySpawn = [
 
 // //Ball
 level_4.ballSpawn = [
-  new SpriteCreator(true, true, ballRegular, ball, 800, 400, 0, 0, null, null, 0, 0, null, null)
+  new SpriteCreator(true, true, ballRegular, ball, 200, 400, 0, 0, null, null, 0, 0, null, null)
 ];
 
 //Push Level 4 Into World Class Array
