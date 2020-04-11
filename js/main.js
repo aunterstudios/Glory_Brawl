@@ -1073,16 +1073,18 @@ level_4.wallSpawn = [
 level_4.ledgeSpawn = [
   // //Surf
   new SpriteCreator(true, true, surf, ledge, 1100, 200, 0, 0, .4, .4, 0, 0, null, null),
+  new SpriteCreator(true, true, elevator, ledge, 1200, 800, 0, 0, .4, .4, 0, 0, null, null),
+  new SpriteCreator(true, true, bounce, ledge, 1300, 600, 0, 0, .4, .4, 0, 0, null, null),
 ];
 
-// //Enemy Spawn
-level_4.enemySpawn = [
-  // new SpriteCreator(0, true, true, enemyDaakath, enemyOne, 400, 200, 0, 0, .5, .5, 0, 0, null, null),
-  new SpriteCreator(true, true, enemyShooter, enemyOne, 1200, 300, 0, 0, .5, .5, 0, 0, null, null),
-  new SpriteCreator(true, true, enemyAccelerate, enemyOne, 1400, 300, 0, 0, .5, .5, 0, 0, null, null),
-  new SpriteCreator(true, true, enemyDaakath, enemyOne, 1600, 300, 0, 0, .5, .5, 0, 0, null, null),
-  new SpriteCreator(true, true, enemyAccelerate, enemyOne, 1800, 300, 0, 0, .5, .5, 0, 0, null, null),
-];
+// // //Enemy Spawn
+// level_4.enemySpawn = [
+//   // new SpriteCreator(0, true, true, enemyDaakath, enemyOne, 400, 200, 0, 0, .5, .5, 0, 0, null, null),
+//   new SpriteCreator(true, true, enemyShooter, enemyOne, 1200, 300, 0, 0, .5, .5, 0, 0, null, null),
+//   new SpriteCreator(true, true, enemyAccelerate, enemyOne, 1400, 300, 0, 0, .5, .5, 0, 0, null, null),
+//   new SpriteCreator(true, true, enemyDaakath, enemyOne, 1600, 300, 0, 0, .5, .5, 0, 0, null, null),
+//   new SpriteCreator(true, true, enemyAccelerate, enemyOne, 1800, 300, 0, 0, .5, .5, 0, 0, null, null),
+// ];
 
 // //Ball
 level_4.ballSpawn = [

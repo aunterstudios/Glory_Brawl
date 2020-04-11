@@ -213,15 +213,18 @@ brawl.game.prototype.ledgeSpawn = function (sprite, positionInArray) {
     this.ledgeX.positionInArray = positionInArray;
     if (sprite.name === elevator) {
         this.ledgeX.tint = Phaser.Color.YELLOW;
+        this.ledgeX.body.immovable = true;
     }
     else if (sprite.name === bounce) {
         this.ledgeX.tint = Phaser.Color.GREEN;
+        this.ledgeX.body.immovable = true;
+        this.ledgeX.body.moves = false;
     }
     else if (sprite.name === surf) {
         this.ledgeX.tint = Phaser.Color.AQUA;
     }
-    this.ledgeX.velocityVsWallX = 50; //30
-    this.ledgeX.velocityVsWallY = 50;
+    // this.ledgeX.velocityVsWallX = 50; //30
+    // this.ledgeX.velocityVsWallY = 50;
     this.ledgeX.anchor.setTo(.5);
     this.ledgeX.scale.setTo(.4); //.4
     this.ledgeX.visible = sprite.visible;

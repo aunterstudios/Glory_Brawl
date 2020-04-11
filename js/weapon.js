@@ -1,7 +1,7 @@
 //////////////////////////////////////////Weapon Functionality////////////////////////////////////////////
 //When Weapon Hits Moveable Objects (It's Special Property Expressed)
 brawl.game.prototype.weaponHandler = function (weapon, sprite) {
-    if (sprite.groupName === groupBall || sprite.groupName === groupEnemy || sprite.groupName === groupWall || sprite.groupName === groupLedge) {
+    if (sprite.groupName === groupBall || sprite.groupName === groupEnemy || sprite.groupName === groupWall) {
         if (weapon.key === 'bulletPull') {
             this.game.physics.arcade.moveToObject(sprite, this.player, 200); //200
         }
@@ -13,42 +13,7 @@ brawl.game.prototype.weaponHandler = function (weapon, sprite) {
             sprite.body.stop();
         }
         else if (weapon.key === 'bulletKill') {
-            //Regular Walls
-            if (sprite.name === wallRegular) {
-                sprite.name = wallRegularKiller;
-                sprite.tint = 8494971.358153213;
-            }
-            else if (sprite.name === wallRegularKiller) {
-                sprite.name = wallRegular;
-                sprite.tint = tintRemover;
-            }
-            //Surf Walls
-            if (sprite.name === wallSurf) {
-                sprite.name = wallSurfKiller;
-                sprite.tint = tintWallSurfKiller;
-            }
-            else if (sprite.name === wallSurfKiller) {
-                sprite.name = wallSurf;
-                sprite.tint = tintWallSurf;
-            }
-            //Inverse Walls
-            if (sprite.name === wallInverse) {
-                sprite.name = wallInverseKiller;
-                sprite.tint = tintWallInverseKiller;
-            }
-            else if (sprite.name === wallInverseKiller) {
-                sprite.name = wallInverse;
-                sprite.tint = tintWallInverse;
-            }
-            //Ghost Walls
-            if (sprite.name === wallGhost) {
-                sprite.name = wallGhostKiller;
-                sprite.scale.setTo(sprite.scale.x/3, sprite.scale.y/3);
-            }
-            else if (sprite.name === wallGhostKiller) {
-                sprite.name = wallGhost;
-                sprite.scale.setTo(sprite.scale.x*3, sprite.scale.y*3);
-            }
+            console.log("Fuck them kids");
         }
     }
     weapon.kill();
