@@ -1,7 +1,7 @@
 //////////////////////////////////////////Weapon Functionality////////////////////////////////////////////
 //When Weapon Hits Moveable Objects (It's Special Property Expressed)
 brawl.game.prototype.weaponHandler = function (weapon, sprite) {
-    if (sprite.groupName === groupBall || sprite.groupName === groupEnemy || sprite.groupName === groupWall) {
+    if (sprite.groupName === groupBall || sprite.groupName === groupEnemy || sprite.groupName === groupWall || sprite.groupName === groupLedge) {
         if (weapon.key === 'bulletPull') {
             this.game.physics.arcade.moveToObject(sprite, this.player, 200); //200
         }
@@ -13,7 +13,7 @@ brawl.game.prototype.weaponHandler = function (weapon, sprite) {
             sprite.body.stop();
         }
         else if (weapon.key === 'bulletKill') {
-            console.log("Fuck them kids");
+            sprite.scale.setTo(sprite.scale.x/3, sprite.scale.y/3);
         }
     }
     weapon.kill();

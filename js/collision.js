@@ -3,8 +3,7 @@
 brawl.game.prototype.trapProjectiles = function (trapProjectiles, obstacles) {
     trapProjectiles.kill();
     if (obstacles.name === 'immovableWallPhase') {
-        this.emitterFunction(trapProjectiles);
-        obstacles.kill();
+        this.emitterFunction(obstacles, trapProjectiles, 'destroy');
     }
 };
 
@@ -12,8 +11,7 @@ brawl.game.prototype.trapProjectiles = function (trapProjectiles, obstacles) {
 brawl.game.prototype.immovableMoveable = function (immovable, obj2) {
     ////////////////////Ball Against Spikes///////////////
     if (immovable.groupName === groupSpikes && obj2.groupName === groupBall) {
-        immovable.destroy();
-        this.emitterFunction(obj2);
+        this.emitterFunction(immovable, obj2, 'destroy');
         //Removes Localized Sprites from Regenerating (Spikes)
         if (immovable.specialCondition === 0) {
             //Destruction of Localized Sprite
@@ -58,37 +56,23 @@ brawl.game.prototype.wallImmovable = function (wall, immovable) {
     ////////////////Interactions Coded in the Orientation of Immovable Walls//////////////////
     // wall.body.stop();
     if (immovable.name === immovableWallKillWall) {
-        this.emitterFunction(wall);
-        wall.destroy();
+        this.emitterFunction(wall, null, 'destroy');
     }
     return;
 };
 //Wall Against Moveable Objects
 brawl.game.prototype.wallMoveable = function (wall, objMov) {
-    //////////////////////////////////////////////Testing////////////////////////////////
-    // if (wall.name === wallRegular || wall.name === wallSurfKiller || (wall.name === wallGhost && wall.body.speed > 0) || (wall.name === wallInverse && wall.body.speed <= 0)) {
-    //     if (objMov.groupName === groupEnemy) {
-    //         this.emitterFunction(objMov);
-    //         objMov.destroy();
-    //     }
-    //     // this.emitterFunction(objMov);
-    //     // objMov.destroy();
-    // }
-
     if (wall.name === wallRegularKiller || wall.name === wallSurfKiller || wall.name === wallGhostKiller || wall.name === wallInverseKiller) {
         if (objMov.groupName === groupEnemy) {
-            this.emitterFunction(objMov);
-            objMov.destroy();
+            this.emitterFunction(objMov, null, 'destroy');
         }
-        // this.emitterFunction(objMov);
-        // objMov.destroy();
     }
 
 
     /////////////////////////Experimental Two////////////////////
     if (objMov.groupName === groupBall || objMov.groupName === groupLedge) {
-   //Build One
-             // objMov.body.stop();
+        //Build One
+        // objMov.body.stop();
         // objMov.body.velocity.x += wall.body.velocity.x/10;
         // objMov.body.velocity.y += wall.body.velocity.y/10;
         // var x = this.game.physics.arcade.computeVelocity(2, objMov.body, 300, 100, 200);

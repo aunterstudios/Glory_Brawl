@@ -94,12 +94,25 @@ brawl.game.prototype.wallSpecial = function () {
     //Acceleration to Object (Another Type of Enemy)
 };
 
-
 //////////////////Emitter Function/////////////////////
-brawl.game.prototype.emitterFunction = function (sprite) {
-    this.emitter.x = sprite.centerX;
-    this.emitter.y = sprite.centerY;
+brawl.game.prototype.emitterFunction = function (sprite1, sprite2, killOrDestroy) {
+    //Sprite 1 is Always Killed
+    //If Sprite Two is "True", It denotes the position of the emitter
+    if (sprite2) {
+        this.emitter.x = sprite2.centerX;
+        this.emitter.y = sprite2.centerY;
+    }
+    else {
+        this.emitter.x = sprite1.centerX;
+        this.emitter.y = sprite1.centerY;
+    }
     this.emitter.start(true, 1500, null, 10);
+    if (killOrDestroy === 'kill') {
+        sprite1.kill();
+    }
+    else {
+        sprite1.destroy();
+    }
 };
 
 ///////////////////////////Magnet Walls/////////////////////

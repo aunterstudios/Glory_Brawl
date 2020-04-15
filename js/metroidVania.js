@@ -235,14 +235,12 @@ brawl.game.prototype.playerOut = function (player) {
 ///////////////////////////////////////////State Switches////////////////////////////////
 //Character Dying From Enemies and Such
 brawl.game.prototype.playerDeath = function (victim, killer) {
-    victim.kill();
-    this.emitterFunction(victim);
+    this.emitterFunction(victim, null, 'kill');
     this.game.time.events.add(1000, this.deathSwitch, this);
 };
 //Killing Yourself Literally
 brawl.game.prototype.killSelf = function () {
-    this.player.kill();
-    this.emitterFunction(this.player);
+    this.emitterFunction(this.player, null, 'kill');
     this.game.time.events.add(1000, this.deathSwitch, this);
 };
 //State Switch
