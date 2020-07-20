@@ -16,7 +16,6 @@ brawl.game.prototype.upInputIsActive = function (duration) {
     return isActive;
 };
 
-////////////////////////////////////Continious Updating In Game////////////////////////
 //Images
 brawl.game.prototype.imageMovement = function () {
     //Slow Motion
@@ -58,11 +57,28 @@ brawl.game.prototype.enemyAttack = function () {
                 this.game.physics.arcade.moveToPointer(enemy, 600);
             }
         }
+        // else {
+        //     if (enemy.name === enemyDaakath) {
+        //         enemy.body.stop();
+        //     }
+        // }
     }, this, this.player);
     //Acceleration to Object (Another Type of Enemy)
 };
 
-brawl.game.prototype.wallSpecial = function () {
+//Immovable Wall
+brawl.game.prototype.immovableWallContinious = function () {
+    this.immovableWall.forEachAlive(function (immovableWall) {
+        if (immovableWall.name === immovableWallMagnet) {
+            if (this.game.physics.arcade.distanceBetween(this.player, immovableWall, false, true) < 300) {
+                this.game.physics.arcade.moveToObject(this.player, immovableWall, 100);
+            };
+        }
+    }, this, this.player);
+};
+
+//Moveable Wall
+brawl.game.prototype.wallContinious = function () {
     this.wall.forEachAlive(function (wall) {
         // if (this.game.physics.arcade.distanceBetween(wall, this.player, false, true) < 400 && wall.name === wallPoint) {
         //     this.game.physics.arcade.moveToPointer(wall, 200);
@@ -115,13 +131,8 @@ brawl.game.prototype.emitterFunction = function (sprite1, sprite2, killOrDestroy
     }
 };
 
-///////////////////////////Magnet Walls/////////////////////
-brawl.game.prototype.immovableWallContinious = function () {
-    this.immovableWall.forEachAlive(function (immovableWall) {
-        if (immovableWall.name === immovableWallMagnet) {
-            if (this.game.physics.arcade.distanceBetween(this.player, immovableWall, false, true) < 300) {
-                this.game.physics.arcade.moveToObject(this.player, immovableWall, 100);
-            };
-        }
-    }, this, this.player);
+//////////////////////Sprite Self Destruct///////////////////////
+brawl.game.prototype.spriteSelfDestruct = function (sprite, killOrDestroy) {
+    //Self Destruct Sprite Timer 
+    this.emitterFunction(sprite, null, killOrDestroy);
 };

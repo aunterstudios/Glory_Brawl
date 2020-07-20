@@ -341,17 +341,13 @@ var immovableWallSlippery = 'immovableWallSlippery'; //Makes you SLIPPERY!wa
 //Moveable Wall Names
 //The Walls That Get Frozen and Unfrozen
 var wallRegular = 'wallRegular';
-var wallRegularKiller = 'wallRegularKiller';
 var wallPlayerFrozen = 'wallPlayerFrozen';
 //The Surf Walls (Moving Walls)
 var wallSurf = 'wallSurf';
-var wallSurfKiller = 'wallSurfKiller';
 //The Inverse Wall
 var wallInverse = 'wallInverse'; //First Turn (Leaners Walls From Ledge)
-var wallInverseKiller = 'wallInverseKiller';
 //Ghost Wall
 var wallGhost = 'wallGhost'; //Immovable Wall That Let's You Get Through Objects
-var wallGhostKiller = 'wallGhostKiller';
 //Special Walls (Can't Be Transuted Too or From)
 var wallCloud = 'wallCloud'; //Stationary Shooting Platform Heh
 
@@ -428,13 +424,10 @@ var tintImmovableWallSlippery = 766012.4141677661;
 var tintWallPlayerFrozen = 0x00ffff;
 //Surf Wall Tints
 var tintWallSurf = 10409939.733364154;
-var tintWallSurfKiller = 5703742.041983781;
 //Inverse Tints
 var tintWallInverse = 1181911.9307258818;
-var tintWallInverseKiller = Phaser.Color.ORANGE;
 //Ghost Tints
 var tintWallGhost = 16771007.229130682;
-var tintWallGhostKiller = 7142565.312501035;
 //Special Wall Tints
 var tintWallCloud = 9583870.358153213;
 
@@ -1035,11 +1028,6 @@ level_4.playerPosition = [
   new PlayerPositionCreator(1400, 700),
 ]
 
-//Images
-level_4.imageSpawn = [
-  new imageCreator(true, star, star, 2500, 800, 4),
-]
-
 ///////////////////////Creation of Undeniable Death
 
 level_4.undeniableDeathSpawn = [
@@ -1056,7 +1044,7 @@ level_4.immovableWallSpawn = [
   new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 700, 1000, 0, 0, .5, .5, 0, 0, null, null),
   new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 400, 1000, 0, 0, .5, .5, 0, 0, null, null),
 
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 800, 1000, 0, 0, 1.2, .25, 0, 0, null, null),
+  new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 800, 1000, 0, 100, 1.2, .25, 0, 0, null, null),
 ];
 
 //Moveable Walls
@@ -1078,13 +1066,10 @@ level_4.ledgeSpawn = [
 ];
 
 // // //Enemy Spawn
-// level_4.enemySpawn = [
-//   // new SpriteCreator(0, true, true, enemyDaakath, enemyOne, 400, 200, 0, 0, .5, .5, 0, 0, null, null),
-//   new SpriteCreator(true, true, enemyShooter, enemyOne, 1200, 300, 0, 0, .5, .5, 0, 0, null, null),
-//   new SpriteCreator(true, true, enemyAccelerate, enemyOne, 1400, 300, 0, 0, .5, .5, 0, 0, null, null),
-//   new SpriteCreator(true, true, enemyDaakath, enemyOne, 1600, 300, 0, 0, .5, .5, 0, 0, null, null),
-//   new SpriteCreator(true, true, enemyAccelerate, enemyOne, 1800, 300, 0, 0, .5, .5, 0, 0, null, null),
-// ];
+level_4.enemySpawn = [
+  new SpriteCreator(true, true, enemyDaakath, enemyOne, 1600, 300, 0, 0, .5, .5, 0, 0, null, null),
+  // new SpriteCreator(true, true, enemyAccelerate, enemyOne, 1800, 300, 0, 0, .5, .5, 0, 0, null, null),
+];
 
 // //Ball
 level_4.ballSpawn = [
