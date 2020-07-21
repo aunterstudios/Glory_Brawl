@@ -180,7 +180,10 @@ brawl.game.prototype = {
         this.game.physics.arcade.collide(this.wall, [this.immovableWall, this.death], this.wallImmovable, this.wallImmovableProcessArgument, this);
 
         //Movable Wall Mechanics vs. Moveable Objects (NOT ITSELF) (OVERLAP)
-        this.game.physics.arcade.overlap(this.wall, [this.ball, this.enemy, this.ledge], this.wallMoveable, null, this);
+        this.game.physics.arcade.collide(this.wall, [this.ball, this.enemy, this.ledge], this.wallMoveable, null, this);
+        //Enemy vs. Ball
+        this.game.physics.arcade.overlap(this.ball, this.enemy, this.ballEnemy, null, this);
+
 
         //Enemy Bullet and Falling Spike Mechanics (trapProjectiles)
         this.game.physics.arcade.overlap([this.enemyBullets, this.fallingSpikes], [this.ball, this.wall, this.immovableWall, this.ledge, this.death], this.trapProjectiles, null, this);

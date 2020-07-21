@@ -6,16 +6,27 @@ brawl.game.prototype.weaponHandler = function (weapon, sprite) {
             this.game.physics.arcade.moveToObject(sprite, this.player, 200); //200
         }
         else if (weapon.key === 'bulletPush') {
-            sprite.body.velocity.x = weapon.body.velocity.x/2; //Divided By 2
-            sprite.body.velocity.y = weapon.body.velocity.y/2;
+            sprite.body.velocity.x = weapon.body.velocity.x / 2; //Divided By 2
+            sprite.body.velocity.y = weapon.body.velocity.y / 2;
         }
         else if (weapon.key === 'bulletStop') {
             sprite.body.stop();
         }
-        else if (weapon.key === 'bulletKill') {
-            sprite.scale.setTo(sprite.scale.x/3, sprite.scale.y/3);
-        }
+        // else if (weapon.key === 'bulletKill') {
+        //     if (sprite.groupName === groupWallType2) {
+        //         sprite.groupName = groupWallType1;
+        //         sprite.tint = tintRemover;
+        //     }
+        // }
     }
+    // else if (sprite.groupName === groupWallType1) {
+    //     if (weapon.key === 'bulletKill') {
+    //         sprite.groupName = groupWallType2;
+    //         sprite.tint = tintWallInverse;
+    //         console.log(sprite.groupName);
+
+    //     }
+    // }
     weapon.kill();
 };
 //Let Weapon Fire Pass Through
