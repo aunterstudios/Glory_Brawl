@@ -88,7 +88,14 @@ brawl.game.prototype.wallMoveable = function (wall, objMov) {
         // objMov.body.velocity.y += wall.body.velocity.y/10;
         // var x = this.game.physics.arcade.computeVelocity(2, objMov.body, 300, 100, 200);
         // objMov.body.velocity.x += x;
-        objMov.body.stop();
+        // objMov.body.stop();
+        if (wall.body.touching.right) {
+            objMov.body.velocity.x = 300;
+        }
+        else if (wall.body.touching.left) {
+            objMov.body.velocity.x = -300;
+        }
+        objMov.body.velocity.y = 0;
         objMov.name = 'enemyStill';
         objMov.tint = tintRemover;
     }
@@ -181,64 +188,64 @@ brawl.game.prototype.playerWall = function (player, wall) {
     //     player.body.stop();
     //     wall.body.stop();
     // }
-    // // if (wall.name === wallSurfKiller) {
-    // //     player.body.stop();
-    // //     wall.body.stop();
-    // //     this.game.physics.arcade.moveToPointer(wall, 200);
-    // // }
-    // //Wall Inverse
-    // if (wall.name === wallInverse) {
+    // if (wall.name === wallSurfKiller) {
     //     player.body.stop();
     //     wall.body.stop();
-    //     player.body.velocity.y = -50;
-    //     if (player.body.touching.down) {
-    //         wall.body.velocity.y = -50;
-    //         if (player.x < wall.x) {
-    //             wall.body.velocity.x = -300; //150
-    //             // console.log(player.body.touching.up, 'up');
-    //         }
-    //         if (player.x > wall.x) {
-    //             wall.body.velocity.x = 300;
-    //             // console.log(player.body.touching.left, 'left', player.body.touching.right, 'right')
-    //         }
-    //     }
-    //     if (player.body.touching.up) {
-    //         wall.body.stop();
-    //         if (player.x < wall.x) {
-    //             wall.body.velocity.x = -300;
-    //             // console.log(player.body.touching.up, 'up');
-    //         }
-    //         if (player.x > wall.x) {
-    //             wall.body.velocity.x = 300;
-    //             // console.log(player.body.touching.left, 'left', player.body.touching.right, 'right')
-    //         }
-    //     }
-    //     if (player.body.touching.left || player.body.touching.right) {
-    //         wall.body.velocity.y = 300;
-    //     }
+    //     this.game.physics.arcade.moveToPointer(wall, 200);
     // }
-    // ///////////////////////////////Special Walls///////////////////////////
-    // if (wall.name === wallCloud) {
-    //     //Control
-    //     // wall.body.velocity.x = player.body.velocity.x;
-    //     //Let it Go
-    //     if (wall.key === wallHorizontal) {
-    //         if (player.body.velocity.x < 0) {
-    //             wall.body.velocity.x = -200;
-    //         }
-    //         if (player.body.velocity.x > 0) {
-    //             wall.body.velocity.x = 200;
-    //         }
-    //     }
-    //     else {
-    //         if (this.movementUp.isDown) {
-    //             wall.body.velocity.y = -200;
-    //         }
-    //         if (this.movementDown.isDown) {
-    //             wall.body.velocity.y = 200;
-    //         }
-    //     }
-    // }
+    //Wall Inverse
+    if (wall.name === wallInverse) {
+        player.body.stop();
+        wall.body.stop();
+        player.body.velocity.y = -50;
+        if (player.body.touching.down) {
+            wall.body.velocity.y = -50;
+            if (player.x < wall.x) {
+                wall.body.velocity.x = -300; //150
+                // console.log(player.body.touching.up, 'up');
+            }
+            if (player.x > wall.x) {
+                wall.body.velocity.x = 300;
+                // console.log(player.body.touching.left, 'left', player.body.touching.right, 'right')
+            }
+        }
+        if (player.body.touching.up) {
+            wall.body.stop();
+            if (player.x < wall.x) {
+                wall.body.velocity.x = -300;
+                // console.log(player.body.touching.up, 'up');
+            }
+            if (player.x > wall.x) {
+                wall.body.velocity.x = 300;
+                // console.log(player.body.touching.left, 'left', player.body.touching.right, 'right')
+            }
+        }
+        if (player.body.touching.left || player.body.touching.right) {
+            wall.body.velocity.y = 300;
+        }
+    }
+    ///////////////////////////////Special Walls///////////////////////////
+    if (wall.name === wallCloud) {
+        //Control
+        // wall.body.velocity.x = player.body.velocity.x;
+        //Let it Go
+        if (wall.key === wallHorizontal) {
+            if (player.body.velocity.x < 0) {
+                wall.body.velocity.x = -200;
+            }
+            if (player.body.velocity.x > 0) {
+                wall.body.velocity.x = 200;
+            }
+        }
+        else {
+            if (this.movementUp.isDown) {
+                wall.body.velocity.y = -200;
+            }
+            if (this.movementDown.isDown) {
+                wall.body.velocity.y = 200;
+            }
+        }
+    }
 
     return;
 };

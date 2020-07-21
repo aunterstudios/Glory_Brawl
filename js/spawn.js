@@ -151,31 +151,31 @@ brawl.game.prototype.wallSpawn = function (sprite, positionInArray) {
     this.wallX.specialCondition = sprite.specialCondition;
     this.wallX.positionInArray = positionInArray;
     this.wallX.velocityVsImmovable = 100;
-    ////////////Moving Walls/////////// 
-    // if (sprite.name === wallInverse) {
-    //     // var testTint = Math.random() * 0xffffff;
-    //     // this.wallX.tint = testTint;
-    //     // console.log(testTint, this.wallX.positionInArray);
-    //     this.wallX.tint = tintWallInverse;
-    // }
-    // else if (sprite.name === wallSurf) {
-    //     // var testTint = Math.random() * 0xffffff;
-    //     // this.wallX.tint = testTint;
-    //     // console.log(testTint, this.wallX.positionInArray);
-    //     this.wallX.tint = tintWallSurf;
-    // }
-    // else if (sprite.name === wallGhost) {
-    //     // var testTint = Math.random() * 0xffffff;
-    //     // this.wallX.tint = testTint;
-    //     // console.log(testTint, this.wallX.positionInArray);
-    //     this.wallX.tint = tintWallGhost;
-    //     this.wallX.body.immovable = true;
-    // }
-    // ///////////////Special Walls////////////////
-    // else if (sprite.name === wallCloud) {
-    //     this.wallX.tint = tintWallCloud;
-    //     this.wallX.body.immovable = true;
-    // }
+    //////////Moving Walls/////////// 
+    if (sprite.name === wallInverse) {
+        // var testTint = Math.random() * 0xffffff;
+        // this.wallX.tint = testTint;
+        // console.log(testTint, this.wallX.positionInArray);
+        this.wallX.tint = tintWallInverse;
+    }
+    else if (sprite.name === wallSurf) {
+        // var testTint = Math.random() * 0xffffff;
+        // this.wallX.tint = testTint;
+        // console.log(testTint, this.wallX.positionInArray);
+        this.wallX.tint = tintWallSurf;
+    }
+    else if (sprite.name === wallGhost) {
+        // var testTint = Math.random() * 0xffffff;
+        // this.wallX.tint = testTint;
+        // console.log(testTint, this.wallX.positionInArray);
+        this.wallX.tint = tintWallGhost;
+        this.wallX.body.immovable = true;
+    }
+    ///////////////Special Walls////////////////
+    else if (sprite.name === wallCloud) {
+        this.wallX.tint = tintWallCloud;
+        this.wallX.body.immovable = true;
+    }
     this.wallX.anchor.setTo(.5);
     this.wallX.scale.setTo(sprite.sizeX, sprite.sizeY);
     this.wallX.visible = sprite.visible;

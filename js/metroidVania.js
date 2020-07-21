@@ -53,6 +53,7 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     this.weapon1 = this.game.add.weapon(30, 'bulletPull');
     //  The bullet will be automatically killed when it leaves the camera bounds
     this.weapon1.bulletKillType = Phaser.Weapon.KILL_CAMERA_BOUNDS;
+    // this.weapon1.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
     //  Because our bullet is drawn facing up, we need to offset its rotation:
     this.weapon1.bulletAngleOffset = 90;
     //  The speed at which the bullet is fired
