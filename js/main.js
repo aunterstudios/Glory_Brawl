@@ -793,21 +793,23 @@ level_2.immovableWallSpawn = [
    //Border of Level One and Level Two
    new SpriteCreator(true, true, immovableWallSlippery, immovableWallVertical, 4800, 0, 0, 0, .3, 2.1, 0, 0, null, null),
    //Horizontal Game Mode
-   new SpriteCreator(true, true, immovableWallSlippery, immovableWallVertical, 4800, 0, 0, 0, .3, 2.1, 0, 0, null, null),
+   new SpriteCreator(true, true, immovableWallSlippery, immovableWallHorizontal, 4800, 0, 0, 0, .3, 2.1, 0, 0, null, null),
    //Ground
    new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 4100, 2000, 0, 0, .83, .5, 0, 0, null, null),
    //4300
    new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 4250, 400, 0, 0, .5, .5, 0, 0, null, null),
    //Wall Blocking First Ground
    new SpriteCreator(true, true, immovableWallKillWall, immovableWallVertical, 4090, 0, 0, 0, .5, 1.8, 0, 0, null, null),
-   //Vertical
-   new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 870, 200, 0, 0, .4, .25, 0, 0, null, null),
-   //Kill Wall To Prevent Cheese
-   new SpriteCreator(true, true, immovableWallKillWall, immovableWallHorizontal, 1200, 300, 0, 0, 1.058, .25, 0, 0, null, null),
+   //Kill Wall
+   new SpriteCreator(true, true, immovableWallKillWall, immovableWallHorizontal, 4090, 0, 0, 0, .5, 1.8, 0, 0, null, null),
    //Ground For CheckPoint
    new SpriteCreator(true, true, immovableWallPhase, immovableWallHorizontal, 3500, 1000, 0, 0, .9, .45, 0, 0, null, null),
+   //
+   new SpriteCreator(true, true, immovableWallPhase, immovableWallVertical, 3500, 1000, 0, 0, .9, .45, 0, 0, null, null),
    //Prevent You From Spam Killing Enemies
    new SpriteCreator(true, true, immovableWallMario, immovableWallVertical, 2300, 1100, 0, 0, .25, .655, 0, 0, null, null),
+   new SpriteCreator(true, true, immovableWallMario, immovableWallHorizontal, 3500, 1000, 0, 0, .9, .45, 0, 0, null, null),
+   //
   ////////////////////////////////////////////////Shadow Level///////////////////////////////////////////////
 ];
 
@@ -815,16 +817,14 @@ level_2.immovableWallSpawn = [
 ///Single Wall to Teach You  
 level_2.wallSpawn = [
   //Before Grey
-  new SpriteCreator(true, true, wallRegular, wallHorizontal, 1100, 3000, 0, 0, .5, .5, 0, 0, null, null),
-  //After BLue
-  new SpriteCreator(true, true, wallRegular, wallHorizontal, 1100, 1250, 0, 0, .5, .5, 0, 0, null, null),
-  //Kill These
-  new SpriteCreator(true, true, wallRegular, wallHorizontal, 250, 600, 0, 0, .5, .5, 0, 0, null, null),
-  new SpriteCreator(true, true, wallRegular, wallHorizontal, 250, 700, 0, 0, .5, .5, 0, 0, null, null),
-  new SpriteCreator(true, true, wallRegular, wallHorizontal, 250, 800, 0, 0, .5, .5, 0, 0, null, null),
-  new SpriteCreator(true, true, wallRegular, wallHorizontal, 250, 900, 0, 0, .5, .5, 0, 0, null, null),
-  new SpriteCreator(true, true, wallRegular, wallHorizontal, 250, 1000, 0, 0, .5, .5, 0, 0, null, null),
-  new SpriteCreator(true, true, wallRegular, wallHorizontal, 250, 1100, 0, 0, .5, .5, 0, 0, null, null),
+  new SpriteCreator(true, true, wallRegular, wallVertical, 2000, 400, 0, 0, .5, .5, 0, 0, null, null),
+  new SpriteCreator(true, true, wallRegular, wallHorizontal, 2000, 400, 0, 0, .5, .5, 0, 0, null, null),
+  new SpriteCreator(true, true, wallInverse, wallVertical, 500, 1500, 0, 0, .3, .3, 0, 0, null, null),
+  new SpriteCreator(true, true, wallInverse, wallHorizontal, 600, 1200, 0, 0, .3, .3, 0, 0, null, null),
+  new SpriteCreator(true, true, wallCloud, wallVertical, 700, 1700, 0, 0, .3, .3, 0, 0, null, null),
+  new SpriteCreator(true, true, wallCloud, wallHorizontal, 800, 800, 0, 0, .3, .3, 0, 0, null, null),
+  new SpriteCreator(true, true, wallGhost, wallVertical, 400, 1200, 0, 0, .3, .3, 0, 0, null, null),
+  new SpriteCreator(true, true, wallGhost, wallHorizontal, 4500, 300, 0, 0, .3, .3, 0, 0, null, null),
 ];
 
 //Ledges
@@ -839,19 +839,23 @@ level_2.ledgeSpawn = [
   new SpriteCreator(true, true, bounce, ledge, 2100, 2000, 0, 0, .4, .4, 0, 0, null, null),
   //Surf Ledges
   new SpriteCreator(true, true, surf, ledge, 2900, 300, 0, 0, .4, .4, 0, 0, null, null),
+  new SpriteCreator(true, true, surf, ledge, 500, 300, 0, 0, .4, .4, 0, 0, null, null),
+  new SpriteCreator(true, true, surf, ledge, 600, 300, 0, 0, .4, .4, 0, 0, null, null),
+  new SpriteCreator(true, true, surf, ledge, 900, 300, 0, 0, .4, .4, 0, 0, null, null),
+  new SpriteCreator(true, true, surf, ledge, 2000, 300, 0, 0, .4, .4, 0, 0, null, null),
 ];
 
 //Ball
 level_2.ballSpawn = [new SpriteCreator(true, true, ballRegular, ball, 975, 200, 0, 0, null, null, 0, 0, null, null)];
 
 //650, 1300
-level_2.flagSpawn = [
-  new flagCreator(1, true, flagRegular, flag, 600, 3050, 0, 0, .4, .4, 0, 0, null),
-  // new flagCreator(3, true, flagRegular, flag, 2500, 3050, 0, 0, .4, .4, 0, 0, null),
-  new flagCreator(3, true, flagSpecial, flag, 2500, 3050, 0, 0, .4, .4, 0, 0, experimental_Level5),
-  new flagCreator(2, true, flagRegular, flag, 200, 1250, 0, 0, .4, .4, 0, 0, null),
-  new flagCreator(0, true, flagRegular, flag, 1700, 1400, 0, 0, .4, .4, 0, 0, null),
-];
+// level_2.flagSpawn = [
+//   new flagCreator(1, true, flagRegular, flag, 600, 3050, 0, 0, .4, .4, 0, 0, null),
+//   // new flagCreator(3, true, flagRegular, flag, 2500, 3050, 0, 0, .4, .4, 0, 0, null),
+//   new flagCreator(3, true, flagSpecial, flag, 2500, 3050, 0, 0, .4, .4, 0, 0, experimental_Level5),
+//   new flagCreator(2, true, flagRegular, flag, 200, 1250, 0, 0, .4, .4, 0, 0, null),
+//   new flagCreator(0, true, flagRegular, flag, 1700, 1400, 0, 0, .4, .4, 0, 0, null),
+// ];
 
 //Text Creator (Helpful Hints)
 
@@ -860,19 +864,7 @@ worldClassLevels.push(level_2);
 
 ////////////////////////////////////////Level 3/////////////////////////////////////
 var level_3 = new LevelCreator("Level 3-CLEnemies", 4800, 2000, new MetroidvaniaCreator(4, 0, 4, 2000, 1, 1, 2, 4800), '#ffffff');
-// ///Creates Room Switching
-// class MetroidvaniaCreator {
-//   constructor(roomUpIndex, roomUpValue, roomDownIndex, roomDownValue, roomLeftIndex, roomLeftValue, roomRightIndex, roomRightValue) {
-//     this.roomUpIndex = roomUpIndex;
-//     this.roomUpValue = roomUpValue
-//     this.roomDownIndex = roomDownIndex;
-//     this.roomDownValue = roomDownValue;
-//     this.roomLeftIndex = roomLeftIndex;
-//     this.roomLeftValue = roomLeftValue;
-//     this.roomRightIndex = roomRightIndex;
-//     this.roomRightValue = roomRightValue;
-//   }
-// };
+
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_3.playerPosition = [
   new PlayerPositionCreator(200, 20),
