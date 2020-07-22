@@ -927,17 +927,11 @@ level_3.immovableWallSpawn = [
   //4300
   new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 4250, 400, 0, 0, .5, .5, 0, 0, null, null),
   //Vertical
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 4090, 200, 0, 0, .4, .25, 0, 0, null, null),
-  //Vertical
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 4090, 200, 0, 0, .4, .25, 0, 0, null, null),
-  //Vertical
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 4090, 1538, 0, 0, .5, .46 , 0, 0, null, null),
+  // new SpriteCreator(true, true, immovableWallOneWayPlayer, immovableWallVertical, 4090, 1538, 0, 0, .5, .46 , 0, 0, null, null),
   //Wall Blocking First Ground
-  new SpriteCreator(true, true, immovableWallKillWall, immovableWallVertical, 4090, 0, 0, 0, .5, 1.8, 0, 0, null, null),
-  new SpriteCreator(true, true, immovableWallKillWall, immovableWallVertical, 4090, 0, 0, 0, .5, 1.8, 0, 0, null, null),
-  new SpriteCreator(true, true, immovableWallKillWall, immovableWallHorizontal, 1200, 300, 0, 0, 1.058, .25, 0, 0, null, null),
+  new SpriteCreator(true, true, immovableWallKillWall, immovableWallVertical, 4090, 0, 0, 0, .5, 1.3, 0, 0, null, null),
   //Ground For CheckPoint
-  new SpriteCreator(true, true, immovableWallPhase, immovableWallHorizontal, 3500, 1000, 0, 0, .9, .45, 0, 0, null, null),
+  new SpriteCreator(true, true, immovableWallPhase, immovableWallHorizontal, 2000, 1000, 0, 0, .9, .45, 0, 0, null, null),
   //Prevent You From Spam Killing Enemies
   new SpriteCreator(true, true, immovableWallMario, immovableWallVertical, 2300, 1100, 0, 0, .25, .655, 0, 0, null, null),
 ];

@@ -182,7 +182,7 @@ brawl.game.prototype.playerImmovable = function (player, immovable) {
 };
 
 brawl.game.prototype.playerImmovableWallProcessArgument = function (player, wall) {
-    if (wall.name === immovableWallOneWayObject) {
+    if (wall.name === immovableWallOneWayPlayer) {
         return false;
     }
     else {
