@@ -55,6 +55,15 @@ brawl.game.prototype.immovableMoveable = function (immovable, objMov) {
     }
     return;
 };
+brawl.game.prototype.immovableMoveableProcessArgument = function (imb, mov) {
+    if (imb.name === immovableWallOneWayObject) {
+        return false;
+    }
+    else {
+        return true;
+    }
+
+};
 //Wall Against Immovable Objects
 brawl.game.prototype.wallImmovable = function (wall, immovable) {
     /////////////////Make Sure to Code In Objects Interacting With Each Other!!////////////////
@@ -171,6 +180,16 @@ brawl.game.prototype.playerImmovable = function (player, immovable) {
     // console.log("Yes This is Hitting");
     // return;
 };
+
+brawl.game.prototype.playerImmovableWallProcessArgument = function (player, wall) {
+    if (wall.name === immovableWallOneWayObject) {
+        return false;
+    }
+    else {
+        return true
+    }
+};
+
 brawl.game.prototype.playerWall = function (player, wall) {
     //WallRegular?
     if (wall.name === wallRegular) {
@@ -256,9 +275,6 @@ brawl.game.prototype.playerWallProcessArgument = function (player, wall) {
     // else {
     //     return true;
     // }
-    if (wall.groupName === groupWallType2) {
-        return false;
-    }
 };
 
 // brawl.game.prototype.playerLedgeProcessArgument = function (player, ledge) {

@@ -130,6 +130,16 @@ brawl.game.prototype.immovableWallSpawn = function (sprite, positionInArray) {
     else if (sprite.name === immovableWallSlippery) {
         this.immovableWallX.tint = tintImmovableWallSlippery;
     }
+    else if (sprite.name === immovableWallOneWayObject) {
+        var testTint = Math.random() * 0xffffff;
+        this.immovableWallX.tint = testTint;
+        console.log(testTint, this.immovableWallX.positionInArray);
+    }
+    else if (sprite.name === immovableWallOneWayPlayer) {
+        var testTint = Math.random() * 0xffffff;
+        this.immovableWallX.tint = testTint;
+        console.log(testTint, this.immovableWallX.positionInArray);
+    }
     this.immovableWallX.scale.setTo(sprite.sizeX, sprite.sizeY);
     this.immovableWallX.visible = sprite.visible;
     this.immovableWallX.body.immovable = true;

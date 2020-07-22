@@ -160,7 +160,7 @@ brawl.game.prototype = {
         this.immovableWallContinious();
         ///////////////////////////////////////////Physics////////////////////////////////////////
         //Player Mechanics
-        var onImmovable = this.game.physics.arcade.collide(this.player, this.immovableWall, this.playerImmovable, null, this);
+        var onImmovable = this.game.physics.arcade.collide(this.player, this.immovableWall, this.playerImmovable, this.playerImmovableWallProcessArgument, this);
         var onWall = this.game.physics.arcade.collide(this.player, this.wall, this.playerWall, this.playerWallProcessArgument, this);
         var onLedge = this.game.physics.arcade.collide(this.player, this.ledge, this.playerLedge, null, this);
         var onBall = this.game.physics.arcade.collide(this.player, this.ball, this.playerBall, null, this);
@@ -174,7 +174,7 @@ brawl.game.prototype = {
         this.game.physics.arcade.overlap([this.weapon1.bullets, this.weapon2.bullets, this.weapon3.bullets, this.weapon4.bullets], [this.ball, this.wall, this.ledge, this.enemy, this.immovableWall, this.death], this.weaponHandler, this.weaponProcessArgument, this);
 
         //Immovable Wall and Death vs. Moveable Objects
-        this.game.physics.arcade.collide([this.immovableWall, this.death], [this.ball, this.enemy, this.ledge], this.immovableMoveable, null, this);
+        this.game.physics.arcade.collide([this.immovableWall, this.death], [this.ball, this.enemy, this.ledge], this.immovableMoveable, this.immovableMoveableProcessArgument, this);
 
         //Moveable Wall vs Immoveable Objects
         this.game.physics.arcade.collide(this.wall, [this.immovableWall, this.death], this.wallImmovable, this.wallImmovableProcessArgument, this);
