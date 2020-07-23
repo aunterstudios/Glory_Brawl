@@ -811,6 +811,9 @@ level_2.immovableWallSpawn = [
   new SpriteCreator(true, true, immovableWallMario, immovableWallVertical, 4200, 2400, 0, 0, .5, .5, 0, 0, null, null),
   new SpriteCreator(true, true, immovableWallMario, immovableWallHorizontal, 3400, 2600, 0, 0, .5, .5, 0, 0, null, null),
   //
+  new SpriteCreator(true, true, immovableWallMario, immovableWallVertical, 1800, 1200, 0, 0, .5, .5, 0, 0, null, null),
+  new SpriteCreator(true, true, immovableWallMario, immovableWallHorizontal, 2000, 1500, 0, 0, .5, .5, 0, 0, null, null),
+  //
   ////////////////////////////////////////////////One Way Objects///////////////////////////////////////////////
   new SpriteCreator(true, true, immovableWallOneWayObject, immovableWallVertical, 4200, 3000, 0, 0, .5, .5, 0, 0, null, null),
   new SpriteCreator(true, true, immovableWallOneWayObject, immovableWallHorizontal, 3400, 3000, 0, 0, .5, .5, 0, 0, null, null),
