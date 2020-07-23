@@ -26,28 +26,6 @@ brawl.game.prototype.immovableMoveable = function (immovable, objMov) {
         //////////////////////////Creates New Sprites After Spikes Destroyed///////////////////////
         //worldClassLevels[immovable.specialWorld].ledgeGreySpawn[immovable.specialArray].trigger = true;
     }
-    //////////////////////////Wall Effects on Objects////////////////////////////
-    if (immovable.name === immovableWallPadding) {
-        // objMov.body.stop();
-        objMov.body.bounce.setTo(1.3)
-        objMov.velocityVsWallY = 100;
-        objMov.velocityVsWallX = 100;
-        // objMov.tint = tintImmovableWallMagnet;
-        ////Maybe Kill This Later///
-    }
-    ///////////////////////Motion to Every Object///////////////////
-    if (objMov.body.touching.up) {
-        objMov.body.velocity.y = objMov.velocityVsWallY;
-    }
-    if (objMov.body.touching.down) {
-        objMov.body.velocity.y = -objMov.velocityVsWallY;
-    }
-    if (objMov.body.touching.left) {
-        objMov.body.velocity.x = objMov.velocityVsWallX;
-    }
-    if (objMov.body.touching.right) {
-        objMov.body.velocity.x = -objMov.velocityVsWallX;
-    }
     //////////////////////////Ledge/////////////////////////////
     //Elevator Ledge Destruction
     if (objMov.elevatorActivate) {
@@ -98,15 +76,16 @@ brawl.game.prototype.wallMoveable = function (wall, objMov) {
         // var x = this.game.physics.arcade.computeVelocity(2, objMov.body, 300, 100, 200);
         // objMov.body.velocity.x += x;
         // objMov.body.stop();
-        if (wall.body.touching.right) {
-            objMov.body.velocity.x = 300;
-        }
-        else if (wall.body.touching.left) {
-            objMov.body.velocity.x = -300;
-        }
-        objMov.body.velocity.y = 0;
         objMov.name = 'enemyStill';
         objMov.tint = tintRemover;
+        objMov.body.stop();
+        if (objMov.body.touching.left) {
+            objMov.body.velocity.x = 300;
+        }
+        else if (objMov.body.touching.right) {
+            objMov.body.velocity.x = -300;
+        }
+        // objMov.body.velocity.x = -objMov.body.velocity.x;
     }
     //////////////////////Elevator Ledge/////////////////////////
     if (objMov.elevatorActivate) {
@@ -117,11 +96,11 @@ brawl.game.prototype.wallMoveable = function (wall, objMov) {
 };
 
 brawl.game.prototype.wallMoveableProcessArgument = function (wall, objMov) {
-    /////////////////////////Experimental Two////////////////////
-    if (wall.groupName === groupWallType1) {
-        return false;
-    }
-    return;
+    // /////////////////////////Experimental Two////////////////////
+    // if (wall.groupName === groupWallType1) {
+    //     return false;
+    // }
+    // return;
 };
 
 brawl.game.prototype.ballEnemy = function (ball, enemy) {
@@ -288,14 +267,14 @@ brawl.game.prototype.playerWallProcessArgument = function (player, wall) {
 
 brawl.game.prototype.playerBall = function (player, ball) {
     ball.body.stop();
-    if (player.body.touching.down) {
-        ball.body.velocity.y = 50;
+    if (ball.body.touching.down) {
+        ball.body.velocity.y = -50;
     }
-    if (player.body.touching.left) {
-        ball.body.velocity.x = -50;
-    }
-    if (player.body.touching.right) {
+    if (ball.body.touching.left) {
         ball.body.velocity.x = 50;
+    }
+    if (ball.body.touching.right) {
+        ball.body.velocity.x = -50;
     }
 };
 

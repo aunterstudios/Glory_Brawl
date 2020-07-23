@@ -49,7 +49,7 @@ game.state.add('controlScreen', brawl.stateControls);
 game.state.start('mainMenu');
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "RESTART",
+  "New Test",
   "Remember the Words",
   "GLORY BRAWL",
 ];
@@ -512,49 +512,46 @@ var experimental_Level5 = {
 };
 
 ///////////////////////////////////////////Level 0///////////////////////////////////////////////////////////
-var level_0 = new LevelCreator("The Beginning", 3000, 4000, new MetroidvaniaCreator(1, 100, 0, 4200, 0, 1, 0, 3800), "#ffffff"); //3800
+var level_0 = new LevelCreator("Direct Physics", 1400, 800, new MetroidvaniaCreator(2, 0, 0, 800, 0, 0, 0, 1400), "#ffffff"); //3800
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_0.playerPosition = [
-  new PlayerPositionCreator(200, 200),
-  new PlayerPositionCreator(300, 3900),
-  new PlayerPositionCreator(1250, 2000),
-  new PlayerPositionCreator(2600, 600),
+  new PlayerPositionCreator(400, 700),
+  new PlayerPositionCreator(400, 700),
+  new PlayerPositionCreator(400, 700),
+  new PlayerPositionCreator(400, 700),
 ]
 
 ///////////////////////Creation of Undeniable Death
 
 level_0.undeniableDeathSpawn = [
-  //Little Death to Prevent Running At Wall Cheese Glitch
-  new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 1468, 3810, 0, 0, .41, .09, 0, 0, null, null),
-  // new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 1468, 3710, 0, 0, .43, .09, 0, 0, null, null),
+  // //Little Death to Prevent Running At Wall Cheese Glitch
+  // new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 1468, 3810, 0, 0, .41, .09, 0, 0, null, null),
+  // // new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 1468, 3710, 0, 0, .43, .09, 0, 0, null, null),
 
-  ///Force You to Double Jump
-  new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 1468, 2400, 0, 0, .41, .428, 0, 0, null, null),
-  //Holds The Second Ground Wall
-  new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 849, 1700, 0, 0, .41, .428, 0, 0, null, null),
-  //Divider For The First Half
-  new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 1468, 200, 0, 0, .41, .992, 0, 0, null, null),
+  // ///Force You to Double Jump
+  // new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 1468, 2400, 0, 0, .41, .428, 0, 0, null, null),
+  // //Holds The Second Ground Wall
+  // new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 849, 1700, 0, 0, .41, .428, 0, 0, null, null),
+  // //Divider For The First Half
+  // new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 1468, 200, 0, 0, .41, .992, 0, 0, null, null),
 ];
 
 /////////////////////////Creation of ImmovableWalls
 level_0.immovableWallSpawn = [
   //Ground
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 0, 4000, 0, 0, 1.8, .5, 0, 0, null, null),
+  new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 0, 800, 0, 0, .5, .5, 0, 0, null, null),
   //First Wall (Double Jump)
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 1469, 3000, 0, 0, .5, .95, 0, 0, null, null),
-  //Second Wall (And Then...)
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 850, 2300, 0, 0, .5, .95, 0, 0, null, null),
-  //Before Jumping To the Landing Pad
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 1469, 1591, 0, 0, .5, .95, 0, 0, null, null),
-  //Landing Pad (Once You Touching a Surface You Can Double Jump)
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 0, 1635, 0, 0, 1.08, .5, 0, 0, null, null),
+  // new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 1469, 3000, 0, 0, .5, .95, 0, 0, null, null),
 
 ];
 
 //Moveable Walls
 ///Single Wall to Teach You  
-// level_0.wallSpawn = [new SpriteCreator(true, true, wallSurf, wallHorizontal, 800, 3400, 0, 0, .5, .5, 0, 0, null, null)];
+level_0.wallSpawn = [
+  // new SpriteCreator(true, true, wallRegular, wallHorizontal, 800, 3400, 0, 0, .5, .5, 0, 0, null, null),
+  new SpriteCreator(true, true, wallRegular, wallVertical, 500, 600, 0, 0, .5, .5, 0, 0, null, null),
+];
 
 // level_0.ledgeSpawn = [
 //   // //Surf
@@ -569,22 +566,27 @@ level_0.immovableWallSpawn = [
 //Ball
 // level_0.ballSpawn = [new SpriteCreator(true, true, ballRegular, ball, 700, 1350, 0, 0, null, null, 0, 0, null, null)];
 
+level_0.enemySpawn = [
+  //First Three Enemies
+  new SpriteCreator(true, true, enemyDaakath, enemyOne, 1200, 50, 0, 0, .5, .5, 0, 0, null, null),
+  // new SpriteCreator(true, true, enemyShooter, enemyOne, 300, 200, 0, 0, .5, .5, 0, 0, null, null),
+  // new SpriteCreator(true, true, enemyAccelerate, enemyOne, 400, 200, 0, 0, .5, .5, 0, 0, null, null),
+];
+
 //FLag Respawn
 level_0.flagSpawn = [
-  new flagCreator(0, true, flagRegular, flag, 100, 200, 0, 0, .4, .4, 0, 0, null),
-  new flagCreator(3, true, flagRegular, flag, 2400, 600, 0, 0, .4, .4, 0, 0, null),
-  new flagCreator(2, true, flagRegular, flag, 1150, 2000, 0, 0, .4, .4, 0, 0, null),
+  // new flagCreator(0, true, flagRegular, flag, 100, 200, 0, 0, .4, .4, 0, 0, null),
 ];
 
 //Text Creator (Helpful Hints)
 level_0.text = [
-  new textCreator(true, 150, 3500, "Time To Be Reborn\n\nP- Pause\nO- FullScreen\nW or Spacebar- Jump\nA- Left\nS- Push or Move Downwards\nD- Right", fontGrind, 25),
-  new textCreator(true, 1100, 3700, "Double Jump", fontGrind, 25),
-  new textCreator(true, 1100, 3400, "Hold D and Tap A\n\nTo Fast Climb", fontGrind, 25),
-  new textCreator(true, 1100, 3100, "Move Left\n\nThen Double Jump", fontGrind, 25),
-  new textCreator(true, 1100, 2750, "Hold A and Tap D\n\nThis Time", fontGrind, 25),
-  new textCreator(true, 1100, 2450, "Move Right\n\nThen Double Jump", fontGrind, 25),
-  new textCreator(true, 150, 1400, "Once You Hit A Surface\n\nThis is Fucking Important\n\nYou Can Double Jump Again", fontGrind, 25),
+  // new textCreator(true, 150, 3500, "Time To Be Reborn\n\nP- Pause\nO- FullScreen\nW or Spacebar- Jump\nA- Left\nS- Push or Move Downwards\nD- Right", fontGrind, 25),
+  // new textCreator(true, 1100, 3700, "Double Jump", fontGrind, 25),
+  // new textCreator(true, 1100, 3400, "Hold D and Tap A\n\nTo Fast Climb", fontGrind, 25),
+  // new textCreator(true, 1100, 3100, "Move Left\n\nThen Double Jump", fontGrind, 25),
+  // new textCreator(true, 1100, 2750, "Hold A and Tap D\n\nThis Time", fontGrind, 25),
+  // new textCreator(true, 1100, 2450, "Move Right\n\nThen Double Jump", fontGrind, 25),
+  // new textCreator(true, 150, 1400, "Once You Hit A Surface\n\nThis is Fucking Important\n\nYou Can Double Jump Again", fontGrind, 25),
   //Arrows
   // new textCreator(true, 1900, 3500, "←", 'Courier New', 30, '#000000', 'bold'),
   // new textCreator(true, 1900, 3800, "↑", 'Courier New', 30, '#000000', 'bold'),
@@ -752,7 +754,7 @@ worldClassLevels.push(level_1);
 
 ///////////////////////////////////////////Level 2/////////////////////////////////////////////////////////////
 //New Playground
-var level_2 = new LevelCreator("Level 2-SandboxMode", 5000, 4000, new MetroidvaniaCreator(null, null, null, null, 3, 0, null, null), '#ffffff');
+var level_2 = new LevelCreator("Level 2-SandboxMode", 5000, 4000, new MetroidvaniaCreator(2, 0, 2, 4000, 3, 0, 2, 5000), '#ffffff');
 
 ///Creates Room Switching
 // class MetroidvaniaCreator {
@@ -770,10 +772,10 @@ var level_2 = new LevelCreator("Level 2-SandboxMode", 5000, 4000, new Metroidvan
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_2.playerPosition = [
-  new PlayerPositionCreator(1800, 1450),
-  new PlayerPositionCreator(400, 3120),
   new PlayerPositionCreator(200, 200),
-  new PlayerPositionCreator(2600, 3100),
+  new PlayerPositionCreator(200, 200),
+  new PlayerPositionCreator(200, 200),
+  new PlayerPositionCreator(200, 200),
 ]
 
 ///////////////////////Creation of Undeniable Death
@@ -812,8 +814,8 @@ level_2.immovableWallSpawn = [
   ////////////////////////////////////////////////One Way Objects///////////////////////////////////////////////
   new SpriteCreator(true, true, immovableWallOneWayObject, immovableWallVertical, 4200, 3000, 0, 0, .5, .5, 0, 0, null, null),
   new SpriteCreator(true, true, immovableWallOneWayObject, immovableWallHorizontal, 3400, 3000, 0, 0, .5, .5, 0, 0, null, null),
-  new SpriteCreator(true, true, immovableWallOneWayPlayer, immovableWallVertical, 4200, 3000, 0, 0, .5, .5, 0, 0, null, null),
-  new SpriteCreator(true, true, immovableWallOneWayPlayer, immovableWallHorizontal, 3400, 3000, 0, 0, .5, .5, 0, 0, null, null),
+  new SpriteCreator(true, true, immovableWallOneWayPlayer, immovableWallVertical, 4200, 3300, 0, 0, .5, .5, 0, 0, null, null),
+  new SpriteCreator(true, true, immovableWallOneWayPlayer, immovableWallHorizontal, 3400, 3300, 0, 0, .5, .5, 0, 0, null, null),
 ];
 
 //Moveable Walls
