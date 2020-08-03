@@ -497,11 +497,7 @@ level_0.immovableWallSpawn = [
   //Ground
   new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 0, 800, 0, 0, .5, .5, 0, 0, null, null),
   new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 400, 600, 0, 0, .5, .5, 0, 0, null, null),
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 500, 0, 0, 200, .2, .2, 0, 0, 0, null),
-
-  //First Wall (Double Jump)
-  // new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 1469, 3000, 0, 0, .5, .95, 0, 0, null, null),
-
+  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 500, 0, 0, 200, .2, .2, 0, 0, 1, null),
 ];
 
 //Moveable Walls
