@@ -7,17 +7,25 @@ brawl.game.prototype.trapProjectiles = function (trapProjectiles, obstacles) {
     }
 };
 
+//Immovable Objects vs. Themselves
 brawl.game.prototype.immovableImmovable = function (immovable1, immovable2) {
+    //Reverses The Velocity's of the Object
+    if (immovable1.specialCondition === 0) {
+        var x = immovable1.body.velocity.x * -1;
+        var y = immovable1.body.velocity.y * -1;
+        immovable1.body.velocity.setTo(x, y);
+        console.log("Hits 1");
+    }
     return;
 };
 
 brawl.game.prototype.immovableImmovableProcessArgument = function (immovable1, immovable2) {
-    if (!immovable1.specialCondition && !immovable2.specialCondition) {
-        return false;
-    }
-    else {
-        return true;
-    }
+    // if (!immovable1.specialCondition && !immovable2.specialCondition) {
+    //     return false;
+    // }
+    // else {
+    //     return true;
+    // }
 
 };
 
