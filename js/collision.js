@@ -7,6 +7,20 @@ brawl.game.prototype.trapProjectiles = function (trapProjectiles, obstacles) {
     }
 };
 
+brawl.game.prototype.immovableImmovable = function (immovable1, immovable2) {
+    return;
+};
+
+brawl.game.prototype.immovableImmovableProcessArgument = function (immovable1, immovable2) {
+    if (!immovable1.specialCondition && !immovable2.specialCondition) {
+        return false;
+    }
+    else {
+        return true;
+    }
+
+};
+
 //Immovable Objects vs. Moveable Objects
 brawl.game.prototype.immovableMoveable = function (immovable, objMov) {
     ////////////////////Ball Against Spikes///////////////

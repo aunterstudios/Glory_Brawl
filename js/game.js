@@ -151,12 +151,12 @@ brawl.game.prototype = {
         // this.bmd.dirty = true;
         ////////////////////////////////////////Continious Collision//////////////////////////////////
         //Images Moving
-        this.imageMovement();
+        // this.imageMovement();
         ///Enemies Attacking
         this.enemyAttack();
         //Walls
-        this.wallContinious(); //Work in Progress
-        ////Immovable Walls
+        // this.wallContinious(); //Work in Progress
+        //Immovable Walls
         this.immovableWallContinious();
         ///////////////////////////////////////////Physics////////////////////////////////////////
         //Player Mechanics
@@ -175,6 +175,9 @@ brawl.game.prototype = {
 
         //Immovable Wall and Death vs. Moveable Objects
         this.game.physics.arcade.collide([this.immovableWall, this.death], [this.ball, this.enemy, this.ledge], this.immovableMoveable, this.immovableMoveableProcessArgument, this);
+
+        //Immovable Wall and Death vs. Themselves
+        this.game.physics.arcade.overlap([this.immovableWall, this.death], [this.immovableWall, this.death], this.immovableImmovable, this.immovableImmovableProcessArgument, this);
 
         //Moveable Wall vs Immoveable Objects
         this.game.physics.arcade.collide(this.wall, [this.immovableWall, this.death], this.wallImmovable, this.wallImmovableProcessArgument, this);
