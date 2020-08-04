@@ -146,6 +146,10 @@ brawl.game.prototype.playerImmovable = function (player, immovable) {
     else {
         playerSlippery = -25;
     }
+    //Activating immovableWallOneWay
+    // if (immovable.name === immovableWallOneWayPlayerBlockLeft) {
+	//     immovable.body.checkCollision.left = false;
+    // }
     ///Activating immovableWallActivation(Like a Cloud)
     if (immovable.name === immovableWallActivation) {
         if (immovable.body.touching.up) {

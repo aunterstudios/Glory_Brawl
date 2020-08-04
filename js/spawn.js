@@ -85,6 +85,7 @@ brawl.game.prototype.undeniableDeathSpawn = function (sprite, positionInArray) {
     this.deathX.positionInArray = positionInArray;
     this.deathX.scale.setTo(sprite.sizeX, sprite.sizeY);
     this.deathX.visible = sprite.visible;
+    this.deathX.body.gravity.setTo(sprite.gravityX, sprite.gravityY);
     this.deathX.body.immovable = true;
     this.deathX.body.mass = 100;
     this.deathX.body.maxVelocity.setTo(600);
@@ -140,8 +141,13 @@ brawl.game.prototype.immovableWallSpawn = function (sprite, positionInArray) {
         this.immovableWallX.tint = testTint;
         console.log(testTint, this.immovableWallX.positionInArray);
     }
+    else if (sprite.name === immovableWallOneWayPlayerBlockLeft) {
+        this.immovableWallX.tint = tintImmovableWallOneWayPlayerBlockLeft;
+        this.immovableWallX.body.checkCollision.left = false;
+    }
     this.immovableWallX.scale.setTo(sprite.sizeX, sprite.sizeY);
     this.immovableWallX.visible = sprite.visible;
+    this.immovableWallX.body.gravity.setTo(sprite.gravityX, sprite.gravityY);
     this.immovableWallX.body.immovable = true;
     this.immovableWallX.body.mass = 100;
     this.immovableWallX.body.maxVelocity.setTo(600);
@@ -240,6 +246,7 @@ brawl.game.prototype.ledgeSpawn = function (sprite, positionInArray) {
     //////////////Immovable Testing//////////////
     // this.ledgeX.body.immovable = true;
     //////////////Immovable Testing//////////////
+    this.ledgeX.body.gravity.setTo(sprite.gravityX, sprite.gravityY);
     this.ledgeX.body.mass = 20;
     this.ledgeX.body.maxVelocity.setTo(1000);
     this.ledgeX.body.collideWorldBounds = true;
@@ -263,6 +270,7 @@ brawl.game.prototype.ballSpawn = function (sprite, positionInArray) {
     this.ballX.scale.setTo(.5); //.5
     this.ballX.visible = sprite.visible;
     // this.ballX.body.setCircle(50); //Maybe Change
+    this.ballX.body.gravity.setTo(sprite.gravityX, sprite.gravityY);
     this.ballX.body.mass = 20;
     this.ballX.body.maxVelocity.setTo(300);
     this.ballX.body.collideWorldBounds = true;
@@ -307,6 +315,7 @@ brawl.game.prototype.enemySpawn = function (sprite, positionInArray) {
     this.trumpX.anchor.setTo(.5);
     this.trumpX.scale.setTo(.6);
     this.trumpX.visible = sprite.visible;
+    this.trumpX.body.gravity.setTo(sprite.gravityX, sprite.gravityY);
     this.trumpX.body.mass = 20;
     this.trumpX.body.maxVelocity.setTo(1000);
     this.trumpX.body.collideWorldBounds = true;
@@ -326,8 +335,7 @@ brawl.game.prototype.spikeFall = function (sprite, positionInArray) {
     this.spikesFall.scale.setTo(.5);
     this.spikesFall.checkWorldBounds = true;
     this.spikesFall.outOfBoundsKill = true;
-    this.spikesFall.body.gravity.x = sprite.gravityX;
-    this.spikesFall.body.gravity.y = sprite.gravityY;
+    this.spikesFall.body.gravity.setTo(sprite.gravityX, sprite.gravityY);
 };
 //////////////////////////Flag Spawn(Checkpoints or Respawn Points)/////////////////////////
 brawl.game.prototype.flagSpawn = function (sprite) {

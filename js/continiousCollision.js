@@ -74,6 +74,9 @@ brawl.game.prototype.immovableWallContinious = function () {
                 this.game.physics.arcade.moveToObject(this.player, immovableWall, 100);
             };
         }
+        // if (immovableWall.name === immovableWallOneWayPlayerBlockLeft) {
+        //     immovableWall.body.checkCollision.left = true;
+        // }
     }, this, this.player);
 };
 

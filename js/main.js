@@ -342,7 +342,8 @@ var immovableWallPadding = 'immovableWallPadding'; //Triggers Special Properties
 var immovableWallWorldGravity = 'immovableWallWorldGravity'; //Triggers World Gravity
 var immovableWallOneWayObject = 'immovableWallOneWayObject'; //One Way (Objects Only)
 var immovableWallOneWayPlayer = 'immovableWallOneWayPlayer'; //One Way (Players Only)
-var immovableWallSlippery = 'immovableWallSlippery'; //Makes you SLIPPERY!wa 
+var immovableWallSlippery = 'immovableWallSlippery'; //Makes you SLIPPERY!
+var immovableWallOneWayPlayerBlockLeft = 'immovableWallOneWayPlayerBlockLeft'; //One way player only from the left
 
 //Moveable Wall Names
 //The Walls That Get Frozen and Unfrozen
@@ -425,6 +426,7 @@ var tintImmovableWallPadding = 2499878.036284214;
 var tintImmovableWallWorldGravity = 8314793.039214706;
 var tintImmovableWallMario = 241917.63554178402;
 var tintImmovableWallSlippery = 766012.4141677661;
+var tintImmovableWallOneWayPlayerBlockLeft = 3588771.242333334;
 
 //Frozen Wall Tints
 var tintWallPlayerFrozen = 0x00ffff;
@@ -474,6 +476,9 @@ var tintEnemyAccelerate = 2885804.4944837275;
 ///////////////////////////////////////////Level 0///////////////////////////////////////////////////////////
 var level_0 = new LevelCreator("Level 0-Direct Physics", 1400, 800, new MetroidvaniaCreator(1, 0, 0, 800, 0, 0, 0, 1400), "#ffffff"); //3800
 
+//world gravity
+// level_0.worldGravity = new worldGravityCreator(200,200);
+
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_0.playerPosition = [
   new PlayerPositionCreator(400, 700),
@@ -502,6 +507,7 @@ level_0.undeniableDeathSpawn = [
 level_0.immovableWallSpawn = [
   //Ground
   new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 0, 800, 0, 0, .5, .5, 0, 0, null, null),
+  new SpriteCreator(true, true, immovableWallOneWayPlayerBlockLeft, immovableWallVertical, 400, 600, 0, 0, .5, .5, 200, 0, null, null),
   // new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 200, 200, 0, 0, .5, .5, 0, 0, null, null),
 ];
 
@@ -937,6 +943,123 @@ level_3.fallingSpikes = [
 
 //Push Level 3 Into World Class Array
 worldClassLevels.push(level_3);
+
+///////////////////////////////////////////Level 4///////////////////////////////////////////////////////////
+var level_4 = new LevelCreator("Level 4-SEAN MOODY", 4200, 3000, new MetroidvaniaCreator(4, 0, 4, 3000, 4, 0, 4, 4200), "#D3D3D3"); //3800
+
+//world gravity
+// level_4.worldGravity = new worldGravityCreator(200,200);
+
+//Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
+level_4.playerPosition = [
+  new PlayerPositionCreator(100, 2900),
+  new PlayerPositionCreator(100, 2900),
+  new PlayerPositionCreator(100, 2900),
+  new PlayerPositionCreator(100, 2900),
+]
+
+///////////////////////Creation of Undeniable Death
+
+level_4.undeniableDeathSpawn = [
+  // //Little Death to Prevent Running At Wall Cheese Glitch
+  new SpriteCreator(true, true, undeniableDeathRegular, deathHorizontal, 600.5, 3000, 0, 0, .35714285714, .39375, 0, 0, null, null),
+  new SpriteCreator(true, true, undeniableDeathRegular, deathHorizontal, 1300.5, 3000, 0, 0, 1.14285714286, .39375, 0, 0, null, null),
+  // new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 1468, 3810, 0, 0, .41, .09, 0, 0, null, null),
+  // // new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 1468, 3710, 0, 0, .43, .09, 0, 0, null, null),
+
+  // ///Force You to Double Jump
+  // new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 1468, 2400, 0, 0, .41, .428, 0, 0, null, null),
+  // //Holds The Second Ground Wall
+  // new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 849, 1700, 0, 0, .41, .428, 0, 0, null, null),
+  // //Divider For The First Half
+  // new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 1468, 200, 0, 0, .41, .992, 0, 0, null, null),
+];
+
+/////////////////////////Creation of ImmovableWalls
+level_4.immovableWallSpawn = [
+  //Ground
+  new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 0, 3000, 0, 0, .70505287896, .5, 0, 0, null, null),
+  new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 0, 3000, 0, 0, .70505287896, .5, 0, 0, null, null),
+  new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 1100.5, 3000, 0, 0, .23501762632, .5, 0, 0, null, null),
+  new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 1500, 2700, 0, 0, .47003525264, .5, 0, 0, null, null),
+
+  // new SpriteCreator(true, true, immovableWallOneWayPlayerBlockLeft, immovableWallHorizontal, 700, 3000, 0, 0, .5, .5, 0, 0, null, null),
+  // new SpriteCreator(true, true, immovableWallOneWayPlayerBlockLeft, immovableWallVertical, 400, 600, 0, 0, .5, .5, 200, 0, null, null),
+  // new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 200, 200, 0, 0, .5, .5, 0, 0, null, null),
+];
+
+//Moveable Walls
+///Single Wall to Teach You  
+level_4.wallSpawn = [
+  // new SpriteCreator(true, true, wallRegular, wallHorizontal, 800, 3400, 0, 0, .5, .5, 0, 0, null, null),
+];
+
+level_4.ledgeSpawn = [
+  // //Surf
+  new SpriteCreator(true, true, surf, ledge, 400, 600, 0, 0, .4, .4, 0, 0, null, null),
+];
+
+//Ball
+level_4.ballSpawn = [
+  new SpriteCreator(true, true, ballRegular, ball, 500, 600, 0, 0, null, null, 0, 0, null, null)
+];
+
+level_4.enemySpawn = [
+  //First Three Enemies
+  new SpriteCreator(true, true, enemyDaakath, enemyOne, 1200, 50, 0, 0, .5, .5, 0, 0, null, null),
+  // new SpriteCreator(true, true, enemyShooter, enemyOne, 300, 200, 0, 0, .5, .5, 0, 0, null, null),
+  // new SpriteCreator(true, true, enemyAccelerate, enemyOne, 400, 200, 0, 0, .5, .5, 0, 0, null, null),
+];
+
+level_4.fallingSpikes = [
+  /////////////////////////////////////Shadow Level////////////////////////////////////////////
+  new SpriteCreator(true, true, spikeRegular, spikeFall, 400, 100, null, null, .4, .4, 0, 500, null, 2),
+  new SpriteCreator(true, true, spikeRegular, spikeFall, 4300, 50, null, null, .4, .4, 0, 500, null, 3),
+];
+
+//flag spawn
+level_4.flagSpawn = [
+  // //First Flag
+  new flagCreator(1, true, flagRegular, flag, 600, 400, 0, 0, .4, .4, 0, 0, null),
+  // new flagCreator(2, true, flagRegular, flag, 1600, 2850, 0, 0, .4, .4, 0, 0, null),
+  // new flagCreator(3, true, flagRegular, flag, 3600, 250, 0, 0, .4, .4, 0, 0, null),
+];
+
+//Text Creator (Helpful Hints)
+level_4.text = [
+  // new textCreator(true, 150, 3500, "Time To Be Reborn\n\nP- Pause\nO- FullScreen\nW or Spacebar- Jump\nA- Left\nS- Push or Move Downwards\nD- Right", fontGrind, 25),
+  // new textCreator(true, 1100, 3700, "Double Jump", fontGrind, 25),
+  // new textCreator(true, 1100, 3400, "Hold D and Tap A\n\nTo Fast Climb", fontGrind, 25),
+  // new textCreator(true, 1100, 3100, "Move Left\n\nThen Double Jump", fontGrind, 25),
+  // new textCreator(true, 1100, 2750, "Hold A and Tap D\n\nThis Time", fontGrind, 25),
+  // new textCreator(true, 1100, 2450, "Move Right\n\nThen Double Jump", fontGrind, 25),
+  // new textCreator(true, 150, 1400, "Once You Hit A Surface\n\nThis is Fucking Important\n\nYou Can Double Jump Again", fontGrind, 25),
+  //Arrows
+  // new textCreator(true, 1900, 3500, "←", 'Courier New', 30, '#000000', 'bold'),
+  // new textCreator(true, 1900, 3800, "↑", 'Courier New', 30, '#000000', 'bold'),
+  // new textCreator(true, 1400, 3200, "←", 'Courier New', 30, '#000000', 'bold'),
+  // new textCreator(true, 1050, 2900, "↓", 'Courier New', 30, '#000000', 'bold'),
+  // new textCreator(true, 200, 3100, "↑", 'Courier New', 30, '#000000', 'bold'),
+  // new textCreator(true, 1000, 3250, "←", 'Courier New', 30, '#000000', 'bold'),
+  // new textCreator(true, 1000, 3250, "←", 'Courier New', 30, '#000000', 'bold'),
+  // new textCreator(true, 300, 2700, "→", 'Courier New', 30, '#000000', 'bold'),
+  // new textCreator(true, 500, 2600, "↑", 'Courier New', 30, '#000000', 'bold'),
+  // new textCreator(true, 300, 2700, "→", 'Courier New', 30, '#000000', 'bold'),
+  // new textCreator(true, 300, 2350, "←", 'Courier New', 30, '#000000', 'bold'),
+  // new textCreator(true, 200, 1900, "↑", 'Courier New', 30, '#000000', 'bold'),
+  // new textCreator(true, 400, 1525, "→", 'Courier New', 30, '#000000', 'bold'),
+  // new textCreator(true, 1100, 1525, "↓", 'Courier New', 30, '#000000', 'bold'),
+  // new textCreator(true, 2100, 2100, "↓", 'Courier New', 30, '#000000', 'bold'),
+  // new textCreator(true, 2300, 2400, "→", 'Courier New', 30, '#000000', 'bold'),
+  // new textCreator(true, 3500, 2200, "↑", 'Courier New', 30, '#000000', 'bold'),
+  // new textCreator(true, 2400, 1000, "↑", 'Courier New', 30, '#000000', 'bold'),
+  // new textCreator(true, 2900, 1000, "←", 'Courier New', 30, '#000000', 'bold'),
+  // new textCreator(true, 2800, 600, "→", 'Courier New', 30, '#000000', 'bold'),
+  // new textCreator(true, 3500, 1800, "→", 'Courier New', 30, '#000000', 'bold'),
+];
+
+//Push to worldClassLevelsGlobalArray
+worldClassLevels.push(level_4);
 
 /////////////Change Base Texture////////////////
 // game.add.loadTexture('key','frame')

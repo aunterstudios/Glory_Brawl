@@ -15,7 +15,9 @@ brawl.game.prototype = {
         ///////////////////////These Are Resetting the Player Attributes For Each Level////////////////////
         playerSpeed = 400;
         playerJump = -500;
+        // playerJump = -1000;
         playerGravity = 1500;
+        // playerGravity = 100;
         playerDoubleJumps = 2;
         playerWallJumpX = 1000;
         playerWallJumpY = 500;
