@@ -382,6 +382,8 @@ var flagSpecial = 'flagSpecial';
 var star = 'star';
 
 /////////////////////////List of Art of Each Sprite/////////////////
+//tile
+var tile = 'tile';
 //Death
 var deathHorizontal = 'deathHorizontal';
 var deathVertical = 'deathVertical';
@@ -982,6 +984,16 @@ level_4.immovableWallSpawn = [
   new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 0, 3000, 0, 0, .70505287896, .5, 0, 0, null, null),
   new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 1100.5, 3000, 0, 0, .23501762632, .5, 0, 0, null, null),
   new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 1500, 2700, 0, 0, .47003525264, .5, 0, 0, null, null),
+  new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 2000, 2326, 0, 0, .1, .1, 0, 0, null, null),
+  new SpriteCreator(true, true, immovableWallRegular, tile, 2400, 2500, 0, 0, 1, 1, 0, 0, null, null),
+  new SpriteCreator(true, true, immovableWallRegular, tile, 2500, 2500, 0, 0, 1, 1, 0, 0, null, null),
+  new SpriteCreator(true, true, immovableWallRegular, tile, 2600, 2500, 0, 0, 1, 1, 0, 0, null, null),
+  new SpriteCreator(true, true, immovableWallRegular, tile, 2700, 2500, 0, 0, 1, 1, 0, 0, null, null),
+  new SpriteCreator(true, true, immovableWallRegular, tile, 2800, 2500, 0, 0, 1, 1, 0, 0, null, null),
+  new SpriteCreator(true, true, immovableWallRegular, tile, 2900, 2500, 0, 0, 1, 1, 0, 0, null, null),
+  new SpriteCreator(true, true, immovableWallRegular, tile, 3000, 2500, 0, 0, 1, 1, 0, 0, null, null),
+  new SpriteCreator(true, true, immovableWallRegular, tile, 3100, 2500, 0, 0, 1, 1, 0, 0, null, null),
+
 
   // new SpriteCreator(true, true, immovableWallOneWayPlayerBlockLeft, immovableWallHorizontal, 700, 3000, 0, 0, .5, .5, 0, 0, null, null),
   // new SpriteCreator(true, true, immovableWallOneWayPlayerBlockLeft, immovableWallVertical, 400, 600, 0, 0, .5, .5, 200, 0, null, null),

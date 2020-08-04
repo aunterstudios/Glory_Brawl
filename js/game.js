@@ -38,6 +38,8 @@ brawl.game.prototype = {
     preload: function () {
         // this.game.forceSingleUpdate = true;
         //Images
+        //Tiles
+        this.load.image('tile', 'assets/tile.png');
         //Immovable Walls
         this.load.image('immovableWallVertical', 'assets/immovableWallVertical.png');
         this.load.image('immovableWallHorizontal', 'assets/immovableWallHorizontal.png');
