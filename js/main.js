@@ -122,8 +122,8 @@ var cameraBoolean = true;
 var total = 0;
 
 //BMD Text (Toggle On or Off)
-// var bitmapBoolean = true;
-var bitmapBoolean = false;
+var bitmapBoolean = true;
+// var bitmapBoolean = false;
 //BMD Font
 var fontGrind = 'fontGrind';
 
