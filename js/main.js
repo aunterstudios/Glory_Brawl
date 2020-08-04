@@ -945,7 +945,7 @@ level_3.fallingSpikes = [
 worldClassLevels.push(level_3);
 
 ///////////////////////////////////////////Level 4///////////////////////////////////////////////////////////
-var level_4 = new LevelCreator("Level 4-SEAN MOODY", 4200, 3000, new MetroidvaniaCreator(4, 0, 4, 3000, 4, 0, 4, 4200), "#D3D3D3"); //3800
+var level_4 = new LevelCreator("Level 4-SEAN MOODY", 4200, 3000, new MetroidvaniaCreator(4, 0, 4, 3000, 2, 0, 4, 4200), "#D3D3D3"); //3800
 
 //world gravity
 // level_4.worldGravity = new worldGravityCreator(200,200);

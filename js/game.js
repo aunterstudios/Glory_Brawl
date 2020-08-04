@@ -389,7 +389,7 @@ brawl.game.prototype = {
         }
         ///////////////////////Weapon Mechanics///////////////
         //Shoot from Mouse
-        if (this.game.input.activePointer.leftButton.isDown) {
+        if (this.game.input.activePointer.leftButton.isDown || this.game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
             if (pullBoolean) {
                 this.weapon1.fireAtPointer();
                 this.weapon1.fire();

@@ -3,7 +3,6 @@ brawl.game.prototype.upInputReleased = function () {
     var released = false;
 
     released = this.input.keyboard.upDuration(Phaser.Keyboard.W);
-    released |= this.input.keyboard.upDuration(Phaser.Keyboard.SPACEBAR);
 
     return released;
 };
@@ -11,7 +10,6 @@ brawl.game.prototype.upInputIsActive = function (duration) {
     var isActive = false;
 
     isActive = this.input.keyboard.downDuration(Phaser.Keyboard.W, duration);
-    isActive |= this.input.keyboard.downDuration(Phaser.Keyboard.SPACEBAR, duration);
 
     return isActive;
 };
