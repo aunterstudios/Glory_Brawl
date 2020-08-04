@@ -101,7 +101,13 @@ brawl.game.prototype.wallMoveable = function (wall, objMov) {
         objMov.name = 'enemyStill';
         objMov.tint = tintRemover;
         objMov.body.stop();
-        if (objMov.body.touching.left) {
+        if (objMov.body.touching.up) {
+            objMov.body.velocity.y = 300;
+        }
+        else if (objMov.body.touching.down) {
+            objMov.body.velocity.y = -300;
+        }
+        else if (objMov.body.touching.left) {
             objMov.body.velocity.x = 300;
         }
         else if (objMov.body.touching.right) {
