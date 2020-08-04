@@ -481,6 +481,7 @@ level_0.playerPosition = [
 
 level_0.undeniableDeathSpawn = [
   // //Little Death to Prevent Running At Wall Cheese Glitch
+  new SpriteCreator(true, true, undeniableDeathRegular, deathHorizontal, 200, 200, 0, 0, .5, .5, 0, 0, null, null),
   // new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 1468, 3810, 0, 0, .41, .09, 0, 0, null, null),
   // // new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 1468, 3710, 0, 0, .43, .09, 0, 0, null, null),
 
@@ -496,29 +497,27 @@ level_0.undeniableDeathSpawn = [
 level_0.immovableWallSpawn = [
   //Ground
   new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 0, 800, 0, 0, .5, .5, 0, 0, null, null),
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 400, 600, 0, 0, .5, .5, 0, 0, null, null),
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 500, 0, 0, 200, .2, .2, 0, 0, 1, null),
+  // new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 200, 200, 0, 0, .5, .5, 0, 0, null, null),
 ];
 
 //Moveable Walls
 ///Single Wall to Teach You  
 level_0.wallSpawn = [
   // new SpriteCreator(true, true, wallRegular, wallHorizontal, 800, 3400, 0, 0, .5, .5, 0, 0, null, null),
-  new SpriteCreator(true, true, wallRegular, wallVertical, 500, 600, 0, 0, .5, .5, 0, 0, null, null),
+  new SpriteCreator(true, true, wallRegular, wallHorizontal, 500, 600, 0, 0, .5, .5, 0, 0, null, null),
+  new SpriteCreator(true, true, wallRegular, wallHorizontal, 800, 700, 0, 0, .1, .1, 0, 0, null, null),
+
 ];
 
 level_0.ledgeSpawn = [
   // //Surf
-  // new SpriteCreator(true, true, surf, ledge, 800, 3400, 0, 0, .4, .4, 0, 0, null, null),
-
-  // //Bounce Ledges
-  // new SpriteCreator(2, true, true, bounce, ledge, 900, 390, 0, 0, .4, .4, 0, 0, null, null),
-  // //Surf Ledges
-  // new SpriteCreator(3, true, true, elevator, ledge, 200, 200, 0, 0, .4, .4, 0, 0, null, null),
+  new SpriteCreator(true, true, surf, ledge, 400, 600, 0, 0, .4, .4, 0, 0, null, null),
 ];
 
 //Ball
-// level_0.ballSpawn = [new SpriteCreator(true, true, ballRegular, ball, 700, 1350, 0, 0, null, null, 0, 0, null, null)];
+level_0.ballSpawn = [
+  new SpriteCreator(true, true, ballRegular, ball, 500, 600, 0, 0, null, null, 0, 0, null, null)
+];
 
 level_0.enemySpawn = [
   //First Three Enemies
@@ -527,10 +526,16 @@ level_0.enemySpawn = [
   // new SpriteCreator(true, true, enemyAccelerate, enemyOne, 400, 200, 0, 0, .5, .5, 0, 0, null, null),
 ];
 
+level_0.fallingSpikes = [
+  /////////////////////////////////////Shadow Level////////////////////////////////////////////
+  new SpriteCreator(true, true, spikeRegular, spikeFall, 400, 100, null, null, .4, .4, 0, 500, null, 2),
+  new SpriteCreator(true, true, spikeRegular, spikeFall, 4300, 50, null, null, .4, .4, 0, 500, null, 3),
+];
+
 //flag spawn
 level_0.flagSpawn = [
   // //First Flag
-  // new flagCreator(1, true, flagRegular, flag, 200, 2850, 0, 0, .4, .4, 0, 0, null),
+  new flagCreator(1, true, flagRegular, flag, 600, 400, 0, 0, .4, .4, 0, 0, null),
   // new flagCreator(2, true, flagRegular, flag, 1600, 2850, 0, 0, .4, .4, 0, 0, null),
   // new flagCreator(3, true, flagRegular, flag, 3600, 250, 0, 0, .4, .4, 0, 0, null),
 ];
