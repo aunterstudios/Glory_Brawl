@@ -118,12 +118,17 @@ var respawnHolder = {
 //Toggling Camera
 var cameraBoolean = true;
 
+//Engage Coordinate system
+
+var coordinateSystem = true;
+// var coordinateSystem = false;
+
 // Global Timer
 var total = 0;
 
 //BMD Text (Toggle On or Off)
-var bitmapBoolean = true;
-// var bitmapBoolean = false;
+// var bitmapBoolean = true;
+var bitmapBoolean = false;
 //BMD Font
 var fontGrind = 'fontGrind';
 
@@ -868,7 +873,7 @@ level_3.undeniableDeathSpawn = [
   new SpriteCreator(true, true, undeniableDeathRegular, deathHorizontal, 0, 1600, 0, 0, 2.1, .2, 0, 0, null, null),
   new SpriteCreator(true, true, undeniableDeathRegular, deathHorizontal, 0, 0, 0, 0, 1.5, .2, 0, 0, null, null),
   //Spikes
-  new SpriteCreator(true, true, spikesRegular, spikesVertical, 1000, 0, 0, 0, .6, .4, 0, 0, 0, null),
+  new SpriteCreator(true, true, spikesRegular, spikesVertical, 1000, 0, 0, 0, .6, .4, 0, 0, null, null),
   new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 1000, 600, 0, 0, .25, .7, 0, 0, null, null),
   new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 800, 150, 0, 0, .25, .4, 0, 0, null, null),
   new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 1900, 0, 0, 0, .25, 1, 0, 0, null, null),
