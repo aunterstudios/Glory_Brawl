@@ -76,6 +76,7 @@ brawl.game.prototype.undeniableDeathSpawn = function (sprite, positionInArray) {
     //Unkillable
     if (sprite.name === undeniableDeathRegular) {
         this.deathX.groupName = groupUndeniableDeath;
+        this.deathX.tint = Phaser.Color.RED;
     }
     //Killable By Ball
     else if (sprite.name === spikesRegular) {
