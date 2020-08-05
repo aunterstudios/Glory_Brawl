@@ -213,8 +213,44 @@ class worldGravityCreator {
     this.gravityY = gravityY;
   }
 };
+/*
+var level4ObjectLoopTest2 = {
+  trigger : true,
+  name : undeniableDeathRegular,
+  art : immovableWallHorizontal,
+  //Top Left Corner
+  anchorOrigin:{
+    x: 650,
+    y: 2600,
+  },
+  xDistance: 850,
+  yDistance: 2900,
+  velocity: {
+    x: 200,
+    y: -500,
+  },
+  gravity: {
+    x: 0,
+    y: 200,
+  },
+  specialCondition: null,
+};
+*/
+//Creates the tile Immovable Properties
+class immovableSpriteCreator {
+  constructor(trigger, name, art, anchorOrigin, xDistance, yDistance, velocity, gravity, specialCondition) {
+    this.trigger = trigger;
+    this.name = name;
+    this.art = art;
+    this.anchorOrigin = anchorOrigin;
+    this.xDistance = xDistance;
+    this.yDistance = yDistance;
+    this.velocity = velocity;
+    this.gravity = gravity;
+    this.specialCondition = specialCondition;
+  }
+}
 
-//Creates the Sprite Properties
 class SpriteCreator {
   constructor(trigger, visible, name, art, x, y, velocityX, velocityY, sizeX, sizeY, gravityX, gravityY, specialCondition, seconds) {
     this.trigger = trigger;
@@ -385,15 +421,25 @@ var star = 'star';
 //tile
 var tile = 'tile';
 //Death
-var deathHorizontal = 'deathHorizontal';
-var deathVertical = 'deathVertical';
+var deathTile = 'deathTile';
+var deathHorizontal300 = 'deathHorizontal300';
+var deathHorizontal500 = 'deathHorizontal500';
+var deathHorizontal1000 = 'deathHorizontal1000';
+var deathVertical300 = 'deathVertical300';
+var deathVertical500 = 'deathVertical500';
+var deathVertical1000 = 'deathVertical1000';
 //Spikes
 var spikesVertical = 'spikesVertical';
 var spikesHorizontalOne = 'spikesHorizontalOne';
 
 //Immovable Wall
-var immovableWallHorizontal = 'immovableWallHorizontal';
-var immovableWallVertical = 'immovableWallVertical';
+var immovableWallTile = 'immovableWallTile';
+var immovableWallHorizontal300 = 'immovableWallHorizontal300';
+var immovableWallHorizontal500 = 'immovableWallHorizontal500';
+var immovableWallHorizontal1000 = 'immovableWallHorizontal1000';
+var immovableWallVertical300 = 'immovableWallVertical300';
+var immovableWallVertical500 = 'immovableWallVertical500';
+var immovableWallVertical1000 = 'immovableWallVertical1000';
 
 //Moveable Wall
 var wallHorizontal = 'wallHorizontal';
@@ -493,7 +539,7 @@ level_0.playerPosition = [
 
 level_0.undeniableDeathSpawn = [
   // //Little Death to Prevent Running At Wall Cheese Glitch
-  new SpriteCreator(true, true, undeniableDeathRegular, deathHorizontal, 200, 200, 0, 0, .5, .5, 0, 0, null, null),
+  // new SpriteCreator(true, true, undeniableDeathRegular, deathHorizontal, 200, 200, 0, 0, .5, .5, 0, 0, null, null),
   // new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 1468, 3810, 0, 0, .41, .09, 0, 0, null, null),
   // // new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 1468, 3710, 0, 0, .43, .09, 0, 0, null, null),
 
@@ -508,8 +554,8 @@ level_0.undeniableDeathSpawn = [
 /////////////////////////Creation of ImmovableWalls
 level_0.immovableWallSpawn = [
   //Ground
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 0, 800, 0, 0, .5, .5, 0, 0, null, null),
-  new SpriteCreator(true, true, immovableWallOneWayPlayerBlockLeft, immovableWallVertical, 400, 600, 0, 0, .5, .5, 200, 0, null, null),
+  // new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 0, 800, 0, 0, .5, .5, 0, 0, null, null),
+  // new SpriteCreator(true, true, immovableWallOneWayPlayerBlockLeft, immovableWallVertical, 400, 600, 0, 0, .5, .5, 200, 0, null, null),
   // new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 200, 200, 0, 0, .5, .5, 0, 0, null, null),
 ];
 
@@ -517,8 +563,8 @@ level_0.immovableWallSpawn = [
 ///Single Wall to Teach You  
 level_0.wallSpawn = [
   // new SpriteCreator(true, true, wallRegular, wallHorizontal, 800, 3400, 0, 0, .5, .5, 0, 0, null, null),
-  new SpriteCreator(true, true, wallRegular, wallHorizontal, 500, 600, 0, 0, .5, .5, 0, 0, null, null),
-  new SpriteCreator(true, true, wallRegular, wallHorizontal, 800, 700, 0, 0, .1, .1, 0, 0, null, null),
+  // new SpriteCreator(true, true, wallRegular, wallHorizontal, 500, 600, 0, 0, .5, .5, 0, 0, null, null),
+  // new SpriteCreator(true, true, wallRegular, wallHorizontal, 800, 700, 0, 0, .1, .1, 0, 0, null, null),
 
 ];
 
@@ -618,46 +664,46 @@ level_1.playerPosition = [
 
 ///////////////////////Creation of Undeniable Death
 
-level_1.undeniableDeathSpawn = [
-  //Ground Next To Flag
-  new SpriteCreator(true, true, undeniableDeathRegular, deathHorizontal, 725, 3170, 0, 0, .5, .4, 0, 0, null, null),
-  //Top of the Yellow at the Bottom
-  new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 0, 2691, 0, 0, .5, .5, 0, 0, null, null),
-  //////////////////////////////Blocking Entrance to Level 3///////////////////(Spikes)
-  new SpriteCreator(true, true, spikesRegular, spikesVertical, 3200, 2573, 0, 0, .6, .4, 0, 0, 0, null),
-];
+// level_1.undeniableDeathSpawn = [
+//   //Ground Next To Flag
+//   new SpriteCreator(true, true, undeniableDeathRegular, deathHorizontal, 725, 3170, 0, 0, .5, .4, 0, 0, null, null),
+//   //Top of the Yellow at the Bottom
+//   new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 0, 2691, 0, 0, .5, .5, 0, 0, null, null),
+//   //////////////////////////////Blocking Entrance to Level 3///////////////////(Spikes)
+//   new SpriteCreator(true, true, spikesRegular, spikesVertical, 3200, 2573, 0, 0, .6, .4, 0, 0, 0, null),
+// ];
 
-/////////////////////////Creation of ImmovableWalls
-level_1.immovableWallSpawn = [
-  //Border of Level One and Level Two
-  new SpriteCreator(true, true, immovableWallSlippery, immovableWallVertical, 3400, 800, 0, 0, .5, .5, 0, 0, null, null),
-  //Horizontal Game Mode
-  new SpriteCreator(true, true, immovableWallSlippery, immovableWallHorizontal, 3800, 1000, 0, 0, .5, .5, 0, 0, null, null),
-  //Ground
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 4200, 1200, 0, 0, .5, .5, 0, 0, null, null),
-  //4300
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 3400, 1400, 0, 0, .5, .5, 0, 0, null, null),
-  //Wall Blocking First Ground
-  new SpriteCreator(true, true, immovableWallKillWall, immovableWallVertical, 3800, 1600, 0, 0, .5, .5, 0, 0, null, null),
-  //Kill Wall
-  new SpriteCreator(true, true, immovableWallKillWall, immovableWallHorizontal, 4200, 1800, 0, 0, .5, .5, 0, 0, null, null),
-  //Ground For CheckPoint
-  new SpriteCreator(true, true, immovableWallPhase, immovableWallHorizontal, 3400, 2000, 0, 0, .5, .5, 0, 0, null, null),
-  //
-  new SpriteCreator(true, true, immovableWallPhase, immovableWallVertical, 3800, 2200, 0, 0, .5, .5, 0, 0, null, null),
-  //Prevent You From Spam Killing Enemies
-  new SpriteCreator(true, true, immovableWallMario, immovableWallVertical, 4200, 2400, 0, 0, .5, .5, 0, 0, null, null),
-  new SpriteCreator(true, true, immovableWallMario, immovableWallHorizontal, 3400, 2600, 0, 0, .5, .5, 0, 0, null, null),
-  //
-  new SpriteCreator(true, true, immovableWallMario, immovableWallVertical, 1800, 1200, 0, 0, .5, .5, 0, 0, null, null),
-  new SpriteCreator(true, true, immovableWallMario, immovableWallHorizontal, 2000, 1500, 0, 0, .5, .5, 0, 0, null, null),
-  //
-  ////////////////////////////////////////////////One Way Objects///////////////////////////////////////////////
-  new SpriteCreator(true, true, immovableWallOneWayObject, immovableWallVertical, 4200, 3000, 0, 0, .5, .5, 0, 0, null, null),
-  new SpriteCreator(true, true, immovableWallOneWayObject, immovableWallHorizontal, 3400, 3000, 0, 0, .5, .5, 0, 0, null, null),
-  new SpriteCreator(true, true, immovableWallOneWayPlayer, immovableWallVertical, 4200, 3300, 0, 0, .5, .5, 0, 0, null, null),
-  new SpriteCreator(true, true, immovableWallOneWayPlayer, immovableWallHorizontal, 3400, 3300, 0, 0, .5, .5, 0, 0, null, null),
-];
+// /////////////////////////Creation of ImmovableWalls
+// level_1.immovableWallSpawn = [
+//   //Border of Level One and Level Two
+//   new SpriteCreator(true, true, immovableWallSlippery, immovableWallVertical, 3400, 800, 0, 0, .5, .5, 0, 0, null, null),
+//   //Horizontal Game Mode
+//   new SpriteCreator(true, true, immovableWallSlippery, immovableWallHorizontal, 3800, 1000, 0, 0, .5, .5, 0, 0, null, null),
+//   //Ground
+//   new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 4200, 1200, 0, 0, .5, .5, 0, 0, null, null),
+//   //4300
+//   new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 3400, 1400, 0, 0, .5, .5, 0, 0, null, null),
+//   //Wall Blocking First Ground
+//   new SpriteCreator(true, true, immovableWallKillWall, immovableWallVertical, 3800, 1600, 0, 0, .5, .5, 0, 0, null, null),
+//   //Kill Wall
+//   new SpriteCreator(true, true, immovableWallKillWall, immovableWallHorizontal, 4200, 1800, 0, 0, .5, .5, 0, 0, null, null),
+//   //Ground For CheckPoint
+//   new SpriteCreator(true, true, immovableWallPhase, immovableWallHorizontal, 3400, 2000, 0, 0, .5, .5, 0, 0, null, null),
+//   //
+//   new SpriteCreator(true, true, immovableWallPhase, immovableWallVertical, 3800, 2200, 0, 0, .5, .5, 0, 0, null, null),
+//   //Prevent You From Spam Killing Enemies
+//   new SpriteCreator(true, true, immovableWallMario, immovableWallVertical, 4200, 2400, 0, 0, .5, .5, 0, 0, null, null),
+//   new SpriteCreator(true, true, immovableWallMario, immovableWallHorizontal, 3400, 2600, 0, 0, .5, .5, 0, 0, null, null),
+//   //
+//   new SpriteCreator(true, true, immovableWallMario, immovableWallVertical, 1800, 1200, 0, 0, .5, .5, 0, 0, null, null),
+//   new SpriteCreator(true, true, immovableWallMario, immovableWallHorizontal, 2000, 1500, 0, 0, .5, .5, 0, 0, null, null),
+//   //
+//   ////////////////////////////////////////////////One Way Objects///////////////////////////////////////////////
+//   new SpriteCreator(true, true, immovableWallOneWayObject, immovableWallVertical, 4200, 3000, 0, 0, .5, .5, 0, 0, null, null),
+//   new SpriteCreator(true, true, immovableWallOneWayObject, immovableWallHorizontal, 3400, 3000, 0, 0, .5, .5, 0, 0, null, null),
+//   new SpriteCreator(true, true, immovableWallOneWayPlayer, immovableWallVertical, 4200, 3300, 0, 0, .5, .5, 0, 0, null, null),
+//   new SpriteCreator(true, true, immovableWallOneWayPlayer, immovableWallHorizontal, 3400, 3300, 0, 0, .5, .5, 0, 0, null, null),
+// ];
 
 //Moveable Walls
 ///Single Wall to Teach You  
@@ -739,45 +785,45 @@ level_2.playerPosition = [
 
 ///////////////////////Creation of Undeniable Death
 
-level_2.undeniableDeathSpawn = [
-  //Bottom At The End of the Map (INVISIBLE)
-  new SpriteCreator(true, true, undeniableDeathRegular, deathHorizontal, 0, 4100, 0, 0, .5, .1, 0, 0, null, null),
-  //Top of Map
-  new SpriteCreator(true, true, undeniableDeathRegular, deathHorizontal, 300, 0, 0, 0, 3.215, .1, 0, 0, null, null),
-  //Long Pit (Under Vertical Moveable Wall)
-  new SpriteCreator(true, true, undeniableDeathRegular, deathHorizontal, 1406.5, 4100, 0, 0, .995, .1, 0, 0, null, null),
-  //Bottom Beginning of the Map
-  new SpriteCreator(true, true, undeniableDeathRegular, deathHorizontal, 3506, 4100, 0, 0, .4169, .1, 0, 0, null, null),
-  // //Spike of Death At Bottom to Prevent Glitch
-  // new SpriteCreator(4, true, true, undeniableDeathRegular, deathHorizontal, 0, 800, 0, 0, 3.45, .1, 0, 0, null, null),
-  //Meat Boy
-  new SpriteCreator(true, true, undeniableDeathRegular, deathHorizontal, 4670, 500, 0, 0, .1, .1, 0, 0, null, null),
-  new SpriteCreator(true, true, undeniableDeathRegular, deathHorizontal, 4670, 700, 0, 0, .1, .1, 0, 0, null, null),
-  new SpriteCreator(true, true, undeniableDeathRegular, deathHorizontal, 4670, 900, 0, 0, .1, .1, 0, 0, null, null),
-  new SpriteCreator(true, true, undeniableDeathRegular, deathHorizontal, 4670, 1100, 0, 0, .1, .1, 0, 0, null, null),
-  new SpriteCreator(true, true, undeniableDeathRegular, deathHorizontal, 4670, 1300, 0, 0, .1, .1, 0, 0, null, null),
-  new SpriteCreator(true, true, undeniableDeathRegular, deathHorizontal, 4670, 1500, 0, 0, .1, .1, 0, 0, null, null),
-];
+// level_2.undeniableDeathSpawn = [
+//   //Bottom At The End of the Map (INVISIBLE)
+//   new SpriteCreator(true, true, undeniableDeathRegular, deathHorizontal, 0, 4100, 0, 0, .5, .1, 0, 0, null, null),
+//   //Top of Map
+//   new SpriteCreator(true, true, undeniableDeathRegular, deathHorizontal, 300, 0, 0, 0, 3.215, .1, 0, 0, null, null),
+//   //Long Pit (Under Vertical Moveable Wall)
+//   new SpriteCreator(true, true, undeniableDeathRegular, deathHorizontal, 1406.5, 4100, 0, 0, .995, .1, 0, 0, null, null),
+//   //Bottom Beginning of the Map
+//   new SpriteCreator(true, true, undeniableDeathRegular, deathHorizontal, 3506, 4100, 0, 0, .4169, .1, 0, 0, null, null),
+//   // //Spike of Death At Bottom to Prevent Glitch
+//   // new SpriteCreator(4, true, true, undeniableDeathRegular, deathHorizontal, 0, 800, 0, 0, 3.45, .1, 0, 0, null, null),
+//   //Meat Boy
+//   new SpriteCreator(true, true, undeniableDeathRegular, deathHorizontal, 4670, 500, 0, 0, .1, .1, 0, 0, null, null),
+//   new SpriteCreator(true, true, undeniableDeathRegular, deathHorizontal, 4670, 700, 0, 0, .1, .1, 0, 0, null, null),
+//   new SpriteCreator(true, true, undeniableDeathRegular, deathHorizontal, 4670, 900, 0, 0, .1, .1, 0, 0, null, null),
+//   new SpriteCreator(true, true, undeniableDeathRegular, deathHorizontal, 4670, 1100, 0, 0, .1, .1, 0, 0, null, null),
+//   new SpriteCreator(true, true, undeniableDeathRegular, deathHorizontal, 4670, 1300, 0, 0, .1, .1, 0, 0, null, null),
+//   new SpriteCreator(true, true, undeniableDeathRegular, deathHorizontal, 4670, 1500, 0, 0, .1, .1, 0, 0, null, null),
+// ];
 
 
 
-/////////////////////////Creation of ImmovableWalls
-level_2.immovableWallSpawn = [
-  //Border of Level One and Level Two
-  new SpriteCreator(true, true, immovableWallSlippery, immovableWallVertical, 4800, 0, 0, 0, .3, 2.1, 0, 0, null, null),
-  //Ground
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 4100, 2000, 0, 0, .83, .5, 0, 0, null, null),
-  //4300
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 4250, 400, 0, 0, .5, .5, 0, 0, null, null),
-  //Vertical
-  // new SpriteCreator(true, true, immovableWallOneWayPlayer, immovableWallVertical, 4090, 1538, 0, 0, .5, .46 , 0, 0, null, null),
-  //Wall Blocking First Ground
-  new SpriteCreator(true, true, immovableWallKillWall, immovableWallVertical, 4090, 0, 0, 0, .5, 1.3, 0, 0, null, null),
-  //Ground For CheckPoint
-  new SpriteCreator(true, true, immovableWallPhase, immovableWallHorizontal, 2000, 1000, 0, 0, .9, .45, 0, 0, null, null),
-  //Prevent You From Spam Killing Enemies
-  new SpriteCreator(true, true, immovableWallMario, immovableWallVertical, 2300, 1100, 0, 0, .25, .655, 0, 0, null, null),
-];
+// /////////////////////////Creation of ImmovableWalls
+// level_2.immovableWallSpawn = [
+//   //Border of Level One and Level Two
+//   new SpriteCreator(true, true, immovableWallSlippery, immovableWallVertical, 4800, 0, 0, 0, .3, 2.1, 0, 0, null, null),
+//   //Ground
+//   new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 4100, 2000, 0, 0, .83, .5, 0, 0, null, null),
+//   //4300
+//   new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 4250, 400, 0, 0, .5, .5, 0, 0, null, null),
+//   //Vertical
+//   // new SpriteCreator(true, true, immovableWallOneWayPlayer, immovableWallVertical, 4090, 1538, 0, 0, .5, .46 , 0, 0, null, null),
+//   //Wall Blocking First Ground
+//   new SpriteCreator(true, true, immovableWallKillWall, immovableWallVertical, 4090, 0, 0, 0, .5, 1.3, 0, 0, null, null),
+//   //Ground For CheckPoint
+//   new SpriteCreator(true, true, immovableWallPhase, immovableWallHorizontal, 2000, 1000, 0, 0, .9, .45, 0, 0, null, null),
+//   //Prevent You From Spam Killing Enemies
+//   new SpriteCreator(true, true, immovableWallMario, immovableWallVertical, 2300, 1100, 0, 0, .25, .655, 0, 0, null, null),
+// ];
 
 //Moveable Walls 
 level_2.wallSpawn = [
@@ -871,34 +917,34 @@ level_3.playerPosition = [
 
 ///////////////////////Creation of Undeniable Death
 
-level_3.undeniableDeathSpawn = [
-  //Bottom At The End of the Map (INVISIBLE)
-  new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 3000, 0, 0, 0, .25, 1.142, 0, 0, null, null),
-  new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 0, 0, 0, 0, .25, 1.142, 0, 0, null, null),
-  //
-  new SpriteCreator(true, true, undeniableDeathRegular, deathHorizontal, 200, 800, 0, 0, .3, .2, 0, 0, null, null),
-  new SpriteCreator(true, true, undeniableDeathRegular, deathHorizontal, 200, 200, 0, 0, .3, .2, 0, 0, null, null),
-  new SpriteCreator(true, true, undeniableDeathRegular, deathHorizontal, 0, 1600, 0, 0, 2.1, .2, 0, 0, null, null),
-  new SpriteCreator(true, true, undeniableDeathRegular, deathHorizontal, 0, 0, 0, 0, 1.5, .2, 0, 0, null, null),
-  //Spikes
-  new SpriteCreator(true, true, spikesRegular, spikesVertical, 1000, 0, 0, 0, .6, .4, 0, 0, null, null),
-  new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 1000, 600, 0, 0, .25, .7, 0, 0, null, null),
-  new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 800, 150, 0, 0, .25, .4, 0, 0, null, null),
-  new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 1900, 0, 0, 0, .25, 1, 0, 0, null, null),
-  // new SpriteCreator(true, true, spikesRegular, spikesVertical, 700, 800, 0, 0, .25, 1.1, 0, 0, 0, null),
-];
+// level_3.undeniableDeathSpawn = [
+//   //Bottom At The End of the Map (INVISIBLE)
+//   new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 3000, 0, 0, 0, .25, 1.142, 0, 0, null, null),
+//   new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 0, 0, 0, 0, .25, 1.142, 0, 0, null, null),
+//   //
+//   new SpriteCreator(true, true, undeniableDeathRegular, deathHorizontal, 200, 800, 0, 0, .3, .2, 0, 0, null, null),
+//   new SpriteCreator(true, true, undeniableDeathRegular, deathHorizontal, 200, 200, 0, 0, .3, .2, 0, 0, null, null),
+//   new SpriteCreator(true, true, undeniableDeathRegular, deathHorizontal, 0, 1600, 0, 0, 2.1, .2, 0, 0, null, null),
+//   new SpriteCreator(true, true, undeniableDeathRegular, deathHorizontal, 0, 0, 0, 0, 1.5, .2, 0, 0, null, null),
+//   //Spikes
+//   new SpriteCreator(true, true, spikesRegular, spikesVertical, 1000, 0, 0, 0, .6, .4, 0, 0, null, null),
+//   new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 1000, 600, 0, 0, .25, .7, 0, 0, null, null),
+//   new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 800, 150, 0, 0, .25, .4, 0, 0, null, null),
+//   new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 1900, 0, 0, 0, .25, 1, 0, 0, null, null),
+//   // new SpriteCreator(true, true, spikesRegular, spikesVertical, 700, 800, 0, 0, .25, 1.1, 0, 0, 0, null),
+// ];
 
-// /////////////////////////Creation of ImmovableWalls
-level_3.immovableWallSpawn = [
-  //Ground
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 200, 1450, 0, 0, .5, .5, 0, 0, null, null),
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 500, 500, 0, 0, .2, .4, 0, 0, null, null),
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 2100, 400, 0, 0, .5, .5, 0, 0, null, null),
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 2300, 200, 0, 0, .5, .5, 0, 0, null, null),
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 2700, 100, 0, 0, .5, .5, 0, 0, null, null),
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 2200, 1000, 0, 0, .5, .5, 0, 0, null, null),
-  // new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 1000, 580, 0, 0, .4, 1.1, 0, 0, null, null),
-];
+// // /////////////////////////Creation of ImmovableWalls
+// level_3.immovableWallSpawn = [
+//   //Ground
+//   new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 200, 1450, 0, 0, .5, .5, 0, 0, null, null),
+//   new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 500, 500, 0, 0, .2, .4, 0, 0, null, null),
+//   new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 2100, 400, 0, 0, .5, .5, 0, 0, null, null),
+//   new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 2300, 200, 0, 0, .5, .5, 0, 0, null, null),
+//   new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 2700, 100, 0, 0, .5, .5, 0, 0, null, null),
+//   new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 2200, 1000, 0, 0, .5, .5, 0, 0, null, null),
+//   // new SpriteCreator(true, true, immovableWallRegular, immovableWallVertical, 1000, 580, 0, 0, .4, 1.1, 0, 0, null, null),
+// ];
 
 //Moveable Walls
 ///Single Wall to Teach You  
@@ -960,12 +1006,21 @@ level_4.playerPosition = [
   new PlayerPositionCreator(100, 2900),
 ]
 
-///////////////////////Creation of Undeniable Death
 
 level_4.undeniableDeathSpawn = [
-  // //Little Death to Prevent Running At Wall Cheese Glitch
-  new SpriteCreator(true, true, undeniableDeathRegular, deathHorizontal, 600.5, 3000, 0, 0, .35714285714, .39375, 0, 0, null, null),
-  new SpriteCreator(true, true, undeniableDeathRegular, deathHorizontal, 1300.5, 3000, 0, 0, 1.14285714286, .39375, 0, 0, null, null),
+  // // //Little Death to Prevent Running At Wall Cheese Glitch
+  new SpriteCreator(true, true, undeniableDeathRegular, deathHorizontal500, 500, 3000, 0, 0, 1, 1, 0, 0, null, null),
+  // //Left Border
+  // new SpriteCreator(true, true, undeniableDeathRegular, immovableWallHorizontal, 0, 0, 0, 0, 1, 1, 0, 0, null, null),
+  // new SpriteCreator(true, true, undeniableDeathRegular, immovableWallHorizontal, 0, 3000, 0, 0, 1, 1, 0, 0, null, null),
+  // new SpriteCreator(true, true, undeniableDeathRegular, immovableWallHorizontal, 0, 3000, 0, 0, 1, 1, 0, 0, null, null),
+  // new SpriteCreator(true, true, undeniableDeathRegular, immovableWallHorizontal, 0, 3000, 0, 0, 1, 1, 0, 0, null, null),
+  // new SpriteCreator(true, true, undeniableDeathRegular, immovableWallHorizontal, 0, 3000, 0, 0, 1, 1, 0, 0, null, null),
+  // level4ObjectLoopTest,
+  // level4ObjectLoopTest1,
+  // level4ObjectLoopTest2,
+  // level4ObjectLoopTest3,
+  // level4ObjectLoopTest4,
   // new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 1468, 3810, 0, 0, .41, .09, 0, 0, null, null),
   // // new SpriteCreator(true, true, undeniableDeathRegular, deathVertical, 1468, 3710, 0, 0, .43, .09, 0, 0, null, null),
 
@@ -980,21 +1035,8 @@ level_4.undeniableDeathSpawn = [
 /////////////////////////Creation of ImmovableWalls
 level_4.immovableWallSpawn = [
   //Ground
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 0, 3000, 0, 0, .70505287896, .5, 0, 0, null, null),
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 0, 3000, 0, 0, .70505287896, .5, 0, 0, null, null),
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 1100.5, 3000, 0, 0, .23501762632, .5, 0, 0, null, null),
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 1500, 2700, 0, 0, .47003525264, .5, 0, 0, null, null),
-  new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 2000, 2326, 0, 0, .1, .1, 0, 0, null, null),
-  new SpriteCreator(true, true, immovableWallRegular, tile, 2400, 2500, 200, 200, 1, 1, 0, 0, null, null),
-  new SpriteCreator(true, true, immovableWallRegular, tile, 2500, 2500, 200, 200, 1, 1, 0, 0, null, null),
-  new SpriteCreator(true, true, immovableWallRegular, tile, 2600, 2500, 200, 200, 1, 1, 0, 0, null, null),
-  new SpriteCreator(true, true, immovableWallRegular, tile, 2700, 2500, 200, 200, 1, 1, 0, 0, null, null),
-  new SpriteCreator(true, true, immovableWallRegular, tile, 2800, 2500, 200, 200, 1, 1, 0, 0, null, null),
-  new SpriteCreator(true, true, immovableWallRegular, tile, 2900, 2500, 200, 200, 1, 1, 0, 0, null, null),
-  new SpriteCreator(true, true, immovableWallRegular, tile, 3000, 2500, 200, 200, 1, 1, 0, 0, null, null),
-  new SpriteCreator(true, true, immovableWallRegular, tile, 3100, 2500, 200, 200, 1, 1, 0, 0, null, null),
-
-
+  new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal500, 0, 3000, 0, 0, 1, 1, 0, 0, null, null),
+  new SpriteCreator(true, true, immovableWallRegular, immovableWallTile, 450, 2900, 0, 0, 1, 1, 0, 0, null, null),
   // new SpriteCreator(true, true, immovableWallOneWayPlayerBlockLeft, immovableWallHorizontal, 700, 3000, 0, 0, .5, .5, 0, 0, null, null),
   // new SpriteCreator(true, true, immovableWallOneWayPlayerBlockLeft, immovableWallVertical, 400, 600, 0, 0, .5, .5, 200, 0, null, null),
   // new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal, 200, 200, 0, 0, .5, .5, 0, 0, null, null),
