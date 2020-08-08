@@ -87,7 +87,7 @@ brawl.game.prototype.undeniableDeathSpawn = function (sprite, positionInArray) {
     }
     this.deathX.specialCondition = sprite.specialCondition;
     this.deathX.positionInArray = positionInArray;
-    this.deathX.scale.setTo(sprite.scale);
+    this.deathX.tileScale.setTo(sprite.scale);
     this.deathX.body.gravity.setTo(sprite.gravityX, sprite.gravityY);
     this.deathX.body.immovable = true;
     this.deathX.body.mass = 100;
@@ -110,7 +110,7 @@ brawl.game.prototype.immovableWallSpawn = function (sprite, positionInArray) {
     this.immovableWallX.groupName = groupImmovableWall;
     this.immovableWallX.specialCondition = sprite.specialCondition;
     this.immovableWallX.positionInArray = positionInArray;
-    this.immovableWallX.scale.setTo(sprite.scale);
+    this.immovableWallX.tileScale.setTo(sprite.scale);
     if (sprite.name === immovableWallPhase) {
         this.immovableWallX.tint = tintImmovableWallPhase;
     }
@@ -199,7 +199,7 @@ brawl.game.prototype.wallSpawn = function (sprite, positionInArray) {
         this.wallX.body.immovable = true;
     }
     this.wallX.anchor.setTo(.5);
-    this.wallX.scale.setTo(sprite.scale);
+    this.wallX.tileScale.setTo(sprite.scale);
     // this.wallX.body.immovable = true;
     ////////////////Special Properties////////////
     this.wallX.body.gravity.setTo(sprite.gravityX, sprite.gravityY);
@@ -227,9 +227,9 @@ brawl.game.prototype.ledgeSpawn = function (sprite, positionInArray) {
     if (this.toggleConsoleLog) {
         console.log(sprite, positionInArray);
     }
-    var tileLedge = this.game.add.tileSprite(sprite.x, sprite.y, sprite.widthX, sprite.widthY, sprite.art);
-    this.game.physics.enable([tileLedge], Phaser.Physics.ARCADE);
-    this.ledgeX = this.ledge.add(tileLedge);
+    // var tileLedge = this.game.add.tileSprite(sprite.x, sprite.y, sprite.widthX, sprite.widthY, sprite.art);
+    // this.game.physics.enable([tileLedge], Phaser.Physics.ARCADE);
+    this.ledgeX = this.ledge.create(sprite.x, sprite.y, sprite.art);
     this.ledgeX.name = sprite.name;
     this.ledgeX.groupName = groupLedge;
     this.ledgeX.specialCondition = sprite.specialCondition;
@@ -275,7 +275,7 @@ brawl.game.prototype.ballSpawn = function (sprite, positionInArray) {
     this.ballX.velocityVsWallY = 50;
     this.ballX.tint = Phaser.Color.BLUE;
     this.ballX.anchor.setTo(.5);
-    this.ballX.scale.setTo(sprite.scale); //.5
+    this.ballX.tileScale.setTo(sprite.scale); //.5
     // this.ballX.body.setCircle(50); //Maybe Change
     this.ballX.body.gravity.setTo(sprite.gravityX, sprite.gravityY);
     this.ballX.body.mass = 20;
@@ -291,7 +291,7 @@ brawl.game.prototype.enemySpawn = function (sprite, positionInArray) {
     if (this.toggleConsoleLog) {
         console.log(sprite, positionInArray);
     }
-    this.trumpX = this.enemy.create(sprite.x, sprite.y, 'enemy');
+    this.trumpX = this.enemy.create(sprite.x, sprite.y, sprite.art);
     this.trumpX.name = sprite.name;
     this.trumpX.groupName = groupEnemy;
     this.trumpX.specialCondition = sprite.specialCondition;
@@ -339,6 +339,7 @@ brawl.game.prototype.spikeFall = function (sprite, positionInArray) {
     this.spikesFall.name = sprite.name
     this.spikesFall.anchor.setTo(.5);
     this.spikesFall.scale.setTo(sprite.scale);
+    // this.spikesFall.tint = Phaser.Color.RED;
     this.spikesFall.checkWorldBounds = true;
     this.spikesFall.outOfBoundsKill = true;
     this.spikesFall.body.gravity.setTo(sprite.gravityX, sprite.gravityY);

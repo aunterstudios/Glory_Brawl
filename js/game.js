@@ -465,8 +465,8 @@ brawl.game.prototype = {
     //     // this.game.debug.text('Heat Timer: ' + total, 32, 64);
     //     this.game.debug.body(this.player);
     //     this.game.debug.bodyInfo(this.player, 200, 200);
-    //     // this.game.debug.physicsGroup(this.death);
-    //     // this.game.debug.physicsGroup(this.immovableWall);
+    //     this.game.debug.physicsGroup(this.death);
+    //     this.game.debug.physicsGroup(this.immovableWall);
     //     // this.game.debug.physicsGroup(this.weapon1.bullets, '#ffffff');
     //     //Debugging FPS
     //     // this.game.debug.text(game.time.fps,500,500);

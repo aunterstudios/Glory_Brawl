@@ -663,7 +663,7 @@ class SpriteCreator {
 
 level_2.undeniableDeathSpawn = [
   //Ground Next To Flag
-  new SpriteCreator(true, undeniableDeathRegular, deathTile, 4500, 1500, 200, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, undeniableDeathRegular, deathTile, 4600, 1500, 200, 25, .5, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, undeniableDeathRegular, deathTile, 4000, 0, 50, 1800, 1, 0, 0, 0, 0, null, null),
   //Top of the Yellow at the Bottom
 ];
@@ -673,6 +673,7 @@ level_2.immovableWallSpawn = [
   //Border of Level One and Level Two
   new SpriteCreator(true, immovableWallSlippery, immovableWallTile, 4800, 0, 50, 1800, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, immovableWallRegular, immovableWallTile, 4000, 2000, 800, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true,immovableWallRegular, immovableWallTile, 4600, 1100, 200, 25, .5, 0, 0, 0, 0, null, null),
   // new SpriteCreator(true, true, immovableWallSlippery, immovableWallTile, 4800, 0, 0, 0, 50, 1000, 0, 0, null, null),
   // new SpriteCreator(true, true, immovableWallRegular, immovableWallTile, 4000, 2000, 0, 0, 800, 50, 0, 0, null, null),
   // new SpriteCreator(true, true, immovableWallSlippery, immovableWallVertical500, 4800, 1000, 0, 0, 1, 1, 0, 0, null, null),
@@ -692,6 +693,7 @@ level_2.wallSpawn = [
 
 //Ledges
 level_2.ledgeSpawn = [
+  new SpriteCreator(true, elevator, ledge, 4200, 1600, null, null, 1, 0, 0, 0, 0, null, null),
 ];
 
 //Enemy Spawn
