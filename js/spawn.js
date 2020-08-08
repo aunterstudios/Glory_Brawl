@@ -81,6 +81,7 @@ brawl.game.prototype.undeniableDeathSpawn = function (sprite, positionInArray) {
     //Killable By Ball
     else if (sprite.name === spikesRegular) {
         this.deathX.groupName = groupSpikes;
+        this.deathX.tint = Phaser.Color.ORANGE;
     }
     this.deathX.specialCondition = sprite.specialCondition;
     this.deathX.positionInArray = positionInArray;
@@ -101,7 +102,9 @@ brawl.game.prototype.immovableWallSpawn = function (sprite, positionInArray) {
     if (this.toggleConsoleLog) {
         console.log(sprite, positionInArray);
     }
-    this.immovableWallX = this.immovableWall.create(sprite.x, sprite.y, sprite.art);
+    var tileImmovable = this.game.add.tileSprite(sprite.x, sprite.y, sprite.sizeX, sprite.sizeY, sprite.art);
+    this.game.physics.enable([tileImmovable], Phaser.Physics.ARCADE);
+    this.immovableWallX = this.immovableWall.add(tileImmovable);
     this.immovableWallX.name = sprite.name;
     this.immovableWallX.groupName = groupImmovableWall;
     this.immovableWallX.specialCondition = sprite.specialCondition;
@@ -146,8 +149,6 @@ brawl.game.prototype.immovableWallSpawn = function (sprite, positionInArray) {
         this.immovableWallX.tint = tintImmovableWallOneWayPlayerBlockLeft;
         this.immovableWallX.body.checkCollision.left = false;
     }
-    this.immovableWallX.scale.setTo(sprite.sizeX, sprite.sizeY);
-    this.immovableWallX.visible = sprite.visible;
     this.immovableWallX.body.gravity.setTo(sprite.gravityX, sprite.gravityY);
     this.immovableWallX.body.immovable = true;
     this.immovableWallX.body.mass = 100;
@@ -155,6 +156,61 @@ brawl.game.prototype.immovableWallSpawn = function (sprite, positionInArray) {
     this.immovableWallX.body.collideWorldBounds = true;
     this.immovableWallX.body.bounce.setTo(1);
     this.immovableWallX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
+    //
+    // this.immovableWallX = this.immovableWall.create(sprite.x, sprite.y, sprite.art);
+    // this.immovableWallX.name = sprite.name;
+    // this.immovableWallX.groupName = groupImmovableWall;
+    // this.immovableWallX.specialCondition = sprite.specialCondition;
+    // this.immovableWallX.positionInArray = positionInArray;
+    // if (sprite.name === immovableWallPhase) {
+    //     this.immovableWallX.tint = tintImmovableWallPhase;
+    // }
+    // else if (sprite.name === immovableWallKillWall) {
+    //     this.immovableWallX.tint = tintImmovableWallKillWall;
+    // }
+    // else if (sprite.name === immovableWallMagnet) {
+    //     this.immovableWallX.tint = tintImmovableWallMagnet;
+    //     this.immovableWallX.anchor.setTo(.5);
+    // }
+    // else if (sprite.name === immovableWallActivation) {
+    //     this.immovableWallX.tint = tintImmovableWallActivation;
+    //     this.immovableWallX.anchor.setTo(.5);
+    // }
+    // else if (sprite.name === immovableWallPadding) {
+    //     this.immovableWallX.tint = tintImmovableWallPadding;
+    // }
+    // else if (sprite.name === immovableWallWorldGravity) {
+    //     this.immovableWallX.tint = tintImmovableWallWorldGravity;
+    // }
+    // else if (sprite.name === immovableWallMario) {
+    //     this.immovableWallX.tint = tintImmovableWallMario;
+    // }
+    // else if (sprite.name === immovableWallSlippery) {
+    //     this.immovableWallX.tint = tintImmovableWallSlippery;
+    // }
+    // else if (sprite.name === immovableWallOneWayObject) {
+    //     var testTint = Math.random() * 0xffffff;
+    //     this.immovableWallX.tint = testTint;
+    //     console.log(testTint, this.immovableWallX.positionInArray);
+    // }
+    // else if (sprite.name === immovableWallOneWayPlayer) {
+    //     var testTint = Math.random() * 0xffffff;
+    //     this.immovableWallX.tint = testTint;
+    //     console.log(testTint, this.immovableWallX.positionInArray);
+    // }
+    // else if (sprite.name === immovableWallOneWayPlayerBlockLeft) {
+    //     this.immovableWallX.tint = tintImmovableWallOneWayPlayerBlockLeft;
+    //     this.immovableWallX.body.checkCollision.left = false;
+    // }
+    // this.immovableWallX.scale.setTo(sprite.sizeX, sprite.sizeY);
+    // this.immovableWallX.visible = sprite.visible;
+    // this.immovableWallX.body.gravity.setTo(sprite.gravityX, sprite.gravityY);
+    // this.immovableWallX.body.immovable = true;
+    // this.immovableWallX.body.mass = 100;
+    // this.immovableWallX.body.maxVelocity.setTo(600);
+    // this.immovableWallX.body.collideWorldBounds = true;
+    // this.immovableWallX.body.bounce.setTo(1);
+    // this.immovableWallX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
 };
 
 ////////////////////////Wall Spawn///////////////////////
