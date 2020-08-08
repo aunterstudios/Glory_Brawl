@@ -71,7 +71,9 @@ brawl.game.prototype.undeniableDeathSpawn = function (sprite, positionInArray) {
     if (this.toggleConsoleLog) {
         console.log(sprite, positionInArray);
     }
-    this.deathX = this.death.create(sprite.x, sprite.y, sprite.art);
+    var tileDeath = this.game.add.tileSprite(sprite.x, sprite.y, sprite.sizeX, sprite.sizeY, sprite.art);
+    this.game.physics.enable([tileDeath], Phaser.Physics.ARCADE);
+    this.deathX = this.death.add(tileDeath);
     this.deathX.name = sprite.name;
     //Unkillable
     if (sprite.name === undeniableDeathRegular) {
@@ -85,7 +87,7 @@ brawl.game.prototype.undeniableDeathSpawn = function (sprite, positionInArray) {
     }
     this.deathX.specialCondition = sprite.specialCondition;
     this.deathX.positionInArray = positionInArray;
-    this.deathX.scale.setTo(sprite.sizeX, sprite.sizeY);
+    // this.deathX.scale.setTo(sprite.sizeX, sprite.sizeY);
     this.deathX.visible = sprite.visible;
     this.deathX.body.gravity.setTo(sprite.gravityX, sprite.gravityY);
     this.deathX.body.immovable = true;
@@ -109,6 +111,7 @@ brawl.game.prototype.immovableWallSpawn = function (sprite, positionInArray) {
     this.immovableWallX.groupName = groupImmovableWall;
     this.immovableWallX.specialCondition = sprite.specialCondition;
     this.immovableWallX.positionInArray = positionInArray;
+    // this.immovableWallX.scale.setTo(sprite.sizeX, sprite.sizeY);
     if (sprite.name === immovableWallPhase) {
         this.immovableWallX.tint = tintImmovableWallPhase;
     }
@@ -156,61 +159,6 @@ brawl.game.prototype.immovableWallSpawn = function (sprite, positionInArray) {
     this.immovableWallX.body.collideWorldBounds = true;
     this.immovableWallX.body.bounce.setTo(1);
     this.immovableWallX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
-    //
-    // this.immovableWallX = this.immovableWall.create(sprite.x, sprite.y, sprite.art);
-    // this.immovableWallX.name = sprite.name;
-    // this.immovableWallX.groupName = groupImmovableWall;
-    // this.immovableWallX.specialCondition = sprite.specialCondition;
-    // this.immovableWallX.positionInArray = positionInArray;
-    // if (sprite.name === immovableWallPhase) {
-    //     this.immovableWallX.tint = tintImmovableWallPhase;
-    // }
-    // else if (sprite.name === immovableWallKillWall) {
-    //     this.immovableWallX.tint = tintImmovableWallKillWall;
-    // }
-    // else if (sprite.name === immovableWallMagnet) {
-    //     this.immovableWallX.tint = tintImmovableWallMagnet;
-    //     this.immovableWallX.anchor.setTo(.5);
-    // }
-    // else if (sprite.name === immovableWallActivation) {
-    //     this.immovableWallX.tint = tintImmovableWallActivation;
-    //     this.immovableWallX.anchor.setTo(.5);
-    // }
-    // else if (sprite.name === immovableWallPadding) {
-    //     this.immovableWallX.tint = tintImmovableWallPadding;
-    // }
-    // else if (sprite.name === immovableWallWorldGravity) {
-    //     this.immovableWallX.tint = tintImmovableWallWorldGravity;
-    // }
-    // else if (sprite.name === immovableWallMario) {
-    //     this.immovableWallX.tint = tintImmovableWallMario;
-    // }
-    // else if (sprite.name === immovableWallSlippery) {
-    //     this.immovableWallX.tint = tintImmovableWallSlippery;
-    // }
-    // else if (sprite.name === immovableWallOneWayObject) {
-    //     var testTint = Math.random() * 0xffffff;
-    //     this.immovableWallX.tint = testTint;
-    //     console.log(testTint, this.immovableWallX.positionInArray);
-    // }
-    // else if (sprite.name === immovableWallOneWayPlayer) {
-    //     var testTint = Math.random() * 0xffffff;
-    //     this.immovableWallX.tint = testTint;
-    //     console.log(testTint, this.immovableWallX.positionInArray);
-    // }
-    // else if (sprite.name === immovableWallOneWayPlayerBlockLeft) {
-    //     this.immovableWallX.tint = tintImmovableWallOneWayPlayerBlockLeft;
-    //     this.immovableWallX.body.checkCollision.left = false;
-    // }
-    // this.immovableWallX.scale.setTo(sprite.sizeX, sprite.sizeY);
-    // this.immovableWallX.visible = sprite.visible;
-    // this.immovableWallX.body.gravity.setTo(sprite.gravityX, sprite.gravityY);
-    // this.immovableWallX.body.immovable = true;
-    // this.immovableWallX.body.mass = 100;
-    // this.immovableWallX.body.maxVelocity.setTo(600);
-    // this.immovableWallX.body.collideWorldBounds = true;
-    // this.immovableWallX.body.bounce.setTo(1);
-    // this.immovableWallX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
 };
 
 ////////////////////////Wall Spawn///////////////////////
@@ -218,7 +166,9 @@ brawl.game.prototype.wallSpawn = function (sprite, positionInArray) {
     if (this.toggleConsoleLog) {
         console.log(sprite, positionInArray);
     }
-    this.wallX = this.wall.create(sprite.x, sprite.y, sprite.art);
+    var tileWall = this.game.add.tileSprite(sprite.x, sprite.y, sprite.sizeX, sprite.sizeY, sprite.art);
+    this.game.physics.enable([tileWall], Phaser.Physics.ARCADE);
+    this.wallX = this.wall.add(tileWall);
     this.wallX.name = sprite.name;
     this.wallX.groupName = groupWall;
     this.wallX.specialCondition = sprite.specialCondition;
@@ -250,7 +200,7 @@ brawl.game.prototype.wallSpawn = function (sprite, positionInArray) {
         this.wallX.body.immovable = true;
     }
     this.wallX.anchor.setTo(.5);
-    this.wallX.scale.setTo(sprite.sizeX, sprite.sizeY);
+    // this.wallX.scale.setTo(sprite.sizeX, sprite.sizeY);
     this.wallX.visible = sprite.visible;
     // this.wallX.body.immovable = true;
     ////////////////Special Properties////////////
@@ -279,7 +229,10 @@ brawl.game.prototype.ledgeSpawn = function (sprite, positionInArray) {
     if (this.toggleConsoleLog) {
         console.log(sprite, positionInArray);
     }
-    this.ledgeX = this.ledge.create(sprite.x, sprite.y, sprite.art);
+    var tileLedge = this.game.add.tileSprite(sprite.x, sprite.y, sprite.sizeX, sprite.sizeY, sprite.art);
+    this.game.physics.enable([tileLedge], Phaser.Physics.ARCADE);
+    this.ledgeX = this.ledge.add(tileLedge);
+    // this.ledgeX = this.ledge.create(sprite.x, sprite.y, sprite.art);
     this.ledgeX.name = sprite.name;
     this.ledgeX.groupName = groupLedge;
     this.ledgeX.specialCondition = sprite.specialCondition;
@@ -298,7 +251,6 @@ brawl.game.prototype.ledgeSpawn = function (sprite, positionInArray) {
     // this.ledgeX.velocityVsWallX = 50; //30
     // this.ledgeX.velocityVsWallY = 50;
     this.ledgeX.anchor.setTo(.5);
-    this.ledgeX.scale.setTo(.4); //.4
     this.ledgeX.visible = sprite.visible;
     //////////////Immovable Testing//////////////
     // this.ledgeX.body.immovable = true;
@@ -315,7 +267,9 @@ brawl.game.prototype.ballSpawn = function (sprite, positionInArray) {
     if (this.toggleConsoleLog) {
         console.log(sprite, positionInArray);
     }
-    this.ballX = this.ball.create(sprite.x, sprite.y, sprite.art);
+    var tileBall = this.game.add.tileSprite(sprite.x, sprite.y, sprite.sizeX, sprite.sizeY, sprite.art);
+    this.game.physics.enable([tileBall], Phaser.Physics.ARCADE);
+    this.ballX = this.ball.add(tileBall);
     this.ballX.name = sprite.name;
     this.ballX.groupName = groupBall;
     this.ballX.specialCondition = sprite.specialCondition;
@@ -324,7 +278,7 @@ brawl.game.prototype.ballSpawn = function (sprite, positionInArray) {
     this.ballX.velocityVsWallY = 50;
     this.ballX.tint = Phaser.Color.BLUE;
     this.ballX.anchor.setTo(.5);
-    this.ballX.scale.setTo(.5); //.5
+    this.ballX.scale.setTo(1); //.5
     this.ballX.visible = sprite.visible;
     // this.ballX.body.setCircle(50); //Maybe Change
     this.ballX.body.gravity.setTo(sprite.gravityX, sprite.gravityY);

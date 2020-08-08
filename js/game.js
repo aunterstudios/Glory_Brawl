@@ -40,23 +40,10 @@ brawl.game.prototype = {
         //Images
         //Death
         this.load.image('deathTile', 'assets/deathTile.png');
-        this.load.image('deathVertical300', 'assets/deathVertical300.png');
-        this.load.image('deathVertical500', 'assets/deathVertical500.png');
-        this.load.image('deathVertical1000', 'assets/deathVertical1000.png');
-        this.load.image('deathHorizontal300', 'assets/deathHorizontal300.png');
-        this.load.image('deathHorizontal500', 'assets/deathHorizontal500.png');
-        this.load.image('deathHorizontal1000', 'assets/deathHorizontal1000.png');
         //Immovable Walls
         this.load.image('immovableWallTile', 'assets/immovableWallTile.png');
-        this.load.image('immovableWallVertical300', 'assets/immovableWallVertical300.png');
-        this.load.image('immovableWallVertical500', 'assets/immovableWallVertical500.png');
-        this.load.image('immovableWallVertical1000', 'assets/immovableWallVertical1000.png');
-        this.load.image('immovableWallHorizontal300', 'assets/immovableWallHorizontal300.png');
-        this.load.image('immovableWallHorizontal500', 'assets/immovableWallHorizontal500.png');
-        this.load.image('immovableWallHorizontal1000', 'assets/immovableWallHorizontal1000.png');
         //Moveable Walls
-        this.load.image('wallVertical', 'assets/wallVertical.png');
-        this.load.image('wallHorizontal', 'assets/wallHorizontal.png');
+        this.load.image('wallTile', 'assets/wallTile.png');
         //Ledges
         this.load.image('ledge', 'assets/ledge.png');
         //Traps

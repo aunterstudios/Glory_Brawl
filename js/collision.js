@@ -315,6 +315,7 @@ brawl.game.prototype.playerLedge = function (player, ledge) {
     //////////Eleveator Ledges/////////
     if (ledge.name === elevator) {
         if (ledge.body.touching.up) {
+            ledge.body.stop();
             player.body.velocity.y = -300;
             ledge.body.velocity.y = -300;
         }
