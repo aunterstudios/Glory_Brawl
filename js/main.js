@@ -394,7 +394,7 @@ var wallTile = 'wallTile';
 var ledge = 'ledge';
 
 //enemy
-var enemyOne = 'enemy'
+var enemyOne = 'enemyOne'
 
 //Ball
 var ball = 'ball';
@@ -698,6 +698,7 @@ level_2.ledgeSpawn = [
 
 //Enemy Spawn
 level_2.enemySpawn = [
+  new SpriteCreator(true, enemyDaakath, enemyOne, 4300, 1400, null, null, 1, 0, 0, 0, 0, null, null),
 ];
 
 //Ball

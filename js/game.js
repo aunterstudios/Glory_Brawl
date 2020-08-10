@@ -63,7 +63,7 @@ brawl.game.prototype = {
         //Ball
         this.load.image('ball', 'assets/ball.png');
         //Enemies
-        this.load.image('enemy', 'assets/trumpface.png');
+        this.load.image('enemyOne', 'assets/enemyOne.png');
         //Emitter
         this.load.image('particles', 'assets/z2.png');
         //Slow Motion Indicator
