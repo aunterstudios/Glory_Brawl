@@ -480,45 +480,52 @@ level_0.playerPosition = [
   new PlayerPositionCreator(400, 700),
 ]
 
-///////////////////////Creation of Undeniable Death
+//Creation of Undeniable Death
 
-// level_0.undeniableDeathSpawn = [
-//   // // //Little Death to Prevent Running At Wall Cheese Glitch
-// ];
+level_0.undeniableDeathSpawn = [
+  //Side Borders
+  new SpriteCreator(true, undeniableDeathRegular, deathTile, 0, 0, 50, 750, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, undeniableDeathRegular, deathTile, 1400, 0, 50, 750, 1, 0, 0, 0, 0, null, null),
+  //Testing
+  // new SpriteCreator(true, undeniableDeathRegular, deathTile, 100, 200, 50, 50, 1, 500, 0, 0, 0, null, null),
 
-// /////////////////////////Creation of ImmovableWalls
-// level_0.immovableWallSpawn = [
-//   //Ground
-// ];
+];
 
-//Moveable Walls
-///Single Wall to Teach You  
-// level_0.wallSpawn = [
+//Creation of ImmovableWalls
+level_0.immovableWallSpawn = [
+  //Ground
+  new SpriteCreator(true, immovableWallRegular, immovableWallTile, 0, 800, 1400, 50, 1, 0, 0, 0, 0, null, null),
+];
 
+//Creation of Moveable Walls
+level_0.wallSpawn = [
+  new SpriteCreator(true, wallRegular, wallTile, 700, 200, 150, 50, 1, 0, 0, 0, 0, null, null),
+];
 
-// ];
+//Creation of Ledges
+level_0.ledgeSpawn = [
+  new SpriteCreator(true, surf, ledge, 400, 100, 150, 50, 1, 300, 0, 0, 0, null, null),
+];
 
-// // level_0.ledgeSpawn = [
-// //   // //Surf
-// // ];
+//Creation of Ball
+level_0.ballSpawn = [
+  new SpriteCreator(true, ballRegular, ball, 200, 100, 50, 50, 1, 300, 0, 0, 0, null, null),
+];
 
-// //Ball
-// level_0.ballSpawn = [
-// ];
+//Creation of Spikes
+level_0.enemySpawn = [
+  new SpriteCreator(true, enemyDaakath, enemyOne, 100, 200, 50, 50, 1, 0, 0, 0, 0, null, null),
+];
 
-// level_0.enemySpawn = [
-//   //First Three Enemies
-// ];
-
-// level_0.fallingSpikes = [
-// ];
+//Creation of falling spikes or projectile traps
+level_0.fallingSpikes = [
+  new SpriteCreator(true, spikesRegular, spikeFall, 500, 100, null, null, 1, 0, 0, 0, 500, null, 3),
+];
 
 //flag spawn
 level_0.flagSpawn = [
   // //First Flag
   new flagCreator(1, true, flagRegular, flag, 600, 400, 0, 0, .4, .4, 0, 0, null),
-  // new flagCreator(2, true, flagRegular, flag, 1600, 2850, 0, 0, .4, .4, 0, 0, null),
-  // new flagCreator(3, true, flagRegular, flag, 3600, 250, 0, 0, .4, .4, 0, 0, null),
 ];
 
 //Text Creator (Helpful Hints)
@@ -638,26 +645,6 @@ level_2.playerPosition = [
   new PlayerPositionCreator(200, 300),
   new PlayerPositionCreator(4500, 1900),
 ]
-/*
-class SpriteCreator {
-  constructor(trigger, name, art, x, y, widthX, widthY, scale, velocityX, velocityY, gravityX, gravityY, specialCondition, seconds) {
-    this.trigger = trigger;
-    this.name = name;
-    this.art = art;
-    this.x = x;
-    this.y = y;
-    this.widthX = widthX;
-    this.widthY = widthY;
-    this.scale = scale;
-    this.velocityX = velocityX;
-    this.velocityY = velocityY;
-    this.gravityX = gravityX;
-    this.gravityY = gravityY;
-    this.specialCondition = specialCondition;
-    this.seconds = seconds;
-  }
-};
-*/
 
 ///////////////////////Creation of Undeniable Death
 
@@ -673,7 +660,7 @@ level_2.immovableWallSpawn = [
   //Border of Level One and Level Two
   new SpriteCreator(true, immovableWallSlippery, immovableWallTile, 4800, 0, 50, 1800, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, immovableWallRegular, immovableWallTile, 4000, 2000, 800, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true,immovableWallRegular, immovableWallTile, 4600, 1100, 200, 25, .5, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, immovableWallRegular, immovableWallTile, 4600, 1100, 200, 25, .5, 0, 0, 0, 0, null, null),
   // new SpriteCreator(true, true, immovableWallSlippery, immovableWallTile, 4800, 0, 0, 0, 50, 1000, 0, 0, null, null),
   // new SpriteCreator(true, true, immovableWallRegular, immovableWallTile, 4000, 2000, 0, 0, 800, 50, 0, 0, null, null),
   // new SpriteCreator(true, true, immovableWallSlippery, immovableWallVertical500, 4800, 1000, 0, 0, 1, 1, 0, 0, null, null),
@@ -688,6 +675,7 @@ level_2.immovableWallSpawn = [
 
 //Moveable Walls 
 level_2.wallSpawn = [
+  new SpriteCreator(true, wallRegular, wallTile, 4400, 1100, 150, 50, 1, 0, 0, 0, 0, null, null),
 ];
 
 

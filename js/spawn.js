@@ -172,7 +172,6 @@ brawl.game.prototype.wallSpawn = function (sprite, positionInArray) {
     this.wallX.groupName = groupWall;
     this.wallX.specialCondition = sprite.specialCondition;
     this.wallX.positionInArray = positionInArray;
-    this.wallX.velocityVsImmovable = 100;
     //////////Moving Walls/////////// 
     if (sprite.name === wallInverse) {
         // var testTint = Math.random() * 0xffffff;
@@ -271,8 +270,6 @@ brawl.game.prototype.ballSpawn = function (sprite, positionInArray) {
     this.ballX.groupName = groupBall;
     this.ballX.specialCondition = sprite.specialCondition;
     this.ballX.positionInArray = positionInArray;
-    this.ballX.velocityVsWallX = 50;
-    this.ballX.velocityVsWallY = 50;
     this.ballX.tint = Phaser.Color.BLUE;
     this.ballX.anchor.setTo(.5);
     this.ballX.tileScale.setTo(sprite.scale); //.5
@@ -317,8 +314,6 @@ brawl.game.prototype.enemySpawn = function (sprite, positionInArray) {
         //True
         this.trumpX.tint = tintEnemyAccelerate;
     }
-    this.trumpX.velocityVsWallX = 300;
-    this.trumpX.velocityVsWallY = 300;
     this.trumpX.anchor.setTo(.5);
     this.trumpX.scale.setTo(sprite.scale);
     this.trumpX.body.gravity.setTo(sprite.gravityX, sprite.gravityY);

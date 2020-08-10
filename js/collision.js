@@ -31,6 +31,19 @@ brawl.game.prototype.immovableImmovableProcessArgument = function (immovable1, i
 
 //Immovable Objects vs. Moveable Objects
 brawl.game.prototype.immovableMoveable = function (immovable, objMov) {
+    ////////////////////Physics of Immoveable Against Ball or Ledge or Enemy////////////
+    if (immovable.body.touching.up) {
+        objMov.body.velocity.y = -200;
+    }
+    else if (immovable.body.touching.down) {
+        objMov.body.velocity.y = 200;
+    }
+    else if (immovable.body.touching.left) {
+        objMov.body.velocity.x = -200;
+    }
+    else if (immovable.body.touching.right) {
+        objMov.body.velocity.x = 200;
+    }
     ////////////////////Ball Against Spikes///////////////
     if (immovable.groupName === groupSpikes && objMov.groupName === groupBall) {
         this.emitterFunction(immovable, objMov, 'destroy');
@@ -47,6 +60,9 @@ brawl.game.prototype.immovableMoveable = function (immovable, objMov) {
         }
         //////////////////////////Creates New Sprites After Spikes Destroyed///////////////////////
         //worldClassLevels[immovable.specialWorld].ledgeGreySpawn[immovable.specialArray].trigger = true;
+    }
+    if (immovable.body.speed > 0) {
+        this.emitterFunction(objMov, null, 'destroy');
     }
     //////////////////////////Ledge/////////////////////////////
     //Elevator Ledge Destruction
@@ -148,7 +164,7 @@ brawl.game.prototype.playerImmovable = function (player, immovable) {
     }
     //Activating immovableWallOneWay
     // if (immovable.name === immovableWallOneWayPlayerBlockLeft) {
-	//     immovable.body.checkCollision.left = false;
+    //     immovable.body.checkCollision.left = false;
     // }
     ///Activating immovableWallActivation(Like a Cloud)
     if (immovable.name === immovableWallActivation) {
