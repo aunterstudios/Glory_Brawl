@@ -97,7 +97,7 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
 
     ////////////////Kill
     //  Creates 30 bullets, using the 'bullet' graphic
-    this.weapon4 = this.game.add.weapon(weaponBulletAmount, 'bulletKill');
+    this.weapon4 = this.game.add.weapon(1000, 'bulletKill');
     //  The bullet will be automatically killed when it leaves the camera bounds
     this.weapon4.bulletKillType = Phaser.Weapon.KILL_CAMERA_BOUNDS;
     //  Because our bullet is drawn facing up, we need to offset its rotation:
@@ -105,9 +105,12 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     //  The speed at which the bullet is fired
     this.weapon4.bulletSpeed = weaponBulletSpeed;
     //  Speed-up the rate of fire, allowing them to shoot 1 bullet every 60ms
-    this.weapon4.fireRate = weaponFireRate;
-    // Track Player
-    this.weapon4.trackSprite(this.player, 0, 0);
+    // this.weapon4.fireRate = weaponFireRate;
+    this.weapon4.fireRate = 600;
+    this.weapon4.multiFire = true;
+    this.weapon4.autoExpandBulletsGroup = true;
+    // // Track Player
+    // this.weapon4.trackSprite(this.player, 0, 0);
 
     // - 20 for Tracking//
     ////////////////////////////Image Creation/////////////////////////

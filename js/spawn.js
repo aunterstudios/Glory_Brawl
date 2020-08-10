@@ -42,15 +42,27 @@ brawl.game.prototype.spriteGroupGenerator = function () {
     /////////////////////Practice Specific Sprite Groups/////////////////
     /////////////////////Enemy Bullets///////////////
     // creates enemy bullets
-    this.enemyBullets = this.game.add.group();
-    this.enemyBullets.enableBody = true;
-    this.enemyBullets.physicsBodyType = Phaser.Physics.ARCADE;
-    this.enemyBullets.createMultiple(30, 'bulletEnemy');
-    this.enemyBullets.setAll('anchor.x', 0.5);
-    this.enemyBullets.setAll('anchor.y', 1);
-    this.enemyBullets.setAll('outOfBoundsKill', true);
-    this.enemyBullets.setAll('checkWorldBounds', true);
+    // this.enemyBullets = this.game.add.group();
+    // this.enemyBullets.enableBody = true;
+    // this.enemyBullets.physicsBodyType = Phaser.Physics.ARCADE;
+    // this.enemyBullets.createMultiple(30, 'bulletEnemy');
+    // this.enemyBullets.setAll('anchor.x', 0.5);
+    // this.enemyBullets.setAll('anchor.y', 1);
+    // this.enemyBullets.setAll('outOfBoundsKill', true);
+    // this.enemyBullets.setAll('checkWorldBounds', true);
 
+    ////////////////Kill
+    //  Creates 30 bullets, using the 'bullet' graphic
+    this.enemyBullets = this.game.add.weapon(1000, 'bulletKill');
+    //  The bullet will be automatically killed when it leaves the camera bounds
+    this.enemyBullets.bulletKillType = Phaser.Weapon.KILL_CAMERA_BOUNDS;
+    //  Because our bullet is drawn facing up, we need to offset its rotation:
+    this.enemyBullets.bulletAngleOffset = 90;
+    //  The speed at which the bullet is fired
+    this.enemyBullets.bulletSpeed = weaponBulletSpeed;
+    this.enemyBullets.fireRate = 600;
+    this.enemyBullets.multiFire = true;
+    this.enemyBullets.autoExpandBulletsGroup = true;
 
     ///////////////////Adding Emitters///////////////
     this.emitter = this.game.add.emitter();

@@ -39,13 +39,7 @@ brawl.game.prototype.enemyAttack = function () {
     this.enemy.forEachAlive(function (enemy) {
         if (this.game.physics.arcade.distanceBetween(enemy, this.player, false, true) < 400) {
             if (enemy.name === enemyShooter) {
-                enemyBullet = this.enemyBullets.getFirstExists(false);
-                if (this.time.now >= enemyBulletTime) {
-                    // enemyBullet.reset(enemy.body.x, enemy.body.y + 30);
-                    enemyBulletTime = this.time.now + 400; //500 was the "default value"
-                    enemyBullet.reset(enemy.body.x, enemy.body.y + 30);
-                    this.game.physics.arcade.moveToObject(enemyBullet, this.player, 400);
-                }
+                this.enemyBullets.fire(enemy, this.player.x, this.player.y);
             }
             //Daakath
             if (enemy.name === enemyDaakath) {
