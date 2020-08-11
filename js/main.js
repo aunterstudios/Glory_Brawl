@@ -147,6 +147,7 @@ var playerGravity;
 var playerDoubleJumps;
 var playerWallJumpX;
 var playerWallJumpY;
+var playerWallDisengage;
 var playerStickiness;
 var playerSlippery;
 var playerUpsideDownVelocity;
@@ -658,7 +659,7 @@ level_1.text = [
 worldClassLevels.push(level_1);
 
 ////////////////////////////////////////Level 2/////////////////////////////////////
-var level_2 = new LevelCreator("Level 2", 4800, 2000, new MetroidvaniaCreator(3, 0, 3, 2000, null, null, 1, 4800), '#ffffff');
+var level_2 = new LevelCreator("Level 2", 4800, 2000, new MetroidvaniaCreator(3, 0, 3, 2000, null, null, 1, 4800), '#FFFDD0');
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_2.playerPosition = [
@@ -674,6 +675,8 @@ level_2.undeniableDeathSpawn = [
   //Ground Next To Flag
   new SpriteCreator(true, undeniableDeathRegular, deathTile, 4600, 1500, 200, 25, .5, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, undeniableDeathRegular, deathTile, 4000, 0, 50, 1800, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, undeniableDeathRegular, deathTile, 4700, 1700, 50, 50, 1, 700, 0, 0, 0, 1, null),
+
   //Top of the Yellow at the Bottom
 ];
 

@@ -104,48 +104,35 @@ brawl.game.prototype.wallImmovableProcessArgument = function (wall, immovable) {
 };
 
 //Wall Against Moveable Objects
-brawl.game.prototype.wallMoveable = function (wall, objMov) {
-    /////////////////////////Experimental Two////////////////////
-    if (objMov.groupName === groupEnemy) {
-        //Build One
-        // objMov.body.stop();
-        // objMov.body.velocity.x += wall.body.velocity.x/10;
-        // objMov.body.velocity.y += wall.body.velocity.y/10;
-        // var x = this.game.physics.arcade.computeVelocity(2, objMov.body, 300, 100, 200);
-        // objMov.body.velocity.x += x;
-        // objMov.body.stop();
-        objMov.name = 'enemyStill';
-        objMov.tint = tintRemover;
-        objMov.body.stop();
-        if (objMov.body.touching.up) {
-            objMov.body.velocity.y = 300;
-        }
-        else if (objMov.body.touching.down) {
-            objMov.body.velocity.y = -300;
-        }
-        else if (objMov.body.touching.left) {
-            objMov.body.velocity.x = 300;
-        }
-        else if (objMov.body.touching.right) {
-            objMov.body.velocity.x = -300;
-        }
-        // objMov.body.velocity.x = -objMov.body.velocity.x;
+brawl.game.prototype.wallVsEnemy = function (wall, enemy) {
+    /////////////////Actual Collision Physics/////////////
+    enemy.name = 'enemyStill';
+    enemy.tint = tintRemover;
+    enemy.body.stop();
+    if (enemy.body.touching.up) {
+        enemy.body.velocity.y = 300;
     }
-    //////////////////////Elevator Ledge/////////////////////////
-    if (objMov.elevatorActivate) {
-        this.emitterFunction(objMov, null, 'destroy');
+    else if (enemy.body.touching.down) {
+        enemy.body.velocity.y = -300;
     }
-
+    else if (enemy.body.touching.left) {
+        enemy.body.velocity.x = 300;
+    }
+    else if (enemy.body.touching.right) {
+        enemy.body.velocity.x = -300;
+    }
+    //////////////////////Destroys Elevator Ledge/////////////////////////
+    // if (enemy.elevatorActivate) {
+    //     this.emitterFunction(enemy, null, 'destroy');
+    // }
     return;
 };
 
-brawl.game.prototype.wallMoveableProcessArgument = function (wall, objMov) {
-    // /////////////////////////Experimental Two////////////////////
-    // if (wall.groupName === groupWallType1) {
-    //     return false;
-    // }
-    // return;
+brawl.game.prototype.wallVsBl = function (wall, bL) {
+    /////////////////Actual Collision Physics/////////////
+    return;
 };
+
 
 brawl.game.prototype.ballEnemy = function (ball, enemy) {
     /////////////////////////killEnemy////////////////////
@@ -157,7 +144,7 @@ brawl.game.prototype.ballEnemy = function (ball, enemy) {
 brawl.game.prototype.playerImmovable = function (player, immovable) {
     // player.body.stop();
     if (immovable.name === immovableWallSlippery) {
-        playerSlippery = 150;
+        playerSlippery = 200;
     }
     else {
         playerSlippery = -25;

@@ -21,6 +21,7 @@ brawl.game.prototype = {
         playerDoubleJumps = 2;
         playerWallJumpX = 1000;
         playerWallJumpY = 500;
+        playerWallDisengage = 500;
         playerStickiness = 200;
         playerSlippery = -25;
         playerUpsideDownVelocity = -200; //-100
@@ -179,7 +180,8 @@ brawl.game.prototype = {
         this.game.physics.arcade.collide(this.wall, [this.immovableWall, this.death], this.wallImmovable, this.wallImmovableProcessArgument, this);
 
         //Movable Wall Mechanics vs. Moveable Objects (NOT ITSELF) (OVERLAP)
-        this.game.physics.arcade.collide(this.wall, [this.ball, this.enemy, this.ledge], this.wallMoveable, null, this);
+        this.game.physics.arcade.collide(this.wall, this.enemy, this.wallVsEnemy, null, this);
+        this.game.physics.arcade.overlap(this.wall, [this.ball, this.ledge], this.wallVsBl, null, this);
         //Enemy vs. Ball
         this.game.physics.arcade.overlap(this.ball, this.enemy, this.ballEnemy, null, this);
 
@@ -310,25 +312,19 @@ brawl.game.prototype = {
                 this.player.body.velocity.y = playerUpsideDownMovement;
             }
 
-            //Downward Mechanics
-            // if (this.movementDown.isDown) {
-            //     if (onNone || onUpsideDown || onTheGround) {
-            //         this.player.frame = 3;
-            //     }
-            //     else if (onTheLeftSide) {
-            //         this.player.frame = 13;
-            //     }
-            //     else if (onTheRightSide) {
-            //         this.player.frame = 7;
-            //     }
-            //     this.player.body.velocity.y = playerDownwards;
-            // }
             if (this.movementDown.isDown && !this.movementLeft.isDown && !this.movementRight.isDown) {
                 this.player.body.setSize(34, 55.5, 15, 7);
                 if (onNone || onUpsideDown || onTheGround) {
                     this.player.frame = 3;
                     this.player.body.velocity.y = playerDownwards;
                 }
+                if (onTheLeftSide) {
+                    this.player.body.velocity.x = playerWallDisengage;
+                }
+                if (onTheRightSide) {
+                    this.player.body.velocity.x = -playerWallDisengage;
+                }
+                // this.player.body.velocity.y = playerDownwards;
             }
         }
         //Freelook

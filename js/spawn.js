@@ -39,7 +39,6 @@ brawl.game.prototype.spriteGroupGenerator = function () {
     this.slowMotionGroup = this.game.add.group();
     this.slowMotionGroup.classType = Phaser.Image;
 
-    /////////////////////Practice Specific Sprite Groups/////////////////
     /////////////////////Enemy Bullets///////////////
     // creates enemy bullets
     // this.enemyBullets = this.game.add.group();
@@ -50,8 +49,7 @@ brawl.game.prototype.spriteGroupGenerator = function () {
     // this.enemyBullets.setAll('anchor.y', 1);
     // this.enemyBullets.setAll('outOfBoundsKill', true);
     // this.enemyBullets.setAll('checkWorldBounds', true);
-
-    ////////////////Kill
+    
     //  Creates 30 bullets, using the 'bullet' graphic
     this.enemyBullets = this.game.add.weapon(1000, 'bulletKill');
     //  The bullet will be automatically killed when it leaves the camera bounds
