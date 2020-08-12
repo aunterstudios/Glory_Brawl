@@ -172,13 +172,10 @@ brawl.game.prototype = {
         this.game.physics.arcade.overlap([this.weapon1.bullets, this.weapon2.bullets, this.weapon3.bullets], [this.ball, this.wall, this.ledge, this.enemy, this.immovableWall, this.death], this.weaponHandler, this.weaponProcessArgument, this);
 
         //Immovable Wall and Death vs. Moveable Objects
-        this.game.physics.arcade.collide([this.immovableWall, this.death], [this.ball, this.enemy, this.ledge], this.immovableMoveable, this.immovableMoveableProcessArgument, this);
+        this.game.physics.arcade.collide([this.immovableWall, this.death], [this.ball, this.enemy, this.ledge, this.wall], this.immovableMoveable, this.immovableMoveableProcessArgument, this);
 
         //Immovable Wall and Death vs. Themselves
         this.game.physics.arcade.overlap([this.immovableWall, this.death], [this.immovableWall, this.death], this.immovableImmovable, this.immovableImmovableProcessArgument, this);
-
-        //Moveable Wall vs Immoveable Objects
-        this.game.physics.arcade.collide(this.wall, [this.immovableWall, this.death], this.wallImmovable, this.wallImmovableProcessArgument, this);
 
         //Movable Wall Mechanics vs. Moveable Objects (NOT ITSELF) (OVERLAP)
         this.game.physics.arcade.collide(this.wall, this.enemy, this.wallVsEnemy, null, this);
@@ -289,6 +286,7 @@ brawl.game.prototype = {
 
             }
             else if (onNone) {
+                // this.player.animations.stop();
                 this.player.body.setSize(34, 55.5, 15, 7);
                 if (this.player.body.velocity.x === 0) {
                     this.player.frame = 2;
@@ -305,6 +303,11 @@ brawl.game.prototype = {
                     this.player.body.velocity.x = 0;
                 }
             }
+
+            // //Upwards
+            // if (this.movementUp.isDown) {
+            //     this.player.frame = 2;
+            // }
 
             //////////Downwards Mechanics////////
             if (this.movementDown.isDown && onUpsideDown) {

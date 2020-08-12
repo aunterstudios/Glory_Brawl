@@ -101,7 +101,7 @@ brawl.game.prototype.undeniableDeathSpawn = function (sprite, positionInArray) {
     this.deathX.body.gravity.setTo(sprite.gravityX, sprite.gravityY);
     this.deathX.body.immovable = true;
     this.deathX.body.mass = 100;
-    this.deathX.body.maxVelocity.setTo(600);
+    this.deathX.body.maxVelocity.setTo(1000);
     this.deathX.body.collideWorldBounds = true;
     this.deathX.body.immovable = true;
     this.deathX.body.bounce.setTo(1);
@@ -164,7 +164,7 @@ brawl.game.prototype.immovableWallSpawn = function (sprite, positionInArray) {
     this.immovableWallX.body.gravity.setTo(sprite.gravityX, sprite.gravityY);
     this.immovableWallX.body.immovable = true;
     this.immovableWallX.body.mass = 100;
-    this.immovableWallX.body.maxVelocity.setTo(600);
+    this.immovableWallX.body.maxVelocity.setTo(1000);
     this.immovableWallX.body.collideWorldBounds = true;
     this.immovableWallX.body.bounce.setTo(1);
     this.immovableWallX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
@@ -212,7 +212,7 @@ brawl.game.prototype.wallSpawn = function (sprite, positionInArray) {
     ////////////////Special Properties////////////
     this.wallX.body.gravity.setTo(sprite.gravityX, sprite.gravityY);
     this.wallX.body.mass = 200; //200
-    this.wallX.body.maxVelocity.setTo(400);
+    this.wallX.body.maxVelocity.setTo(1000);
     // this.wallX.body.friction.setTo(0);
     ////////////////////Testing///////////////////
     this.wallX.body.collideWorldBounds = true;
@@ -285,7 +285,7 @@ brawl.game.prototype.ballSpawn = function (sprite, positionInArray) {
     // this.ballX.body.setCircle(50); //Maybe Change
     this.ballX.body.gravity.setTo(sprite.gravityX, sprite.gravityY);
     this.ballX.body.mass = 20;
-    this.ballX.body.maxVelocity.setTo(300);
+    this.ballX.body.maxVelocity.setTo(1000);
     this.ballX.body.collideWorldBounds = true;
     this.ballX.body.bounce.setTo(.5);
     this.ballX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);

@@ -30,23 +30,23 @@ brawl.game.prototype.immovableImmovableProcessArgument = function (immovable1, i
 };
 
 //Immovable Objects vs. Moveable Objects
-brawl.game.prototype.immovableMoveable = function (immovable, objMov) {
+brawl.game.prototype.immovableMoveable = function (immovable, moveable) {
     ////////////////////Physics of Immoveable Against Ball or Ledge or Enemy////////////
     // if (immovable.body.touching.up) {
-    //     objMov.body.velocity.y = -200;
+    //     moveable.body.velocity.y = -200;
     // }
     // else if (immovable.body.touching.down) {
-    //     objMov.body.velocity.y = 200;
+    //     moveable.body.velocity.y = 200;
     // }
     // else if (immovable.body.touching.left) {
-    //     objMov.body.velocity.x = -200;
+    //     moveable.body.velocity.x = -200;
     // }
     // else if (immovable.body.touching.right) {
-    //     objMov.body.velocity.x = 200;
+    //     moveable.body.velocity.x = 200;
     // }
     ////////////////////Ball Against Spikes///////////////
-    if (immovable.groupName === groupSpikes && objMov.groupName === groupBall) {
-        this.emitterFunction(immovable, objMov, 'destroy');
+    if (immovable.groupName === groupSpikes && moveable.groupName === groupBall) {
+        this.emitterFunction(immovable, moveable, 'destroy');
         //Removes Localized Sprites from Regenerating (Spikes)
         if (immovable.specialCondition === 0) {
             //Destruction of Localized Sprite
@@ -61,14 +61,19 @@ brawl.game.prototype.immovableMoveable = function (immovable, objMov) {
         //////////////////////////Creates New Sprites After Spikes Destroyed///////////////////////
         //worldClassLevels[immovable.specialWorld].ledgeGreySpawn[immovable.specialArray].trigger = true;
     }
+    /////////////////////Immovable Wall Effects Against Moveable////////////////////
+    if (immovable.name === immovableWallKillWall) {
+        this.emitterFunction(moveable, null, 'destroy');
+    }
     if (immovable.body.speed > 0) {
-        this.emitterFunction(objMov, null, 'destroy');
+        this.emitterFunction(moveable, null, 'destroy');
     }
     //////////////////////////Ledge/////////////////////////////
     //Elevator Ledge Destruction
-    if (objMov.elevatorActivate) {
-        this.emitterFunction(objMov, null, 'destroy');
+    if (moveable.elevatorActivate) {
+        this.emitterFunction(moveable, null, 'destroy');
     }
+    console.log("wallHitting");
     return;
 };
 brawl.game.prototype.immovableMoveableProcessArgument = function (imb, mov) {
@@ -79,28 +84,6 @@ brawl.game.prototype.immovableMoveableProcessArgument = function (imb, mov) {
         return true;
     }
 
-};
-//Wall Against Immovable Objects
-brawl.game.prototype.wallImmovable = function (wall, immovable) {
-    /////////////////Make Sure to Code In Objects Interacting With Each Other!!////////////////
-    ////////////////Interactions Coded in the Orientation of Immovable Walls//////////////////
-    //////////////////////////Wall Destruction////////////////////////////
-    if (immovable.name === immovableWallKillWall) {
-        this.emitterFunction(wall, null, 'destroy');
-    }
-    if (immovable.body.speed > 0) {
-        this.emitterFunction(wall, null, 'destroy');
-    }
-    return;
-};
-
-brawl.game.prototype.wallImmovableProcessArgument = function (wall, immovable) {
-    // if (wall.groupName === groupWallType1) {
-    //     return false;
-    // }
-    // else {
-    //     true;
-    // }
 };
 
 //Wall Against Moveable Objects
@@ -288,21 +271,11 @@ brawl.game.prototype.playerWall = function (player, wall) {
         //Control
         // wall.body.velocity.x = player.body.velocity.x;
         //Let it Go
-        if (wall.key === wallHorizontal) {
-            if (player.body.velocity.x < 0) {
-                wall.body.velocity.x = -200;
-            }
-            if (player.body.velocity.x > 0) {
-                wall.body.velocity.x = 200;
-            }
+        if (player.body.velocity.x < 0) {
+            wall.body.velocity.x = -200;
         }
-        else {
-            if (this.movementUp.isDown) {
-                wall.body.velocity.y = -200;
-            }
-            if (this.movementDown.isDown) {
-                wall.body.velocity.y = 200;
-            }
+        if (player.body.velocity.x > 0) {
+            wall.body.velocity.x = 200;
         }
     }
 
