@@ -539,23 +539,6 @@ level_0.text = [
   // new textCreator(true, 1900, 3800, "↑", 'Courier New', 30, '#000000', 'bold'),
   // new textCreator(true, 1400, 3200, "←", 'Courier New', 30, '#000000', 'bold'),
   // new textCreator(true, 1050, 2900, "↓", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 200, 3100, "↑", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 1000, 3250, "←", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 1000, 3250, "←", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 300, 2700, "→", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 500, 2600, "↑", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 300, 2700, "→", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 300, 2350, "←", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 200, 1900, "↑", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 400, 1525, "→", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 1100, 1525, "↓", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 2100, 2100, "↓", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 2300, 2400, "→", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 3500, 2200, "↑", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 2400, 1000, "↑", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 2900, 1000, "←", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 2800, 600, "→", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 3500, 1800, "→", 'Courier New', 30, '#000000', 'bold'),
 ];
 
 //Push to worldClassLevelsGlobalArray
@@ -624,35 +607,7 @@ level_1.flagSpawn = [
 
 //Text Creator (Helpful Hints)
 level_1.text = [
-  // new textCreator(true, 150, 3500, "Time To Be Reborn\n\nP- Pause\nO- FullScreen\nW or Spacebar- Jump\nA- Left\nS- Push or Move Downwards\nD- Right", fontGrind, 25),
-  // new textCreator(true, 1100, 3700, "Double Jump", fontGrind, 25),
-  // new textCreator(true, 1100, 3400, "Hold D and Tap A\n\nTo Fast Climb", fontGrind, 25),
-  // new textCreator(true, 1100, 3100, "Move Left\n\nThen Double Jump", fontGrind, 25),
-  // new textCreator(true, 1100, 2750, "Hold A and Tap D\n\nThis Time", fontGrind, 25),
-  // new textCreator(true, 1100, 2450, "Move Right\n\nThen Double Jump", fontGrind, 25),
-  // new textCreator(true, 150, 1400, "Once You Hit A Surface\n\nThis is Fucking Important\n\nYou Can Double Jump Again", fontGrind, 25),
-  //Arrows
-  // new textCreator(true, 1900, 3500, "←", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 1900, 3800, "↑", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 1400, 3200, "←", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 1050, 2900, "↓", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 200, 3100, "↑", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 1000, 3250, "←", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 1000, 3250, "←", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 300, 2700, "→", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 500, 2600, "↑", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 300, 2700, "→", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 300, 2350, "←", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 200, 1900, "↑", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 400, 1525, "→", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 1100, 1525, "↓", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 2100, 2100, "↓", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 2300, 2400, "→", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 3500, 2200, "↑", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 2400, 1000, "↑", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 2900, 1000, "←", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 2800, 600, "→", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 3500, 1800, "→", 'Courier New', 30, '#000000', 'bold'),
+
 ];
 
 //Push Level 2 Into World Class Array
@@ -740,38 +695,9 @@ level_2.fallingSpikes = [
 
 level_2.text = [
   new textCreator(true, 4650, 1800, "Sandbox\n\n→", fontGrind, 25),
-  // new textCreator(true, 1100, 3700, "Double Jump", fontGrind, 25),
-  // new textCreator(true, 1100, 3400, "Hold D and Tap A\n\nTo Fast Climb", fontGrind, 25),
-  // new textCreator(true, 1100, 3100, "Move Left\n\nThen Double Jump", fontGrind, 25),
-  // new textCreator(true, 1100, 2750, "Hold A and Tap D\n\nThis Time", fontGrind, 25),
-  // new textCreator(true, 1100, 2450, "Move Right\n\nThen Double Jump", fontGrind, 25),
-  // new textCreator(true, 150, 1400, "Once You Hit A Surface\n\nThis is Fucking Important\n\nYou Can Double Jump Again", fontGrind, 25),
-  //Arrows
-  // new textCreator(true, 1900, 3500, "←", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 1900, 3800, "↑", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 1400, 3200, "←", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 1050, 2900, "↓", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 200, 3100, "↑", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 1000, 3250, "←", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 1000, 3250, "←", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 300, 2700, "→", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 500, 2600, "↑", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 300, 2700, "→", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 300, 2350, "←", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 200, 1900, "↑", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 400, 1525, "→", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 1100, 1525, "↓", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 2100, 2100, "↓", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 2300, 2400, "→", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 3500, 2200, "↑", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 2400, 1000, "↑", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 2900, 1000, "←", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 2800, 600, "→", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 3500, 1800, "→", 'Courier New', 30, '#000000', 'bold'),
 ];
 //Push Level 3 Into World Class Array
 worldClassLevels.push(level_2);
-
 
 ////////////////////////////////////////Level 3/////////////////////////////////////
 var level_3 = new LevelCreator("Level 3-SandboxMode", 1400, 10000, new MetroidvaniaCreator(1, 0, 1, 10000, 2, 0, 1, 1400), '#FFFDD0'); //2400
@@ -792,8 +718,17 @@ level_3.undeniableDeathSpawn = [
   //Side Borders
   new SpriteCreator(true, undeniableDeathRegular, deathTile, 0, 0, 50, 9950, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, undeniableDeathRegular, deathTile, 1400, 0, 50, 9950, 1, 0, 0, 0, 0, null, null),
-  //Testing
-  // new SpriteCreator(true, undeniableDeathRegular, deathTile, 100, 200, 50, 50, 1, 500, 0, 0, 0, null, null),
+  //Moving Blocks
+  new SpriteCreator(true, undeniableDeathRegular, deathTile, 300, 9700, 50, 50, 1, 700, 0, 0, 0, 1, null),
+  new SpriteCreator(true, undeniableDeathRegular, deathTile, 400, 9600, 50, 50, 1, 700, 0, 0, 0, 1, null),
+  new SpriteCreator(true, undeniableDeathRegular, deathTile, 500, 9500, 50, 50, 1, 700, 0, 0, 0, 1, null),
+  new SpriteCreator(true, undeniableDeathRegular, deathTile, 600, 9400, 50, 50, 1, 700, 0, 0, 0, 1, null),
+  new SpriteCreator(true, undeniableDeathRegular, deathTile, 700, 9300, 50, 50, 1, 700, 0, 0, 0, 1, null),
+  new SpriteCreator(true, undeniableDeathRegular, deathTile, 800, 9200, 50, 50, 1, 700, 0, 0, 0, 1, null),
+  new SpriteCreator(true, undeniableDeathRegular, deathTile, 900, 9100, 50, 50, 1, 700, 0, 0, 0, 1, null),
+  new SpriteCreator(true, undeniableDeathRegular, deathTile, 100, 9000, 50, 50, 1, 700, 0, 0, 0, 1, null),
+  new SpriteCreator(true, undeniableDeathRegular, deathTile, 200, 8900, 50, 50, 1, 700, 0, 0, 0, 1, null),
+
 
 ];
 
@@ -886,28 +821,6 @@ level_4.text = [
   // new textCreator(true, 1100, 2750, "Hold A and Tap D\n\nThis Time", fontGrind, 25),
   // new textCreator(true, 1100, 2450, "Move Right\n\nThen Double Jump", fontGrind, 25),
   // new textCreator(true, 150, 1400, "Once You Hit A Surface\n\nThis is Fucking Important\n\nYou Can Double Jump Again", fontGrind, 25),
-  //Arrows
-  // new textCreator(true, 1900, 3500, "←", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 1900, 3800, "↑", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 1400, 3200, "←", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 1050, 2900, "↓", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 200, 3100, "↑", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 1000, 3250, "←", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 1000, 3250, "←", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 300, 2700, "→", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 500, 2600, "↑", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 300, 2700, "→", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 300, 2350, "←", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 200, 1900, "↑", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 400, 1525, "→", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 1100, 1525, "↓", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 2100, 2100, "↓", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 2300, 2400, "→", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 3500, 2200, "↑", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 2400, 1000, "↑", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 2900, 1000, "←", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 2800, 600, "→", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 3500, 1800, "→", 'Courier New', 30, '#000000', 'bold'),
 ];
 
 //Push to worldClassLevelsGlobalArray
