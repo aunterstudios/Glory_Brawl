@@ -209,10 +209,6 @@ brawl.game.prototype.wallSpawn = function (sprite, positionInArray) {
     }
     this.wallX.tileScale.setTo(sprite.scale);
     this.wallX.anchor.setTo(.5);
-    this.wallX.tileScaleOffset.setTo(1);
-    this.wallX.tilePosition.setTo(1);
-    console.log(this.wallX.tileScaleOffset);
-    // this.wallX.body.immovable = true;
     ////////////////Special Properties////////////
     this.wallX.body.gravity.setTo(sprite.gravityX, sprite.gravityY);
     this.wallX.body.mass = 200; //200

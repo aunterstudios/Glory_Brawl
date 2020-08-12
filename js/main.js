@@ -379,7 +379,8 @@ var deathTile = 'deathTile';
 var immovableWallTile = 'immovableWallTile';
 
 //Moveable Wall
-var wallTile = 'wallTile';
+var wallTile50 = 'wallTile50';
+var wallTile25 = 'wallTile25';
 
 //Ledge
 var ledge = 'ledge';
@@ -490,7 +491,7 @@ level_0.immovableWallSpawn = [
 
 //Creation of Moveable Walls
 level_0.wallSpawn = [
-  new SpriteCreator(true, wallRegular, wallTile, 700, 200, 150, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallRegular, wallTile50, 700, 200, 150, 50, 1, 0, 0, 0, 0, null, null),
 ];
 
 //Creation of Ledges
@@ -576,7 +577,7 @@ level_1.immovableWallSpawn = [
 
 //Creation of Moveable Walls
 level_1.wallSpawn = [
-  new SpriteCreator(true, wallRegular, wallTile, 700, 200, 150, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallRegular, wallTile50, 700, 200, 150, 50, 1, 0, 0, 0, 0, null, null),
 ];
 
 //Creation of Ledges
@@ -655,7 +656,7 @@ level_2.immovableWallSpawn = [
 
 //Moveable Walls 
 level_2.wallSpawn = [
-  new SpriteCreator(true, wallRegular, wallTile, 4400, 1100, 150, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallRegular, wallTile50, 4400, 1100, 150, 50, 1, 0, 0, 0, 0, null, null),
 ];
 
 
@@ -715,6 +716,7 @@ level_3.playerPosition = [
 //Creation of Undeniable Death
 
 level_3.undeniableDeathSpawn = [
+  new SpriteCreator(true, undeniableDeathRegular, deathTile, 750, 9900, 25, 25, .5, 0, 0, 0, 0, null, null),
   //Side Borders
   new SpriteCreator(true, undeniableDeathRegular, deathTile, 0, 0, 50, 9950, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, undeniableDeathRegular, deathTile, 1400, 0, 50, 9950, 1, 0, 0, 0, 0, null, null),
@@ -744,7 +746,8 @@ level_3.immovableWallSpawn = [
 
 //Creation of Moveable Walls
 level_3.wallSpawn = [
-  new SpriteCreator(true, wallRegular, wallTile, 700, 9900, 25, 25, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallRegular, wallTile25, 600, 9900, 25, 25, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallRegular, wallTile50, 800, 9900, 50, 50, 1, 0, 0, 0, 0, null, null),
 ];
 // //Ledges
 level_3.ledgeSpawn = [

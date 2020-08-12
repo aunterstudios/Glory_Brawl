@@ -44,7 +44,8 @@ brawl.game.prototype = {
         //Immovable Walls
         this.load.image('immovableWallTile', 'assets/immovableWallTile.png');
         //Moveable Walls
-        this.load.image('wallTile', 'assets/wallTile.png');
+        this.load.image('wallTile50', 'assets/wallTile50.png');
+        this.load.image('wallTile25', 'assets/wallTile25.png');
         //Ledges
         this.load.image('ledge', 'assets/ledge.png');
         //Traps
@@ -448,19 +449,20 @@ brawl.game.prototype = {
     //     }
     // }
     /////////////////////////Debugging + Timer///////////////////////////
-    render: function () {
-        //Timer Debugging
-        // this.game.debug.text('Elapsed seconds: ' + this.game.time.totalElapsedSeconds(), 32, 32);
-        // this.game.debug.text('Global Timer: ' + total, 32, 32);
-        // this.game.debug.text('Heat Timer: ' + total, 32, 64);
-        this.game.debug.body(this.player);
-        this.game.debug.bodyInfo(this.player, 200, 200);
-        this.game.debug.physicsGroup(this.wall);
-        // this.game.debug.physicsGroup(this.immovableWall);
-        // this.game.debug.physicsGroup(this.death);
+    // render: function () {
+    //     //Timer Debugging
+    //     // this.game.debug.text('Elapsed seconds: ' + this.game.time.totalElapsedSeconds(), 32, 32);
+    //     // this.game.debug.text('Global Timer: ' + total, 32, 32);
+    //     // this.game.debug.text('Heat Timer: ' + total, 32, 64);
+    //     this.game.debug.body(this.player);
+    //     this.game.debug.bodyInfo(this.player, 200, 200);
+    //     this.game.debug.physicsGroup(this.wall);
+    //     // this.game.debug.bodyInfo(this.wall, 200, 200);
+    //     // this.game.debug.physicsGroup(this.immovableWall);
+    //     // this.game.debug.physicsGroup(this.death);
 
-        // this.game.debug.physicsGroup(this.weapon1.bullets, '#ffffff');
-        //Debugging FPS
-        // this.game.debug.text(game.time.fps,500,500);
-    },
+    //     // this.game.debug.physicsGroup(this.weapon1.bullets, '#ffffff');
+    //     //Debugging FPS
+    //     // this.game.debug.text(game.time.fps,500,500);
+    // },
 };
