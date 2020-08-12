@@ -106,37 +106,63 @@ brawl.game.prototype.wallImmovableProcessArgument = function (wall, immovable) {
 //Wall Against Moveable Objects
 brawl.game.prototype.wallVsEnemy = function (wall, enemy) {
     /////////////////Actual Collision Physics/////////////
-    enemy.name = 'enemyStill';
-    enemy.tint = tintRemover;
-    enemy.body.stop();
-    if (enemy.body.touching.up) {
-        enemy.body.velocity.y = 300;
+    if (enemy.name !== 'enemyFrozen') {
+        enemy.name = 'enemyStill';
+        enemy.tint = tintRemover;
+        enemy.body.stop();
+        if (enemy.body.touching.up) {
+            enemy.body.velocity.y = 300;
+        }
+        else if (enemy.body.touching.down) {
+            enemy.body.velocity.y = -300;
+        }
+        else if (enemy.body.touching.left) {
+            enemy.body.velocity.x = 300;
+        }
+        else if (enemy.body.touching.right) {
+            enemy.body.velocity.x = -300;
+        }
     }
-    else if (enemy.body.touching.down) {
-        enemy.body.velocity.y = -300;
+    else {
+        if (wall.body.touching.up) {
+            wall.body.velocity.y = 300;
+        }
+        else if (wall.body.touching.down) {
+            wall.body.velocity.y = -300;
+        }
+        else if (wall.body.touching.left) {
+            wall.body.velocity.x = 300;
+        }
+        else if (wall.body.touching.right) {
+            wall.body.velocity.x = -300;
+        }
     }
-    else if (enemy.body.touching.left) {
-        enemy.body.velocity.x = 300;
-    }
-    else if (enemy.body.touching.right) {
-        enemy.body.velocity.x = -300;
-    }
-    //////////////////////Destroys Elevator Ledge/////////////////////////
-    // if (enemy.elevatorActivate) {
-    //     this.emitterFunction(enemy, null, 'destroy');
-    // }
     return;
 };
 
 brawl.game.prototype.wallVsBl = function (wall, bL) {
     /////////////////Actual Collision Physics/////////////
+    // bL.body.velocity.setTo(-wall.body.velocity.x, -wall.body.velocity.y);
+    //////////////////////Destroys Elevator Ledge/////////////////////////
+    if (bL.elevatorActivate) {
+        this.emitterFunction(bL, null, 'destroy');
+    }
     return;
 };
 
 
-brawl.game.prototype.ballEnemy = function (ball, enemy) {
+brawl.game.prototype.blVsEnemy = function (bL, enemy) {
     /////////////////////////killEnemy////////////////////
-    this.emitterFunction(enemy, null, 'kill');
+    if (bL.groupName === groupBall) {
+        this.emitterFunction(enemy, null, 'destroy');
+    }
+    if (bL.groupName === groupLedge) {
+        enemy.name = 'enemyFrozen';
+        enemy.tint = tintWallPlayerFrozen;
+        enemy.body.immovable = true;
+        enemy.body.moves = false;
+        // this.emitterFunction(bL, null, 'destroy');
+    }
     return;
 };
 
@@ -301,6 +327,7 @@ brawl.game.prototype.playerWallProcessArgument = function (player, wall) {
 // };
 
 brawl.game.prototype.playerBall = function (player, ball) {
+    //ballRegular Physics
     ball.body.stop();
     if (ball.body.touching.down) {
         ball.body.velocity.y = -50;
