@@ -564,22 +564,22 @@ worldClassLevels.push(level_0);
 ////////////////////////////////////////Level 1-SandboxMode/////////////////////////////////////
 
 //New Playground
-var level_1 = new LevelCreator("Level 1-SandboxMode", 5000, 4000, new MetroidvaniaCreator(1, 0, 1, 4000, 2, 0, 1, 5000), '#ffffff');
+var level_1 = new LevelCreator("Level 1-SandboxMode", 1400, 10000, new MetroidvaniaCreator(1, 0, 1, 10000, 2, 0, 1, 1400), '#ffffff');
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_1.playerPosition = [
-  new PlayerPositionCreator(200, 200),
-  new PlayerPositionCreator(200, 200),
-  new PlayerPositionCreator(200, 200),
-  new PlayerPositionCreator(200, 200),
+  new PlayerPositionCreator(200, 9900),
+  new PlayerPositionCreator(200, 9900),
+  new PlayerPositionCreator(200, 9900),
+  new PlayerPositionCreator(200, 9900),
 ]
 
 //Creation of Undeniable Death
 
 level_1.undeniableDeathSpawn = [
   //Side Borders
-  new SpriteCreator(true, undeniableDeathRegular, deathTile, 0, 0, 50, 750, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, undeniableDeathRegular, deathTile, 1400, 0, 50, 750, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, undeniableDeathRegular, deathTile, 0, 0, 50, 9950, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, undeniableDeathRegular, deathTile, 1400, 0, 50, 9950, 1, 0, 0, 0, 0, null, null),
   //Testing
   // new SpriteCreator(true, undeniableDeathRegular, deathTile, 100, 200, 50, 50, 1, 500, 0, 0, 0, null, null),
 
@@ -588,7 +588,7 @@ level_1.undeniableDeathSpawn = [
 //Creation of ImmovableWalls
 level_1.immovableWallSpawn = [
   //Ground
-  new SpriteCreator(true, immovableWallRegular, immovableWallTile, 0, 800, 1400, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, immovableWallRegular, immovableWallTile, 0, 9950, 1400, 50, 1, 0, 0, 0, 0, null, null),
 ];
 
 //Creation of Moveable Walls
@@ -774,32 +774,39 @@ worldClassLevels.push(level_2);
 
 
 ////////////////////////////////////////Level 3/////////////////////////////////////
-var level_3 = new LevelCreator("Level 3", 3000, 1600, new MetroidvaniaCreator(null, null, 2, 1600, null, null, null, null), '#ffffff'); //2400
+var level_3 = new LevelCreator("Level 3-SandboxMode", 1400, 10000, new MetroidvaniaCreator(1, 0, 1, 10000, 2, 0, 1, 1400), '#FFFDD0'); //2400
 
 // level_3.worldGravity = new worldGravityCreator(200, 300);
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_3.playerPosition = [
-  new PlayerPositionCreator(200, 700),
-  new PlayerPositionCreator(300, 1400), //400/700
-  new PlayerPositionCreator(300, 1400),
-  new PlayerPositionCreator(1400, 700),
+  new PlayerPositionCreator(200, 9900),
+  new PlayerPositionCreator(200, 9900),
+  new PlayerPositionCreator(200, 9900),
+  new PlayerPositionCreator(200, 9900),
 ]
 
-///////////////////////Creation of Undeniable Death
+//Creation of Undeniable Death
 
-// level_3.undeniableDeathSpawn = [
-// ];
+level_3.undeniableDeathSpawn = [
+  //Side Borders
+  new SpriteCreator(true, undeniableDeathRegular, deathTile, 0, 0, 50, 9950, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, undeniableDeathRegular, deathTile, 1400, 0, 50, 9950, 1, 0, 0, 0, 0, null, null),
+  //Testing
+  // new SpriteCreator(true, undeniableDeathRegular, deathTile, 100, 200, 50, 50, 1, 500, 0, 0, 0, null, null),
 
-// // /////////////////////////Creation of ImmovableWalls
-// level_3.immovableWallSpawn = [
-// ];
+];
 
-//Moveable Walls
-///Single Wall to Teach You  
-// level_3.wallSpawn = [
-// ];
+//Creation of ImmovableWalls
+level_3.immovableWallSpawn = [
+  //Ground
+  new SpriteCreator(true, immovableWallRegular, immovableWallTile, 0, 9950, 1400, 50, 1, 0, 0, 0, 0, null, null),
+];
 
+//Creation of Moveable Walls
+level_3.wallSpawn = [
+  new SpriteCreator(true, wallRegular, wallTile, 700, 200, 150, 50, 1, 0, 0, 0, 0, null, null),
+];
 // //Ledges
 level_3.ledgeSpawn = [
   // //Surf

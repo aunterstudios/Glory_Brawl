@@ -81,6 +81,7 @@ brawl.stateControls.prototype = {
             //Level I'm Testing-Sean Moody
             // this.game.state.start('game', true, false, 4, 1, worldClassLevels[4].metroidvania);
             // this.game.state.start('game', true, false, 2, 3, worldClassLevels[2].metroidvania);
+            this.game.state.start('game', true, false, 3, 1, worldClassLevels[3].metroidvania);
 
         }
     }

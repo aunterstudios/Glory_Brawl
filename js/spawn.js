@@ -57,8 +57,8 @@ brawl.game.prototype.spriteGroupGenerator = function () {
     //  Because our bullet is drawn facing up, we need to offset its rotation:
     this.enemyBullets.bulletAngleOffset = 90;
     //  The speed at which the bullet is fired
-    this.enemyBullets.bulletSpeed = weaponBulletSpeed;
-    this.enemyBullets.fireRate = 600;
+    this.enemyBullets.bulletSpeed = 600;
+    this.enemyBullets.fireRate = 300;
     this.enemyBullets.multiFire = true;
     this.enemyBullets.autoExpandBulletsGroup = true;
 
