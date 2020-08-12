@@ -728,8 +728,12 @@ level_3.undeniableDeathSpawn = [
   new SpriteCreator(true, undeniableDeathRegular, deathTile, 900, 9100, 50, 50, 1, 700, 0, 0, 0, 1, null),
   new SpriteCreator(true, undeniableDeathRegular, deathTile, 100, 9000, 50, 50, 1, 700, 0, 0, 0, 1, null),
   new SpriteCreator(true, undeniableDeathRegular, deathTile, 200, 8900, 50, 50, 1, 700, 0, 0, 0, 1, null),
-
-
+  new SpriteCreator(true, undeniableDeathRegular, deathTile, 300, 8800, 50, 50, 1, 700, 0, 0, 0, 1, null),
+  new SpriteCreator(true, undeniableDeathRegular, deathTile, 400, 8700, 50, 50, 1, 700, 0, 0, 0, 1, null),
+  new SpriteCreator(true, undeniableDeathRegular, deathTile, 500, 8600, 50, 50, 1, 700, 0, 0, 0, 1, null),
+  new SpriteCreator(true, undeniableDeathRegular, deathTile, 600, 8500, 50, 50, 1, 700, 0, 0, 0, 1, null),
+  new SpriteCreator(true, undeniableDeathRegular, deathTile, 700, 8400, 50, 50, 1, 700, 0, 0, 0, 1, null),
+  new SpriteCreator(true, undeniableDeathRegular, deathTile, 800, 8300, 50, 50, 1, 700, 0, 0, 0, 1, null),
 ];
 
 //Creation of ImmovableWalls
@@ -740,7 +744,7 @@ level_3.immovableWallSpawn = [
 
 //Creation of Moveable Walls
 level_3.wallSpawn = [
-  new SpriteCreator(true, wallRegular, wallTile, 700, 200, 150, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallRegular, wallTile, 700, 9900, 25, 25, 1, 0, 0, 0, 0, null, null),
 ];
 // //Ledges
 level_3.ledgeSpawn = [
