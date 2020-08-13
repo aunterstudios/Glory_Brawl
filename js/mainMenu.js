@@ -59,10 +59,6 @@ brawl.stateControls.prototype = {
     preload: function () {
     },
     create: function () {
-        //Setting Up FrameRate
-        this.game.time.advancedTiming = true; //Allows FPS to be calculated
-        // console.log(setFps);
-
         this.text1 = this.game.add.text(100, 200, "I know you don't know what's going on.\n\nBut we've been here countless times.\n\nDoing the same thing over and over again.\n\nTrying to become reborn again.\n\nTo defeat The Shadow.\n\nSo I ask you to remember the words.\n\nGLORY BRAWL");
         this.text1.font = 'Courier New';
         this.text1.fontSize = 25
@@ -76,9 +72,6 @@ brawl.stateControls.prototype = {
         this.xToPlay.fontWeight = 'bold';
     },
     update: function () {
-        //////////Fps Settings/////////
-        setFps = this.game.time.suggestedFps;
-        console.log(setFps, "Hits Amiright");
         if (this.game.input.keyboard.isDown(Phaser.Keyboard.X)) {
             /////////CurrentWorld-PlayerPosition-CurrentWorld(metroidvania)////////
             ////////0-Up, 1-Down, 2-Left, 3-Right//////

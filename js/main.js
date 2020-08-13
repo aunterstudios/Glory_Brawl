@@ -49,7 +49,7 @@ game.state.add('controlScreen', brawl.stateControls);
 game.state.start('mainMenu');
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "setFps3",
+  "Return",
   "GLORY BRAWL",
 ];
 
@@ -136,7 +136,7 @@ var slowMotionLimit;
 var timerEvents;
 
 //Frame Rate 
-var setFps;
+// var setFps;
 
 // Total Deaths
 var deaths = 0;
