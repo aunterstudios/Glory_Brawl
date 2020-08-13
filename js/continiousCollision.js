@@ -16,15 +16,6 @@ brawl.game.prototype.upInputIsActive = function (duration) {
 
 //Images
 brawl.game.prototype.imageMovement = function () {
-    //Slow Motion
-    // this.slowMotionGroup.forEachAlive(function (slowMotion) {
-    //     if (this.game.physics.arcade.distanceBetween(slowMotion, this.player, false, true) > 50) {
-    //         this.game.physics.arcade.moveToObject(slowMotion, this.player, 400);
-    //     }
-    //     else {
-    //         slowMotion.body.stop();
-    //     }
-    // }, this);
     //Images
     this.imageGroup.forEachAlive(function (image) {
         // image.rotation += 0.001;
@@ -61,11 +52,6 @@ brawl.game.prototype.enemyAttack = function () {
 //Immovable Wall
 brawl.game.prototype.immovableWallContinious = function () {
     this.immovableWall.forEachAlive(function (immovableWall) {
-        if (immovableWall.name === immovableWallMagnet) {
-            if (this.game.physics.arcade.distanceBetween(this.player, immovableWall, false, true) < 300) {
-                this.game.physics.arcade.moveToObject(this.player, immovableWall, 100);
-            };
-        }
         // if (immovableWall.name === immovableWallOneWayPlayerBlockLeft) {
         //     immovableWall.body.checkCollision.left = true;
         // }
@@ -78,12 +64,12 @@ brawl.game.prototype.wallContinious = function () {
         // if (this.game.physics.arcade.distanceBetween(wall, this.player, false, true) < 400 && wall.name === wallPoint) {
         //     this.game.physics.arcade.moveToPointer(wall, 200);
         // }
-        if (wall.name === wallPlayerFrozen) {
-            wall.name = wallRegular;
-            wall.body.moves = true;
-            wall.body.immovable = false;
-            wall.tint = tintRemover;
-        }
+        // if (wall.name === wallPlayerFrozen) {
+        //     wall.name = wallRegular;
+        //     wall.body.moves = true;
+        //     wall.body.immovable = false;
+        //     wall.tint = tintRemover;
+        // }
         //Defunct But Still Useful For Different Walls
         // if (wall.name === wallSurfKiller) {
         //     wall.name = wallSurf;

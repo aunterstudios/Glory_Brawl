@@ -159,7 +159,7 @@ brawl.game.prototype = {
         //Walls
         // this.wallContinious(); //Work in Progress
         //Immovable Walls
-        this.immovableWallContinious();
+        // this.immovableWallContinious();
         ///////////////////////////////////////////Physics////////////////////////////////////////
         //Player Mechanics
         var onImmovable = this.game.physics.arcade.collide(this.player, this.immovableWall, this.playerImmovable, this.playerImmovableWallProcessArgument, this);
