@@ -81,7 +81,11 @@ brawl.game.prototype = {
     },
     create: function () {
         //Desired FPS of game and fps and lag debugging
-        this.game.time.desiredFps = 60;
+        //OG 60
+        // this.game.time.desiredFps = 60;
+        this.game.time.desiredFps = this.game.time.suggestedFps;
+
+        // this.game.fpsProblemNotifier.add(this.handleFpsProblem, this);
 
         //FPS Debugging
         this.game.time.advancedTiming = true;
