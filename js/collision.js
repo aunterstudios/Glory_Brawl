@@ -73,7 +73,6 @@ brawl.game.prototype.immovableMoveable = function (immovable, moveable) {
     if (moveable.elevatorActivate) {
         this.emitterFunction(moveable, null, 'destroy');
     }
-    console.log("wallHitting");
     return;
 };
 brawl.game.prototype.immovableMoveableProcessArgument = function (imb, mov) {
