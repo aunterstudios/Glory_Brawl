@@ -84,7 +84,7 @@ brawl.game.prototype = {
         this.game.time.desiredFps = 60;
 
         //FPS Debugging
-        // this.game.time.advancedTiming = true;
+        this.game.time.advancedTiming = true;
 
         //Background Color of Game
         this.game.stage.backgroundColor = worldClassLevels[this.indexOfCurrentWorld].backgroundColor;
@@ -125,6 +125,7 @@ brawl.game.prototype = {
         this.cameraPlayer()
 
         //////////////////////////////////////////Creating BMD///////////////////////////////
+        //bmd is following around stuff
         // this.bmd = this.game.add.bitmapData(worldClassLevels[this.indexOfCurrentWorld].xOfWorld, worldClassLevels[this.indexOfCurrentWorld].yOfWorld);
         // this.bmd.context.fillStyle = '#FF0000';
 
@@ -452,20 +453,16 @@ brawl.game.prototype = {
     //     }
     // }
     /////////////////////////Debugging + Timer///////////////////////////
-    // render: function () {
-    //     //Timer Debugging
-    //     // this.game.debug.text('Elapsed seconds: ' + this.game.time.totalElapsedSeconds(), 32, 32);
-    //     // this.game.debug.text('Global Timer: ' + total, 32, 32);
-    //     // this.game.debug.text('Heat Timer: ' + total, 32, 64);
-    //     this.game.debug.body(this.player);
-    //     this.game.debug.bodyInfo(this.player, 200, 200);
-    //     this.game.debug.physicsGroup(this.wall);
-    //     // this.game.debug.bodyInfo(this.wall, 200, 200);
-    //     // this.game.debug.physicsGroup(this.immovableWall);
-    //     // this.game.debug.physicsGroup(this.death);
-
-    //     // this.game.debug.physicsGroup(this.weapon1.bullets, '#ffffff');
-    //     //Debugging FPS
-    //     // this.game.debug.text(game.time.fps,500,500);
-    // },
+    render: function () {
+        //Timer Debugging
+        // this.game.debug.text('Elapsed seconds: ' + this.game.time.totalElapsedSeconds(), 32, 32);
+        // this.game.debug.text('Global Timer: ' + total, 32, 32);
+        // this.game.debug.text('Heat Timer: ' + total, 32, 64);
+        //Body Physics
+        // this.game.debug.body(this.player);
+        // this.game.debug.bodyInfo(this.player, 200, 200);
+        // this.game.debug.physicsGroup(this.weapon1.bullets, '#ffffff');
+        //Debugging FPS
+        this.game.debug.text(this.game.time.fps, 200, 300);
+    },
 };
