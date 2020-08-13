@@ -81,7 +81,7 @@ brawl.game.prototype = {
     create: function () {
         //Initializing FPS framework
         //Hmm
-        this.game.forceSingleRender = false;
+        // this.game.forceSingleRender = false;
         this.game.time.advancedTiming = true; //Allows FPS to be calculated
         this.game.time.desiredFps = 60; //Only Initially Before Changed
         // this.game.forceSingleUpdate = false;
