@@ -80,10 +80,10 @@ brawl.game.prototype = {
     },
     create: function () {
         //Initializing FPS framework
-        this.game.time.advancedTiming = true; //Allows FPS to be calculated
-        this.game.time.desiredFps = 60; //Only Initially Before Changed
         //Hmm
         this.game.forceSingleRender = false;
+        this.game.time.advancedTiming = true; //Allows FPS to be calculated
+        this.game.time.desiredFps = 60; //Only Initially Before Changed
         // this.game.forceSingleUpdate = false;
         //FPS Debugging
         // this.game.fpsProblemNotifier.add(this.handleFpsProblem, this);
@@ -148,7 +148,7 @@ brawl.game.prototype = {
         ////////////////////////////////////FPS Debugging////////////////////////////////////////
         // this.game.time.desiredFps = this.game.time.fps;
         // console.log(this.game.time.desiredFps, "Desired");
-        console.log(this.game.time.fps, "force");
+        console.log(this.game.time.rps, " rps", this.game.time.renders, ' renders');
         /////////////////////////////////////////BMD////////////////////////////////////////////////
         // this.bmd.context.fillRect(this.player.x-100, this.player.y-100, 50, 50);
         // this.bmd.dirty = true;
