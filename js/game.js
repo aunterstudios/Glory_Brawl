@@ -80,10 +80,11 @@ brawl.game.prototype = {
         }
     },
     create: function () {
-        //Desired FPS of game and fps and lag debugging
-        this.game.time.desiredFps = 60; //Only Initially
+        //Initializing FPS framework
+        this.game.time.advancedTiming = true; //Allows FPS to be calculated
+        // this.game.time.desiredFps = 60; //Only Initially Before Changed
+        this.game.time.desiredFps = this.game.time.suggestedFps;
         //FPS Debugging
-        this.game.time.advancedTiming = true;
         this.game.fpsProblemNotifier.add(this.handleFpsProblem, this);
 
         //Background Color of Game
@@ -146,6 +147,7 @@ brawl.game.prototype = {
     update: function () {
         ////////////////////////////////////FPS Debugging////////////////////////////////////////
         // console.log(this.game.time.fps);
+        console.log(this.game.time.desiredFps, 'vampires');
         /////////////////////////////////////////BMD////////////////////////////////////////////////
         // this.bmd.context.fillRect(this.player.x-100, this.player.y-100, 50, 50);
         // this.bmd.dirty = true;
