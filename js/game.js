@@ -148,6 +148,7 @@ brawl.game.prototype = {
         ////////////////////////////////////FPS Debugging////////////////////////////////////////
         // console.log(this.game.time.fps);
         console.log(this.game.time.fps, 'vampires2');
+        console.log(this.game.time.desiredFps, 'desire');
         /////////////////////////////////////////BMD////////////////////////////////////////////////
         // this.bmd.context.fillRect(this.player.x-100, this.player.y-100, 50, 50);
         // this.bmd.dirty = true;
