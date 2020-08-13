@@ -82,9 +82,9 @@ brawl.game.prototype = {
     create: function () {
         //Desired FPS of game and fps and lag debugging
         this.game.time.desiredFps = 60; //Only Initially
-        this.game.fpsProblemNotifier.add(this.handleFpsProblem, this);
         //FPS Debugging
         this.game.time.advancedTiming = true;
+        this.game.fpsProblemNotifier.add(this.handleFpsProblem, this);
 
         //Background Color of Game
         this.game.stage.backgroundColor = worldClassLevels[this.indexOfCurrentWorld].backgroundColor;

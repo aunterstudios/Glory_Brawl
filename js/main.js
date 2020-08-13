@@ -49,7 +49,7 @@ game.state.add('controlScreen', brawl.stateControls);
 game.state.start('mainMenu');
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "FPS-2",
+  "FPS-3",
   "GLORY BRAWL",
 ];
 

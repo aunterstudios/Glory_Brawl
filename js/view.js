@@ -65,6 +65,7 @@ brawl.game.prototype.cameraChange = function () {
 brawl.game.prototype.handleFpsProblem = function () {
     // modify the game desired fps to match the current suggested fps
     this.game.time.desiredFps = this.game.time.suggestedFps;
+    // console.log("Working baby fps");
 };
 
 ///////////////////////////////////////////////Slow Motion///////////////////////////////////////////
