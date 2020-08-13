@@ -83,8 +83,7 @@ brawl.game.prototype = {
         //Initializing FPS framework
         this.game.time.advancedTiming = true; //Allows FPS to be calculated
         // this.game.time.desiredFps = 60; //Only Initially Before Changed
-        this.game.time.desiredFps = this.game.time.suggestedFps;
-        // console.log(this.game.time.suggestedFps);
+        this.game.time.desiredFps = setFps;
         //FPS Debugging
         this.game.fpsProblemNotifier.add(this.handleFpsProblem, this);
 
