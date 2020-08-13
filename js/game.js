@@ -37,8 +37,6 @@ brawl.game.prototype = {
         weaponBulletAmount = 30; //30
     },
     preload: function () {
-        // this.game.forceSingleRender = false;
-        // this.game.forceSingleUpdate = true;
         //Images
         //Death
         this.load.image('deathTile', 'assets/deathTile.png');
@@ -84,7 +82,9 @@ brawl.game.prototype = {
         //Initializing FPS framework
         this.game.time.advancedTiming = true; //Allows FPS to be calculated
         this.game.time.desiredFps = 60; //Only Initially Before Changed
+        //Hmm
         this.game.forceSingleRender = false;
+        // this.game.forceSingleUpdate = false;
         //FPS Debugging
         // this.game.fpsProblemNotifier.add(this.handleFpsProblem, this);
 
@@ -93,8 +93,6 @@ brawl.game.prototype = {
 
         //Sort Direction
         this.game.physics.arcade.sortDirection = Phaser.Physics.Arcade.SORT_NONE;
-        //What Is This?
-        // this.game.physics.arcade.forceX = true;
 
         // Stretch to fill (Full Screen Mode)
         this.createFullScreen();
@@ -133,6 +131,7 @@ brawl.game.prototype = {
 
         // this.bg = game.add.sprite(0, 0, this.bmd);
 
+        //////////////////////////////////////BitMap Text////////////////////////////////////////////
         if (bitmapBoolean) {
             this.text = this.game.add.bitmapText(200, 6208, 'fontGrind', worldName, 32);
             this.text.fixedToCamera = true;
