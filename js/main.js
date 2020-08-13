@@ -49,8 +49,7 @@ game.state.add('controlScreen', brawl.stateControls);
 game.state.start('mainMenu');
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "No Right-Click",
-  "Remember the Words",
+  "FPS",
   "GLORY BRAWL",
 ];
 
