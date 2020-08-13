@@ -76,15 +76,15 @@ brawl.game.prototype.slowMotionActivate = function () {
         if (this.game.time.slowMotion === 3.0) {
             this.game.time.events.remove(timerEvents[0]);
         }
-        // this.game.time.desiredFps = 180;
-        this.game.time.desiredFps = this.game.time.suggestedFps * 3;
+        this.game.time.desiredFps = 180;
+        // this.game.time.desiredFps = this.game.time.suggestedFps * 3;
         this.game.time.slowMotion = 3.0;
         timerEvents[0] = this.game.time.events.add(7000, this.slowMotionStop, this);
     }
 };
 
 brawl.game.prototype.slowMotionStop = function () {
-    // this.game.time.desiredFps = 60;
-    this.game.time.desiredFps = this.game.time.suggestedFps;
+    this.game.time.desiredFps = 60;
+    // this.game.time.desiredFps = this.game.time.suggestedFps;
     this.game.time.slowMotion = 1.0;
 };

@@ -84,6 +84,7 @@ brawl.game.prototype = {
         this.game.time.advancedTiming = true; //Allows FPS to be calculated
         // this.game.time.desiredFps = 60; //Only Initially Before Changed
         this.game.time.desiredFps = this.game.time.suggestedFps;
+        // console.log(this.game.time.suggestedFps);
         //FPS Debugging
         this.game.fpsProblemNotifier.add(this.handleFpsProblem, this);
 
@@ -146,9 +147,8 @@ brawl.game.prototype = {
     // //How Game Updates Real-Time (Actual Controls)////
     update: function () {
         ////////////////////////////////////FPS Debugging////////////////////////////////////////
-        // console.log(this.game.time.fps);
-        console.log(this.game.time.fps, 'vampires2');
-        console.log(this.game.time.desiredFps, 'desire');
+        // this.game.time.desiredFps = this.game.time.fps;
+        console.log(this.game.time.desiredFps, "Desired");
         /////////////////////////////////////////BMD////////////////////////////////////////////////
         // this.bmd.context.fillRect(this.player.x-100, this.player.y-100, 50, 50);
         // this.bmd.dirty = true;
