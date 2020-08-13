@@ -82,7 +82,7 @@ brawl.game.prototype = {
         //Initializing FPS framework
         this.game.forceSingleRender = false;
         // this.game.time.advancedTiming = true; //Allows FPS to be calculated
-        this.game.time.desiredFps = 60; //Only Initially Before Changed
+        this.game.time.desiredFps = 60; //This Keeps Things Consistent
         // this.game.forceSingleUpdate = false;
         //FPS Debugging
         // this.game.fpsProblemNotifier.add(this.handleFpsProblem, this);
@@ -463,8 +463,8 @@ brawl.game.prototype = {
     //     //Body Physics
     //     // this.game.debug.body(this.player);
     //     // this.game.debug.bodyInfo(this.player, 200, 200);
-    //     // this.game.debug.physicsGroup(this.weapon1.bullets, '#ffffff');
+    //     // this.game.debug.physicsGroup(this.immovableWall);
     //     //Debugging FPS
-    //     this.game.debug.text(this.game.time.fps, 200, 300);
+    //     // this.game.debug.text(this.game.time.fps, 200, 300);
     // },
 };

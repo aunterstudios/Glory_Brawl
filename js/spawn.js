@@ -122,27 +122,17 @@ brawl.game.prototype.immovableWallSpawn = function (sprite, positionInArray) {
     this.immovableWallX.positionInArray = positionInArray;
     this.immovableWallX.tileScale.setTo(sprite.scale);
     if (sprite.name === immovableWallPhase) {
-        this.immovableWallX.tint = tintImmovableWallPhase;
+        this.immovableWallX.tint = tintEnemyShooter;
     }
     else if (sprite.name === immovableWallKillWall) {
         this.immovableWallX.tint = tintImmovableWallKillWall;
     }
-    else if (sprite.name === immovableWallMagnet) {
-        this.immovableWallX.tint = tintImmovableWallMagnet;
-        this.immovableWallX.anchor.setTo(.5);
-    }
     else if (sprite.name === immovableWallActivation) {
         this.immovableWallX.tint = tintImmovableWallActivation;
-        this.immovableWallX.anchor.setTo(.5);
-    }
-    else if (sprite.name === immovableWallPadding) {
-        this.immovableWallX.tint = tintImmovableWallPadding;
+        // this.immovableWallX.anchor.setTo(.5);
     }
     else if (sprite.name === immovableWallWorldGravity) {
         this.immovableWallX.tint = tintImmovableWallWorldGravity;
-    }
-    else if (sprite.name === immovableWallMario) {
-        this.immovableWallX.tint = tintImmovableWallMario;
     }
     else if (sprite.name === immovableWallSlippery) {
         this.immovableWallX.tint = tintImmovableWallSlippery;

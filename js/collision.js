@@ -164,41 +164,47 @@ brawl.game.prototype.playerImmovable = function (player, immovable) {
     ///Activating immovableWallActivation(Like a Cloud)
     if (immovable.name === immovableWallActivation) {
         if (immovable.body.touching.up) {
-            immovable.body.velocity.y = 200;
+            immovable.body.velocity.setTo(0, 200);
         }
-        if (immovable.body.touching.down) {
-            immovable.body.velocity.y = -200;
+        else if (immovable.body.touching.down) {
+            immovable.body.velocity.setTo(0, -200);
+
         }
-        if (immovable.body.touching.left) {
-            immovable.body.velocity.x = 200;
+        else if (immovable.body.touching.left) {
+            immovable.body.velocity.setTo(200, 0);
+
         }
-        if (immovable.body.touching.up) {
-            immovable.body.velocity.x = -200;
+        else if (immovable.body.touching.right) {
+            immovable.body.velocity.setTo(-200, 0);
         }
         immovable.name = immovableWallRegular;
-        immovable.tint = tintRemover;
+        // console.log(immovable.tint, "1");
+        immovable.tint = tintWallPlayerFrozen;
+        // console.log(immovable.tint, "Removed");
+        // immovable.alpha = .5;
+        
     }
     //Activating immovableWallWorldGravity (World Gravity)
     if (immovable.name === immovableWallWorldGravity) {
         this.game.physics.arcade.gravity.setTo(0, 500);
         immovable.destroy();
     }
-    if (immovable.name === immovableWallMario) {
-        if (player.body.touching.up) {
-            player.body.gravity.y = 500;
-        }
-        if (player.body.touching.down) {
-            playerDoubleJumps = 4;
-        }
-        if (player.body.touching.left) {
-            playerSpeed = 800;
-        }
-        if (player.body.touching.right) {
-            playerJump = -1000;
-        }
-        immovable.name = immovableWallRegular;
-        immovable.tint = tintRemover;
-    }
+    // if (immovable.name === immovableWallMario) {
+    //     if (player.body.touching.up) {
+    //         player.body.gravity.y = 500;
+    //     }
+    //     if (player.body.touching.down) {
+    //         playerDoubleJumps = 4;
+    //     }
+    //     if (player.body.touching.left) {
+    //         playerSpeed = 800;
+    //     }
+    //     if (player.body.touching.right) {
+    //         playerJump = -1000;
+    //     }
+    //     immovable.name = immovableWallRegular;
+    //     immovable.tint = tintRemover;
+    // }
     // console.log("Yes This is Hitting");
     // return;
 };

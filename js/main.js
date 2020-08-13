@@ -335,10 +335,7 @@ var spikesRegular = 'spikesRegular'
 var immovableWallRegular = 'immovableWallRegular'; //No Special Properties
 var immovableWallKillWall = 'immovableWallKillWall'; //Kills Walls(Will Be Everything)
 var immovableWallPhase = 'immovableWallPhase'; //Killed By Enemy BULLETS
-var immovableWallMagnet = 'immovableWallMagnet'; //Attracts Player
 var immovableWallActivation = 'immovableWallActivation'; //Triggers Movement in a Wall
-var immovableWallMario = 'immovableWallMario'; //Triggers Special Powers in Player
-var immovableWallPadding = 'immovableWallPadding'; //Triggers Special Properties in Objects
 var immovableWallWorldGravity = 'immovableWallWorldGravity'; //Triggers World Gravity
 var immovableWallOneWayObject = 'immovableWallOneWayObject'; //One Way (Objects Only)
 var immovableWallOneWayPlayer = 'immovableWallOneWayPlayer'; //One Way (Players Only)
@@ -351,8 +348,7 @@ var wallPlayerFrozen = 'wallPlayerFrozen';
 var wallSurf = 'wallSurf';
 var wallInverse = 'wallInverse'; //First Turn (Leaners Walls From Ledge)
 var wallGhost = 'wallGhost'; //Immovable Wall That Let's You Get Through Objects
-var wallCloud = 'wallCloud'; //Stationary Shooting Platform Heh
-
+var wallCloud = 'wallCloud'; //Stationary Shooting Platform Cloud
 //Ledge Names
 var elevator = 'elevator';
 var bounce = 'bounce';
@@ -635,7 +631,7 @@ level_2.undeniableDeathSpawn = [
   //Ground Next To Flag
   new SpriteCreator(true, undeniableDeathRegular, deathTile, 4600, 1500, 200, 25, .5, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, undeniableDeathRegular, deathTile, 4000, 0, 50, 1800, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, undeniableDeathRegular, deathTile, 4700, 1700, 50, 50, 1, 700, 0, 0, 0, 1, null),
+  // new SpriteCreator(true, undeniableDeathRegular, deathTile, 4700, 1700, 50, 50, 1, 700, 0, 0, 0, 1, null),
 
   //Top of the Yellow at the Bottom
 ];
@@ -644,17 +640,9 @@ level_2.undeniableDeathSpawn = [
 level_2.immovableWallSpawn = [
   //Border of Level One and Level Two
   new SpriteCreator(true, immovableWallSlippery, immovableWallTile, 4800, 0, 50, 1800, 1, 0, 0, 0, 0, null, null),
+  //Ground
   new SpriteCreator(true, immovableWallRegular, immovableWallTile, 4000, 2000, 800, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, immovableWallRegular, immovableWallTile, 4600, 1100, 200, 25, .5, 0, 0, 0, 0, null, null),
-  // new SpriteCreator(true, true, immovableWallSlippery, immovableWallTile, 4800, 0, 0, 0, 50, 1000, 0, 0, null, null),
-  // new SpriteCreator(true, true, immovableWallRegular, immovableWallTile, 4000, 2000, 0, 0, 800, 50, 0, 0, null, null),
-  // new SpriteCreator(true, true, immovableWallSlippery, immovableWallVertical500, 4800, 1000, 0, 0, 1, 1, 0, 0, null, null),
-  // new SpriteCreator(true, true, immovableWallSlippery, immovableWallVertical300, 4800, 1300, 0, 0, 1, 1, 0, 0, null, null),
-  // new SpriteCreator(true, true, immovableWallSlippery, immovableWallTile, 4800, 1600, 0, 0, 1, 1, 0, 0, null, null),
-  // new SpriteCreator(true, true, immovableWallSlippery, immovableWallTile, 4800, 1650, 0, 0, 1, 1, 0, 0, null, null),
-  // new SpriteCreator(true, true, immovableWallSlippery, immovableWallTile, 4800, 1700, 0, 0, 1, 1, 0, 0, null, null),
-  // //Ground
-  // new SpriteCreator(true, true, immovableWallRegular, immovableWallHorizontal500, 4300, 2000, 0, 0, 1, 1, 0, 0, null, null),
+  new SpriteCreator(true, immovableWallActivation, immovableWallTile, 4200, 1700, 200, 25, .5, 0, 0, 0, 0, null, null),
 
 ];
 
@@ -671,7 +659,7 @@ level_2.ledgeSpawn = [
 
 //Enemy Spawn
 level_2.enemySpawn = [
-  new SpriteCreator(true, enemyDaakath, enemyOne, 4300, 1400, null, null, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, enemyDaakath, enemyOne, 4300, 1400, null, null, 1, 0, 0, 0, 0, null, null),
 ];
 
 //Ball
