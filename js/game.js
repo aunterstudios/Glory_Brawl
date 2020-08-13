@@ -146,6 +146,7 @@ brawl.game.prototype = {
     update: function () {
         ////////////////////////////////////FPS Debugging////////////////////////////////////////
         // console.log(this.game.time.fps);
+        /////////////////////////////////////////BMD////////////////////////////////////////////////
         // this.bmd.context.fillRect(this.player.x-100, this.player.y-100, 50, 50);
         // this.bmd.dirty = true;
         ////////////////////////////////////////Continious Collision//////////////////////////////////
@@ -328,7 +329,6 @@ brawl.game.prototype = {
                 if (onTheRightSide) {
                     this.player.body.velocity.x = -playerWallDisengage;
                 }
-                // this.player.body.velocity.y = playerDownwards;
             }
         }
         //Freelook
@@ -453,16 +453,16 @@ brawl.game.prototype = {
     //     }
     // }
     /////////////////////////Debugging + Timer///////////////////////////
-    render: function () {
-        //Timer Debugging
-        // this.game.debug.text('Elapsed seconds: ' + this.game.time.totalElapsedSeconds(), 32, 32);
-        // this.game.debug.text('Global Timer: ' + total, 32, 32);
-        // this.game.debug.text('Heat Timer: ' + total, 32, 64);
-        //Body Physics
-        // this.game.debug.body(this.player);
-        // this.game.debug.bodyInfo(this.player, 200, 200);
-        // this.game.debug.physicsGroup(this.weapon1.bullets, '#ffffff');
-        //Debugging FPS
-        this.game.debug.text(this.game.time.fps, 200, 300);
-    },
+    // render: function () {
+    //     //Timer Debugging
+    //     // this.game.debug.text('Elapsed seconds: ' + this.game.time.totalElapsedSeconds(), 32, 32);
+    //     // this.game.debug.text('Global Timer: ' + total, 32, 32);
+    //     // this.game.debug.text('Heat Timer: ' + total, 32, 64);
+    //     //Body Physics
+    //     // this.game.debug.body(this.player);
+    //     // this.game.debug.bodyInfo(this.player, 200, 200);
+    //     // this.game.debug.physicsGroup(this.weapon1.bullets, '#ffffff');
+    //     //Debugging FPS
+    //     this.game.debug.text(this.game.time.fps, 200, 300);
+    // },
 };
