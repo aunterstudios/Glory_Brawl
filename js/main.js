@@ -110,7 +110,7 @@ function shuffle(array) {
 //Level Holder
 var worldClassLevels = [];
 ///////////////////////////////////////////Level 0///////////////////////////////////////////////////////////
-var level_0 = new LevelCreator("Level 0-Direct Physics", 1400, 800, new MetroidvaniaCreator(1, 0, 0, 800, 0, 0, 0, 1400), "#FFFDD0"); //3800
+var level_0 = new LevelCreator("Level 0-Physics Testing", 1400, 800, new MetroidvaniaCreator(1, 0, 0, 800, 0, 0, 0, 1400), "#FFFDD0"); //3800
 
 //world gravity
 // level_0.worldGravity = new worldGravityCreator(200,200);
@@ -195,9 +195,6 @@ level_0.text = [
   // new textCreator(true, 1050, 2900, "↓", 'Courier New', 30, '#000000', 'bold'),
 ];
 
-//Push to worldClassLevelsGlobalArray
-worldClassLevels.push(level_0);
-
 ////////////////////////////////////////Level 1-SandboxMode/////////////////////////////////////
 
 //New Playground
@@ -264,11 +261,8 @@ level_1.text = [
 
 ];
 
-//Push Level 2 Into World Class Array
-worldClassLevels.push(level_1);
-
 ////////////////////////////////////////Level 2/////////////////////////////////////
-var level_2 = new LevelCreator("Level 2", 4800, 2000, new MetroidvaniaCreator(3, 0, 3, 2000, null, null, 1, 4800), '#FFFDD0');
+var level_2 = new LevelCreator("Level 2-What", 4800, 2000, new MetroidvaniaCreator(3, 0, 3, 2000, null, null, 1, 4800), '#FFFDD0');
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_2.playerPosition = [
@@ -342,8 +336,6 @@ level_2.fallingSpikes = [
 level_2.text = [
   new textCreator(true, 4650, 1800, "Sandbox\n\n→", fontGrind, 25),
 ];
-//Push Level 3 Into World Class Array
-worldClassLevels.push(level_2);
 
 ////////////////////////////////////////Level 3/////////////////////////////////////
 var level_3 = new LevelCreator("Level 3-SandboxMode", 1400, 10000, new MetroidvaniaCreator(1, 0, 1, 10000, 2, 0, 1, 1400), '#FFFDD0'); //2400
@@ -401,9 +393,6 @@ level_3.ballSpawn = [
 //Falling Spikes
 level_3.fallingSpikes = [
 ];
-
-//Push Level 3 Into World Class Array
-worldClassLevels.push(level_3);
 
 ///////////////////////////////////////////Level 4///////////////////////////////////////////////////////////
 var level_4 = new LevelCreator("Level 4-SEAN MOODY", 4200, 3000, new MetroidvaniaCreator(4, 0, 4, 3000, 2, 0, 4, 4200), "#D3D3D3"); //3800
@@ -466,8 +455,12 @@ level_4.text = [
   // new textCreator(true, 150, 1400, "Once You Hit A Surface\n\nThis is Fucking Important\n\nYou Can Double Jump Again", fontGrind, 25),
 ];
 
-//Push to worldClassLevelsGlobalArray
-worldClassLevels.push(level_4);
+//////////////////////////////////////////Pushing All Levels Into World Array/////////////////////////////////////
+for (var i = 0; i <= 4; i++) {
+  worldClassLevels.push(eval("level_"+i));
+  // console.log(eval("level_"+i));
+}
+console.log(worldClassLevels);
 
 /////////////Change Base Texture////////////////
 // game.add.loadTexture('key','frame')
