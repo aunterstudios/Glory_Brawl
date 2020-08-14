@@ -29,7 +29,7 @@ brawl.game.prototype.spriteGroupGenerator = function () {
     //Adding This Undeniable Death
     this.death = this.game.add.group();
     this.death.enableBody = true;
-    //Adding Hazama or Powerups
+    //Adding Hazama and Powerups
     this.hazama = this.game.add.group();
     this.hazama.enableBody = true;
     //Adding Flag Group
