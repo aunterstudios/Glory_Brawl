@@ -16,7 +16,6 @@ var respawnHolder = {
 var cameraBoolean = true;
 
 //Engage Coordinate system
-
 var coordinateSystem = true;
 // var coordinateSystem = false;
 
