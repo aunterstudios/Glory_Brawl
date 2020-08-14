@@ -54,9 +54,6 @@ brawl.game.prototype = {
         this.load.image('bulletStop', 'assets/bulletStop.png');
         this.load.image('bulletPush', 'assets/bulletPush.png');
         this.load.image('bulletPull', 'assets/bulletPull.png');
-        this.load.image('bulletEnemy', 'assets/bulletEnemy.png');
-        //Coin
-        this.load.image('coin', 'assets/coin.png');
         //Flag
         this.load.image('flag', 'assets/flag.png');
         //Door
