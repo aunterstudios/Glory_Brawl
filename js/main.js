@@ -461,25 +461,3 @@ for (var i = 0; i <= levelCount; i++) {
   worldClassLevels.push(eval("level_"+i));
 }
 
-/////////////Change Base Texture////////////////
-// game.add.loadTexture('key','frame')
-///////////////LifeSpan////////////
-///game.add.lifespan
-
-////////////////Teleportation////////////////
-/*
-if (wall.name === immovableWallTeleportation) {
-        //     if (this.game.physics.arcade.distanceBetween(this.player, wall, false, true) < 250) {
-        //         if (this.player.body.y < wall.body.y) {
-        //             this.player.body.y = wall.body.y - 400;
-        //         }
-        //     };
-        // }
-*/
-
-/////Playing Around with Delta
-/*
-if (this.player.body.deltaAbsY() > 10) {
-            this.player.kill();
-        }
-*/
