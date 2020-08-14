@@ -456,11 +456,10 @@ level_4.text = [
 ];
 
 //////////////////////////////////////////Pushing All Levels Into World Array/////////////////////////////////////
-for (var i = 0; i <= 4; i++) {
+var levelCount = 4;
+for (var i = 0; i <= levelCount; i++) {
   worldClassLevels.push(eval("level_"+i));
-  // console.log(eval("level_"+i));
 }
-console.log(worldClassLevels);
 
 /////////////Change Base Texture////////////////
 // game.add.loadTexture('key','frame')
