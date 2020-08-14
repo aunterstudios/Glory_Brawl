@@ -65,8 +65,6 @@ Note: This is an extra name that denotes the entirety of a group. To keep physic
 */
 //Death Group
 var groupUndeniableDeath = 'groupUndeniableDeath';
-//Spikes
-var groupSpikes = 'groupSpikes';
 //Immovable Walls
 var groupImmovableWall = 'groupImmovableWall';
 //Moveable Walls
@@ -84,9 +82,8 @@ var groupFlag = 'groupFlag';
 
 /////////////////////////List of Names of Each Sprite (For Different Special Properties)////////////////
 //Death Names
-var undeniableDeathRegular = 'undeniableDeathRegular';
-//Spikes
-var spikesRegular = 'spikesRegular'
+var undeniableDeathRegular = 'undeniableDeathRegular'; //No Special Properties
+var undeniableDeathBallKill = 'undeniableDeathBallKill'; //Killable By Ball
 
 //Immovable Wall Names
 var immovableWallRegular = 'immovableWallRegular'; //No Special Properties
@@ -106,6 +103,7 @@ var wallSurf = 'wallSurf';
 var wallInverse = 'wallInverse'; //First Turn (Leaners Walls From Ledge)
 var wallGhost = 'wallGhost'; //Immovable Wall That Let's You Get Through Objects
 var wallCloud = 'wallCloud'; //Stationary Shooting Platform Cloud
+
 //Ledge Names
 var elevator = 'elevator';
 var bounce = 'bounce';
@@ -119,14 +117,17 @@ var enemyAccelerate = 'enemyAccelerate';
 //Ball Names
 var ballRegular = 'ballRegular';
 
+//Falling Spikes
+var fallingSpikesRegular = 'fallingSpikesRegular';
+
+//Power-Ups
+var powerUpFalconia = 'powerUpFalconia';
+
 //Flag Names
 var flagRegular = 'flagRegular';
 var flagSpecial = 'flagSpecial';
 
-/////////////////////////List of Art of Each Image/////////////////
-var star = 'star';
-
-/////////////////////////List of Art of Each Sprite/////////////////
+/////////////////////////List of Art or Image Keys of Each Sprite/////////////////
 //Death
 var deathTile = 'deathTile';
 
@@ -147,13 +148,16 @@ var enemyOne = 'enemyOne'
 var ball = 'ball';
 
 //Falling Spikes
-var spikeFall = 'spikeFall';
+var fallingSpikesOne = 'fallingSpikesOne';
 
 //Flag
 var flag = 'flag';
 
+var powerUpJar = 'powerUpJar';
+
 //Slow Motion
 var slowMotion = 'slowMotion';
+
 ///////////////////////////////////////////Tint Specific Art//////////////////////////////////////////////
 //Tint Remover 
 var tintRemover = 0xFFFFFF; //wallRegular (Removes Tint)
@@ -183,6 +187,10 @@ var tintWallCloud = 9583870.358153213;
 var tintEnemyShooter = 12758247.409111453;
 var tintEnemyDaakath = 15269906.933038201;
 var tintEnemyAccelerate = 2885804.4944837275;
+
+//Power-Up Tint
+
+var tintPowerUpFalconia = 3599221.242333334;
 
 
 ////////////////////////////////////////////Class Declarations/////////////////////////////////////////////////////
@@ -278,31 +286,18 @@ class flagCreator {
   }
 };
 
+//Creating Bitmap Text Class
+class textCreator {
+  constructor(trigger, x, y, textInput, font, fontSize) {
+    this.trigger = trigger;
+    this.x = x;
+    this.y = y;
+    this.textInput = textInput;
+    this.font = font;
+    this.fontSize = fontSize;
+  }
+}
 ////////////////////////////////////Experimental////////////////////////////////
-// class specialHandler {
-//   constructor(specialWorld, undeniableDeathInsert, undeniableDeathRemove, immovableWallInsert, immovableWallRemove, wallInsert, wallRemove, ledgeInsert,ledgeRemove, ballInsert, ballRemove, enemyInsert, enemyRemove, spikeFallInsert, spikeFallRemove, flagInsert, flagRemove, textInsert, textRemove) {
-//     this.specialWorld = specialWorld;
-//     this.undeniableDeathInsert = undeniableDeathInsert;
-//     this.undeniableDeathRemove = undeniableDeathRemove;
-//     this.immovableWallInsert = immovableWallInsert;
-//     this.immovableWallRemove = immovableWallRemove;
-//     this.wallInsert = wallInsert;
-//     this.wallRemove = wallRemove;
-//     this.ledgeInsert = ledgeInsert;
-//     this.ledgeRemove = ledgeRemove;
-//     this.ballInsert = ballInsert;
-//     this.ballRemove = ballRemove;
-//     this.enemyInsert = enemyInsert;
-//     this.enemyRemove = enemyRemove;
-//     this.spikeFallInsert = spikeFallInsert;
-//     this.spikeFallRemove = spikeFallRemove;
-//     this.flagInsert = flagInsert;
-//     this.flagRemove = flagRemove;
-//     this.textInsert = textInsert;
-//     this.textRemove = textRemove;
-//   }
-// };
-
 /////////////////////////////Special Handlers For Changing Conditions of Levels//////////////////
 // var experimental_LevelChanger = {
 //   storyTrigger: {
@@ -331,16 +326,3 @@ class flagCreator {
 //   textInsert: [[], [17, 18, 19, 20, 21, 22]],
 //   textRemove: [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]],
 // };
-
-
-//Creating Bitmap Text Class
-class textCreator {
-  constructor(trigger, x, y, textInput, font, fontSize) {
-    this.trigger = trigger;
-    this.x = x;
-    this.y = y;
-    this.textInput = textInput;
-    this.font = font;
-    this.fontSize = fontSize;
-  }
-}

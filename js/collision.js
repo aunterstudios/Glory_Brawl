@@ -44,8 +44,8 @@ brawl.game.prototype.immovableMoveable = function (immovable, moveable) {
     // else if (immovable.body.touching.right) {
     //     moveable.body.velocity.x = 200;
     // }
-    ////////////////////Ball Against Spikes///////////////
-    if (immovable.groupName === groupSpikes && moveable.groupName === groupBall) {
+    ////////////////////Ball Against Killable Structures///////////////
+    if (immovable.name === undeniableDeathBallKill && moveable.groupName === groupBall) {
         this.emitterFunction(immovable, moveable, 'destroy');
         //Removes Localized Sprites from Regenerating (Spikes)
         if (immovable.specialCondition === 0) {

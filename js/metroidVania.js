@@ -45,10 +45,7 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
         // this.slowMotionFollow.fixedToCamera = true;
         this.slowMotionArray.push(this.slowMotionFollow);
     }
-
     //////////////////Adding Weapons////////////////////
-    /////////////Pull as Default
-    pullBoolean = true;
     //  Creates 30 bullets, using the 'bullet' graphic
     this.weapon1 = this.game.add.weapon(30, 'bulletPull');
     //  The bullet will be automatically killed when it leaves the camera bounds
@@ -174,7 +171,7 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     if ('fallingSpikes' in levelGenerator) {
         for (var i = 0; i < levelGenerator.fallingSpikes.length; i++) {
             if (levelGenerator.fallingSpikes[i].trigger) {
-                this.game.time.events.loop(Phaser.Timer.SECOND * levelGenerator.fallingSpikes[i].seconds, this.spikeFall, this, levelGenerator.fallingSpikes[i], i);
+                this.game.time.events.loop(Phaser.Timer.SECOND * levelGenerator.fallingSpikes[i].seconds, this.fallingSpikesSpawn, this, levelGenerator.fallingSpikes[i], i);
             }
         }
     }

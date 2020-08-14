@@ -48,7 +48,7 @@ game.state.add('controlScreen', brawl.stateControls);
 game.state.start('mainMenu');
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "NewJSFileRefactorThisIsIt",
+  "spikesFALL",
   "GLORY BRAWL",
 ];
 
@@ -170,7 +170,7 @@ level_0.enemySpawn = [
 
 //Creation of falling spikes or projectile traps
 level_0.fallingSpikes = [
-  new SpriteCreator(true, spikesRegular, spikeFall, 500, 100, null, null, 1, 0, 0, 0, 500, null, 3),
+  new SpriteCreator(true, fallingSpikesRegular, fallingSpikesOne, 500, 100, null, null, 1, 0, 0, 0, 500, null, 3),
 ];
 
 //flag spawn
@@ -247,7 +247,7 @@ level_1.enemySpawn = [
 
 //Creation of falling spikes or projectile traps
 level_1.fallingSpikes = [
-  new SpriteCreator(true, spikesRegular, spikeFall, 500, 100, null, null, 1, 0, 0, 0, 500, null, 3),
+  new SpriteCreator(true, fallingSpikesRegular, fallingSpikesOne, 500, 100, null, null, 1, 0, 0, 0, 500, null, 3),
 ];
 
 //flag spawn
@@ -316,7 +316,7 @@ level_2.ballSpawn = [
 
 //Falling Spikes
 level_2.fallingSpikes = [
-  new SpriteCreator(true, spikesRegular, spikeFall, 4500, 100, null, null, 1, 0, 0, 0, 500, null, 3),
+  new SpriteCreator(true, fallingSpikesRegular, fallingSpikesOne, 4500, 100, null, null, 1, 0, 0, 0, 500, null, 3),
 ];
 
 //Flag Spawn

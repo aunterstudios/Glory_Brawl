@@ -23,9 +23,6 @@ brawl.game.prototype.spriteGroupGenerator = function () {
     //Timer Traps
     this.fallingSpikes = this.game.add.group();
     this.fallingSpikes.enableBody = true;
-    //Adding Coins (Win Game)
-    this.coin = this.game.add.group();
-    this.coin.enableBody = true;
     //Adding Immovable Walls
     this.immovableWall = this.game.add.group();
     this.immovableWall.enableBody = true;
@@ -85,14 +82,13 @@ brawl.game.prototype.undeniableDeathSpawn = function (sprite, positionInArray) {
     this.game.physics.enable([tileDeath], Phaser.Physics.ARCADE);
     this.deathX = this.death.add(tileDeath);
     this.deathX.name = sprite.name;
+    this.deathX.groupName = groupUndeniableDeath;
     //Unkillable
     if (sprite.name === undeniableDeathRegular) {
-        this.deathX.groupName = groupUndeniableDeath;
         this.deathX.tint = Phaser.Color.RED;
     }
     //Killable By Ball
-    else if (sprite.name === spikesRegular) {
-        this.deathX.groupName = groupSpikes;
+    else if (sprite.name === undeniableDeathBallKill) {
         this.deathX.tint = Phaser.Color.ORANGE;
     }
     this.deathX.specialCondition = sprite.specialCondition;
@@ -323,20 +319,20 @@ brawl.game.prototype.enemySpawn = function (sprite, positionInArray) {
     this.trumpX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
 };
 /////////////////////////////////Falling Spikes///////////////////////////
-brawl.game.prototype.spikeFall = function (sprite, positionInArray) {
+brawl.game.prototype.fallingSpikesSpawn = function (sprite, positionInArray) {
     if (this.toggleConsoleLog) {
         console.log(sprite, positionInArray);
     }
-    this.spikesFall = this.fallingSpikes.getFirstDead(true, sprite.x, sprite.y, 'spikeFall');
-    this.spikesFall.specialCondition = sprite.specialCondition;
-    this.spikesFall.positionInArray = positionInArray;
-    this.spikesFall.name = sprite.name
-    this.spikesFall.anchor.setTo(.5);
-    this.spikesFall.scale.setTo(sprite.scale);
-    // this.spikesFall.tint = Phaser.Color.RED;
-    this.spikesFall.checkWorldBounds = true;
-    this.spikesFall.outOfBoundsKill = true;
-    this.spikesFall.body.gravity.setTo(sprite.gravityX, sprite.gravityY);
+    this.fallingSpikesX = this.fallingSpikes.getFirstDead(true, sprite.x, sprite.y, sprite.art);
+    this.fallingSpikesX.specialCondition = sprite.specialCondition;
+    this.fallingSpikesX.positionInArray = positionInArray;
+    this.fallingSpikesX.name = sprite.name
+    this.fallingSpikesX.anchor.setTo(.5);
+    this.fallingSpikesX.scale.setTo(sprite.scale);
+    // this.fallingSpikesX.tint = Phaser.Color.RED;
+    this.fallingSpikesX.checkWorldBounds = true;
+    this.fallingSpikesX.outOfBoundsKill = true;
+    this.fallingSpikesX.body.gravity.setTo(sprite.gravityX, sprite.gravityY);
 };
 //////////////////////////Flag Spawn(Checkpoints or Respawn Points)/////////////////////////
 brawl.game.prototype.flagSpawn = function (sprite) {

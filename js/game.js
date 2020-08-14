@@ -11,6 +11,8 @@ brawl.game.prototype = {
         this.indexOfCurrentWorld = indexOfCurrentWorld;
         this.indexOfPlayerPosition = indexOfPlayerPosition;
         this.metroidvania = metroidvania;
+        ///////////////////////Setting Camera and Gun to Default/////////////
+        pullBoolean = true;
         cameraBoolean = true;
         ///////////////////////These Are Resetting the Player Attributes For Each Level////////////////////
         playerSpeed = 400;
@@ -48,7 +50,7 @@ brawl.game.prototype = {
         //Ledges
         this.load.image('ledge', 'assets/ledge.png');
         //Traps
-        this.load.image('spikeFall', 'assets/spikeFall.png');
+        this.load.image('fallingSpikesOne', 'assets/fallingSpikesOne.png');
         //Bullets
         this.load.image('bulletKill', 'assets/bulletKill.png');
         this.load.image('bulletStop', 'assets/bulletStop.png');
@@ -62,6 +64,8 @@ brawl.game.prototype = {
         this.load.image('ball', 'assets/ball.png');
         //Enemies
         this.load.image('enemyOne', 'assets/enemyOne.png');
+        //Power-Up
+        this.load.image('powerUpJar', 'assets/powerUpJar.png');
         //Emitter
         this.load.image('particles', 'assets/z2.png');
         //Slow Motion Indicator
