@@ -186,9 +186,7 @@ var tintEnemyDaakath = 15269906.933038201;
 var tintEnemyAccelerate = 2885804.4944837275;
 
 
-////////////////////////////////////////////Designed Levels/////////////////////////////////////////////////////
-//Level Holder
-var worldClassLevels = [];
+////////////////////////////////////////////Class Declarations/////////////////////////////////////////////////////
 //Creates Each Individual Level
 class LevelCreator {
   constructor(worldName, xOfWorld, yOfWorld, metroidvania, backgroundColor) {

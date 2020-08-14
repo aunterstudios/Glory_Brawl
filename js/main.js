@@ -1,5 +1,4 @@
 var game = new Phaser.Game(1400, 800, Phaser.CANVAS);
-
 /////////////////////////////////////////////////Disable RightClick////////////////////////////////////
 window.onload = function () {
   document.addEventListener("contextmenu", function (e) {
@@ -108,6 +107,8 @@ function shuffle(array) {
   }
 }
 ///////////////////////////////////////////Levels///////////////////////////////////////////////////////////
+//Level Holder
+var worldClassLevels = [];
 ///////////////////////////////////////////Level 0///////////////////////////////////////////////////////////
 var level_0 = new LevelCreator("Level 0-Direct Physics", 1400, 800, new MetroidvaniaCreator(1, 0, 0, 800, 0, 0, 0, 1400), "#FFFDD0"); //3800
 
