@@ -1,6 +1,6 @@
 //////////////////Initializing All the Sprite Groups///////////////
 brawl.game.prototype.spriteGroupGenerator = function () {
-    //Toggle Console Log
+    ////////////////////////Toggle Console Log//////////////////
     this.toggleConsoleLog = false;
     // this.toggleConsoleLog = true;
     ////////////////////////////////Z-Index Order/////////////////////////////
@@ -29,24 +29,16 @@ brawl.game.prototype.spriteGroupGenerator = function () {
     //Adding This Undeniable Death
     this.death = this.game.add.group();
     this.death.enableBody = true;
+    //Adding Hazama or Powerups
+    this.hazama = this.game.add.group();
+    this.hazama.enableBody = true;
     //Adding Flag Group
     this.flag = this.game.add.group();
     this.flag.enableBody = true;
     //Slow Motion
     this.slowMotionGroup = this.game.add.group();
     this.slowMotionGroup.classType = Phaser.Image;
-
-    /////////////////////Enemy Bullets///////////////
-    // creates enemy bullets
-    // this.enemyBullets = this.game.add.group();
-    // this.enemyBullets.enableBody = true;
-    // this.enemyBullets.physicsBodyType = Phaser.Physics.ARCADE;
-    // this.enemyBullets.createMultiple(30, 'bulletEnemy');
-    // this.enemyBullets.setAll('anchor.x', 0.5);
-    // this.enemyBullets.setAll('anchor.y', 1);
-    // this.enemyBullets.setAll('outOfBoundsKill', true);
-    // this.enemyBullets.setAll('checkWorldBounds', true);
-    
+    ////////////////////////////////Creating Enemy Bullets///////////////////////////////
     //  Creates 30 bullets, using the 'bullet' graphic
     this.enemyBullets = this.game.add.weapon(1000, 'bulletKill');
     //  The bullet will be automatically killed when it leaves the camera bounds

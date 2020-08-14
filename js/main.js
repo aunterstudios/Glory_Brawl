@@ -458,6 +458,7 @@ level_4.text = [
 //////////////////////////////////////////Pushing All Levels Into World Array/////////////////////////////////////
 var levelCount = 4;
 for (var i = 0; i <= levelCount; i++) {
-  worldClassLevels.push(eval("level_"+i));
+  // worldClassLevels.push(eval("level_"+i));
+  worldClassLevels.push(window["level_"+i]);
 }
 
