@@ -48,7 +48,7 @@ game.state.add('controlScreen', brawl.stateControls);
 game.state.start('mainMenu');
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "Code Refactor SmokeX",
+  "Code Refactor SmokeXDOSSS",
   "GLORY BRAWL",
 ];
 

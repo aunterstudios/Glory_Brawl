@@ -88,7 +88,6 @@ brawl.game.prototype.undeniableDeathSpawn = function (sprite, positionInArray) {
     this.deathX.body.bounce.setTo(1);
     this.deathX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
 };
-
 /////////////////Immovable Walls/////////////////////
 brawl.game.prototype.immovableWallSpawn = function (sprite, positionInArray) {
     if (this.toggleConsoleLog) {
@@ -115,7 +114,6 @@ brawl.game.prototype.immovableWallSpawn = function (sprite, positionInArray) {
     this.immovableWallX.body.bounce.setTo(1);
     this.immovableWallX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
 };
-
 ////////////////////////Wall Spawn///////////////////////
 brawl.game.prototype.wallSpawn = function (sprite, positionInArray) {
     if (this.toggleConsoleLog) {
@@ -151,7 +149,6 @@ brawl.game.prototype.wallSpawn = function (sprite, positionInArray) {
     // this.wallX.checkWorldBounds = true;
     // this.wallX.events.onOutOfBounds.add(this.wallOut, this);
 };
-
 /////////////////////////////Ledge Spawn///////////////////////////
 brawl.game.prototype.ledgeSpawn = function (sprite, positionInArray) {
     if (this.toggleConsoleLog) {
@@ -179,7 +176,7 @@ brawl.game.prototype.ledgeSpawn = function (sprite, positionInArray) {
     this.ledgeX.body.bounce.setTo(.5);//.5;
     this.ledgeX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
 };
-
+/////////////////////////////Ball Spawn///////////////////////////
 brawl.game.prototype.ballSpawn = function (sprite, positionInArray) {
     if (this.toggleConsoleLog) {
         console.log(sprite, positionInArray);
@@ -194,6 +191,7 @@ brawl.game.prototype.ballSpawn = function (sprite, positionInArray) {
     this.ballX.tint = sprite.spriteType.tint;
     this.ballX.anchor.setTo(.5);
     this.ballX.tileScale.setTo(sprite.scale); //.5
+    //Physics Properties
     this.ballX.body.gravity.setTo(sprite.gravityX, sprite.gravityY);
     this.ballX.body.mass = 20;
     this.ballX.body.maxVelocity.setTo(1000);
@@ -202,8 +200,7 @@ brawl.game.prototype.ballSpawn = function (sprite, positionInArray) {
     this.ballX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
 };
 
-
-//////////////////////////Creating Enemies/////////////////////////
+//////////////////////////Enemy Spawn/////////////////////////
 brawl.game.prototype.enemySpawn = function (sprite, positionInArray) {
     if (this.toggleConsoleLog) {
         console.log(sprite, positionInArray);
@@ -235,7 +232,7 @@ brawl.game.prototype.fallingSpikesSpawn = function (sprite, positionInArray) {
     this.fallingSpikesX.name = sprite.spriteType.name
     this.fallingSpikesX.anchor.setTo(.5);
     this.fallingSpikesX.scale.setTo(sprite.scale);
-    // this.fallingSpikesX.tint = Phaser.Color.RED;
+    //Physics Properties
     this.fallingSpikesX.checkWorldBounds = true;
     this.fallingSpikesX.outOfBoundsKill = true;
     this.fallingSpikesX.body.gravity.setTo(sprite.gravityX, sprite.gravityY);
@@ -248,7 +245,6 @@ brawl.game.prototype.flagSpawn = function (sprite) {
     if (sprite.name === flagSpecial) {
         this.flagX.tint = Phaser.Color.AQUA;
     }
-    //this.flagX.scale(sprite.sizeX,sprite.sizeY);
     this.flagX.body.mass = 1;
     this.flagX.body.maxVelocity.setTo(300);
     this.flagX.body.collideWorldBounds = true;
@@ -257,8 +253,7 @@ brawl.game.prototype.flagSpawn = function (sprite) {
     ////////////////Special Property of Flag//////////////////
     this.flagX.indexOfPlayerPosition = sprite.indexOfPlayerPosition;
 };
-/////////////////////////////////Text Generator////////////////////////
-/////////////////////////////Creation of Text in Game/////////////////////////////////
+/////////////////////////////Text Generator/////////////////////////////////
 brawl.game.prototype.textCreator = function (sprite, positionInArray) {
     if (this.toggleConsoleLog) {
         console.log(sprite, positionInArray);
