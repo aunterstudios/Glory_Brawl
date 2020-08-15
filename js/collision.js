@@ -375,10 +375,8 @@ brawl.game.prototype.playerHazama = function (player, hazama) {
     //     this.emitterFunction(hazama, null, 'destroy');
     // }
     hazama.lastOverlapped = this.game.time.now + 100; 
-    if (hazama.name === powerUpFalconia.name) {
-        playerJump = -1000;
-        this.emitterFunction(hazama, null, 'destroy');
-
+    if (hazama.name === hazamaFalconia.name) {
+        player.body.velocity.y = -500;
     }
 
 };
