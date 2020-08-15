@@ -1,3 +1,145 @@
+////////////////////////////////////////////Class Declarations/////////////////////////////////////////////////////
+//Creates Each Individual Level
+class LevelCreator {
+  constructor(worldName, xOfWorld, yOfWorld, metroidvania, backgroundColor) {
+    this.worldName = worldName;
+    this.xOfWorld = xOfWorld;
+    this.yOfWorld = yOfWorld;
+    this.metroidvania = metroidvania;
+    this.backgroundColor = backgroundColor;
+  }
+};
+
+///Creates Room Switching
+class MetroidvaniaCreator {
+  constructor(roomUpIndex, roomUpValue, roomDownIndex, roomDownValue, roomLeftIndex, roomLeftValue, roomRightIndex, roomRightValue) {
+    this.roomUpIndex = roomUpIndex;
+    this.roomUpValue = roomUpValue
+    this.roomDownIndex = roomDownIndex;
+    this.roomDownValue = roomDownValue;
+    this.roomLeftIndex = roomLeftIndex;
+    this.roomLeftValue = roomLeftValue;
+    this.roomRightIndex = roomRightIndex;
+    this.roomRightValue = roomRightValue;
+  }
+};
+
+//Creates Player Positioning (Up, Down, Left Right);
+class PlayerPositionCreator {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+  }
+};
+
+//Creates World Gravity Object
+class worldGravityCreator {
+  constructor(gravityX, gravityY) {
+    this.gravityX = gravityX;
+    this.gravityY = gravityY;
+  }
+};
+
+//Generates All Physics Sprites
+class SpriteCreator {
+  constructor(trigger, spriteType, art, x, y, widthX, widthY, scale, velocityX, velocityY, gravityX, gravityY, specialCondition, seconds) {
+    this.trigger = trigger;
+    this.spriteType = spriteType;
+    this.art = art;
+    this.x = x;
+    this.y = y;
+    this.widthX = widthX;
+    this.widthY = widthY;
+    this.scale = scale;
+    this.velocityX = velocityX;
+    this.velocityY = velocityY;
+    this.gravityX = gravityX;
+    this.gravityY = gravityY;
+    this.specialCondition = specialCondition;
+    this.seconds = seconds;
+  }
+};
+
+//Creates Images
+class imageCreator {
+  constructor(trigger, name, art, x, y, scale) {
+    this.trigger = trigger;
+    this.name = name;
+    this.art = art;
+    this.x = x;
+    this.y = y;
+    this.scale = scale;
+  }
+}
+
+//////////////////Flag Specific Classes/////////
+class flagCreator {
+  constructor(indexOfPlayerPosition, trigger, name, art, x, y, velocityX, velocityY, sizeX, sizeY, gravityX, gravityY, specialHandler) {
+    this.indexOfPlayerPosition = indexOfPlayerPosition;
+    this.trigger = trigger;
+    this.name = name;
+    this.art = art;
+    this.x = x;
+    this.y = y;
+    this.velocityX = velocityX;
+    this.velocityY = velocityY;
+    this.sizeX = sizeX;
+    this.sizeY = sizeY;
+    this.gravityX = gravityX;
+    this.gravityY = gravityY;
+    this.specialHandler = specialHandler;
+  }
+};
+
+//Creating Bitmap Text Class
+class textCreator {
+  constructor(trigger, x, y, textInput, font, fontSize) {
+    this.trigger = trigger;
+    this.x = x;
+    this.y = y;
+    this.textInput = textInput;
+    this.font = font;
+    this.fontSize = fontSize;
+  }
+}
+
+//Creating spriteType Class
+class spriteType {
+  constructor(name, tint, specialProperties) {
+    this.name = name;
+    this.tint = tint;
+    this.specialProperties = specialProperties;
+  }
+}
+////////////////////////////////////Experimental////////////////////////////////
+/////////////////////////////Special Handlers For Changing Conditions of Levels//////////////////
+// var experimental_LevelChanger = {
+//   storyTrigger: {
+//     page: 1,
+//     level: 5,
+//     backgroundColor: "#00A6CF",
+//     fontColor: '#B339CE'
+//   },
+//   specialWorld: [2, 5],
+//   undeniableDeathInsert: [[], [28, 29, 30, 31, 32, 33, 34, 35, 36]],
+//   undeniableDeathRemove: [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 26, 27]],
+//   immovableWallInsert: [[], [14, 15, 16, 17, 18]],
+//   immovableWallRemove: [[8, 0, 1, 2, 3, 4, 5, 7, 9, 10, 11, 12, 13, 14, 15, 16], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]],
+//   wallInsert: [[], [4]],
+//   wallRemove: [[0, 1, 2, 3, 4, 5, 6, 7], [0, 1, 2, 3]],
+//   // ledgeInsert: [[], []],
+//   ledgeRemove: [[0, 1, 2, 3, 4, 5, 6], [0, 1]],
+//   ballInsert: [[], [0]],
+//   ballRemove: [[0], []],
+//   enemyInsert: [[], [29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43]],
+//   enemyRemove: [[], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28]],
+//   fallingSpikesInsert: [[], [6, 7, 8, 9, 10]],
+//   fallingSpikesRemove: [[], [0, 1, 2, 3, 4, 5]],
+//   // flagInsert: [[],[]],
+//   flagRemove: [[0, 2, 3], [0, 1, 2, 3, 4]],
+//   textInsert: [[], [17, 18, 19, 20, 21, 22]],
+//   textRemove: [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]],
+// };
 //////////////////////////////////////////////////Global Variables//////////////////////////////////////////////
 //Weapon Variables to Change Bullet Type
 var pullBoolean = false;
@@ -80,49 +222,53 @@ var groupFallingSpikes = 'groupFallingSpikes';
 //Flag
 var groupFlag = 'groupFlag';
 
+
+/////////////////////////Global Tints//////////////////////////
+var tintRemover = 0xFFFFFF; //wallRegular (Removes Tint)
+var tintWallPlayerFrozen = 0x00ffff; //Frozen Wall Tints
+var testTint = Math.random() * 0xffffff; // testTint
+var tintPowerUpFalconia = 3599221.242333334; //Power-Up Tint Test
 /////////////////////////List of Names of Each Sprite (For Different Special Properties)////////////////
 //Death Names
-var undeniableDeathRegular = 'undeniableDeathRegular'; //No Special Properties
-var undeniableDeathBallKill = 'undeniableDeathBallKill'; //Killable By Ball
+var undeniableDeathRegular = new spriteType('undeniableDeathRegular', Phaser.Color.RED); //No Special Properties
+var undeniableDeathBallKill = new spriteType('undeniableDeathBallKill', Phaser.Color.ORANGE); //Killable By Ball
 
 //Immovable Wall Names
-var immovableWallRegular = 'immovableWallRegular'; //No Special Properties
-var immovableWallKillWall = 'immovableWallKillWall'; //Kills Walls(Will Be Everything)
-var immovableWallPhase = 'immovableWallPhase'; //Killed By Enemy BULLETS
-var immovableWallActivation = 'immovableWallActivation'; //Triggers Movement in a Wall
-var immovableWallWorldGravity = 'immovableWallWorldGravity'; //Triggers World Gravity
-var immovableWallOneWayObject = 'immovableWallOneWayObject'; //One Way (Objects Only)
-var immovableWallOneWayPlayer = 'immovableWallOneWayPlayer'; //One Way (Players Only)
-var immovableWallSlippery = 'immovableWallSlippery'; //Makes you SLIPPERY!
-var immovableWallOneWayPlayerBlockLeft = 'immovableWallOneWayPlayerBlockLeft'; //One way player only from the left
+var immovableWallRegular = new spriteType('immovableWallRegular', tintRemover); //No Special Properties
+var immovableWallKillWall = new spriteType('immovableWallKillWall', 7019278.306799905); //Kills Walls(Will Be Everything)
+var immovableWallPhase = new spriteType('immovableWallPhase', 15631118.030252509); //Killed By Enemy BULLETS
+var immovableWallActivation = new spriteType('immovableWallActivation', 0xffff00); //Triggers Movement in a Wall
+var immovableWallWorldGravity = new spriteType('immovableWallWorldGravity', 8314793.039214706); //Triggers World Gravity
+var immovableWallOneWayObject = new spriteType('immovableWallOneWayObject', 2499878.036284214); //One Way (Objects Only)
+var immovableWallOneWayPlayer = new spriteType('immovableWallOneWayPlayer', 241917.63554178402); //One Way (Players Only)
+var immovableWallSlippery = new spriteType('immovableWallSlippery', 766012.4141677661); //Makes you SLIPPERY!
+var immovableWallOneWayPlayerBlockLeft = new spriteType('immovableWallOneWayPlayerBlockLeft', 3588771.242333334); //One way player only from the left
 
 //Moveable Wall Names
-var wallRegular = 'wallRegular';
-var wallPlayerFrozen = 'wallPlayerFrozen';
-var wallSurf = 'wallSurf';
-var wallInverse = 'wallInverse'; //First Turn (Leaners Walls From Ledge)
-var wallGhost = 'wallGhost'; //Immovable Wall That Let's You Get Through Objects
-var wallCloud = 'wallCloud'; //Stationary Shooting Platform Cloud
+var wallRegular = new spriteType('wallRegular', tintRemover);
+var wallSurf = new spriteType('wallSurf', 10409939.733364154);
+var wallInverse = new spriteType('wallInverse', 1181911.9307258818); //First Turn (Leaners Walls From Ledge)
+var wallGhost = new spriteType('wallGhost', 16771007.229130682); //Immovable Wall That Let's You Get Through Objects
+var wallCloud = new spriteType('wallCloud', 9583870.358153213); //Stationary Shooting Platform Cloud
 
 //Ledge Names
-var elevator = 'elevator';
-var bounce = 'bounce';
-var surf = 'surf';
+var ledgeElevator = new spriteType('ledgeElevator', Phaser.Color.YELLOW);
+var ledgeBounce = new spriteType('ledgeBounce', Phaser.Color.GREEN);
+var ledgeSurf = new spriteType('ledgeSurf', Phaser.Color.AQUA);
 
 //Enemy Names
-var enemyShooter = 'enemyShooter';
-var enemyDaakath = 'enemyDaakath';
-var enemyAccelerate = 'enemyAccelerate';
+var enemyShooter = new spriteType('enemyShooter', 12758247.409111453);
+var enemyDaakath = new spriteType('enemyDaakath', 15269906.933038201);
+var enemyAccelerate = new spriteType('enemyAccelerate', 2885804.4944837275);
 
 //Ball Names
-var ballRegular = 'ballRegular';
+var ballRegular = new spriteType('ballRegular', Phaser.Color.BLUE);
 
+///////////////////////Special Types of Sprites//////////////////
 //Falling Spikes
 var fallingSpikesRegular = 'fallingSpikesRegular';
-
 //Power-Ups
 var powerUpFalconia = 'powerUpFalconia';
-
 //Flag Names
 var flagRegular = 'flagRegular';
 var flagSpecial = 'flagSpecial';
@@ -159,171 +305,3 @@ var powerUpJar = 'powerUpJar';
 //Slow Motion
 var slowMotion = 'slowMotion';
 
-///////////////////////////////////////////Tint Specific Art//////////////////////////////////////////////
-//Tint Remover 
-var tintRemover = 0xFFFFFF; //wallRegular (Removes Tint)
-//Immovable Walls
-var tintImmovableWallKillWall = 7019278.306799905;
-var tintImmovableWallPhase = 15631118.030252509;
-var tintImmovableWallMagnet = 10804989.680595484;
-var tintImmovableWallActivation = 0xffff00;
-var tintImmovableWallPadding = 2499878.036284214;
-var tintImmovableWallWorldGravity = 8314793.039214706;
-var tintImmovableWallMario = 241917.63554178402;
-var tintImmovableWallSlippery = 766012.4141677661;
-var tintImmovableWallOneWayPlayerBlockLeft = 3588771.242333334;
-
-//Frozen Wall Tints
-var tintWallPlayerFrozen = 0x00ffff;
-//Surf Wall Tints
-var tintWallSurf = 10409939.733364154;
-//Inverse Tints
-var tintWallInverse = 1181911.9307258818;
-//Ghost Tints
-var tintWallGhost = 16771007.229130682;
-//Special Wall Tints
-var tintWallCloud = 9583870.358153213;
-
-//Enemies
-var tintEnemyShooter = 12758247.409111453;
-var tintEnemyDaakath = 15269906.933038201;
-var tintEnemyAccelerate = 2885804.4944837275;
-
-//Power-Up Tint
-
-var tintPowerUpFalconia = 3599221.242333334;
-
-
-////////////////////////////////////////////Class Declarations/////////////////////////////////////////////////////
-//Creates Each Individual Level
-class LevelCreator {
-  constructor(worldName, xOfWorld, yOfWorld, metroidvania, backgroundColor) {
-    this.worldName = worldName;
-    this.xOfWorld = xOfWorld;
-    this.yOfWorld = yOfWorld;
-    this.metroidvania = metroidvania;
-    this.backgroundColor = backgroundColor;
-  }
-};
-
-///Creates Room Switching
-class MetroidvaniaCreator {
-  constructor(roomUpIndex, roomUpValue, roomDownIndex, roomDownValue, roomLeftIndex, roomLeftValue, roomRightIndex, roomRightValue) {
-    this.roomUpIndex = roomUpIndex;
-    this.roomUpValue = roomUpValue
-    this.roomDownIndex = roomDownIndex;
-    this.roomDownValue = roomDownValue;
-    this.roomLeftIndex = roomLeftIndex;
-    this.roomLeftValue = roomLeftValue;
-    this.roomRightIndex = roomRightIndex;
-    this.roomRightValue = roomRightValue;
-  }
-};
-
-//Creates Player Positioning (Up, Down, Left Right);
-class PlayerPositionCreator {
-  constructor(x, y) {
-    this.x = x;
-    this.y = y;
-  }
-};
-
-//Creates World Gravity Object
-class worldGravityCreator {
-  constructor(gravityX, gravityY) {
-    this.gravityX = gravityX;
-    this.gravityY = gravityY;
-  }
-};
-
-//Generates All Physics Sprites
-class SpriteCreator {
-  constructor(trigger, name, art, x, y, widthX, widthY, scale, velocityX, velocityY, gravityX, gravityY, specialCondition, seconds) {
-    this.trigger = trigger;
-    this.name = name;
-    this.art = art;
-    this.x = x;
-    this.y = y;
-    this.widthX = widthX;
-    this.widthY = widthY;
-    this.scale = scale;
-    this.velocityX = velocityX;
-    this.velocityY = velocityY;
-    this.gravityX = gravityX;
-    this.gravityY = gravityY;
-    this.specialCondition = specialCondition;
-    this.seconds = seconds;
-  }
-};
-
-//Creates Images
-class imageCreator {
-  constructor(trigger, name, art, x, y, scale) {
-    this.trigger = trigger;
-    this.name = name;
-    this.art = art;
-    this.x = x;
-    this.y = y;
-    this.scale = scale;
-  }
-}
-
-//////////////////Flag Specific Classes/////////
-class flagCreator {
-  constructor(indexOfPlayerPosition, trigger, name, art, x, y, velocityX, velocityY, sizeX, sizeY, gravityX, gravityY, specialHandler) {
-    this.indexOfPlayerPosition = indexOfPlayerPosition;
-    this.trigger = trigger;
-    this.name = name;
-    this.art = art;
-    this.x = x;
-    this.y = y;
-    this.velocityX = velocityX;
-    this.velocityY = velocityY;
-    this.sizeX = sizeX;
-    this.sizeY = sizeY;
-    this.gravityX = gravityX;
-    this.gravityY = gravityY;
-    this.specialHandler = specialHandler;
-  }
-};
-
-//Creating Bitmap Text Class
-class textCreator {
-  constructor(trigger, x, y, textInput, font, fontSize) {
-    this.trigger = trigger;
-    this.x = x;
-    this.y = y;
-    this.textInput = textInput;
-    this.font = font;
-    this.fontSize = fontSize;
-  }
-}
-////////////////////////////////////Experimental////////////////////////////////
-/////////////////////////////Special Handlers For Changing Conditions of Levels//////////////////
-// var experimental_LevelChanger = {
-//   storyTrigger: {
-//     page: 1,
-//     level: 5,
-//     backgroundColor: "#00A6CF",
-//     fontColor: '#B339CE'
-//   },
-//   specialWorld: [2, 5],
-//   undeniableDeathInsert: [[], [28, 29, 30, 31, 32, 33, 34, 35, 36]],
-//   undeniableDeathRemove: [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 26, 27]],
-//   immovableWallInsert: [[], [14, 15, 16, 17, 18]],
-//   immovableWallRemove: [[8, 0, 1, 2, 3, 4, 5, 7, 9, 10, 11, 12, 13, 14, 15, 16], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]],
-//   wallInsert: [[], [4]],
-//   wallRemove: [[0, 1, 2, 3, 4, 5, 6, 7], [0, 1, 2, 3]],
-//   // ledgeInsert: [[], []],
-//   ledgeRemove: [[0, 1, 2, 3, 4, 5, 6], [0, 1]],
-//   ballInsert: [[], [0]],
-//   ballRemove: [[0], []],
-//   enemyInsert: [[], [29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43]],
-//   enemyRemove: [[], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28]],
-//   fallingSpikesInsert: [[], [6, 7, 8, 9, 10]],
-//   fallingSpikesRemove: [[], [0, 1, 2, 3, 4, 5]],
-//   // flagInsert: [[],[]],
-//   flagRemove: [[0, 2, 3], [0, 1, 2, 3, 4]],
-//   textInsert: [[], [17, 18, 19, 20, 21, 22]],
-//   textRemove: [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]],
-// };

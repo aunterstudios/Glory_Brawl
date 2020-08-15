@@ -29,14 +29,14 @@ brawl.game.prototype.imageMovement = function () {
 brawl.game.prototype.enemyAttack = function () {
     this.enemy.forEachAlive(function (enemy) {
         if (this.game.physics.arcade.distanceBetween(enemy, this.player, false, true) < 400) {
-            if (enemy.name === enemyShooter) {
+            if (enemy.name === enemyShooter.name) {
                 this.enemyBullets.fire(enemy, this.player.x, this.player.y);
             }
             //Daakath
-            if (enemy.name === enemyDaakath) {
+            if (enemy.name === enemyDaakath.name) {
                 this.game.physics.arcade.moveToObject(enemy, this.player, 350);
             }
-            if (enemy.name === enemyAccelerate) {
+            if (enemy.name === enemyAccelerate.name) {
                 this.game.physics.arcade.moveToPointer(enemy, 600);
             }
         }
@@ -60,34 +60,34 @@ brawl.game.prototype.immovableWallContinious = function () {
 
 //Moveable Wall
 brawl.game.prototype.wallContinious = function () {
-    this.wall.forEachAlive(function (wall) {
-        // if (this.game.physics.arcade.distanceBetween(wall, this.player, false, true) < 400 && wall.name === wallPoint) {
-        //     this.game.physics.arcade.moveToPointer(wall, 200);
-        // }
-        // if (wall.name === wallPlayerFrozen) {
-        //     wall.name = wallRegular;
-        //     wall.body.moves = true;
-        //     wall.body.immovable = false;
-        //     wall.tint = tintRemover;
-        // }
-        //Defunct But Still Useful For Different Walls
-        // if (wall.name === wallSurfKiller) {
-        //     wall.name = wallSurf;
-        //     wall.tint = tintWallSurf;
-        // }
-        // if (wall.name === wallGhost && wall.body.speed > 0) {
-        //     wall.tint = tintWallGhostKiller;
-        // }
-        // else if (wall.name === wallGhost && wall.body.speed <= 0) {
-        //     wall.tint = tintWallGhost;
-        // }
-        // if (wall.name === wallInverse && wall.body.speed > 0) {
-        //     wall.tint = tintWallInverse;
-        // }
-        // else if (wall.name === wallInverse && wall.body.speed <= 0) {
-        //     wall.tint = tintWallInverseKiller;
-        // }
-    }, this, this.player);
+    // this.wall.forEachAlive(function (wall) {
+    //     // if (this.game.physics.arcade.distanceBetween(wall, this.player, false, true) < 400 && wall.name === wallPoint) {
+    //     //     this.game.physics.arcade.moveToPointer(wall, 200);
+    //     // }
+    //     // if (wall.name === wallPlayerFrozen) {
+    //     //     wall.name = wallRegular;
+    //     //     wall.body.moves = true;
+    //     //     wall.body.immovable = false;
+    //     //     wall.tint = tintRemover;
+    //     // }
+    //     //Defunct But Still Useful For Different Walls
+    //     // if (wall.name === wallSurfKiller) {
+    //     //     wall.name = wallSurf;
+    //     //     wall.tint = tintWallSurf;
+    //     // }
+    //     // if (wall.name === wallGhost && wall.body.speed > 0) {
+    //     //     wall.tint = tintWallGhostKiller;
+    //     // }
+    //     // else if (wall.name === wallGhost && wall.body.speed <= 0) {
+    //     //     wall.tint = tintWallGhost;
+    //     // }
+    //     // if (wall.name === wallInverse && wall.body.speed > 0) {
+    //     //     wall.tint = tintWallInverse;
+    //     // }
+    //     // else if (wall.name === wallInverse && wall.body.speed <= 0) {
+    //     //     wall.tint = tintWallInverseKiller;
+    //     // }
+    // }, this, this.player);
     //Acceleration to Object (Another Type of Enemy)
 };
 

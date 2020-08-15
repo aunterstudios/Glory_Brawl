@@ -45,7 +45,7 @@ brawl.game.prototype.immovableMoveable = function (immovable, moveable) {
     //     moveable.body.velocity.x = 200;
     // }
     ////////////////////Ball Against Killable Structures///////////////
-    if (immovable.name === undeniableDeathBallKill && moveable.groupName === groupBall) {
+    if (immovable.name === undeniableDeathBallKill.name && moveable.groupName === groupBall) {
         this.emitterFunction(immovable, moveable, 'destroy');
         //Removes Localized Sprites from Regenerating (Spikes)
         if (immovable.specialCondition === 0) {
@@ -62,7 +62,7 @@ brawl.game.prototype.immovableMoveable = function (immovable, moveable) {
         //worldClassLevels[immovable.specialWorld].ledgeGreySpawn[immovable.specialArray].trigger = true;
     }
     /////////////////////Immovable Wall Effects Against Moveable////////////////////
-    if (immovable.name === immovableWallKillWall) {
+    if (immovable.name === immovableWallKillWall.name) {
         this.emitterFunction(moveable, null, 'destroy');
     }
     if (immovable.body.speed > 0) {
@@ -151,7 +151,7 @@ brawl.game.prototype.blVsEnemy = function (bL, enemy) {
 
 brawl.game.prototype.playerImmovable = function (player, immovable) {
     // player.body.stop();
-    if (immovable.name === immovableWallSlippery) {
+    if (immovable.name === immovableWallSlippery.name) {
         playerSlippery = 200;
     }
     else {
@@ -162,7 +162,7 @@ brawl.game.prototype.playerImmovable = function (player, immovable) {
     //     immovable.body.checkCollision.left = false;
     // }
     ///Activating immovableWallActivation(Like a Cloud)
-    if (immovable.name === immovableWallActivation) {
+    if (immovable.name === immovableWallActivation.name) {
         if (immovable.body.touching.up) {
             immovable.body.velocity.setTo(0, 200);
         }
@@ -185,9 +185,9 @@ brawl.game.prototype.playerImmovable = function (player, immovable) {
         
     }
     //Activating immovableWallWorldGravity (World Gravity)
-    if (immovable.name === immovableWallWorldGravity) {
+    if (immovable.name === immovableWallWorldGravity.name) {
         this.game.physics.arcade.gravity.setTo(0, 500);
-        immovable.destroy();
+        this.emitterFunction(immovable, null, 'destroy');
     }
     // if (immovable.name === immovableWallMario) {
     //     if (player.body.touching.up) {
@@ -210,7 +210,7 @@ brawl.game.prototype.playerImmovable = function (player, immovable) {
 };
 
 brawl.game.prototype.playerImmovableWallProcessArgument = function (player, wall) {
-    if (wall.name === immovableWallOneWayPlayer) {
+    if (wall.name === immovableWallOneWayPlayer.name) {
         return false;
     }
     else {
@@ -220,7 +220,7 @@ brawl.game.prototype.playerImmovableWallProcessArgument = function (player, wall
 
 brawl.game.prototype.playerWall = function (player, wall) {
     //WallRegular?
-    if (wall.name === wallRegular) {
+    if (wall.name === wallRegular.name) {
         // wall.name = wallPlayerFrozen;
         // wall.body.moves = false;
         // wall.body.immovable = true;
@@ -241,7 +241,7 @@ brawl.game.prototype.playerWall = function (player, wall) {
     //     this.game.physics.arcade.moveToPointer(wall, 200);
     // }
     //Wall Inverse
-    if (wall.name === wallInverse) {
+    if (wall.name === wallInverse.name) {
         player.body.stop();
         wall.body.stop();
         player.body.velocity.y = -50;
@@ -272,7 +272,7 @@ brawl.game.prototype.playerWall = function (player, wall) {
         }
     }
     ///////////////////////////////Special Walls///////////////////////////
-    if (wall.name === wallCloud) {
+    if (wall.name === wallCloud.name) {
         //Control
         // wall.body.velocity.x = player.body.velocity.x;
         //Let it Go
@@ -321,7 +321,7 @@ brawl.game.prototype.playerBall = function (player, ball) {
 brawl.game.prototype.playerLedge = function (player, ledge) {
     // player.body.velocity.y = 0;
     //////////Eleveator Ledges/////////
-    if (ledge.name === elevator) {
+    if (ledge.name === ledgeElevator.name) {
         if (ledge.body.touching.up) {
             ledge.body.stop();
             player.body.velocity.y = -300;
@@ -332,14 +332,14 @@ brawl.game.prototype.playerLedge = function (player, ledge) {
         }
     }
     //////////Super Jump Bounce/////////
-    if (ledge.name === bounce) {
+    if (ledge.name === ledgeBounce.name) {
         if (ledge.body.touching.up) {
             player.body.velocity.y = -1200;
         }
         this.emitterFunction(ledge, null, 'destroy');
     }
     ////////Surfs Up Dude////////
-    if (ledge.name === surf) {
+    if (ledge.name === ledgeSurf.name) {
         //Self Destruct
         if (!ledge.surfActivate) {
             ledge.surfActivate = true;

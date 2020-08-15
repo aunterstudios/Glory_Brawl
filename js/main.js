@@ -149,7 +149,7 @@ level_0.wallSpawn = [
 
 //Creation of Ledges
 level_0.ledgeSpawn = [
-  new SpriteCreator(true, surf, ledge, 400, 100, 150, 50, 1, 300, 0, 0, 0, null, null),
+  new SpriteCreator(true, ledgeSurf, ledge, 400, 100, 150, 50, 1, 300, 0, 0, 0, null, null),
 ];
 
 //Creation of Ball
@@ -187,7 +187,7 @@ level_0.text = [
   // new textCreator(true, 1100, 3100, "Move Left\n\nThen Double Jump", fontGrind, 25),
   // new textCreator(true, 1100, 2750, "Hold A and Tap D\n\nThis Time", fontGrind, 25),
   // new textCreator(true, 1100, 2450, "Move Right\n\nThen Double Jump", fontGrind, 25),
-  // new textCreator(true, 150, 1400, "Once You Hit A Surface\n\nThis is Fucking Important\n\nYou Can Double Jump Again", fontGrind, 25),
+  // new textCreator(true, 150, 1400, "Once You Hit A ledgeSurface\n\nThis is Fucking Important\n\nYou Can Double Jump Again", fontGrind, 25),
   //Arrows
   // new textCreator(true, 1900, 3500, "←", 'Courier New', 30, '#000000', 'bold'),
   // new textCreator(true, 1900, 3800, "↑", 'Courier New', 30, '#000000', 'bold'),
@@ -232,7 +232,7 @@ level_1.wallSpawn = [
 
 //Creation of Ledges
 level_1.ledgeSpawn = [
-  new SpriteCreator(true, surf, ledge, 400, 100, 150, 50, 1, 300, 0, 0, 0, null, null),
+  new SpriteCreator(true, ledgeSurf, ledge, 400, 100, 150, 50, 1, 300, 0, 0, 0, null, null),
 ];
 
 //Creation of Ball
@@ -301,7 +301,7 @@ level_2.wallSpawn = [
 
 //Ledges
 level_2.ledgeSpawn = [
-  new SpriteCreator(true, elevator, ledge, 4200, 1600, null, null, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, ledgeElevator, ledge, 4200, 1600, null, null, 1, 0, 0, 0, 0, null, null),
 ];
 
 //Enemy Spawn
@@ -379,7 +379,7 @@ level_3.wallSpawn = [
 ];
 // //Ledges
 level_3.ledgeSpawn = [
-  // //Surf
+  // //ledgeSurf
 ];
 
 // // //Enemy Spawn
@@ -452,7 +452,7 @@ level_4.text = [
   // new textCreator(true, 1100, 3100, "Move Left\n\nThen Double Jump", fontGrind, 25),
   // new textCreator(true, 1100, 2750, "Hold A and Tap D\n\nThis Time", fontGrind, 25),
   // new textCreator(true, 1100, 2450, "Move Right\n\nThen Double Jump", fontGrind, 25),
-  // new textCreator(true, 150, 1400, "Once You Hit A Surface\n\nThis is Fucking Important\n\nYou Can Double Jump Again", fontGrind, 25),
+  // new textCreator(true, 150, 1400, "Once You Hit A ledgeSurface\n\nThis is Fucking Important\n\nYou Can Double Jump Again", fontGrind, 25),
 ];
 
 //////////////////////////////////////////Pushing All Levels Into World Array/////////////////////////////////////
