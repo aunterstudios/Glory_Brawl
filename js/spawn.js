@@ -243,9 +243,9 @@ brawl.game.prototype.fallingSpikesSpawn = function (sprite, positionInArray) {
 //////////////////////////Flag Spawn(Checkpoints or Respawn Points)/////////////////////////
 brawl.game.prototype.flagSpawn = function (sprite) {
     this.flagX = this.flag.create(sprite.x, sprite.y, sprite.art);
-    this.flagX.name = sprite.spriteType.name;
+    this.flagX.name = sprite.name;
     this.flagX.specialHandler = sprite.specialHandler;
-    if (sprite.spriteType.name === flagSpecial) {
+    if (sprite.name === flagSpecial) {
         this.flagX.tint = Phaser.Color.AQUA;
     }
     //this.flagX.scale(sprite.sizeX,sprite.sizeY);
