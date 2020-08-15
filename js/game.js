@@ -126,6 +126,8 @@ brawl.game.prototype = {
         var onWall = this.game.physics.arcade.collide(this.player, this.wall, this.playerWall, this.playerWallProcessArgument, this);
         var onLedge = this.game.physics.arcade.collide(this.player, this.ledge, this.playerLedge, null, this);
         var onBall = this.game.physics.arcade.collide(this.player, this.ball, this.playerBall, null, this);
+        var onHazama = this.game.physics.arcade.overlap(this.player, this.hazama, this.playerHazama, null, this);
+
         //Death Mechanics (Game State Change)
         this.game.physics.arcade.overlap(this.player, [this.enemy, this.enemyBullets.bullets, this.undeniableDeath, this.fallingSpikes], this.playerDeath, null, this);
 

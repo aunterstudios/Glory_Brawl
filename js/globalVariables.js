@@ -222,6 +222,8 @@ var groupLedge = 'groupLedge';
 var groupEnemy = 'groupEnemy';
 //Ball
 var groupBall = 'groupBall';
+//Hazama
+var groupHazama = 'groupHazama';
 //Falling Spikes
 var groupFallingSpikes = 'groupFallingSpikes';
 //Flag
@@ -232,14 +234,14 @@ var groupFlag = 'groupFlag';
 var tintRemover = 0xFFFFFF; //wallRegular (Removes Tint)
 var tintWallPlayerFrozen = 0x00ffff; //Frozen Wall Tints
 var testTint = Math.random() * 0xffffff; // testTint
-var tintPowerUpFalconia = 3599221.242333334; //Power-Up Tint Test
+console.log(testTint);
 /////////////////////////List of Names of Each Sprite (For Different Special Properties)////////////////
 //Death Names
 var undeniableDeathRegular = new spriteType('undeniableDeathRegular', Phaser.Color.RED, 100, 0, true, 1000, 1); //No Special Properties
 var undeniableDeathBallKill = new spriteType('undeniableDeathBallKill', Phaser.Color.ORANGE, 100, 0, true, 1000, 1); //Killable By Ball
 
 //Immovable Wall Names
-var immovableWallRegular = new spriteType('immovableWallRegular', tintRemover,100, 0, true, 1000, 1); //No Special Properties
+var immovableWallRegular = new spriteType('immovableWallRegular', tintRemover, 100, 0, true, 1000, 1); //No Special Properties
 var immovableWallKillWall = new spriteType('immovableWallKillWall', 7019278.306799905, 100, 0, true, 1000, 1); //Kills Walls(Will Be Everything)
 var immovableWallPhase = new spriteType('immovableWallPhase', 15631118.030252509, 100, 0, true, 1000, 1); //Killed By Enemy BULLETS
 var immovableWallActivation = new spriteType('immovableWallActivation', 0xffff00, 100, 0, true, 1000, 1); //Triggers Movement in a Wall
@@ -269,11 +271,12 @@ var enemyAccelerate = new spriteType('enemyAccelerate', 2885804.4944837275, 20, 
 //Ball Names
 var ballRegular = new spriteType('ballRegular', Phaser.Color.BLUE, 20, .5, false, 1000, .5);
 
+//Power-Ups
+var powerUpFalconia = new spriteType('powerUpFalconia', testTint, 1, 0, false, 200, 1); //SUPER JUMPING ABILITY
+
 ///////////////////////Special Types of Sprites//////////////////
 //Falling Spikes
 var fallingSpikesRegular = 'fallingSpikesRegular';
-//Power-Ups
-var powerUpFalconia = 'powerUpFalconia';
 //Flag Names
 var flagRegular = 'flagRegular';
 var flagSpecial = 'flagSpecial';

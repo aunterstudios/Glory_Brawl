@@ -313,6 +313,11 @@ level_2.enemySpawn = [
 level_2.ballSpawn = [
 ];
 
+//Hazama
+level_2.hazamaSpawn = [
+  new SpriteCreator(true, powerUpFalconia, wallTile50, 4200, 0, 500, 1800, 1, 0, 0, 0, 0, null, null),
+];
+
 
 //Falling Spikes
 level_2.fallingSpikes = [

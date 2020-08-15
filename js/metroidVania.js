@@ -167,6 +167,15 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
             }
         }
     }
+
+    //Generating balls ledges
+    if ('hazamaSpawn' in levelGenerator) {
+        for (var i = 0; i < levelGenerator.hazamaSpawn.length; i++) {
+            if (levelGenerator.hazamaSpawn[i].trigger) {
+                this.spriteGen(levelGenerator.hazamaSpawn[i], i, this.hazama, groupHazama, 'tile');
+            }
+        }
+    }
     ///////////////////(Falling Spikes)////////////////
     if ('fallingSpikes' in levelGenerator) {
         for (var i = 0; i < levelGenerator.fallingSpikes.length; i++) {
@@ -326,6 +335,20 @@ brawl.game.prototype.respawn = function (player, flag) {
             for (var i = 0; i < flag.specialHandler.specialWorld.length; i++) {
                 for (var j = 0; j < flag.specialHandler.ballRemove[i].length; j++) {
                     worldClassLevels[flag.specialHandler.specialWorld[i]].ballSpawn[flag.specialHandler.ballRemove[i][j]].trigger = false;
+                }
+            }
+        }
+        if ('hazamaInsert' in flag.specialHandler) {
+            for (var i = 0; i < flag.specialHandler.specialWorld.length; i++) {
+                for (var j = 0; j < flag.specialHandler.hazamaInsert[i].length; j++) {
+                    worldClassLevels[flag.specialHandler.specialWorld[i]].hazamaSpawn[flag.specialHandler.hazamaInsert[i][j]].trigger = true;
+                }
+            }
+        }
+        if ('hazamaRemove' in flag.specialHandler) {
+            for (var i = 0; i < flag.specialHandler.specialWorld.length; i++) {
+                for (var j = 0; j < flag.specialHandler.hazamaRemove[i].length; j++) {
+                    worldClassLevels[flag.specialHandler.specialWorld[i]].hazamaSpawn[flag.specialHandler.hazamaRemove[i][j]].trigger = false;
                 }
             }
         }

@@ -360,3 +360,14 @@ brawl.game.prototype.playerLedge = function (player, ledge) {
         }
     }
 };
+
+///////////Hazama//////////
+brawl.game.prototype.playerHazama = function (player, hazama) {
+    //ballRegular Physics
+    // console.log(player.body.touching);
+    // if (hazama.name === powerUpFalconia.name) {
+    //     playerJump = -1000;
+    //     player.body.gravity.y = 500;
+    //     this.emitterFunction(hazama, null, 'destroy');
+    // }
+};
