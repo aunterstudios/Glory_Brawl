@@ -27,8 +27,8 @@ brawl.game.prototype.spriteGroupGenerator = function () {
     this.immovableWall = this.game.add.group();
     this.immovableWall.enableBody = true;
     //Adding This Undeniable Death
-    this.death = this.game.add.group();
-    this.death.enableBody = true;
+    this.undeniableDeath = this.game.add.group();
+    this.undeniableDeath.enableBody = true;
     //Adding Hazama and Powerups
     this.hazama = this.game.add.group();
     this.hazama.enableBody = true;
@@ -72,21 +72,21 @@ brawl.game.prototype.undeniableDeathSpawn = function (sprite, positionInArray) {
     }
     var tileDeath = this.game.add.tileSprite(sprite.x, sprite.y, sprite.widthX, sprite.widthY, sprite.art);
     this.game.physics.enable([tileDeath], Phaser.Physics.ARCADE);
-    this.deathX = this.death.add(tileDeath);
-    this.deathX.name = sprite.spriteType.name;
-    this.deathX.groupName = groupUndeniableDeath;
-    this.deathX.tint = sprite.spriteType.tint;
-    this.deathX.specialCondition = sprite.specialCondition;
-    this.deathX.positionInArray = positionInArray;
-    this.deathX.tileScale.setTo(sprite.scale);
+    this.undeniableDeathX = this.undeniableDeath.add(tileDeath);
+    this.undeniableDeathX.name = sprite.spriteType.name;
+    this.undeniableDeathX.groupName = groupUndeniableDeath;
+    this.undeniableDeathX.tint = sprite.spriteType.tint;
+    this.undeniableDeathX.specialCondition = sprite.specialCondition;
+    this.undeniableDeathX.positionInArray = positionInArray;
+    this.undeniableDeathX.tileScale.setTo(sprite.scale);
     //Physics Properties
-    this.deathX.body.gravity.setTo(sprite.gravityX, sprite.gravityY);
-    this.deathX.body.immovable = true;
-    this.deathX.body.mass = 100;
-    this.deathX.body.maxVelocity.setTo(1000);
-    this.deathX.body.collideWorldBounds = true;
-    this.deathX.body.bounce.setTo(1);
-    this.deathX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
+    this.undeniableDeathX.body.gravity.setTo(sprite.gravityX, sprite.gravityY);
+    this.undeniableDeathX.body.immovable = true;
+    this.undeniableDeathX.body.mass = 100;
+    this.undeniableDeathX.body.maxVelocity.setTo(1000);
+    this.undeniableDeathX.body.collideWorldBounds = true;
+    this.undeniableDeathX.body.bounce.setTo(1);
+    this.undeniableDeathX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
 };
 /////////////////Immovable Walls/////////////////////
 brawl.game.prototype.immovableWallSpawn = function (sprite, positionInArray) {
