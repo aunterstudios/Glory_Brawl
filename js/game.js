@@ -120,6 +120,8 @@ brawl.game.prototype = {
         // this.wallContinious(); //Work in Progress
         //Immovable Walls
         // this.immovableWallContinious();
+        //Hazama
+        this.hazamaContinious();
         ///////////////////////////////////////////Physics////////////////////////////////////////
         //Player Mechanics
         var onImmovable = this.game.physics.arcade.collide(this.player, this.immovableWall, this.playerImmovable, this.playerImmovableWallProcessArgument, this);
@@ -188,7 +190,7 @@ brawl.game.prototype = {
         //////////////////////////////////////////WASD Controls and Player Touch Mechanics//////////////////////////////////////////////
         //Camera Focused on Player
         if (cameraBoolean) {
-            if (onTheGround) {
+            if (onTheGround && !onHazama) {
                 //Set HitBox Size
                 this.player.body.setSize(34, 55.5, 15, 7);
                 if (this.movementLeft.isDown && !this.movementRight.isDown) {
@@ -206,7 +208,7 @@ brawl.game.prototype = {
                     this.player.frame = 0;
                 }
             }
-            else if (onTheRightSide) {
+            else if (onTheRightSide && !onHazama) {
                 this.player.body.setSize(30, 50, 19, 10);
                 if (onWall || onImmovable) {
                     this.player.body.velocity.x = playerStickiness;
@@ -220,7 +222,7 @@ brawl.game.prototype = {
                     this.player.body.velocity.x = -playerWallJumpX;
                 }
             }
-            else if (onTheLeftSide) {
+            else if (onTheLeftSide && !onHazama) {
                 this.player.body.setSize(30, 50, 15, 10);
                 if (onWall || onImmovable) {
                     this.player.body.velocity.x = -playerStickiness;
@@ -234,7 +236,7 @@ brawl.game.prototype = {
                     this.player.body.velocity.x = playerWallJumpX;
                 }
             }
-            else if (onUpsideDown) {
+            else if (onUpsideDown && !onHazama) {
                 this.player.body.setSize(34, 55.5, 15, 0);
                 this.player.body.velocity.y = playerUpsideDownVelocity;
                 if (this.movementLeft.isDown && !this.movementRight.isDown) {
@@ -251,7 +253,7 @@ brawl.game.prototype = {
                 }
 
             }
-            else if (onNone) {
+            else if (onNone || onHazama) {
                 // this.player.animations.stop();
                 this.player.body.setSize(34, 55.5, 15, 7);
                 if (this.player.body.velocity.x === 0) {

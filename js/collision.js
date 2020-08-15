@@ -370,4 +370,6 @@ brawl.game.prototype.playerHazama = function (player, hazama) {
     //     player.body.gravity.y = 500;
     //     this.emitterFunction(hazama, null, 'destroy');
     // }
+    hazama.lastOverlapped = this.game.time.now + 100; 
+    player.body.gravity.y = -200;
 };

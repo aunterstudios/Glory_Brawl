@@ -91,6 +91,15 @@ brawl.game.prototype.wallContinious = function () {
     //Acceleration to Object (Another Type of Enemy)
 };
 
+brawl.game.prototype.hazamaContinious = function () {
+    this.hazama.forEachAlive(function (hazama) {
+        if (hazama.lastOverlapped && this.game.time.now > hazama.lastOverlapped) {
+            this.player.body.gravity.y = 1500;
+        }
+    }, this, this.player);
+};
+
+
 //////////////////Emitter Function/////////////////////
 brawl.game.prototype.emitterFunction = function (sprite1, sprite2, killOrDestroy) {
     //Sprite 1 is Always Killed
