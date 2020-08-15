@@ -153,6 +153,7 @@ var fallingSpikesOne = 'fallingSpikesOne';
 //Flag
 var flag = 'flag';
 
+//Power Ups
 var powerUpJar = 'powerUpJar';
 
 //Slow Motion
