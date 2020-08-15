@@ -10,7 +10,6 @@ brawl.state2.prototype = {
         this.metroidvania = metroidvania;
     },
     preload: function () {
-        this.load.image('background-three', 'assets/trumpFirstBackground.jpg');
     },
     create: function () {
 
@@ -55,9 +54,6 @@ brawl.story.prototype = {
         this.page = page;
         this.backgroundColor = backgroundColor;
         this.fontColor = fontColor;
-    },
-    preload: function () {
-
     },
     create: function () {
         this.game.stage.backgroundColor = this.backgroundColor;

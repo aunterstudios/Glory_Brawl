@@ -71,6 +71,7 @@ brawl.game.prototype.spriteGen = function (sprite, positionInArray, groupSprite,
         console.log(sprite, positionInArray, groupSprite, groupCategory, tileOrSprite);
     }
     ///////////////Sprite Generation///////////
+    //Checks if It's a tileSprite or Regular Sprite
     if (tileOrSprite === 'tile') {
         var newTile = this.game.add.tileSprite(sprite.x, sprite.y, sprite.widthX, sprite.widthY, sprite.art);
         this.game.physics.enable([newTile], Phaser.Physics.ARCADE);
@@ -81,6 +82,7 @@ brawl.game.prototype.spriteGen = function (sprite, positionInArray, groupSprite,
         this.spriteX = groupSprite.create(sprite.x, sprite.y, sprite.art);
         this.spriteX.scale.setTo(sprite.scale);
     }
+    //Sprite Name
     this.spriteX.name = sprite.spriteType.name;
     this.spriteX.groupName = groupCategory;
     this.spriteX.tint = sprite.spriteType.tint;

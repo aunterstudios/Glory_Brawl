@@ -2,7 +2,47 @@ var brawl = {};
 brawl.state1 = function () { };
 brawl.state1.prototype = {
     preload: function () {
+        //////////////////////////////Loads All The Sprites At The Main Menu Screen////////////////////
         this.load.image('background-one', 'assets/trumpFirstBackground.jpg');
+        this.load.image('deathTile', 'assets/deathTile.png');
+        //Immovable Walls
+        this.load.image('immovableWallTile', 'assets/immovableWallTile.png');
+        //Moveable Walls
+        this.load.image('wallTile50', 'assets/wallTile50.png');
+        this.load.image('wallTile25', 'assets/wallTile25.png');
+        //Ledges
+        this.load.image('ledge', 'assets/ledge.png');
+        //Traps
+        this.load.image('fallingSpikesOne', 'assets/fallingSpikesOne.png');
+        //Bullets
+        this.load.image('bulletKill', 'assets/bulletKill.png');
+        this.load.image('bulletStop', 'assets/bulletStop.png');
+        this.load.image('bulletPush', 'assets/bulletPush.png');
+        this.load.image('bulletPull', 'assets/bulletPull.png');
+        //Flag
+        this.load.image('flag', 'assets/flag.png');
+        //Door
+        this.load.image('door', 'assets/door.png');
+        //Ball
+        this.load.image('ball', 'assets/ball.png');
+        //Enemies
+        this.load.image('enemyOne', 'assets/enemyOne.png');
+        //Power-Up
+        this.load.image('powerUpJar', 'assets/powerUpJar.png');
+        //Emitter
+        this.load.image('particles', 'assets/z2.png');
+        //Slow Motion Indicator
+        this.load.image('slowMotion', 'assets/z5SlowMotion.png');
+        //Player
+        this.load.spritesheet('player', 'assets/player.png', 64, 64);
+        //Camera
+        this.load.image('camera', 'assets/camera.png');
+        /////////////////////////////////Menu Images and Sprites////////////////////////
+        this.load.image('background-three', 'assets/trumpFirstBackground.jpg');
+        //Bit Map Font
+        if (bitmapBoolean) {
+            this.game.load.bitmapFont('fontGrind', 'assets/fontGrind.png', 'assets/fontGrind.fnt');
+        }
     },
     create: function () {
 
