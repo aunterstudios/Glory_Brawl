@@ -1,8 +1,7 @@
 //////////////////Initializing All the Sprite Groups///////////////
 brawl.game.prototype.spriteGroupGenerator = function () {
     ////////////////////////Toggle Console Log//////////////////
-    this.toggleConsoleLog = false;
-    // this.toggleConsoleLog = true;
+    this.toggleConsoleLog = true;
     ////////////////////////////////Z-Index Order/////////////////////////////
     ////////////////////////////////Initializing Groups///////////////////////
     //Adding Images
@@ -65,161 +64,51 @@ brawl.game.prototype.imageSpawn = function (sprite, positionInArray) {
     this.imageGroupX.pivot.x = 100;
     this.imageGroupX.pivot.y = 100;
 };
-/////////////////Undeniable Death Spawn////////////////////
-brawl.game.prototype.undeniableDeathSpawn = function (sprite, positionInArray) {
+////////////////////////Sprite Generator///////////////////////////
+brawl.game.prototype.spriteGen = function (sprite, positionInArray, groupSprite, groupCategory, tileOrSprite) {
+    //////////////Debugging Purposes/////////////
     if (this.toggleConsoleLog) {
-        console.log(sprite, positionInArray);
+        console.log(sprite, positionInArray, groupSprite, groupCategory, tileOrSprite);
     }
-    var tileDeath = this.game.add.tileSprite(sprite.x, sprite.y, sprite.widthX, sprite.widthY, sprite.art);
-    this.game.physics.enable([tileDeath], Phaser.Physics.ARCADE);
-    this.undeniableDeathX = this.undeniableDeath.add(tileDeath);
-    this.undeniableDeathX.name = sprite.spriteType.name;
-    this.undeniableDeathX.groupName = groupUndeniableDeath;
-    this.undeniableDeathX.tint = sprite.spriteType.tint;
-    this.undeniableDeathX.specialCondition = sprite.specialCondition;
-    this.undeniableDeathX.positionInArray = positionInArray;
-    this.undeniableDeathX.tileScale.setTo(sprite.scale);
+    ///////////////Sprite Generation///////////
+    if (tileOrSprite === 'tile') {
+        var newTile = this.game.add.tileSprite(sprite.x, sprite.y, sprite.widthX, sprite.widthY, sprite.art);
+        this.game.physics.enable([newTile], Phaser.Physics.ARCADE);
+        this.spriteX = groupSprite.add(newTile);
+        this.spriteX.tileScale.setTo(sprite.scale);
+    }
+    else {
+        this.spriteX = groupSprite.create(sprite.x, sprite.y, sprite.art);
+        this.spriteX.scale.setTo(sprite.scale);
+    }
+    this.spriteX.name = sprite.spriteType.name;
+    this.spriteX.groupName = groupCategory;
+    this.spriteX.tint = sprite.spriteType.tint;
+    this.spriteX.specialCondition = sprite.specialCondition;
+    this.spriteX.positionInArray = positionInArray;
+    this.spriteX.anchor.setTo(sprite.spriteType.anchor);
     //Physics Properties
-    this.undeniableDeathX.body.gravity.setTo(sprite.gravityX, sprite.gravityY);
-    this.undeniableDeathX.body.immovable = true;
-    this.undeniableDeathX.body.mass = 100;
-    this.undeniableDeathX.body.maxVelocity.setTo(1000);
-    this.undeniableDeathX.body.collideWorldBounds = true;
-    this.undeniableDeathX.body.bounce.setTo(1);
-    this.undeniableDeathX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
-};
-/////////////////Immovable Walls/////////////////////
-brawl.game.prototype.immovableWallSpawn = function (sprite, positionInArray) {
-    if (this.toggleConsoleLog) {
-        console.log(sprite, positionInArray);
-    }
-    var tileImmovable = this.game.add.tileSprite(sprite.x, sprite.y, sprite.widthX, sprite.widthY, sprite.art);
-    this.game.physics.enable([tileImmovable], Phaser.Physics.ARCADE);
-    this.immovableWallX = this.immovableWall.add(tileImmovable);
-    this.immovableWallX.name = sprite.spriteType.name;
-    this.immovableWallX.groupName = groupImmovableWall;
-    this.immovableWallX.tint = sprite.spriteType.tint;
-    this.immovableWallX.specialCondition = sprite.specialCondition;
-    this.immovableWallX.positionInArray = positionInArray;
-    this.immovableWallX.tileScale.setTo(sprite.scale);
-    //Physics Properties
-    if (sprite.spriteType.name === immovableWallOneWayPlayerBlockLeft.name) {
-        this.immovableWallX.body.checkCollision.left = false;
-    }
-    this.immovableWallX.body.gravity.setTo(sprite.gravityX, sprite.gravityY);
-    this.immovableWallX.body.immovable = true;
-    this.immovableWallX.body.mass = 100;
-    this.immovableWallX.body.maxVelocity.setTo(1000);
-    this.immovableWallX.body.collideWorldBounds = true;
-    this.immovableWallX.body.bounce.setTo(1);
-    this.immovableWallX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
-};
-////////////////////////Wall Spawn///////////////////////
-brawl.game.prototype.wallSpawn = function (sprite, positionInArray) {
-    if (this.toggleConsoleLog) {
-        console.log(sprite, positionInArray);
-    }
-    var tileWall = this.game.add.tileSprite(sprite.x, sprite.y, sprite.widthX, sprite.widthY, sprite.art);
-    this.game.physics.enable([tileWall], Phaser.Physics.ARCADE);
-    this.wallX = this.wall.add(tileWall);
-    this.wallX.name = sprite.spriteType.name;
-    this.wallX.groupName = groupWall;
-    this.wallX.tint = sprite.spriteType.tint;
-    this.wallX.specialCondition = sprite.specialCondition;
-    this.wallX.positionInArray = positionInArray;
-    this.wallX.anchor.setTo(.5);
-    this.wallX.tileScale.setTo(sprite.scale);
-    //Physics Properties
-    if (sprite.name === wallCloud || sprite.spriteType.name === wallGhost) {
-        this.wallX.body.immovable = true;
-    }
-    this.wallX.body.gravity.setTo(sprite.gravityX, sprite.gravityY);
-    this.wallX.body.mass = 200; //200
-    this.wallX.body.maxVelocity.setTo(1000);
-    this.wallX.body.collideWorldBounds = true;
-    this.wallX.body.bounce.setTo(1);
-    this.wallX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
-    ///////////Drag Events///////////
-    // this.wallX.inputEnabled = true;
-    // this.wallX.input.enableDrag();
-    // this.wallX.events.onDragStart.add(this.startDrag, this);
-    // this.wallX.events.onDragStop.add(this.stopDrag, this);
-    // this.wallX.body.moves = false;
-    ////////////////////////Testing/////////////////////////
-    // this.wallX.checkWorldBounds = true;
-    // this.wallX.events.onOutOfBounds.add(this.wallOut, this);
-};
-/////////////////////////////Ledge Spawn///////////////////////////
-brawl.game.prototype.ledgeSpawn = function (sprite, positionInArray) {
-    if (this.toggleConsoleLog) {
-        console.log(sprite, positionInArray);
-    }
-    this.ledgeX = this.ledge.create(sprite.x, sprite.y, sprite.art);
-    this.ledgeX.name = sprite.spriteType.name;
-    this.ledgeX.groupName = groupLedge;
-    this.ledgeX.tint = sprite.spriteType.tint;
-    this.ledgeX.specialCondition = sprite.specialCondition;
-    this.ledgeX.positionInArray = positionInArray;
-    this.ledgeX.anchor.setTo(.5);
-    this.ledgeX.scale.setTo(sprite.scale);
-    //Physics Properties
-    if (sprite.spriteType.name === ledgeElevator) {
-        this.ledgeX.elevatorActivate = false;
-    }
-    else if (sprite.spriteType.name === ledgeSurf) {
-        this.ledgeX.surfActivate = false;
-    }
-    this.ledgeX.body.gravity.setTo(sprite.gravityX, sprite.gravityY);
-    this.ledgeX.body.mass = 20;
-    this.ledgeX.body.maxVelocity.setTo(1000);
-    this.ledgeX.body.collideWorldBounds = true;
-    this.ledgeX.body.bounce.setTo(.5);//.5;
-    this.ledgeX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
-};
-/////////////////////////////Ball Spawn///////////////////////////
-brawl.game.prototype.ballSpawn = function (sprite, positionInArray) {
-    if (this.toggleConsoleLog) {
-        console.log(sprite, positionInArray);
-    }
-    var tileBall = this.game.add.tileSprite(sprite.x, sprite.y, sprite.widthX, sprite.widthY, sprite.art);
-    this.game.physics.enable([tileBall], Phaser.Physics.ARCADE);
-    this.ballX = this.ball.add(tileBall);
-    this.ballX.name = sprite.spriteType.name;
-    this.ballX.groupName = groupBall;
-    this.ballX.specialCondition = sprite.specialCondition;
-    this.ballX.positionInArray = positionInArray;
-    this.ballX.tint = sprite.spriteType.tint;
-    this.ballX.anchor.setTo(.5);
-    this.ballX.tileScale.setTo(sprite.scale); //.5
-    //Physics Properties
-    this.ballX.body.gravity.setTo(sprite.gravityX, sprite.gravityY);
-    this.ballX.body.mass = 20;
-    this.ballX.body.maxVelocity.setTo(1000);
-    this.ballX.body.collideWorldBounds = true;
-    this.ballX.body.bounce.setTo(.5);
-    this.ballX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
-};
+    this.spriteX.body.immovable = sprite.spriteType.immovable;
+    this.spriteX.body.mass = sprite.spriteType.mass;
+    this.spriteX.body.gravity.setTo(sprite.gravityX, sprite.gravityY);
+    this.spriteX.body.maxVelocity.setTo(sprite.spriteType.maxVelocity);
+    this.spriteX.body.collideWorldBounds = true;
+    this.spriteX.body.bounce.setTo(sprite.spriteType.bounce);
+    this.spriteX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
 
-//////////////////////////Enemy Spawn/////////////////////////
-brawl.game.prototype.enemySpawn = function (sprite, positionInArray) {
-    if (this.toggleConsoleLog) {
-        console.log(sprite, positionInArray);
+    /////////////////////////Special Properties of Sprites/////////////////
+    if (sprite.spriteType.name === immovableWallOneWayPlayerBlockLeft.name ) {
+        this.spriteX.body.checkCollision.left = false;
     }
-    this.trumpX = this.enemy.create(sprite.x, sprite.y, sprite.art);
-    this.trumpX.name = sprite.spriteType.name;
-    this.trumpX.groupName = groupEnemy;
-    this.trumpX.specialCondition = sprite.specialCondition;
-    this.trumpX.positionInArray = positionInArray;
-    this.trumpX.tint = sprite.spriteType.tint;
-    this.trumpX.anchor.setTo(.5);
-    this.trumpX.scale.setTo(sprite.scale);
-    //Physics Properties
-    this.trumpX.body.gravity.setTo(sprite.gravityX, sprite.gravityY);
-    this.trumpX.body.mass = 20;
-    this.trumpX.body.maxVelocity.setTo(1000);
-    this.trumpX.body.collideWorldBounds = true;
-    this.trumpX.body.bounce.setTo(1.0);
-    this.trumpX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
+    ///////////Drag Events///////////
+    // this.spriteX.inputEnabled = true;
+    // this.spriteX.input.enableDrag();
+    // this.spriteX.events.onDragStart.add(this.startDrag, this);
+    // this.spriteX.events.onDragStop.add(this.stopDrag, this);
+    // this.spriteX.body.moves = false;
+    ////////////////////////Testing/////////////////////////
+    // this.spriteX.checkWorldBounds = true;
+    // this.spriteX.events.onOutOfBounds.add(this.wallOut, this);
 };
 /////////////////////////////////Falling Spikes///////////////////////////
 brawl.game.prototype.fallingSpikesSpawn = function (sprite, positionInArray) {

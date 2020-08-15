@@ -123,7 +123,7 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     if ('undeniableDeathSpawn' in levelGenerator) {
         for (var i = 0; i < levelGenerator.undeniableDeathSpawn.length; i++) {
             if (levelGenerator.undeniableDeathSpawn[i].trigger) {
-                this.undeniableDeathSpawn(levelGenerator.undeniableDeathSpawn[i], i);
+                this.spriteGen(levelGenerator.undeniableDeathSpawn[i], i, this.undeniableDeath, groupUndeniableDeath, 'tile');
             }
         }
     }
@@ -131,7 +131,7 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     if ('immovableWallSpawn' in levelGenerator) {
         for (var i = 0; i < levelGenerator.immovableWallSpawn.length; i++) {
             if (levelGenerator.immovableWallSpawn[i].trigger) {
-                this.immovableWallSpawn(levelGenerator.immovableWallSpawn[i], i);
+                this.spriteGen(levelGenerator.immovableWallSpawn[i], i, this.immovableWall, groupImmovableWall, 'tile');
             }
         }
     }
@@ -139,7 +139,7 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     if ('wallSpawn' in levelGenerator) {
         for (var i = 0; i < levelGenerator.wallSpawn.length; i++) {
             if (levelGenerator.wallSpawn[i].trigger) {
-                this.wallSpawn(levelGenerator.wallSpawn[i], i);
+                this.spriteGen(levelGenerator.wallSpawn[i], i, this.wall, groupWall, 'tile');
             }
         }
     }
@@ -147,7 +147,7 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     if ('ledgeSpawn' in levelGenerator) {
         for (var i = 0; i < levelGenerator.ledgeSpawn.length; i++) {
             if (levelGenerator.ledgeSpawn[i].trigger) {
-                this.ledgeSpawn(levelGenerator.ledgeSpawn[i], i);
+                this.spriteGen(levelGenerator.ledgeSpawn[i], i, this.ledge, groupLedge, 'sprite');
             }
         }
     }
@@ -155,7 +155,7 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     if ('enemySpawn' in levelGenerator) {
         for (var i = 0; i < levelGenerator.enemySpawn.length; i++) {
             if (levelGenerator.enemySpawn[i].trigger) {
-                this.enemySpawn(levelGenerator.enemySpawn[i], i);
+                this.spriteGen(levelGenerator.enemySpawn[i], i, this.enemy, groupEnemy, 'sprite');
             }
         }
     }
@@ -163,7 +163,7 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     if ('ballSpawn' in levelGenerator) {
         for (var i = 0; i < levelGenerator.ballSpawn.length; i++) {
             if (levelGenerator.ballSpawn[i].trigger) {
-                this.ballSpawn(levelGenerator.ballSpawn[i], i);
+                this.spriteGen(levelGenerator.ballSpawn[i], i, this.ball, groupBall, 'tile');
             }
         }
     }
