@@ -250,6 +250,7 @@ var immovableWallOneWayObject = new spriteType('immovableWallOneWayObject', 2499
 var immovableWallOneWayPlayer = new spriteType('immovableWallOneWayPlayer', 241917.63554178402, 100, 0, true, 1000, 1); //One Way (Players Only)
 var immovableWallSlippery = new spriteType('immovableWallSlippery', 766012.4141677661, 100, 0, true, 1000, 1); //Makes you SLIPPERY!
 var immovableWallOneWayPlayerBlockLeft = new spriteType('immovableWallOneWayPlayerBlockLeft', 3588771.242333334, 100, 0, true, 1000, 1); //One way player only from the left
+var immovableWallPowerJump = new spriteType('immovableWallPowerUpJump', testTint, 1, 0, true, 1000, 1);
 
 //Moveable Wall Names
 var wallRegular = new spriteType('wallRegular', tintRemover, 200, .5, false, 1000, 1);
@@ -272,7 +273,7 @@ var enemyAccelerate = new spriteType('enemyAccelerate', 2885804.4944837275, 20, 
 var ballRegular = new spriteType('ballRegular', Phaser.Color.BLUE, 20, .5, false, 1000, .5);
 
 //Power-Ups
-var powerUpFalconia = new spriteType('powerUpFalconia', testTint, 1, 0, false, 200, 1); //SUPER JUMPING ABILITY
+var hazamaFalconia = new spriteType('hazamaFalconia', testTint, 1, 0, false, 200, 1); //SUPER JUMPING ABILITY
 
 ///////////////////////Special Types of Sprites//////////////////
 //Falling Spikes
@@ -287,6 +288,7 @@ var deathTile = 'deathTile';
 
 //Immovable Wall
 var immovableWallTile = 'immovableWallTile';
+var powerJar = 'powerJar';
 
 //Moveable Wall
 var wallTile50 = 'wallTile50';
@@ -307,8 +309,8 @@ var fallingSpikesOne = 'fallingSpikesOne';
 //Flag
 var flag = 'flag';
 
-//Power Ups
-var powerUpJar = 'powerUpJar';
+//Hazama
+var hazamaHippie = 'hazamaHippie';
 
 //Slow Motion
 var slowMotion = 'slowMotion';

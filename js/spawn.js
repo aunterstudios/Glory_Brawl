@@ -102,9 +102,9 @@ brawl.game.prototype.spriteGen = function (sprite, positionInArray, groupSprite,
     if (sprite.spriteType.name === immovableWallOneWayPlayerBlockLeft.name ) {
         this.spriteX.body.checkCollision.left = false;
     }
-    if (sprite.spriteType.name === powerUpFalconia.name) {
-        this.spriteX.alpha = .3;
-    }
+    // if (sprite.spriteType.name === powerUpFalconia.name) {
+    //     this.spriteX.alpha = .3;
+    // }
     ///////////Drag Events///////////
     // this.spriteX.inputEnabled = true;
     // this.spriteX.input.enableDrag();

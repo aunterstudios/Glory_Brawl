@@ -21,14 +21,14 @@ brawl.state1.prototype = {
         this.load.image('bulletPull', 'assets/bulletPull.png');
         //Flag
         this.load.image('flag', 'assets/flag.png');
-        //Door
-        this.load.image('door', 'assets/door.png');
         //Ball
         this.load.image('ball', 'assets/ball.png');
         //Enemies
         this.load.image('enemyOne', 'assets/enemyOne.png');
         //Power-Up
-        this.load.image('powerUpJar', 'assets/powerUpJar.png');
+        this.load.image('powerJar', 'assets/powerJar.png');
+        //Hazama
+        this.load.image('hazamaHippie', 'assets/hazamaHippie.png');
         //Emitter
         this.load.image('particles', 'assets/z2.png');
         //Slow Motion Indicator

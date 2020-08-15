@@ -427,7 +427,7 @@ brawl.game.prototype = {
     //     //Body Physics
     //     // this.game.debug.body(this.player);
     //     // this.game.debug.bodyInfo(this.player, 200, 200);
-    //     // this.game.debug.physicsGroup(this.immovableWall);
+    //     // this.game.debug.physicsGroup(this.hazama);
     //     //Debugging FPS
     //     // this.game.debug.text(this.game.time.fps, 200, 300);
     // },

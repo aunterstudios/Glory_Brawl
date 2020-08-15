@@ -290,6 +290,8 @@ level_2.immovableWallSpawn = [
   //Ground
   new SpriteCreator(true, immovableWallRegular, immovableWallTile, 4000, 2000, 800, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, immovableWallActivation, immovableWallTile, 4200, 1700, 200, 25, .5, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, immovableWallPowerJump, powerJar, 4200, 1900, 50, 50, 1, 0, 0, 0, 0, null, null),
+
 
 ];
 
@@ -314,9 +316,9 @@ level_2.ballSpawn = [
 ];
 
 //Hazama
-level_2.hazamaSpawn = [
-  new SpriteCreator(true, powerUpFalconia, wallTile50, 4200, 0, 500, 1800, 1, 0, 0, 0, 0, null, null),
-];
+// level_2.hazamaSpawn = [
+//   new SpriteCreator(true, hazamaFalconia, hazamaHippie, 4200, 1900, 50, 50, 1, 0, 0, 0, 0, null, null),
+// ];
 
 
 //Falling Spikes
