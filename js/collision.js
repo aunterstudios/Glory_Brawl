@@ -206,6 +206,7 @@ brawl.game.prototype.playerImmovable = function (player, immovable) {
     //     immovable.tint = tintRemover;
     // }
     if (immovable.name === immovableWallPowerJump.name) {
+        player.powerJump = true;
         this.playerJump = -1000;
         this.emitterFunction(immovable, null, 'destroy');
     }

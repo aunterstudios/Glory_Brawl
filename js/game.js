@@ -17,15 +17,26 @@ brawl.game.prototype = {
         ///////////////////////Nen System of The Game Placed As Holder////////////////////////////
         nenHolder = worldClassLevels[this.indexOfCurrentWorld].nenSystem;
         ///////////////////////These Are Resetting the Player Attributes For Each Level////////////////////
-        this.nenInputValues(nenHolder);
+        this.playerSpeed = nenHolder.playerSpeed;
+        this.playerJump = nenHolder.playerJump;
+        this.playerGravityX = null;
+        this.playerGravityY = nenHolder.playerGravityY;
+        this.playerDoubleJumps = nenHolder.playerDoubleJumps;
+        this.playerWallJumpX = nenHolder.playerWallJumpX;
+        this.playerWallJumpY = nenHolder.playerWallJumpY;
+        this.playerWallDisengage = nenHolder.playerWallDisengage;
+        this.playerStickiness = nenHolder.playerStickiness;
+        this.playerSlippery = nenHolder.playerSlippery;
+        this.playerUpsideDownVelocity = nenHolder.playerUpsideDownVelocity;
+        this.playerUpsideDownMovement = nenHolder.playerUpsideDownMovement;
+        this.playerDownwards = nenHolder.playerDownwards;
+        this.weaponFireRate = nenHolder.weaponFireRate;
+        this.weaponBulletSpeed = nenHolder.weaponBulletSpeed;
+        this.weaponBulletAmount = nenHolder.weaponBulletAmount;
         //////////////////////Slow Motion Reset//////////////////
         slowMotionLimit = 3;
         timerEvents = [];
         this.game.time.slowMotion = 1.0;
-        //////////////////////Weapon Attributes//////////////////////
-        weaponFireRate = worldClassLevels[this.indexOfCurrentWorld].nenSystem.weaponFireRate; //500
-        weaponBulletSpeed = worldClassLevels[this.indexOfCurrentWorld].nenSystem.weaponBulletSpeed;; //500
-        weaponBulletAmount = worldClassLevels[this.indexOfCurrentWorld].nenSystem.weaponBulletAmount; //30
     },
     create: function () {
         //Initializing FPS framework

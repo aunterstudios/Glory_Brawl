@@ -47,7 +47,7 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     }
     //////////////////Adding Weapons////////////////////
     //  Creates 30 bullets, using the 'bullet' graphic
-    this.weapon1 = this.game.add.weapon(30, 'bulletPull');
+    this.weapon1 = this.game.add.weapon(this.weaponBulletAmount, 'bulletPull');
     //  The bullet will be automatically killed when it leaves the camera bounds
     this.weapon1.bulletKillType = Phaser.Weapon.KILL_CAMERA_BOUNDS;
     // this.weapon1.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
@@ -64,7 +64,7 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
 
     /////////////////PUSH
     //  Creates 30 bullets, using the 'bullet' graphic
-    this.weapon2 = this.game.add.weapon(weaponBulletAmount, 'bulletPush');
+    this.weapon2 = this.game.add.weapon(this.weaponBulletAmount, 'bulletPush');
     //  The bullet will be automatically killed when it leaves the camera bounds
     this.weapon2.bulletKillType = Phaser.Weapon.KILL_CAMERA_BOUNDS;
     //  Because our bullet is drawn facing up, we need to offset its rotation:
@@ -79,7 +79,7 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
 
     /////////////////Stop
     //  Creates 30 bullets, using the 'bullet' graphic
-    this.weapon3 = this.game.add.weapon(weaponBulletAmount, 'bulletStop');
+    this.weapon3 = this.game.add.weapon(this.weaponBulletAmount, 'bulletStop');
     //  The bullet will be automatically killed when it leaves the camera bounds
     this.weapon3.bulletKillType = Phaser.Weapon.KILL_CAMERA_BOUNDS;
     //  Because our bullet is drawn facing up, we need to offset its rotation:

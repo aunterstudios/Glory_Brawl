@@ -262,7 +262,7 @@ var enemyAccelerate = new spriteType('enemyAccelerate', 2885804.4944837275, 20, 
 //Ball Names
 var ballRegular = new spriteType('ballRegular', Phaser.Color.BLUE, 20, .5, false, 1000, .5);
 
-//Power-Ups
+//Hazama
 var hazamaFalconia = new spriteType('hazamaFalconia', testTint, 1, 0, false, 200, 1); //SUPER JUMPING ABILITY
 
 ///////////////////////Special Types of Sprites//////////////////
