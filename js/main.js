@@ -325,19 +325,14 @@ level_2.fallingSpikes = [
 ];
 
 //Flag Spawn
-// level_2.flagSpawn = [
-//   //First Flag from Level 1;
-//   new flagCreator(3, true, flagRegular, flag, 4550, 650, 0, 0, .4, .4, 0, 0, null),
-//   //Special Flag At The ENd
-//   new flagCreator(2, true, flagSpecial, flag, 220, 250, 0, 0, .4, .4, 0, 0, flagSpecial_Level3),
-//   //Testing For Special Properties
-//   // new flagCreator(3, true, flagSpecial, flag, 4550, 650, 0, 0, .4, .4, 0, 0, flagSpecial_Level2),
-//   ///Middle FLag
-//   new flagCreator(1, true, flagRegular, flag, 1600, 620, 0, 0, .4, .4, 0, 0, null),
-// ];
+level_2.flagSpawn = [
+  new flagCreator(1, true, flagRegular, flag, 4200, 1800, 0, 0, .4, .4, 0, 0, 
+    new shadowLevelGenerator(0, [
+      new shadowLevelArray(2,4)
+    ])),
+];
 
 //Text Creator (Helpful Hints)
-
 level_2.text = [
   new textCreator(true, 4650, 1800, "Sandbox\n\n→", fontGrind, 25),
 ];
@@ -419,9 +414,10 @@ level_4.playerPosition = [
 //   new SpriteCreator(true, true, undeniableDeathRegular, deathHorizontal500, 500, 3000, 0, 0, 1, 1, 0, 0, null, null),
 // ];
 
-// /////////////////////////Creation of ImmovableWalls
-// level_4.immovableWallSpawn = [
-// ];
+/////////////////////////Creation of ImmovableWalls
+level_4.immovableWallSpawn = [
+  new SpriteCreator(true, immovableWallRegular, immovableWallTile, 0, 3000, 500, 50, 1, 0, 0, 0, 0, null, null),
+];
 
 //Moveable Walls
 ///Single Wall to Teach You  
@@ -466,4 +462,3 @@ for (var i = 0; i <= levelCount; i++) {
   // worldClassLevels.push(eval("level_"+i));
   worldClassLevels.push(window["level_"+i]);
 }
-

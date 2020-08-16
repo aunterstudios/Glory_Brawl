@@ -44,7 +44,7 @@ brawl.state2.prototype = {
 //Death State
 brawl.story = function () { };
 brawl.story.prototype = {
-    init: function (indexOfCurrentWorld, indexOfPlayerPosition, metroidvania, page, backgroundColor, fontColor) {
+    init: function (indexOfCurrentWorld, indexOfPlayerPosition, metroidvania, page) {
         this.game.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT;
         this.game.world.setBounds(0, 0, 1400, 800);
         //Init To Get to the Next State
@@ -52,36 +52,27 @@ brawl.story.prototype = {
         this.indexOfPlayerPosition = indexOfPlayerPosition;
         this.metroidvania = metroidvania;
         this.page = page;
-        this.backgroundColor = backgroundColor;
-        this.fontColor = fontColor;
     },
     create: function () {
-        this.game.stage.backgroundColor = this.backgroundColor;
+        this.game.stage.backgroundColor = Phaser.Color.WHITE;
         if (this.page === 0) {
             this.text1 = this.game.add.text(550, 200, "The Shadow is Eternal.\n\nI'm burned in your soul.\n\nWe Will Keep Doing This\n\nForever.");
             this.text1.font = 'Courier New'
             this.text1.fontSize = 25;
-            this.text1.fill = this.fontColor;
+            this.text1.fill = Phaser.Color.RED;
             this.text1.fontWeight = 'bold';
             this.text1.align = 'center';
-        }
-        else if (this.page === 1) {
-            this.text1 = this.game.add.text(100, 200, "It's All A Lie\n\nWe've Never Been Reborn");
-            this.text1.font = 'Courier New'
-            this.text1.fontSize = 25;
-            this.text1.fill = this.fontColor;
-            this.text1.fontWeight = 'bold';
-            this.text1.align = 'left';
         }
         this.spaceBarPlay = this.game.add.text(590, 700, "Spacebar to Skip");
         this.spaceBarPlay.font = 'Courier New';
         this.spaceBarPlay.fontSize = 25;
-        this.spaceBarPlay.fill = this.fontColor;
+        this.spaceBarPlay.fill = Phaser.Color.RED;
         this.spaceBarPlay.fontWeight = 'bold';
     },
     update: function () {
         if (this.game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
             this.game.state.start('game', true, false, this.indexOfCurrentWorld, this.indexOfPlayerPosition, worldClassLevels[this.indexOfCurrentWorld].metroidvania);
+            console.log(this.indexOfCurrentWorld);
 
         }
 

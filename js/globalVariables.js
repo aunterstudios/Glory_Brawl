@@ -116,35 +116,19 @@ class textCreator {
   }
 }
 
-///////////////////////////////////Experimental////////////////////////////////
-/////////////////////////////Special Handlers For Changing Conditions of Levels//////////////////
-// var experimental_LevelChanger = {
-//   storyTrigger: {
-//     page: 1,
-//     level: 5,
-//     backgroundColor: "#00A6CF",
-//     fontColor: '#B339CE'
-//   },
-//   specialWorld: [2, 5],
-//   undeniableDeathInsert: [[], [28, 29, 30, 31, 32, 33, 34, 35, 36]],
-//   undeniableDeathRemove: [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 26, 27]],
-//   immovableWallInsert: [[], [14, 15, 16, 17, 18]],
-//   immovableWallRemove: [[8, 0, 1, 2, 3, 4, 5, 7, 9, 10, 11, 12, 13, 14, 15, 16], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]],
-//   wallInsert: [[], [4]],
-//   wallRemove: [[0, 1, 2, 3, 4, 5, 6, 7], [0, 1, 2, 3]],
-//   // ledgeInsert: [[], []],
-//   ledgeRemove: [[0, 1, 2, 3, 4, 5, 6], [0, 1]],
-//   ballInsert: [[], [0]],
-//   ballRemove: [[0], []],
-//   enemyInsert: [[], [29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43]],
-//   enemyRemove: [[], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28]],
-//   fallingSpikesInsert: [[], [6, 7, 8, 9, 10]],
-//   fallingSpikesRemove: [[], [0, 1, 2, 3, 4, 5]],
-//   // flagInsert: [[],[]],
-//   flagRemove: [[0, 2, 3], [0, 1, 2, 3, 4]],
-//   textInsert: [[], [17, 18, 19, 20, 21, 22]],
-//   textRemove: [[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,], [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]],
-// };
+///Generate Shadow Levels
+class shadowLevelGenerator {
+  constructor (page, levelSwitchArray) {
+    this.page = page; //Denotes the Story Page
+    this.levelSwitchArray = levelSwitchArray; //Switches Levels (Room Stays the same but becomes completely different)
+  }
+}
+class shadowLevelArray {
+  constructor (oldLevel, shadowLevel) {
+    this.oldLevel = oldLevel ; //Denotes the Story Page
+    this.shadowLevel = shadowLevel; //Switches Levels (Room Stays the same but becomes completely different)
+  }
+}
 //////////////////////////////////////////////////Global Variables//////////////////////////////////////////////
 //Weapon Variables to Change Bullet Type
 var pullBoolean = false;
