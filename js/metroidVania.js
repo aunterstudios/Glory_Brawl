@@ -215,6 +215,9 @@ brawl.game.prototype.nenInputValues = function (nen) {
     this.playerUpsideDownVelocity = nen.playerUpsideDownVelocity;
     this.playerUpsideDownMovement = nen.playerUpsideDownMovement;
     this.playerDownwards = nen.playerDownwards;
+    this.weaponFireRate = nen.weaponFireRate;
+    this.weaponBulletSpeed = nen.weaponBulletSpeed;
+    this.weaponBulletAmount = nen.weaponBulletAmount;
 };
 
 //////////////////////////Room Switching (Metroidvania) Events//////////////////////////
