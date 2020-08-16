@@ -253,8 +253,25 @@ brawl.game.prototype = {
                 }
 
             }
-            else if (onNone || onHazama) {
+            else if (onNone && !onHazama) {
                 // this.player.animations.stop();
+                this.player.body.setSize(34, 55.5, 15, 7);
+                if (this.player.body.velocity.x === 0) {
+                    this.player.frame = 2;
+                }
+                if (this.movementLeft.isDown && !this.movementRight.isDown) {
+                    this.player.body.velocity.x = -playerSpeed;
+                    this.player.frame = 8;
+                }
+                else if (this.movementRight.isDown && !this.movementLeft.isDown) {
+                    this.player.body.velocity.x = playerSpeed;
+                    this.player.frame = 14;
+                }
+                else if (this.movementLeft.isDown && this.movementRight.isDown) {
+                    this.player.body.velocity.x = 0;
+                }
+            }
+            else if (onHazama) {
                 this.player.body.setSize(34, 55.5, 15, 7);
                 if (this.player.body.velocity.x === 0) {
                     this.player.frame = 2;
@@ -278,7 +295,7 @@ brawl.game.prototype = {
             // }
 
             //////////Downwards Mechanics////////
-            if (this.movementDown.isDown && onUpsideDown) {
+            if (this.movementDown.isDown && onUpsideDown && !onHazama) {
                 // this.player.frame = 13;
                 this.player.body.velocity.y = playerUpsideDownMovement;
             }
@@ -289,10 +306,10 @@ brawl.game.prototype = {
                     this.player.frame = 3;
                     this.player.body.velocity.y = playerDownwards;
                 }
-                if (onTheLeftSide) {
+                if (onTheLeftSide && !onHazama) {
                     this.player.body.velocity.x = playerWallDisengage;
                 }
-                if (onTheRightSide) {
+                if (onTheRightSide && !onHazama) {
                     this.player.body.velocity.x = -playerWallDisengage;
                 }
             }
