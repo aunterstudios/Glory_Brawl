@@ -17,19 +17,7 @@ brawl.game.prototype = {
         ///////////////////////Nen System of The Game Placed As Holder////////////////////////////
         nenHolder = worldClassLevels[this.indexOfCurrentWorld].nenSystem;
         ///////////////////////These Are Resetting the Player Attributes For Each Level////////////////////
-        this.playerSpeed = worldClassLevels[this.indexOfCurrentWorld].nenSystem.playerSpeed;
-        this.playerJump = worldClassLevels[this.indexOfCurrentWorld].nenSystem.playerJump;
-        this.playerGravityX = null;
-        this.playerGravityY = worldClassLevels[this.indexOfCurrentWorld].nenSystem.playerGravityY;
-        this.playerDoubleJumps = worldClassLevels[this.indexOfCurrentWorld].nenSystem.playerDoubleJumps;
-        this.playerWallJumpX = worldClassLevels[this.indexOfCurrentWorld].nenSystem.playerWallJumpX;
-        this.playerWallJumpY = worldClassLevels[this.indexOfCurrentWorld].nenSystem.playerWallJumpY;
-        this.playerWallDisengage = worldClassLevels[this.indexOfCurrentWorld].nenSystem.playerWallDisengage;
-        this.playerStickiness = worldClassLevels[this.indexOfCurrentWorld].nenSystem.playerStickiness;
-        this.playerSlippery = worldClassLevels[this.indexOfCurrentWorld].nenSystem.playerSlippery;
-        this.playerUpsideDownVelocity = worldClassLevels[this.indexOfCurrentWorld].nenSystem.playerUpsideDownVelocity;
-        this.playerUpsideDownMovement = worldClassLevels[this.indexOfCurrentWorld].nenSystem.playerUpsideDownMovement;
-        this.playerDownwards = worldClassLevels[this.indexOfCurrentWorld].nenSystem.playerDownwards;
+        this.nenInputValues(nenHolder);
         //////////////////////Slow Motion Reset//////////////////
         slowMotionLimit = 3;
         timerEvents = [];

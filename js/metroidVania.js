@@ -199,6 +199,24 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     }
 
 };
+
+///////////////////Inputting Nen Values///////////////////////
+brawl.game.prototype.nenInputValues = function (nen) {
+    this.playerSpeed = nen.playerSpeed;
+    this.playerJump = nen.playerJump;
+    this.playerGravityX = null;
+    this.playerGravityY = nen.playerGravityY;
+    this.playerDoubleJumps = nen.playerDoubleJumps;
+    this.playerWallJumpX = nen.playerWallJumpX;
+    this.playerWallJumpY = nen.playerWallJumpY;
+    this.playerWallDisengage = nen.playerWallDisengage;
+    this.playerStickiness = nen.playerStickiness;
+    this.playerSlippery = nen.playerSlippery;
+    this.playerUpsideDownVelocity = nen.playerUpsideDownVelocity;
+    this.playerUpsideDownMovement = nen.playerUpsideDownMovement;
+    this.playerDownwards = nen.playerDownwards;
+};
+
 //////////////////////////Room Switching (Metroidvania) Events//////////////////////////
 brawl.game.prototype.playerOut = function (player) {
     //Up

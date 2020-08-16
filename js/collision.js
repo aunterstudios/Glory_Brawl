@@ -376,8 +376,7 @@ brawl.game.prototype.playerHazama = function (player, hazama) {
     // }
     hazama.lastOverlapped = this.game.time.now + 100; 
     if (hazama.name === hazamaFalconia.name) {
-        // player.body.velocity.y = -500;
-        player.body.gravity.y = -100;
+        player.body.gravity.y = -200;
     }
 
 };

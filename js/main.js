@@ -325,7 +325,7 @@ level_2.ballSpawn = [
 ];
 
 level_2.hazamaSpawn = [
-  // new SpriteCreator(true, hazamaFalconia, hazamaHippie, 4200, 0, 500, 1800, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, hazamaFalconia, hazamaHippie, 4200, 0, 500, 1800, 1, 0, 0, 0, 0, null, null),
 ];
 
 //Falling Spikes

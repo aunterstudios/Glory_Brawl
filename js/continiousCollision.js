@@ -94,7 +94,9 @@ brawl.game.prototype.wallContinious = function () {
 brawl.game.prototype.hazamaContinious = function () {
     this.hazama.forEachAlive(function (hazama) {
         if (hazama.lastOverlapped && this.game.time.now > hazama.lastOverlapped) {
-            this.player.body.gravity.y = 1500;
+            this.nenInputValues(nenHolder);
+            //Gravity is Special as It's not Always Updated
+            this.player.body.gravity.y = nenHolder.playerGravityY;
         }
     }, this, this.player);
 };
