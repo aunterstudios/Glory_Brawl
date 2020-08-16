@@ -115,6 +115,9 @@ var level_0 = new LevelCreator("Level 0-Physics Testing", 1400, 800, new Metroid
 //world gravity
 // level_0.worldGravity = new worldGravityCreator(200,200);
 
+//Creation of Nen System in Level
+level_0.nenSystem = portalNen;
+
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_0.playerPosition = [
   new PlayerPositionCreator(400, 700),
@@ -200,6 +203,9 @@ level_0.text = [
 //New Playground
 var level_1 = new LevelCreator("Level 1-SandboxMode", 1400, 10000, new MetroidvaniaCreator(1, 0, 1, 10000, 2, 0, 1, 1400), '#ffffff');
 
+//Creation of Nen System in Level
+level_1.nenSystem = portalNen;
+
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_1.playerPosition = [
   new PlayerPositionCreator(200, 9900),
@@ -264,6 +270,9 @@ level_1.text = [
 ////////////////////////////////////////Level 2/////////////////////////////////////
 var level_2 = new LevelCreator("Level 2-What", 4800, 2000, new MetroidvaniaCreator(3, 0, 3, 2000, null, null, 1, 4800), '#FFFDD0');
 
+//Creation of Nen System in Level
+level_2.nenSystem = portalNen;
+
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_2.playerPosition = [
   new PlayerPositionCreator(200, 20),
@@ -316,7 +325,7 @@ level_2.ballSpawn = [
 ];
 
 level_2.hazamaSpawn = [
-  new SpriteCreator(true, hazamaFalconia, hazamaHippie, 4200, 0, 500, 1800, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, hazamaFalconia, hazamaHippie, 4200, 0, 500, 1800, 1, 0, 0, 0, 0, null, null),
 ];
 
 //Falling Spikes
@@ -341,6 +350,9 @@ level_2.text = [
 var level_3 = new LevelCreator("Level 3-SandboxMode", 1400, 10000, new MetroidvaniaCreator(1, 0, 1, 10000, 2, 0, 1, 1400), '#FFFDD0'); //2400
 
 // level_3.worldGravity = new worldGravityCreator(200, 300);
+
+//Creation of Nen System in Level
+level_3.nenSystem = portalNen;
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_3.playerPosition = [
@@ -399,6 +411,9 @@ var level_4 = new LevelCreator("Level 4-SEAN MOODY", 4200, 3000, new Metroidvani
 
 //world gravity
 // level_4.worldGravity = new worldGravityCreator(200,200);
+
+//Creation of Nen System in Level
+level_4.nenSystem = portalNen;
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_4.playerPosition = [

@@ -14,29 +14,30 @@ brawl.game.prototype = {
         ///////////////////////Setting Camera and Gun to Default/////////////
         pullBoolean = true;
         cameraBoolean = true;
+        ///////////////////////Nen System of The Game Placed As Holder////////////////////////////
+        nenHolder = worldClassLevels[this.indexOfCurrentWorld].nenSystem;
         ///////////////////////These Are Resetting the Player Attributes For Each Level////////////////////
-        playerSpeed = 400;
-        playerJump = -500;
-        // playerJump = -1000;
-        playerGravity = 1500;
-        // playerGravity = 100;
-        playerDoubleJumps = 2;
-        playerWallJumpX = 1000;
-        playerWallJumpY = 500;
-        playerWallDisengage = 500;
-        playerStickiness = 200;
-        playerSlippery = -25;
-        playerUpsideDownVelocity = -200; //-100
-        playerUpsideDownMovement = 100;
-        playerDownwards = 400;
+        playerSpeed = worldClassLevels[this.indexOfCurrentWorld].nenSystem.playerSpeed;
+        playerJump = worldClassLevels[this.indexOfCurrentWorld].nenSystem.playerJump;
+        playerGravityX = null;
+        playerGravityY = worldClassLevels[this.indexOfCurrentWorld].nenSystem.playerGravityY;
+        playerDoubleJumps = worldClassLevels[this.indexOfCurrentWorld].nenSystem.playerDoubleJumps;
+        playerWallJumpX = worldClassLevels[this.indexOfCurrentWorld].nenSystem. playerWallJumpX;
+        playerWallJumpY = worldClassLevels[this.indexOfCurrentWorld].nenSystem.playerWallJumpY ;
+        playerWallDisengage = worldClassLevels[this.indexOfCurrentWorld].nenSystem.playerWallDisengage;
+        playerStickiness = worldClassLevels[this.indexOfCurrentWorld].nenSystem.playerStickiness;
+        playerSlippery = worldClassLevels[this.indexOfCurrentWorld].nenSystem.playerSlippery;
+        playerUpsideDownVelocity = worldClassLevels[this.indexOfCurrentWorld].nenSystem.playerUpsideDownVelocity;
+        playerUpsideDownMovement = worldClassLevels[this.indexOfCurrentWorld].nenSystem.playerUpsideDownMovement;
+        playerDownwards = worldClassLevels[this.indexOfCurrentWorld].nenSystem.playerDownwards;
         //////////////////////Slow Motion Reset//////////////////
         slowMotionLimit = 3;
         timerEvents = [];
         this.game.time.slowMotion = 1.0;
         //////////////////////Weapon Attributes//////////////////////
-        weaponFireRate = 500; //500
-        weaponBulletSpeed = 500; //500
-        weaponBulletAmount = 30; //30
+        weaponFireRate = worldClassLevels[this.indexOfCurrentWorld].nenSystem.weaponFireRate; //500
+        weaponBulletSpeed = worldClassLevels[this.indexOfCurrentWorld].nenSystem.weaponBulletSpeed;; //500
+        weaponBulletAmount = worldClassLevels[this.indexOfCurrentWorld].nenSystem.weaponBulletAmount; //30
     },
     create: function () {
         //Initializing FPS framework

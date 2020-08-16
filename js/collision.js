@@ -155,7 +155,7 @@ brawl.game.prototype.playerImmovable = function (player, immovable) {
         playerSlippery = 200;
     }
     else {
-        playerSlippery = -25;
+        playerSlippery = nenHolder.playerSlippery;
     }
     //Activating immovableWallOneWay
     // if (immovable.name === immovableWallOneWayPlayerBlockLeft) {

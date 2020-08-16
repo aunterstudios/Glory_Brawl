@@ -14,7 +14,7 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     this.player.body.setSize(34, 55.5, 15, 7);
     // this.player.body.bounce.y = 0;
     this.player.body.mass = 6; //6
-    this.player.body.gravity.y = playerGravity;
+    this.player.body.gravity.y = playerGravityY;
     //this.player.body.allowDrag = false;
     // this.player.body.collideWorldBounds = true;
     this.player.checkWorldBounds = true;

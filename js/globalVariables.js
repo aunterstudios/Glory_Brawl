@@ -40,6 +40,29 @@ class worldGravityCreator {
   }
 };
 
+//Generates Nen or Physics of the Individual Player
+class nenCreator {
+  constructor(playerSpeed, playerJump, playerGravityX, playerGravityY, playerDoubleJumps, playerWallJumpX, playerWallJumpY, playerWallDisengage, playerStickiness, playerSlippery, playerUpsideDownVelocity, playerUpsideDownMovement, playerDownwards, weaponFireRate, weaponBulletSpeed, weaponBulletAmount) {
+    this.playerSpeed = playerSpeed;
+    this.playerJump = playerJump;
+    this.playerGravityX = playerGravityX;
+    this.playerGravityY = playerGravityY;
+    this.playerDoubleJumps = playerDoubleJumps;
+    this.playerWallJumpX = playerWallJumpX;
+    this.playerWallJumpY = playerWallJumpY;
+    this.playerWallDisengage = playerWallDisengage;
+    this.playerStickiness = playerStickiness;
+    this.playerSlippery = playerSlippery;
+    this.playerUpsideDownVelocity = playerUpsideDownVelocity;
+    this.playerUpsideDownMovement = playerUpsideDownMovement;
+    this.playerDownwards = playerDownwards;
+    /////////////////////////Weapon Attributes///////////////////
+    this.weaponFireRate = weaponFireRate;
+    this.weaponBulletSpeed = weaponBulletSpeed;
+    this.weaponBulletAmount = weaponBulletAmount;
+  }
+};
+
 //Generates All Physics Sprites
 class SpriteCreator {
   constructor(trigger, spriteType, art, x, y, widthX, widthY, scale, velocityX, velocityY, gravityX, gravityY, specialCondition, seconds) {
@@ -118,14 +141,14 @@ class textCreator {
 
 ///Generate Shadow Levels
 class shadowLevelGenerator {
-  constructor (page, levelSwitchArray) {
+  constructor(page, levelSwitchArray) {
     this.page = page; //Denotes the Story Page
     this.levelSwitchArray = levelSwitchArray; //Switches Levels (Room Stays the same but becomes completely different)
   }
 }
 class shadowLevelArray {
-  constructor (oldLevel, shadowLevel) {
-    this.oldLevel = oldLevel ; //Denotes the Story Page
+  constructor(oldLevel, shadowLevel) {
+    this.oldLevel = oldLevel; //Denotes the Story Page
     this.shadowLevel = shadowLevel; //Switches Levels (Room Stays the same but becomes completely different)
   }
 }
@@ -163,17 +186,16 @@ var fontGrind = 'fontGrind';
 var slowMotionLimit;
 var timerEvents;
 
-//Frame Rate 
-// var setFps;
-
 // Total Deaths
 var deaths = 0;
 
-/////////////////////////Player Attributes/////////////////////////(Can Be Used For Later Things)
+/////////////////////////Player Attributes///////////////////////////
+//Holds as Reference
+var nenHolder;
 //Remember All These Things Are changed in the Init Function of game.js
 var playerSpeed;
 var playerJump;
-var playerGravity;
+var playerGravityY;
 var playerDoubleJumps;
 var playerWallJumpX;
 var playerWallJumpY;
@@ -183,11 +205,13 @@ var playerSlippery;
 var playerUpsideDownVelocity;
 var playerUpsideDownMovement;
 var playerDownwards;
-
 /////////////////////////Weapon Attributes////////////
 var weaponFireRate;
 var weaponBulletSpeed;
 var weaponBulletAmount;
+
+////////////////////////Creation of Nen System
+var portalNen = new nenCreator(400, -500, null, 1500, 2, 1000, 500, 500, 200, -25, -200, 100, 400, 500, 500, 30);
 
 
 /////////////////////////List of GROUP NAMES of Each Sprite (For Different Special Properties)////////////////
