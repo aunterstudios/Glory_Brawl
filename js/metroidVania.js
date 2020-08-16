@@ -14,7 +14,7 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     this.player.body.setSize(34, 55.5, 15, 7);
     // this.player.body.bounce.y = 0;
     this.player.body.mass = 6; //6
-    this.player.body.gravity.y = playerGravityY;
+    this.player.body.gravity.y = this.playerGravityY;
     //this.player.body.allowDrag = false;
     // this.player.body.collideWorldBounds = true;
     this.player.checkWorldBounds = true;
@@ -54,9 +54,9 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     //  Because our bullet is drawn facing up, we need to offset its rotation:
     this.weapon1.bulletAngleOffset = 90;
     //  The speed at which the bullet is fired
-    this.weapon1.bulletSpeed = weaponBulletSpeed;
+    this.weapon1.bulletSpeed = this.weaponBulletSpeed;
     //  Speed-up the rate of fire, allowing them to shoot 1 bullet every 60ms
-    this.weapon1.fireRate = weaponFireRate;
+    this.weapon1.fireRate = this.weaponFireRate;
     //Size of Bullet
     // this.weapon1.setBulletBodyOffset(5,2,-20,0); //setSize(32 / Math.abs(this.scale.x), 32 / Math.abs(this.scale.y), 24, 34)
     // Track Player
@@ -70,9 +70,9 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     //  Because our bullet is drawn facing up, we need to offset its rotation:
     this.weapon2.bulletAngleOffset = 90;
     //  The speed at which the bullet is fired
-    this.weapon2.bulletSpeed = weaponBulletSpeed;
+    this.weapon2.bulletSpeed = this.weaponBulletSpeed;
     //  Speed-up the rate of fire, allowing them to shoot 1 bullet every 60ms
-    this.weapon2.fireRate = weaponFireRate;
+    this.weapon2.fireRate = this.weaponFireRate;
     //Match Your Velocity?
     // Track Player
     this.weapon2.trackSprite(this.player, 0, 0);
@@ -85,9 +85,9 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     //  Because our bullet is drawn facing up, we need to offset its rotation:
     this.weapon3.bulletAngleOffset = 90;
     //  The speed at which the bullet is fired
-    this.weapon3.bulletSpeed = weaponBulletSpeed;
+    this.weapon3.bulletSpeed = this.weaponBulletSpeed;
     //  Speed-up the rate of fire, allowing them to shoot 1 bullet every 60ms
-    this.weapon3.fireRate = weaponFireRate;
+    this.weapon3.fireRate = this.weaponFireRate;
     //Match Your Velocity?
     // Track Player
     this.weapon3.trackSprite(this.player, 0, 0);

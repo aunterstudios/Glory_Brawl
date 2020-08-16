@@ -17,19 +17,19 @@ brawl.game.prototype = {
         ///////////////////////Nen System of The Game Placed As Holder////////////////////////////
         nenHolder = worldClassLevels[this.indexOfCurrentWorld].nenSystem;
         ///////////////////////These Are Resetting the Player Attributes For Each Level////////////////////
-        playerSpeed = worldClassLevels[this.indexOfCurrentWorld].nenSystem.playerSpeed;
-        playerJump = worldClassLevels[this.indexOfCurrentWorld].nenSystem.playerJump;
-        playerGravityX = null;
-        playerGravityY = worldClassLevels[this.indexOfCurrentWorld].nenSystem.playerGravityY;
-        playerDoubleJumps = worldClassLevels[this.indexOfCurrentWorld].nenSystem.playerDoubleJumps;
-        playerWallJumpX = worldClassLevels[this.indexOfCurrentWorld].nenSystem.playerWallJumpX;
-        playerWallJumpY = worldClassLevels[this.indexOfCurrentWorld].nenSystem.playerWallJumpY;
-        playerWallDisengage = worldClassLevels[this.indexOfCurrentWorld].nenSystem.playerWallDisengage;
-        playerStickiness = worldClassLevels[this.indexOfCurrentWorld].nenSystem.playerStickiness;
-        playerSlippery = worldClassLevels[this.indexOfCurrentWorld].nenSystem.playerSlippery;
-        playerUpsideDownVelocity = worldClassLevels[this.indexOfCurrentWorld].nenSystem.playerUpsideDownVelocity;
-        playerUpsideDownMovement = worldClassLevels[this.indexOfCurrentWorld].nenSystem.playerUpsideDownMovement;
-        playerDownwards = worldClassLevels[this.indexOfCurrentWorld].nenSystem.playerDownwards;
+        this.playerSpeed = worldClassLevels[this.indexOfCurrentWorld].nenSystem.playerSpeed;
+        this.playerJump = worldClassLevels[this.indexOfCurrentWorld].nenSystem.playerJump;
+        this.playerGravityX = null;
+        this.playerGravityY = worldClassLevels[this.indexOfCurrentWorld].nenSystem.playerGravityY;
+        this.playerDoubleJumps = worldClassLevels[this.indexOfCurrentWorld].nenSystem.playerDoubleJumps;
+        this.playerWallJumpX = worldClassLevels[this.indexOfCurrentWorld].nenSystem.playerWallJumpX;
+        this.playerWallJumpY = worldClassLevels[this.indexOfCurrentWorld].nenSystem.playerWallJumpY;
+        this.playerWallDisengage = worldClassLevels[this.indexOfCurrentWorld].nenSystem.playerWallDisengage;
+        this.playerStickiness = worldClassLevels[this.indexOfCurrentWorld].nenSystem.playerStickiness;
+        this.playerSlippery = worldClassLevels[this.indexOfCurrentWorld].nenSystem.playerSlippery;
+        this.playerUpsideDownVelocity = worldClassLevels[this.indexOfCurrentWorld].nenSystem.playerUpsideDownVelocity;
+        this.playerUpsideDownMovement = worldClassLevels[this.indexOfCurrentWorld].nenSystem.playerUpsideDownMovement;
+        this.playerDownwards = worldClassLevels[this.indexOfCurrentWorld].nenSystem.playerDownwards;
         //////////////////////Slow Motion Reset//////////////////
         slowMotionLimit = 3;
         timerEvents = [];
@@ -167,13 +167,13 @@ brawl.game.prototype = {
 
         // If the player is touching a surface, let him have 2 jumps
         if (onTheGround || onTheLeftSide || onTheRightSide || onUpsideDown) {
-            this.jumps = playerDoubleJumps;
+            this.jumps = this.playerDoubleJumps;
             this.jumping = false;
         }
 
         // Jump!
         if (this.jumps > 0 && this.upInputIsActive(5)) {
-            this.player.body.velocity.y = playerJump;
+            this.player.body.velocity.y = this.playerJump;
             this.jumping = true;
         }
 
@@ -196,12 +196,12 @@ brawl.game.prototype = {
                 this.player.body.setSize(34, 55.5, 15, 7);
                 if (this.movementLeft.isDown && !this.movementRight.isDown) {
                     // this.player.body.acceleration.x = -30000;
-                    this.player.body.velocity.x = -playerSpeed;
+                    this.player.body.velocity.x = -this.playerSpeed;
                     this.player.animations.play('left');
                 }
                 else if (this.movementRight.isDown && !this.movementLeft.isDown) {
                     // this.player.body.acceleration.x = 30000;
-                    this.player.body.velocity.x = playerSpeed;
+                    this.player.body.velocity.x = this.playerSpeed;
                     this.player.animations.play('right');
                 }
                 else {
@@ -212,40 +212,40 @@ brawl.game.prototype = {
             else if (onTheRightSide && !onHazama) {
                 this.player.body.setSize(30, 50, 19, 10);
                 if (onWall || onImmovable) {
-                    this.player.body.velocity.x = playerStickiness;
-                    this.player.body.velocity.y = playerSlippery; //100 is original
+                    this.player.body.velocity.x = this.playerStickiness;
+                    this.player.body.velocity.y = this.playerSlippery; //100 is original
                 }
                 if (onWall || onImmovable || onLedge) {
                     this.player.frame = 7;
                 }
                 if (this.movementLeft.isDown) {
-                    this.player.body.velocity.y = -playerWallJumpY;
-                    this.player.body.velocity.x = -playerWallJumpX;
+                    this.player.body.velocity.y = -this.playerWallJumpY;
+                    this.player.body.velocity.x = -this.playerWallJumpX;
                 }
             }
             else if (onTheLeftSide && !onHazama) {
                 this.player.body.setSize(30, 50, 15, 10);
                 if (onWall || onImmovable) {
-                    this.player.body.velocity.x = -playerStickiness;
-                    this.player.body.velocity.y = playerSlippery; //100 is Original
+                    this.player.body.velocity.x = -this.playerStickiness;
+                    this.player.body.velocity.y = this.playerSlippery; //100 is Original
                 }
                 if (onWall || onImmovable || onLedge) {
                     this.player.frame = 13;
                 }
                 if (this.movementRight.isDown) {
-                    this.player.body.velocity.y = -playerWallJumpY;
-                    this.player.body.velocity.x = playerWallJumpX;
+                    this.player.body.velocity.y = -this.playerWallJumpY;
+                    this.player.body.velocity.x = this.playerWallJumpX;
                 }
             }
             else if (onUpsideDown && !onHazama) {
                 this.player.body.setSize(34, 55.5, 15, 0);
-                this.player.body.velocity.y = playerUpsideDownVelocity;
+                this.player.body.velocity.y = this.playerUpsideDownVelocity;
                 if (this.movementLeft.isDown && !this.movementRight.isDown) {
-                    this.player.body.velocity.x = -playerSpeed;
+                    this.player.body.velocity.x = -this.playerSpeed;
                     this.player.animations.play('upsideDownLeft');
                 }
                 else if (this.movementRight.isDown && !this.movementLeft.isDown) {
-                    this.player.body.velocity.x = playerSpeed;
+                    this.player.body.velocity.x = this.playerSpeed;
                     this.player.animations.play('upsideDownRight');
                 }
                 else {
@@ -261,11 +261,11 @@ brawl.game.prototype = {
                     this.player.frame = 2;
                 }
                 if (this.movementLeft.isDown && !this.movementRight.isDown) {
-                    this.player.body.velocity.x = -playerSpeed;
+                    this.player.body.velocity.x = -this.playerSpeed;
                     this.player.frame = 8;
                 }
                 else if (this.movementRight.isDown && !this.movementLeft.isDown) {
-                    this.player.body.velocity.x = playerSpeed;
+                    this.player.body.velocity.x = this.playerSpeed;
                     this.player.frame = 14;
                 }
                 else if (this.movementLeft.isDown && this.movementRight.isDown) {
@@ -278,11 +278,11 @@ brawl.game.prototype = {
                     this.player.frame = 2;
                 }
                 if (this.movementLeft.isDown && !this.movementRight.isDown) {
-                    this.player.body.velocity.x = -playerSpeed;
+                    this.player.body.velocity.x = -this.playerSpeed;
                     this.player.frame = 8;
                 }
                 else if (this.movementRight.isDown && !this.movementLeft.isDown) {
-                    this.player.body.velocity.x = playerSpeed;
+                    this.player.body.velocity.x = this.playerSpeed;
                     this.player.frame = 14;
                 }
                 else if (this.movementLeft.isDown && this.movementRight.isDown) {
@@ -298,20 +298,20 @@ brawl.game.prototype = {
             //////////Downwards Mechanics////////
             if (this.movementDown.isDown && onUpsideDown && !onHazama) {
                 // this.player.frame = 13;
-                this.player.body.velocity.y = playerUpsideDownMovement;
+                this.player.body.velocity.y = this.playerUpsideDownMovement;
             }
 
             if (this.movementDown.isDown && !this.movementLeft.isDown && !this.movementRight.isDown) {
                 this.player.body.setSize(34, 55.5, 15, 7);
                 if (onNone || onUpsideDown || onTheGround) {
                     this.player.frame = 3;
-                    this.player.body.velocity.y = playerDownwards;
+                    this.player.body.velocity.y = this.playerDownwards;
                 }
                 if (onTheLeftSide && !onHazama) {
-                    this.player.body.velocity.x = playerWallDisengage;
+                    this.player.body.velocity.x = this.playerWallDisengage;
                 }
                 if (onTheRightSide && !onHazama) {
-                    this.player.body.velocity.x = -playerWallDisengage;
+                    this.player.body.velocity.x = -this.playerWallDisengage;
                 }
             }
         }
@@ -335,8 +335,8 @@ brawl.game.prototype = {
             }
             if (onTheRightSide && !onHazama) {
                 if (onWall || onImmovable) {
-                    this.player.body.velocity.x = playerStickiness;
-                    this.player.body.velocity.y = playerSlippery;
+                    this.player.body.velocity.x = this.playerStickiness;
+                    this.player.body.velocity.y = this.playerSlippery;
                 }
                 if (onWall || onImmovable || onLedge) {
                     this.player.frame = 7;
@@ -344,8 +344,8 @@ brawl.game.prototype = {
             }
             else if (onTheLeftSide && !onHazama) {
                 if (onWall || onImmovable) {
-                    this.player.body.velocity.x = -playerStickiness;
-                    this.player.body.velocity.y = playerSlippery;
+                    this.player.body.velocity.x = -this.playerStickiness;
+                    this.player.body.velocity.y = this.playerSlippery;
                 }
                 if (onWall || onImmovable || onLedge) {
                     this.player.frame = 13;
@@ -353,7 +353,7 @@ brawl.game.prototype = {
             }
             else if (onUpsideDown && !onHazama) {
                 this.player.frame = 1;
-                this.player.body.velocity.y = playerUpsideDownVelocity;
+                this.player.body.velocity.y = this.playerUpsideDownVelocity;
             }
             else if (onNone) {
                 this.player.frame = 2;
@@ -373,10 +373,6 @@ brawl.game.prototype = {
             else if (stopBoolean) {
                 this.weapon3.fireAtPointer();
                 this.weapon3.fire();
-            }
-            else if (killBoolean) {
-                this.weapon4.fireAtPointer();
-                this.weapon4.fire();
             }
         }
     },

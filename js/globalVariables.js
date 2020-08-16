@@ -189,27 +189,9 @@ var timerEvents;
 // Total Deaths
 var deaths = 0;
 
-/////////////////////////Player Attributes///////////////////////////
+/////////////////////////Nen System///////////////////////////
 //Holds as Reference
 var nenHolder;
-//Remember All These Things Are changed in the Init Function of game.js
-var playerSpeed;
-var playerJump;
-var playerGravityY;
-var playerDoubleJumps;
-var playerWallJumpX;
-var playerWallJumpY;
-var playerWallDisengage;
-var playerStickiness;
-var playerSlippery;
-var playerUpsideDownVelocity;
-var playerUpsideDownMovement;
-var playerDownwards;
-/////////////////////////Weapon Attributes////////////
-var weaponFireRate;
-var weaponBulletSpeed;
-var weaponBulletAmount;
-
 ////////////////////////Creation of Nen System
 var portalNen = new nenCreator(400, -500, null, 1500, 2, 1000, 500, 500, 200, -25, -200, 100, 400, 500, 500, 30);
 

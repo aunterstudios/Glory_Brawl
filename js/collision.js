@@ -152,10 +152,10 @@ brawl.game.prototype.blVsEnemy = function (bL, enemy) {
 brawl.game.prototype.playerImmovable = function (player, immovable) {
     // player.body.stop();
     if (immovable.name === immovableWallSlippery.name) {
-        playerSlippery = 200;
+        this.playerSlippery = 200;
     }
     else {
-        playerSlippery = nenHolder.playerSlippery;
+        this.playerSlippery = nenHolder.playerSlippery;
     }
     //Activating immovableWallOneWay
     // if (immovable.name === immovableWallOneWayPlayerBlockLeft) {
@@ -206,7 +206,7 @@ brawl.game.prototype.playerImmovable = function (player, immovable) {
     //     immovable.tint = tintRemover;
     // }
     if (immovable.name === immovableWallPowerJump.name) {
-        playerJump = -1000;
+        this.playerJump = -1000;
         this.emitterFunction(immovable, null, 'destroy');
     }
     // console.log("Yes This is Hitting");
@@ -376,7 +376,8 @@ brawl.game.prototype.playerHazama = function (player, hazama) {
     // }
     hazama.lastOverlapped = this.game.time.now + 100; 
     if (hazama.name === hazamaFalconia.name) {
-        player.body.velocity.y = -500;
+        // player.body.velocity.y = -500;
+        player.body.gravity.y = -100;
     }
 
 };
