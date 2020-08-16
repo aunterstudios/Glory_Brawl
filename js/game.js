@@ -315,7 +315,7 @@ brawl.game.prototype = {
             else if (this.movementDown.isDown) {
                 this.game.camera.y += 20;
             }
-            if (onTheRightSide) {
+            if (onTheRightSide && !onHazama) {
                 if (onWall || onImmovable) {
                     this.player.body.velocity.x = playerStickiness;
                     this.player.body.velocity.y = playerSlippery;
@@ -324,7 +324,7 @@ brawl.game.prototype = {
                     this.player.frame = 7;
                 }
             }
-            else if (onTheLeftSide) {
+            else if (onTheLeftSide && !onHazama) {
                 if (onWall || onImmovable) {
                     this.player.body.velocity.x = -playerStickiness;
                     this.player.body.velocity.y = playerSlippery;
@@ -333,7 +333,7 @@ brawl.game.prototype = {
                     this.player.frame = 13;
                 }
             }
-            else if (onUpsideDown) {
+            else if (onUpsideDown && !onHazama) {
                 this.player.frame = 1;
                 this.player.body.velocity.y = playerUpsideDownVelocity;
             }
