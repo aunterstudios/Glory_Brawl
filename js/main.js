@@ -152,7 +152,7 @@ level_0.wallSpawn = [
 
 //Creation of Ledges
 level_0.ledgeSpawn = [
-  new SpriteCreator(true, ledgeSurf, ledge, 400, 100, 150, 50, 1, 300, 0, 0, 0, null, null),
+  new SpriteCreator(true, ledgeElevator, ledge, 400, 100, 150, 50, 1, 300, 0, 0, 0, null, null),
 ];
 
 //Creation of Ball

@@ -247,7 +247,7 @@ var wallRegular = new spriteType('wallRegular', tintRemover, 200, .5, false, 100
 var wallSurf = new spriteType('wallSurf', 10409939.733364154, 200, .5, false, 1000, 1);
 var wallInverse = new spriteType('wallInverse', 1181911.9307258818, 200, .5, false, 1000, 1); //First Turn (Leaners Walls From Ledge)
 var wallGhost = new spriteType('wallGhost', 16771007.229130682, 200, .5, true, 1000, 1); //Immovable Wall That Let's You Get Through Objects
-var wallCloud = new spriteType('wallCloud', 9583870.358153213, 200, .5, false, 1000, 1); //Stationary Shooting Platform Cloud
+var wallCloud = new spriteType('wallCloud', 9583870.358153213, 200, .5, true, 1000, 1); //Stationary Shooting Platform Cloud
 
 //Ledge Names
 var ledgeElevator = new spriteType('ledgeElevator', Phaser.Color.YELLOW, 20, .5, false, 1000, .5);
