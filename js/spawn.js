@@ -118,7 +118,7 @@ brawl.game.prototype.spriteGen = function (sprite, positionInArray, groupSprite,
     // this.spriteX.checkWorldBounds = true;
     // this.spriteX.events.onOutOfBounds.add(this.wallOut, this);
 };
-/////////////////////////////////Falling Spikes///////////////////////////
+/////////////////////////////////Falling Spikes(Timed Traps)///////////////////////////
 brawl.game.prototype.fallingSpikesSpawn = function (sprite, positionInArray) {
     if (this.toggleConsoleLog) {
         console.log(sprite, positionInArray);

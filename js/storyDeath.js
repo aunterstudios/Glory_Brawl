@@ -41,7 +41,7 @@ brawl.state2.prototype = {
     }
 };
 
-//Death State
+//Story Pages
 brawl.story = function () { };
 brawl.story.prototype = {
     init: function (indexOfCurrentWorld, indexOfPlayerPosition, metroidvania, page) {

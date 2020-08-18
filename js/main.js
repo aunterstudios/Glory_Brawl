@@ -48,7 +48,7 @@ game.state.add('controlScreen', brawl.stateControls);
 game.state.start('mainMenu');
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "GlobalVariablesAreTheDevil",
+  "TimedTrapWork",
   "GLORY BRAWL",
 ];
 
@@ -163,9 +163,8 @@ level_0.ballSpawn = [
 //Creation of Spikes
 level_0.enemySpawn = [
   // new SpriteCreator(true, enemyDaakath, enemyOne, 200, 200, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, enemyShooter, enemyOne, 100, 300, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, enemyShooter, enemyOne, 200, 300, 50, 50, 1, 0, 0, 0, 0, null, null),
-
+  // new SpriteCreator(true, enemyShooter, enemyOne, 100, 300, 50, 50, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, enemyShooter, enemyOne, 200, 300, 50, 50, 1, 0, 0, 0, 0, null, null),
   // new SpriteCreator(true, enemyShooter, enemyOne, 300, 300, 50, 50, 1, 0, 0, 0, 0, null, null),
 
 
