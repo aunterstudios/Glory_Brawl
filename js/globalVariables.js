@@ -40,6 +40,20 @@ class worldGravityCreator {
   }
 };
 
+///Generate Shadow Levels
+class shadowLevelGenerator {
+  constructor(page, levelSwitchArray) {
+    this.page = page; //Denotes the Story Page
+    this.levelSwitchArray = levelSwitchArray; //Switches Levels (Room Stays the same but becomes completely different)
+  }
+}
+class shadowLevelArray {
+  constructor(oldLevel, shadowLevel) {
+    this.oldLevel = oldLevel; //Denotes the Story Page
+    this.shadowLevel = shadowLevel; //Switches Levels (Room Stays the same but becomes completely different)
+  }
+}
+
 //Generates Nen or Physics of the Individual Player
 class nenCreator {
   constructor(playerSpeed, playerJump, playerGravityX, playerGravityY, playerDoubleJumps, playerWallJumpX, playerWallJumpY, playerWallDisengage, playerStickiness, playerSlippery, playerUpsideDownVelocity, playerUpsideDownMovement, playerDownwards, weaponFireRate, weaponBulletSpeed, weaponBulletAmount) {
@@ -63,7 +77,7 @@ class nenCreator {
   }
 };
 
-//Generates All Physics Sprites
+//Generates Sprite Placement (Physics)
 class SpriteCreator {
   constructor(trigger, spriteType, art, x, y, widthX, widthY, scale, velocityX, velocityY, gravityX, gravityY, specialCondition, seconds) {
     this.trigger = trigger;
@@ -83,7 +97,7 @@ class SpriteCreator {
   }
 };
 
-//Creating All Properties of Sprites
+//The individual properties of each sprite. 
 class spriteType {
   constructor(name, tint, mass, anchor, immovable, maxVelocity, bounce) {
     this.name = name;
@@ -96,7 +110,7 @@ class spriteType {
   }
 }
 
-//Creates Images
+//Creating Images
 class imageCreator {
   constructor(trigger, name, art, x, y, scale) {
     this.trigger = trigger;
@@ -139,19 +153,6 @@ class textCreator {
   }
 }
 
-///Generate Shadow Levels
-class shadowLevelGenerator {
-  constructor(page, levelSwitchArray) {
-    this.page = page; //Denotes the Story Page
-    this.levelSwitchArray = levelSwitchArray; //Switches Levels (Room Stays the same but becomes completely different)
-  }
-}
-class shadowLevelArray {
-  constructor(oldLevel, shadowLevel) {
-    this.oldLevel = oldLevel; //Denotes the Story Page
-    this.shadowLevel = shadowLevel; //Switches Levels (Room Stays the same but becomes completely different)
-  }
-}
 //////////////////////////////////////////////////Global Variables//////////////////////////////////////////////
 //Weapon Variables to Change Bullet Type
 var pullBoolean = false;

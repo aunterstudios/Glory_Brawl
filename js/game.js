@@ -148,6 +148,7 @@ brawl.game.prototype = {
         //Movable Wall Mechanics vs. Moveable Objects (NOT ITSELF) (OVERLAP)
         this.game.physics.arcade.collide(this.wall, this.enemy, this.wallVsEnemy, null, this);
         this.game.physics.arcade.overlap(this.wall, [this.ball, this.ledge], this.wallVsBl, null, this);
+        // this.game.physics.arcade.overlap(this.wall, [this.ball, this.ledge, this.wall], this.wallVsMove, null, this);
         //Ball and Ledge vs. Enemy
         this.game.physics.arcade.overlap([this.ball, this.ledge], this.enemy, this.blVsEnemy, null, this);
 
@@ -193,6 +194,7 @@ brawl.game.prototype = {
             if (onTheGround && !onHazama) {
                 //Set HitBox Size
                 this.player.body.setSize(34, 55.5, 15, 7);
+                // this.player.body.setSize(30, 55.5, 17.2, 7);
                 if (this.movementLeft.isDown && !this.movementRight.isDown) {
                     // this.player.body.acceleration.x = -30000;
                     this.player.body.velocity.x = -this.playerSpeed;
@@ -438,7 +440,7 @@ brawl.game.prototype = {
     //     // this.game.debug.text('Global Timer: ' + total, 32, 32);
     //     // this.game.debug.text('Heat Timer: ' + total, 32, 64);
     //     //Body Physics
-    //     // this.game.debug.body(this.player);
+    //     this.game.debug.body(this.player);
     //     // this.game.debug.bodyInfo(this.player, 200, 200);
     //     // this.game.debug.physicsGroup(this.hazama);
     //     //Debugging FPS

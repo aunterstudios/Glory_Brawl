@@ -33,4 +33,19 @@ brawl.game.prototype.initControls = function () {
 
 };
 
+///////////////////////Handling Jump Events (Double-Jump)//////////////////
+brawl.game.prototype.upInputReleased = function () {
+    var released = false;
+
+    released = this.input.keyboard.upDuration(Phaser.Keyboard.W);
+
+    return released;
+};
+brawl.game.prototype.upInputIsActive = function (duration) {
+    var isActive = false;
+
+    isActive = this.input.keyboard.downDuration(Phaser.Keyboard.W, duration);
+
+    return isActive;
+};
 
