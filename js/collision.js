@@ -62,19 +62,12 @@ brawl.game.prototype.immovableMoveable = function (immovable, moveable) {
         //worldClassLevels[immovable.specialWorld].ledgeGreySpawn[immovable.specialArray].trigger = true;
     }
     /////////////////////Immovable Wall Effects Against Moveable////////////////////
-    if (immovable.name === immovableWallKillWall.name) {
-        this.emitterFunction(moveable, null, 'destroy');
-    }
-    if (immovable.body.speed > 0) {
-        this.emitterFunction(moveable, null, 'destroy');
-    }
-    //////////////////////////Ledge/////////////////////////////
-    //Elevator Ledge Destruction
-    if (moveable.elevatorActivate) {
+    if (immovable.name === immovableWallKillWall.name || immovable.body.speed > 0 || moveable.elevatorActivate) {
         this.emitterFunction(moveable, null, 'destroy');
     }
     return;
 };
+
 brawl.game.prototype.immovableMoveableProcessArgument = function (imb, mov) {
     if (imb.name === immovableWallOneWayObject) {
         return false;
