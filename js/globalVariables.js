@@ -44,13 +44,13 @@ class worldGravityCreator {
 class shadowLevelGenerator {
   constructor(page, levelSwitchArray) {
     this.page = page; //Denotes the Story Page
-    this.levelSwitchArray = levelSwitchArray; //Switches Levels (Room Stays the same but becomes completely different)
+    this.levelSwitchArray = levelSwitchArray; //Array that Switches Any number of Levels (Room Stays the same but becomes completely different)
   }
 }
 class shadowLevelArray {
   constructor(oldLevel, shadowLevel) {
-    this.oldLevel = oldLevel; //Denotes the Story Page
-    this.shadowLevel = shadowLevel; //Switches Levels (Room Stays the same but becomes completely different)
+    this.oldLevel = oldLevel; //The Level That's Going To Be Changed
+    this.shadowLevel = shadowLevel; //The New Level that takes place
   }
 }
 
