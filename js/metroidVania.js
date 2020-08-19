@@ -200,26 +200,6 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
 
 };
 
-///////////////////Inputting Nen Values///////////////////////
-brawl.game.prototype.nenInputValues = function (nen) {
-    this.playerSpeed = nen.playerSpeed;
-    this.playerJump = nen.playerJump;
-    this.playerGravityX = null;
-    this.playerGravityY = nen.playerGravityY;
-    this.playerDoubleJumps = nen.playerDoubleJumps;
-    this.playerWallJumpX = nen.playerWallJumpX;
-    this.playerWallJumpY = nen.playerWallJumpY;
-    this.playerWallDisengage = nen.playerWallDisengage;
-    this.playerStickiness = nen.playerStickiness;
-    this.playerSlippery = nen.playerSlippery;
-    this.playerUpsideDownVelocity = nen.playerUpsideDownVelocity;
-    this.playerUpsideDownMovement = nen.playerUpsideDownMovement;
-    this.playerDownwards = nen.playerDownwards;
-    this.weaponFireRate = nen.weaponFireRate;
-    this.weaponBulletSpeed = nen.weaponBulletSpeed;
-    this.weaponBulletAmount = nen.weaponBulletAmount;
-};
-
 //////////////////////////Room Switching (Metroidvania) Events//////////////////////////
 brawl.game.prototype.playerOut = function (player) {
     //Up
@@ -248,6 +228,34 @@ brawl.game.prototype.playerOut = function (player) {
     }
 
 };
+
+//////////////////Emitter Function/////////////////////
+brawl.game.prototype.emitterFunction = function (sprite1, sprite2, killOrDestroy) {
+    //Sprite 1 is Always Killed
+    //If Sprite Two is "True", It denotes the position of the emitter
+    if (sprite2) {
+        this.emitter.x = sprite2.centerX;
+        this.emitter.y = sprite2.centerY;
+    }
+    else {
+        this.emitter.x = sprite1.centerX;
+        this.emitter.y = sprite1.centerY;
+    }
+    this.emitter.start(true, 1500, null, 10);
+    if (killOrDestroy === 'kill') {
+        sprite1.kill();
+    }
+    else {
+        sprite1.destroy();
+    }
+};
+
+//////////////////////Sprite Self Destruct///////////////////////
+brawl.game.prototype.spriteSelfDestruct = function (sprite, killOrDestroy) {
+    //Self Destruct Sprite Timer 
+    this.emitterFunction(sprite, null, killOrDestroy);
+};
+
 ///////////////////////////////////////////State Switches////////////////////////////////
 //Character Dying From Enemies and Such
 brawl.game.prototype.playerDeath = function (victim, killer) {
