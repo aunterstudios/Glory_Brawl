@@ -58,8 +58,6 @@ brawl.game.prototype.immovableMoveable = function (immovable, moveable) {
             //Destruction of a sprite at a different level
             worldClassLevels[immovable.specialWorld].undeniableDeathSpawn[immovable.specialArray].trigger = false;
         }
-        //////////////////////////Creates New Sprites After Spikes Destroyed///////////////////////
-        //worldClassLevels[immovable.specialWorld].ledgeGreySpawn[immovable.specialArray].trigger = true;
     }
     /////////////////////Immovable Wall Effects Against Moveable////////////////////
     if (immovable.name === immovableWallKillWall.name || immovable.body.speed > 0 || moveable.elevatorActivate) {
