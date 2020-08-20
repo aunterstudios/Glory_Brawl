@@ -163,7 +163,7 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     if ('fallingSpikes' in levelGenerator) {
         for (var i = 0; i < levelGenerator.fallingSpikes.length; i++) {
             if (levelGenerator.fallingSpikes[i].trigger) {
-                this.game.time.events.loop(Phaser.Timer.SECOND * levelGenerator.fallingSpikes[i].seconds, this.fallingSpikesSpawn, this, levelGenerator.fallingSpikes[i], i);
+                this.game.time.events.loop(Phaser.Timer.SECOND * levelGenerator.fallingSpikes[i].time.seconds, this.fallingSpikesSpawn, this, levelGenerator.fallingSpikes[i], i);
             }
         }
     }

@@ -79,7 +79,7 @@ class nenCreator {
 
 //Generates Sprite Placement (Physics)
 class SpriteCreator {
-  constructor(trigger, spriteType, art, x, y, widthX, widthY, scale, velocityX, velocityY, gravityX, gravityY, specialCondition, seconds) {
+  constructor(trigger, spriteType, art, x, y, widthX, widthY, scale, velocityX, velocityY, gravityX, gravityY, specialCondition, time) {
     this.trigger = trigger;
     this.spriteType = spriteType;
     this.art = art;
@@ -93,9 +93,24 @@ class SpriteCreator {
     this.gravityX = gravityX;
     this.gravityY = gravityY;
     this.specialCondition = specialCondition;
-    this.seconds = seconds;
+    this.time = time;
   }
 };
+
+//Creates Special Conditions (scalable)
+class specialConditionCreator {
+  constructor(name) {
+    this.name = name;
+  }
+};
+
+class timerCreator {
+  constructor(timerType, repeatAmount, seconds) {{
+    this.timerType = timerType;
+    this.repeatAmount = repeatAmount;
+    this.seconds = seconds;
+  }}
+}
 
 //The individual properties of each sprite. 
 class spriteType {
@@ -108,7 +123,7 @@ class spriteType {
     this.maxVelocity = maxVelocity;
     this.bounce = bounce;
   }
-}
+};
 
 //Creating Images
 class imageCreator {
@@ -120,7 +135,7 @@ class imageCreator {
     this.y = y;
     this.scale = scale;
   }
-}
+};
 
 //////////////////Flag Specific Classes/////////
 class flagCreator {
@@ -151,7 +166,7 @@ class textCreator {
     this.font = font;
     this.fontSize = fontSize;
   }
-}
+};
 
 //////////////////////////////////////////////////Global Variables//////////////////////////////////////////////
 //Weapon Variables to Change Bullet Type
@@ -272,6 +287,8 @@ var fallingSpikesRegular = 'fallingSpikesRegular';
 //Flag Names
 var flagRegular = 'flagRegular';
 var flagSpecial = 'flagSpecial';
+
+//////////////////////////Special Conditions///////////////////////
 
 /////////////////////////List of Art or Image Keys of Each Sprite/////////////////
 //Death

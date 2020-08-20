@@ -172,7 +172,7 @@ level_0.enemySpawn = [
 
 //Creation of falling spikes or projectile traps
 level_0.fallingSpikes = [
-  new SpriteCreator(true, fallingSpikesRegular, fallingSpikesOne, 500, 100, null, null, 1, 0, 0, 0, 500, null, 3),
+  new SpriteCreator(true, fallingSpikesRegular, fallingSpikesOne, 500, 100, null, null, 1, 0, 0, 0, 500, null, new timerCreator(null, null, 3)),
 ];
 
 //flag spawn
@@ -252,7 +252,7 @@ level_1.enemySpawn = [
 
 //Creation of falling spikes or projectile traps
 level_1.fallingSpikes = [
-  new SpriteCreator(true, fallingSpikesRegular, fallingSpikesOne, 500, 100, null, null, 1, 0, 0, 0, 500, null, 3),
+  new SpriteCreator(true, fallingSpikesRegular, fallingSpikesOne, 500, 100, null, null, 1, 0, 0, 0, 500, null, new timerCreator(null, null, 3)),
 ];
 
 //flag spawn
@@ -329,14 +329,14 @@ level_2.hazamaSpawn = [
 
 //Falling Spikes
 level_2.fallingSpikes = [
-  new SpriteCreator(true, fallingSpikesRegular, fallingSpikesOne, 4500, 100, null, null, 1, 0, 0, 0, 500, null, 3),
+  new SpriteCreator(true, fallingSpikesRegular, fallingSpikesOne, 4500, 100, null, null, 1, 0, 0, 0, 500, null, new timerCreator(null, null, 3)),
 ];
 
 //Flag Spawn
 level_2.flagSpawn = [
-  new flagCreator(1, true, flagRegular, flag, 4200, 1800, 0, 0, .4, .4, 0, 0, 
+  new flagCreator(1, true, flagRegular, flag, 4200, 1800, 0, 0, .4, .4, 0, 0,
     new shadowLevelGenerator(0, [
-      new shadowLevelArray(2,4)
+      new shadowLevelArray(2, 4)
     ])),
 ];
 
@@ -449,14 +449,10 @@ level_4.enemySpawn = [
 ];
 
 level_4.fallingSpikes = [
-  /////////////////////////////////////Shadow Level////////////////////////////////////////////
 ];
 
 //flag spawn
 level_4.flagSpawn = [
-  // //First Flag
-  // new flagCreator(2, true, flagRegular, flag, 1600, 2850, 0, 0, .4, .4, 0, 0, null),
-  // new flagCreator(3, true, flagRegular, flag, 3600, 250, 0, 0, .4, .4, 0, 0, null),
 ];
 
 //Text Creator (Helpful Hints)
@@ -474,5 +470,5 @@ level_4.text = [
 var levelCount = 4;
 for (var i = 0; i <= levelCount; i++) {
   // worldClassLevels.push(eval("level_"+i));
-  worldClassLevels.push(window["level_"+i]);
+  worldClassLevels.push(window["level_" + i]);
 }
