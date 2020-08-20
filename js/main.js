@@ -48,7 +48,7 @@ game.state.add('controlScreen', brawl.stateControls);
 game.state.start('mainMenu');
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "TimedTrapWork",
+  "OhBoyRefactedFCode",
   "GLORY BRAWL",
 ];
 
@@ -150,27 +150,12 @@ level_0.flagSpawn = [
   // //First Flag
   new flagCreator(1, true, flagRegular, flag, 600, 400, 0, 0, .4, .4, 0, 0, null),
 ];
-
-//Text Creator (Helpful Hints)
-level_0.text = [
-  // new textCreator(true, 150, 3500, "Time To Be Reborn\n\nP- Pause\nO- FullScreen\nW or Spacebar- Jump\nA- Left\nS- Push or Move Downwards\nD- Right", fontGrind, 25),
-  // new textCreator(true, 1100, 3700, "Double Jump", fontGrind, 25),
-  // new textCreator(true, 1100, 3400, "Hold D and Tap A\n\nTo Fast Climb", fontGrind, 25),
-  // new textCreator(true, 1100, 3100, "Move Left\n\nThen Double Jump", fontGrind, 25),
-  // new textCreator(true, 1100, 2750, "Hold A and Tap D\n\nThis Time", fontGrind, 25),
-  // new textCreator(true, 1100, 2450, "Move Right\n\nThen Double Jump", fontGrind, 25),
-  // new textCreator(true, 150, 1400, "Once You Hit A ledgeSurface\n\nThis is Fucking Important\n\nYou Can Double Jump Again", fontGrind, 25),
-  //Arrows
-  // new textCreator(true, 1900, 3500, "←", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 1900, 3800, "↑", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 1400, 3200, "←", 'Courier New', 30, '#000000', 'bold'),
-  // new textCreator(true, 1050, 2900, "↓", 'Courier New', 30, '#000000', 'bold'),
-];
-
 ////////////////////////////////////////Level 1-SandboxMode/////////////////////////////////////
-
 //New Playground
 var level_1 = new LevelCreator("Level 1-SandboxMode", 1400, 10000, new MetroidvaniaCreator(1, 0, 1, 10000, 2, 0, 1, 1400), '#ffffff');
+
+//World Gravity
+// level_1.worldGravity = new worldGravityCreator(200,200);
 
 //Creation of Nen System in Level
 level_1.nenSystem = portalNen;
@@ -182,8 +167,6 @@ level_1.playerPosition = [
   new PlayerPositionCreator(200, 9900),
   new PlayerPositionCreator(200, 9900),
 ]
-
-//Creation of Undeniable Death
 
 level_1.spriteSpawn = [
   //Side Borders
@@ -202,11 +185,6 @@ level_1.spriteSpawn = [
 level_1.flagSpawn = [
   // //First Flag
   new flagCreator(1, true, flagRegular, flag, 600, 400, 0, 0, .4, .4, 0, 0, null),
-];
-
-//Text Creator (Helpful Hints)
-level_1.text = [
-
 ];
 
 ////////////////////////////////////////Level 2/////////////////////////////////////
