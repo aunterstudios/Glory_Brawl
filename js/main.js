@@ -373,23 +373,6 @@ level_3.undeniableDeathSpawn = [
   new SpriteCreator(true, undeniableDeathRegular, deathTile, 800, 8300, 50, 50, 1, 1000, 0, 0, 0, scReverseVelocity, null),
 ];
 
-/*
-this.trigger = trigger;
-    this.spriteType = spriteType;
-    this.art = art;
-    this.x = x;
-    this.y = y;
-    this.widthX = widthX;
-    this.widthY = widthY;
-    this.scale = scale;
-    this.velocityX = velocityX;
-    this.velocityY = velocityY;
-    this.gravityX = gravityX;
-    this.gravityY = gravityY;
-    this.specialCondition = specialCondition;
-    this.time = time;
-*/
-
 //Creation of ImmovableWalls
 level_3.immovableWallSpawn = [
   //Ground
