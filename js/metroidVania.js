@@ -130,7 +130,16 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     if ('ledgeSpawn' in levelGenerator) {
         for (var i = 0; i < levelGenerator.ledgeSpawn.length; i++) {
             if (levelGenerator.ledgeSpawn[i].trigger) {
-                this.spriteGen(levelGenerator.ledgeSpawn[i], i, this.ledge, groupLedge, 'sprite');
+                // this.spriteGen(levelGenerator.ledgeSpawn[i], i, this.ledge, groupLedge, 'sprite');
+                if (!levelGenerator.ledgeSpawn[i].time) {
+                    this.spriteGen(levelGenerator.ledgeSpawn[i], i, this.ledge, groupLedge, 'sprite');
+                }
+                else if (levelGenerator.ledgeSpawn[i].time.timerType === 'loop') {
+                    this.game.time.events.loop(Phaser.Timer.SECOND * levelGenerator.ledgeSpawn[i].time.seconds, this.spriteGen, this, levelGenerator.ledgeSpawn[i], i, this.ledge, groupLedge, 'timer');
+                }
+                else if (levelGenerator.ledgeSpawn[i].time.timerType === 'repeat') {
+                    this.game.time.events.repeat(Phaser.Timer.SECOND * levelGenerator.ledgeSpawn[i].time.seconds, levelGenerator.ledgeSpawn[i].time.repeatAmount, this.spriteGen, this, levelGenerator.ledgeSpawn[i], i, this.ledge, groupLedge, 'timer');
+                }
             }
         }
     }
@@ -138,7 +147,15 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     if ('enemySpawn' in levelGenerator) {
         for (var i = 0; i < levelGenerator.enemySpawn.length; i++) {
             if (levelGenerator.enemySpawn[i].trigger) {
-                this.spriteGen(levelGenerator.enemySpawn[i], i, this.enemy, groupEnemy, 'sprite');
+                if (!levelGenerator.enemySpawn[i].time) {
+                    this.spriteGen(levelGenerator.enemySpawn[i], i, this.enemy, groupEnemy, 'sprite');
+                }
+                else if (levelGenerator.enemySpawn[i].time.timerType === 'loop') {
+                    this.game.time.events.loop(Phaser.Timer.SECOND * levelGenerator.enemySpawn[i].time.seconds, this.spriteGen, this, levelGenerator.enemySpawn[i], i, this.enemy, groupEnemy, 'timer');
+                }
+                else if (levelGenerator.enemySpawn[i].time.timerType === 'repeat') {
+                    this.game.time.events.repeat(Phaser.Timer.SECOND * levelGenerator.enemySpawn[i].time.seconds, levelGenerator.enemySpawn[i].time.repeatAmount, this.spriteGen, this, levelGenerator.enemySpawn[i], i, this.enemy, groupEnemy, 'timer');
+                }
             }
         }
     }

@@ -152,7 +152,7 @@ level_0.wallSpawn = [
 
 //Creation of Ledges
 level_0.ledgeSpawn = [
-  new SpriteCreator(true, ledgeElevator, ledge, 400, 100, 150, 50, 1, 300, 0, 0, 0, null, null),
+  new SpriteCreator(true, ledgeElevator, ledge, 400, 100, 150, 50, 1, 300, 200, 0, 0, null, new timerCreator('repeat', 4, 3)),
 ];
 
 //Creation of Ball
@@ -162,12 +162,7 @@ level_0.ballSpawn = [
 
 //Creation of Spikes
 level_0.enemySpawn = [
-  // new SpriteCreator(true, enemyDaakath, enemyOne, 200, 200, 50, 50, 1, 0, 0, 0, 0, null, null),
-  // new SpriteCreator(true, enemyShooter, enemyOne, 100, 300, 50, 50, 1, 0, 0, 0, 0, null, null),
-  // new SpriteCreator(true, enemyShooter, enemyOne, 200, 300, 50, 50, 1, 0, 0, 0, 0, null, null),
-  // new SpriteCreator(true, enemyShooter, enemyOne, 300, 300, 50, 50, 1, 0, 0, 0, 0, null, null),
-
-
+  new SpriteCreator(true, enemyDaakath, enemyOne, 100, 200, 50, 50, 1, 0, 200, 0, 0, null, new timerCreator('repeat', 4, 3)),
 ];
 
 //Creation of falling spikes or projectile traps
