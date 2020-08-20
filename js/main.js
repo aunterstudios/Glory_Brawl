@@ -130,7 +130,7 @@ level_0.playerPosition = [
 
 level_0.undeniableDeathSpawn = [
   //Side Borders
-  new SpriteCreator(true, undeniableDeathRegular, deathTile, 0, 0, 50, 750, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, undeniableDeathBallKill, deathTile, 0, 0, 50, 750, 1, 0, 0, 0, 0, scLocalizedDestruction, null),
   new SpriteCreator(true, undeniableDeathRegular, deathTile, 1400, 0, 50, 750, 1, 0, 0, 0, 0, null, null),
   //Testing
   // new SpriteCreator(true, undeniableDeathRegular, deathTile, 100, 200, 50, 50, 1, 500, 0, 0, 0, null, null),
@@ -157,7 +157,7 @@ level_0.ledgeSpawn = [
 
 //Creation of Ball
 level_0.ballSpawn = [
-  new SpriteCreator(true, ballRegular, ball, 200, 100, 50, 50, 1, 300, 0, 0, 0, null, null),
+  new SpriteCreator(true, ballRegular, ball, 200, 100, 50, 50, 1, -300, 0, 0, 0, null, null),
 ];
 
 //Creation of Spikes
@@ -368,15 +368,32 @@ level_3.undeniableDeathSpawn = [
   new SpriteCreator(true, undeniableDeathRegular, deathTile, 0, 0, 50, 9950, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, undeniableDeathRegular, deathTile, 1400, 0, 50, 9950, 1, 0, 0, 0, 0, null, null),
   //Moving Blocks
-  new SpriteCreator(true, undeniableDeathRegular, deathTile, 300, 9700, 50, 50, 1, 1000, 0, 0, 0, 1, null),
-  new SpriteCreator(true, undeniableDeathRegular, deathTile, 500, 9500, 50, 50, 1, 1000, 0, 0, 0, 1, null),
-  new SpriteCreator(true, undeniableDeathRegular, deathTile, 700, 9300, 50, 50, 1, 1000, 0, 0, 0, 1, null),
-  new SpriteCreator(true, undeniableDeathRegular, deathTile, 900, 9100, 50, 50, 1, 1000, 0, 0, 0, 1, null),
-  new SpriteCreator(true, undeniableDeathRegular, deathTile, 200, 8900, 50, 50, 1, 1000, 0, 0, 0, 1, null),
-  new SpriteCreator(true, undeniableDeathRegular, deathTile, 400, 8700, 50, 50, 1, 1000, 0, 0, 0, 1, null),
-  new SpriteCreator(true, undeniableDeathRegular, deathTile, 600, 8500, 50, 50, 1, 1000, 0, 0, 0, 1, null),
-  new SpriteCreator(true, undeniableDeathRegular, deathTile, 800, 8300, 50, 50, 1, 1000, 0, 0, 0, 1, null),
+  new SpriteCreator(true, undeniableDeathRegular, deathTile, 300, 9700, 50, 50, 1, 1000, 0, 0, 0, scReverseVelocity, null),
+  new SpriteCreator(true, undeniableDeathRegular, deathTile, 500, 9500, 50, 50, 1, 1000, 0, 0, 0, scReverseVelocity, null),
+  new SpriteCreator(true, undeniableDeathRegular, deathTile, 700, 9300, 50, 50, 1, 1000, 0, 0, 0, scReverseVelocity, null),
+  new SpriteCreator(true, undeniableDeathRegular, deathTile, 900, 9100, 50, 50, 1, 1000, 0, 0, 0, scReverseVelocity, null),
+  new SpriteCreator(true, undeniableDeathRegular, deathTile, 200, 8900, 50, 50, 1, 1000, 0, 0, 0, scReverseVelocity, null),
+  new SpriteCreator(true, undeniableDeathRegular, deathTile, 400, 8700, 50, 50, 1, 1000, 0, 0, 0, scReverseVelocity, null),
+  new SpriteCreator(true, undeniableDeathRegular, deathTile, 600, 8500, 50, 50, 1, 1000, 0, 0, 0, scReverseVelocity, null),
+  new SpriteCreator(true, undeniableDeathRegular, deathTile, 800, 8300, 50, 50, 1, 1000, 0, 0, 0, scReverseVelocity, null),
 ];
+
+/*
+this.trigger = trigger;
+    this.spriteType = spriteType;
+    this.art = art;
+    this.x = x;
+    this.y = y;
+    this.widthX = widthX;
+    this.widthY = widthY;
+    this.scale = scale;
+    this.velocityX = velocityX;
+    this.velocityY = velocityY;
+    this.gravityX = gravityX;
+    this.gravityY = gravityY;
+    this.specialCondition = specialCondition;
+    this.time = time;
+*/
 
 //Creation of ImmovableWalls
 level_3.immovableWallSpawn = [

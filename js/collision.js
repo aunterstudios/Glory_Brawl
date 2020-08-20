@@ -11,10 +11,12 @@ brawl.game.prototype.trapProjectiles = function (trapProjectiles, obstacles) {
 brawl.game.prototype.immovableImmovable = function (immovable1, immovable2) {
     ////////////More Special Interactions to Come//////////////
     //Reverses The Velocity's of the Object
-    if (immovable1.specialCondition === 1) {
-        var x = immovable1.body.velocity.x * -1;
-        var y = immovable1.body.velocity.y * -1;
-        immovable1.body.velocity.setTo(x, y);
+    if (immovable1.specialCondition) {
+        if (immovable1.specialCondition.name === scReverseVelocity.name) {
+            var x = immovable1.body.velocity.x * -1;
+            var y = immovable1.body.velocity.y * -1;
+            immovable1.body.velocity.setTo(x, y);
+        }
     }
     return;
 };
@@ -44,24 +46,21 @@ brawl.game.prototype.immovableMoveable = function (immovable, moveable) {
     // else if (immovable.body.touching.right) {
     //     moveable.body.velocity.x = 200;
     // }
-    ////////////////////Ball Against Killable Structures///////////////
-    if (immovable.name === undeniableDeathBallKill.name && moveable.groupName === groupBall) {
-        this.emitterFunction(immovable, moveable, 'destroy');
-        //Removes Localized Sprites from Regenerating (Spikes)
-        if (immovable.specialCondition === 0) {
-            //Destruction of Localized Sprite
-            worldClassLevels[this.indexOfCurrentWorld].undeniableDeathSpawn[immovable.positionInArray].trigger = false;
-        }
-        //Removes Sprites from Different Levels (Spikes)
-        else if (immovable.specialCondition === 1) {
-            worldClassLevels[this.indexOfCurrentWorld].undeniableDeathSpawn[immovable.positionInArray].trigger = false;
-            //Destruction of a sprite at a different level
-            worldClassLevels[immovable.specialWorld].undeniableDeathSpawn[immovable.specialArray].trigger = false;
-        }
-    }
     /////////////////////Immovable Wall Effects Against Moveable////////////////////
     if (immovable.name === immovableWallKillWall.name || immovable.body.speed > 0 || moveable.elevatorActivate) {
         this.emitterFunction(moveable, null, 'destroy');
+
+    }
+    // ////////////////////Moveable Effects Against Immovable///////////////
+    if (immovable.name === undeniableDeathBallKill.name && moveable.groupName === groupBall) {
+        this.emitterFunction(immovable, moveable, 'destroy');
+        //Removes Localized Sprites from Regenerating (Spikes)
+        if (immovable.specialCondition) {
+            if (immovable.specialCondition.name === scLocalizedDestruction.name) {
+                //Destruction of Localized Sprite
+                worldClassLevels[this.indexOfCurrentWorld].undeniableDeathSpawn[immovable.positionInArray].trigger = false;
+            }
+        }
     }
     return;
 };
@@ -173,7 +172,7 @@ brawl.game.prototype.playerImmovable = function (player, immovable) {
         immovable.tint = tintWallPlayerFrozen;
         // console.log(immovable.tint, "Removed");
         // immovable.alpha = .5;
-        
+
     }
     //Activating immovableWallWorldGravity (World Gravity)
     if (immovable.name === immovableWallWorldGravity.name) {
@@ -366,7 +365,7 @@ brawl.game.prototype.playerHazama = function (player, hazama) {
     //     player.body.gravity.y = 500;
     //     this.emitterFunction(hazama, null, 'destroy');
     // }
-    hazama.lastOverlapped = this.game.time.now + 100; 
+    hazama.lastOverlapped = this.game.time.now + 100;
     if (hazama.name === hazamaFalconia.name) {
         player.body.gravity.y = -200;
     }

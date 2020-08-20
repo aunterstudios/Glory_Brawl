@@ -288,7 +288,10 @@ var hazamaFalconia = new spriteType('hazamaFalconia', testTint, 1, 0, false, 200
 //Flag Names
 var flagRegular = 'flagRegular';
 var flagSpecial = 'flagSpecial';
+
 //////////////////////////Special Conditions///////////////////////
+var scReverseVelocity = new specialConditionCreator('reverseVelocity');
+var scLocalizedDestruction = new specialConditionCreator('localizedDestruction');
 
 /////////////////////////List of Art or Image Keys of Each Sprite/////////////////
 //Death
