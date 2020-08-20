@@ -9,14 +9,9 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     // this.player.scale.setTo(.6);
     this.player.scale.setTo(1);
     this.player.tint = Phaser.Color.GREEN;
-    // this.player.alpha = this.game.rnd.realInRange(.5, 1);
-    // this.player.tint = Phaser.Color.getRandomColor(50, 255, 255);
     this.player.body.setSize(34, 55.5, 15, 7);
-    // this.player.body.bounce.y = 0;
     this.player.body.mass = 6; //6
     this.player.body.gravity.y = this.playerGravityY;
-    //this.player.body.allowDrag = false;
-    // this.player.body.collideWorldBounds = true;
     this.player.checkWorldBounds = true;
     this.player.events.onOutOfBounds.add(this.playerOut, this);
 
@@ -102,94 +97,21 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
         }
     }
     ///////////////////////////Sprite Generation in World/////////////////////////////
-    // Generating Undeniable Death
-    if ('undeniableDeathSpawn' in levelGenerator) {
-        for (var i = 0; i < levelGenerator.undeniableDeathSpawn.length; i++) {
-            if (levelGenerator.undeniableDeathSpawn[i].trigger) {
-                this.spriteGen(levelGenerator.undeniableDeathSpawn[i], i, this.undeniableDeath, groupUndeniableDeath, 'tile');
+    //Experimental But Hopefully The Truth
+    for (var i = 0; i < levelGenerator.spriteSpawn.length; i++) {
+        if (levelGenerator.spriteSpawn[i].trigger) {
+            if (!levelGenerator.spriteSpawn[i].time) {
+                this.spriteGen(levelGenerator.spriteSpawn[i], i);
+            }
+            else if (levelGenerator.spriteSpawn[i].time.timerType === 'loop') {
+                this.game.time.events.loop(Phaser.Timer.SECOND * levelGenerator.spriteSpawn[i].time.seconds, this.spriteGen, this, levelGenerator.spriteSpawn[i], i);
+            }
+            else if (levelGenerator.spriteSpawn[i].time.timerType === 'repeat') {
+                this.game.time.events.repeat(Phaser.Timer.SECOND * levelGenerator.spriteSpawn[i].time.seconds, levelGenerator.spriteSpawn[i].time.repeatAmount, this.spriteGen, this, levelGenerator.spriteSpawn[i], i);
             }
         }
     }
-    //Generating Immovable Walls
-    if ('immovableWallSpawn' in levelGenerator) {
-        for (var i = 0; i < levelGenerator.immovableWallSpawn.length; i++) {
-            if (levelGenerator.immovableWallSpawn[i].trigger) {
-                this.spriteGen(levelGenerator.immovableWallSpawn[i], i, this.immovableWall, groupImmovableWall, 'tile');
-            }
-        }
-    }
-    //Generating movable Walls
-    if ('wallSpawn' in levelGenerator) {
-        for (var i = 0; i < levelGenerator.wallSpawn.length; i++) {
-            if (levelGenerator.wallSpawn[i].trigger) {
-                this.spriteGen(levelGenerator.wallSpawn[i], i, this.wall, groupWall, 'tile');
-            }
-        }
-    }
-    //Generating Ledges
-    if ('ledgeSpawn' in levelGenerator) {
-        for (var i = 0; i < levelGenerator.ledgeSpawn.length; i++) {
-            if (levelGenerator.ledgeSpawn[i].trigger) {
-                // this.spriteGen(levelGenerator.ledgeSpawn[i], i, this.ledge, groupLedge, 'sprite');
-                if (!levelGenerator.ledgeSpawn[i].time) {
-                    this.spriteGen(levelGenerator.ledgeSpawn[i], i, this.ledge, groupLedge, 'sprite');
-                }
-                else if (levelGenerator.ledgeSpawn[i].time.timerType === 'loop') {
-                    this.game.time.events.loop(Phaser.Timer.SECOND * levelGenerator.ledgeSpawn[i].time.seconds, this.spriteGen, this, levelGenerator.ledgeSpawn[i], i, this.ledge, groupLedge, 'timer');
-                }
-                else if (levelGenerator.ledgeSpawn[i].time.timerType === 'repeat') {
-                    this.game.time.events.repeat(Phaser.Timer.SECOND * levelGenerator.ledgeSpawn[i].time.seconds, levelGenerator.ledgeSpawn[i].time.repeatAmount, this.spriteGen, this, levelGenerator.ledgeSpawn[i], i, this.ledge, groupLedge, 'timer');
-                }
-            }
-        }
-    }
-    //Generating enemies (Tabled For Now)
-    if ('enemySpawn' in levelGenerator) {
-        for (var i = 0; i < levelGenerator.enemySpawn.length; i++) {
-            if (levelGenerator.enemySpawn[i].trigger) {
-                if (!levelGenerator.enemySpawn[i].time) {
-                    this.spriteGen(levelGenerator.enemySpawn[i], i, this.enemy, groupEnemy, 'sprite');
-                }
-                else if (levelGenerator.enemySpawn[i].time.timerType === 'loop') {
-                    this.game.time.events.loop(Phaser.Timer.SECOND * levelGenerator.enemySpawn[i].time.seconds, this.spriteGen, this, levelGenerator.enemySpawn[i], i, this.enemy, groupEnemy, 'timer');
-                }
-                else if (levelGenerator.enemySpawn[i].time.timerType === 'repeat') {
-                    this.game.time.events.repeat(Phaser.Timer.SECOND * levelGenerator.enemySpawn[i].time.seconds, levelGenerator.enemySpawn[i].time.repeatAmount, this.spriteGen, this, levelGenerator.enemySpawn[i], i, this.enemy, groupEnemy, 'timer');
-                }
-            }
-        }
-    }
-    //Generating balls ledges
-    if ('ballSpawn' in levelGenerator) {
-        for (var i = 0; i < levelGenerator.ballSpawn.length; i++) {
-            if (levelGenerator.ballSpawn[i].trigger) {
-                this.spriteGen(levelGenerator.ballSpawn[i], i, this.ball, groupBall, 'tile');
-            }
-        }
-    }
-
-    //Generating balls ledges
-    if ('hazamaSpawn' in levelGenerator) {
-        for (var i = 0; i < levelGenerator.hazamaSpawn.length; i++) {
-            if (levelGenerator.hazamaSpawn[i].trigger) {
-                this.spriteGen(levelGenerator.hazamaSpawn[i], i, this.hazama, groupHazama, 'tile');
-            }
-        }
-    }
-    ///////////////////(Falling Spikes)////////////////
-    if ('fallingSpikes' in levelGenerator) {
-        for (var i = 0; i < levelGenerator.fallingSpikes.length; i++) {
-            if (levelGenerator.fallingSpikes[i].trigger) {
-                if (levelGenerator.fallingSpikes[i].time.timerType === 'loop') {
-                    this.game.time.events.loop(Phaser.Timer.SECOND * levelGenerator.fallingSpikes[i].time.seconds, this.spriteGen, this, levelGenerator.fallingSpikes[i], i, this.fallingSpikes, groupFallingSpikes, 'timer');
-                }
-                else if (levelGenerator.fallingSpikes[i].time.timerType === 'repeat') {
-                    this.game.time.events.repeat(Phaser.Timer.SECOND * levelGenerator.fallingSpikes[i].time.seconds, levelGenerator.fallingSpikes[i].time.repeatAmount, this.spriteGen, this, levelGenerator.fallingSpikes[i], i, this.fallingSpikes, groupFallingSpikes, 'timer');
-                }
-            }
-        }
-    }
-    // //////////////////(Respawn)Flag//////////////////
+    ////////////////////(Respawn)Flag//////////////////
     if ('flagSpawn' in levelGenerator) {
         for (var i = 0; i < levelGenerator.flagSpawn.length; i++) {
             if (levelGenerator.flagSpawn[i].trigger) {

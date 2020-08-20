@@ -72,8 +72,7 @@ brawl.story.prototype = {
     update: function () {
         if (this.game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
             this.game.state.start('game', true, false, this.indexOfCurrentWorld, this.indexOfPlayerPosition, worldClassLevels[this.indexOfCurrentWorld].metroidvania);
-            console.log(this.indexOfCurrentWorld);
-
+            // console.log(this.indexOfCurrentWorld);
         }
 
     }

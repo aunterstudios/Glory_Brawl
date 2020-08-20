@@ -58,7 +58,7 @@ brawl.game.prototype.immovableMoveable = function (immovable, moveable) {
         if (immovable.specialCondition) {
             if (immovable.specialCondition.name === scLocalizedDestruction.name) {
                 //Destruction of Localized Sprite
-                worldClassLevels[this.indexOfCurrentWorld].undeniableDeathSpawn[immovable.positionInArray].trigger = false;
+                worldClassLevels[this.indexOfCurrentWorld].spriteSpawn[immovable.positionInArray].trigger = false;
             }
         }
     }

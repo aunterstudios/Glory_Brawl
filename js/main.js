@@ -126,48 +126,23 @@ level_0.playerPosition = [
   new PlayerPositionCreator(400, 700),
 ]
 
-//Creation of Undeniable Death
-
-level_0.undeniableDeathSpawn = [
+//
+level_0.spriteSpawn = [
   //Side Borders
-  new SpriteCreator(true, undeniableDeathBallKill, deathTile, 0, 0, 50, 750, 1, 0, 0, 0, 0, scLocalizedDestruction, null),
-  new SpriteCreator(true, undeniableDeathRegular, deathTile, 1400, 0, 50, 750, 1, 0, 0, 0, 0, null, null),
-  //Testing
-  // new SpriteCreator(true, undeniableDeathRegular, deathTile, 100, 200, 50, 50, 1, 500, 0, 0, 0, null, null),
-
-];
-
-//Creation of ImmovableWalls
-level_0.immovableWallSpawn = [
+  new SpriteCreator(true, undeniableDeathBallKill, 'tile', deathTile, 0, 0, 50, 750, 1, 0, 0, 0, 0, scLocalizedDestruction, null),
+  new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 1400, 0, 50, 750, 1, 0, 0, 0, 0, null, null),
   //Ground
-  new SpriteCreator(true, immovableWallRegular, immovableWallTile, 0, 800, 1400, 50, 1, 0, 0, 0, 0, null, null),
-];
-
-//Creation of Moveable Walls
-level_0.wallSpawn = [
-  new SpriteCreator(true, wallRegular, wallTile50, 700, 200, 150, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, wallCloud, wallTile50, 800, 200, 150, 50, 1, 0, 0, 0, 0, null, null),
-
-];
-
-//Creation of Ledges
-level_0.ledgeSpawn = [
-  new SpriteCreator(true, ledgeElevator, ledge, 400, 100, 150, 50, 1, 300, 200, 0, 0, null, new timerCreator('repeat', 4, 3)),
-];
-
-//Creation of Ball
-level_0.ballSpawn = [
-  new SpriteCreator(true, ballRegular, ball, 200, 100, 50, 50, 1, -300, 0, 0, 0, null, null),
-];
-
-//Creation of Spikes
-level_0.enemySpawn = [
-  new SpriteCreator(true, enemyDaakath, enemyOne, 100, 200, 50, 50, 1, 0, 200, 0, 0, null, new timerCreator('repeat', 4, 3)),
-];
-
-//Creation of falling spikes or projectile traps
-level_0.fallingSpikes = [
-  new SpriteCreator(true, fallingSpikesRegular, fallingSpikesOne, 500, 100, 50, 50, 1, 0, 0, 0, 500, null, new timerCreator('loop', null, 3)),
+  new SpriteCreator(true, immovableWallRegular, 'tile', immovableWallTile, 0, 800, 1400, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallRegular, 'tile', wallTile50, 700, 200, 150, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallCloud, 'tile', wallTile50, 800, 200, 150, 50, 1, 0, 0, 0, 0, null, null),
+  //Repeating Ledge
+  new SpriteCreator(true, ledgeElevator, 'timer', ledge, 400, 100, 150, 50, 1, 300, 200, 0, 0, null, new timerCreator('repeat', 4, 3)),
+  //Ball
+  new SpriteCreator(true, ballRegular, 'sprite', ball, 200, 100, 50, 50, 1, -300, 0, 0, 0, null, null),
+  //Enemy
+  new SpriteCreator(true, enemyDaakath, 'timer', enemyOne, 100, 200, 50, 50, 1, 0, 200, 0, 0, null, new timerCreator('repeat', 4, 3)),
+  //Falling Spikes
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 500, 100, 50, 50, 1, 0, 0, 0, 500, null, new timerCreator('loop', null, 3)),
 ];
 
 //flag spawn
@@ -210,44 +185,17 @@ level_1.playerPosition = [
 
 //Creation of Undeniable Death
 
-level_1.undeniableDeathSpawn = [
+level_1.spriteSpawn = [
   //Side Borders
-  new SpriteCreator(true, undeniableDeathRegular, deathTile, 0, 0, 50, 9950, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, undeniableDeathRegular, deathTile, 1400, 0, 50, 9950, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 0, 0, 50, 9950, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 1400, 0, 50, 9950, 1, 0, 0, 0, 0, null, null),
   //Testing
-  // new SpriteCreator(true, undeniableDeathRegular, deathTile, 100, 200, 50, 50, 1, 500, 0, 0, 0, null, null),
-
-];
-
-//Creation of ImmovableWalls
-level_1.immovableWallSpawn = [
-  //Ground
-  new SpriteCreator(true, immovableWallRegular, immovableWallTile, 0, 9950, 1400, 50, 1, 0, 0, 0, 0, null, null),
-];
-
-//Creation of Moveable Walls
-level_1.wallSpawn = [
-  new SpriteCreator(true, wallRegular, wallTile50, 700, 200, 150, 50, 1, 0, 0, 0, 0, null, null),
-];
-
-//Creation of Ledges
-level_1.ledgeSpawn = [
-  new SpriteCreator(true, ledgeSurf, ledge, 400, 100, 150, 50, 1, 300, 0, 0, 0, null, null),
-];
-
-//Creation of Ball
-level_1.ballSpawn = [
-  new SpriteCreator(true, ballRegular, ball, 200, 100, 50, 50, 1, 300, 0, 0, 0, null, null),
-];
-
-//Creation of Spikes
-level_1.enemySpawn = [
-  new SpriteCreator(true, enemyDaakath, enemyOne, 100, 200, 50, 50, 1, 0, 0, 0, 0, null, null),
-];
-
-//Creation of falling spikes or projectile traps
-level_1.fallingSpikes = [
-  new SpriteCreator(true, fallingSpikesRegular, fallingSpikesOne, 500, 100, 50, 50, 1, 0, 0, 0, 500, null, new timerCreator('loop', null, 3)),
+  new SpriteCreator(true, immovableWallRegular, 'tile', immovableWallTile, 0, 9950, 1400, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallRegular, 'tile', wallTile50, 700, 200, 150, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, ledgeSurf, 'sprite', ledge, 400, 100, 150, 50, 1, 300, 0, 0, 0, null, null),
+  new SpriteCreator(true, ballRegular, 'sprite', ball, 200, 100, 50, 50, 1, 300, 0, 0, 0, null, null),
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 100, 200, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 500, 100, 50, 50, 1, 0, 0, 0, 500, null, new timerCreator('loop', null, 3)),
 ];
 
 //flag spawn
@@ -277,54 +225,19 @@ level_2.playerPosition = [
 
 ///////////////////////Creation of Undeniable Death
 
-level_2.undeniableDeathSpawn = [
+level_2.spriteSpawn = [
   //Ground Next To Flag
-  new SpriteCreator(true, undeniableDeathRegular, deathTile, 4600, 1500, 200, 25, .5, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, undeniableDeathRegular, deathTile, 4000, 0, 50, 1800, 1, 0, 0, 0, 0, null, null),
-  // new SpriteCreator(true, undeniableDeathRegular, deathTile, 4700, 1700, 50, 50, 1, 700, 0, 0, 0, 1, null),
-
-  //Top of the Yellow at the Bottom
-];
-
-/////////////////////////Creation of ImmovableWalls
-level_2.immovableWallSpawn = [
-  //Border of Level One and Level Two
-  new SpriteCreator(true, immovableWallSlippery, immovableWallTile, 4800, 0, 50, 1800, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 4600, 1500, 200, 25, .5, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 4000, 0, 50, 1800, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, immovableWallSlippery, 'tile', immovableWallTile, 4800, 0, 50, 1800, 1, 0, 0, 0, 0, null, null),
   //Ground
-  new SpriteCreator(true, immovableWallRegular, immovableWallTile, 4000, 2000, 800, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, immovableWallActivation, immovableWallTile, 4200, 1700, 200, 25, .5, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, immovableWallPowerJump, powerJar, 4200, 1900, 50, 50, 1, 0, 0, 0, 0, null, null),
-
-
-];
-
-//Moveable Walls 
-level_2.wallSpawn = [
-  new SpriteCreator(true, wallRegular, wallTile50, 4400, 1100, 150, 50, 1, 0, 0, 0, 0, null, null),
-];
-
-
-//Ledges
-level_2.ledgeSpawn = [
-  new SpriteCreator(true, ledgeElevator, ledge, 4200, 1600, null, null, 1, 0, 0, 0, 0, null, null),
-];
-
-//Enemy Spawn
-level_2.enemySpawn = [
-  // new SpriteCreator(true, enemyDaakath, enemyOne, 4300, 1400, null, null, 1, 0, 0, 0, 0, null, null),
-];
-
-//Ball
-level_2.ballSpawn = [
-];
-
-level_2.hazamaSpawn = [
-  new SpriteCreator(true, hazamaFalconia, hazamaHippie, 4200, 0, 500, 1800, 1, 0, 0, 0, 0, null, null),
-];
-
-//Falling Spikes
-level_2.fallingSpikes = [
-  new SpriteCreator(true, fallingSpikesRegular, fallingSpikesOne, 500, 100, 50, 50, 1, 0, 0, 0, 500, null, new timerCreator('loop', null, 3)),
+  new SpriteCreator(true, immovableWallRegular, 'tile', immovableWallTile, 4000, 2000, 800, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, immovableWallActivation, 'tile', immovableWallTile, 4200, 1700, 200, 25, .5, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, immovableWallPowerJump, 'sprite', powerJar, 4200, 1900, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallRegular, 'tile', wallTile50, 4400, 1100, 150, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, ledgeElevator, 'sprite', ledge, 4200, 1600, null, null, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, hazamaFalconia, 'tile', hazamaHippie, 4200, 0, 500, 1800, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 500, 100, 50, 50, 1, 0, 0, 0, 500, null, new timerCreator('loop', null, 3)),
 ];
 
 //Flag Spawn
@@ -356,48 +269,23 @@ level_3.playerPosition = [
   new PlayerPositionCreator(200, 9900),
 ]
 
-//Creation of Undeniable Death
-
-level_3.undeniableDeathSpawn = [
+//Sprite Generation
+level_3.spriteSpawn = [
   //Side Borders
-  new SpriteCreator(true, undeniableDeathRegular, deathTile, 0, 0, 50, 9950, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, undeniableDeathRegular, deathTile, 1400, 0, 50, 9950, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 0, 0, 50, 9950, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 1400, 0, 50, 9950, 1, 0, 0, 0, 0, null, null),
   //Moving Blocks
-  new SpriteCreator(true, undeniableDeathRegular, deathTile, 300, 9700, 50, 50, 1, 1000, 0, 0, 0, scReverseVelocity, null),
-  new SpriteCreator(true, undeniableDeathRegular, deathTile, 500, 9500, 50, 50, 1, 1000, 0, 0, 0, scReverseVelocity, null),
-  new SpriteCreator(true, undeniableDeathRegular, deathTile, 700, 9300, 50, 50, 1, 1000, 0, 0, 0, scReverseVelocity, null),
-  new SpriteCreator(true, undeniableDeathRegular, deathTile, 900, 9100, 50, 50, 1, 1000, 0, 0, 0, scReverseVelocity, null),
-  new SpriteCreator(true, undeniableDeathRegular, deathTile, 200, 8900, 50, 50, 1, 1000, 0, 0, 0, scReverseVelocity, null),
-  new SpriteCreator(true, undeniableDeathRegular, deathTile, 400, 8700, 50, 50, 1, 1000, 0, 0, 0, scReverseVelocity, null),
-  new SpriteCreator(true, undeniableDeathRegular, deathTile, 600, 8500, 50, 50, 1, 1000, 0, 0, 0, scReverseVelocity, null),
-  new SpriteCreator(true, undeniableDeathRegular, deathTile, 800, 8300, 50, 50, 1, 1000, 0, 0, 0, scReverseVelocity, null),
-];
+  new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 300, 9700, 50, 50, 1, 1000, 0, 0, 0, scReverseVelocity, null),
+  new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 500, 9500, 50, 50, 1, 1000, 0, 0, 0, scReverseVelocity, null),
+  new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 700, 9300, 50, 50, 1, 1000, 0, 0, 0, scReverseVelocity, null),
+  new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 900, 9100, 50, 50, 1, 1000, 0, 0, 0, scReverseVelocity, null),
+  new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 200, 8900, 50, 50, 1, 1000, 0, 0, 0, scReverseVelocity, null),
+  new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 400, 8700, 50, 50, 1, 1000, 0, 0, 0, scReverseVelocity, null),
+  new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 600, 8500, 50, 50, 1, 1000, 0, 0, 0, scReverseVelocity, null),
+  new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 800, 8300, 50, 50, 1, 1000, 0, 0, 0, scReverseVelocity, null),
+  new SpriteCreator(true, immovableWallRegular, 'tile', immovableWallTile, 0, 9950, 1400, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallRegular, 'sprite', wallTile25, 600, 9900, 25, 25, 1, 0, 0, 0, 0, null, null),
 
-//Creation of ImmovableWalls
-level_3.immovableWallSpawn = [
-  //Ground
-  new SpriteCreator(true, immovableWallRegular, immovableWallTile, 0, 9950, 1400, 50, 1, 0, 0, 0, 0, null, null),
-];
-
-//Creation of Moveable Walls
-level_3.wallSpawn = [
-  new SpriteCreator(true, wallRegular, wallTile25, 600, 9900, 25, 25, 1, 0, 0, 0, 0, null, null),
-];
-// //Ledges
-level_3.ledgeSpawn = [
-  // //ledgeSurf
-];
-
-// // //Enemy Spawn
-level_3.enemySpawn = [
-];
-
-// //Ball
-level_3.ballSpawn = [
-];
-
-//Falling Spikes
-level_3.fallingSpikes = [
 ];
 
 ///////////////////////////////////////////Level 4///////////////////////////////////////////////////////////
@@ -417,48 +305,9 @@ level_4.playerPosition = [
   new PlayerPositionCreator(100, 2900),
 ]
 
-
-// level_4.undeniableDeathSpawn = [
-//   // // //Little Death to Prevent Running At Wall Cheese Glitch
-//   new SpriteCreator(true, true, undeniableDeathRegular, deathHorizontal500, 500, 3000, 0, 0, 1, 1, 0, 0, null, null),
-// ];
-
-/////////////////////////Creation of ImmovableWalls
-level_4.immovableWallSpawn = [
-  new SpriteCreator(true, immovableWallRegular, immovableWallTile, 0, 3000, 500, 50, 1, 0, 0, 0, 0, null, null),
-];
-
-//Moveable Walls
-///Single Wall to Teach You  
-// level_4.wallSpawn = [
-// ];
-
-level_4.ledgeSpawn = [
-];
-
-//Ball
-level_4.ballSpawn = [
-];
-
-level_4.enemySpawn = [
-];
-
-level_4.fallingSpikes = [
-];
-
-//flag spawn
-level_4.flagSpawn = [
-];
-
-//Text Creator (Helpful Hints)
-level_4.text = [
-  // new textCreator(true, 150, 3500, "Time To Be Reborn\n\nP- Pause\nO- FullScreen\nW or Spacebar- Jump\nA- Left\nS- Push or Move Downwards\nD- Right", fontGrind, 25),
-  // new textCreator(true, 1100, 3700, "Double Jump", fontGrind, 25),
-  // new textCreator(true, 1100, 3400, "Hold D and Tap A\n\nTo Fast Climb", fontGrind, 25),
-  // new textCreator(true, 1100, 3100, "Move Left\n\nThen Double Jump", fontGrind, 25),
-  // new textCreator(true, 1100, 2750, "Hold A and Tap D\n\nThis Time", fontGrind, 25),
-  // new textCreator(true, 1100, 2450, "Move Right\n\nThen Double Jump", fontGrind, 25),
-  // new textCreator(true, 150, 1400, "Once You Hit A ledgeSurface\n\nThis is Fucking Important\n\nYou Can Double Jump Again", fontGrind, 25),
+//Sprite Generation
+level_4.spriteSpawn = [
+  new SpriteCreator(true, immovableWallRegular, 'tile', immovableWallTile, 0, 3000, 500, 50, 1, 0, 0, 0, 0, null, null),
 ];
 
 //////////////////////////////////////////Pushing All Levels Into World Array/////////////////////////////////////

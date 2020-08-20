@@ -77,11 +77,21 @@ class nenCreator {
   }
 };
 
+//Generates Group Array Within Spawn
+
+class groupArrayCreator {
+  constructor(groupSprite, groupCategory) {
+    this.groupSprite = groupSprite;
+    this.groupCategory = groupCategory;
+  }
+}
+
 //Generates Sprite Placement (Physics)
 class SpriteCreator {
-  constructor(trigger, spriteType, art, x, y, widthX, widthY, scale, velocityX, velocityY, gravityX, gravityY, specialCondition, time) {
+  constructor(trigger, spriteType, generationType, art, x, y, widthX, widthY, scale, velocityX, velocityY, gravityX, gravityY, specialCondition, time) {
     this.trigger = trigger;
     this.spriteType = spriteType;
+    this.generationType = generationType;
     this.art = art;
     this.x = x;
     this.y = y;
@@ -105,16 +115,19 @@ class specialConditionCreator {
 };
 
 class timerCreator {
-  constructor(timerType, repeatAmount, seconds) {{
-    this.timerType = timerType;
-    this.repeatAmount = repeatAmount;
-    this.seconds = seconds;
-  }}
+  constructor(timerType, repeatAmount, seconds) {
+    {
+      this.timerType = timerType;
+      this.repeatAmount = repeatAmount;
+      this.seconds = seconds;
+    }
+  }
 }
 
 //The individual properties of each sprite. 
 class spriteType {
-  constructor(name, tint, mass, anchor, immovable, maxVelocity, bounce) {
+  constructor(groupNumber, name, tint, mass, anchor, immovable, maxVelocity, bounce) {
+    this.groupNumber = groupNumber;
     this.name = name;
     this.tint = tint;
     this.mass = mass;
@@ -243,48 +256,47 @@ var testTint = Math.random() * 0xffffff; // testTint
 
 /////////////////////////List of Names of Each Sprite (For Different Special Properties)////////////////
 //Death Names
-var undeniableDeathRegular = new spriteType('undeniableDeathRegular', Phaser.Color.RED, 100, 0, true, 1000, 1); //No Special Properties
-var undeniableDeathBallKill = new spriteType('undeniableDeathBallKill', Phaser.Color.ORANGE, 100, 0, true, 1000, 1); //Killable By Ball
+var undeniableDeathRegular = new spriteType(0, 'undeniableDeathRegular', Phaser.Color.RED, 100, 0, true, 1000, 1); //No Special Properties
+var undeniableDeathBallKill = new spriteType(0, 'undeniableDeathBallKill', Phaser.Color.ORANGE, 100, 0, true, 1000, 1); //Killable By Ball
 
 //Immovable Wall Names
-var immovableWallRegular = new spriteType('immovableWallRegular', tintRemover, 100, 0, true, 1000, 1); //No Special Properties
-var immovableWallKillWall = new spriteType('immovableWallKillWall', 7019278.306799905, 100, 0, true, 1000, 1); //Kills Walls(Will Be Everything)
-var immovableWallPhase = new spriteType('immovableWallPhase', 15631118.030252509, 100, 0, true, 1000, 1); //Killed By Enemy BULLETS
-var immovableWallActivation = new spriteType('immovableWallActivation', 0xffff00, 100, 0, true, 1000, 1); //Triggers Movement in a Wall
-var immovableWallWorldGravity = new spriteType('immovableWallWorldGravity', 8314793.039214706, 100, 0, true, 1000, 1); //Triggers World Gravity
-var immovableWallOneWayObject = new spriteType('immovableWallOneWayObject', 2499878.036284214, 100, 0, true, 1000, 1); //One Way (Objects Only)
-var immovableWallOneWayPlayer = new spriteType('immovableWallOneWayPlayer', 241917.63554178402, 100, 0, true, 1000, 1); //One Way (Players Only)
-var immovableWallSlippery = new spriteType('immovableWallSlippery', 766012.4141677661, 100, 0, true, 1000, 1); //Makes you SLIPPERY!
-var immovableWallOneWayPlayerBlockLeft = new spriteType('immovableWallOneWayPlayerBlockLeft', 3588771.242333334, 100, 0, true, 1000, 1); //One way player only from the left
-var immovableWallPowerJump = new spriteType('immovableWallPowerUpJump', testTint, 1, 0, true, 1000, 1);
+var immovableWallRegular = new spriteType(1, 'immovableWallRegular', tintRemover, 100, 0, true, 1000, 1); //No Special Properties
+var immovableWallKillWall = new spriteType(1, 'immovableWallKillWall', 7019278.306799905, 100, 0, true, 1000, 1); //Kills Walls(Will Be Everything)
+var immovableWallPhase = new spriteType(1, 'immovableWallPhase', 15631118.030252509, 100, 0, true, 1000, 1); //Killed By Enemy BULLETS
+var immovableWallActivation = new spriteType(1, 'immovableWallActivation', 0xffff00, 100, 0, true, 1000, 1); //Triggers Movement in a Wall
+var immovableWallWorldGravity = new spriteType(1, 'immovableWallWorldGravity', 8314793.039214706, 100, 0, true, 1000, 1); //Triggers World Gravity
+var immovableWallOneWayObject = new spriteType(1, 'immovableWallOneWayObject', 2499878.036284214, 100, 0, true, 1000, 1); //One Way (Objects Only)
+var immovableWallOneWayPlayer = new spriteType(1, 'immovableWallOneWayPlayer', 241917.63554178402, 100, 0, true, 1000, 1); //One Way (Players Only)
+var immovableWallSlippery = new spriteType(1, 'immovableWallSlippery', 766012.4141677661, 100, 0, true, 1000, 1); //Makes you SLIPPERY!
+var immovableWallOneWayPlayerBlockLeft = new spriteType(1, 'immovableWallOneWayPlayerBlockLeft', 3588771.242333334, 100, 0, true, 1000, 1); //One way player only from the left
+var immovableWallPowerJump = new spriteType(1, 'immovableWallPowerUpJump', testTint, 1, 0, true, 1000, 1);
 
 //Moveable Wall Names
-var wallRegular = new spriteType('wallRegular', tintRemover, 200, .5, false, 1000, 1);
-var wallSurf = new spriteType('wallSurf', 10409939.733364154, 200, .5, false, 1000, 1);
-var wallInverse = new spriteType('wallInverse', 1181911.9307258818, 200, .5, false, 1000, 1); //First Turn (Leaners Walls From Ledge)
-var wallGhost = new spriteType('wallGhost', 16771007.229130682, 200, .5, true, 1000, 1); //Immovable Wall That Let's You Get Through Objects
-var wallCloud = new spriteType('wallCloud', 9583870.358153213, 200, .5, true, 1000, 1); //Stationary Shooting Platform Cloud
+var wallRegular = new spriteType(2, 'wallRegular', tintRemover, 200, .5, false, 1000, 1);
+var wallSurf = new spriteType(2, 'wallSurf', 10409939.733364154, 200, .5, false, 1000, 1);
+var wallInverse = new spriteType(2, 'wallInverse', 1181911.9307258818, 200, .5, false, 1000, 1); //First Turn (Leaners Walls From Ledge)
+var wallGhost = new spriteType(2, 'wallGhost', 16771007.229130682, 200, .5, true, 1000, 1); //Immovable Wall That Let's You Get Through Objects
+var wallCloud = new spriteType(2, 'wallCloud', 9583870.358153213, 200, .5, true, 1000, 1); //Stationary Shooting Platform Cloud
 
 //Ledge Names
-var ledgeElevator = new spriteType('ledgeElevator', Phaser.Color.YELLOW, 20, .5, false, 1000, .5);
-var ledgeBounce = new spriteType('ledgeBounce', Phaser.Color.GREEN, 20, .5, false, 1000, .5);
-var ledgeSurf = new spriteType('ledgeSurf', Phaser.Color.AQUA, 20, .5, false, 1000, .5);
+var ledgeElevator = new spriteType(3, 'ledgeElevator', Phaser.Color.YELLOW, 20, .5, false, 1000, .5);
+var ledgeBounce = new spriteType(3, 'ledgeBounce', Phaser.Color.GREEN, 20, .5, false, 1000, .5);
+var ledgeSurf = new spriteType(3, 'ledgeSurf', Phaser.Color.AQUA, 20, .5, false, 1000, .5);
 
 //Enemy Names
-var enemyShooter = new spriteType('enemyShooter', 12758247.409111453, 20, .5, false, 1000, 1);
-var enemyDaakath = new spriteType('enemyDaakath', 15269906.933038201, 20, .5, false, 1000, 1);
-var enemyAccelerate = new spriteType('enemyAccelerate', 2885804.4944837275, 20, .5, false, 1000, 1);
+var enemyShooter = new spriteType(4, 'enemyShooter', 12758247.409111453, 20, .5, false, 1000, 1);
+var enemyDaakath = new spriteType(4, 'enemyDaakath', 15269906.933038201, 20, .5, false, 1000, 1);
+var enemyAccelerate = new spriteType(4, 'enemyAccelerate', 2885804.4944837275, 20, .5, false, 1000, 1);
 
 //Ball Names
-var ballRegular = new spriteType('ballRegular', Phaser.Color.BLUE, 20, .5, false, 1000, .5);
+var ballRegular = new spriteType(5, 'ballRegular', Phaser.Color.BLUE, 20, .5, false, 1000, .5);
 
 //Falling Spikes
-var fallingSpikesRegular = new spriteType('fallingSpikesRegular', 16777215, 1, .5, false, 10000, 0);
+var fallingSpikesRegular = new spriteType(6, 'fallingSpikesRegular', 16777215, 1, .5, false, 10000, 0);
 
 //Hazama
-var hazamaFalconia = new spriteType('hazamaFalconia', testTint, 1, 0, false, 200, 1); //SUPER JUMPING ABILITY
+var hazamaFalconia = new spriteType(7, 'hazamaFalconia', testTint, 1, 0, false, 200, 1); //SUPER JUMPING ABILITY
 
-///////////////////////Special Types of Sprites//////////////////
 //Flag Names
 var flagRegular = 'flagRegular';
 var flagSpecial = 'flagSpecial';

@@ -65,24 +65,36 @@ brawl.game.prototype.imageSpawn = function (sprite, positionInArray) {
     this.imageGroupX.pivot.y = 100;
 };
 ////////////////////////Sprite Generator///////////////////////////
-brawl.game.prototype.spriteGen = function (sprite, positionInArray, groupSprite, groupCategory, tileOrSprite) {
+brawl.game.prototype.spriteGen = function (sprite, positionInArray) {
     //////////////Debugging Purposes/////////////
     if (this.toggleConsoleLog) {
-        console.log(sprite, positionInArray, groupSprite, groupCategory, tileOrSprite);
+        console.log(sprite, positionInArray);
     }
-    ///////////////Sprite Generation///////////
-    //Checks if It's a tileSprite or Regular Sprite
-    if (tileOrSprite === 'tile') {
+    ///////////////////Group Generation/////////////////
+    var groupArray = [
+        new groupArrayCreator(this.undeniableDeath, groupUndeniableDeath),
+        new groupArrayCreator(this.immovableWall, groupImmovableWall),
+        new groupArrayCreator(this.wall, groupWall),
+        new groupArrayCreator(this.ledge, groupLedge),
+        new groupArrayCreator(this.enemy, groupEnemy),
+        new groupArrayCreator(this.ball, groupBall),
+        new groupArrayCreator(this.fallingSpikes, groupFallingSpikes),
+        new groupArrayCreator(this.hazama, groupHazama)
+    ]
+    var groupSprite = groupArray[sprite.spriteType.groupNumber].groupSprite;
+    var groupCategory = groupArray[sprite.spriteType.groupNumber].groupCategory;
+    //Checks if It's a tileSprite or Regular Sprite or Timer
+    if (sprite.generationType === 'tile') {
         var newTile = this.game.add.tileSprite(sprite.x, sprite.y, sprite.widthX, sprite.widthY, sprite.art);
         this.game.physics.enable([newTile], Phaser.Physics.ARCADE);
         this.spriteX = groupSprite.add(newTile);
         this.spriteX.tileScale.setTo(sprite.scale);
     }
-    else if (tileOrSprite === 'sprite') {
+    else if (sprite.generationType === 'sprite') {
         this.spriteX = groupSprite.create(sprite.x, sprite.y, sprite.art);
         this.spriteX.scale.setTo(sprite.scale);
     }
-    else if (tileOrSprite === 'timer') {
+    else if (sprite.generationType === 'timer') {
         this.spriteX = groupSprite.getFirstDead(true, sprite.x, sprite.y, sprite.art);
         this.spriteX.scale.setTo(sprite.scale);
     }
@@ -114,9 +126,6 @@ brawl.game.prototype.spriteGen = function (sprite, positionInArray, groupSprite,
     if (groupCategory === groupHazama) {
         this.spriteX.alpha = .3;
     }
-    // if (sprite.spriteType.name === powerUpFalconia.name) {
-    //     this.spriteX.alpha = .3;
-    // }
     ///////////Drag Events///////////
     // this.spriteX.inputEnabled = true;
     // this.spriteX.input.enableDrag();
