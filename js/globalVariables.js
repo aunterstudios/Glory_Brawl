@@ -235,12 +235,12 @@ var groupFallingSpikes = 'groupFallingSpikes';
 //Flag
 var groupFlag = 'groupFlag';
 
-
 /////////////////////////Global Tints//////////////////////////
 var tintRemover = 0xFFFFFF; //wallRegular (Removes Tint)
 var tintWallPlayerFrozen = 0x00ffff; //Frozen Wall Tints
 var testTint = Math.random() * 0xffffff; // testTint
-console.log(testTint);
+// console.log(testTint);
+
 /////////////////////////List of Names of Each Sprite (For Different Special Properties)////////////////
 //Death Names
 var undeniableDeathRegular = new spriteType('undeniableDeathRegular', Phaser.Color.RED, 100, 0, true, 1000, 1); //No Special Properties
@@ -278,16 +278,16 @@ var enemyAccelerate = new spriteType('enemyAccelerate', 2885804.4944837275, 20, 
 //Ball Names
 var ballRegular = new spriteType('ballRegular', Phaser.Color.BLUE, 20, .5, false, 1000, .5);
 
+//Falling Spikes
+var fallingSpikesRegular = new spriteType('fallingSpikesRegular', 16777215, 1, .5, false, 10000, 0);
+
 //Hazama
 var hazamaFalconia = new spriteType('hazamaFalconia', testTint, 1, 0, false, 200, 1); //SUPER JUMPING ABILITY
 
 ///////////////////////Special Types of Sprites//////////////////
-//Falling Spikes
-var fallingSpikesRegular = 'fallingSpikesRegular';
 //Flag Names
 var flagRegular = 'flagRegular';
 var flagSpecial = 'flagSpecial';
-
 //////////////////////////Special Conditions///////////////////////
 
 /////////////////////////List of Art or Image Keys of Each Sprite/////////////////

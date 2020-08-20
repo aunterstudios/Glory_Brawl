@@ -172,7 +172,7 @@ level_0.enemySpawn = [
 
 //Creation of falling spikes or projectile traps
 level_0.fallingSpikes = [
-  new SpriteCreator(true, fallingSpikesRegular, fallingSpikesOne, 500, 100, null, null, 1, 0, 0, 0, 500, null, new timerCreator(null, null, 3)),
+  new SpriteCreator(true, fallingSpikesRegular, fallingSpikesOne, 500, 100, 50, 50, 1, 0, 0, 0, 500, null, new timerCreator('loop', null, 3)),
 ];
 
 //flag spawn
@@ -252,7 +252,7 @@ level_1.enemySpawn = [
 
 //Creation of falling spikes or projectile traps
 level_1.fallingSpikes = [
-  new SpriteCreator(true, fallingSpikesRegular, fallingSpikesOne, 500, 100, null, null, 1, 0, 0, 0, 500, null, new timerCreator(null, null, 3)),
+  new SpriteCreator(true, fallingSpikesRegular, fallingSpikesOne, 500, 100, 50, 50, 1, 0, 0, 0, 500, null, new timerCreator('loop', null, 3)),
 ];
 
 //flag spawn
@@ -329,7 +329,7 @@ level_2.hazamaSpawn = [
 
 //Falling Spikes
 level_2.fallingSpikes = [
-  new SpriteCreator(true, fallingSpikesRegular, fallingSpikesOne, 4500, 100, null, null, 1, 0, 0, 0, 500, null, new timerCreator(null, null, 3)),
+  new SpriteCreator(true, fallingSpikesRegular, fallingSpikesOne, 500, 100, 50, 50, 1, 0, 0, 0, 500, null, new timerCreator('loop', null, 3)),
 ];
 
 //Flag Spawn

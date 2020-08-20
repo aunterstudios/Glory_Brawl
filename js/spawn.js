@@ -78,8 +78,12 @@ brawl.game.prototype.spriteGen = function (sprite, positionInArray, groupSprite,
         this.spriteX = groupSprite.add(newTile);
         this.spriteX.tileScale.setTo(sprite.scale);
     }
-    else {
+    else if (tileOrSprite === 'sprite') {
         this.spriteX = groupSprite.create(sprite.x, sprite.y, sprite.art);
+        this.spriteX.scale.setTo(sprite.scale);
+    }
+    else if (tileOrSprite === 'timer') {
+        this.spriteX = groupSprite.getFirstDead(true, sprite.x, sprite.y, sprite.art);
         this.spriteX.scale.setTo(sprite.scale);
     }
     //Sprite Name
@@ -94,12 +98,17 @@ brawl.game.prototype.spriteGen = function (sprite, positionInArray, groupSprite,
     this.spriteX.body.mass = sprite.spriteType.mass;
     this.spriteX.body.gravity.setTo(sprite.gravityX, sprite.gravityY);
     this.spriteX.body.maxVelocity.setTo(sprite.spriteType.maxVelocity);
-    this.spriteX.body.collideWorldBounds = true;
+    if (groupCategory !== groupFallingSpikes) {
+        this.spriteX.body.collideWorldBounds = true;
+    }
+    else {
+        this.spriteX.checkWorldBounds = true;
+        this.spriteX.outOfBoundsKill = true;
+    }
     this.spriteX.body.bounce.setTo(sprite.spriteType.bounce);
     this.spriteX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
-
     /////////////////////////Special Properties of Sprites/////////////////
-    if (sprite.spriteType.name === immovableWallOneWayPlayerBlockLeft.name ) {
+    if (sprite.spriteType.name === immovableWallOneWayPlayerBlockLeft.name) {
         this.spriteX.body.checkCollision.left = false;
     }
     if (groupCategory === groupHazama) {
@@ -117,22 +126,6 @@ brawl.game.prototype.spriteGen = function (sprite, positionInArray, groupSprite,
     ////////////////////////Testing/////////////////////////
     // this.spriteX.checkWorldBounds = true;
     // this.spriteX.events.onOutOfBounds.add(this.wallOut, this);
-};
-/////////////////////////////////Falling Spikes(Timed Traps)///////////////////////////
-brawl.game.prototype.fallingSpikesSpawn = function (sprite, positionInArray) {
-    if (this.toggleConsoleLog) {
-        console.log(sprite, positionInArray);
-    }
-    this.fallingSpikesX = this.fallingSpikes.getFirstDead(true, sprite.x, sprite.y, sprite.art);
-    this.fallingSpikesX.specialCondition = sprite.specialCondition;
-    this.fallingSpikesX.positionInArray = positionInArray;
-    this.fallingSpikesX.name = sprite.spriteType.name
-    this.fallingSpikesX.anchor.setTo(.5);
-    this.fallingSpikesX.scale.setTo(sprite.scale);
-    //Physics Properties
-    this.fallingSpikesX.checkWorldBounds = true;
-    this.fallingSpikesX.outOfBoundsKill = true;
-    this.fallingSpikesX.body.gravity.setTo(sprite.gravityX, sprite.gravityY);
 };
 //////////////////////////Flag Spawn(Checkpoints or Respawn Points)/////////////////////////
 brawl.game.prototype.flagSpawn = function (sprite) {

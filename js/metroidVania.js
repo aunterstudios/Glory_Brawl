@@ -163,7 +163,12 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     if ('fallingSpikes' in levelGenerator) {
         for (var i = 0; i < levelGenerator.fallingSpikes.length; i++) {
             if (levelGenerator.fallingSpikes[i].trigger) {
-                this.game.time.events.loop(Phaser.Timer.SECOND * levelGenerator.fallingSpikes[i].time.seconds, this.fallingSpikesSpawn, this, levelGenerator.fallingSpikes[i], i);
+                if (levelGenerator.fallingSpikes[i].time.timerType === 'loop') {
+                    this.game.time.events.loop(Phaser.Timer.SECOND * levelGenerator.fallingSpikes[i].time.seconds, this.spriteGen, this, levelGenerator.fallingSpikes[i], i, this.fallingSpikes, groupFallingSpikes, 'timer');
+                }
+                else if (levelGenerator.fallingSpikes[i].time.timerType === 'repeat') {
+                    this.game.time.events.repeat(Phaser.Timer.SECOND * levelGenerator.fallingSpikes[i].time.seconds, levelGenerator.fallingSpikes[i].time.repeatAmount, this.spriteGen, this, levelGenerator.fallingSpikes[i], i, this.fallingSpikes, groupFallingSpikes, 'timer');
+                }
             }
         }
     }
@@ -257,6 +262,5 @@ brawl.game.prototype.respawn = function (player, flag) {
             worldClassLevels[flag.specialHandler.levelSwitchArray[i].oldLevel] = worldClassLevels[flag.specialHandler.levelSwitchArray[i].shadowLevel];
         }
         this.game.state.start('story', true, false, respawnHolder.indexOfCurrentWorld, respawnHolder.indexOfPlayerPosition, respawnHolder.metroidvania, flag.specialHandler.page);
-
     }
 };
