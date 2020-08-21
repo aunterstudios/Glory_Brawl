@@ -172,7 +172,7 @@ brawl.game.prototype = {
         }
 
         // Jump!
-        if (this.jumps > 0 && this.upInputIsActive(5)) {
+        if (this.jumps > 0 && this.upInputIsActive(5) && !onHazama) {
             this.player.body.velocity.y = this.playerJump;
             this.jumping = true;
         }

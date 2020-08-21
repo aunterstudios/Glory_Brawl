@@ -110,7 +110,7 @@ function shuffle(array) {
 //Level Holder
 var worldClassLevels = [];
 ///////////////////////////////////////////Level 0///////////////////////////////////////////////////////////
-var level_0 = new LevelCreator("Level 0-Physics Testing", 1400, 800, new MetroidvaniaCreator(1, 0, 0, 800, 0, 0, 0, 1400), "#FFFDD0"); //3800
+var level_0 = new LevelCreator("Level 0-Physics Testing", 1400, 800, new MetroidvaniaCreator(1, 0, 0, 800, 0, 0, 0, 1400), "#FFFDD0");
 
 //world gravity
 // level_0.worldGravity = new worldGravityCreator(200,200);
@@ -204,9 +204,18 @@ level_2.playerPosition = [
 ///////////////////////Creation of Undeniable Death
 
 level_2.spriteSpawn = [
-  //Ground Next To Flag
+  //Repeat
+  new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 4600, 1700, 200, 25, .5, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 4600, 1500, 200, 25, .5, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 4600, 1300, 200, 25, .5, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 4600, 1100, 200, 25, .5, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 4600, 900, 200, 25, .5, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 4600, 700, 200, 25, .5, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 4600, 500, 200, 25, .5, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 4600, 300, 200, 25, .5, 0, 0, 0, 0, null, null),
+  //Border
   new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 4000, 0, 50, 1800, 1, 0, 0, 0, 0, null, null),
+  //Slippery Wall to Climb
   new SpriteCreator(true, immovableWallSlippery, 'tile', immovableWallTile, 4800, 0, 50, 1800, 1, 0, 0, 0, 0, null, null),
   //Ground
   new SpriteCreator(true, immovableWallRegular, 'tile', immovableWallTile, 4000, 2000, 800, 50, 1, 0, 0, 0, 0, null, null),
@@ -216,6 +225,7 @@ level_2.spriteSpawn = [
   new SpriteCreator(true, ledgeElevator, 'sprite', ledge, 4200, 1600, null, null, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, hazamaFalconia, 'tile', hazamaHippie, 4200, 0, 500, 1800, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 500, 100, 50, 50, 1, 0, 0, 0, 500, null, new timerCreator('loop', null, 3)),
+  new SpriteCreator(true, enemyShooter, 'sprite', enemyOne, 4700, 100, 50, 50, 1, 0, 0, 0, 0, null, null),
 ];
 
 //Flag Spawn
