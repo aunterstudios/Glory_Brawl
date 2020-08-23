@@ -78,7 +78,6 @@ class nenCreator {
 };
 
 //Generates Group Array Within Spawn
-
 class groupArrayCreator {
   constructor(groupSprite, groupCategory) {
     this.groupSprite = groupSprite;
@@ -252,8 +251,7 @@ var groupFlag = 'groupFlag';
 var tintRemover = 0xFFFFFF; //wallRegular (Removes Tint)
 var tintWallPlayerFrozen = 0x00ffff; //Frozen Wall Tints
 var testTint = Math.random() * 0xffffff; // testTint
-// console.log(testTint);
-
+var tintOrange = 15631118.030252509;
 /////////////////////////List of Names of Each Sprite (For Different Special Properties)////////////////
 //Death Names
 var undeniableDeathRegular = new spriteType(0, 'undeniableDeathRegular', Phaser.Color.RED, 100, 0, true, 1000, 1); //No Special Properties
@@ -262,7 +260,7 @@ var undeniableDeathBallKill = new spriteType(0, 'undeniableDeathBallKill', Phase
 //Immovable Wall Names
 var immovableWallRegular = new spriteType(1, 'immovableWallRegular', tintRemover, 100, 0, true, 1000, 1); //No Special Properties
 var immovableWallKillWall = new spriteType(1, 'immovableWallKillWall', 7019278.306799905, 100, 0, true, 1000, 1); //Kills Walls(Will Be Everything)
-var immovableWallPhase = new spriteType(1, 'immovableWallPhase', 15631118.030252509, 100, 0, true, 1000, 1); //Killed By Enemy BULLETS
+var immovableWallPhase = new spriteType(1, 'immovableWallPhase', 12758247.409111453, 100, 0, true, 1000, 1); //Killed By Enemy BULLETS
 var immovableWallActivation = new spriteType(1, 'immovableWallActivation', 0xffff00, 100, 0, true, 1000, 1); //Triggers Movement in a Wall
 var immovableWallWorldGravity = new spriteType(1, 'immovableWallWorldGravity', 8314793.039214706, 100, 0, true, 1000, 1); //Triggers World Gravity
 var immovableWallOneWayObject = new spriteType(1, 'immovableWallOneWayObject', 2499878.036284214, 100, 0, true, 1000, 1); //One Way (Objects Only)
