@@ -6,8 +6,12 @@ brawl.game.prototype.weaponHandler = function (weapon, sprite) {
             this.game.physics.arcade.moveToObject(sprite, this.player, 200); //200
         }
         else if (weapon.key === 'bulletPush') {
-            sprite.body.velocity.x = weapon.body.velocity.x / 2; //Divided By 2
-            sprite.body.velocity.y = weapon.body.velocity.y / 2;
+            if (cameraBoolean) {
+                sprite.body.velocity.setTo(weapon.body.velocity.x / 2, weapon.body.velocity.y / 2);
+            }
+            else {
+                sprite.body.velocity.setTo(weapon.body.velocity.x / 4, weapon.body.velocity.y / 4);
+            }
         }
         else if (weapon.key === 'bulletStop') {
             sprite.body.stop();

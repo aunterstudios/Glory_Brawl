@@ -49,16 +49,34 @@ brawl.game.prototype.cameraChange = function () {
     if (cameraBoolean) {
         this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_LOCKON);
         this.cameraImage.kill();
+        //Change Weapon Values
         this.weapon1.bulletKillType = Phaser.Weapon.KILL_CAMERA_BOUNDS;
+        this.weapon1.fireRate = nenHolder.weaponFireRate;
+        this.weapon1.bulletSpeed = nenHolder.weaponBulletSpeed;
+
         this.weapon2.bulletKillType = Phaser.Weapon.KILL_CAMERA_BOUNDS;
+        this.weapon2.fireRate = nenHolder.weaponFireRate;
+        this.weapon2.bulletSpeed = nenHolder.weaponBulletSpeed;
+
         this.weapon3.bulletKillType = Phaser.Weapon.KILL_CAMERA_BOUNDS;
+        this.weapon3.fireRate = nenHolder.weaponFireRate;
+        this.weapon3.bulletSpeed = nenHolder.weaponBulletSpeed;
     }
     else {
         this.game.camera.unfollow();
         this.cameraImage.revive();
+        //Change Weapon Values (Activates Sniper Mode)
         this.weapon1.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
+        this.weapon1.fireRate = nenHolder.weaponFireRate / 2;
+        this.weapon1.bulletSpeed = nenHolder.weaponBulletSpeed * 2;
+        
         this.weapon2.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
+        this.weapon2.fireRate = nenHolder.weaponFireRate / 2;
+        this.weapon2.bulletSpeed = nenHolder.weaponBulletSpeed * 2;
+
         this.weapon3.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
+        this.weapon3.fireRate = nenHolder.weaponFireRate / 2;
+        this.weapon3.bulletSpeed = nenHolder.weaponBulletSpeed * 2;
     }
 };
 ///////////////////////////////////////////////Fps///////////////////////////////////////////////////
