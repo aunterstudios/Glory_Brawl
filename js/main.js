@@ -48,7 +48,7 @@ game.state.add('controlScreen', brawl.stateControls);
 game.state.start('mainMenu');
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "OhBoyRefactedFCode",
+  "OhSniper",
   "GLORY BRAWL",
 ];
 
@@ -216,8 +216,11 @@ level_2.spriteSpawn = [
   new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 4400, 50, 50, 50, 1, 0, 700, 0, 0, scReverseVelocity, null),
   //To Help You Grab the Enemy Shooter
   new SpriteCreator(true, immovableWallRegular, 'tile', immovableWallTile, 4300, 50, 50, 50, 1, 0, 0, 0, 0, null, null),
-  //Border on Top of Phaser Wall
+  //Death Border on Top of Phaser Wall
   new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 4000, 0, 50, 1500, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 4050, 1450, 50, 50, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 4050, 1475, 25, 25, .5, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 3950, 1450, 50, 50, 1, 0, 0, 0, 0, null, null),
   //Phaser Wall
   new SpriteCreator(true, immovableWallPhase, 'tile', immovableWallTile, 4000, 1500, 50, 450, 1, 0, 0, 0, 0, null, null),
   //Slippery Wall to Climb
