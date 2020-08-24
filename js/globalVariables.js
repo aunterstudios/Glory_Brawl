@@ -222,14 +222,8 @@ var deaths = 0;
 var nenHolder;
 ////////////////////////Creation of Nen System
 var portalNen = new nenCreator(400, -500, null, 1500, 2, 1000, 500, 500, 200, -25, -200, 100, 400, 500, 500, 30);
-// var portalNen = new nenCreator(400, -500, null, 1500, 2, 1000, 500, 500, 200, -25, -200, 100, 400, 250, 1000, 100);
-
-
 
 /////////////////////////List of GROUP NAMES of Each Sprite (For Different Special Properties)////////////////
-/*
-Note: This is an extra name that denotes the entirety of a group. To keep physics consistent throughout.
-*/
 //Death Group
 var groupUndeniableDeath = 'groupUndeniableDeath';
 //Immovable Walls
