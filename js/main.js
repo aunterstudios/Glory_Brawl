@@ -227,13 +227,12 @@ level_2.spriteSpawn = [
   new SpriteCreator(true, immovableWallSlippery, 'tile', immovableWallTile, 4800, 0, 50, 1800, 1, 0, 0, 0, 0, null, null),
   //Ground
   new SpriteCreator(true, immovableWallRegular, 'tile', immovableWallTile, 4000, 2000, 800, 50, 1, 0, 0, 0, 0, null, null),
-  // new SpriteCreator(true, immovableWallPowerJump, 'sprite', powerJar, 4200, 1900, 50, 50, 1, 0, 0, 0, 0, null, null),
-  // new SpriteCreator(true, wallRegular, 'tile', wallTile50, 4400, 1100, 150, 50, 1, 0, 0, 0, 0, null, null),
-  // new SpriteCreator(true, ledgeElevator, 'sprite', ledge, 4200, 1600, null, null, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 500, 100, 50, 50, 1, 0, 0, 0, 500, null, new timerCreator('loop', null, 3)),
+  //Falling Spikes After Phase Wall
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 3700, 50, null, null, 1, 0, 0, 0, 500, null, new timerCreator('loop', null, 3)),
+  //Enemy to Grab to Kill Phase Wall
   new SpriteCreator(true, enemyShooter, 'sprite', enemyOne, 4700, 50, 50, 50, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 200, 1800, null, null, 1, 0, 0, 0, 0, null, null),
   // new SpriteCreator(true, hazamaFalconia, 'tile', hazamaHippie, 4200, 0, 500, 1800, 1, 0, 0, 0, 0, null, null),
-  // new SpriteCreator(true, immovableWallActivation, 'tile', immovableWallTile, 4200, 1700, 200, 25, .5, 0, 0, 0, 0, null, null),
 ];
 
 //Flag Spawn

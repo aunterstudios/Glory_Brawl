@@ -35,7 +35,7 @@ brawl.game.prototype = {
         this.weaponBulletSpeed = nenHolder.weaponBulletSpeed;
         this.weaponBulletAmount = nenHolder.weaponBulletAmount;
         //////////////////////Slow Motion Reset//////////////////
-        slowMotionLimit = 3;
+        slowMotionLimit = 1;
         timerEvents = [];
         this.game.time.slowMotion = 1.0;
     },
