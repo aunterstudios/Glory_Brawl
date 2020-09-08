@@ -286,7 +286,7 @@ var enemyAccelerate = new spriteType(4, 'enemyAccelerate', 2885804.4944837275, 2
 var ballRegular = new spriteType(5, 'ballRegular', Phaser.Color.BLUE, 20, .5, false, 1000, .5);
 
 //Falling Spikes
-var fallingSpikesRegular = new spriteType(6, 'fallingSpikesRegular', 16777215, 1, .5, false, 10000, 0);
+var fallingSpikesRegular = new spriteType(6, 'fallingSpikesRegular', Phaser.Color.RED, 1, .5, false, 10000, 0);
 
 //Hazama
 var hazamaFalconia = new spriteType(7, 'hazamaFalconia', testTint, 1, 0, false, 200, 1); //SUPER JUMPING ABILITY
