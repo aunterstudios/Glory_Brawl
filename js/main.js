@@ -245,7 +245,7 @@ level_2.flagSpawn = [
   //   new shadowLevelGenerator(0, [
   //     new shadowLevelArray(2, 4)
   //   ])),
-  new flagCreator(3, true, flagRegular, flag, 4300, 1875, 0, 0, .4, .4, 0, 0, null),
+  new flagCreator(3, true, flagRegular, flag, 4700, 1900, 0, 0, 1, 1, 0, 0, null),
 ];
 
 //Text Creator (Helpful Hints)
