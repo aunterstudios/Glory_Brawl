@@ -232,17 +232,20 @@ level_2.spriteSpawn = [
   //Falling Spikes Test Left Hand Side
   new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesTwo, 200, 1300, null, null, 1, 0, 0, 500, 0, null, new timerCreator('loop', null, 3)),
   //Enemy to Grab to Kill Phase Wall
-  new SpriteCreator(true, enemyShooter, 'sprite', enemyOne, 4700, 50, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, enemyShooter, 'sprite', enemyOne, 4700, 60, 50, 50, 1, 0, 0, 0, 0, null, null),
+  //Death Border Right Hand Side
+  new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 4050, 0, 700, 25, .5, 0, 0, 0, 0, null, null),
   // new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 200, 1800, null, null, 1, 0, 0, 0, 0, null, null),
   // new SpriteCreator(true, hazamaFalconia, 'tile', hazamaHippie, 4200, 0, 500, 1800, 1, 0, 0, 0, 0, null, null),
 ];
 
 //Flag Spawn
 level_2.flagSpawn = [
-  new flagCreator(1, true, flagRegular, flag, 4200, 1800, 0, 0, .4, .4, 0, 0,
-    new shadowLevelGenerator(0, [
-      new shadowLevelArray(2, 4)
-    ])),
+  // new flagCreator(1, true, flagRegular, flag, 4200, 1800, 0, 0, .4, .4, 0, 0,
+  //   new shadowLevelGenerator(0, [
+  //     new shadowLevelArray(2, 4)
+  //   ])),
+  new flagCreator(3, true, flagRegular, flag, 4300, 1875, 0, 0, .4, .4, 0, 0, null),
 ];
 
 //Text Creator (Helpful Hints)
