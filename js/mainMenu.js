@@ -14,6 +14,7 @@ brawl.state1.prototype = {
         this.load.image('ledge', 'assets/ledge.png');
         //Traps
         this.load.image('fallingSpikesOne', 'assets/fallingSpikesOne.png');
+        this.load.image('fallingSpikesTwo', 'assets/fallingSpikesTwo.png');
         //Bullets
         this.load.image('bulletKill', 'assets/bulletKill.png');
         this.load.image('bulletStop', 'assets/bulletStop.png');
@@ -118,10 +119,7 @@ brawl.stateControls.prototype = {
             ///////(IndexOfCurrentWorld, Position, MetroidVania(Same as Index of Current World))
             //Direct Physics
             // this.game.state.start('game', true, false, 0, 0, worldClassLevels[0].metroidvania);
-            //Level I'm Testing-Sean Moody
-            // this.game.state.start('game', true, false, 4, 1, worldClassLevels[4].metroidvania);
             this.game.state.start('game', true, false, 2, 3, worldClassLevels[2].metroidvania);
-            // this.game.state.start('game', true, false, 3, 1, worldClassLevels[3].metroidvania);
         }
     }
 };

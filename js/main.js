@@ -229,6 +229,8 @@ level_2.spriteSpawn = [
   new SpriteCreator(true, immovableWallRegular, 'tile', immovableWallTile, 4000, 2000, 800, 50, 1, 0, 0, 0, 0, null, null),
   //Falling Spikes After Phase Wall
   new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 3700, 50, null, null, 1, 0, 0, 0, 500, null, new timerCreator('loop', null, 3)),
+  //Falling Spikes Test Left Hand Side
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesTwo, 200, 1300, null, null, 1, 0, 0, 500, 0, null, new timerCreator('loop', null, 3)),
   //Enemy to Grab to Kill Phase Wall
   new SpriteCreator(true, enemyShooter, 'sprite', enemyOne, 4700, 50, 50, 50, 1, 0, 0, 0, 0, null, null),
   // new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 200, 1800, null, null, 1, 0, 0, 0, 0, null, null),
