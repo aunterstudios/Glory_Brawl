@@ -26,7 +26,7 @@ brawl.game.prototype.initControls = function () {
     this.killYourself.onDown.add(this.killSelf, this);
 
     //Slow Motion
-    this.slowMo = this.game.input.keyboard.addKey(Phaser.Keyboard.G);
+    this.slowMo = this.game.input.keyboard.addKey(Phaser.Keyboard.Q);
 
     //Trigger Slow Motion
     this.slowMo.onDown.add(this.slowMotionActivate, this);

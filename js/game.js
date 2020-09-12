@@ -330,7 +330,7 @@ brawl.game.prototype = {
             }
             if (this.movementUp.isDown) {
                 this.game.camera.y -= 20;
-                this.player.body.velocity.y = 0;
+                // this.player.body.velocity.y = -10; //need to fix this
             }
             else if (this.movementDown.isDown) {
                 this.game.camera.y += 20;
