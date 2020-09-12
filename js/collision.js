@@ -268,14 +268,25 @@ brawl.game.prototype.playerWall = function (player, wall) {
     }
     ///////////////////////////////Special Walls///////////////////////////
     if (wall.name === wallCloud.name) {
-        //Control
-        // wall.body.velocity.x = player.body.velocity.x;
-        //Let it Go
-        if (player.body.velocity.x < 0) {
-            wall.body.velocity.x = -200;
+        //Alpha One
+        // if (player.body.velocity.x < 0) {
+        //     wall.body.velocity.x = -200;
+        // }
+        // if (player.body.velocity.x > 0) {
+        //     wall.body.velocity.x = 200;
+        // }
+        //Alpha Two
+        if (this.movementUp.isDown) {
+            wall.body.velocity.setTo(0, -200);
         }
-        if (player.body.velocity.x > 0) {
-            wall.body.velocity.x = 200;
+        else if (this.movementDown.isDown) {
+            wall.body.velocity.setTo(0, 200);
+        }
+        else if (this.movementLeft.isDown) {
+            wall.body.velocity.setTo(-200, 0);
+        }
+        else if (this.movementRight.isDown) {
+            wall.body.velocity.setTo(200, 0);
         }
     }
 

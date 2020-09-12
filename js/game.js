@@ -194,8 +194,8 @@ brawl.game.prototype = {
         if (cameraBoolean) {
             if (onTheGround && !onHazama) {
                 //Set HitBox Size
-                this.player.body.setSize(34, 55.5, 15, 7);
-                // this.player.body.setSize(30, 55.5, 17.2, 7);
+                // this.player.body.setSize(34, 55.5, 15, 7);
+                this.player.body.setSize(29, 55.5, 17, 7);
                 if (this.movementLeft.isDown && !this.movementRight.isDown) {
                     // this.player.body.acceleration.x = -30000;
                     this.player.body.velocity.x = -this.playerSpeed;
@@ -330,7 +330,8 @@ brawl.game.prototype = {
             }
             if (this.movementUp.isDown) {
                 this.game.camera.y -= 20;
-                // this.player.body.velocity.y = -10; //need to fix this
+                // this.jumping = true;
+                this.player.body.velocity.y = 0; //need to fix this
             }
             else if (this.movementDown.isDown) {
                 this.game.camera.y += 20;
@@ -435,16 +436,16 @@ brawl.game.prototype = {
     //     }
     // }
     /////////////////////////Debugging + Timer///////////////////////////
-    // render: function () {
-    //     //Timer Debugging
-    //     // this.game.debug.text('Elapsed seconds: ' + this.game.time.totalElapsedSeconds(), 32, 32);
-    //     // this.game.debug.text('Global Timer: ' + total, 32, 32);
-    //     // this.game.debug.text('Heat Timer: ' + total, 32, 64);
-    //     //Body Physics
-    //     this.game.debug.body(this.player);
-    //     // this.game.debug.bodyInfo(this.player, 200, 200);
-    //     // this.game.debug.physicsGroup(this.hazama);
-    //     //Debugging FPS
-    //     // this.game.debug.text(this.game.time.fps, 200, 300);
-    // },
+    render: function () {
+        //Timer Debugging
+        // this.game.debug.text('Elapsed seconds: ' + this.game.time.totalElapsedSeconds(), 32, 32);
+        // this.game.debug.text('Global Timer: ' + total, 32, 32);
+        // this.game.debug.text('Heat Timer: ' + total, 32, 64);
+        //Body Physics
+        this.game.debug.body(this.player);
+        // this.game.debug.bodyInfo(this.player, 200, 200);
+        // this.game.debug.physicsGroup(this.hazama);
+        //Debugging FPS
+        // this.game.debug.text(this.game.time.fps, 200, 300);
+    },
 };
