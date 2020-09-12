@@ -288,6 +288,19 @@ brawl.game.prototype.playerWall = function (player, wall) {
         else if (this.movementRight.isDown) {
             wall.body.velocity.setTo(200, 0);
         }
+        //Alpha Three
+        // if (this.movementUp.isDown) {
+        //     wall.body.velocity.y = -200;
+        // }
+        // else if (this.movementDown.isDown) {
+        //     wall.body.velocity.y = 200;
+        // }
+        // else if (this.movementLeft.isDown) {
+        //     wall.body.velocity.x = -200;
+        // }
+        // else if (this.movementRight.isDown) {
+        //     wall.body.velocity.x = 200;
+        // }
     }
 
     return;
