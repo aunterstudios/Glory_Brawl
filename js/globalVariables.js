@@ -288,9 +288,11 @@ var ballRegular = new spriteType(5, 'ballRegular', Phaser.Color.BLUE, 20, .5, fa
 
 //Falling Spikes
 var fallingSpikesRegular = new spriteType(6, 'fallingSpikesRegular', Phaser.Color.RED, 1, .5, false, 10000, 0);
+//Horizontal Versionn of Falling Spikes for Recycling Purposes
+var fallingSpikesRegularTwo = new spriteType(7, 'fallingSpikesRegular', Phaser.Color.RED, 1, .5, false, 10000, 0);
 
 //Hazama
-var hazamaFalconia = new spriteType(7, 'hazamaFalconia', testTint, 1, 0, false, 200, 1); //SUPER JUMPING ABILITY
+var hazamaFalconia = new spriteType(8, 'hazamaFalconia', testTint, 1, 0, false, 200, 1); //SUPER JUMPING ABILITY
 
 //Flag Names
 var flagRegular = 'flagRegular';

@@ -132,7 +132,7 @@ brawl.game.prototype = {
         var onHazama = this.game.physics.arcade.overlap(this.player, this.hazama, this.playerHazama, null, this);
 
         //Death Mechanics (Game State Change)
-        this.game.physics.arcade.overlap(this.player, [this.enemy, this.enemyBullets.bullets, this.undeniableDeath, this.fallingSpikes], this.playerDeath, null, this);
+        this.game.physics.arcade.overlap(this.player, [this.enemy, this.enemyBullets.bullets, this.undeniableDeath, this.fallingSpikes, this.fallingSpikesTwo], this.playerDeath, null, this);
 
         //Respawn Point Mechanics
         this.game.physics.arcade.overlap(this.player, this.flag, this.respawn, null, this);
@@ -154,7 +154,7 @@ brawl.game.prototype = {
         this.game.physics.arcade.overlap([this.ball, this.ledge], this.enemy, this.blVsEnemy, null, this);
 
         //Enemy Bullet and Falling Spike Mechanics (trapProjectiles)
-        this.game.physics.arcade.overlap([this.enemyBullets.bullets, this.fallingSpikes], [this.ball, this.wall, this.immovableWall, this.ledge, this.undeniableDeath], this.trapProjectiles, null, this);
+        this.game.physics.arcade.overlap([this.enemyBullets.bullets, this.fallingSpikes, this.fallingSpikesTwo], [this.ball, this.wall, this.immovableWall, this.ledge, this.undeniableDeath], this.trapProjectiles, null, this);
 
         ////////////////////////////////Actual Controls////////////////////////////////
 
@@ -444,7 +444,7 @@ brawl.game.prototype = {
     //     //Body Physics
     //     // this.game.debug.body(this.player);
     //     // this.game.debug.bodyInfo(this.player, 200, 200);
-    //     this.game.debug.physicsGroup(this.fallingSpikes);
+    //     this.game.debug.physicsGroup(this.fallingSpikesTwo);
     //     //Debugging FPS
     //     // this.game.debug.text(this.game.time.fps, 200, 300);
     // },

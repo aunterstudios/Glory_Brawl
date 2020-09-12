@@ -228,11 +228,11 @@ level_2.spriteSpawn = [
   new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 3950, 1900, 50, 50, 1, 0, 0, 0, 0, null, null),
   // new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 3975, 1925, 25, 25, .5, 0, 0, 0, 0, null, null),
   //Falling Spikes After Phase Wall
-  // new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 3700, 50, null, null, 1, 0, 0, 0, 500, null, new timerCreator('loop', null, 3)),
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 3700, 50, null, null, 1, 0, 0, 0, 500, null, new timerCreator('loop', null, 3)),
   //Sideways Spikes for Third Part
-  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesTwo, 75, 1200, null, null, 1, 800, 0, 400, 0, null, new timerCreator('loop', null, 3)),
-  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesTwo, 75, 1300, null, null, 1, 800, 0, 400, 0, null, new timerCreator('loop', null, 5)),
-  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesTwo, 75, 1425, null, null, 1, 800, 0, 400, 0, null, new timerCreator('loop', null, 4)),
+  new SpriteCreator(true, fallingSpikesRegularTwo, 'timer', fallingSpikesTwo, 75, 1200, null, null, 1, 800, 0, 400, 0, null, new timerCreator('loop', null, 3)),
+  new SpriteCreator(true, fallingSpikesRegularTwo, 'timer', fallingSpikesTwo, 75, 1300, null, null, 1, 800, 0, 400, 0, null, new timerCreator('loop', null, 5)),
+  new SpriteCreator(true, fallingSpikesRegularTwo, 'timer', fallingSpikesTwo, 75, 1425, null, null, 1, 800, 0, 400, 0, null, new timerCreator('loop', null, 4)),
 
   //Enemy to Grab to Kill Phase Wall
   new SpriteCreator(true, enemyShooter, 'sprite', enemyOne, 4700, 60, 50, 50, 1, 0, 0, 0, 0, null, null),

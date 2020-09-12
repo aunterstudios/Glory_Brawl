@@ -22,6 +22,8 @@ brawl.game.prototype.spriteGroupGenerator = function () {
     //Timer Traps
     this.fallingSpikes = this.game.add.group();
     this.fallingSpikes.enableBody = true;
+    this.fallingSpikesTwo = this.game.add.group(); //Horizontal Verison
+    this.fallingSpikesTwo.enableBody = true; 
     //Adding Immovable Walls
     this.immovableWall = this.game.add.group();
     this.immovableWall.enableBody = true;
@@ -79,6 +81,7 @@ brawl.game.prototype.spriteGen = function (sprite, positionInArray) {
         new groupArrayCreator(this.enemy, groupEnemy),
         new groupArrayCreator(this.ball, groupBall),
         new groupArrayCreator(this.fallingSpikes, groupFallingSpikes),
+        new groupArrayCreator(this.fallingSpikesTwo, groupFallingSpikes),
         new groupArrayCreator(this.hazama, groupHazama)
     ]
     var groupSprite = groupArray[sprite.spriteType.groupNumber].groupSprite;
@@ -96,7 +99,6 @@ brawl.game.prototype.spriteGen = function (sprite, positionInArray) {
     }
     else if (sprite.generationType === 'timer') {
         this.spriteX = groupSprite.getFirstDead(true, sprite.x, sprite.y, sprite.art);
-        // this.spriteX.loadTexture(sprite.art);
         this.spriteX.scale.setTo(sprite.scale);
     }
     //Sprite Name
