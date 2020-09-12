@@ -122,8 +122,8 @@ brawl.stateControls.prototype = {
             //SandBox Mode
             // this.game.state.start('game', true, false, 1, 0, worldClassLevels[1].metroidvania);
             //Actual Levels
-            // this.game.state.start('game', true, false, 2, 3, worldClassLevels[2].metroidvania);
-            this.game.state.start('game', true, false, 2, 1, worldClassLevels[2].metroidvania);
+            this.game.state.start('game', true, false, 2, 3, worldClassLevels[2].metroidvania);
+            // this.game.state.start('game', true, false, 2, 2, worldClassLevels[2].metroidvania);
 
         }
     }

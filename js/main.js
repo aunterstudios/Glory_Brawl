@@ -197,7 +197,7 @@ level_2.nenSystem = portalNen;
 level_2.playerPosition = [
   new PlayerPositionCreator(200, 20),
   new PlayerPositionCreator(3750, 1375),
-  new PlayerPositionCreator(200, 300),
+  new PlayerPositionCreator(200, 925),
   new PlayerPositionCreator(4500, 1900),
 ]
 
@@ -226,14 +226,15 @@ level_2.spriteSpawn = [
   new SpriteCreator(true, immovableWallRegular, 'tile', immovableWallTile, 4000, 2000, 800, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 0, 2000, 4000, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 3950, 1900, 50, 50, 1, 0, 0, 0, 0, null, null),
-  // new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 3975, 1925, 25, 25, .5, 0, 0, 0, 0, null, null),
-  //Falling Spikes After Phase Wall
-  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 3700, 50, null, null, 1, 0, 0, 0, 500, null, new timerCreator('loop', null, 3)),
-  //Sideways Spikes for Third Part
-  new SpriteCreator(true, fallingSpikesRegularTwo, 'timer', fallingSpikesTwo, 75, 1200, null, null, 1, 800, 0, 400, 0, null, new timerCreator('loop', null, 3)),
-  new SpriteCreator(true, fallingSpikesRegularTwo, 'timer', fallingSpikesTwo, 75, 1300, null, null, 1, 800, 0, 400, 0, null, new timerCreator('loop', null, 5)),
-  new SpriteCreator(true, fallingSpikesRegularTwo, 'timer', fallingSpikesTwo, 75, 1425, null, null, 1, 800, 0, 400, 0, null, new timerCreator('loop', null, 4)),
-
+  //Moving Traps for Third Part
+  new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 400, 1100, 50, 50, 1, 0, 500, 0, 0, scReverseVelocity, null),
+  new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 800, 1200, 50, 50, 1, 0, 500, 0, 0, scReverseVelocity, null),
+  new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 1200, 1300, 50, 50, 1, 0, 500, 0, 0, scReverseVelocity, null),
+  new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 1600, 1100, 50, 50, 1, 0, 500, 0, 0, scReverseVelocity, null),
+  new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 2000, 1200, 50, 50, 1, 0, 500, 0, 0, scReverseVelocity, null),
+  new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 2400, 1300, 50, 50, 1, 0, 500, 0, 0, scReverseVelocity, null),
+  new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 2800, 1100, 50, 50, 1, 0, 500, 0, 0, scReverseVelocity, null),
+  new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 3200, 1200, 50, 50, 1, 0, 500, 0, 0, scReverseVelocity, null),
   //Enemy to Grab to Kill Phase Wall
   new SpriteCreator(true, enemyShooter, 'sprite', enemyOne, 4700, 60, 50, 50, 1, 0, 0, 0, 0, null, null),
   //Death Border Right Hand Side
@@ -247,6 +248,7 @@ level_2.spriteSpawn = [
   new SpriteCreator(true, immovableWallOneWayPlayer, 'tile', immovableWallTile, 3900, 1450, 50, 50, 1, 0, 0, 0, 0, null, null),
   //Top Borders of Movable Traps Wall Edition Part Two
   new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 100, 1000, 3900, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, immovableWallOneWayPlayer, 'tile', deathTile, 25, 1000, 100, 50, .5, 0, 0, 0, 0, null, null),
   //First Moveable Wall to Grab on Left Hand Side
   new SpriteCreator(true, wallRegular, 'sprite', wallTile25, 200, 1890, 25, 25, 1, 0, 0, 0, 0, null, null),
   // new SpriteCreator(true, wallRegular, 'sprite', wallTile50, 700, 200, 50, 50, 1, 0, 0, 0, 0, null, null),
@@ -259,11 +261,29 @@ level_2.spriteSpawn = [
   // new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 4400, 50, 50, 50, 1, 0, 700, 0, 0, scReverseVelocity, null),
   //Top Left Border
   new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 0, 0, 25, 1950, .5, 0, 0, 0, 0, null, null),
-  //CheckPoint Holder
+  //CheckPoint Holder for Third Part
   new SpriteCreator(true, immovableWallRegular, 'tile', immovableWallTile, 3950, 1400, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, immovableWallRegular, 'tile', immovableWallTile, 3600, 1400, 300, 50, 1, 0, 0, 0, 0, null, null),
   //Test wall
   // new SpriteCreator(true, wallRegular, 'sprite', wallTile25, 3800, 1890, 25, 25, 1, 0, 0, 0, 0, null, null),
+  //Moveable Wall for Third Part
+  new SpriteCreator(true, wallRegular, 'sprite', wallTile25, 3500, 1425, 25, 25, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallRegular, 'sprite', wallTile25, 3400, 1425, 25, 25, 1, 0, 0, 0, 0, null, null),
+  //Checkpoint Holder for End of Third Part
+  new SpriteCreator(true, immovableWallRegular, 'tile', immovableWallTile, 100, 950, 250, 50, 1, 0, 0, 0, 0, null, null),
+  //Just to Mess With You on the Last Part of the Third
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 200, 1100, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 200, 1200, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 200, 1300, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 200, 1400, 50, 50, 1, 0, 0, 0, 0, null, null),
+  //Sideways Spikes for Third Part
+  // new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesTwo, 75, 1100, null, null, 1, 800, 0, 400, 0, null, new timerCreator('loop', null, 2)),
+  // new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesTwo, 75, 1200, null, null, 1, 800, 0, 400, 0, null, new timerCreator('loop', null, 2)),
+  // new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesTwo, 75, 1300, null, null, 1, 800, 0, 400, 0, null, new timerCreator('loop', null, 2)),
+  // new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesTwo, 75, 1425, null, null, 1, 800, 0, 400, 0, null, new timerCreator('loop', null, 2)),
+  //Top Border
+  new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 200, 0, 3800, 25, .5, 0, 0, 0, 0, null, null),
+
 ];
 
 //Flag Spawn
@@ -274,6 +294,8 @@ level_2.flagSpawn = [
   //   ])),
   new flagCreator(3, true, flagRegular, flag, 4700, 1900, 0, 0, 1, 1, 0, 0, null),
   new flagCreator(1, true, flagRegular, flag, 3800, 1350, 0, 0, 1, 1, 0, 0, null),
+  new flagCreator(2, true, flagRegular, flag, 300, 900, 0, 0, 1, 1, 0, 0, null),
+
 ];
 
 //Text Creator (Helpful Hints)

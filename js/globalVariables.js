@@ -264,6 +264,7 @@ var immovableWallOneWayObject = new spriteType(1, 'immovableWallOneWayObject', 2
 var immovableWallOneWayPlayer = new spriteType(1, 'immovableWallOneWayPlayer', 241917.63554178402, 100, 0, true, 1000, 1); //One Way (Players Only)
 var immovableWallSlippery = new spriteType(1, 'immovableWallSlippery', 766012.4141677661, 100, 0, true, 1000, 1); //Makes you SLIPPERY!
 var immovableWallOneWayPlayerBlockLeft = new spriteType(1, 'immovableWallOneWayPlayerBlockLeft', 3588771.242333334, 100, 0, true, 1000, 1); //One way player only from the left
+var immovableWallOneWayPlayerBlockDown = new spriteType(1, 'immovableWallOneWayPlayerBlockDown', testTint, 100, 0, true, 1000, 1); //One way player only from the Bottom
 var immovableWallPowerJump = new spriteType(1, 'immovableWallPowerUpJump', testTint, 1, 0, true, 1000, 1);
 
 //Moveable Wall Names
@@ -288,7 +289,7 @@ var ballRegular = new spriteType(5, 'ballRegular', Phaser.Color.BLUE, 20, .5, fa
 
 //Falling Spikes
 var fallingSpikesRegular = new spriteType(6, 'fallingSpikesRegular', Phaser.Color.RED, 1, .5, false, 10000, 0);
-//Horizontal Versionn of Falling Spikes for Recycling Purposes
+//Faling Spikes (But to draw from different sprite Pool)
 var fallingSpikesRegularTwo = new spriteType(7, 'fallingSpikesRegular', Phaser.Color.RED, 1, .5, false, 10000, 0);
 
 //Hazama

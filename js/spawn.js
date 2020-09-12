@@ -22,7 +22,7 @@ brawl.game.prototype.spriteGroupGenerator = function () {
     //Timer Traps
     this.fallingSpikes = this.game.add.group();
     this.fallingSpikes.enableBody = true;
-    this.fallingSpikesTwo = this.game.add.group(); //Horizontal Verison
+    this.fallingSpikesTwo = this.game.add.group(); //To draw from different Sprite Pool
     this.fallingSpikesTwo.enableBody = true; 
     //Adding Immovable Walls
     this.immovableWall = this.game.add.group();
@@ -125,6 +125,9 @@ brawl.game.prototype.spriteGen = function (sprite, positionInArray) {
     /////////////////////////Special Properties of Sprites/////////////////
     if (sprite.spriteType.name === immovableWallOneWayPlayerBlockLeft.name) {
         this.spriteX.body.checkCollision.left = false;
+    }
+    if (sprite.spriteType.name === immovableWallOneWayPlayerBlockDown.name) {
+        this.spriteX.body.checkCollision.down = false;
     }
     if (groupCategory === groupHazama) {
         this.spriteX.alpha = .3;
