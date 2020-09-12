@@ -195,7 +195,7 @@ brawl.game.prototype = {
             if (onTheGround && !onHazama) {
                 //Set HitBox Size
                 // this.player.body.setSize(34, 55.5, 15, 7);
-                this.player.body.setSize(29, 55.5, 17, 7);
+                this.player.body.setSize(29, 55.5, 17.5, 7);
                 if (this.movementLeft.isDown && !this.movementRight.isDown) {
                     // this.player.body.acceleration.x = -30000;
                     this.player.body.velocity.x = -this.playerSpeed;
