@@ -201,8 +201,6 @@ level_2.playerPosition = [
   new PlayerPositionCreator(4500, 1900),
 ]
 
-///////////////////////Creation of Undeniable Death
-
 level_2.spriteSpawn = [
   //Repeating Traps on Slippery Wall
   new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 4600, 1600, 200, 25, .5, 0, 0, 0, 0, null, null),
@@ -222,6 +220,7 @@ level_2.spriteSpawn = [
   // new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 4050, 1475, 25, 25, .5, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 3950, 1450, 50, 50, 1, 0, 0, 0, 0, null, null),
   //Phaser Wall
+  // new SpriteCreator(true, immovableWallPhase, 'tile', immovableWallTile, 4000, 1500, 50, 450, 1, 0, 0, 0, 0, scLocalizedDestruction, null),
   new SpriteCreator(true, immovableWallPhase, 'tile', immovableWallTile, 4000, 1500, 50, 450, 1, 0, 0, 0, 0, null, null),
   //Slippery Wall to Climb
   new SpriteCreator(true, immovableWallSlippery, 'tile', immovableWallTile, 4800, 0, 50, 1800, 1, 0, 0, 0, 0, null, null),
@@ -239,6 +238,12 @@ level_2.spriteSpawn = [
   new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 4050, 0, 700, 25, .5, 0, 0, 0, 0, null, null),
   // new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 200, 1800, null, null, 1, 0, 0, 0, 0, null, null),
   // new SpriteCreator(true, hazamaFalconia, 'tile', hazamaHippie, 4200, 0, 500, 1800, 1, 0, 0, 0, 0, null, null),
+  //Sniper Nest Immovable Wall
+  new SpriteCreator(true, immovableWallRegular, 'tile', immovableWallTile, 3950, 1800, 50, 50, 1, 0, 0, 0, 0, null, null),
+  //First Moveable Wall to Grab on Left Hand Side
+  new SpriteCreator(true, wallRegular, 'sprite', wallTile25, 200, 1890, 25, 25, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, wallRegular, 'sprite', wallTile50, 700, 200, 50, 50, 1, 0, 0, 0, 0, null, null),
+
 ];
 
 //Flag Spawn
@@ -287,7 +292,7 @@ level_3.spriteSpawn = [
   new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 800, 8300, 50, 50, 1, 1000, 0, 0, 0, scReverseVelocity, null),
   new SpriteCreator(true, immovableWallRegular, 'tile', immovableWallTile, 0, 9950, 1400, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, wallRegular, 'sprite', wallTile25, 600, 9900, 25, 25, 1, 0, 0, 0, 0, null, null),
-
+  
 ];
 
 ///////////////////////////////////////////Level 4///////////////////////////////////////////////////////////

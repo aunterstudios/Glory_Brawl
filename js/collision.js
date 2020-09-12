@@ -4,6 +4,12 @@ brawl.game.prototype.trapProjectiles = function (trapProjectiles, obstacles) {
     trapProjectiles.kill();
     if (obstacles.name === 'immovableWallPhase') {
         this.emitterFunction(obstacles, trapProjectiles, 'destroy');
+        if (obstacles.specialCondition) {
+            if (obstacles.specialCondition.name === scLocalizedDestruction.name) {
+                //Destruction of Localized Sprite
+                worldClassLevels[this.indexOfCurrentWorld].spriteSpawn[obstacles.positionInArray].trigger = false;
+            }
+        }
     }
 };
 
