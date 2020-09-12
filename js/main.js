@@ -227,6 +227,8 @@ level_2.spriteSpawn = [
   new SpriteCreator(true, immovableWallSlippery, 'tile', immovableWallTile, 4800, 0, 50, 1800, 1, 0, 0, 0, 0, null, null),
   //Ground
   new SpriteCreator(true, immovableWallRegular, 'tile', immovableWallTile, 4000, 2000, 800, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 0, 2000, 4000, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 3950, 1900, 50, 50, 1, 0, 0, 0, 0, null, null),
   //Falling Spikes After Phase Wall
   new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 3700, 50, null, null, 1, 0, 0, 0, 500, null, new timerCreator('loop', null, 3)),
   //Falling Spikes Test Left Hand Side
@@ -241,7 +243,7 @@ level_2.spriteSpawn = [
 
 //Flag Spawn
 level_2.flagSpawn = [
-  // new flagCreator(1, true, flagRegular, flag, 4200, 1800, 0, 0, .4, .4, 0, 0,
+  // new flagCreator(1, true, flagSpecial, flag, 4200, 1800, 0, 0, .4, .4, 0, 0,
   //   new shadowLevelGenerator(0, [
   //     new shadowLevelArray(2, 4)
   //   ])),
@@ -308,6 +310,7 @@ level_4.playerPosition = [
 //Sprite Generation
 level_4.spriteSpawn = [
   new SpriteCreator(true, immovableWallRegular, 'tile', immovableWallTile, 0, 3000, 500, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 550, 3000, 500, 50, 1, 0, 0, 0, 0, null, null),
 ];
 
 //////////////////////////////////////////Pushing All Levels Into World Array/////////////////////////////////////
