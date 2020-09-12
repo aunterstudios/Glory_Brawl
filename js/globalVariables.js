@@ -198,8 +198,8 @@ var respawnHolder = {
 var cameraBoolean = true;
 
 //Engage Coordinate system
-var coordinateSystem = true;
-// var coordinateSystem = false;
+// var coordinateSystem = true;
+var coordinateSystem = false;
 
 // Global Timer
 var total = 0;
