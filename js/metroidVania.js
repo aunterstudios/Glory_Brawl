@@ -176,6 +176,7 @@ brawl.game.prototype.playerOut = function (player) {
 ///////////////////////////////////////////State Switches////////////////////////////////
 //Character Dying From Enemies and Such
 brawl.game.prototype.playerDeath = function (victim, killer) {
+    console.log(killer.positionInArray);
     this.emitterFunction(victim, null, 'kill');
     this.game.time.events.add(1000, this.deathSwitch, this);
 };

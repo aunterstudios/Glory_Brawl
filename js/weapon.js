@@ -10,7 +10,9 @@ brawl.game.prototype.weaponHandler = function (weapon, sprite) {
                 sprite.body.velocity.setTo(weapon.body.velocity.x / 2, weapon.body.velocity.y / 2);
             }
             else {
-                sprite.body.velocity.setTo(weapon.body.velocity.x / 4, weapon.body.velocity.y / 4);
+                // sprite.body.velocity.setTo(weapon.body.velocity.x / 4, weapon.body.velocity.y / 4);
+                sprite.body.velocity.setTo(weapon.body.velocity.x / 6, weapon.body.velocity.y / 6);
+
             }
         }
         else if (weapon.key === 'bulletStop') {
@@ -21,7 +23,7 @@ brawl.game.prototype.weaponHandler = function (weapon, sprite) {
 };
 //Let Weapon Fire Pass Through
 brawl.game.prototype.weaponProcessArgument = function (weapon, ghost) {
-    if (ghost.name === wallCloud.name) {
+    if (ghost.name === wallCloud.name || ghost.name === undeniableDeathGhost.name) {
         return false;
     }
     else {

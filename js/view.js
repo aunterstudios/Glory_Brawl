@@ -66,17 +66,28 @@ brawl.game.prototype.cameraChange = function () {
         this.game.camera.unfollow();
         this.cameraImage.revive();
         //Change Weapon Values (Activates Sniper Mode)
+        // this.weapon1.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
+        // this.weapon1.fireRate = nenHolder.weaponFireRate / 2;
+        // this.weapon1.bulletSpeed = nenHolder.weaponBulletSpeed * 2;
+        
+        // this.weapon2.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
+        // this.weapon2.fireRate = nenHolder.weaponFireRate / 2;
+        // this.weapon2.bulletSpeed = nenHolder.weaponBulletSpeed * 2;
+
+        // this.weapon3.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
+        // this.weapon3.fireRate = nenHolder.weaponFireRate / 2;
+        // this.weapon3.bulletSpeed = nenHolder.weaponBulletSpeed * 2;
         this.weapon1.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
-        this.weapon1.fireRate = nenHolder.weaponFireRate / 2;
-        this.weapon1.bulletSpeed = nenHolder.weaponBulletSpeed * 2;
+        this.weapon1.fireRate = nenHolder.weaponFireRate / 3;
+        this.weapon1.bulletSpeed = nenHolder.weaponBulletSpeed * 3;
         
         this.weapon2.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
-        this.weapon2.fireRate = nenHolder.weaponFireRate / 2;
-        this.weapon2.bulletSpeed = nenHolder.weaponBulletSpeed * 2;
+        this.weapon2.fireRate = nenHolder.weaponFireRate / 3;
+        this.weapon2.bulletSpeed = nenHolder.weaponBulletSpeed * 3;
 
         this.weapon3.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
-        this.weapon3.fireRate = nenHolder.weaponFireRate / 2;
-        this.weapon3.bulletSpeed = nenHolder.weaponBulletSpeed * 2;
+        this.weapon3.fireRate = nenHolder.weaponFireRate / 3;
+        this.weapon3.bulletSpeed = nenHolder.weaponBulletSpeed * 3;
     }
 };
 ///////////////////////////////////////////////Fps///////////////////////////////////////////////////

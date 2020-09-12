@@ -252,6 +252,7 @@ var tintOrange = 15631118.030252509;
 //Death Names
 var undeniableDeathRegular = new spriteType(0, 'undeniableDeathRegular', Phaser.Color.RED, 100, 0, true, 1000, 1); //No Special Properties
 var undeniableDeathBallKill = new spriteType(0, 'undeniableDeathBallKill', Phaser.Color.ORANGE, 100, 0, true, 1000, 1); //Killable By Ball
+var undeniableDeathGhost = new spriteType(0, 'undeniableDeathGhost', 9583870.358153213, 100, 0, true, 1000, 1); //Weapon Phases
 
 //Immovable Wall Names
 var immovableWallRegular = new spriteType(1, 'immovableWallRegular', tintRemover, 100, 0, true, 1000, 1); //No Special Properties

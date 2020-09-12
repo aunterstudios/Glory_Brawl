@@ -96,6 +96,7 @@ brawl.game.prototype.spriteGen = function (sprite, positionInArray) {
     }
     else if (sprite.generationType === 'timer') {
         this.spriteX = groupSprite.getFirstDead(true, sprite.x, sprite.y, sprite.art);
+        // this.spriteX.loadTexture(sprite.art);
         this.spriteX.scale.setTo(sprite.scale);
     }
     //Sprite Name
