@@ -152,7 +152,7 @@ level_0.flagSpawn = [
 ];
 ////////////////////////////////////////Level 1-SandboxMode/////////////////////////////////////
 //New Playground
-var level_1 = new LevelCreator("Level 1-SandboxMode", 1400, 10000, new MetroidvaniaCreator(1, 0, 1, 10000, 2, 0, 1, 1400), '#ffffff');
+var level_1 = new LevelCreator("Level 1-SandboxMode", 2800, 4000, new MetroidvaniaCreator(1, 0, 1, 10000, 2, 0, 1, 1400), '#ffffff');
 
 //World Gravity
 // level_1.worldGravity = new worldGravityCreator(200,200);
@@ -162,23 +162,23 @@ level_1.nenSystem = portalNen;
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_1.playerPosition = [
-  new PlayerPositionCreator(200, 9900),
-  new PlayerPositionCreator(200, 9900),
+  new PlayerPositionCreator(50, 200),
+  new PlayerPositionCreator(300, 100),
   new PlayerPositionCreator(200, 9900),
   new PlayerPositionCreator(200, 9900),
 ]
 
 level_1.spriteSpawn = [
-  //Side Borders
-  new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 0, 0, 50, 9950, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 1400, 0, 50, 9950, 1, 0, 0, 0, 0, null, null),
-  //Testing
-  new SpriteCreator(true, immovableWallRegular, 'tile', immovableWallTile, 0, 9950, 1400, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, wallRegular, 'tile', wallTile50, 700, 200, 150, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, ledgeSurf, 'sprite', ledge, 400, 100, 150, 50, 1, 300, 0, 0, 0, null, null),
-  new SpriteCreator(true, ballRegular, 'sprite', ball, 200, 100, 50, 50, 1, 300, 0, 0, 0, null, null),
-  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 100, 200, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 500, 100, 50, 50, 1, 0, 0, 0, 500, null, new timerCreator('loop', null, 3)),
+  ////////////////Green Wall
+  new SpriteCreator(true, immovableWallSlippery, 'tile', immovableWallTile, 0, 0, 50, 4000, 1, 0, 0, 0, 0, null, null),
+  ///////////////Ground
+  new SpriteCreator(true, immovableWallRegular, 'tile', immovableWallTile, 200, 200, 250, 50, 1, 0, 0, 0, 0, null, null),
+
+
+
+  
+
+  
 ];
 
 //flag spawn
@@ -239,8 +239,6 @@ level_2.spriteSpawn = [
   new SpriteCreator(true, enemyShooter, 'sprite', enemyOne, 4700, 60, 50, 50, 1, 0, 0, 0, 0, null, null),
   //Death Border Right Hand Side
   new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 4050, 0, 700, 25, .5, 0, 0, 0, 0, null, null),
-  // new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 200, 1800, null, null, 1, 0, 0, 0, 0, null, null),
-  // new SpriteCreator(true, hazamaFalconia, 'tile', hazamaHippie, 4200, 0, 500, 1800, 1, 0, 0, 0, 0, null, null),
   //Sniper Nest Immovable Wall
   new SpriteCreator(true, immovableWallRegular, 'tile', immovableWallTile, 3950, 1800, 50, 50, 1, 0, 0, 0, 0, null, null),
   //Top Borders of Movable Traps Wall Edition Part One
@@ -282,7 +280,11 @@ level_2.spriteSpawn = [
   // new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesTwo, 75, 1300, null, null, 1, 800, 0, 400, 0, null, new timerCreator('loop', null, 2)),
   // new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesTwo, 75, 1425, null, null, 1, 800, 0, 400, 0, null, new timerCreator('loop', null, 2)),
   //Top Border
-  new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 200, 0, 3800, 25, .5, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 200, 0, 3800, 50, 1, 0, 0, 0, 0, null, null),
+  //Traps for Last Part
+  new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 25, 400, 500, 25, .5, 0, 0, 0, 0, null, null),
+  //Hazama For the lastest part
+  new SpriteCreator(true, hazamaFalconia, 'tile', hazamaHippie, 400, 50, 3600, 950, 1, 0, 0, 0, 0, null, null),
 
 ];
 

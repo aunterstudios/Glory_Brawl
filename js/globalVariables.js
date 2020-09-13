@@ -198,8 +198,8 @@ var respawnHolder = {
 var cameraBoolean = true;
 
 //Engage Coordinate system
-// var coordinateSystem = true;
-var coordinateSystem = false;
+var coordinateSystem = true;
+// var coordinateSystem = false;
 
 // Global Timer
 var total = 0;
@@ -220,8 +220,48 @@ var deaths = 0;
 /////////////////////////Nen System///////////////////////////
 //Holds as Reference
 var nenHolder;
+/*
+this.playerSpeed = playerSpeed;
+    this.playerJump = playerJump;
+    this.playerGravityX = playerGravityX;
+    this.playerGravityY = playerGravityY;
+    this.playerDoubleJumps = playerDoubleJumps;
+    this.playerWallJumpX = playerWallJumpX;
+    this.playerWallJumpY = playerWallJumpY;
+    this.playerWallDisengage = playerWallDisengage;
+    this.playerStickiness = playerStickiness;
+    this.playerSlippery = playerSlippery;
+    this.playerUpsideDownVelocity = playerUpsideDownVelocity;
+    this.playerUpsideDownMovement = playerUpsideDownMovement;
+    this.playerDownwards = playerDownwards;
+    /////////////////////////Weapon Attributes///////////////////
+    this.weaponFireRate = weaponFireRate;
+    this.weaponBulletSpeed = weaponBulletSpeed;
+    this.weaponBulletAmount = weaponBulletAmount;
+*/
 ////////////////////////Creation of Nen System
-var portalNen = new nenCreator(400, -500, null, 1500, 2, 1000, 500, 500, 200, -25, -200, 100, 400, 500, 500, 30);
+var portalNen = new nenCreator(
+  400, //Speed
+  -500, //Jump
+  null, //Gravity-X
+  1500, //Gravity-Y
+  2, //Double Jump
+  1000, //WallJump-X
+  500, //wallJump-Y
+  500, //Disenage Wall-S
+  200, //Stick to Wall
+  -25, //Wall Slide-Y
+  -200, //Upside Stickiness
+  100, //Upside Down Disengage
+  400, //Downwards-S
+  500, //WEAPON FIRE RATE
+  500, //Weapon Speed
+  30, //weaponBulletAmount
+);
+var falconiaNen = new nenCreator(1000, -500, null, 700, 2, 1000, 500, 500, 500, -10, -200, 100, 400, 500, 500, 30);
+var testNen = new nenCreator(1000, -500, null, 700, 1, 0, 0, 800, 1000, 500, 0, 0, 400, 500, 500, 30);
+
+
 
 /////////////////////////List of GROUP NAMES of Each Sprite (For Different Special Properties)////////////////
 //Death Group

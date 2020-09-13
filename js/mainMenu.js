@@ -120,9 +120,9 @@ brawl.stateControls.prototype = {
             //Direct Physics
             // this.game.state.start('game', true, false, 0, 0, worldClassLevels[0].metroidvania);
             //SandBox Mode
-            // this.game.state.start('game', true, false, 1, 0, worldClassLevels[1].metroidvania);
+            this.game.state.start('game', true, false, 1, 1, worldClassLevels[1].metroidvania);
             //Actual Levels
-            this.game.state.start('game', true, false, 2, 3, worldClassLevels[2].metroidvania);
+            // this.game.state.start('game', true, false, 2, 3, worldClassLevels[2].metroidvania);
             // this.game.state.start('game', true, false, 2, 2, worldClassLevels[2].metroidvania);
 
         }
