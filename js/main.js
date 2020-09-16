@@ -152,33 +152,64 @@ level_0.flagSpawn = [
 ];
 ////////////////////////////////////////Level 1-SandboxMode/////////////////////////////////////
 //New Playground
-var level_1 = new LevelCreator("Level 1-SandboxMode", 2800, 4000, new MetroidvaniaCreator(1, 0, 1, 10000, 2, 0, 1, 1400), '#ffffff');
+var level_1 = new LevelCreator("Level 1-SandboxMode", 1400, 8000, new MetroidvaniaCreator(1, 0, 1, 10000, 2, 0, 1, 1400), '#ffffff');
 
 //World Gravity
 // level_1.worldGravity = new worldGravityCreator(200,200);
 
 //Creation of Nen System in Level
-level_1.nenSystem = portalNen;
+level_1.nenSystem = seanNen;
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_1.playerPosition = [
-  new PlayerPositionCreator(50, 200),
-  new PlayerPositionCreator(300, 100),
-  new PlayerPositionCreator(200, 9900),
-  new PlayerPositionCreator(200, 9900),
+  // new PlayerPositionCreator(150, 100),
+  // new PlayerPositionCreator(150, 100),
+  // new PlayerPositionCreator(150, 100),
+  // new PlayerPositionCreator(150, 100),
+  //Second Side
+  new PlayerPositionCreator(700, 100),
+  new PlayerPositionCreator(700, 100),
+  new PlayerPositionCreator(700, 100),
+  new PlayerPositionCreator(700, 100),
 ]
 
 level_1.spriteSpawn = [
-  ////////////////Green Wall
-  new SpriteCreator(true, immovableWallSlippery, 'tile', immovableWallTile, 0, 0, 50, 4000, 1, 0, 0, 0, 0, null, null),
+  ////////////////Green Walls
+  //Left
+  new SpriteCreator(true, immovableWallSlippery, 'tile', immovableWallTile, 0, 0, 50, 8000, 1, 0, 0, 0, 0, null, null),
+  //Middle
+  new SpriteCreator(true, immovableWallSlippery, 'tile', immovableWallTile, 500, 0, 50, 8000, 1, 0, 0, 0, 0, null, null),
+  //Right
+  new SpriteCreator(true, immovableWallSlippery, 'tile', immovableWallTile, 1350, 0, 50, 8000, 1, 0, 0, 0, 0, null, null),
   ///////////////Ground
-  new SpriteCreator(true, immovableWallRegular, 'tile', immovableWallTile, 200, 200, 250, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, immovableWallRegular, 'tile', immovableWallTile, 600, 200, 200, 50, 1, 0, 0, 0, 0, null, null),
+  //////////////White Section (Beginning)
+  // new SpriteCreator(true, immovableWallRegular, 'tile', immovableWallTile, 600, 800, 50, 50, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, immovableWallRegular, 'tile', immovableWallTile, 900, 900, 50, 50, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, immovableWallRegular, 'tile', immovableWallTile, 600, 800, 50, 50, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, immovableWallRegular, 'tile', immovableWallTile, 600, 800, 50, 50, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, immovableWallRegular, 'tile', immovableWallTile, 600, 800, 50, 50, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, immovableWallRegular, 'tile', immovableWallTile, 600, 800, 50, 50, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, immovableWallRegular, 'tile', immovableWallTile, 600, 800, 50, 50, 1, 0, 0, 0, 0, null, null),
+  //////////////Walls That Kill You
+  // // new SpriteCreator(true, wallKiller, 'tile', wallTile50, 850, 800, 50, 50, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, wallRegular, 'tile', wallTile50, 900, 800, 50, 50, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, wallSurf, 'tile', wallTile50, 950, 800, 50, 50, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, wallInverse, 'tile', wallTile50, 1000, 800, 50, 50, 1, 0, 0, 0, 0, null, null),
+  // // new SpriteCreator(true, wallKiller, 'tile', wallTile50, 1050, 800, 50, 50, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, wallRegular, 'tile', wallTile50, 1100, 800, 50, 50, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, wallRegular, 'tile', wallTile50, 1150, 800, 50, 50, 1, 0, 0, 0, 0, null, null),
+  //Bigger Wall
+  new SpriteCreator(true, wallRegular, 'tile', wallTile50, 850, 750, 700, 50, 1, 0, 0, 0, 0, null, null),
+  //Enemies
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 850, 850, 50, 50, 1, 0, 0, 0, 0, scNoTypeEnemy, null),
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 900, 850, 50, 50, 1, 0, 0, 0, 0, scNoTypeEnemy, null),
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 950, 850, 50, 50, 1, 0, 0, 0, 0, scNoTypeEnemy, null),
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 1000, 850, 50, 50, 1, 0, 0, 0, 0, scNoTypeEnemy, null),
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 1050, 850, 50, 50, 1, 0, 0, 0, 0, scNoTypeEnemy, null),
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 1100, 850, 50, 50, 1, 0, 0, 0, 0, scNoTypeEnemy, null),
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 1150, 850, 50, 50, 1, 0, 0, 0, 0, scNoTypeEnemy, null),
 
-
-
-  
-
-  
 ];
 
 //flag spawn

@@ -83,7 +83,7 @@ brawl.game.prototype.immovableMoveableProcessArgument = function (imb, mov) {
 
 //Wall Against Moveable Objects
 brawl.game.prototype.wallVsEnemy = function (wall, enemy) {
-    /////////////////Actual Collision Physics/////////////
+    ///////////////Actual Collision Physics/////////////
     if (enemy.name !== 'enemyFrozen') {
         enemy.name = 'enemyStill';
         enemy.tint = tintRemover;
@@ -114,6 +114,10 @@ brawl.game.prototype.wallVsEnemy = function (wall, enemy) {
         else if (wall.body.touching.right) {
             wall.body.velocity.x = -300;
         }
+    }
+    if (enemy.specialCondition) {
+       if (enemy.specialCondition.name === scNoTypeEnemy.name) {
+       }
     }
     return;
 };
@@ -307,6 +311,15 @@ brawl.game.prototype.playerWall = function (player, wall) {
         // else if (this.movementRight.isDown) {
         //     wall.body.velocity.x = 200;
         // }
+    }
+    if (wall.name === wallKiller.name) {
+        // wall.name = wallPlayerFrozen;
+        // wall.body.moves = false;
+        // wall.body.immovable = true;
+        // player.body.stop();
+        // wall.body.stop();
+        // wall.tint = tintWallPlayerFrozen;
+        this.playerDeath(player, wall);
     }
 
     return;

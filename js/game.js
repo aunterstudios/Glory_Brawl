@@ -61,7 +61,7 @@ brawl.game.prototype = {
         this.createPause();
 
         //Overlap Bias to Prevent Sprite Tunneling
-        this.game.physics.arcade.OVERLAP_BIAS = 10; //10 is original
+        this.game.physics.arcade.OVERLAP_BIAS = worldClassLevels[this.indexOfCurrentWorld].nenSystem.overlapBias; //10 is original
 
         ////////////////////Game World Size//////////////////////
         this.game.world.setBounds(0, 0, worldClassLevels[this.indexOfCurrentWorld].xOfWorld, worldClassLevels[this.indexOfCurrentWorld].yOfWorld);
@@ -155,6 +155,9 @@ brawl.game.prototype = {
 
         //Enemy Bullet and Falling Spike Mechanics (trapProjectiles)
         this.game.physics.arcade.overlap([this.enemyBullets.bullets, this.fallingSpikes, this.fallingSpikesTwo], [this.ball, this.wall, this.immovableWall, this.ledge, this.undeniableDeath], this.trapProjectiles, null, this);
+        
+        //Experimental
+        this.game.physics.arcade.collide(this.enemy, this.enemy, null, null, this);
 
         ////////////////////////////////Actual Controls////////////////////////////////
 

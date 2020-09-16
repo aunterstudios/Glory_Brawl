@@ -56,7 +56,7 @@ class shadowLevelArray {
 
 //Generates Nen or Physics of the Individual Player
 class nenCreator {
-  constructor(playerSpeed, playerJump, playerGravityX, playerGravityY, playerDoubleJumps, playerWallJumpX, playerWallJumpY, playerWallDisengage, playerStickiness, playerSlippery, playerUpsideDownVelocity, playerUpsideDownMovement, playerDownwards, weaponFireRate, weaponBulletSpeed, weaponBulletAmount) {
+  constructor(playerSpeed, playerJump, playerGravityX, playerGravityY, playerDoubleJumps, playerWallJumpX, playerWallJumpY, playerWallDisengage, playerStickiness, playerSlippery, playerUpsideDownVelocity, playerUpsideDownMovement, playerDownwards, weaponFireRate, weaponBulletSpeed, weaponBulletAmount, overlapBias) {
     this.playerSpeed = playerSpeed;
     this.playerJump = playerJump;
     this.playerGravityX = playerGravityX;
@@ -74,6 +74,8 @@ class nenCreator {
     this.weaponFireRate = weaponFireRate;
     this.weaponBulletSpeed = weaponBulletSpeed;
     this.weaponBulletAmount = weaponBulletAmount;
+    //////////////////////World Attributes/////////////////
+    this.overlapBias = overlapBias;
   }
 };
 
@@ -257,12 +259,27 @@ var portalNen = new nenCreator(
   500, //WEAPON FIRE RATE
   500, //Weapon Speed
   30, //weaponBulletAmount
+  10, //OverLap Bias
 );
-var falconiaNen = new nenCreator(1000, -500, null, 700, 2, 1000, 500, 500, 500, -10, -200, 100, 400, 500, 500, 30);
-var testNen = new nenCreator(1000, -500, null, 700, 1, 0, 0, 800, 1000, 500, 0, 0, 400, 500, 500, 30);
-
-
-
+var seanNen = new nenCreator(
+  400, //Speed
+  -500, //Jump
+  null, //Gravity-X
+  1500, //Gravity-Y
+  2, //Double Jump
+  1000, //WallJump-X
+  200, //wallJump-Y
+  500, //Disenage Wall-S
+  200, //Stick to Wall
+  -25, //Wall Slide-Y
+  -200, //Upside Stickiness
+  100, //Upside Down Disengage
+  400, //Downwards-S
+  500, //WEAPON FIRE RATE
+  500, //Weapon Speed
+  30, //weaponBulletAmount
+  20, //OverLap Bias
+);
 /////////////////////////List of GROUP NAMES of Each Sprite (For Different Special Properties)////////////////
 //Death Group
 var groupUndeniableDeath = 'groupUndeniableDeath';
@@ -313,6 +330,7 @@ var wallSurf = new spriteType(2, 'wallSurf', 10409939.733364154, 200, .5, false,
 var wallInverse = new spriteType(2, 'wallInverse', 1181911.9307258818, 200, .5, false, 1000, 1); //First Turn (Leaners Walls From Ledge)
 var wallGhost = new spriteType(2, 'wallGhost', 16771007.229130682, 200, .5, true, 1000, 1); //Immovable Wall That Let's You Get Through Objects
 var wallCloud = new spriteType(2, 'wallCloud', 9583870.358153213, 200, .5, true, 1000, 1); //Stationary Shooting Platform Cloud
+var wallKiller = new spriteType(2, 'wallKiller', Phaser.Color.RED, 200, .5, false, 1000, 1);
 
 //Ledge Names
 var ledgeElevator = new spriteType(3, 'ledgeElevator', Phaser.Color.YELLOW, 20, .5, false, 1000, .5);
@@ -342,6 +360,7 @@ var flagSpecial = 'flagSpecial';
 //////////////////////////Special Conditions///////////////////////
 var scReverseVelocity = new specialConditionCreator('reverseVelocity');
 var scLocalizedDestruction = new specialConditionCreator('localizedDestruction');
+var scNoTypeEnemy = new specialConditionCreator('noTypeEnemy');
 
 /////////////////////////List of Art or Image Keys of Each Sprite/////////////////
 //Death
