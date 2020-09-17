@@ -3,14 +3,16 @@
 brawl.game.prototype.weaponHandler = function (weapon, sprite) {
     if (sprite.groupName === groupBall || sprite.groupName === groupEnemy || sprite.groupName === groupWall || sprite.groupName === groupLedge) {
         if (weapon.key === 'bulletPull') {
-            if (cameraBoolean) {
-                this.game.physics.arcade.moveToObject(sprite, this.player, 200);
-            }
-            else {
-                // sprite.body.velocity.setTo(weapon.body.velocity.x / 4, weapon.body.velocity.y / 4);
-                this.game.physics.arcade.moveToObject(sprite, this.player, 600);
+            // if (cameraBoolean) {
+            //     this.game.physics.arcade.moveToObject(sprite, this.player, 200);
+            // }
+            // else {
+            //     // sprite.body.velocity.setTo(weapon.body.velocity.x / 4, weapon.body.velocity.y / 4);
+            //     this.game.physics.arcade.moveToObject(sprite, this.player, 600);
 
-            }
+            // }
+            // this.game.physics.arcade.moveToPointer(sprite, 400)
+            this.game.physics.arcade.moveToObject(sprite, this.player, 200, 500);
         }
         else if (weapon.key === 'bulletPush') {
             sprite.body.velocity.setTo(weapon.body.velocity.x / 2, weapon.body.velocity.y / 2);
