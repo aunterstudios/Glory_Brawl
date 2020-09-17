@@ -233,7 +233,7 @@ level_1.spriteSpawn = [
   new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 1250, 850, 50, 50, 1, 0, 0, 0, 0, scNoTypeEnemy, null),
   new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 1300, 850, 50, 50, 1, 0, 0, 0, 0, scNoTypeEnemy, null),
   //Bottom of Enemies
-  new SpriteCreator(true, wallRegular, 'tile', wallTile50, 600, 1000, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, immovableWallRegular, 'tile', immovableWallTile, 575, 1000, 750, 50, 1, 0, 0, 0, 0, null, null),
 ];
 
 //flag spawn
