@@ -132,7 +132,11 @@ brawl.game.prototype = {
         var onHazama = this.game.physics.arcade.overlap(this.player, this.hazama, this.playerHazama, null, this);
 
         //Death Mechanics (Game State Change)
-        this.game.physics.arcade.overlap(this.player, [this.enemy, this.enemyBullets.bullets, this.undeniableDeath, this.fallingSpikes, this.fallingSpikesTwo], this.playerDeath, null, this);
+        // this.game.physics.arcade.overlap(this.player, [this.enemy, this.enemyBullets.bullets, this.undeniableDeath, this.fallingSpikes, this.fallingSpikesTwo], this.playerDeath, null, this);
+        //Death Mechanics
+        this.game.physics.arcade.overlap(this.player, [this.enemyBullets.bullets, this.undeniableDeath, this.fallingSpikes, this.fallingSpikesTwo], this.playerDeath, null, this);
+        //Enemy Mechanics
+        this.game.physics.arcade.collide(this.player, this.enemy, this.playerEnemy, null, this);
 
         //Respawn Point Mechanics
         this.game.physics.arcade.overlap(this.player, this.flag, this.respawn, null, this);
@@ -157,7 +161,7 @@ brawl.game.prototype = {
         this.game.physics.arcade.overlap([this.enemyBullets.bullets, this.fallingSpikes, this.fallingSpikesTwo], [this.ball, this.wall, this.immovableWall, this.ledge, this.undeniableDeath], this.trapProjectiles, null, this);
         
         //Experimental
-        this.game.physics.arcade.collide(this.enemy, this.enemy, null, null, this);
+        // this.game.physics.arcade.collide(this.enemy, this.enemy, null, null, this);
 
         ////////////////////////////////Actual Controls////////////////////////////////
 

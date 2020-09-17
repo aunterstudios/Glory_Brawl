@@ -152,7 +152,7 @@ level_0.flagSpawn = [
 ];
 ////////////////////////////////////////Level 1-SandboxMode/////////////////////////////////////
 //New Playground
-var level_1 = new LevelCreator("Level 1-SandboxMode", 1400, 8000, new MetroidvaniaCreator(1, 0, 1, 10000, 2, 0, 1, 1400), '#ffffff');
+var level_1 = new LevelCreator("Level 1-SandboxMode", 1400, 16000, new MetroidvaniaCreator(1, 0, 1, 10000, 2, 0, 1, 1400), '#ffffff');
 
 //World Gravity
 // level_1.worldGravity = new worldGravityCreator(200,200);
@@ -199,9 +199,29 @@ level_1.spriteSpawn = [
   // // new SpriteCreator(true, wallKiller, 'tile', wallTile50, 1050, 800, 50, 50, 1, 0, 0, 0, 0, null, null),
   // new SpriteCreator(true, wallRegular, 'tile', wallTile50, 1100, 800, 50, 50, 1, 0, 0, 0, 0, null, null),
   // new SpriteCreator(true, wallRegular, 'tile', wallTile50, 1150, 800, 50, 50, 1, 0, 0, 0, 0, null, null),
-  //Bigger Wall
-  new SpriteCreator(true, wallRegular, 'tile', wallTile50, 850, 750, 700, 50, 1, 0, 0, 0, 0, null, null),
+  ///////////////////////////////////////Spring Board Enemies Section//////////////////////////////////////
+  //Mixed Wall
+  new SpriteCreator(true, wallRegular, 'tile', wallTile50, 600, 750, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallKiller, 'tile', wallTile50, 650, 750, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallRegular, 'tile', wallTile50, 700, 750, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallKiller, 'tile', wallTile50, 750, 750, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallRegular, 'tile', wallTile50, 800, 750, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallKiller, 'tile', wallTile50, 850, 750, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallRegular, 'tile', wallTile50, 900, 750, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallKiller, 'tile', wallTile50, 950, 750, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallRegular, 'tile', wallTile50, 1000, 750, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallKiller, 'tile', wallTile50, 1050, 750, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallRegular, 'tile', wallTile50, 1100, 750, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallKiller, 'tile', wallTile50, 1150, 750, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallRegular, 'tile', wallTile50, 1200, 750, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallKiller, 'tile', wallTile50, 1250, 750, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallRegular, 'tile', wallTile50, 1300, 750, 50, 50, 1, 0, 0, 0, 0, null, null),
   //Enemies
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 600, 850, 50, 50, 1, 0, 0, 0, 0, scNoTypeEnemy, null),
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 650, 850, 50, 50, 1, 0, 0, 0, 0, scNoTypeEnemy, null),
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 700, 850, 50, 50, 1, 0, 0, 0, 0, scNoTypeEnemy, null),
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 750, 850, 50, 50, 1, 0, 0, 0, 0, scNoTypeEnemy, null),
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 800, 850, 50, 50, 1, 0, 0, 0, 0, scNoTypeEnemy, null),
   new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 850, 850, 50, 50, 1, 0, 0, 0, 0, scNoTypeEnemy, null),
   new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 900, 850, 50, 50, 1, 0, 0, 0, 0, scNoTypeEnemy, null),
   new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 950, 850, 50, 50, 1, 0, 0, 0, 0, scNoTypeEnemy, null),
@@ -209,7 +229,11 @@ level_1.spriteSpawn = [
   new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 1050, 850, 50, 50, 1, 0, 0, 0, 0, scNoTypeEnemy, null),
   new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 1100, 850, 50, 50, 1, 0, 0, 0, 0, scNoTypeEnemy, null),
   new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 1150, 850, 50, 50, 1, 0, 0, 0, 0, scNoTypeEnemy, null),
-
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 1200, 850, 50, 50, 1, 0, 0, 0, 0, scNoTypeEnemy, null),
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 1250, 850, 50, 50, 1, 0, 0, 0, 0, scNoTypeEnemy, null),
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 1300, 850, 50, 50, 1, 0, 0, 0, 0, scNoTypeEnemy, null),
+  //Bottom of Enemies
+  new SpriteCreator(true, wallRegular, 'tile', wallTile50, 600, 1000, 50, 50, 1, 0, 0, 0, 0, null, null),
 ];
 
 //flag spawn

@@ -84,40 +84,57 @@ brawl.game.prototype.immovableMoveableProcessArgument = function (imb, mov) {
 //Wall Against Moveable Objects
 brawl.game.prototype.wallVsEnemy = function (wall, enemy) {
     ///////////////Actual Collision Physics/////////////
-    if (enemy.name !== 'enemyFrozen') {
-        enemy.name = 'enemyStill';
-        enemy.tint = tintRemover;
-        enemy.body.stop();
-        if (enemy.body.touching.up) {
-            enemy.body.velocity.y = 300;
-        }
-        else if (enemy.body.touching.down) {
-            enemy.body.velocity.y = -300;
-        }
-        else if (enemy.body.touching.left) {
-            enemy.body.velocity.x = 300;
-        }
-        else if (enemy.body.touching.right) {
-            enemy.body.velocity.x = -300;
+    if (enemy.specialCondition) {
+        if (enemy.specialCondition.name === scNoTypeEnemy.name) {
+            enemy.name = 'enemyWall';
+            enemy.tint = tintRemover;
+            enemy.body.stop();
+            if (enemy.body.touching.up) {
+                enemy.body.velocity.y = 300;
+            }
+            else if (enemy.body.touching.down) {
+                enemy.body.velocity.y = -300;
+            }
+            else if (enemy.body.touching.left) {
+                enemy.body.velocity.x = 300;
+            }
+            else if (enemy.body.touching.right) {
+                enemy.body.velocity.x = -300;
+            }
         }
     }
     else {
-        if (wall.body.touching.up) {
-            wall.body.velocity.y = 300;
+        if (enemy.name !== 'enemyFrozen') {
+            enemy.name = 'enemyStill';
+            enemy.tint = tintRemover;
+            enemy.body.stop();
+            if (enemy.body.touching.up) {
+                enemy.body.velocity.y = 300;
+            }
+            else if (enemy.body.touching.down) {
+                enemy.body.velocity.y = -300;
+            }
+            else if (enemy.body.touching.left) {
+                enemy.body.velocity.x = 300;
+            }
+            else if (enemy.body.touching.right) {
+                enemy.body.velocity.x = -300;
+            }
         }
-        else if (wall.body.touching.down) {
-            wall.body.velocity.y = -300;
+        else {
+            if (wall.body.touching.up) {
+                wall.body.velocity.y = 300;
+            }
+            else if (wall.body.touching.down) {
+                wall.body.velocity.y = -300;
+            }
+            else if (wall.body.touching.left) {
+                wall.body.velocity.x = 300;
+            }
+            else if (wall.body.touching.right) {
+                wall.body.velocity.x = -300;
+            }
         }
-        else if (wall.body.touching.left) {
-            wall.body.velocity.x = 300;
-        }
-        else if (wall.body.touching.right) {
-            wall.body.velocity.x = -300;
-        }
-    }
-    if (enemy.specialCondition) {
-       if (enemy.specialCondition.name === scNoTypeEnemy.name) {
-       }
     }
     return;
 };
@@ -324,6 +341,19 @@ brawl.game.prototype.playerWall = function (player, wall) {
 
     return;
 };
+
+brawl.game.prototype.playerEnemy = function (player, enemy) {
+    if (enemy.name === 'enemyWall') {
+        player.body.stop();
+        enemy.body.stop();
+    }
+    else {
+        this.playerDeath(player, enemy);
+    }
+};
+
+
+
 brawl.game.prototype.playerWallProcessArgument = function (player, wall) {
     // if (wall.name === wallRegularKiller) {
     //     return false;
