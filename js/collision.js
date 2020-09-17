@@ -206,29 +206,12 @@ brawl.game.prototype.playerImmovable = function (player, immovable) {
         this.game.physics.arcade.gravity.setTo(0, 500);
         this.emitterFunction(immovable, null, 'destroy');
     }
-    // if (immovable.name === immovableWallMario) {
-    //     if (player.body.touching.up) {
-    //         player.body.gravity.y = 500;
-    //     }
-    //     if (player.body.touching.down) {
-    //         playerDoubleJumps = 4;
-    //     }
-    //     if (player.body.touching.left) {
-    //         playerSpeed = 800;
-    //     }
-    //     if (player.body.touching.right) {
-    //         playerJump = -1000;
-    //     }
-    //     immovable.name = immovableWallRegular;
-    //     immovable.tint = tintRemover;
-    // }
     if (immovable.name === immovableWallPowerJump.name) {
         player.powerJump = true;
         this.playerJump = -1000;
         this.emitterFunction(immovable, null, 'destroy');
     }
-    // console.log("Yes This is Hitting");
-    // return;
+    return;
 };
 
 brawl.game.prototype.playerImmovableWallProcessArgument = function (player, wall) {
@@ -315,27 +298,8 @@ brawl.game.prototype.playerWall = function (player, wall) {
         else if (this.movementRight.isDown) {
             wall.body.velocity.setTo(200, 0);
         }
-        //Alpha Three
-        // if (this.movementUp.isDown) {
-        //     wall.body.velocity.y = -200;
-        // }
-        // else if (this.movementDown.isDown) {
-        //     wall.body.velocity.y = 200;
-        // }
-        // else if (this.movementLeft.isDown) {
-        //     wall.body.velocity.x = -200;
-        // }
-        // else if (this.movementRight.isDown) {
-        //     wall.body.velocity.x = 200;
-        // }
     }
     if (wall.name === wallKiller.name) {
-        // wall.name = wallPlayerFrozen;
-        // wall.body.moves = false;
-        // wall.body.immovable = true;
-        // player.body.stop();
-        // wall.body.stop();
-        // wall.tint = tintWallPlayerFrozen;
         this.playerDeath(player, wall);
     }
 

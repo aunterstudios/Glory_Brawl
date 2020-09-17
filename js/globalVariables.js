@@ -358,9 +358,9 @@ var flagRegular = 'flagRegular';
 var flagSpecial = 'flagSpecial';
 
 //////////////////////////Special Conditions///////////////////////
-var scReverseVelocity = new specialConditionCreator('reverseVelocity');
-var scLocalizedDestruction = new specialConditionCreator('localizedDestruction');
-var scNoTypeEnemy = new specialConditionCreator('noTypeEnemy');
+var scReverseVelocity = new specialConditionCreator('reverseVelocity'); //Reverse Velocity
+var scLocalizedDestruction = new specialConditionCreator('localizedDestruction'); //Destroys Local Sprite Permanently
+var scNoTypeEnemy = new specialConditionCreator('noTypeEnemy'); //Turns Enemies Into Walls
 
 /////////////////////////List of Art or Image Keys of Each Sprite/////////////////
 //Death
