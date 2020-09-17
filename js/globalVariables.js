@@ -262,13 +262,13 @@ var portalNen = new nenCreator(
   10, //OverLap Bias
 );
 var seanNen = new nenCreator(
-  800, //Speed
-  -200, //Jump
+  400, //Speed
+  -500, //Jump
   null, //Gravity-X
   900, //Gravity-Y
   2, //Double Jump
-  700, //WallJump-X
-  0, //wallJump-Y
+  600, //WallJump-X
+  400, //wallJump-Y
   800, //Disenage Wall-S
   200, //Stick to Wall
   25, //Wall Slide-Y

@@ -158,7 +158,7 @@ var level_1 = new LevelCreator("Level 1-SandboxMode", 1400, 16000, new Metroidva
 // level_1.worldGravity = new worldGravityCreator(200,200);
 
 //Creation of Nen System in Level
-level_1.nenSystem = seanNen;
+level_1.nenSystem = portalNen;
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_1.playerPosition = [
@@ -174,14 +174,14 @@ level_1.playerPosition = [
 ]
 
 level_1.spriteSpawn = [
-  ////////////////Green Walls
+  ///////////////////////////////////////Green Walls//////////////////////////////////////
   //Left
   new SpriteCreator(true, immovableWallSlippery, 'tile', immovableWallTile, 0, 0, 50, 8000, 1, 0, 0, 0, 0, null, null),
-  //Middle
-  new SpriteCreator(true, immovableWallSlippery, 'tile', immovableWallTile, 500, 0, 50, 8000, 1, 0, 0, 0, 0, null, null),
+  //Middle walls
+  new SpriteCreator(true, immovableWallSlippery, 'tile', immovableWallTile, 500, 0, 50, 1000, 1, 0, 0, 0, 0, null, null),
   //Right
   new SpriteCreator(true, immovableWallSlippery, 'tile', immovableWallTile, 1350, 0, 50, 8000, 1, 0, 0, 0, 0, null, null),
-  ///////////////Ground
+  /////////////////////////////////////////Ground/////////////////////////////////////////////////
   new SpriteCreator(true, immovableWallRegular, 'tile', immovableWallTile, 600, 200, 200, 50, 1, 0, 0, 0, 0, null, null),
   //////////////White Section (Beginning)
   // new SpriteCreator(true, immovableWallRegular, 'tile', immovableWallTile, 600, 800, 50, 50, 1, 0, 0, 0, 0, null, null),
@@ -233,13 +233,13 @@ level_1.spriteSpawn = [
   new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 1250, 850, 50, 50, 1, 0, 0, 0, 0, scNoTypeEnemy, null),
   new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 1300, 850, 50, 50, 1, 0, 0, 0, 0, scNoTypeEnemy, null),
   //Bottom of Enemies
-  new SpriteCreator(true, immovableWallRegular, 'tile', immovableWallTile, 575, 1000, 750, 50, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, immovableWallRegular, 'tile', immovableWallTile, 575, 1000, 750, 50, 1, 0, 0, 0, 0, null, null),
 ];
 
 //flag spawn
 level_1.flagSpawn = [
   // //First Flag
-  new flagCreator(1, true, flagRegular, flag, 600, 400, 0, 0, .4, .4, 0, 0, null),
+  new flagCreator(1, true, flagRegular, flag, 750, 150, 0, 0, .4, .4, 0, 0, null),
 ];
 
 ////////////////////////////////////////Level 2/////////////////////////////////////
