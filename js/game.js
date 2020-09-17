@@ -131,8 +131,6 @@ brawl.game.prototype = {
         var onBall = this.game.physics.arcade.collide(this.player, this.ball, this.playerBall, null, this);
         var onHazama = this.game.physics.arcade.overlap(this.player, this.hazama, this.playerHazama, null, this);
 
-        //Death Mechanics (Game State Change)
-        // this.game.physics.arcade.overlap(this.player, [this.enemy, this.enemyBullets.bullets, this.undeniableDeath, this.fallingSpikes, this.fallingSpikesTwo], this.playerDeath, null, this);
         //Death Mechanics
         this.game.physics.arcade.overlap(this.player, [this.enemyBullets.bullets, this.undeniableDeath, this.fallingSpikes, this.fallingSpikesTwo], this.playerDeath, null, this);
         //Enemy Mechanics
@@ -152,8 +150,7 @@ brawl.game.prototype = {
 
         //Movable Wall Mechanics vs. Moveable Objects (NOT ITSELF) (OVERLAP)
         this.game.physics.arcade.collide(this.wall, this.enemy, this.wallVsEnemy, null, this);
-        this.game.physics.arcade.collide(this.wall, [this.ball, this.ledge], this.wallVsBl, null, this);
-        // this.game.physics.arcade.overlap(this.wall, [this.ball, this.ledge, this.wall], this.wallVsMove, null, this);
+        this.game.physics.arcade.overlap(this.wall, [this.ball, this.ledge], this.wallVsBl, null, this);
         //Ball and Ledge vs. Enemy
         this.game.physics.arcade.collide([this.ball, this.ledge], this.enemy, this.blVsEnemy, null, this);
 

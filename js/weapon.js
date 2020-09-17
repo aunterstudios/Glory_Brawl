@@ -12,7 +12,12 @@ brawl.game.prototype.weaponHandler = function (weapon, sprite) {
 
             // }
             // this.game.physics.arcade.moveToPointer(sprite, 400)
-            this.game.physics.arcade.moveToObject(sprite, this.player, 200, 500);
+            if (cameraBoolean) {
+                this.game.physics.arcade.moveToObject(sprite, this.player, 300);
+            }
+            else {
+                this.game.physics.arcade.moveToObject(sprite, this.player, 300, 1000);
+            }
         }
         else if (weapon.key === 'bulletPush') {
             sprite.body.velocity.setTo(weapon.body.velocity.x / 2, weapon.body.velocity.y / 2);
