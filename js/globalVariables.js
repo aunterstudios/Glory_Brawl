@@ -138,12 +138,11 @@ class spriteType {
 
 //Individual Properties of Weapon
 class weaponCreator {
-  constructor(name, tint, weaponFireRate, weaponBulletSpeed, weaponBulletAmount) {
+  constructor(name, tint, weaponFireRate, weaponBulletSpeed) {
     this.name = name;
     this.tint = tint;
     this.weaponFireRate = weaponFireRate;
     this.weaponBulletSpeed = weaponBulletSpeed;
-    this.weaponBulletAmount = weaponBulletAmount;
   }
 };
 
@@ -269,9 +268,17 @@ var seanNen = new nenCreator(
 
 var basicGunSet = [
   //Name, Tint, FireRate, Speed, BulletAmount
-  new weaponCreator('pull', Phaser.Color.GREEN, 500, 500, 30),//Weapon 1
-  new weaponCreator('push', Phaser.Color.BLUE, 500, 500, 30),//Weapon 2
-  new weaponCreator('stop', Phaser.Color.YELLOW, 500, 500, 30),//Weapon 3
+  new weaponCreator('pull', Phaser.Color.GREEN, 500, 500),//Weapon 1
+  new weaponCreator('push', Phaser.Color.BLUE, 500, 500),//Weapon 2
+  new weaponCreator('stop', Phaser.Color.VIOLET, 500, 500),//Weapon 3
+  null, //Weapon 4
+]
+
+var testGunSet = [
+  //Name, Tint, FireRate, Speed, BulletAmount
+  null, //Weapon 1
+  null, //Weapon 2
+  null, //Weapon 3
   null, //Weapon 4
 ]
 

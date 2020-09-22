@@ -1,7 +1,6 @@
 //////////////////////////////////////////Weapon Functionality////////////////////////////////////////////
 //When Weapon Hits Moveable Objects (It's Special Property Expressed)
 brawl.game.prototype.weaponHandler = function (weapon, sprite) {
-    console.log(weapon);
     if (sprite.groupName === groupBall || sprite.groupName === groupEnemy || sprite.groupName === groupWall || sprite.groupName === groupLedge) {
         if (weapon.name === 'pull') {
             this.game.physics.arcade.moveToObject(sprite, this.player, 350);
@@ -28,7 +27,7 @@ brawl.game.prototype.weaponProcessArgument = function (weapon, ghost) {
 brawl.game.prototype.goWeapon1 = function () {
     // console.log("1");
     if (this.weapon1Holder) {
-        this.player.tint = Phaser.Color.GREEN;
+        this.player.tint = this.weapon1Holder.tint;
         weapon1Boolean = true;
         weapon2Boolean = false;
         weapon3Boolean = false;
@@ -39,7 +38,7 @@ brawl.game.prototype.goWeapon1 = function () {
 brawl.game.prototype.goWeapon2 = function () {
     // console.log("2");
     if (this.weapon2Holder) {
-        this.player.tint = Phaser.Color.BLUE;
+        this.player.tint = this.weapon2Holder.tint;
         weapon1Boolean = false;
         weapon2Boolean = true;
         weapon3Boolean = false;
@@ -50,7 +49,7 @@ brawl.game.prototype.goWeapon2 = function () {
 brawl.game.prototype.goWeapon3 = function () {
     // console.log("3");
     if (this.weapon3Holder) {
-        this.player.tint = Phaser.Color.YELLOW;
+        this.player.tint = this.weapon3Holder.tint;
         weapon1Boolean = false;
         weapon2Boolean = false;
         weapon3Boolean = true;
@@ -61,7 +60,7 @@ brawl.game.prototype.goWeapon3 = function () {
 brawl.game.prototype.goWeapon4 = function () {
     // console.log("4");
     if (this.weapon4Holder) {
-        this.player.tint = Phaser.Color.VIOLET;
+        this.player.tint = this.weapon4Holder.tint;
         weapon1Boolean = false;
         weapon2Boolean = false;
         weapon3Boolean = false;

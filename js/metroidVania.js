@@ -43,9 +43,11 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
 
     //////////////////Adding Weapons////////////////////
     if (this.weapon1Holder) {
-        this.weapon1 = this.game.add.weapon(this.weapon1Holder.weaponBulletAmount, 'bulletPull');
+        this.weapon1 = this.game.add.weapon(30, 'bulletOne');
         // Name
         this.weapon1.bullets.setAll('name', this.weapon1Holder.name);
+        // Tint
+        this.weapon1.bullets.setAll('tint', this.weapon1Holder.tint);
         //  The bullet will be automatically killed when it leaves the camera bounds
         this.weapon1.bulletKillType = Phaser.Weapon.KILL_CAMERA_BOUNDS;
         // this.weapon1.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
@@ -61,12 +63,12 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
         this.weapon1.trackSprite(this.player, 0, 0);
     }
 
-    console.log(this.weapon1.bullets, 'bullets');
-
     if (this.weapon2Holder) {
-        this.weapon2 = this.game.add.weapon(this.weapon2Holder.weaponBulletAmount, 'bulletPull');
+        this.weapon2 = this.game.add.weapon(30, 'bulletOne');
         // Name
         this.weapon2.bullets.setAll('name', this.weapon2Holder.name);
+        // Tint
+        this.weapon2.bullets.setAll('tint', this.weapon2Holder.tint);
         //  The bullet will be automatically killed when it leaves the camera bounds
         this.weapon2.bulletKillType = Phaser.Weapon.KILL_CAMERA_BOUNDS;
         // this.weapon2.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
@@ -83,9 +85,11 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     }
 
     if (this.weapon3Holder) {
-        this.weapon3 = this.game.add.weapon(this.weapon3Holder.weaponBulletAmount, 'bulletPull');
+        this.weapon3 = this.game.add.weapon(30, 'bulletOne');
         // Name
         this.weapon3.bullets.setAll('name', this.weapon3Holder.name);
+        // Tint
+        this.weapon3.bullets.setAll('tint', this.weapon3Holder.tint);
         //  The bullet will be automatically killed when it leaves the camera bounds
         this.weapon3.bulletKillType = Phaser.Weapon.KILL_CAMERA_BOUNDS;
         // this.weapon3.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
@@ -102,9 +106,11 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     }
 
     if (this.weapon4Holder) {
-        this.weapon4 = this.game.add.weapon(this.weapon4Holder.weaponBulletAmount, 'bulletPull');
+        this.weapon4 = this.game.add.weapon(30, 'bulletOne');
         // Name
         this.weapon4.bullets.setAll('name', this.weapon4Holder.name);
+        // Tint
+        this.weapon4.bullets.setAll('tint', this.weapon4Holder.tint);
         //  The bullet will be automatically killed when it leaves the camera bounds
         this.weapon4.bulletKillType = Phaser.Weapon.KILL_CAMERA_BOUNDS;
         // this.weapon4.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;

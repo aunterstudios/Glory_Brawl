@@ -16,10 +16,7 @@ brawl.state1.prototype = {
         this.load.image('fallingSpikesOne', 'assets/fallingSpikesOne.png');
         this.load.image('fallingSpikesTwo', 'assets/fallingSpikesTwo.png');
         //Bullets
-        this.load.image('bulletKill', 'assets/bulletKill.png');
-        this.load.image('bulletStop', 'assets/bulletStop.png');
-        this.load.image('bulletPush', 'assets/bulletPush.png');
-        this.load.image('bulletPull', 'assets/bulletPull.png');
+        this.load.image('bulletOne', 'assets/bulletOne.png');
         //Flag
         this.load.image('flag', 'assets/flag.png');
         //Ball
