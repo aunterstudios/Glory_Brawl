@@ -8,7 +8,7 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     this.player.anchor.setTo(.5);
     // this.player.scale.setTo(.6);
     this.player.scale.setTo(1);
-    this.player.tint = Phaser.Color.GREEN;
+    this.player.tint = Phaser.Color.BLACK;
     this.player.body.setSize(34, 55.5, 15, 7);
     this.player.body.mass = 6; //6
     this.player.body.gravity.y = this.playerGravityY;
@@ -40,52 +40,85 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
         // this.slowMotionFollow.fixedToCamera = true;
         this.slowMotionArray.push(this.slowMotionFollow);
     }
+
     //////////////////Adding Weapons////////////////////
-    //  Creates 30 bullets, using the 'bullet' graphic
-    this.weapon1 = this.game.add.weapon(this.weaponBulletAmount, 'bulletPull');
-    //  The bullet will be automatically killed when it leaves the camera bounds
-    this.weapon1.bulletKillType = Phaser.Weapon.KILL_CAMERA_BOUNDS;
-    // this.weapon1.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
-    //  Because our bullet is drawn facing up, we need to offset its rotation:
-    this.weapon1.bulletAngleOffset = 90;
-    //  The speed at which the bullet is fired
-    this.weapon1.bulletSpeed = this.weaponBulletSpeed;
-    //  Speed-up the rate of fire, allowing them to shoot 1 bullet every 60ms
-    this.weapon1.fireRate = this.weaponFireRate;
-    //Size of Bullet
-    // this.weapon1.setBulletBodyOffset(5,2,-20,0); //setSize(32 / Math.abs(this.scale.x), 32 / Math.abs(this.scale.y), 24, 34)
-    // Track Player
-    this.weapon1.trackSprite(this.player, 0, 0);
+    if (this.weapon1Holder) {
+        this.weapon1 = this.game.add.weapon(this.weapon1Holder.weaponBulletAmount, 'bulletPull');
+        // Name
+        this.weapon1.bullets.setAll('name', this.weapon1Holder.name);
+        //  The bullet will be automatically killed when it leaves the camera bounds
+        this.weapon1.bulletKillType = Phaser.Weapon.KILL_CAMERA_BOUNDS;
+        // this.weapon1.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
+        //  Because our bullet is drawn facing up, we need to offset its rotation:
+        this.weapon1.bulletAngleOffset = 90;
+        //  The speed at which the bullet is fired
+        this.weapon1.bulletSpeed = this.weapon1Holder.weaponBulletSpeed;
+        //  Speed-up the rate of fire, allowing them to shoot 1 bullet every 60ms
+        this.weapon1.fireRate = this.weapon1Holder.weaponFireRate;
+        //Size of Bullet
+        // this.weapon1.setBulletBodyOffset(5,2,-20,0); //setSize(32 / Math.abs(this.scale.x), 32 / Math.abs(this.scale.y), 24, 34)
+        // Track Player
+        this.weapon1.trackSprite(this.player, 0, 0);
+    }
 
-    /////////////////PUSH
-    //  Creates 30 bullets, using the 'bullet' graphic
-    this.weapon2 = this.game.add.weapon(this.weaponBulletAmount, 'bulletPush');
-    //  The bullet will be automatically killed when it leaves the camera bounds
-    this.weapon2.bulletKillType = Phaser.Weapon.KILL_CAMERA_BOUNDS;
-    //  Because our bullet is drawn facing up, we need to offset its rotation:
-    this.weapon2.bulletAngleOffset = 90;
-    //  The speed at which the bullet is fired
-    this.weapon2.bulletSpeed = this.weaponBulletSpeed;
-    //  Speed-up the rate of fire, allowing them to shoot 1 bullet every 60ms
-    this.weapon2.fireRate = this.weaponFireRate;
-    //Match Your Velocity?
-    // Track Player
-    this.weapon2.trackSprite(this.player, 0, 0);
+    console.log(this.weapon1.bullets, 'bullets');
 
-    /////////////////Stop
-    //  Creates 30 bullets, using the 'bullet' graphic
-    this.weapon3 = this.game.add.weapon(this.weaponBulletAmount, 'bulletStop');
-    //  The bullet will be automatically killed when it leaves the camera bounds
-    this.weapon3.bulletKillType = Phaser.Weapon.KILL_CAMERA_BOUNDS;
-    //  Because our bullet is drawn facing up, we need to offset its rotation:
-    this.weapon3.bulletAngleOffset = 90;
-    //  The speed at which the bullet is fired
-    this.weapon3.bulletSpeed = this.weaponBulletSpeed;
-    //  Speed-up the rate of fire, allowing them to shoot 1 bullet every 60ms
-    this.weapon3.fireRate = this.weaponFireRate;
-    //Match Your Velocity?
-    // Track Player
-    this.weapon3.trackSprite(this.player, 0, 0);
+    if (this.weapon2Holder) {
+        this.weapon2 = this.game.add.weapon(this.weapon2Holder.weaponBulletAmount, 'bulletPull');
+        // Name
+        this.weapon2.bullets.setAll('name', this.weapon2Holder.name);
+        //  The bullet will be automatically killed when it leaves the camera bounds
+        this.weapon2.bulletKillType = Phaser.Weapon.KILL_CAMERA_BOUNDS;
+        // this.weapon2.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
+        //  Because our bullet is drawn facing up, we need to offset its rotation:
+        this.weapon2.bulletAngleOffset = 90;
+        //  The speed at which the bullet is fired
+        this.weapon2.bulletSpeed = this.weapon2Holder.weaponBulletSpeed;
+        //  Speed-up the rate of fire, allowing them to shoot 1 bullet every 60ms
+        this.weapon2.fireRate = this.weapon2Holder.weaponFireRate;
+        //Size of Bullet
+        // this.weapon2.setBulletBodyOffset(5,2,-20,0); //setSize(32 / Math.abs(this.scale.x), 32 / Math.abs(this.scale.y), 24, 34)
+        // Track Player
+        this.weapon2.trackSprite(this.player, 0, 0);
+    }
+
+    if (this.weapon3Holder) {
+        this.weapon3 = this.game.add.weapon(this.weapon3Holder.weaponBulletAmount, 'bulletPull');
+        // Name
+        this.weapon3.bullets.setAll('name', this.weapon3Holder.name);
+        //  The bullet will be automatically killed when it leaves the camera bounds
+        this.weapon3.bulletKillType = Phaser.Weapon.KILL_CAMERA_BOUNDS;
+        // this.weapon3.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
+        //  Because our bullet is drawn facing up, we need to offset its rotation:
+        this.weapon3.bulletAngleOffset = 90;
+        //  The speed at which the bullet is fired
+        this.weapon3.bulletSpeed = this.weapon3Holder.weaponBulletSpeed;
+        //  Speed-up the rate of fire, allowing them to shoot 1 bullet every 60ms
+        this.weapon3.fireRate = this.weapon3Holder.weaponFireRate;
+        //Size of Bullet
+        // this.weapon3.setBulletBodyOffset(5,2,-20,0); //setSize(32 / Math.abs(this.scale.x), 32 / Math.abs(this.scale.y), 24, 34)
+        // Track Player
+        this.weapon3.trackSprite(this.player, 0, 0);
+    }
+
+    if (this.weapon4Holder) {
+        this.weapon4 = this.game.add.weapon(this.weapon4Holder.weaponBulletAmount, 'bulletPull');
+        // Name
+        this.weapon4.bullets.setAll('name', this.weapon4Holder.name);
+        //  The bullet will be automatically killed when it leaves the camera bounds
+        this.weapon4.bulletKillType = Phaser.Weapon.KILL_CAMERA_BOUNDS;
+        // this.weapon4.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
+        //  Because our bullet is drawn facing up, we need to offset its rotation:
+        this.weapon4.bulletAngleOffset = 90;
+        //  The speed at which the bullet is fired
+        this.weapon4.bulletSpeed = this.weapon4Holder.weaponBulletSpeed;
+        //  Speed-up the rate of fire, allowing them to shoot 1 bullet every 60ms
+        this.weapon4.fireRate = this.weapon4Holder.weaponFireRate;
+        //Size of Bullet
+        // this.weapon4.setBulletBodyOffset(5,2,-20,0); //setSize(32 / Math.abs(this.scale.x), 32 / Math.abs(this.scale.y), 24, 34)
+        // Track Player
+        this.weapon4.trackSprite(this.player, 0, 0);
+    }
 
     // - 20 for Tracking//
     ////////////////////////////Image Creation/////////////////////////

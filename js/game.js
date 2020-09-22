@@ -12,7 +12,7 @@ brawl.game.prototype = {
         this.indexOfPlayerPosition = indexOfPlayerPosition;
         this.metroidvania = metroidvania;
         ///////////////////////Setting Camera and Gun to Default/////////////
-        pullBoolean = true;
+        // pullBoolean = true;
         cameraBoolean = true;
         ///////////////////////Nen System of The Game Placed As Holder////////////////////////////
         nenHolder = worldClassLevels[this.indexOfCurrentWorld].nenSystem;
@@ -30,10 +30,11 @@ brawl.game.prototype = {
         this.playerUpsideDownVelocity = nenHolder.playerUpsideDownVelocity;
         this.playerUpsideDownMovement = nenHolder.playerUpsideDownMovement;
         this.playerDownwards = nenHolder.playerDownwards;
-        /////////////////////Weapon Attributes//////////////////////
-        this.weaponFireRate = nenHolder.weaponFireRate;
-        this.weaponBulletSpeed = nenHolder.weaponBulletSpeed;
-        this.weaponBulletAmount = nenHolder.weaponBulletAmount;
+        /////////////////////Weapon System//////////////////////
+        this.weapon1Holder = worldClassLevels[this.indexOfCurrentWorld].gunSystem[0];
+        this.weapon2Holder = worldClassLevels[this.indexOfCurrentWorld].gunSystem[1];
+        this.weapon3Holder = worldClassLevels[this.indexOfCurrentWorld].gunSystem[2];
+        this.weapon4Holder = worldClassLevels[this.indexOfCurrentWorld].gunSystem[3];
         //////////////////////Slow Motion Reset//////////////////
         slowMotionLimit = 1;
         timerEvents = [];
@@ -367,17 +368,21 @@ brawl.game.prototype = {
         ///////////////////////Weapon Mechanics///////////////
         //Shoot from Mouse
         if (this.game.input.activePointer.leftButton.isDown || this.game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
-            if (pullBoolean) {
+            if (weapon1Boolean) {
                 this.weapon1.fireAtPointer();
                 this.weapon1.fire();
             }
-            else if (pushBoolean) {
+            else if (weapon2Boolean) {
                 this.weapon2.fireAtPointer();
                 this.weapon2.fire();
             }
-            else if (stopBoolean) {
+            else if (weapon3Boolean) {
                 this.weapon3.fireAtPointer();
                 this.weapon3.fire();
+            }
+            else if (weapon4Boolean) {
+                this.weapon4.fireAtPointer();
+                this.weapon4.fire();
             }
         }
     },

@@ -1,19 +1,15 @@
 //////////////////////////////////////////Weapon Functionality////////////////////////////////////////////
 //When Weapon Hits Moveable Objects (It's Special Property Expressed)
 brawl.game.prototype.weaponHandler = function (weapon, sprite) {
+    console.log(weapon);
     if (sprite.groupName === groupBall || sprite.groupName === groupEnemy || sprite.groupName === groupWall || sprite.groupName === groupLedge) {
-        if (weapon.key === 'bulletPull') {
-            this.game.physics.arcade.moveToObject(sprite, this.player, 300);
+        if (weapon.name === 'pull') {
+            this.game.physics.arcade.moveToObject(sprite, this.player, 350);
         }
-        else if (weapon.key === 'bulletPush') {
-            if (cameraBoolean) {
-                sprite.body.velocity.setTo(weapon.body.velocity.x / 2, weapon.body.velocity.y / 2);
-            }
-            else {
-                sprite.body.velocity.setTo(weapon.body.velocity.x / 6, weapon.body.velocity.y / 6);
-            }
+        else if (weapon.name === 'push') {
+            sprite.body.velocity.setTo(weapon.body.velocity.x / 2, weapon.body.velocity.y / 2);
         }
-        else if (weapon.key === 'bulletStop') {
+        else if (weapon.name === 'stop') {
             sprite.body.stop();
         }
     }
@@ -29,39 +25,47 @@ brawl.game.prototype.weaponProcessArgument = function (weapon, ghost) {
     }
 };
 ///////////////////////////Weapon Switching/////////////////
-brawl.game.prototype.goPull = function () {
+brawl.game.prototype.goWeapon1 = function () {
     // console.log("1");
-    this.player.tint = Phaser.Color.GREEN;
-    pullBoolean = true;
-    pushBoolean = false;
-    stopBoolean = false;
-    killBoolean = false;
-    // console.log("Pull: " + pullBoolean + " Push: " + pushBoolean + " Kill: " + stopBoolean);
+    if (this.weapon1Holder) {
+        this.player.tint = Phaser.Color.GREEN;
+        weapon1Boolean = true;
+        weapon2Boolean = false;
+        weapon3Boolean = false;
+        weapon4Boolean = false;
+    }
+    // console.log("Pull: " + weapon1Boolean + " Push: " + weapon2Boolean + " Kill: " + weapon3Boolean);
 };
-brawl.game.prototype.goPush = function () {
+brawl.game.prototype.goWeapon2 = function () {
     // console.log("2");
-    this.player.tint = Phaser.Color.BLUE;
-    pullBoolean = false;
-    pushBoolean = true;
-    stopBoolean = false;
-    killBoolean = false;
-    // console.log("Pull: " + pullBoolean + " Push: " + pushBoolean + " Kill: " + stopBoolean);
+    if (this.weapon2Holder) {
+        this.player.tint = Phaser.Color.BLUE;
+        weapon1Boolean = false;
+        weapon2Boolean = true;
+        weapon3Boolean = false;
+        weapon4Boolean = false;
+    }
+    // console.log("Pull: " + weapon1Boolean + " Push: " + weapon2Boolean + " Kill: " + weapon3Boolean);
 };
-brawl.game.prototype.goStop = function () {
+brawl.game.prototype.goWeapon3 = function () {
     // console.log("3");
-    this.player.tint = Phaser.Color.YELLOW;
-    pullBoolean = false;
-    pushBoolean = false;
-    stopBoolean = true;
-    killBoolean = false;
-    // console.log("Pull: " + pullBoolean + " Push: " + pushBoolean + " Kill: " + stopBoolean);
+    if (this.weapon3Holder) {
+        this.player.tint = Phaser.Color.YELLOW;
+        weapon1Boolean = false;
+        weapon2Boolean = false;
+        weapon3Boolean = true;
+        weapon4Boolean = false;
+    }
+    // console.log("Pull: " + weapon1Boolean + " Push: " + weapon2Boolean + " Kill: " + weapon3Boolean);
 };
-brawl.game.prototype.goKill = function () {
+brawl.game.prototype.goWeapon4 = function () {
     // console.log("4");
-    this.player.tint = Phaser.Color.VIOLET;
-    pullBoolean = false;
-    pushBoolean = false;
-    stopBoolean = false;
-    killBoolean = true;
+    if (this.weapon4Holder) {
+        this.player.tint = Phaser.Color.VIOLET;
+        weapon1Boolean = false;
+        weapon2Boolean = false;
+        weapon3Boolean = false;
+        weapon4Boolean = true;
+    }
     // console.log("Pull: " + pullBoolean + " Push: " + pushBoolean + " Kill: " + stopBoolean);
 };

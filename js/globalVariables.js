@@ -56,7 +56,7 @@ class shadowLevelArray {
 
 //Generates Nen or Physics of the Individual Player
 class nenCreator {
-  constructor(playerSpeed, playerJump, playerGravityX, playerGravityY, playerDoubleJumps, playerWallJumpX, playerWallJumpY, playerWallDisengage, playerStickiness, playerSlippery, playerUpsideDownVelocity, playerUpsideDownMovement, playerDownwards, weaponFireRate, weaponBulletSpeed, weaponBulletAmount, overlapBias) {
+  constructor(playerSpeed, playerJump, playerGravityX, playerGravityY, playerDoubleJumps, playerWallJumpX, playerWallJumpY, playerWallDisengage, playerStickiness, playerSlippery, playerUpsideDownVelocity, playerUpsideDownMovement, playerDownwards, overlapBias) {
     this.playerSpeed = playerSpeed;
     this.playerJump = playerJump;
     this.playerGravityX = playerGravityX;
@@ -70,10 +70,6 @@ class nenCreator {
     this.playerUpsideDownVelocity = playerUpsideDownVelocity;
     this.playerUpsideDownMovement = playerUpsideDownMovement;
     this.playerDownwards = playerDownwards;
-    /////////////////////////Weapon Attributes///////////////////
-    this.weaponFireRate = weaponFireRate;
-    this.weaponBulletSpeed = weaponBulletSpeed;
-    this.weaponBulletAmount = weaponBulletAmount;
     //////////////////////World Attributes/////////////////
     this.overlapBias = overlapBias;
   }
@@ -115,6 +111,7 @@ class specialConditionCreator {
   }
 };
 
+//Create Timer Class
 class timerCreator {
   constructor(timerType, repeatAmount, seconds) {
     {
@@ -136,6 +133,17 @@ class spriteType {
     this.immovable = immovable;
     this.maxVelocity = maxVelocity;
     this.bounce = bounce;
+  }
+};
+
+//Individual Properties of Weapon
+class weaponCreator {
+  constructor(name, tint, weaponFireRate, weaponBulletSpeed, weaponBulletAmount) {
+    this.name = name;
+    this.tint = tint;
+    this.weaponFireRate = weaponFireRate;
+    this.weaponBulletSpeed = weaponBulletSpeed;
+    this.weaponBulletAmount = weaponBulletAmount;
   }
 };
 
@@ -184,10 +192,10 @@ class textCreator {
 
 //////////////////////////////////////////////////Global Variables//////////////////////////////////////////////
 //Weapon Variables to Change Bullet Type
-var pullBoolean = false;
-var pushBoolean = false;
-var stopBoolean = false;
-var killBoolean = false;
+var weapon1Boolean = false;
+var weapon2Boolean = false;
+var weapon3Boolean = false;
+var weapon4Boolean = false;
 
 //Respawn Holder (The Level You Will Respawn In)
 var respawnHolder = {
@@ -222,25 +230,6 @@ var deaths = 0;
 /////////////////////////Nen System///////////////////////////
 //Holds as Reference
 var nenHolder;
-/*
-this.playerSpeed = playerSpeed;
-    this.playerJump = playerJump;
-    this.playerGravityX = playerGravityX;
-    this.playerGravityY = playerGravityY;
-    this.playerDoubleJumps = playerDoubleJumps;
-    this.playerWallJumpX = playerWallJumpX;
-    this.playerWallJumpY = playerWallJumpY;
-    this.playerWallDisengage = playerWallDisengage;
-    this.playerStickiness = playerStickiness;
-    this.playerSlippery = playerSlippery;
-    this.playerUpsideDownVelocity = playerUpsideDownVelocity;
-    this.playerUpsideDownMovement = playerUpsideDownMovement;
-    this.playerDownwards = playerDownwards;
-    /////////////////////////Weapon Attributes///////////////////
-    this.weaponFireRate = weaponFireRate;
-    this.weaponBulletSpeed = weaponBulletSpeed;
-    this.weaponBulletAmount = weaponBulletAmount;
-*/
 ////////////////////////Creation of Nen System///////////////////////
 var portalNen = new nenCreator(
   400, //Speed
@@ -256,9 +245,7 @@ var portalNen = new nenCreator(
   -200, //Upside Stickiness
   100, //Upside Down Disengage
   400, //Downwards-S
-  500, //WEAPON FIRE RATE
-  500, //Weapon Speed
-  30, //weaponBulletAmount
+  ////////////////////
   10, //OverLap Bias
 );
 var seanNen = new nenCreator(
@@ -275,11 +262,28 @@ var seanNen = new nenCreator(
   0, //Upside Stickiness
   500, //Upside Down Disengage
   400, //Downwards-S
-  500, //WEAPON FIRE RATE
-  500, //Weapon Speed
-  30, //weaponBulletAmount
   10, //OverLap Bias
 );
+
+////////////////////////Creation of Gun System Sets///////////////////////
+
+var basicGunSet = [
+  //Name, Tint, FireRate, Speed, BulletAmount
+  new weaponCreator('pull', Phaser.Color.GREEN, 500, 500, 30),//Weapon 1
+  new weaponCreator('push', Phaser.Color.BLUE, 500, 500, 30),//Weapon 2
+  new weaponCreator('stop', Phaser.Color.YELLOW, 500, 500, 30),//Weapon 3
+  null, //Weapon 4
+]
+
+/*
+///////Weapons//////
+  new weaponCreator('pull', Phaser.Color.GREEN, 500, 500, 30),//Weapon 1, tint, FireRate, Speed, BulletAmount
+  new weaponCreator('push', Phaser.Color.BLUE, 500, 500, 30),//Weapon 2
+  new weaponCreator('stop', Phaser.Color.YELLOW, 500, 500, 30),//Weapon 3
+  null, //Weapon 4
+*/
+
+
 /////////////////////////List of GROUP NAMES of Each Sprite (For Different Special Properties)////////////////
 //Death Group
 var groupUndeniableDeath = 'groupUndeniableDeath';

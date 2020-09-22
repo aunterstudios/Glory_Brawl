@@ -118,6 +118,9 @@ var level_0 = new LevelCreator("Level 0-Physics Testing", 1400, 800, new Metroid
 //Creation of Nen System in Level
 level_0.nenSystem = portalNen;
 
+//Creation of Gun System in Level
+level_0.gunSystem = basicGunSet;
+
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_0.playerPosition = [
   new PlayerPositionCreator(400, 700),
@@ -150,6 +153,7 @@ level_0.flagSpawn = [
   // //First Flag
   new flagCreator(1, true, flagRegular, flag, 600, 400, 0, 0, .4, .4, 0, 0, null),
 ];
+
 ////////////////////////////////////////Level 1-SandboxMode/////////////////////////////////////
 //New Playground
 var level_1 = new LevelCreator("Level 1-SandboxMode", 1400, 16000, new MetroidvaniaCreator(1, 0, 1, 10000, 2, 0, 1, 1400), '#ffffff');
@@ -159,6 +163,9 @@ var level_1 = new LevelCreator("Level 1-SandboxMode", 1400, 16000, new Metroidva
 
 //Creation of Nen System in Level
 level_1.nenSystem = portalNen;
+
+//Creation of Gun System in Level
+level_1.gunSystem = basicGunSet;
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_1.playerPosition = [
@@ -251,8 +258,14 @@ level_1.flagSpawn = [
 ////////////////////////////////////////Level 2/////////////////////////////////////
 var level_2 = new LevelCreator("Level 2-What", 4800, 2000, new MetroidvaniaCreator(3, 0, 3, 2000, null, null, 1, 4800), '#FFFDD0');
 
+//World Gravity
+// level_2.worldGravity = new worldGravityCreator(200,200);
+
 //Creation of Nen System in Level
 level_2.nenSystem = portalNen;
+
+//Creation of Gun System in Level
+level_2.gunSystem = basicGunSet;
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_2.playerPosition = [
@@ -374,6 +387,9 @@ var level_3 = new LevelCreator("Level 3-SandboxMode", 1400, 10000, new Metroidva
 //Creation of Nen System in Level
 level_3.nenSystem = portalNen;
 
+//Creation of Gun System in Level
+level_3.gunSystem = basicGunSet;
+
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_3.playerPosition = [
   new PlayerPositionCreator(200, 9900),
@@ -409,6 +425,9 @@ var level_4 = new LevelCreator("Level 4-SEAN MOODY", 4200, 3000, new Metroidvani
 
 //Creation of Nen System in Level
 level_4.nenSystem = portalNen;
+
+//Creation of Gun System in Level
+level_4.gunSystem = basicGunSet;
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_4.playerPosition = [

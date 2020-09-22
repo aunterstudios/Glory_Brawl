@@ -8,16 +8,16 @@ brawl.game.prototype.initControls = function () {
     this.movementRight = this.game.input.keyboard.addKey(Phaser.Keyboard.D)
 
     //Change Weapon Fire Type
-    this.pullBullet = this.game.input.keyboard.addKey(Phaser.Keyboard.ONE);
-    this.pushBullet = this.game.input.keyboard.addKey(Phaser.Keyboard.TWO);
-    this.stopBullet = this.game.input.keyboard.addKey(Phaser.Keyboard.THREE);
-    // this.killBullet = this.game.input.keyboard.addKey(Phaser.Keyboard.FOUR);
+    this.weapon1Control = this.game.input.keyboard.addKey(Phaser.Keyboard.ONE);
+    this.weapon2Control = this.game.input.keyboard.addKey(Phaser.Keyboard.TWO);
+    this.weapon3Control = this.game.input.keyboard.addKey(Phaser.Keyboard.THREE);
+    this.weapon4Control = this.game.input.keyboard.addKey(Phaser.Keyboard.FOUR);
 
     //Booleans to Trigger Different Weapon Types
-    this.pullBullet.onDown.add(this.goPull, this);
-    this.pushBullet.onDown.add(this.goPush, this);
-    this.stopBullet.onDown.add(this.goStop, this);
-    // this.killBullet.onDown.add(this.goKill, this);
+    this.weapon1Control.onDown.add(this.goWeapon1, this);
+    this.weapon2Control.onDown.add(this.goWeapon2, this);
+    this.weapon3Control.onDown.add(this.goWeapon3, this);
+    this.weapon4Control.onDown.add(this.goWeapon4, this);
 
     //Kill Yourself
     this.killYourself = this.game.input.keyboard.addKey(Phaser.Keyboard.R);
