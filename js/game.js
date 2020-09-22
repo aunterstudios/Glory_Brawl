@@ -11,8 +11,12 @@ brawl.game.prototype = {
         this.indexOfCurrentWorld = indexOfCurrentWorld;
         this.indexOfPlayerPosition = indexOfPlayerPosition;
         this.metroidvania = metroidvania;
-        ///////////////////////Setting Camera and Gun to Default/////////////
-        // pullBoolean = true;
+        ///////////////////////Setting Gun to Default/////////////
+        weapon1Boolean = false;
+        weapon2Boolean = false;
+        weapon3Boolean = false;
+        weapon4Boolean = false;
+        ///////////////////Setting Camera to Default///////////////
         cameraBoolean = true;
         ///////////////////////Nen System of The Game Placed As Holder////////////////////////////
         nenHolder = worldClassLevels[this.indexOfCurrentWorld].nenSystem;
