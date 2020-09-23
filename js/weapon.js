@@ -3,10 +3,10 @@
 brawl.game.prototype.weaponHandler = function (weapon, sprite) {
     if (sprite.groupName === groupBall || sprite.groupName === groupEnemy || sprite.groupName === groupWall || sprite.groupName === groupLedge) {
         if (weapon.name === 'pull') {
-            this.game.physics.arcade.moveToObject(sprite, this.player, 200);
+            this.game.physics.arcade.moveToObject(sprite, this.player, weapon.powerOne);
         }
         else if (weapon.name === 'push') {
-            sprite.body.velocity.setTo(weapon.body.velocity.x / 3, weapon.body.velocity.y / 3);
+            sprite.body.velocity.setTo(weapon.body.velocity.x / weapon.powerOne, weapon.body.velocity.y / weapon.powerOne);
         }
         else if (weapon.name === 'stop') {
             sprite.body.stop();

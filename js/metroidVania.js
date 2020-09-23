@@ -54,6 +54,10 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
         this.weapon1.bullets.setAll('name', this.weapon1Holder.name);
         // Tint
         this.weapon1.bullets.setAll('tint', this.weapon1Holder.tint);
+        // Power One
+        if (this.weapon1Holder.powerOne) {
+            this.weapon1.bullets.setAll('powerOne', this.weapon1Holder.powerOne, false, false, 0, true);
+        }
         //  The bullet will be automatically killed when it leaves the camera bounds
         this.weapon1.bulletKillType = Phaser.Weapon.KILL_CAMERA_BOUNDS;
         // this.weapon1.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
@@ -74,6 +78,10 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
         this.weapon2.bullets.setAll('name', this.weapon2Holder.name);
         // Tint
         this.weapon2.bullets.setAll('tint', this.weapon2Holder.tint);
+        // Power One
+        if (this.weapon2Holder.powerOne) {
+            this.weapon2.bullets.setAll('powerOne', this.weapon2Holder.powerOne, false, false, 0, true);
+        }
         //  The bullet will be automatically killed when it leaves the camera bounds
         this.weapon2.bulletKillType = Phaser.Weapon.KILL_CAMERA_BOUNDS;
         // this.weapon2.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
@@ -94,6 +102,10 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
         this.weapon3.bullets.setAll('name', this.weapon3Holder.name);
         // Tint
         this.weapon3.bullets.setAll('tint', this.weapon3Holder.tint);
+        // Power One
+        if (this.weapon3Holder.powerOne) {
+            this.weapon3.bullets.setAll('powerOne', this.weapon3Holder.powerOne, false, false, 0, true);
+        }
         //  The bullet will be automatically killed when it leaves the camera bounds
         this.weapon3.bulletKillType = Phaser.Weapon.KILL_CAMERA_BOUNDS;
         // this.weapon3.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
@@ -114,6 +126,10 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
         this.weapon4.bullets.setAll('name', this.weapon4Holder.name);
         // Tint
         this.weapon4.bullets.setAll('tint', this.weapon4Holder.tint);
+        // Power One
+        if (this.weapon4Holder.powerOne) {
+            this.weapon4.bullets.setAll('powerOne', this.weapon4Holder.powerOne, false, false, 0, true);
+        }
         //  The bullet will be automatically killed when it leaves the camera bounds
         this.weapon4.bulletKillType = Phaser.Weapon.KILL_CAMERA_BOUNDS;
         // this.weapon4.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;

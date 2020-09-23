@@ -136,11 +136,12 @@ class spriteType {
 
 //Individual Properties of Weapon
 class weaponCreator {
-  constructor(name, tint, weaponFireRate, weaponBulletSpeed) {
+  constructor(name, tint, weaponFireRate, weaponBulletSpeed, powerOne) {
     this.name = name;
     this.tint = tint;
     this.weaponFireRate = weaponFireRate;
     this.weaponBulletSpeed = weaponBulletSpeed;
+    this.powerOne = powerOne;
   }
 };
 
@@ -230,6 +231,21 @@ var nenHolder;
 
 ////////////////////////Creation of Nen System///////////////////////
 
+// var portalNen = new nenCreator(
+//   400, //Speed
+//   -500, //Jump
+//   null, //Gravity-X
+//   1500, //Gravity-Y
+//   2, //Double Jump
+//   1000, //WallJump-X
+//   500, //wallJump-Y
+//   200, //Stick to Wall (200)
+//   -25, //Wall Slide-Y
+//   -200, //Upside Stick
+//   400, //Downwards-S
+//   10, //OverLap Bias
+// );
+
 var portalNen = new nenCreator(
   400, //Speed
   -500, //Jump
@@ -238,12 +254,13 @@ var portalNen = new nenCreator(
   2, //Double Jump
   1000, //WallJump-X
   500, //wallJump-Y
-  200, //Stick to Wall
+  800, //Stick to Wall (800)
   -25, //Wall Slide-Y
-  -200, //Upside Stick
+  -800, //Upside Stick
   400, //Downwards-S
-  10, //OverLap Bias
+  20, //OverLap Bias
 );
+
 var seanNen = new nenCreator(
   400, //Speed
   -500, //Jump
@@ -263,16 +280,16 @@ var seanNen = new nenCreator(
 
 var basicGunSet = [
   //Name, Tint, FireRate, Speed
-  new weaponCreator('pull', Phaser.Color.GREEN, 500, 500),//Weapon 1
-  new weaponCreator('push', Phaser.Color.BLUE, 500, 500),//Weapon 2
+  new weaponCreator('pull', Phaser.Color.GREEN, 500, 500, 300),//Weapon 1
+  new weaponCreator('push', Phaser.Color.BLUE, 500, 500, 2),//Weapon 2
   new weaponCreator('stop', Phaser.Color.VIOLET, 500, 500),//Weapon 3
   null, //Weapon 4
 ];
 
 var funGunSet = [
   //Name, Tint, FireRate, Speed
-  new weaponCreator('pull', Phaser.Color.GREEN, 250, 1000),//Weapon 1
-  new weaponCreator('push', Phaser.Color.BLUE, 250, 1000),//Weapon 2
+  new weaponCreator('pull', Phaser.Color.GREEN, 250, 1000, 300),//Weapon 1
+  new weaponCreator('push', Phaser.Color.BLUE, 250, 1000, 2),//Weapon 2
   new weaponCreator('stop', Phaser.Color.VIOLET, 250, 1000),//Weapon 3
   null, //Weapon 4
 ];
