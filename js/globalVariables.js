@@ -227,7 +227,9 @@ var deaths = 0;
 /////////////////////////Nen System///////////////////////////
 //Holds as Reference
 var nenHolder;
+
 ////////////////////////Creation of Nen System///////////////////////
+
 var portalNen = new nenCreator(
   400, //Speed
   -500, //Jump
@@ -260,7 +262,7 @@ var seanNen = new nenCreator(
 ////////////////////////Creation of Gun System Sets///////////////////////
 
 var basicGunSet = [
-  //Name, Tint, FireRate, Speed, BulletAmount
+  //Name, Tint, FireRate, Speed
   new weaponCreator('pull', Phaser.Color.GREEN, 500, 500),//Weapon 1
   new weaponCreator('push', Phaser.Color.BLUE, 500, 500),//Weapon 2
   new weaponCreator('stop', Phaser.Color.VIOLET, 500, 500),//Weapon 3
@@ -268,21 +270,12 @@ var basicGunSet = [
 ]
 
 var testGunSet = [
-  //Name, Tint, FireRate, Speed, BulletAmount
+  //Name, Tint, FireRate, Speed
   null, //Weapon 1
   null, //Weapon 2
   null, //Weapon 3
   null, //Weapon 4
 ]
-
-/*
-///////Weapons//////
-  new weaponCreator('pull', Phaser.Color.GREEN, 500, 500, 30),//Weapon 1, tint, FireRate, Speed, BulletAmount
-  new weaponCreator('push', Phaser.Color.BLUE, 500, 500, 30),//Weapon 2
-  new weaponCreator('stop', Phaser.Color.YELLOW, 500, 500, 30),//Weapon 3
-  null, //Weapon 4
-*/
-
 
 /////////////////////////List of GROUP NAMES of Each Sprite (For Different Special Properties)////////////////
 //Death Group
@@ -329,22 +322,22 @@ var immovableWallOneWayPlayerBlockDown = new spriteType(1, 'immovableWallOneWayP
 var immovableWallPowerJump = new spriteType(1, 'immovableWallPowerUpJump', testTint, 1, 0, true, 1000, 1);
 
 //Moveable Wall Names
-var wallRegular = new spriteType(2, 'wallRegular', tintRemover, 200, .5, false, 1000, 1);
-var wallSurf = new spriteType(2, 'wallSurf', 10409939.733364154, 200, .5, false, 1000, 1);
-var wallInverse = new spriteType(2, 'wallInverse', 1181911.9307258818, 200, .5, false, 1000, 1); //First Turn (Leaners Walls From Ledge)
-var wallGhost = new spriteType(2, 'wallGhost', 16771007.229130682, 200, .5, true, 1000, 1); //Immovable Wall That Let's You Get Through Objects
-var wallCloud = new spriteType(2, 'wallCloud', 9583870.358153213, 200, .5, true, 1000, 1); //Stationary Shooting Platform Cloud
-var wallKiller = new spriteType(2, 'wallKiller', Phaser.Color.RED, 200, .5, false, 1000, 1);
+var wallRegular = new spriteType(2, 'wallRegular', tintRemover, 200, .5, false, 600, 1);
+var wallSurf = new spriteType(2, 'wallSurf', 10409939.733364154, 200, .5, false, 600, 1);
+var wallInverse = new spriteType(2, 'wallInverse', 1181911.9307258818, 200, .5, false, 600, 1); //First Turn (Leaners Walls From Ledge)
+var wallGhost = new spriteType(2, 'wallGhost', 16771007.229130682, 200, .5, true, 600, 1); //Immovable Wall That Let's You Get Through Objects
+var wallCloud = new spriteType(2, 'wallCloud', 9583870.358153213, 200, .5, true, 600, 1); //Stationary Shooting Platform Cloud
+var wallKiller = new spriteType(2, 'wallKiller', Phaser.Color.RED, 200, .5, false, 600, 1);
 
 //Ledge Names
-var ledgeElevator = new spriteType(3, 'ledgeElevator', Phaser.Color.YELLOW, 20, .5, false, 1000, .5);
-var ledgeBounce = new spriteType(3, 'ledgeBounce', Phaser.Color.GREEN, 20, .5, false, 1000, .5);
-var ledgeSurf = new spriteType(3, 'ledgeSurf', Phaser.Color.AQUA, 20, .5, false, 1000, .5);
+var ledgeElevator = new spriteType(3, 'ledgeElevator', Phaser.Color.YELLOW, 20, .5, false, 600, .5);
+var ledgeBounce = new spriteType(3, 'ledgeBounce', Phaser.Color.GREEN, 20, .5, false, 600, .5);
+var ledgeSurf = new spriteType(3, 'ledgeSurf', Phaser.Color.AQUA, 20, .5, false, 600, .5);
 
 //Enemy Names
-var enemyShooter = new spriteType(4, 'enemyShooter', 12758247.409111453, 20, .5, false, 1000, 1);
-var enemyDaakath = new spriteType(4, 'enemyDaakath', 15269906.933038201, 20, .5, false, 1000, 1);
-var enemyAccelerate = new spriteType(4, 'enemyAccelerate', 2885804.4944837275, 20, .5, false, 1000, 1);
+var enemyShooter = new spriteType(4, 'enemyShooter', 12758247.409111453, 20, .5, false, 600, 1);
+var enemyDaakath = new spriteType(4, 'enemyDaakath', 15269906.933038201, 20, .5, false, 600, 1);
+var enemyAccelerate = new spriteType(4, 'enemyAccelerate', 2885804.4944837275, 20, .5, false, 600, 1);
 
 //Ball Names
 var ballRegular = new spriteType(5, 'ballRegular', Phaser.Color.BLUE, 20, .5, false, 1000, .5);
