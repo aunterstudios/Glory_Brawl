@@ -267,7 +267,15 @@ var basicGunSet = [
   new weaponCreator('push', Phaser.Color.BLUE, 500, 500),//Weapon 2
   new weaponCreator('stop', Phaser.Color.VIOLET, 500, 500),//Weapon 3
   null, //Weapon 4
-]
+];
+
+var funGunSet = [
+  //Name, Tint, FireRate, Speed
+  new weaponCreator('pull', Phaser.Color.GREEN, 250, 1000),//Weapon 1
+  new weaponCreator('push', Phaser.Color.BLUE, 250, 1000),//Weapon 2
+  new weaponCreator('stop', Phaser.Color.VIOLET, 250, 1000),//Weapon 3
+  null, //Weapon 4
+];
 
 var testGunSet = [
   //Name, Tint, FireRate, Speed
@@ -275,7 +283,7 @@ var testGunSet = [
   null, //Weapon 2
   null, //Weapon 3
   null, //Weapon 4
-]
+];
 
 /////////////////////////List of GROUP NAMES of Each Sprite (For Different Special Properties)////////////////
 //Death Group

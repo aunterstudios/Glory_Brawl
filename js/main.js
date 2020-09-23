@@ -268,7 +268,7 @@ var level_2 = new LevelCreator("Level 2-What", 4800, 2000, new MetroidvaniaCreat
 level_2.nenSystem = portalNen;
 
 //Creation of Gun System in Level
-level_2.gunSystem = basicGunSet;
+level_2.gunSystem = funGunSet;
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_2.playerPosition = [
@@ -362,6 +362,8 @@ level_2.spriteSpawn = [
   new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 25, 400, 500, 25, .5, 0, 0, 0, 0, null, null),
   //Hazama For the lastest part
   new SpriteCreator(true, hazamaFalconia, 'tile', hazamaHippie, 400, 50, 3600, 950, 1, 0, 0, 0, 0, null, null),
+  //Mini Wall for Second Part
+  new SpriteCreator(true, wallRegular, 'sprite', wallTile25, 3800, 1890, 25, 25, 1, 0, 0, 0, 0, null, null),
 
 ];
 
