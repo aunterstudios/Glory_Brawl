@@ -41,7 +41,9 @@ brawl.game.prototype.spriteGroupGenerator = function () {
     this.slowMotionGroup.classType = Phaser.Image;
     ////////////////////////////////Creating Enemy Bullets///////////////////////////////
     //  Creates 30 bullets, using the 'bullet' graphic
-    this.enemyBullets = this.game.add.weapon(1000, 'bulletKill');
+    this.enemyBullets = this.game.add.weapon(1000, 'bulletOne');
+    //  Global Tint of Enemy Bullets
+    this.enemyBullets.bullets.setAll('tint', 12758247.409111453);
     //  The bullet will be automatically killed when it leaves the camera bounds
     this.enemyBullets.bulletKillType = Phaser.Weapon.KILL_CAMERA_BOUNDS;
     //  Because our bullet is drawn facing up, we need to offset its rotation:
