@@ -155,7 +155,7 @@ brawl.game.prototype = {
         this.game.physics.arcade.collide(this.wall, this.enemy, this.wallVsEnemy, null, this);
         this.game.physics.arcade.overlap(this.wall, [this.ball, this.ledge], this.wallVsBl, null, this);
         //Ball and Ledge vs. Enemy
-        this.game.physics.arcade.collide([this.ball, this.ledge], this.enemy, this.blVsEnemy, null, this);
+        this.game.physics.arcade.overlap([this.ball, this.ledge], this.enemy, this.blVsEnemy, null, this);
         //Enemy vs. Enemy
         this.game.physics.arcade.collide(this.enemy, this.enemy, this.enemySelfCollision, null, this);
 
