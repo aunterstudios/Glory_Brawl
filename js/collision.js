@@ -149,6 +149,10 @@ brawl.game.prototype.wallVsBl = function (wall, bL) {
     return;
 };
 
+brawl.game.prototype.enemySelfCollision = function (enemyOne, enemyTwo) {
+    return;
+};
+
 
 brawl.game.prototype.blVsEnemy = function (bL, enemy) {
     /////////////////////////killEnemy////////////////////

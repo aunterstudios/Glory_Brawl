@@ -40,6 +40,7 @@ brawl.game.prototype.imageMovement = function () {
 brawl.game.prototype.enemyAttack = function () {
     this.enemy.forEachAlive(function (enemy) {
         if (this.game.physics.arcade.distanceBetween(enemy, this.player, false, true) < 400) {
+            //Shooter
             if (enemy.name === enemyShooter.name) {
                 this.enemyBullets.fire(enemy, this.player.x, this.player.y);
             }
@@ -51,13 +52,7 @@ brawl.game.prototype.enemyAttack = function () {
                 this.game.physics.arcade.moveToPointer(enemy, 600);
             }
         }
-        // else {
-        //     if (enemy.name === enemyDaakath) {
-        //         enemy.body.stop();
-        //     }
-        // }
     }, this, this.player);
-    //Acceleration to Object (Another Type of Enemy)
 };
 
 //Immovable Wall
