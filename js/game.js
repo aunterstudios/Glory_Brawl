@@ -28,11 +28,9 @@ brawl.game.prototype = {
         this.playerDoubleJumps = nenHolder.playerDoubleJumps;
         this.playerWallJumpX = nenHolder.playerWallJumpX;
         this.playerWallJumpY = nenHolder.playerWallJumpY;
-        this.playerWallDisengage = nenHolder.playerWallDisengage;
         this.playerStickiness = nenHolder.playerStickiness;
         this.playerSlippery = nenHolder.playerSlippery;
-        this.playerUpsideDownVelocity = nenHolder.playerUpsideDownVelocity;
-        this.playerUpsideDownMovement = nenHolder.playerUpsideDownMovement;
+        this.playerUpsideDown = nenHolder.playerUpsideDown;
         this.playerDownwards = nenHolder.playerDownwards;
         /////////////////////Weapon System//////////////////////
         this.weapon1Holder = worldClassLevels[this.indexOfCurrentWorld].gunSystem[0];
@@ -248,7 +246,7 @@ brawl.game.prototype = {
             }
             else if (onUpsideDown && !onHazama) {
                 this.player.body.setSize(34, 55.5, 15, 0);
-                this.player.body.velocity.y = this.playerUpsideDownVelocity;
+                this.player.body.velocity.y = this.playerUpsideDown;
                 if (this.movementLeft.isDown && !this.movementRight.isDown) {
                     this.player.body.velocity.x = -this.playerSpeed;
                     this.player.animations.play('upsideDownLeft');
@@ -307,7 +305,7 @@ brawl.game.prototype = {
             //////////Downwards Mechanics////////
             if (this.movementDown.isDown && onUpsideDown && !onHazama) {
                 // this.player.frame = 13;
-                this.player.body.velocity.y = this.playerUpsideDownMovement;
+                this.player.body.velocity.y = 100;
             }
 
             if (this.movementDown.isDown && !this.movementLeft.isDown && !this.movementRight.isDown) {
@@ -317,10 +315,10 @@ brawl.game.prototype = {
                     this.player.body.velocity.y = this.playerDownwards;
                 }
                 if (onTheLeftSide && !onHazama) {
-                    this.player.body.velocity.x = this.playerWallDisengage;
+                    this.player.body.velocity.x = 500;
                 }
                 if (onTheRightSide && !onHazama) {
-                    this.player.body.velocity.x = -this.playerWallDisengage;
+                    this.player.body.velocity.x = -500;
                 }
             }
         }
@@ -363,7 +361,7 @@ brawl.game.prototype = {
             }
             else if (onUpsideDown && !onHazama) {
                 this.player.frame = 1;
-                this.player.body.velocity.y = this.playerUpsideDownVelocity;
+                this.player.body.velocity.y = this.playerUpsideDown;
             }
             else if (onNone) {
                 this.player.frame = 2;

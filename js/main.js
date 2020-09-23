@@ -113,7 +113,7 @@ var worldClassLevels = [];
 var level_0 = new LevelCreator("Level 0-Physics Testing", 1400, 800, new MetroidvaniaCreator(1, 0, 0, 800, 0, 0, 0, 1400), "#FFFDD0");
 
 //world gravity
-// level_0.worldGravity = new worldGravityCreator(200,200);
+// level_0.worldGravity = new worldGravityCreator(0, -200);
 
 //Creation of Nen System in Level
 level_0.nenSystem = portalNen;

@@ -56,7 +56,7 @@ class shadowLevelArray {
 
 //Generates Nen or Physics of the Individual Player
 class nenCreator {
-  constructor(playerSpeed, playerJump, playerGravityX, playerGravityY, playerDoubleJumps, playerWallJumpX, playerWallJumpY, playerWallDisengage, playerStickiness, playerSlippery, playerUpsideDownVelocity, playerUpsideDownMovement, playerDownwards, overlapBias) {
+  constructor(playerSpeed, playerJump, playerGravityX, playerGravityY, playerDoubleJumps, playerWallJumpX, playerWallJumpY, playerStickiness, playerSlippery, playerUpsideDown, playerDownwards, overlapBias) {
     this.playerSpeed = playerSpeed;
     this.playerJump = playerJump;
     this.playerGravityX = playerGravityX;
@@ -64,11 +64,9 @@ class nenCreator {
     this.playerDoubleJumps = playerDoubleJumps;
     this.playerWallJumpX = playerWallJumpX;
     this.playerWallJumpY = playerWallJumpY;
-    this.playerWallDisengage = playerWallDisengage;
     this.playerStickiness = playerStickiness;
     this.playerSlippery = playerSlippery;
-    this.playerUpsideDownVelocity = playerUpsideDownVelocity;
-    this.playerUpsideDownMovement = playerUpsideDownMovement;
+    this.playerUpsideDown = playerUpsideDown;
     this.playerDownwards = playerDownwards;
     //////////////////////World Attributes/////////////////
     this.overlapBias = overlapBias;
@@ -238,13 +236,10 @@ var portalNen = new nenCreator(
   2, //Double Jump
   1000, //WallJump-X
   500, //wallJump-Y
-  500, //Disenage Wall-S
   200, //Stick to Wall
   -25, //Wall Slide-Y
-  -200, //Upside Stickiness
-  100, //Upside Down Disengage
+  -200, //Upside Stick
   400, //Downwards-S
-  ////////////////////
   10, //OverLap Bias
 );
 var seanNen = new nenCreator(
@@ -255,11 +250,9 @@ var seanNen = new nenCreator(
   2, //Double Jump
   100, //WallJump-X
   100, //wallJump-Y
-  800, //Disenage Wall-S
   200, //Stick to Wall
   300, //Wall Slide-Y
-  -200, //Upside Stickiness
-  200, //Upside Down Disengage
+  -200, //Upside Stick
   700, //Downwards-S
   10, //OverLap Bias
 );
