@@ -55,12 +55,9 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
         // Tint
         this.weapon1.bullets.setAll('tint', this.weapon1Holder.tint);
         // Power One
-        if (this.weapon1Holder.powerOne) {
-            this.weapon1.bullets.setAll('powerOne', this.weapon1Holder.powerOne, false, false, 0, true);
-        }
+        this.weapon1.bullets.setAll('powerOne', this.weapon1Holder.powerOne, false, false, 0, true);
         //  The bullet will be automatically killed when it leaves the camera bounds
         this.weapon1.bulletKillType = Phaser.Weapon.KILL_CAMERA_BOUNDS;
-        // this.weapon1.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
         //  Because our bullet is drawn facing up, we need to offset its rotation:
         this.weapon1.bulletAngleOffset = 90;
         //  The speed at which the bullet is fired
@@ -79,12 +76,9 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
         // Tint
         this.weapon2.bullets.setAll('tint', this.weapon2Holder.tint);
         // Power One
-        if (this.weapon2Holder.powerOne) {
-            this.weapon2.bullets.setAll('powerOne', this.weapon2Holder.powerOne, false, false, 0, true);
-        }
+        this.weapon2.bullets.setAll('powerOne', this.weapon2Holder.powerOne, false, false, 0, true);
         //  The bullet will be automatically killed when it leaves the camera bounds
         this.weapon2.bulletKillType = Phaser.Weapon.KILL_CAMERA_BOUNDS;
-        // this.weapon2.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
         //  Because our bullet is drawn facing up, we need to offset its rotation:
         this.weapon2.bulletAngleOffset = 90;
         //  The speed at which the bullet is fired
@@ -103,12 +97,9 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
         // Tint
         this.weapon3.bullets.setAll('tint', this.weapon3Holder.tint);
         // Power One
-        if (this.weapon3Holder.powerOne) {
-            this.weapon3.bullets.setAll('powerOne', this.weapon3Holder.powerOne, false, false, 0, true);
-        }
+        this.weapon3.bullets.setAll('powerOne', this.weapon3Holder.powerOne, false, false, 0, true);
         //  The bullet will be automatically killed when it leaves the camera bounds
         this.weapon3.bulletKillType = Phaser.Weapon.KILL_CAMERA_BOUNDS;
-        // this.weapon3.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
         //  Because our bullet is drawn facing up, we need to offset its rotation:
         this.weapon3.bulletAngleOffset = 90;
         //  The speed at which the bullet is fired
@@ -127,12 +118,9 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
         // Tint
         this.weapon4.bullets.setAll('tint', this.weapon4Holder.tint);
         // Power One
-        if (this.weapon4Holder.powerOne) {
-            this.weapon4.bullets.setAll('powerOne', this.weapon4Holder.powerOne, false, false, 0, true);
-        }
+        this.weapon4.bullets.setAll('powerOne', this.weapon4Holder.powerOne, false, false, 0, true);
         //  The bullet will be automatically killed when it leaves the camera bounds
         this.weapon4.bulletKillType = Phaser.Weapon.KILL_CAMERA_BOUNDS;
-        // this.weapon4.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
         //  Because our bullet is drawn facing up, we need to offset its rotation:
         this.weapon4.bulletAngleOffset = 90;
         //  The speed at which the bullet is fired
