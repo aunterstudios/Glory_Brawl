@@ -30,7 +30,6 @@ brawl.game.prototype = {
         this.playerWallJumpY = nenHolder.playerWallJumpY;
         this.playerStickiness = nenHolder.playerStickiness;
         this.playerSlippery = nenHolder.playerSlippery;
-        this.playerUpsideDown = nenHolder.playerUpsideDown;
         this.playerDownwards = nenHolder.playerDownwards;
         /////////////////////Weapon System//////////////////////
         this.weapon1Holder = worldClassLevels[this.indexOfCurrentWorld].gunSystem[0];
@@ -253,7 +252,7 @@ brawl.game.prototype = {
             }
             else if (onUpsideDown && !onHazama) {
                 this.player.body.setSize(34, 55.5, 15, 0);
-                this.player.body.velocity.y = this.playerUpsideDown;
+                this.player.body.velocity.y = -this.playerStickiness;
                 if (this.movementLeft.isDown && !this.movementRight.isDown) {
                     this.player.body.velocity.x = -this.playerSpeed;
                     this.player.animations.play('upsideDownLeft');
@@ -368,7 +367,7 @@ brawl.game.prototype = {
             }
             else if (onUpsideDown && !onHazama) {
                 this.player.frame = 1;
-                this.player.body.velocity.y = this.playerUpsideDown;
+                this.player.body.velocity.y = -this.playerStickiness;
             }
             else if (onNone) {
                 this.player.frame = 2;
