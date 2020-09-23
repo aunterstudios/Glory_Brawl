@@ -47,17 +47,17 @@ brawl.game.prototype.enemyAttack = function () {
             //Daakath
             if (enemy.name === enemyDaakath.name) {
                 this.game.physics.arcade.moveToObject(enemy, this.player, 350);
-                enemy.tint = Math.random() * 0xffffff;
+                // enemy.tint = Math.random() * 0xffffff;
             }
             if (enemy.name === enemyAccelerate.name) {
                 this.game.physics.arcade.moveToPointer(enemy, 600);
             }
         }
-        else {
-            if (enemy.name === enemyDaakath.name) {
-                enemy.tint = Phaser.Color.RED;
-            }
-        }
+        // else {
+        //     if (enemy.name === enemyDaakath.name) {
+        //         enemy.tint = Phaser.Color.RED;
+        //     }
+        // }
     }, this, this.player);
 };
 

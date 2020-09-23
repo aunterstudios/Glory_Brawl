@@ -134,10 +134,12 @@ level_0.playerPosition = [
 level_0.spriteSpawn = [
   //Side Borders
   new SpriteCreator(true, undeniableDeathBallKill, 'tile', deathTile, 0, 0, 50, 750, 1, 0, 0, 0, 0, scLocalizedDestruction, null),
+  // new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 0, 0, 50, 750, 1, 0, 0, 0, 0, scLocalizedDestruction, null),
   new SpriteCreator(true, undeniableDeathRegular, 'tile', deathTile, 1400, 0, 50, 750, 1, 0, 0, 0, 0, null, null),
   //Ground
   new SpriteCreator(true, immovableWallRegular, 'tile', immovableWallTile, 0, 800, 1400, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, wallRegular, 'tile', wallTile50, 700, 200, 150, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallRegular, 'tile', wallTile50, 1000, 200, 150, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallRegular, 'tile', wallTile50, 1000, 200, 50, 250, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, wallCloud, 'tile', wallTile50, 800, 200, 150, 50, 1, 0, 0, 0, 0, null, null),
   //Repeating Ledge
   new SpriteCreator(true, ledgeElevator, 'timer', ledge, 400, 100, 150, 50, 1, 300, 200, 0, 0, null, new timerCreator('repeat', 4, 3)),
