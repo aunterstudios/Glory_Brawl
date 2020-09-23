@@ -120,6 +120,7 @@ level_0.nenSystem = portalNen;
 
 //Creation of Gun System in Level
 level_0.gunSystem = basicGunSet;
+// level_0.gunSystem = testGunSet;
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_0.playerPosition = [
@@ -162,10 +163,10 @@ var level_1 = new LevelCreator("Level 1-SandboxMode", 1400, 16000, new Metroidva
 // level_1.worldGravity = new worldGravityCreator(200,200);
 
 //Creation of Nen System in Level
-level_1.nenSystem = portalNen;
+level_1.nenSystem = seanNen;
 
 //Creation of Gun System in Level
-level_1.gunSystem = basicGunSet;
+level_1.gunSystem = testGunSet;
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_1.playerPosition = [

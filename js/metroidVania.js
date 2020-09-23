@@ -42,8 +42,14 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     }
 
     //////////////////Adding Weapons////////////////////
+
+    //Weapon Groups Initialized
+    this.weapon1 = this.game.add.weapon(30, 'bulletOne');
+    this.weapon2 = this.game.add.weapon(30, 'bulletOne');
+    this.weapon3 = this.game.add.weapon(30, 'bulletOne');
+    this.weapon4 = this.game.add.weapon(30, 'bulletOne');
+
     if (this.weapon1Holder) {
-        this.weapon1 = this.game.add.weapon(30, 'bulletOne');
         // Name
         this.weapon1.bullets.setAll('name', this.weapon1Holder.name);
         // Tint
@@ -64,7 +70,6 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     }
 
     if (this.weapon2Holder) {
-        this.weapon2 = this.game.add.weapon(30, 'bulletOne');
         // Name
         this.weapon2.bullets.setAll('name', this.weapon2Holder.name);
         // Tint
@@ -85,7 +90,6 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     }
 
     if (this.weapon3Holder) {
-        this.weapon3 = this.game.add.weapon(30, 'bulletOne');
         // Name
         this.weapon3.bullets.setAll('name', this.weapon3Holder.name);
         // Tint
@@ -106,7 +110,6 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     }
 
     if (this.weapon4Holder) {
-        this.weapon4 = this.game.add.weapon(30, 'bulletOne');
         // Name
         this.weapon4.bullets.setAll('name', this.weapon4Holder.name);
         // Tint

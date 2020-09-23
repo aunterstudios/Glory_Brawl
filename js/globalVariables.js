@@ -253,14 +253,14 @@ var seanNen = new nenCreator(
   null, //Gravity-X
   900, //Gravity-Y
   2, //Double Jump
-  600, //WallJump-X
-  400, //wallJump-Y
+  100, //WallJump-X
+  100, //wallJump-Y
   800, //Disenage Wall-S
   200, //Stick to Wall
-  25, //Wall Slide-Y
-  0, //Upside Stickiness
-  500, //Upside Down Disengage
-  400, //Downwards-S
+  300, //Wall Slide-Y
+  -200, //Upside Stickiness
+  200, //Upside Down Disengage
+  700, //Downwards-S
   10, //OverLap Bias
 );
 
