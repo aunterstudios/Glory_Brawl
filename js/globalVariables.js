@@ -57,16 +57,16 @@ class shadowLevelArray {
 //Generates Nen or Physics of the Individual Player
 class nenCreator {
   constructor(playerSpeed, playerJump, playerGravityX, playerGravityY, playerDoubleJumps, playerWallJumpX, playerWallJumpY, playerStickiness, playerSlippery, playerDownwards, overlapBias) {
-    this.playerSpeed = playerSpeed;
-    this.playerJump = playerJump;
-    this.playerGravityX = playerGravityX;
-    this.playerGravityY = playerGravityY;
-    this.playerDoubleJumps = playerDoubleJumps;
-    this.playerWallJumpX = playerWallJumpX;
-    this.playerWallJumpY = playerWallJumpY;
-    this.playerStickiness = playerStickiness;
-    this.playerSlippery = playerSlippery;
-    this.playerDownwards = playerDownwards;
+    this.playerSpeed = playerSpeed; //Speed of Player
+    this.playerJump = playerJump; //Jump of Player
+    this.playerGravityX = playerGravityX; //Personal Gravity X-Axis
+    this.playerGravityY = playerGravityY; //Personal Gravity Y-Axis
+    this.playerDoubleJumps = playerDoubleJumps; //Amount of Double Jumps
+    this.playerWallJumpX = playerWallJumpX; //Jumping From Side of Wall-SideWays Distance
+    this.playerWallJumpY = playerWallJumpY; //Jumping From Side of Wall-Vertical Distance
+    this.playerStickiness = playerStickiness; //Stick Force Applied to Different Objects
+    this.playerSlippery = playerSlippery; //Player Sliding Down From Side of walls
+    this.playerDownwards = playerDownwards; //Player Moving Downwards
     //////////////////////World Attributes/////////////////
     this.overlapBias = overlapBias;
   }
@@ -252,10 +252,10 @@ var portalNen = new nenCreator(
   2, //Double Jump
   1000, //WallJump-X
   500, //wallJump-Y
-  800, //Stiickiness
+  500, //Stiickiness
   -25, //Wall Slide-Y
   400, //Downwards-S
-  20, //OverLap Bias
+  15, //OverLap Bias
 );
 
 var seanNen = new nenCreator(
@@ -344,8 +344,6 @@ var immovableWallPowerJump = new spriteType(1, 'immovableWallPowerUpJump', testT
 
 //Moveable Wall Names
 var wallRegular = new spriteType(2, 'wallRegular', tintRemover, 200, .5, false, 600, 1);
-var wallSurf = new spriteType(2, 'wallSurf', 10409939.733364154, 200, .5, false, 600, 1);
-var wallInverse = new spriteType(2, 'wallInverse', 1181911.9307258818, 200, .5, false, 600, 1); //First Turn (Leaners Walls From Ledge)
 var wallGhost = new spriteType(2, 'wallGhost', 16771007.229130682, 200, .5, true, 600, 1); //Immovable Wall That Let's You Get Through Objects
 var wallCloud = new spriteType(2, 'wallCloud', 9583870.358153213, 200, .5, true, 600, 1); //Stationary Shooting Platform Cloud
 var wallKiller = new spriteType(2, 'wallKiller', Phaser.Color.RED, 200, .5, false, 600, 1);

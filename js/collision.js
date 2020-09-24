@@ -249,37 +249,6 @@ brawl.game.prototype.playerWall = function (player, wall) {
     //     wall.body.stop();
     //     this.game.physics.arcade.moveToPointer(wall, 200);
     // }
-    //Wall Inverse
-    if (wall.name === wallInverse.name) {
-        player.body.stop();
-        wall.body.stop();
-        player.body.velocity.y = -50;
-        if (player.body.touching.down) {
-            wall.body.velocity.y = -50;
-            if (player.x < wall.x) {
-                wall.body.velocity.x = -300; //150
-                // console.log(player.body.touching.up, 'up');
-            }
-            if (player.x > wall.x) {
-                wall.body.velocity.x = 300;
-                // console.log(player.body.touching.left, 'left', player.body.touching.right, 'right')
-            }
-        }
-        if (player.body.touching.up) {
-            wall.body.stop();
-            if (player.x < wall.x) {
-                wall.body.velocity.x = -300;
-                // console.log(player.body.touching.up, 'up');
-            }
-            if (player.x > wall.x) {
-                wall.body.velocity.x = 300;
-                // console.log(player.body.touching.left, 'left', player.body.touching.right, 'right')
-            }
-        }
-        if (player.body.touching.left || player.body.touching.right) {
-            wall.body.velocity.y = 300;
-        }
-    }
     ///////////////////////////////Special Walls///////////////////////////
     if (wall.name === wallCloud.name) {
         //Alpha One
