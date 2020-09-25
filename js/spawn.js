@@ -25,11 +25,11 @@ brawl.game.prototype.spriteGroupGenerator = function () {
     this.fallingSpikesTwo = this.game.add.group(); //To draw from different Sprite Pool
     this.fallingSpikesTwo.enableBody = true; 
     //Adding Immovable Walls
-    this.immovableWall = this.game.add.group();
-    this.immovableWall.enableBody = true;
+    this.ground = this.game.add.group();
+    this.ground.enableBody = true;
     //Adding This Undeniable Death
-    this.undeniableDeath = this.game.add.group();
-    this.undeniableDeath.enableBody = true;
+    this.death = this.game.add.group();
+    this.death.enableBody = true;
     //Adding Hazama and Powerups
     this.hazama = this.game.add.group();
     this.hazama.enableBody = true;
@@ -76,8 +76,8 @@ brawl.game.prototype.spriteGen = function (sprite, positionInArray) {
     }
     ///////////////////Group Generation/////////////////
     var groupArray = [
-        new groupArrayCreator(this.undeniableDeath, groupUndeniableDeath),
-        new groupArrayCreator(this.immovableWall, groupImmovableWall),
+        new groupArrayCreator(this.death, groupDeath),
+        new groupArrayCreator(this.ground, groupGround),
         new groupArrayCreator(this.wall, groupWall),
         new groupArrayCreator(this.ledge, groupLedge),
         new groupArrayCreator(this.enemy, groupEnemy),
@@ -129,10 +129,10 @@ brawl.game.prototype.spriteGen = function (sprite, positionInArray) {
     this.spriteX.body.bounce.setTo(sprite.spriteType.bounce);
     this.spriteX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
     /////////////////////////Special Properties of Sprites/////////////////
-    if (sprite.spriteType.name === immovableWallOneWayPlayerBlockLeft.name) {
+    if (sprite.spriteType.name === groundOneWayPlayerBlockLeft.name) {
         this.spriteX.body.checkCollision.left = false;
     }
-    if (sprite.spriteType.name === immovableWallOneWayPlayerBlockDown.name) {
+    if (sprite.spriteType.name === groundOneWayPlayerBlockDown.name) {
         this.spriteX.body.checkCollision.down = false;
     }
     if (groupCategory === groupHazama) {

@@ -300,9 +300,9 @@ var testGunSet = [
 
 /////////////////////////List of GROUP NAMES of Each Sprite (For Different Special Properties)////////////////
 //Death Group
-var groupUndeniableDeath = 'groupUndeniableDeath';
+var groupDeath = 'groupdeath';
 //Immovable Walls
-var groupImmovableWall = 'groupImmovableWall';
+var groupGround = 'groupGround';
 //Moveable Walls
 var groupWall = 'groupWall';
 //Ledge
@@ -325,22 +325,22 @@ var testTint = Math.random() * 0xffffff; // testTint
 var tintOrange = 15631118.030252509;
 /////////////////////////List of Names of Each Sprite (For Different Special Properties)////////////////
 //Death Names
-var undeniableDeathRegular = new spriteType(0, 'undeniableDeathRegular', Phaser.Color.RED, 100, 0, true, 1000, 1); //No Special Properties
-var undeniableDeathBallKill = new spriteType(0, 'undeniableDeathBallKill', Phaser.Color.ORANGE, 100, 0, true, 1000, 1); //Killable By Ball
-var undeniableDeathGhost = new spriteType(0, 'undeniableDeathGhost', 9583870.358153213, 100, 0, true, 1000, 1); //Weapon Phases
+var deathRegular = new spriteType(0, 'deathRegular', Phaser.Color.RED, 100, 0, true, 1000, 1); //No Special Properties
+var deathBallKill = new spriteType(0, 'deathBallKill', Phaser.Color.ORANGE, 100, 0, true, 1000, 1); //Killable By Ball
+var deathGhost = new spriteType(0, 'deathGhost', 9583870.358153213, 100, 0, true, 1000, 1); //Weapon Phases
 
 //Immovable Wall Names
-var immovableWallRegular = new spriteType(1, 'immovableWallRegular', tintRemover, 100, 0, true, 1000, 1); //No Special Properties
-var immovableWallKillWall = new spriteType(1, 'immovableWallKillWall', 7019278.306799905, 100, 0, true, 1000, 1); //Kills Walls(Will Be Everything)
-var immovableWallPhase = new spriteType(1, 'immovableWallPhase', 12758247.409111453, 100, 0, true, 1000, 1); //Killed By Enemy BULLETS
-var immovableWallActivation = new spriteType(1, 'immovableWallActivation', 0xffff00, 100, 0, true, 1000, 1); //Triggers Movement in a Wall
-var immovableWallWorldGravity = new spriteType(1, 'immovableWallWorldGravity', 8314793.039214706, 100, 0, true, 1000, 1); //Triggers World Gravity
-var immovableWallOneWayObject = new spriteType(1, 'immovableWallOneWayObject', 2499878.036284214, 100, 0, true, 1000, 1); //One Way (Objects Only)
-var immovableWallOneWayPlayer = new spriteType(1, 'immovableWallOneWayPlayer', 241917.63554178402, 100, 0, true, 1000, 1); //One Way (Players Only)
-var immovableWallSlippery = new spriteType(1, 'immovableWallSlippery', 766012.4141677661, 100, 0, true, 1000, 1); //Makes you SLIPPERY!
-var immovableWallOneWayPlayerBlockLeft = new spriteType(1, 'immovableWallOneWayPlayerBlockLeft', 3588771.242333334, 100, 0, true, 1000, 1); //One way player only from the left
-var immovableWallOneWayPlayerBlockDown = new spriteType(1, 'immovableWallOneWayPlayerBlockDown', testTint, 100, 0, true, 1000, 1); //One way player only from the Bottom
-var immovableWallPowerJump = new spriteType(1, 'immovableWallPowerUpJump', testTint, 1, 0, true, 1000, 1);
+var groundRegular = new spriteType(1, 'groundRegular', tintRemover, 100, 0, true, 1000, 1); //No Special Properties
+var groundKillWall = new spriteType(1, 'groundKillWall', 7019278.306799905, 100, 0, true, 1000, 1); //Kills Walls(Will Be Everything)
+var groundPhase = new spriteType(1, 'groundPhase', 12758247.409111453, 100, 0, true, 1000, 1); //Killed By Enemy BULLETS
+var groundActivation = new spriteType(1, 'groundActivation', 0xffff00, 100, 0, true, 1000, 1); //Triggers Movement in a Wall
+var groundWorldGravity = new spriteType(1, 'groundWorldGravity', 8314793.039214706, 100, 0, true, 1000, 1); //Triggers World Gravity
+var groundOneWayObject = new spriteType(1, 'groundOneWayObject', 2499878.036284214, 100, 0, true, 1000, 1); //One Way (Objects Only)
+var groundOneWayPlayer = new spriteType(1, 'groundOneWayPlayer', 241917.63554178402, 100, 0, true, 1000, 1); //One Way (Players Only)
+var groundSlippery = new spriteType(1, 'groundSlippery', 766012.4141677661, 100, 0, true, 1000, 1); //Makes you SLIPPERY!
+var groundOneWayPlayerBlockLeft = new spriteType(1, 'groundOneWayPlayerBlockLeft', 3588771.242333334, 100, 0, true, 1000, 1); //One way player only from the left
+var groundOneWayPlayerBlockDown = new spriteType(1, 'groundOneWayPlayerBlockDown', testTint, 100, 0, true, 1000, 1); //One way player only from the Bottom
+var groundPowerJump = new spriteType(1, 'groundPowerUpJump', testTint, 1, 0, true, 1000, 1);
 
 //Moveable Wall Names
 var wallRegular = new spriteType(2, 'wallRegular', tintRemover, 200, .5, false, 600, 1);
@@ -383,7 +383,7 @@ var scNoTypeEnemy = new specialConditionCreator('noTypeEnemy'); //Turns Enemies 
 var deathTile = 'deathTile';
 
 //Immovable Wall
-var immovableWallTile = 'immovableWallTile';
+var groundTile = 'groundTile';
 var powerJar = 'powerJar';
 
 //Moveable Wall

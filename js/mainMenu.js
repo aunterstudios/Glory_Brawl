@@ -6,7 +6,7 @@ brawl.state1.prototype = {
         this.load.image('background-one', 'assets/trumpFirstBackground.jpg');
         this.load.image('deathTile', 'assets/deathTile.png');
         //Immovable Walls
-        this.load.image('immovableWallTile', 'assets/immovableWallTile.png');
+        this.load.image('groundTile', 'assets/groundTile.png');
         //Moveable Walls
         this.load.image('wallTile50', 'assets/wallTile50.png');
         this.load.image('wallTile25', 'assets/wallTile25.png');

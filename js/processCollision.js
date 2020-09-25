@@ -1,4 +1,4 @@
-brawl.game.prototype.immoVsSelfProcess = function (immovable1, immovable2) {
+brawl.game.prototype.gdVsSelfProcess = function (immovable1, immovable2) {
     if (!immovable1.specialCondition && !immovable2.specialCondition) {
         return false;
     }
@@ -8,8 +8,8 @@ brawl.game.prototype.immoVsSelfProcess = function (immovable1, immovable2) {
 
 };
 
-brawl.game.prototype.immoVsMovProcess = function (imb, mov) {
-    if (imb.name === immovableWallOneWayObject) {
+brawl.game.prototype.gdVsMovProcess = function (imb, mov) {
+    if (imb.name === groundOneWayObject) {
         return false;
     }
     else {
@@ -30,8 +30,8 @@ brawl.game.prototype.wallVsMovProcess = function (wall, mov) {
     }
 };
 
-brawl.game.prototype.playerImmovableProcess = function (player, wall) {
-    if (wall.name === immovableWallOneWayPlayer.name) {
+brawl.game.prototype.playerGroundProcess = function (player, wall) {
+    if (wall.name === groundOneWayPlayer.name) {
         return false;
     }
     else {

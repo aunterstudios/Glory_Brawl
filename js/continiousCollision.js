@@ -61,15 +61,6 @@ brawl.game.prototype.enemyAttack = function () {
     }, this, this.player);
 };
 
-//Immovable Wall
-brawl.game.prototype.immovableWallContinious = function () {
-    this.immovableWall.forEachAlive(function (immovableWall) {
-        // if (immovableWall.name === immovableWallOneWayPlayerBlockLeft) {
-        //     immovableWall.body.checkCollision.left = true;
-        // }
-    }, this, this.player);
-};
-
 //Moveable Wall
 brawl.game.prototype.wallContinious = function () {
     // this.wall.forEachAlive(function (wall) {
