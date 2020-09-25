@@ -15,7 +15,7 @@ brawl.game.prototype.weaponHandler = function (bullet, sprite) {
     bullet.kill();
 };
 //Let Weapon Fire Pass Through
-brawl.game.prototype.weaponProcessArgument = function (weapon, ghost) {
+brawl.game.prototype.weaponProcess = function (weapon, ghost) {
     if (ghost.name === wallCloud.name || ghost.name === undeniableDeathGhost.name) {
         return false;
     }

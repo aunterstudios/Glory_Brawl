@@ -14,7 +14,7 @@ brawl.game.prototype.trapProjectiles = function (trapProjectiles, obstacles) {
 };
 
 //Immovable Objects vs. Themselves
-brawl.game.prototype.immovableImmovable = function (immovable1, immovable2) {
+brawl.game.prototype.immoVsSelf = function (immovable1, immovable2) {
     ////////////More Special Interactions to Come//////////////
     //Reverses The Velocity's of the Object
     if (immovable1.specialCondition) {
@@ -28,7 +28,7 @@ brawl.game.prototype.immovableImmovable = function (immovable1, immovable2) {
 };
 
 //Immovable Objects vs. Moveable Objects
-brawl.game.prototype.immovableMoveable = function (immovable, moveable) {
+brawl.game.prototype.immoVsMov = function (immovable, moveable) {
     ////////////////////Physics of Immoveable Against Ball or Ledge or Enemy////////////
     // if (immovable.body.touching.up) {
     //     moveable.body.velocity.y = -200;
@@ -62,39 +62,38 @@ brawl.game.prototype.immovableMoveable = function (immovable, moveable) {
 };
 
 //Wall Against Moveable Objects
-brawl.game.prototype.wallVsEnemy = function (wall, enemy) {
+brawl.game.prototype.wallVsMov = function (wall, mov) {
     ///////////////Actual Collision Physics/////////////
-    enemy.name = 'enemyWall';
-    enemy.tint = tintRemover;
+    if (mov.groupName === groupEnemy) {
+        mov.name = 'enemyWall';
+        mov.tint = tintRemover;
+    }
     if (wall.body.touching.up) {
-        enemy.body.velocity.y = -300;
+        mov.body.velocity.y = -300;
     }
     else if (wall.body.touching.down) {
-        enemy.body.velocity.y = 300;
+        mov.body.velocity.y = 300;
     }
     else if (wall.body.touching.left) {
-        enemy.body.velocity.x = -300;
+        mov.body.velocity.x = -300;
     }
     else if (wall.body.touching.right) {
-        enemy.body.velocity.x = 300;
+        mov.body.velocity.x = 300;
+    }
+    ///////////////Ledge Specific Death///////////
+    if (mov.elevatorActivate) {
+        this.emitterFunction(mov, null, 'destroy');
     }
     return;
 };
 
 brawl.game.prototype.wallVsBl = function (wall, bL) {
-    /////////////////Actual Collision Physics/////////////
-    // bL.body.velocity.setTo(-wall.body.velocity.x, -wall.body.velocity.y);
     //////////////////////Destroys Elevator Ledge/////////////////////////
     if (bL.elevatorActivate) {
         this.emitterFunction(bL, null, 'destroy');
     }
     return;
 };
-
-brawl.game.prototype.enemySelfCollision = function (enemyOne, enemyTwo) {
-    return;
-};
-
 
 brawl.game.prototype.blVsEnemy = function (bL, enemy) {
     /////////////////////////killEnemy////////////////////

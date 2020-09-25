@@ -127,8 +127,8 @@ brawl.game.prototype = {
         this.hazamaContinious();
         ///////////////////////////////////////////Physics////////////////////////////////////////
         //Player Mechanics
-        var onImmovable = this.game.physics.arcade.collide(this.player, this.immovableWall, this.playerImmovable, this.playerImmovableWallProcessArgument, this);
-        var onWall = this.game.physics.arcade.collide(this.player, this.wall, this.playerWall, this.playerWallProcessArgument, this);
+        var onImmovable = this.game.physics.arcade.collide(this.player, this.immovableWall, this.playerImmovable, this.playerImmovableProcess, this);
+        var onWall = this.game.physics.arcade.collide(this.player, this.wall, this.playerWall, null, this);
         var onLedge = this.game.physics.arcade.collide(this.player, this.ledge, this.playerLedge, null, this);
         var onBall = this.game.physics.arcade.collide(this.player, this.ball, this.playerBall, null, this);
         var onHazama = this.game.physics.arcade.overlap(this.player, this.hazama, this.playerHazama, null, this);
@@ -141,30 +141,27 @@ brawl.game.prototype = {
         this.game.physics.arcade.overlap(this.player, this.flag, this.respawn, null, this);
 
         //Weapon Mechanics
-        this.game.physics.arcade.overlap([this.weapon1.bullets, this.weapon2.bullets, this.weapon3.bullets], [this.ball, this.wall, this.ledge, this.enemy, this.immovableWall, this.undeniableDeath], this.weaponHandler, this.weaponProcessArgument, this);
+        this.game.physics.arcade.overlap([this.weapon1.bullets, this.weapon2.bullets, this.weapon3.bullets], [this.ball, this.wall, this.ledge, this.enemy, this.immovableWall, this.undeniableDeath], this.weaponHandler, this.weaponProcess, this);
 
         //Immovable Wall and Death vs. Moveable Objects
-        this.game.physics.arcade.collide([this.immovableWall, this.undeniableDeath], [this.ball, this.enemy, this.ledge, this.wall], this.immovableMoveable, this.immovableMoveableProcessArgument, this);
+        this.game.physics.arcade.collide([this.immovableWall, this.undeniableDeath], [this.ball, this.enemy, this.ledge, this.wall], this.immoVsMov, this.immoVsMovProcess, this);
 
         //Immovable Wall and Death vs. Themselves
-        this.game.physics.arcade.overlap([this.immovableWall, this.undeniableDeath], [this.immovableWall, this.undeniableDeath], this.immovableImmovable, this.immovableImmovableProcessArgument, this);
+        this.game.physics.arcade.overlap([this.immovableWall, this.undeniableDeath], [this.immovableWall, this.undeniableDeath], this.immoVsSelf, this.immoVsSelfProcess, this);
         
         //Movable Wall Mechanics vs. Moveable Objects
-        this.game.physics.arcade.collide(this.wall, this.enemy, this.wallVsEnemy, this.wallVsEnemyProcess, this);
-        // this.game.physics.arcade.overlap(this.wall, [this.ball, this.ledge], this.wallVsBl, null, this);
-        
-        // //Ball and Ledge vs. Enemy
-        // this.game.physics.arcade.overlap([this.ball, this.ledge], this.enemy, this.blVsEnemy, null, this);
-        
-        // //Enemy vs. Enemy
-        // this.game.physics.arcade.collide(this.enemy, this.enemy, this.enemySelfCollision, null, this);
+        this.game.physics.arcade.collide(this.wall, [this.enemy, this.ball, this.ledge], this.wallVsMov, this.wallVsMovProcess, this);
+
+        //Moveable Objects Against Each Other
+        // this.game.physics.arcade.collide(this.ball, this.enemy, this.ballVsEnemy, this.ballVsEnemyProcess, this);
+        // this.game.physics.arcade.collide(this.ledge, this.enemy, this.ledgeVsEnemy, this.ledgeVsEnemyProcess, this);
+        // this.game.physics.arcade.collide(this.ball, this.ledge, this.ballVsLedge, this.ballVsLedgeProcess, this);
 
         //Enemy Bullet and Falling Spike Mechanics (trapProjectiles)
         this.game.physics.arcade.overlap([this.enemyBullets.bullets, this.fallingSpikes, this.fallingSpikesTwo], [this.ball, this.wall, this.immovableWall, this.ledge, this.undeniableDeath], this.trapProjectiles, null, this);
         
 
         ////////////////////////////////Actual Controls////////////////////////////////
-
         //Jump Mechanics
         // Set a variable that is true when the player is a surface the ground (or different sides) or not a surface
         var onTheGround = this.player.body.touching.down;

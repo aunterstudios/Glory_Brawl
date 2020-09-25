@@ -1,4 +1,4 @@
-brawl.game.prototype.immovableImmovableProcessArgument = function (immovable1, immovable2) {
+brawl.game.prototype.immoVsSelfProcess = function (immovable1, immovable2) {
     if (!immovable1.specialCondition && !immovable2.specialCondition) {
         return false;
     }
@@ -8,7 +8,7 @@ brawl.game.prototype.immovableImmovableProcessArgument = function (immovable1, i
 
 };
 
-brawl.game.prototype.immovableMoveableProcessArgument = function (imb, mov) {
+brawl.game.prototype.immoVsMovProcess = function (imb, mov) {
     if (imb.name === immovableWallOneWayObject) {
         return false;
     }
@@ -18,7 +18,7 @@ brawl.game.prototype.immovableMoveableProcessArgument = function (imb, mov) {
 
 };
 
-brawl.game.prototype.wallVsEnemyProcess = function (wall, enemy) {
+brawl.game.prototype.wallVsMovProcess = function (wall, mov) {
     /////////////////Actual Collision Physics/////////////
     // bL.body.velocity.setTo(-wall.body.velocity.x, -wall.body.velocity.y);
     //////////////////////Destroys Elevator Ledge/////////////////////////
@@ -30,7 +30,7 @@ brawl.game.prototype.wallVsEnemyProcess = function (wall, enemy) {
     }
 };
 
-brawl.game.prototype.playerImmovableWallProcessArgument = function (player, wall) {
+brawl.game.prototype.playerImmovableProcess = function (player, wall) {
     if (wall.name === immovableWallOneWayPlayer.name) {
         return false;
     }
@@ -38,24 +38,3 @@ brawl.game.prototype.playerImmovableWallProcessArgument = function (player, wall
         return true
     }
 };
-
-
-
-
-brawl.game.prototype.playerWallProcessArgument = function (player, wall) {
-    // if (wall.name === wallRegularKiller) {
-    //     return false;
-    // }
-    // else {
-    //     return true;
-    // }
-};
-
-// brawl.game.prototype.playerLedgeProcessArgument = function (player, ledge) {
-//     if (player.body.touching) {
-//         return true;
-//     }
-//     else {
-//         return false;
-//     }
-// };
