@@ -125,7 +125,7 @@ brawl.game.prototype = {
         this.hazamaContinious();
         ///////////////////////////////////////////Physics////////////////////////////////////////
         //Player Mechanics
-        var onImmovable = this.game.physics.arcade.collide(this.player, this.ground, this.playerGround, this.playerGroundProcess, this);
+        var onGround = this.game.physics.arcade.collide(this.player, this.ground, this.playerGround, this.playerGroundProcess, this);
         var onWall = this.game.physics.arcade.collide(this.player, this.wall, this.playerWall, null, this);
         var onLedge = this.game.physics.arcade.collide(this.player, this.ledge, this.playerLedge, null, this);
         var onBall = this.game.physics.arcade.collide(this.player, this.ball, this.playerBall, null, this);
@@ -215,11 +215,11 @@ brawl.game.prototype = {
             }
             else if (onTheRightSide && !onHazama) {
                 this.player.body.setSize(30, 50, 19, 10);
-                if (onWall || onImmovable) {
+                if (onWall || onGround) {
                     this.player.body.velocity.x = this.playerStickiness;
                     this.player.body.velocity.y = this.playerSlippery; //100 is original
                 }
-                if (onWall || onImmovable || onLedge) {
+                if (onWall || onGround || onLedge) {
                     this.player.frame = 7;
                 }
                 if (this.movementLeft.isDown) {
@@ -229,11 +229,11 @@ brawl.game.prototype = {
             }
             else if (onTheLeftSide && !onHazama) {
                 this.player.body.setSize(30, 50, 15, 10);
-                if (onWall || onImmovable) {
+                if (onWall || onGround) {
                     this.player.body.velocity.x = -this.playerStickiness;
                     this.player.body.velocity.y = this.playerSlippery; //100 is Original
                 }
-                if (onWall || onImmovable || onLedge) {
+                if (onWall || onGround || onLedge) {
                     this.player.frame = 13;
                 }
                 if (this.movementRight.isDown) {
@@ -339,20 +339,20 @@ brawl.game.prototype = {
                 this.game.camera.y += 20;
             }
             if (onTheRightSide && !onHazama) {
-                if (onWall || onImmovable) {
+                if (onWall || onGround) {
                     this.player.body.velocity.x = this.playerStickiness;
                     this.player.body.velocity.y = this.playerSlippery;
                 }
-                if (onWall || onImmovable || onLedge) {
+                if (onWall || onGround || onLedge) {
                     this.player.frame = 7;
                 }
             }
             else if (onTheLeftSide && !onHazama) {
-                if (onWall || onImmovable) {
+                if (onWall || onGround) {
                     this.player.body.velocity.x = -this.playerStickiness;
                     this.player.body.velocity.y = this.playerSlippery;
                 }
-                if (onWall || onImmovable || onLedge) {
+                if (onWall || onGround || onLedge) {
                     this.player.frame = 13;
                 }
             }

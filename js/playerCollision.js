@@ -1,47 +1,47 @@
-brawl.game.prototype.playerImmovable = function (player, immovable) {
+brawl.game.prototype.playerGround = function (player, ground) {
     // player.body.stop();
-    if (immovable.name === immovableWallSlippery.name) {
+    if (ground.name === groundSlippery.name) {
         this.playerSlippery = 200;
     }
     else {
         this.playerSlippery = nenHolder.playerSlippery;
     }
-    //Activating immovableWallOneWay
-    // if (immovable.name === immovableWallOneWayPlayerBlockLeft) {
-    //     immovable.body.checkCollision.left = false;
+    //Activating groundOneWay
+    // if (ground.name === groundOneWayPlayerBlockLeft) {
+    //     ground.body.checkCollision.left = false;
     // }
-    ///Activating immovableWallActivation(Like a Cloud)
-    if (immovable.name === immovableWallActivation.name) {
-        if (immovable.body.touching.up) {
-            immovable.body.velocity.setTo(0, 200);
+    ///Activating groundActivation(Like a Cloud)
+    if (ground.name === groundActivation.name) {
+        if (ground.body.touching.up) {
+            ground.body.velocity.setTo(0, 200);
         }
-        else if (immovable.body.touching.down) {
-            immovable.body.velocity.setTo(0, -200);
+        else if (ground.body.touching.down) {
+            ground.body.velocity.setTo(0, -200);
 
         }
-        else if (immovable.body.touching.left) {
-            immovable.body.velocity.setTo(200, 0);
+        else if (ground.body.touching.left) {
+            ground.body.velocity.setTo(200, 0);
 
         }
-        else if (immovable.body.touching.right) {
-            immovable.body.velocity.setTo(-200, 0);
+        else if (ground.body.touching.right) {
+            ground.body.velocity.setTo(-200, 0);
         }
-        immovable.name = immovableWallRegular;
-        // console.log(immovable.tint, "1");
-        immovable.tint = tintWallPlayerFrozen;
-        // console.log(immovable.tint, "Removed");
+        ground.name = groundRegular;
+        // console.log(ground.tint, "1");
+        ground.tint = tintWallPlayerFrozen;
+        // console.log(ground.tint, "Removed");
         // immovable.alpha = .5;
 
     }
     //Activating immovableWallWorldGravity (World Gravity)
-    if (immovable.name === immovableWallWorldGravity.name) {
+    if (ground.name === groundWorldGravity.name) {
         this.game.physics.arcade.gravity.setTo(0, 500);
-        this.emitterFunction(immovable, null, 'destroy');
+        this.emitterFunction(ground, null, 'destroy');
     }
-    if (immovable.name === immovableWallPowerJump.name) {
+    if (ground.name === groundPowerJump.name) {
         player.powerJump = true;
         this.playerJump = -1000;
-        this.emitterFunction(immovable, null, 'destroy');
+        this.emitterFunction(ground, null, 'destroy');
     }
     return;
 };

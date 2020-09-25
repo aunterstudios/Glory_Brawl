@@ -28,33 +28,33 @@ brawl.game.prototype.gdVsSelf = function (obj1, obj2) {
 };
 
 //Ground and Death vs. Moveable Objects
-brawl.game.prototype.gdVsMov = function (immovable, moveable) {
+brawl.game.prototype.gdVsMov = function (groundDeath, moveable) {
     ////////////////////Physics of Immoveable Against Ball or Ledge or Enemy////////////
-    // if (immovable.body.touching.up) {
+    // if (groundDeath.body.touching.up) {
     //     moveable.body.velocity.y = -200;
     // }
-    // else if (immovable.body.touching.down) {
+    // else if (groundDeath.body.touching.down) {
     //     moveable.body.velocity.y = 200;
     // }
-    // else if (immovable.body.touching.left) {
+    // else if (groundDeath.body.touching.left) {
     //     moveable.body.velocity.x = -200;
     // }
-    // else if (immovable.body.touching.right) {
+    // else if (groundDeath.body.touching.right) {
     //     moveable.body.velocity.x = 200;
     // }
-    /////////////////////Immovable Wall Effects Against Moveable////////////////////
-    if (immovable.name === groundKillWall.name || immovable.body.speed > 0 || moveable.elevatorActivate) {
+    /////////////////////groundDeath Wall Effects Against Moveable////////////////////
+    if (groundDeath.name === groundKillWall.name || groundDeath.body.speed > 0 || moveable.elevatorActivate) {
         this.emitterFunction(moveable, null, 'destroy');
 
     }
-    // ////////////////////Moveable Effects Against Immovable///////////////
-    if (immovable.name === deathBallKill.name && moveable.groupName === groupBall) {
-        this.emitterFunction(immovable, moveable, 'destroy');
+    // ////////////////////Moveable Effects Against groundDeath///////////////
+    if (groundDeath.name === deathBallKill.name && moveable.groupName === groupBall) {
+        this.emitterFunction(groundDeath, moveable, 'destroy');
         //Removes Localized Sprites from Regenerating (Spikes)
-        if (immovable.specialCondition) {
-            if (immovable.specialCondition.name === scLocalizedDestruction.name) {
+        if (groundDeath.specialCondition) {
+            if (groundDeath.specialCondition.name === scLocalizedDestruction.name) {
                 //Destruction of Localized Sprite
-                worldClassLevels[this.indexOfCurrentWorld].spriteSpawn[immovable.positionInArray].trigger = false;
+                worldClassLevels[this.indexOfCurrentWorld].spriteSpawn[groundDeath.positionInArray].trigger = false;
             }
         }
     }
