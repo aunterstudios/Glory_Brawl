@@ -255,7 +255,7 @@ var portalNen = new nenCreator(
   500, //Stiickiness
   -25, //Wall Slide-Y
   400, //Downwards-S
-  15, //OverLap Bias
+  10, //OverLap Bias
 );
 
 var seanNen = new nenCreator(

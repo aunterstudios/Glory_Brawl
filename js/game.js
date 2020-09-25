@@ -120,7 +120,7 @@ brawl.game.prototype = {
         ///Enemies Attacking
         this.enemyAttack();
         //Walls
-        // this.wallContinious(); //Work in Progress
+        this.wallContinious(); //Work in Progress
         //Immovable Walls
         // this.immovableWallContinious();
         //Hazama
@@ -132,11 +132,10 @@ brawl.game.prototype = {
         var onLedge = this.game.physics.arcade.collide(this.player, this.ledge, this.playerLedge, null, this);
         var onBall = this.game.physics.arcade.collide(this.player, this.ball, this.playerBall, null, this);
         var onHazama = this.game.physics.arcade.overlap(this.player, this.hazama, this.playerHazama, null, this);
+        var onEnemy = this.game.physics.arcade.collide(this.player, this.enemy, this.playerEnemy, null, this);
 
         //Death Mechanics
         this.game.physics.arcade.overlap(this.player, [this.enemyBullets.bullets, this.undeniableDeath, this.fallingSpikes, this.fallingSpikesTwo], this.playerDeath, null, this);
-        //Enemy Mechanics
-        this.game.physics.arcade.collide(this.player, this.enemy, this.playerEnemy, null, this);
 
         //Respawn Point Mechanics
         this.game.physics.arcade.overlap(this.player, this.flag, this.respawn, null, this);
@@ -149,19 +148,16 @@ brawl.game.prototype = {
 
         //Immovable Wall and Death vs. Themselves
         this.game.physics.arcade.overlap([this.immovableWall, this.undeniableDeath], [this.immovableWall, this.undeniableDeath], this.immovableImmovable, this.immovableImmovableProcessArgument, this);
-
-        //Movable Wall vs. Itself
-        // this.game.physics.arcade.collide(this.wall, this.wall, null, null, this);
         
         //Movable Wall Mechanics vs. Moveable Objects
-        this.game.physics.arcade.collide(this.wall, this.enemy, this.wallVsEnemy, null, this);
-        this.game.physics.arcade.overlap(this.wall, [this.ball, this.ledge], this.wallVsBl, null, this);
+        this.game.physics.arcade.collide(this.wall, this.enemy, this.wallVsEnemy, this.wallVsEnemyProcess, this);
+        // this.game.physics.arcade.overlap(this.wall, [this.ball, this.ledge], this.wallVsBl, null, this);
         
-        //Ball and Ledge vs. Enemy
-        this.game.physics.arcade.overlap([this.ball, this.ledge], this.enemy, this.blVsEnemy, null, this);
+        // //Ball and Ledge vs. Enemy
+        // this.game.physics.arcade.overlap([this.ball, this.ledge], this.enemy, this.blVsEnemy, null, this);
         
-        //Enemy vs. Enemy
-        this.game.physics.arcade.collide(this.enemy, this.enemy, this.enemySelfCollision, null, this);
+        // //Enemy vs. Enemy
+        // this.game.physics.arcade.collide(this.enemy, this.enemy, this.enemySelfCollision, null, this);
 
         //Enemy Bullet and Falling Spike Mechanics (trapProjectiles)
         this.game.physics.arcade.overlap([this.enemyBullets.bullets, this.fallingSpikes, this.fallingSpikesTwo], [this.ball, this.wall, this.immovableWall, this.ledge, this.undeniableDeath], this.trapProjectiles, null, this);

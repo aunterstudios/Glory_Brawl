@@ -100,7 +100,10 @@ brawl.game.prototype.wallContinious = function () {
     //     //     wall.tint = tintWallInverseKiller;
     //     // }
     // }, this, this.player);
-    //Acceleration to Object (Another Type of Enemy)
+    this.wall.forEachAlive(function (wall) {
+        wall.phase = true;
+        wall.alpha = 1;
+    }, this, this.player);
 };
 
 brawl.game.prototype.hazamaContinious = function () {

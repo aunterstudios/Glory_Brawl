@@ -115,6 +115,14 @@ brawl.game.prototype.spriteGen = function (sprite, positionInArray) {
     this.spriteX.body.mass = sprite.spriteType.mass;
     this.spriteX.body.gravity.setTo(sprite.gravityX, sprite.gravityY);
     this.spriteX.body.maxVelocity.setTo(sprite.spriteType.maxVelocity);
+    //Test Properties
+    // if (groupCategory === groupEnemy) {
+    //     this.spriteX.body.customSeparateX = true;
+    //     this.spriteX.body.customSeparateY = true;
+    // }
+    this.spriteX.phase = false;
+    this.spriteX.originalTint = sprite.spriteType.tint;
+    /////////////////////Worlds Bound Configuration////////////////////////
     if (groupCategory !== groupFallingSpikes) {
         this.spriteX.body.collideWorldBounds = true;
     }

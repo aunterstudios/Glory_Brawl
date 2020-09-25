@@ -124,10 +124,10 @@ level_0.gunSystem = basicGunSet;
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_0.playerPosition = [
-  new PlayerPositionCreator(400, 700),
-  new PlayerPositionCreator(400, 700),
-  new PlayerPositionCreator(400, 700),
-  new PlayerPositionCreator(400, 700),
+  new PlayerPositionCreator(800, 700),
+  new PlayerPositionCreator(800, 700),
+  new PlayerPositionCreator(800, 700),
+  new PlayerPositionCreator(800, 700),
 ]
 
 //
@@ -146,7 +146,13 @@ level_0.spriteSpawn = [
   //Ball
   // new SpriteCreator(true, ballRegular, 'sprite', ball, 200, 100, 50, 50, 1, -300, 0, 0, 0, null, null),
   //Enemy
-  new SpriteCreator(true, enemyDaakath, 'timer', enemyOne, 100, 200, 50, 50, 1, 0, 200, 0, 0, null, new timerCreator('repeat', 4, 3)),
+  // new SpriteCreator(true, enemyDaakath, 'timer', enemyOne, 100, 200, 50, 50, 1, 0, 200, 0, 0, null, new timerCreator('repeat', 4, 3)),
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 100, 200, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 100, 300, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 100, 400, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 100, 500, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallRegular, 'tile', wallTile50, 350, 350, 50, 400, 1, -200, 0, 0, 0, null, null),
+
   //Falling Spikes
   // new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 500, 100, 50, 50, 1, 0, 0, 0, 500, null, new timerCreator('loop', null, 3)),
 ];
