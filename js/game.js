@@ -162,14 +162,14 @@ brawl.game.prototype = {
         ////////////////////////////////Actual Controls////////////////////////////////
         //Jump Mechanics
         // Set a variable that is true when the player is a surface the ground (or different sides) or not a surface
-        var onTheGround = this.player.body.touching.down;
+        var onTheFloor = this.player.body.touching.down;
         var onTheRightSide = this.player.body.touching.right;
         var onTheLeftSide = this.player.body.touching.left;
         var onUpsideDown = this.player.body.touching.up;
         var onNone = this.player.body.touching.none;
 
         // If the player is touching a surface, let him have 2 jumps
-        if (onTheGround || onTheLeftSide || onTheRightSide || onUpsideDown) {
+        if (onTheFloor || onTheLeftSide || onTheRightSide || onUpsideDown) {
             this.jumps = this.playerDoubleJumps;
             this.jumping = false;
         }
@@ -194,7 +194,7 @@ brawl.game.prototype = {
         //////////////////////////////////////////WASD Controls and Player Touch Mechanics//////////////////////////////////////////////
         //Camera Focused on Player
         if (cameraBoolean) {
-            if (onTheGround && !onHazama) {
+            if (onTheFloor && !onHazama) {
                 //Set HitBox Size
                 // this.player.body.setSize(34, 55.5, 15, 7);
                 this.player.body.setSize(29, 55.5, 17.5, 7);
@@ -307,7 +307,7 @@ brawl.game.prototype = {
 
             if (this.movementDown.isDown && !this.movementLeft.isDown && !this.movementRight.isDown) {
                 this.player.body.setSize(34, 55.5, 15, 7);
-                if (onNone || onUpsideDown || onTheGround) {
+                if (onNone || onUpsideDown || onTheFloor) {
                     this.player.frame = 3;
                     this.player.body.velocity.y = this.playerDownwards;
                 }
