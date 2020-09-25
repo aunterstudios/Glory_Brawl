@@ -83,6 +83,8 @@ brawl.game.prototype.playerWall = function (player, wall) {
 };
 
 brawl.game.prototype.playerEnemy = function (player, enemy) {
+    enemy.phase = false;
+    enemy.alpha = .4;
     if (enemy.name === 'enemyWall') {
         if (enemy.body.touching.up) {
             enemy.body.velocity.setTo(0, 0);
@@ -104,22 +106,24 @@ brawl.game.prototype.playerEnemy = function (player, enemy) {
     }
 };
 
-brawl.game.prototype.playerBall = function (player, ball) {
-    //ballRegular Physics
-    ball.body.stop();
-    if (ball.body.touching.down) {
-        ball.body.velocity.y = -50;
-    }
-    if (ball.body.touching.left) {
-        ball.body.velocity.x = 50;
-    }
-    if (ball.body.touching.right) {
-        ball.body.velocity.x = -50;
-    }
-};
+// brawl.game.prototype.playerBall = function (player, ball) {
+//     //ballRegular Physics
+//     ball.body.stop();
+//     if (ball.body.touching.down) {
+//         ball.body.velocity.y = -50;
+//     }
+//     if (ball.body.touching.left) {
+//         ball.body.velocity.x = 50;
+//     }
+//     if (ball.body.touching.right) {
+//         ball.body.velocity.x = -50;
+//     }
+// };
 
 brawl.game.prototype.playerLedge = function (player, ledge) {
-    // player.body.velocity.y = 0;
+    /////////////Collision Turned Off////////////
+    ledge.phase = false;
+    ledge.alpha = .4;
     //////////Eleveator Ledges/////////
     if (ledge.name === ledgeElevator.name) {
         if (ledge.body.touching.up) {

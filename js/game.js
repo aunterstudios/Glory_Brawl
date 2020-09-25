@@ -121,6 +121,8 @@ brawl.game.prototype = {
         this.enemyAttack();
         //Walls
         this.wallContinious(); //Work in Progress
+        //Ledge Continious
+        // this.ledgeContinious();
         //Hazama
         this.hazamaContinious();
         ///////////////////////////////////////////Physics////////////////////////////////////////
@@ -128,7 +130,7 @@ brawl.game.prototype = {
         var onGround = this.game.physics.arcade.collide(this.player, this.ground, this.playerGround, this.playerGroundProcess, this);
         var onWall = this.game.physics.arcade.collide(this.player, this.wall, this.playerWall, null, this);
         var onLedge = this.game.physics.arcade.collide(this.player, this.ledge, this.playerLedge, null, this);
-        var onBall = this.game.physics.arcade.collide(this.player, this.ball, this.playerBall, null, this);
+        // var onBall = this.game.physics.arcade.collide(this.player, this.ball, this.playerBall, null, this);
         var onHazama = this.game.physics.arcade.overlap(this.player, this.hazama, this.playerHazama, null, this);
         var onEnemy = this.game.physics.arcade.collide(this.player, this.enemy, this.playerEnemy, null, this);
 
@@ -151,7 +153,7 @@ brawl.game.prototype = {
         this.game.physics.arcade.collide(this.wall, [this.enemy, this.ball, this.ledge], this.wallVsMov, this.wallVsMovProcess, this);
 
         //Moveable Objects Against Each Other
-        // this.game.physics.arcade.collide(this.ball, this.enemy, this.ballVsEnemy, this.ballVsEnemyProcess, this);
+        this.game.physics.arcade.overlap(this.ball, this.enemy, this.ballVsEnemy, this.ballVsEnemyProcess, this);
         // this.game.physics.arcade.collide(this.ledge, this.enemy, this.ledgeVsEnemy, this.ledgeVsEnemyProcess, this);
         // this.game.physics.arcade.collide(this.ball, this.ledge, this.ballVsLedge, this.ballVsLedgeProcess, this);
 

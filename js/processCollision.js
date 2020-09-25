@@ -22,7 +22,7 @@ brawl.game.prototype.wallVsMovProcess = function (wall, mov) {
     /////////////////Actual Collision Physics/////////////
     // bL.body.velocity.setTo(-wall.body.velocity.x, -wall.body.velocity.y);
     //////////////////////Destroys Elevator Ledge/////////////////////////
-    if (!wall.phase) {
+    if (!wall.phase || !mov.phase) {
         return false;
     }
     else {
@@ -37,4 +37,13 @@ brawl.game.prototype.playerGroundProcess = function (player, wall) {
     else {
         return true
     }
+};
+
+brawl.game.prototype.ballVsEnemyProcess = function (ball, enemy) {
+    // if (wall.name === groundOneWayPlayer.name) {
+    //     return false;
+    // }
+    // else {
+    //     return true
+    // }
 };

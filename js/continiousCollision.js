@@ -39,6 +39,9 @@ brawl.game.prototype.imageMovement = function () {
 //Enemy Bullets
 brawl.game.prototype.enemyAttack = function () {
     this.enemy.forEachAlive(function (enemy) {
+        //Collision Handler
+        enemy.phase = true;
+        enemy.alpha = 1;
         if (this.game.physics.arcade.distanceBetween(enemy, this.player, false, true) < 400) {
             //Shooter
             if (enemy.name === enemyShooter.name) {
@@ -96,6 +99,13 @@ brawl.game.prototype.wallContinious = function () {
         wall.alpha = 1;
     }, this, this.player);
 };
+
+// brawl.game.prototype.ledgeContinious = function () {
+//     this.ledge.forEachAlive(function (ledge) {
+//         ledge.phase = true;
+//         ledge.alpha = 1;
+//     }, this, this.player);
+// };
 
 brawl.game.prototype.hazamaContinious = function () {
     this.hazama.forEachAlive(function (hazama) {

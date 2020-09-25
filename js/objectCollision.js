@@ -81,8 +81,14 @@ brawl.game.prototype.wallVsMov = function (wall, mov) {
         mov.body.velocity.x = 300;
     }
     ///////////////Ledge Specific Death///////////
-    if (mov.elevatorActivate) {
-        this.emitterFunction(mov, null, 'destroy');
-    }
+    // if (mov.elevatorActivate) {
+    //     this.emitterFunction(mov, null, 'destroy');
+    // }
+    return;
+};
+
+brawl.game.prototype.ballVsEnemy = function (ball, enemy) {
+    ///////////////Actual Collision Physics/////////////
+    this.emitterFunction(enemy, null, 'destroy');
     return;
 };

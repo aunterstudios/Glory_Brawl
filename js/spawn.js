@@ -116,7 +116,7 @@ brawl.game.prototype.spriteGen = function (sprite, positionInArray) {
     this.spriteX.body.gravity.setTo(sprite.gravityX, sprite.gravityY);
     this.spriteX.body.maxVelocity.setTo(sprite.spriteType.maxVelocity);
     //Handle Collision Events
-    this.spriteX.phase = false;
+    this.spriteX.phase = true;
     this.spriteX.originalTint = sprite.spriteType.tint;
     /////////////////////Worlds Bound Configuration////////////////////////
     if (groupCategory !== groupFallingSpikes) {
