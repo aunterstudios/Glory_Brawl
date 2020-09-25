@@ -27,16 +27,6 @@ brawl.game.prototype.immovableImmovable = function (immovable1, immovable2) {
     return;
 };
 
-brawl.game.prototype.immovableImmovableProcessArgument = function (immovable1, immovable2) {
-    if (!immovable1.specialCondition && !immovable2.specialCondition) {
-        return false;
-    }
-    else {
-        return true;
-    }
-
-};
-
 //Immovable Objects vs. Moveable Objects
 brawl.game.prototype.immovableMoveable = function (immovable, moveable) {
     ////////////////////Physics of Immoveable Against Ball or Ledge or Enemy////////////
@@ -71,16 +61,6 @@ brawl.game.prototype.immovableMoveable = function (immovable, moveable) {
     return;
 };
 
-brawl.game.prototype.immovableMoveableProcessArgument = function (imb, mov) {
-    if (imb.name === immovableWallOneWayObject) {
-        return false;
-    }
-    else {
-        return true;
-    }
-
-};
-
 //Wall Against Moveable Objects
 brawl.game.prototype.wallVsEnemy = function (wall, enemy) {
     ///////////////Actual Collision Physics/////////////
@@ -99,18 +79,6 @@ brawl.game.prototype.wallVsEnemy = function (wall, enemy) {
         enemy.body.velocity.x = 300;
     }
     return;
-};
-
-brawl.game.prototype.wallVsEnemyProcess = function (wall, enemy) {
-    /////////////////Actual Collision Physics/////////////
-    // bL.body.velocity.setTo(-wall.body.velocity.x, -wall.body.velocity.y);
-    //////////////////////Destroys Elevator Ledge/////////////////////////
-    if (!wall.phase) {
-        return false;
-    }
-    else {
-        return true;
-    }
 };
 
 brawl.game.prototype.wallVsBl = function (wall, bL) {

@@ -46,15 +46,6 @@ brawl.game.prototype.playerImmovable = function (player, immovable) {
     return;
 };
 
-brawl.game.prototype.playerImmovableWallProcessArgument = function (player, wall) {
-    if (wall.name === immovableWallOneWayPlayer.name) {
-        return false;
-    }
-    else {
-        return true
-    }
-};
-
 brawl.game.prototype.playerWall = function (player, wall) {
     //WallRegular?
     wall.phase = false;
@@ -112,26 +103,6 @@ brawl.game.prototype.playerEnemy = function (player, enemy) {
         this.playerDeath(player, enemy);
     }
 };
-
-
-
-brawl.game.prototype.playerWallProcessArgument = function (player, wall) {
-    // if (wall.name === wallRegularKiller) {
-    //     return false;
-    // }
-    // else {
-    //     return true;
-    // }
-};
-
-// brawl.game.prototype.playerLedgeProcessArgument = function (player, ledge) {
-//     if (player.body.touching) {
-//         return true;
-//     }
-//     else {
-//         return false;
-//     }
-// };
 
 brawl.game.prototype.playerBall = function (player, ball) {
     //ballRegular Physics
