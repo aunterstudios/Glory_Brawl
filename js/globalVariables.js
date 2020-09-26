@@ -349,14 +349,14 @@ var wallCloud = new spriteType(2, 'wallCloud', 9583870.358153213, 200, .5, true,
 var wallKiller = new spriteType(2, 'wallKiller', Phaser.Color.RED, 200, .5, false, 600, 1);
 
 //Ledge Names
-var ledgeElevator = new spriteType(3, 'ledgeElevator', Phaser.Color.YELLOW, 20, .5, false, 600, .5);
-var ledgeBounce = new spriteType(3, 'ledgeBounce', Phaser.Color.GREEN, 20, .5, false, 600, .5);
-var ledgeSurf = new spriteType(3, 'ledgeSurf', Phaser.Color.AQUA, 20, .5, false, 600, .5);
+var ledgeElevator = new spriteType(3, 'ledgeElevator', Phaser.Color.YELLOW, 20, .5, false, 400, .5);
+var ledgeBounce = new spriteType(3, 'ledgeBounce', Phaser.Color.GREEN, 20, .5, false, 400, .5);
+var ledgeSurf = new spriteType(3, 'ledgeSurf', Phaser.Color.AQUA, 20, .5, false, 400, .5);
 
 //Enemy Names
-var enemyShooter = new spriteType(4, 'enemyShooter', 12758247.409111453, 20, .5, false, 600, 1);
-var enemyDaakath = new spriteType(4, 'enemyDaakath', 15269906.933038201, 20, .5, false, 600, 1);
-var enemyAccelerate = new spriteType(4, 'enemyAccelerate', 2885804.4944837275, 20, .5, false, 600, 1);
+var enemyShooter = new spriteType(4, 'enemyShooter', 12758247.409111453, 20, .5, false, 400, 1);
+var enemyDaakath = new spriteType(4, 'enemyDaakath', 15269906.933038201, 20, .5, false, 400, 1);
+var enemyAccelerate = new spriteType(4, 'enemyAccelerate', 2885804.4944837275, 20, .5, false, 400, 1);
 
 //Ball Names
 var ballRegular = new spriteType(5, 'ballRegular', Phaser.Color.BLUE, 20, .5, false, 1000, .5);

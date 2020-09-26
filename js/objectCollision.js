@@ -87,8 +87,28 @@ brawl.game.prototype.wallVsMov = function (wall, mov) {
     return;
 };
 
+//Ball Interaction Vs. Enemy
 brawl.game.prototype.ballVsEnemy = function (ball, enemy) {
     ///////////////Actual Collision Physics/////////////
     this.emitterFunction(enemy, null, 'destroy');
+    return;
+};
+
+//Ledge Interaction Vs. Enemy
+brawl.game.prototype.ledgeVsEnemy = function (ledge, enemy) {
+    ///////////////Actual Collision Physics/////////////
+    enemy.body.stop();
+    if (enemy.body.touching.up) {
+        ledge.body.velocity.y = -300;
+    }
+    else if (enemy.body.touching.down) {
+        ledge.body.velocity.y = 300;
+    }
+    else if (enemy.body.touching.left) {
+        ledge.body.velocity.x = -300;
+    }
+    else if (enemy.body.touching.right) {
+        ledge.body.velocity.x = 300;
+    }
     return;
 };

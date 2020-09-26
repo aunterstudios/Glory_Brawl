@@ -47,3 +47,12 @@ brawl.game.prototype.ballVsEnemyProcess = function (ball, enemy) {
     //     return true
     // }
 };
+
+brawl.game.prototype.ledgeVsEnemyProcess = function (ledge, enemy) {
+    if (!ledge.phase || !enemy.phase) {
+        return false;
+    }
+    else {
+        return true;
+    }
+};
