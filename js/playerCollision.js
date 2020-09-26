@@ -86,19 +86,14 @@ brawl.game.prototype.playerEnemy = function (player, enemy) {
     enemy.phase = false;
     enemy.alpha = .4;
     if (enemy.name === 'enemyWall') {
-        if (enemy.body.touching.up) {
-            enemy.body.velocity.setTo(0, 0);
-        }
-        else if (enemy.body.touching.down) {
-            enemy.body.velocity.setTo(0, -200);
-
-        }
-        else if (enemy.body.touching.left) {
-            enemy.body.velocity.setTo(200, 0);
-
+        player.body.stop();
+        enemy.body.stop();
+        if (enemy.body.touching.left) {
+            enemy.body.velocity.setTo(400,0);
         }
         else if (enemy.body.touching.right) {
-            enemy.body.velocity.setTo(-200, 0);
+            enemy.body.velocity.setTo(-400,0);
+
         }
     }
     else {

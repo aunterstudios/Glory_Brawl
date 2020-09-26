@@ -148,18 +148,18 @@ brawl.game.prototype = {
 
         //Ground and Death vs. Themselves
         this.game.physics.arcade.overlap([this.ground, this.death], [this.ground, this.death], this.gdVsSelf, this.gdVsSelfProcess, this);
-        
+
         //Movable Wall Mechanics vs. Moveable Objects
         this.game.physics.arcade.collide(this.wall, [this.enemy, this.ball, this.ledge], this.wallVsMov, this.wallVsMovProcess, this);
 
         //Moveable Objects Against Each Other
         this.game.physics.arcade.overlap(this.ball, this.enemy, this.ballVsEnemy, this.ballVsEnemyProcess, this);
         this.game.physics.arcade.collide(this.ledge, this.enemy, this.ledgeVsEnemy, this.ledgeVsEnemyProcess, this);
-        // this.game.physics.arcade.collide(this.ball, this.ledge, this.ballVsLedge, this.ballVsLedgeProcess, this);
+        this.game.physics.arcade.collide(this.ball, this.ledge, this.ballVsLedge, this.ballVsLedgeProcess, this);
 
         //Enemy Bullet and Falling Spike Mechanics (trapProjectiles)
         this.game.physics.arcade.overlap([this.enemyBullets.bullets, this.fallingSpikes, this.fallingSpikesTwo], [this.ball, this.wall, this.ground, this.ledge, this.death], this.trapProjectiles, null, this);
-        
+
 
         ////////////////////////////////Actual Controls////////////////////////////////
         //Jump Mechanics
@@ -246,6 +246,9 @@ brawl.game.prototype = {
             else if (onUpsideDown && !onHazama) {
                 this.player.body.setSize(34, 55.5, 15, 0);
                 this.player.body.velocity.y = -this.playerStickiness;
+                // if (!onEnemy) {
+                //     this.player.body.velocity.y = -this.playerStickiness;
+                // }
                 if (this.movementLeft.isDown && !this.movementRight.isDown) {
                     this.player.body.velocity.x = -this.playerSpeed;
                     this.player.animations.play('upsideDownLeft');

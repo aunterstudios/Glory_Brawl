@@ -40,12 +40,12 @@ brawl.game.prototype.playerGroundProcess = function (player, wall) {
 };
 
 brawl.game.prototype.ballVsEnemyProcess = function (ball, enemy) {
-    // if (wall.name === groundOneWayPlayer.name) {
-    //     return false;
-    // }
-    // else {
-    //     return true
-    // }
+    if (!enemy.phase) {
+        return false;
+    }
+    else {
+        return true;
+    }
 };
 
 brawl.game.prototype.ledgeVsEnemyProcess = function (ledge, enemy) {
@@ -54,5 +54,14 @@ brawl.game.prototype.ledgeVsEnemyProcess = function (ledge, enemy) {
     }
     else {
         return true;
+    }
+};
+
+brawl.game.prototype.ballVsLedgeProcess = function (ball, ledge) {
+    if (!ledge.phase) {
+        return false;
+    }
+    else {
+        return true
     }
 };

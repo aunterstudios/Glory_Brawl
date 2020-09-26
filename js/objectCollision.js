@@ -112,3 +112,21 @@ brawl.game.prototype.ledgeVsEnemy = function (ledge, enemy) {
     }
     return;
 };
+
+brawl.game.prototype.ballVsLedge = function (ball, ledge) {
+    ///////////////Actual Collision Physics/////////////
+    ledge.body.stop();
+    if (ledge.body.touching.up) {
+        ball.body.velocity.y = -300;
+    }
+    else if (ledge.body.touching.down) {
+        ball.body.velocity.y = 300;
+    }
+    else if (ledge.body.touching.left) {
+        ball.body.velocity.x = -300;
+    }
+    else if (ledge.body.touching.right) {
+        ball.body.velocity.x = 300;
+    }
+    return;
+};
