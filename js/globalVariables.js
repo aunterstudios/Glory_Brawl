@@ -277,7 +277,7 @@ var seanNen = new nenCreator(
 var basicGunSet = [
   //Name, Tint, FireRate, Speed
   new weaponCreator('pull', Phaser.Color.GREEN, 500, 500, 500),//Weapon 1
-  new weaponCreator('push', Phaser.Color.BLUE, 500, 500, 2),//Weapon 2
+  new weaponCreator('push', Phaser.Color.BLUE, 500, 500, 1.5),//Weapon 2
   new weaponCreator('stop', Phaser.Color.VIOLET, 500, 500),//Weapon 3
   null, //Weapon 4
 ];

@@ -415,10 +415,10 @@ level_3.playerPosition = [
 
 //Sprite Generation
 level_3.spriteSpawn = [
-  //Side Borders
+  ////////////////////////////////////////Side Borders/////////////////////////////////////////////////
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 0, 0, 50, 9950, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 1400, 0, 50, 9950, 1, 0, 0, 0, 0, null, null),
-  //Moving Blocks
+  ////////////////////////////////////////Moving Blocks/////////////////////////////////////////////////
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 300, 9700, 50, 50, 1, 1000, 0, 0, 0, scReverseVelocity, null),
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 500, 9500, 50, 50, 1, 1000, 0, 0, 0, scReverseVelocity, null),
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 700, 9300, 50, 50, 1, 1000, 0, 0, 0, scReverseVelocity, null),
@@ -427,7 +427,9 @@ level_3.spriteSpawn = [
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 400, 8700, 50, 50, 1, 1000, 0, 0, 0, scReverseVelocity, null),
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 600, 8500, 50, 50, 1, 1000, 0, 0, 0, scReverseVelocity, null),
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 800, 8300, 50, 50, 1, 1000, 0, 0, 0, scReverseVelocity, null),
+  ///////////////////////////////////////Ground/////////////////////////////////////////////////////
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 0, 9950, 1400, 50, 1, 0, 0, 0, 0, null, null),
+  //////////////////////////////////////Platform Wall Your Friend////////////////////////////////////////////////////
   new SpriteCreator(true, wallRegular, 'sprite', wallTile25, 600, 9900, 25, 25, 1, 0, 0, 0, 0, null, null),
 
 ];
@@ -442,7 +444,7 @@ var level_4 = new LevelCreator("Level 4-SEAN MOODY", 4200, 3000, new Metroidvani
 level_4.nenSystem = portalNen;
 
 //Creation of Gun System in Level
-level_4.gunSystem = basicGunSet;
+level_4.gunSystem = testGunSet;
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_4.playerPosition = [
@@ -454,8 +456,22 @@ level_4.playerPosition = [
 
 //Sprite Generation
 level_4.spriteSpawn = [
+  ////////////////////////////////////Spawn Area/////////////////////////////////////////////////////////////
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 0, 3000, 500, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 550, 3000, 500, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 500, 3000, 500, 50, 1, 0, 0, 0, 0, null, null),
+  ////////////////////////////////////Surf Board////////////////////////////////////////////////////////
+  new SpriteCreator(true, wallCloud, 'tile', wallTile50, 300, 2750, 150, 50, 1, 0, 0, 0, 0, null, null),
+];
+
+//Flag
+//Flag Spawn
+level_4.flagSpawn = [
+  // new flagCreator(1, true, flagSpecial, flag, 4200, 1800, 0, 0, .4, .4, 0, 0,
+  //   new shadowLevelGenerator(0, [
+  //     new shadowLevelArray(2, 4)
+  //   ])),
+  new flagCreator(2, true, flagRegular, flag, 400, 2900, 0, 0, 1, 1, 0, 0, null),
+
 ];
 
 //////////////////////////////////////////Pushing All Levels Into World Array/////////////////////////////////////
