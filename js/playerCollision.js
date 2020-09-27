@@ -62,6 +62,8 @@ brawl.game.prototype.playerWall = function (player, wall) {
     }
     ///////////////////////////////Special Walls///////////////////////////
     if (wall.name === wallCloud.name) {
+        // player.body.stop();
+        // wall.body.stop();
         if (this.movementUp.isDown) {
             wall.body.velocity.setTo(0, -200);
         }

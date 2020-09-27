@@ -43,9 +43,8 @@ brawl.game.prototype.gdVsMov = function (groundDeath, moveable) {
     //     moveable.body.velocity.x = 200;
     // }
     /////////////////////groundDeath Wall Effects Against Moveable////////////////////
-    if (groundDeath.name === groundKillWall.name || groundDeath.body.speed > 0 || moveable.elevatorActivate) {
+    if (groundDeath.name === groundKillWall.name || groundDeath.name === groundOneWayKillObject.name || groundDeath.body.speed > 0 || moveable.elevatorActivate) {
         this.emitterFunction(moveable, null, 'destroy');
-
     }
     // ////////////////////Moveable Effects Against groundDeath///////////////
     if (groundDeath.name === deathBallKill.name && moveable.groupName === groupBall) {

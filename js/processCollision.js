@@ -31,7 +31,7 @@ brawl.game.prototype.wallVsMovProcess = function (wall, mov) {
 };
 
 brawl.game.prototype.playerGroundProcess = function (player, wall) {
-    if (wall.name === groundOneWayPlayer.name) {
+    if (wall.name === groundOneWayPlayer.name || wall.name === groundOneWayKillObject.name) {
         return false;
     }
     else {

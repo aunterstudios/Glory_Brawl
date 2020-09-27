@@ -435,7 +435,9 @@ level_3.spriteSpawn = [
 ];
 
 ///////////////////////////////////////////Level 4///////////////////////////////////////////////////////////
-var level_4 = new LevelCreator("Level 4-SEAN MOODY", 4200, 3000, new MetroidvaniaCreator(4, 0, 4, 3000, 2, 0, 4, 4200), "#D3D3D3"); //3800
+// level4TestTint= Math.random() * 0xffffff;;
+// console.log(level4TestTint);
+var level_4 = new LevelCreator("Level 4-Play Around", 4200, 3000, new MetroidvaniaCreator(4, 0, 4, 3000, 2, 0, 4, 4200), '#ffffff'); //3800
 
 //world gravity
 // level_4.worldGravity = new worldGravityCreator(200,200);
@@ -444,7 +446,7 @@ var level_4 = new LevelCreator("Level 4-SEAN MOODY", 4200, 3000, new Metroidvani
 level_4.nenSystem = portalNen;
 
 //Creation of Gun System in Level
-level_4.gunSystem = testGunSet;
+level_4.gunSystem = basicGunSet;
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_4.playerPosition = [
@@ -456,11 +458,29 @@ level_4.playerPosition = [
 
 //Sprite Generation
 level_4.spriteSpawn = [
-  ////////////////////////////////////Spawn Area/////////////////////////////////////////////////////////////
+  ////////////////////////////////////First Phase/////////////////////////////////////////////////////////////
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 0, 3000, 500, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 500, 3000, 500, 50, 1, 0, 0, 0, 0, null, null),
-  ////////////////////////////////////Surf Board////////////////////////////////////////////////////////
+  //Obstacles
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 500, 2500, 50, 450, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 1000, 2250, 50, 450, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 1500, 2500, 50, 450, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundOneWayKillObject, 'tile', groundTile, 2950, 2250, 50, 700, 1, 0, 0, 0, 0, null, null),
+  //Top Border
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 0, 2200, 3000, 50, 1, 0, 0, 0, 0, null, null),
+  //Surf Board
   new SpriteCreator(true, wallCloud, 'tile', wallTile50, 300, 2750, 150, 50, 1, 0, 0, 0, 0, null, null),
+  //Repeating Traps
+  new SpriteCreator(true, wallKiller, 'timer', wallTile50, 2850, 2350, 50, 50, 1, -400, 400, 0, 0, null, new timerCreator('loop', null, 4)),
+  new SpriteCreator(true, wallKiller, 'timer', wallTile50, 2850, 2850, 50, 50, 1, -400, -400, 0, 0, null, new timerCreator('loop', null, 4)),
+  ////////////////////////////////////Bottom of Map Death////////////////////////////////////////////////////////////
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 500, 3000, 2500, 50, 1, 0, 0, 0, 0, null, null),
+  /////////////////////////////////////Left Border of Map//////////////////////////////////////////////////
+  // new SpriteCreator(true, groundKillWall, 'tile', groundTile, 0, 2250, 50, 600, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundKillWall, 'tile', groundTile, 0, 2250, 50, 600, 1, 0, 0, 0, 0, null, null),
+  //////////////////////////////////////Second Phase///////////////////////////////////////////
+  //Ground
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 3000, 3000, 1200, 50, 1, 0, 0, 0, 0, null, null),
+
 ];
 
 //Flag
