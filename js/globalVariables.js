@@ -329,7 +329,7 @@ var deathRegular = new spriteType(0, 'deathRegular', Phaser.Color.RED, 100, 0, t
 var deathBallKill = new spriteType(0, 'deathBallKill', Phaser.Color.ORANGE, 100, 0, true, 1000, 1); //Killable By Ball
 var deathGhost = new spriteType(0, 'deathGhost', 9583870.358153213, 100, 0, true, 1000, 1); //Weapon Phases
 
-//Immovable Wall Names
+//Ground
 var groundRegular = new spriteType(1, 'groundRegular', tintRemover, 100, 0, true, 1000, 1); //No Special Properties
 var groundKillWall = new spriteType(1, 'groundKillWall', 7019278.306799905, 100, 0, true, 1000, 1); //Kills Walls(Will Be Everything)
 var groundPhase = new spriteType(1, 'groundPhase', 12758247.409111453, 100, 0, true, 1000, 1); //Killed By Enemy BULLETS
@@ -340,6 +340,7 @@ var groundOneWayPlayer = new spriteType(1, 'groundOneWayPlayer', 241917.63554178
 var groundSlippery = new spriteType(1, 'groundSlippery', 766012.4141677661, 100, 0, true, 1000, 1); //Makes you SLIPPERY!
 var groundOneWayPlayerBlockLeft = new spriteType(1, 'groundOneWayPlayerBlockLeft', 3588771.242333334, 100, 0, true, 1000, 1); //One way player only from the left
 var groundOneWayPlayerBlockDown = new spriteType(1, 'groundOneWayPlayerBlockDown', testTint, 100, 0, true, 1000, 1); //One way player only from the Bottom
+//PowerUps (Coded In As Ground)
 var groundPowerJump = new spriteType(1, 'groundPowerUpJump', testTint, 1, 0, true, 1000, 1);
 
 //Moveable Wall Names
