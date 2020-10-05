@@ -112,6 +112,9 @@ var worldClassLevels = [];
 ///////////////////////////////////////////Level 0///////////////////////////////////////////////////////////
 var level_0 = new LevelCreator("Level 0-Physics Testing", 1400, 800, new MetroidvaniaCreator(1, 0, 0, 800, 0, 0, 0, 1400), "#FFFDD0");
 
+//Player Scale
+level_0.playerScale = 1;
+
 //world gravity
 // level_0.worldGravity = new worldGravityCreator(0, -200);
 
@@ -170,6 +173,9 @@ level_0.flagSpawn = [
 ////////////////////////////////////////Level 1-SandboxMode/////////////////////////////////////
 //New Playground
 var level_1 = new LevelCreator("Level 1-SandboxMode", 1400, 16000, new MetroidvaniaCreator(1, 0, 1, 10000, 2, 0, 1, 1400), '#ffffff');
+
+//Player Scale
+level_1.playerScale = 1;
 
 //World Gravity
 // level_1.worldGravity = new worldGravityCreator(200,200);
@@ -270,6 +276,9 @@ level_1.flagSpawn = [
 
 ////////////////////////////////////////Level 2/////////////////////////////////////
 var level_2 = new LevelCreator("Level 2-What", 4800, 2000, new MetroidvaniaCreator(3, 0, 3, 2000, null, null, 1, 4800), '#FFFDD0');
+
+//Player Scale
+level_2.playerScale = 1;
 
 //World Gravity
 // level_2.worldGravity = new worldGravityCreator(200,200);
@@ -397,6 +406,9 @@ level_2.text = [
 ////////////////////////////////////////Level 3/////////////////////////////////////
 var level_3 = new LevelCreator("Level 3-SandboxMode", 1400, 10000, new MetroidvaniaCreator(1, 0, 1, 10000, 2, 0, 1, 1400), '#FFFDD0'); //2400
 
+//Player Scale
+level_3.playerScale = 1;
+
 // level_3.worldGravity = new worldGravityCreator(200, 300);
 
 //Creation of Nen System in Level
@@ -438,6 +450,9 @@ level_3.spriteSpawn = [
 // level4TestTint= Math.random() * 0xffffff;;
 // console.log(level4TestTint);
 var level_4 = new LevelCreator("Level 4-Play Around", 4200, 3000, new MetroidvaniaCreator(4, 0, 4, 3000, 2, 0, 4, 4200), '#ffffff'); //3800
+
+//Player Scale
+level_4.playerScale = .5;
 
 //world gravity
 // level_4.worldGravity = new worldGravityCreator(200,200);
