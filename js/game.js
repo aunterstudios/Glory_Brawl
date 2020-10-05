@@ -390,62 +390,6 @@ brawl.game.prototype = {
             }
         }
     },
-    //How Game Updates Real-Time (God Mode)!
-    // update: function () {
-    //     this.fireEnemyBullet();
-    //     ///////////God Mode//////////////
-    //     this.player.body.velocity.y = 0;
-    //     this.player.body.velocity.x = 0;
-
-    //     if (cameraBoolean) {
-    //         if (this.movementLeft.isDown) {
-    //             this.player.body.velocity.x = -400;
-    //             this.player.animations.play('left');
-    //         }
-    //         else if (this.movementRight.isDown) {
-    //             this.player.body.velocity.x = 400;
-    //             this.player.animations.play('right');
-    //         }
-    //         if (this.movementUp.isDown) {
-    //             this.player.frame = 10;
-    //             this.player.body.velocity.y = -650;
-    //         }
-    //         else if (this.movementDown.isDown) {
-    //             this.player.frame = 10;
-    //             this.player.body.velocity.y = 650;
-    //         }
-    //     }
-    //     else {
-    //         if (this.movementLeft.isDown) {
-    //            this.game.camera.x -= 10;
-    //         }
-    //         else if (this.movementRight.isDown) {
-    //             this.game.camera.x += 10;
-    //         }
-    //         if (this.movementUp.isDown) {
-    //             this.game.camera.y -= 10;
-    //         }
-    //         else if (this.movementDown.isDown) {
-    //             this.game.camera.y += 10;
-    //         }
-    //     }
-    //     ///////////////////////Weapon Mechanics///////////////
-    //     //Shoot from Mouse
-    //     if (this.game.input.activePointer.leftButton.isDown || this.shiftFire.isDown) {
-    //         if (pullBoolean) {
-    //             this.weapon1.fireAtPointer();
-    //             this.weapon1.fire();
-    //         }
-    //         else if (pushBoolean) {
-    //             this.weapon2.fireAtPointer();
-    //             this.weapon2.fire();
-    //         }
-    //         else if (stopBoolean) {
-    //             this.weapon3.fireAtPointer();
-    //             this.weapon3.fire();
-    //         }
-    //     }
-    // }
     /////////////////////////Debugging + Timer///////////////////////////
     // render: function () {
     //     //Timer Debugging

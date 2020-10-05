@@ -446,14 +446,14 @@ var level_4 = new LevelCreator("Level 4-Play Around", 4200, 3000, new Metroidvan
 level_4.nenSystem = portalNen;
 
 //Creation of Gun System in Level
-level_4.gunSystem = basicGunSet;
+level_4.gunSystem = funGunSet;
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_4.playerPosition = [
   new PlayerPositionCreator(100, 2900),
   new PlayerPositionCreator(100, 2900),
   new PlayerPositionCreator(100, 2900),
-  new PlayerPositionCreator(100, 2900),
+  new PlayerPositionCreator(3500, 2900),
 ]
 
 //Sprite Generation
@@ -470,8 +470,11 @@ level_4.spriteSpawn = [
   //Surf Board
   new SpriteCreator(true, wallCloud, 'tile', wallTile50, 300, 2750, 150, 50, 1, 0, 0, 0, 0, null, null),
   //Repeating Traps
-  new SpriteCreator(true, wallKiller, 'timer', wallTile50, 2850, 2350, 50, 50, 1, -400, 400, 0, 0, null, new timerCreator('loop', null, 4)),
-  new SpriteCreator(true, wallKiller, 'timer', wallTile50, 2850, 2850, 50, 50, 1, -400, -400, 0, 0, null, new timerCreator('loop', null, 4)),
+  new SpriteCreator(true, wallKiller, 'timer', wallTile50, 2850, 2350, 50, 50, 1, -400, 400, 0, 0, null, new timerCreator('loop', null, 2)),
+  new SpriteCreator(true, wallKiller, 'timer', wallTile50, 2850, 2850, 50, 50, 1, -400, -400, 0, 0, null, new timerCreator('loop', null, 2)),
+  //enemies
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 1025, 2750, null, null, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 1450, 2850, null, null, 1, 0, 0, 0, 0, null, null),
   ////////////////////////////////////Bottom of Map Death////////////////////////////////////////////////////////////
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 500, 3000, 2500, 50, 1, 0, 0, 0, 0, null, null),
   /////////////////////////////////////Left Border of Map//////////////////////////////////////////////////
@@ -480,6 +483,36 @@ level_4.spriteSpawn = [
   //////////////////////////////////////Second Phase///////////////////////////////////////////
   //Ground
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 3000, 3000, 1200, 50, 1, 0, 0, 0, 0, null, null),
+  //Left Side Border
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 2950, 500, 50, 1700, 1, 0, 0, 0, 0, null, null),
+  //Ledges
+  new SpriteCreator(true, ledgeBounce, 'sprite', ledge, 3400, 2850, null, null, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, ledgeBounce, 'sprite', ledge, 3600, 2300, null, null, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, ledgeBounce, 'sprite', ledge, 3700, 600, null, null, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, ledgeBounce, 'sprite', ledge, 3400, 900, null, null, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, ledgeBounce, 'sprite', ledge, 3500, 1000, null, null, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, ledgeBounce, 'sprite', ledge, 3600, 1400, null, null, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, ledgeBounce, 'sprite', ledge, 3700, 1500, null, null, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, ledgeBounce, 'sprite', ledge, 3600, 1600, null, null, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, ledgeBounce, 'sprite', ledge, 3500, 1700, null, null, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, ledgeBounce, 'sprite', ledge, 3700, 1800, null, null, 1, 0, 0, 0, 0, null, null),
+  //surf LedgeS
+  new SpriteCreator(true, ledgeSurf, 'sprite', ledge, 2600, 400, null, null, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, ledgeSurf, 'sprite', ledge, 1800, 1000, null, null, 1, 0, 0, 0, 0, null, null),
+  //Elevator Ledges
+  new SpriteCreator(true, ledgeElevator, 'sprite', ledge, 2650, 2000, null, null, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, ledgeElevator, 'sprite', ledge, 2250, 2000, null, null, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, ledgeElevator, 'sprite', ledge, 1800, 2000, null, null, 1, 0, 0, 0, 0, null, null),
+  //Death Traps for Surf Ledge
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 2000, 800, 950, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 1300, 0, 150, 1500, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 1450, 1500, 700, 50, 1, 0, 0, 0, 0, null, null),
+  //Enemies
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 3600, 2100, null, null, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, enemyShooter, 'sprite', enemyOne, 3400, 2400, null, null, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 3700, 2300, null, null, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 3150, 2450, null, null, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, enemyShooter, 'sprite', enemyOne, 3899, 2500, null, null, 1, 0, 0, 0, 0, null, null),
 
 ];
 
@@ -491,6 +524,7 @@ level_4.flagSpawn = [
   //     new shadowLevelArray(2, 4)
   //   ])),
   new flagCreator(2, true, flagRegular, flag, 400, 2900, 0, 0, 1, 1, 0, 0, null),
+  new flagCreator(3, true, flagRegular, flag, 3700, 2900, 0, 0, 1, 1, 0, 0, null),
 
 ];
 

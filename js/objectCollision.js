@@ -96,18 +96,18 @@ brawl.game.prototype.ballVsEnemy = function (ball, enemy) {
 //Ledge Interaction Vs. Enemy
 brawl.game.prototype.ledgeVsEnemy = function (ledge, enemy) {
     ///////////////Actual Collision Physics/////////////
-    enemy.body.stop();
-    if (enemy.body.touching.up) {
-        ledge.body.velocity.y = -300;
+    ledge.body.stop();
+    if (ledge.body.touching.up) {
+        enemy.body.velocity.y = -300;
     }
-    else if (enemy.body.touching.down) {
-        ledge.body.velocity.y = 300;
+    else if (ledge.body.touching.down) {
+        enemy.body.velocity.y = 300;
     }
-    else if (enemy.body.touching.left) {
-        ledge.body.velocity.x = -300;
+    else if (ledge.body.touching.left) {
+        enemy.body.velocity.x = -300;
     }
-    else if (enemy.body.touching.right) {
-        ledge.body.velocity.x = 300;
+    else if (ledge.body.touching.right) {
+        enemy.body.velocity.x = 300;
     }
     return;
 };
