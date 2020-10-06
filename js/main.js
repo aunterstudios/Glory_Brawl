@@ -452,7 +452,7 @@ level_3.spriteSpawn = [
 var level_4 = new LevelCreator("Level 4-Play Around", 4200, 3000, new MetroidvaniaCreator(4, 0, 4, 3000, 2, 0, 4, 4200), '#ffffff'); //3800
 
 //Player Scale
-level_4.playerScale = .5;
+level_4.playerScale = 1;
 
 //world gravity
 // level_4.worldGravity = new worldGravityCreator(200,200);
