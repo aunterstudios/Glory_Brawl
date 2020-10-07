@@ -57,6 +57,9 @@ brawl.game.prototype.gdVsMov = function (groundDeath, moveable) {
             }
         }
     }
+    // if (moveable.groupName === groupBall) {
+    //     console.log(moveable.body.velocity.x, moveable.body.velocity.y);
+    // }
     return;
 };
 

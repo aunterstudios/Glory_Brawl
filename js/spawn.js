@@ -135,7 +135,7 @@ brawl.game.prototype.spriteGen = function (sprite, positionInArray) {
     if (sprite.spriteType.name === groundOneWayPlayerBlockDown.name) {
         this.spriteX.body.checkCollision.down = false;
     }
-    ////////////////////Alpha
+    ////////////////////Alpha////////////////////////
     if (groupCategory === groupHazama) {
         this.spriteX.alpha = .3;
     }

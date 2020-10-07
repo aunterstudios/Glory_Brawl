@@ -121,8 +121,8 @@ brawl.game.prototype = {
         this.enemyAttack();
         //Walls
         this.wallContinious(); //Work in Progress
-        //Ledge Continious
-        // this.ledgeContinious();
+        //Immovable Continious
+        // this.immovableContinious();
         //Hazama
         this.hazamaContinious();
         ///////////////////////////////////////////Physics////////////////////////////////////////
@@ -397,9 +397,9 @@ brawl.game.prototype = {
     //     // this.game.debug.text('Global Timer: ' + total, 32, 32);
     //     // this.game.debug.text('Heat Timer: ' + total, 32, 64);
     //     //Body Physics
-    //     this.game.debug.body(this.player);
+    //     // this.game.debug.body(this.player);
     //     // this.game.debug.bodyInfo(this.player, 200, 200);
-    //     // this.game.debug.physicsGroup(this.fallingSpikesTwo);
+    //     this.game.debug.physicsGroup(this.death);
     //     //Debugging FPS
     //     // this.game.debug.text(this.game.time.fps, 200, 300);
     // },

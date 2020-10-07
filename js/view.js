@@ -53,6 +53,7 @@ brawl.game.prototype.cameraChange = function () {
         this.weapon1.bulletKillType = Phaser.Weapon.KILL_CAMERA_BOUNDS;
         this.weapon2.bulletKillType = Phaser.Weapon.KILL_CAMERA_BOUNDS;
         this.weapon3.bulletKillType = Phaser.Weapon.KILL_CAMERA_BOUNDS;
+        this.weapon4.bulletKillType = Phaser.Weapon.KILL_CAMERA_BOUNDS;
     }
     else {
         this.game.camera.unfollow();
@@ -61,7 +62,7 @@ brawl.game.prototype.cameraChange = function () {
         this.weapon1.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
         this.weapon2.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
         this.weapon3.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
-
+        this.weapon4.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
     }
 };
 ///////////////////////////////////////////////Fps///////////////////////////////////////////////////

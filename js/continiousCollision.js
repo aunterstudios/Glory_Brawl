@@ -100,6 +100,16 @@ brawl.game.prototype.wallContinious = function () {
     }, this, this.player);
 };
 
+// brawl.game.prototype.immovableContinious = function () {
+//     this.death.forEachAlive(function (death) {
+//         if (death.specialCondition) {
+//             if (death.specialCondition.name === scWindmill.name) {
+//                 death.rotation += .05;
+//             }
+//         }
+//     }, this, this.player);
+// };
+
 // brawl.game.prototype.ledgeContinious = function () {
 //     this.ledge.forEachAlive(function (ledge) {
 //         ledge.phase = true;

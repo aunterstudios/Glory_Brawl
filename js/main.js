@@ -523,12 +523,19 @@ level_4.spriteSpawn = [
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 1300, 0, 150, 1500, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 1450, 1500, 700, 50, 1, 0, 0, 0, 0, null, null),
   //Enemies
-  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 3600, 2100, null, null, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, enemyShooter, 'sprite', enemyOne, 3400, 2400, null, null, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 3700, 2300, null, null, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 3150, 2450, null, null, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, enemyShooter, 'sprite', enemyOne, 3899, 2500, null, null, 1, 0, 0, 0, 0, null, null),
-
+  // new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 3600, 2100, null, null, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, enemyShooter, 'sprite', enemyOne, 3400, 2400, null, null, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 3700, 2300, null, null, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 3150, 2450, null, null, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, enemyShooter, 'sprite', enemyOne, 3899, 2500, null, null, 1, 0, 0, 0, 0, null, null),
+  //Windmill Test
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 200, 600, 800, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 200, 650, 50, 800, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 200, 1450, 800, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 950, 650, 50, 800, 1, 0, 0, 0, 0, null, null),
+  //Moving Windmill
+  // new SpriteCreator(true, deathRegular, 'tile', deathTile, 400, 800, 50, 50, 1, 300, 400, 0, 0, scReverseVelocity, null),
+  new SpriteCreator(true, ballRegular, 'sprite', ball, 400, 800, 50, 50, 1, 500, 500, 0, 0, null, null),
 ];
 
 //Flag
