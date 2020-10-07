@@ -534,8 +534,8 @@ level_4.spriteSpawn = [
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 200, 1450, 800, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 950, 650, 50, 800, 1, 0, 0, 0, 0, null, null),
   //Moving Windmill
-  // new SpriteCreator(true, deathRegular, 'tile', deathTile, 400, 800, 50, 50, 1, 300, 400, 0, 0, scReverseVelocity, null),
-  new SpriteCreator(true, ballRegular, 'sprite', ball, 400, 800, 50, 50, 1, 500, 500, 0, 0, null, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 3200, 1200, 150, 50, 1, 300, 400, 0, 0, new WindmillCreator(.005, 120, 3200, 1200), null),
+  // new SpriteCreator(true, ballRegular, 'sprite', ball, 400, 800, 50, 50, 1, 500, 500, 0, 0, null, null),
 ];
 
 //Flag

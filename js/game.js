@@ -122,7 +122,7 @@ brawl.game.prototype = {
         //Walls
         this.wallContinious(); //Work in Progress
         //Immovable Continious
-        // this.immovableContinious();
+        this.immovableContinious();
         //Hazama
         this.hazamaContinious();
         ///////////////////////////////////////////Physics////////////////////////////////////////
@@ -391,16 +391,16 @@ brawl.game.prototype = {
         }
     },
     /////////////////////////Debugging + Timer///////////////////////////
-    // render: function () {
-    //     //Timer Debugging
-    //     // this.game.debug.text('Elapsed seconds: ' + this.game.time.totalElapsedSeconds(), 32, 32);
-    //     // this.game.debug.text('Global Timer: ' + total, 32, 32);
-    //     // this.game.debug.text('Heat Timer: ' + total, 32, 64);
-    //     //Body Physics
-    //     // this.game.debug.body(this.player);
-    //     // this.game.debug.bodyInfo(this.player, 200, 200);
-    //     this.game.debug.physicsGroup(this.death);
-    //     //Debugging FPS
-    //     // this.game.debug.text(this.game.time.fps, 200, 300);
-    // },
+    render: function () {
+        //Timer Debugging
+        // this.game.debug.text('Elapsed seconds: ' + this.game.time.totalElapsedSeconds(), 32, 32);
+        // this.game.debug.text('Global Timer: ' + total, 32, 32);
+        // this.game.debug.text('Heat Timer: ' + total, 32, 64);
+        //Body Physics
+        // this.game.debug.body(this.player);
+        // this.game.debug.bodyInfo(this.player, 200, 200);
+        this.game.debug.physicsGroup(this.death);
+        //Debugging FPS
+        // this.game.debug.text(this.game.time.fps, 200, 300);
+    },
 };
