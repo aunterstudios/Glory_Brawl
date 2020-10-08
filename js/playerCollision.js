@@ -34,12 +34,13 @@ brawl.game.prototype.playerGround = function (player, ground) {
 
     }
     //
-    // if (ground.name === groundRegularMove.name) {
-    //     ground.body.moves = false;
-    //     ground.body.immovable = true;
-    //     ground.tint = Phaser.Color.AQUA;
-    //     // ground.alpha = .3;
-    // }
+    if (ground.name === groundRegularMove.name) {
+        ground.body.stop();
+        ground.body.moves = false;
+        ground.body.immovable = true;
+        ground.tint = tintWallPlayerFrozen;
+        // ground.alpha = .3;
+    }
     //Activating immovableWallWorldGravity (World Gravity)
     if (ground.name === groundWorldGravity.name) {
         this.game.physics.arcade.gravity.setTo(0, 500);
