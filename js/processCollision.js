@@ -11,7 +11,7 @@ brawl.game.prototype.gdVsSelfProcess = function (immovable1, immovable2) {
 
 //ground and death vs moveable
 brawl.game.prototype.gdVsMovProcess = function (imb, mov) {
-    if (imb.name === groundOneWayObject || !mov.phase) {
+    if (imb.name === groundOneWayObject || (!mov.phase && !mov.elevatorActivate)) {
         return false;
     }
     else {

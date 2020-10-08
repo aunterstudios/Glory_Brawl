@@ -30,7 +30,7 @@ var tintOrange = 15631118.030252509;
 var deathRegular = new spriteType(0, 'deathRegular', Phaser.Color.RED, 100, 0, true, 1000, 1); //No Special Properties
 var deathBallKill = new spriteType(0, 'deathBallKill', Phaser.Color.ORANGE, 100, 0, true, 1000, 1); //Killable By Ball
 var deathGhost = new spriteType(0, 'deathGhost', 9583870.358153213, 100, 0, true, 1000, 1); //Weapon Phases
-var deathMov = new spriteType(0, 'deathMov', 9583870.358153213, 1000, 0, false, 1000, 1); //This one is moving
+var deathMov = new spriteType(0, 'deathMov', 9583870.358153213, 100, 0, false, 1000, 1); //This one is moving
 
 //Ground
 var groundRegular = new spriteType(1, 'groundRegular', tintRemover, 100, 0, true, 1000, 1); //No Special Properties

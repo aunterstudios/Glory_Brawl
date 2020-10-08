@@ -145,7 +145,7 @@ level_0.spriteSpawn = [
   // new SpriteCreator(true, wallRegular, 'tile', wallTile50, 1000, 200, 50, 250, 1, 0, 0, 0, 0, null, null),
   // new SpriteCreator(true, wallCloud, 'tile', wallTile50, 800, 200, 150, 50, 1, 0, 0, 0, 0, null, null),
   //Repeating Ledge
-  // new SpriteCreator(true, ledgeSurf, 'timer', ledge, 400, 100, 150, 50, 1, 300, 200, 0, 0, null, new timerCreator('repeat', 4, 3)),
+  new SpriteCreator(true, ledgeElevator, 'timer', ledge, 400, 100, 150, 50, 1, 300, 200, 0, 0, null, new timerCreator('repeat', 4, 3)),
   // //Ball
   // new SpriteCreator(true, ballRegular, 'sprite', ball, 200, 100, 50, 50, 1, -300, 0, 0, 0, null, null),
   // //Enemy
