@@ -42,6 +42,21 @@ brawl.game.prototype.gdVsMov = function (groundDeath, moveable) {
     // else if (groundDeath.body.touching.right) {
     //     moveable.body.velocity.x = 200;
     // }
+    if (!groundDeath.body.immovable) {
+        moveable.body.stop()
+        if (moveable.body.touching.up) {
+            groundDeath.body.velocity.y = -200;
+        }
+        else if (moveable.body.touching.down) {
+            groundDeath.body.velocity.y = 200;
+        }
+        else if (moveable.body.touching.left) {
+            groundDeath.body.velocity.x = -200;
+        }
+        else if (moveable.body.touching.right) {
+            groundDeath.body.velocity.x = 200;
+        }
+    }
     /////////////////////groundDeath Wall Effects Against Moveable////////////////////
     // if (groundDeath.name === groundKillWall.name || groundDeath.name === groundOneWayKillObject.name || groundDeath.body.speed > 0 || moveable.elevatorActivate) {
     //     this.emitterFunction(moveable, null, 'destroy');

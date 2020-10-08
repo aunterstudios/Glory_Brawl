@@ -315,8 +315,8 @@ level_2.spriteSpawn = [
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 4600, 400, 200, 25, .5, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 4600, 100, 200, 25, .5, 0, 0, 0, 0, null, null),
   //Moving Traps (Make Grabbing enemyShooter Harder)
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 4200, 50, 50, 50, 1, 0, 700, 0, 0, scReverseVelocity, null),
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 4400, 50, 50, 50, 1, 0, 700, 0, 0, scReverseVelocity, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 4200, 50, 50, 50, 1, 0, 700, 0, 0, null, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 4400, 50, 50, 50, 1, 0, 700, 0, 0, null, null),
   //To Help You Grab the Enemy Shooter
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 4300, 50, 50, 50, 1, 0, 0, 0, 0, null, null),
   //Death Border on Top of Phaser Wall
@@ -332,14 +332,14 @@ level_2.spriteSpawn = [
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 0, 2000, 4000, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 3950, 1900, 50, 50, 1, 0, 0, 0, 0, null, null),
   //Moving Traps for Third Part
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 400, 1100, 50, 50, 1, 0, 500, 0, 0, scReverseVelocity, null),
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 800, 1200, 50, 50, 1, 0, 500, 0, 0, scReverseVelocity, null),
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 1200, 1300, 50, 50, 1, 0, 500, 0, 0, scReverseVelocity, null),
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 1600, 1100, 50, 50, 1, 0, 500, 0, 0, scReverseVelocity, null),
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 2000, 1200, 50, 50, 1, 0, 500, 0, 0, scReverseVelocity, null),
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 2400, 1300, 50, 50, 1, 0, 500, 0, 0, scReverseVelocity, null),
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 2800, 1100, 50, 50, 1, 0, 500, 0, 0, scReverseVelocity, null),
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 3200, 1200, 50, 50, 1, 0, 500, 0, 0, scReverseVelocity, null),
+  new SpriteCreator(true, deathMov, 'tile', deathTile, 400, 1100, 50, 50, 1, 0, 500, 0, 0, null, null),
+  new SpriteCreator(true, deathMov, 'tile', deathTile, 800, 1200, 50, 50, 1, 0, 500, 0, 0, null, null),
+  new SpriteCreator(true, deathMov, 'tile', deathTile, 1200, 1300, 50, 50, 1, 0, 500, 0, 0, null, null),
+  new SpriteCreator(true, deathMov, 'tile', deathTile, 1600, 1100, 50, 50, 1, 0, 500, 0, 0, null, null),
+  new SpriteCreator(true, deathMov, 'tile', deathTile, 2000, 1200, 50, 50, 1, 0, 500, 0, 0, null, null),
+  new SpriteCreator(true, deathMov, 'tile', deathTile, 2400, 1300, 50, 50, 1, 0, 500, 0, 0, null, null),
+  new SpriteCreator(true, deathMov, 'tile', deathTile, 2800, 1100, 50, 50, 1, 0, 500, 0, 0, null, null),
+  new SpriteCreator(true, deathMov, 'tile', deathTile, 3200, 1200, 50, 50, 1, 0, 500, 0, 0, null, null),
   //Enemy to Grab to Kill Phase Wall
   new SpriteCreator(true, enemyShooter, 'sprite', enemyOne, 4700, 60, 50, 50, 1, 0, 0, 0, 0, null, null),
   //Death Border Right Hand Side
@@ -356,12 +356,12 @@ level_2.spriteSpawn = [
   new SpriteCreator(true, wallRegular, 'sprite', wallTile25, 200, 1890, 25, 25, 1, 0, 0, 0, 0, null, null),
   // new SpriteCreator(true, wallRegular, 'sprite', wallTile50, 700, 200, 50, 50, 1, 0, 0, 0, 0, null, null),
   //Moving Traps on Moveable Wall
-  new SpriteCreator(true, deathGhost, 'tile', deathTile, 500, 1800, 50, 50, 1, 0, 600, 0, 0, scReverseVelocity, null),
-  new SpriteCreator(true, deathGhost, 'tile', deathTile, 1300, 1800, 50, 50, 1, 0, 600, 0, 0, scReverseVelocity, null),
-  new SpriteCreator(true, deathGhost, 'tile', deathTile, 2100, 1800, 50, 50, 1, 0, 600, 0, 0, scReverseVelocity, null),
-  new SpriteCreator(true, deathGhost, 'tile', deathTile, 2900, 1800, 50, 50, 1, 0, 600, 0, 0, scReverseVelocity, null),
-  new SpriteCreator(true, deathGhost, 'tile', deathTile, 3700, 1800, 50, 50, 1, 0, 600, 0, 0, scReverseVelocity, null),
-  // new SpriteCreator(true, deathRegular, 'tile', deathTile, 4400, 50, 50, 50, 1, 0, 700, 0, 0, scReverseVelocity, null),
+  new SpriteCreator(true, deathMov, 'tile', deathTile, 500, 1800, 50, 50, 1, 0, 600, 0, 0, null, null),
+  new SpriteCreator(true, deathMov, 'tile', deathTile, 1300, 1800, 50, 50, 1, 0, 600, 0, 0, null, null),
+  new SpriteCreator(true, deathMov, 'tile', deathTile, 2100, 1800, 50, 50, 1, 0, 600, 0, 0, null, null),
+  new SpriteCreator(true, deathMov, 'tile', deathTile, 2900, 1800, 50, 50, 1, 0, 600, 0, 0, null, null),
+  new SpriteCreator(true, deathMov, 'tile', deathTile, 3700, 1800, 50, 50, 1, 0, 600, 0, 0, null, null),
+  // new SpriteCreator(true, deathRegular, 'tile', deathTile, 4400, 50, 50, 50, 1, 0, 700, 0, 0, null, null),
   //Top Left Border
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 0, 0, 25, 1950, .5, 0, 0, 0, 0, null, null),
   //CheckPoint Holder for Third Part

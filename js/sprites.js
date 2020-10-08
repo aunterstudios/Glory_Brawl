@@ -49,7 +49,7 @@ var groundOneWayKillObject = new spriteType(1, 'groundOneWayKillObject', testTin
 var groundPowerJump = new spriteType(1, 'groundPowerUpJump', testTint, 1, 0, true, 1000, 1);
 
 //Moveable Wall Names
-var wallRegular = new spriteType(2, 'wallRegular', tintRemover, 200, .5, false, 800, 2);
+var wallRegular = new spriteType(2, 'wallRegular', tintRemover, 200, .5, false, 800, 1);
 var wallGhost = new spriteType(2, 'wallGhost', 16771007.229130682, 200, .5, true, 800, 1); //Immovable Wall That Let's You Get Through Objects
 var wallCloud = new spriteType(2, 'wallCloud', 9583870.358153213, 200, .5, true, 800, 1); //Stationary Shooting Platform Cloud
 var wallKiller = new spriteType(2, 'wallKiller', Phaser.Color.RED, 200, .5, false, 800, 1);
