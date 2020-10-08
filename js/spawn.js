@@ -23,7 +23,7 @@ brawl.game.prototype.spriteGroupGenerator = function () {
     this.fallingSpikes = this.game.add.group();
     this.fallingSpikes.enableBody = true;
     this.fallingSpikesTwo = this.game.add.group(); //To draw from different Sprite Pool
-    this.fallingSpikesTwo.enableBody = true; 
+    this.fallingSpikesTwo.enableBody = true;
     //Adding Immovable Walls
     this.ground = this.game.add.group();
     this.ground.enableBody = true;
@@ -33,6 +33,9 @@ brawl.game.prototype.spriteGroupGenerator = function () {
     //Adding Hazama and Powerups
     this.hazama = this.game.add.group();
     this.hazama.enableBody = true;
+    //Adding Invisible Objects
+    this.invisible = this.game.add.group();
+    this.invisible.enableBody = true;
     //Adding Flag Group
     this.flag = this.game.add.group();
     this.flag.enableBody = true;
@@ -84,7 +87,9 @@ brawl.game.prototype.spriteGen = function (sprite, positionInArray) {
         new groupArrayCreator(this.ball, groupBall),
         new groupArrayCreator(this.fallingSpikes, groupFallingSpikes),
         new groupArrayCreator(this.fallingSpikesTwo, groupFallingSpikes),
-        new groupArrayCreator(this.hazama, groupHazama)
+        new groupArrayCreator(this.hazama, groupHazama),
+        new groupArrayCreator(this.invisible, groupInvisible)
+
     ]
     var groupSprite = groupArray[sprite.spriteType.groupNumber].groupSprite;
     var groupCategory = groupArray[sprite.spriteType.groupNumber].groupCategory;
@@ -118,6 +123,9 @@ brawl.game.prototype.spriteGen = function (sprite, positionInArray) {
     //Handle Collision Events
     this.spriteX.phase = true;
     this.spriteX.originalTint = sprite.spriteType.tint;
+    // if (sprite.specialCondition) {
+    //     this.spriteX.body.setSize(this.spriteX.width / 1.4, this.spriteX.height / 1.4, 20);
+    // }
     /////////////////////Worlds Bound Configuration////////////////////////
     if (groupCategory !== groupFallingSpikes) {
         this.spriteX.body.collideWorldBounds = true;
@@ -138,6 +146,9 @@ brawl.game.prototype.spriteGen = function (sprite, positionInArray) {
     ////////////////////Alpha////////////////////////
     if (groupCategory === groupHazama) {
         this.spriteX.alpha = .3;
+    }
+    if (groupCategory === groupInvisible) {
+        this.spriteX.alpha = .1;
     }
     if (sprite.spriteType.name === groundOneWayKillObject.name) {
         this.spriteX.alpha = .4;

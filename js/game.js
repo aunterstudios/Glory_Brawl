@@ -122,7 +122,7 @@ brawl.game.prototype = {
         //Walls
         this.wallContinious(); //Work in Progress
         //Immovable Continious
-        this.immovableContinious();
+        // this.immovableContinious();
         //Hazama
         this.hazamaContinious();
         ///////////////////////////////////////////Physics////////////////////////////////////////
@@ -145,9 +145,11 @@ brawl.game.prototype = {
 
         //Ground and Death vs. Moveable Objects
         this.game.physics.arcade.collide([this.ground, this.death], [this.ball, this.enemy, this.ledge, this.wall], this.gdVsMov, this.gdVsMovProcess, this);
+        //Ground vs. Invisible Objects
+        this.game.physics.arcade.collide([this.ground, this.death], this.invisible, this.gdVsInvisible, this.gdVsInvisibleProcess, this);
 
         //Ground and Death vs. Themselves
-        this.game.physics.arcade.overlap([this.ground, this.death], [this.ground, this.death], this.gdVsSelf, this.gdVsSelfProcess, this);
+        this.game.physics.arcade.collide([this.ground, this.death], [this.ground, this.death], this.gdVsSelf, this.gdVsSelfProcess, this);
 
         //Movable Wall Mechanics vs. Moveable Objects
         this.game.physics.arcade.collide(this.wall, [this.enemy, this.ball, this.ledge], this.wallVsMov, this.wallVsMovProcess, this);
@@ -391,16 +393,16 @@ brawl.game.prototype = {
         }
     },
     /////////////////////////Debugging + Timer///////////////////////////
-    render: function () {
-        //Timer Debugging
-        // this.game.debug.text('Elapsed seconds: ' + this.game.time.totalElapsedSeconds(), 32, 32);
-        // this.game.debug.text('Global Timer: ' + total, 32, 32);
-        // this.game.debug.text('Heat Timer: ' + total, 32, 64);
-        //Body Physics
-        // this.game.debug.body(this.player);
-        // this.game.debug.bodyInfo(this.player, 200, 200);
-        this.game.debug.physicsGroup(this.death);
-        //Debugging FPS
-        // this.game.debug.text(this.game.time.fps, 200, 300);
-    },
+    // render: function () {
+    //     //Timer Debugging
+    //     // this.game.debug.text('Elapsed seconds: ' + this.game.time.totalElapsedSeconds(), 32, 32);
+    //     // this.game.debug.text('Global Timer: ' + total, 32, 32);
+    //     // this.game.debug.text('Heat Timer: ' + total, 32, 64);
+    //     //Body Physics
+    //     // this.game.debug.body(this.player);
+    //     // this.game.debug.bodyInfo(this.player, 200, 200);
+    //     this.game.debug.physicsGroup(this.death);
+    //     //Debugging FPS
+    //     // this.game.debug.text(this.game.time.fps, 200, 300);
+    // },
 };

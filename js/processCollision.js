@@ -1,5 +1,17 @@
 brawl.game.prototype.gdVsSelfProcess = function (immovable1, immovable2) {
-    if (!immovable1.specialCondition && !immovable2.specialCondition) {
+    // if (!immovable1.specialCondition && !immovable2.specialCondition) {
+    //     console.log("Did this hit?"); 
+    //     return false;
+    // }
+    // else {
+    //     return true;
+    // }
+
+};
+
+//ground and death vs moveable
+brawl.game.prototype.gdVsMovProcess = function (imb, mov) {
+    if (imb.name === groundOneWayObject || !mov.phase) {
         return false;
     }
     else {
@@ -8,14 +20,9 @@ brawl.game.prototype.gdVsSelfProcess = function (immovable1, immovable2) {
 
 };
 
-brawl.game.prototype.gdVsMovProcess = function (imb, mov) {
-    if (imb.name === groundOneWayObject) {
-        return false;
-    }
-    else {
-        return true;
-    }
-
+//Ground and Death vs Invisible Objects
+brawl.game.prototype.gdVsInvisbleProcess = function (imb, invisible) {
+    
 };
 
 brawl.game.prototype.wallVsMovProcess = function (wall, mov) {

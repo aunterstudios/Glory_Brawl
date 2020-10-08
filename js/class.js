@@ -108,6 +108,7 @@ class specialConditionCreator {
   }
 };
 
+//Experimental Method for Circular Motion of Sprites
 class WindmillCreator {
   constructor(period, radius, pivotX, pivotY) {
     this.name = 'windmill';

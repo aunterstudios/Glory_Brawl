@@ -141,23 +141,32 @@ level_0.spriteSpawn = [
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 1400, 0, 50, 750, 1, 0, 0, 0, 0, null, null),
   //Ground
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 0, 800, 1400, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, wallRegular, 'tile', wallTile50, 1000, 200, 150, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, wallRegular, 'tile', wallTile50, 1000, 200, 50, 250, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, wallCloud, 'tile', wallTile50, 800, 200, 150, 50, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, wallRegular, 'tile', wallTile50, 1000, 200, 150, 50, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, wallRegular, 'tile', wallTile50, 1000, 200, 50, 250, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, wallCloud, 'tile', wallTile50, 800, 200, 150, 50, 1, 0, 0, 0, 0, null, null),
   //Repeating Ledge
-  new SpriteCreator(true, ledgeSurf, 'timer', ledge, 400, 100, 150, 50, 1, 300, 200, 0, 0, null, new timerCreator('repeat', 4, 3)),
-  //Ball
-  new SpriteCreator(true, ballRegular, 'sprite', ball, 200, 100, 50, 50, 1, -300, 0, 0, 0, null, null),
-  //Enemy
+  // new SpriteCreator(true, ledgeSurf, 'timer', ledge, 400, 100, 150, 50, 1, 300, 200, 0, 0, null, new timerCreator('repeat', 4, 3)),
+  // //Ball
+  // new SpriteCreator(true, ballRegular, 'sprite', ball, 200, 100, 50, 50, 1, -300, 0, 0, 0, null, null),
+  // //Enemy
   // new SpriteCreator(true, enemyDaakath, 'timer', enemyOne, 100, 200, 50, 50, 1, 0, 200, 0, 0, null, new timerCreator('repeat', 4, 3)),
-  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 100, 200, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 100, 300, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 100, 400, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 100, 500, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, wallRegular, 'tile', wallTile50, 350, 350, 50, 400, 1, -200, 0, 0, 0, null, null),
-
+  // new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 100, 400, 50, 50, 1, 300, 0, 0, 0, null, null),
+  // new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 100, 500, 50, 50, 1, 300, 0, 0, 0, null, null),
+  // new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 100, 600, 50, 50, 1, 300, 0, 0, 0, null, null),
+  // new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 100, 700, 50, 50, 1, 300, 0, 0, 0, null, null),
+  // new SpriteCreator(true, wallRegular, 'tile', wallTile50, 350, 350, 50, 400, 1, -200, 0, 0, 0, null, null),
   //Falling Spikes
   // new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 500, 100, 50, 50, 1, 0, 0, 0, 500, null, new timerCreator('loop', null, 3)),
+  //Windmill Test
+  new SpriteCreator(true, invisibleRegular, 'tile', deathTile, 200, 400, 200, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, invisibleRegular, 'tile', deathTile, 200, 450, 50, 200, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, invisibleRegular, 'tile', deathTile, 200, 650, 200, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, invisibleRegular, 'tile', deathTile, 350, 450, 50, 200, 1, 0, 0, 0, 0, null, null),
+  //Wall Test
+  new SpriteCreator(true, wallRegular, 'timer', wallTile50, 300, 200, 50, 50, 1, 0, 400, 0, 0, null,  new timerCreator('loop', null, 3)),
+  new SpriteCreator(true, deathMov, 'tile', deathTile, 1000, 100, 50, 50, 1, 0, 200, 0, 0, null, null),
+  //Moving Windmill
+  new SpriteCreator(true, deathMov, 'tile', deathTile, 250, 450, 50, 50, 1, 400, 100, 0, 0, null, null),
 ];
 
 //flag spawn
@@ -529,12 +538,12 @@ level_4.spriteSpawn = [
   // new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 3150, 2450, null, null, 1, 0, 0, 0, 0, null, null),
   // new SpriteCreator(true, enemyShooter, 'sprite', enemyOne, 3899, 2500, null, null, 1, 0, 0, 0, 0, null, null),
   //Windmill Test
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 200, 600, 800, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 200, 650, 50, 800, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 200, 1450, 800, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 950, 650, 50, 800, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, invisibleRegular, 'tile', deathTile, 200, 600, 200, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, invisibleRegular, 'tile', deathTile, 200, 650, 50, 200, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, invisibleRegular, 'tile', deathTile, 200, 850, 200, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, invisibleRegular, 'tile', deathTile, 350, 650, 50, 200, 1, 0, 0, 0, 0, null, null),
   //Moving Windmill
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 3200, 1200, 150, 50, 1, 300, 400, 0, 0, new WindmillCreator(.005, 120, 3200, 1200), null),
+  new SpriteCreator(true, deathMov, 'tile', deathTile, 250, 800, 50, 50, 1, 400, 100, 0, 0, null, null),
   // new SpriteCreator(true, ballRegular, 'sprite', ball, 400, 800, 50, 50, 1, 500, 500, 0, 0, null, null),
 ];
 

@@ -15,6 +15,8 @@ var groupBall = 'groupBall';
 var groupHazama = 'groupHazama';
 //Falling Spikes
 var groupFallingSpikes = 'groupFallingSpikes';
+//Invisible Obstacles
+var groupInvisible = 'groupInvisible'
 //Flag
 var groupFlag = 'groupFlag';
 
@@ -28,6 +30,7 @@ var tintOrange = 15631118.030252509;
 var deathRegular = new spriteType(0, 'deathRegular', Phaser.Color.RED, 100, 0, true, 1000, 1); //No Special Properties
 var deathBallKill = new spriteType(0, 'deathBallKill', Phaser.Color.ORANGE, 100, 0, true, 1000, 1); //Killable By Ball
 var deathGhost = new spriteType(0, 'deathGhost', 9583870.358153213, 100, 0, true, 1000, 1); //Weapon Phases
+var deathMov = new spriteType(0, 'deathMov', 9583870.358153213, 1000, 0, false, 1000, 1); //This one is moving
 
 //Ground
 var groundRegular = new spriteType(1, 'groundRegular', tintRemover, 100, 0, true, 1000, 1); //No Special Properties
@@ -46,7 +49,7 @@ var groundOneWayKillObject = new spriteType(1, 'groundOneWayKillObject', testTin
 var groundPowerJump = new spriteType(1, 'groundPowerUpJump', testTint, 1, 0, true, 1000, 1);
 
 //Moveable Wall Names
-var wallRegular = new spriteType(2, 'wallRegular', tintRemover, 200, .5, false, 800, 1);
+var wallRegular = new spriteType(2, 'wallRegular', tintRemover, 200, .5, false, 800, 2);
 var wallGhost = new spriteType(2, 'wallGhost', 16771007.229130682, 200, .5, true, 800, 1); //Immovable Wall That Let's You Get Through Objects
 var wallCloud = new spriteType(2, 'wallCloud', 9583870.358153213, 200, .5, true, 800, 1); //Stationary Shooting Platform Cloud
 var wallKiller = new spriteType(2, 'wallKiller', Phaser.Color.RED, 200, .5, false, 800, 1);
@@ -71,6 +74,9 @@ var fallingSpikesRegularTwo = new spriteType(7, 'fallingSpikesRegular', Phaser.C
 
 //Hazama
 var hazamaFalconia = new spriteType(8, 'hazamaFalconia', testTint, 1, 0, false, 200, 1); //SUPER JUMPING ABILITY
+
+//Invisible
+var invisibleRegular = new spriteType(9, 'invisibleRegular', Phaser.Color.AQUA, 1000, 0, true, 1000, 1); //Invisible Objects
 
 //Flag Names
 var flagRegular = 'flagRegular';

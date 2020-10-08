@@ -43,7 +43,10 @@ brawl.game.prototype.gdVsMov = function (groundDeath, moveable) {
     //     moveable.body.velocity.x = 200;
     // }
     /////////////////////groundDeath Wall Effects Against Moveable////////////////////
-    if (groundDeath.name === groundKillWall.name || groundDeath.name === groundOneWayKillObject.name || groundDeath.body.speed > 0 || moveable.elevatorActivate) {
+    // if (groundDeath.name === groundKillWall.name || groundDeath.name === groundOneWayKillObject.name || groundDeath.body.speed > 0 || moveable.elevatorActivate) {
+    //     this.emitterFunction(moveable, null, 'destroy');
+    // }
+    if (groundDeath.name === groundKillWall.name || groundDeath.name === groundOneWayKillObject.name || moveable.elevatorActivate) {
         this.emitterFunction(moveable, null, 'destroy');
     }
     // ////////////////////Moveable Effects Against groundDeath///////////////
@@ -59,6 +62,23 @@ brawl.game.prototype.gdVsMov = function (groundDeath, moveable) {
     }
     // if (moveable.groupName === groupBall) {
     //     console.log(moveable.body.velocity.x, moveable.body.velocity.y);
+    // }
+    return;
+};
+
+//Ground and Death vs. Moveable Objects
+brawl.game.prototype.gdVsInvisible = function (groundDeath, invisible) {
+    // if (invisible.body.touching.up) {
+    //     groundDeath.body.velocity.y = 500;
+    // }
+    // else if (invisible.body.touching.down) {
+    //     groundDeath.body.velocity.y = -500;
+    // }
+    // else if (invisible.body.touching.left) {
+    //     groundDeath.body.velocity.x = 500;
+    // }
+    // else if (invisible.body.touching.right) {
+    //     groundDeath.body.velocity.x = -500;
     // }
     return;
 };
