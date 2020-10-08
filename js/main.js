@@ -164,16 +164,16 @@ level_0.spriteSpawn = [
   new SpriteCreator(true, invisibleRegular, 'tile', deathTile, 350, 450, 50, 200, 1, 0, 0, 0, 0, null, null),
   //Box
   // new SpriteCreator(true, wallRegular, 'timer', wallTile50, 300, 200, 50, 50, 1, 0, 400, 0, 0, null,  new timerCreator('loop', null, 3)),
-  // new SpriteCreator(true, deathRegularMov, 'tile', deathTile, 1000, 100, 50, 50, 1, 0, 200, 0, 0, null, null),
+  // new SpriteCreator(true, deathRegularMove, 'tile', deathTile, 1000, 100, 50, 50, 1, 0, 200, 0, 0, null, null),
   //Moving Windmill
-  // new SpriteCreator(true, deathRegularMov, 'tile', deathTile, 250, 450, 50, 50, 1, 400, 100, 0, 0, null, null),
-  new SpriteCreator(true, groundRegularMove, 'tile', groundTile, 1000, 200, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, groundRegularMove, 'tile', groundTile, 1000, 300, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, groundRegularMove, 'tile', groundTile, 1000, 400, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, groundRegularMove, 'tile', groundTile, 1000, 500, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, groundRegularMove, 'tile', groundTile, 1000, 600, 50, 50, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, deathRegularMove, 'tile', deathTile, 250, 450, 50, 50, 1, 400, 100, 0, 0, null, null),
+  new SpriteCreator(true, groundRegularMove, 'tile', groundTile, 1000, 200, 50, 50, 1, 0, 200, 0, 0, null, null),
+  // new SpriteCreator(true, groundRegularMove, 'tile', groundTile, 1000, 300, 50, 50, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, groundRegularMove, 'tile', groundTile, 1000, 400, 50, 50, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, groundRegularMove, 'tile', groundTile, 1000, 500, 50, 50, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, groundRegularMove, 'tile', groundTile, 1000, 600, 50, 50, 1, 0, 0, 0, 0, null, null),
   //Testing
-  new SpriteCreator(true, deathRegularMov, 'tile', deathTile, 1250, 100, 50, 600, 1, -400, 0, 0, 0, null, null),
+  // new SpriteCreator(true, deathRegularMove, 'tile', deathTile, 1250, 100, 50, 600, 1, -400, 0, 0, 0, null, null),
   // new SpriteCreator(true, wallRegular, 'tile', wallTile50, 1250, 500, 50, 600, 1, -400, 0, 0, 0, null, null),
 ];
 
@@ -323,8 +323,8 @@ level_2.spriteSpawn = [
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 4600, 400, 200, 25, .5, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 4600, 100, 200, 25, .5, 0, 0, 0, 0, null, null),
   //Moving Traps (Make Grabbing enemyShooter Harder)
-  new SpriteCreator(true, deathRegularMov, 'tile', deathTile, 4200, 50, 50, 50, 1, 0, 700, 0, 0, null, null),
-  new SpriteCreator(true, deathRegularMov, 'tile', deathTile, 4400, 50, 50, 50, 1, 0, 700, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathTile, 4200, 50, 50, 50, 1, 0, 700, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathTile, 4400, 50, 50, 50, 1, 0, 700, 0, 0, null, null),
   //To Help You Grab the Enemy Shooter
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 4300, 50, 50, 50, 1, 0, 0, 0, 0, null, null),
   //Death Border on Top of Phaser Wall
@@ -340,14 +340,14 @@ level_2.spriteSpawn = [
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 0, 2000, 4000, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 3950, 1900, 50, 50, 1, 0, 0, 0, 0, null, null),
   //Moving Traps for Third Part
-  new SpriteCreator(true, deathRegularMov, 'tile', deathTile, 400, 1100, 50, 50, 1, 0, 500, 0, 0, null, null),
-  new SpriteCreator(true, deathRegularMov, 'tile', deathTile, 800, 1200, 50, 50, 1, 0, 500, 0, 0, null, null),
-  new SpriteCreator(true, deathRegularMov, 'tile', deathTile, 1200, 1300, 50, 50, 1, 0, 500, 0, 0, null, null),
-  new SpriteCreator(true, deathRegularMov, 'tile', deathTile, 1600, 1100, 50, 50, 1, 0, 500, 0, 0, null, null),
-  new SpriteCreator(true, deathRegularMov, 'tile', deathTile, 2000, 1200, 50, 50, 1, 0, 500, 0, 0, null, null),
-  new SpriteCreator(true, deathRegularMov, 'tile', deathTile, 2400, 1300, 50, 50, 1, 0, 500, 0, 0, null, null),
-  new SpriteCreator(true, deathRegularMov, 'tile', deathTile, 2800, 1100, 50, 50, 1, 0, 500, 0, 0, null, null),
-  new SpriteCreator(true, deathRegularMov, 'tile', deathTile, 3200, 1200, 50, 50, 1, 0, 500, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathTile, 400, 1100, 50, 50, 1, 0, 500, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathTile, 800, 1200, 50, 50, 1, 0, 500, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathTile, 1200, 1300, 50, 50, 1, 0, 500, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathTile, 1600, 1100, 50, 50, 1, 0, 500, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathTile, 2000, 1200, 50, 50, 1, 0, 500, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathTile, 2400, 1300, 50, 50, 1, 0, 500, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathTile, 2800, 1100, 50, 50, 1, 0, 500, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathTile, 3200, 1200, 50, 50, 1, 0, 500, 0, 0, null, null),
   //Enemy to Grab to Kill Phase Wall
   new SpriteCreator(true, enemyShooter, 'sprite', enemyOne, 4700, 60, 50, 50, 1, 0, 0, 0, 0, null, null),
   //Death Border Right Hand Side
@@ -362,13 +362,14 @@ level_2.spriteSpawn = [
   new SpriteCreator(true, groundOneWayPlayer, 'tile', deathTile, 25, 1000, 100, 50, .5, 0, 0, 0, 0, null, null),
   //First Moveable Wall to Grab on Left Hand Side
   new SpriteCreator(true, wallRegular, 'sprite', wallTile25, 200, 1890, 25, 25, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallRegular, 'tile', wallTile25, 3400, 1700, 25, 200, 1, 0, 0, 0, 0, null, null),
   // new SpriteCreator(true, wallRegular, 'sprite', wallTile50, 700, 200, 50, 50, 1, 0, 0, 0, 0, null, null),
   //Moving Traps on Moveable Wall
-  new SpriteCreator(true, deathRegularMov, 'tile', deathTile, 500, 1800, 50, 50, 1, 0, 600, 0, 0, null, null),
-  new SpriteCreator(true, deathRegularMov, 'tile', deathTile, 1300, 1800, 50, 50, 1, 0, 600, 0, 0, null, null),
-  new SpriteCreator(true, deathRegularMov, 'tile', deathTile, 2100, 1800, 50, 50, 1, 0, 600, 0, 0, null, null),
-  new SpriteCreator(true, deathRegularMov, 'tile', deathTile, 2900, 1800, 50, 50, 1, 0, 600, 0, 0, null, null),
-  new SpriteCreator(true, deathRegularMov, 'tile', deathTile, 3700, 1800, 50, 50, 1, 0, 600, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathTile, 500, 1800, 50, 50, 1, 0, 600, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathTile, 1300, 1800, 50, 50, 1, 0, 600, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathTile, 2100, 1800, 50, 50, 1, 0, 600, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathTile, 2900, 1800, 50, 50, 1, 0, 600, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathTile, 3700, 1800, 50, 50, 1, 0, 600, 0, 0, null, null),
   // new SpriteCreator(true, deathRegular, 'tile', deathTile, 4400, 50, 50, 50, 1, 0, 700, 0, 0, null, null),
   //Top Left Border
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 0, 0, 25, 1950, .5, 0, 0, 0, 0, null, null),
@@ -380,6 +381,7 @@ level_2.spriteSpawn = [
   //Moveable Wall for Third Part
   new SpriteCreator(true, wallRegular, 'sprite', wallTile25, 3500, 1425, 25, 25, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, wallRegular, 'sprite', wallTile25, 3400, 1425, 25, 25, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, wallRegular, 'sprite', wallTile25, 3400, 1425, 25, 200, 1, 0, 0, 0, 0, null, null),
   //Checkpoint Holder for End of Third Part
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 100, 950, 250, 50, 1, 0, 0, 0, 0, null, null),
   //Just to Mess With You on the Last Part of the Third
@@ -551,7 +553,7 @@ level_4.spriteSpawn = [
   new SpriteCreator(true, invisibleRegular, 'tile', deathTile, 200, 850, 200, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, invisibleRegular, 'tile', deathTile, 350, 650, 50, 200, 1, 0, 0, 0, 0, null, null),
   //Moving Windmill
-  new SpriteCreator(true, deathRegularMov, 'tile', deathTile, 250, 800, 50, 50, 1, 400, 100, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathTile, 250, 800, 50, 50, 1, 400, 100, 0, 0, null, null),
   // new SpriteCreator(true, ballRegular, 'sprite', ball, 400, 800, 50, 50, 1, 500, 500, 0, 0, null, null),
 ];
 

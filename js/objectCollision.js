@@ -45,7 +45,7 @@ brawl.game.prototype.gdVsSelf = function (obj1, obj2) {
 //Ground and Death vs. Moveable Objects
 brawl.game.prototype.gdVsMov = function (groundDeath, moveable) {
     ////////////////////Physics of Immoveable Against Ball or Ledge or Enemy////////////
-    if (groundDeath.name === deathRegularMov.name) {
+    if (groundDeath.name === deathRegularMove.name) {
         moveable.body.stop()
         if (moveable.body.touching.up) {
             groundDeath.body.velocity.y = -200;

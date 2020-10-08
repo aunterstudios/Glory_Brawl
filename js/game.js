@@ -121,8 +121,8 @@ brawl.game.prototype = {
         this.enemyAttack();
         //Walls
         this.wallContinious(); //Work in Progress
-        //Immovable Continious
-        // this.immovableContinious();
+        // Ground Continious
+        // this.groundContinious();
         //Hazama
         this.hazamaContinious();
         ///////////////////////////////////////////Physics////////////////////////////////////////

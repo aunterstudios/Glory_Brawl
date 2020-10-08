@@ -100,13 +100,13 @@ brawl.game.prototype.wallContinious = function () {
     }, this, this.player);
 };
 
-brawl.game.prototype.immovableContinious = function () {
-    this.death.forEachAlive(function (death) {
-        if (death.specialCondition) {
-            if (death.specialCondition.name === 'windmill') {
-                death.x = death.specialCondition.pivotX + Math.cos(this.game.time.now * death.specialCondition.period) * death.specialCondition.radius;
-                death.y = death.specialCondition.pivotY + Math.sin(this.game.time.now * death.specialCondition.period) * death.specialCondition.radius;
-            }
+brawl.game.prototype.groundContinious = function () {
+    this.ground.forEachAlive(function (ground) {
+        if (ground.groupName === groupGroundMove) {
+            ground.body.moves = true;
+            ground.body.immovable = false;
+            ground.tint = Phaser.Color.WHITE;
+            // console.log(ground.tint);
         }
     }, this, this.player);
 };
