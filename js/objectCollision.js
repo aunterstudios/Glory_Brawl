@@ -17,20 +17,35 @@ brawl.game.prototype.trapProjectiles = function (trapProjectiles, obstacles) {
 brawl.game.prototype.gdVsSelf = function (obj1, obj2) {
     ////////////More Special Interactions to Come//////////////
     //Reverses The Velocity's of the Object
-    if (obj1.specialCondition) {
-        if (obj1.specialCondition.name === scReverseVelocity.name) {
-            var x = obj1.body.velocity.x * -1;
-            var y = obj1.body.velocity.y * -1;
-            obj1.body.velocity.setTo(x, y);
-        }
-    }
+    // if (obj1.specialCondition) {
+    //     if (obj1.specialCondition.name === scReverseVelocity.name) {
+    //         var x = obj1.body.velocity.x * -1;
+    //         var y = obj1.body.velocity.y * -1;
+    //         obj1.body.velocity.setTo(x, y);
+    //     }
+    // }
+    // if (!obj1.body.immovable) {
+    //     obj1.body.stop();
+    //     if (obj1.body.touching.up) {
+    //         obj1.body.velocity.y = 200;
+    //     }
+    //     else if (obj1.body.touching.down) {
+    //         obj1.body.velocity.y = -200;
+    //     }
+    //     else if (obj1.body.touching.left) {
+    //         obj1.body.velocity.x = 200;
+    //     }
+    //     else if (obj1.body.touching.right) {
+    //         obj1.body.velocity.x = -200;
+    //     }
+    // }
     return;
 };
 
 //Ground and Death vs. Moveable Objects
 brawl.game.prototype.gdVsMov = function (groundDeath, moveable) {
     ////////////////////Physics of Immoveable Against Ball or Ledge or Enemy////////////
-    if (groundDeath.name === deathMov.name) {
+    if (groundDeath.name === deathRegularMov.name) {
         moveable.body.stop()
         if (moveable.body.touching.up) {
             groundDeath.body.velocity.y = -200;

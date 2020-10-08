@@ -1,12 +1,17 @@
-brawl.game.prototype.gdVsSelfProcess = function (immovable1, immovable2) {
-    // if (!immovable1.specialCondition && !immovable2.specialCondition) {
+brawl.game.prototype.gdVsSelfProcess = function (gd1, gd2) {
+    // if (!gd1.specialCondition && !gd2.specialCondition) {
     //     console.log("Did this hit?"); 
     //     return false;
     // }
     // else {
     //     return true;
     // }
-
+    if ((gd1.groupName === groupDeathMove || gd1.groupName === groupGroundMove) && (gd2.groupName === groupDeathMove || gd2.groupName === groupGroundMove)) {
+        return false;
+    }
+    else {
+        return true;
+    }
 };
 
 //ground and death vs moveable
@@ -22,7 +27,7 @@ brawl.game.prototype.gdVsMovProcess = function (imb, mov) {
 
 //Ground and Death vs Invisible Objects
 brawl.game.prototype.gdVsInvisbleProcess = function (imb, invisible) {
-    
+
 };
 
 brawl.game.prototype.wallVsMovProcess = function (wall, mov) {

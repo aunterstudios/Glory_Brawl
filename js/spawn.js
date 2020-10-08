@@ -24,10 +24,10 @@ brawl.game.prototype.spriteGroupGenerator = function () {
     this.fallingSpikes.enableBody = true;
     this.fallingSpikesTwo = this.game.add.group(); //To draw from different Sprite Pool
     this.fallingSpikesTwo.enableBody = true;
-    //Adding Immovable Walls
+    //Adding Ground
     this.ground = this.game.add.group();
     this.ground.enableBody = true;
-    //Adding This Undeniable Death
+    //Adding Death
     this.death = this.game.add.group();
     this.death.enableBody = true;
     //Adding Hazama and Powerups
@@ -88,8 +88,10 @@ brawl.game.prototype.spriteGen = function (sprite, positionInArray) {
         new groupArrayCreator(this.fallingSpikes, groupFallingSpikes),
         new groupArrayCreator(this.fallingSpikesTwo, groupFallingSpikes),
         new groupArrayCreator(this.hazama, groupHazama),
-        new groupArrayCreator(this.invisible, groupInvisible)
-
+        new groupArrayCreator(this.invisible, groupInvisible),
+        /////////////Moving Ground and Death/////////////
+        new groupArrayCreator(this.death, groupDeathMove),
+        new groupArrayCreator(this.ground, groupGroundMove),
     ]
     var groupSprite = groupArray[sprite.spriteType.groupNumber].groupSprite;
     var groupCategory = groupArray[sprite.spriteType.groupNumber].groupCategory;

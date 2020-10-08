@@ -150,6 +150,7 @@ brawl.game.prototype = {
 
         //Ground and Death vs. Themselves
         this.game.physics.arcade.collide([this.ground, this.death], [this.ground, this.death], this.gdVsSelf, this.gdVsSelfProcess, this);
+        // this.game.physics.arcade.collide(this.death, this.death, this.gdVsSelf, this.gdVsSelfProcess, this);
 
         //Movable Wall Mechanics vs. Moveable Objects
         this.game.physics.arcade.collide(this.wall, [this.enemy, this.ball, this.ledge], this.wallVsMov, this.wallVsMovProcess, this);

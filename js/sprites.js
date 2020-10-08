@@ -1,8 +1,10 @@
 /////////////////////////List of GROUP NAMES of Each Sprite (For Different Special Properties)////////////////
 //Death Group
-var groupDeath = 'groupdeath';
+var groupDeath = 'groupDeath';
+var groupDeathMove = 'groupDeathMove';
 //Immovable Walls
 var groupGround = 'groupGround';
+var groupGroundMove = 'groupGroundMove';
 //Moveable Walls
 var groupWall = 'groupWall';
 //Ledge
@@ -30,7 +32,8 @@ var tintOrange = 15631118.030252509;
 var deathRegular = new spriteType(0, 'deathRegular', Phaser.Color.RED, 100, 0, true, 1000, 1); //No Special Properties
 var deathBallKill = new spriteType(0, 'deathBallKill', Phaser.Color.ORANGE, 100, 0, true, 1000, 1); //Killable By Ball
 var deathGhost = new spriteType(0, 'deathGhost', 9583870.358153213, 100, 0, true, 1000, 1); //Weapon Phases
-var deathMov = new spriteType(0, 'deathMov', 9583870.358153213, 100, 0, false, 1000, 1); //This one is moving
+//Moveable Death Names
+var deathRegularMov = new spriteType(10, 'deathRegularMov', 9583870.358153213, 100, 0, false, 1000, 1); //This one is moving
 
 //Ground
 var groundRegular = new spriteType(1, 'groundRegular', tintRemover, 100, 0, true, 1000, 1); //No Special Properties
@@ -44,6 +47,9 @@ var groundSlippery = new spriteType(1, 'groundSlippery', 766012.4141677661, 100,
 var groundOneWayPlayerBlockLeft = new spriteType(1, 'groundOneWayPlayerBlockLeft', 3588771.242333334, 100, 0, true, 1000, 1); //One way player only from the left
 var groundOneWayPlayerBlockDown = new spriteType(1, 'groundOneWayPlayerBlockDown', testTint, 100, 0, true, 1000, 1); //One way player only from the Bottom
 var groundOneWayKillObject = new spriteType(1, 'groundOneWayKillObject', testTint, 100, 0, true, 1000, 1); //One Way for Player But Kills Object
+//Moveable Ground
+var groundRegularMove = new spriteType(11, 'groundRegularMove', tintRemover, 100, 0, false, 1000, 1); //No Special Properties
+
 
 //PowerUps (Coded In As Ground)
 var groundPowerJump = new spriteType(1, 'groundPowerUpJump', testTint, 1, 0, true, 1000, 1);
