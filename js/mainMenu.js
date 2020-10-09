@@ -7,6 +7,7 @@ brawl.state1.prototype = {
         this.load.image('deathTile', 'assets/deathTile.png');
         //Immovable Walls
         this.load.image('groundTile', 'assets/groundTile.png');
+        this.load.image('gMovingTile', 'assets/gMovingTile.png');
         //Moveable Walls
         this.load.image('wallTile50', 'assets/wallTile50.png');
         this.load.image('wallTile25', 'assets/wallTile25.png');

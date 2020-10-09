@@ -4,6 +4,7 @@ var deathTile = 'deathTile';
 
 //Immovable Wall
 var groundTile = 'groundTile';
+var gMovingTile = 'gMovingTile';
 var powerJar = 'powerJar';
 
 //Moveable Wall

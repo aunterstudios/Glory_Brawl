@@ -267,7 +267,8 @@ brawl.game.prototype = {
             else if (onNone && !onHazama) {
                 // this.player.animations.stop();
                 // this.player.body.setSize(34, 55.5, 15, 7);
-                this.player.body.setSize(34, 52, 15, 7);
+                // this.player.body.setSize(34, 52, 15, 7);
+                this.player.body.setSize(34, 49, 15, 7);
                 if (this.player.body.velocity.x === 0) {
                     this.player.frame = 2;
                 }
@@ -401,7 +402,7 @@ brawl.game.prototype = {
     //     //Body Physics
     //     this.game.debug.body(this.player);
     //     // this.game.debug.bodyInfo(this.player, 200, 200);
-    //     this.game.debug.physicsGroup(this.death);
+    //     // this.game.debug.physicsGroup(this.death);
     //     //Debugging FPS
     //     // this.game.debug.text(this.game.time.fps, 200, 300);
     // },

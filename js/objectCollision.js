@@ -2,7 +2,7 @@
 //Dealing With Sprite Specific vs Group Deaths (Objects Kiling Each Other)
 brawl.game.prototype.trapProjectiles = function (trapProjectiles, obstacles) {
     trapProjectiles.kill();
-    if (obstacles.name === 'groundWallPhase') {
+    if (obstacles.name === 'groundPhase') {
         this.emitterFunction(obstacles, trapProjectiles, 'destroy');
         if (obstacles.specialCondition) {
             if (obstacles.specialCondition.name === scLocalizedDestruction.name) {

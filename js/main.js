@@ -167,7 +167,7 @@ level_0.spriteSpawn = [
   // new SpriteCreator(true, deathRegularMove, 'tile', deathTile, 1000, 100, 50, 50, 1, 0, 200, 0, 0, null, null),
   //Moving Windmill
   // new SpriteCreator(true, deathRegularMove, 'tile', deathTile, 250, 450, 50, 50, 1, 400, 100, 0, 0, null, null),
-  new SpriteCreator(true, groundRegularMove, 'tile', groundTile, 1000, 200, 50, 50, 1, 0, 200, 0, 0, null, null),
+  new SpriteCreator(true, groundRegularMove, 'tile', gMovingTile, 1000, 200, 50, 50, 1, 0, 200, 0, 0, null, null),
   // new SpriteCreator(true, groundRegularMove, 'tile', groundTile, 1000, 300, 50, 50, 1, 0, 0, 0, 0, null, null),
   // new SpriteCreator(true, groundRegularMove, 'tile', groundTile, 1000, 400, 50, 50, 1, 0, 0, 0, 0, null, null),
   // new SpriteCreator(true, groundRegularMove, 'tile', groundTile, 1000, 500, 50, 50, 1, 0, 0, 0, 0, null, null),
@@ -332,7 +332,7 @@ level_2.spriteSpawn = [
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 4050, 1450, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 3950, 1450, 50, 50, 1, 0, 0, 0, 0, null, null),
   //Phaser Wall
-  new SpriteCreator(true, groundPhase, 'tile', groundTile, 4000, 1500, 50, 450, 1, 0, 0, 0, 0, scLocalizedDestruction, null),
+  // new SpriteCreator(true, groundPhase, 'tile', groundTile, 4000, 1500, 50, 450, 1, 0, 0, 0, 0, scLocalizedDestruction, null),
   //Slippery Wall to Climb
   new SpriteCreator(true, groundSlippery, 'tile', groundTile, 4800, 0, 50, 1800, 1, 0, 0, 0, 0, null, null),
   //Ground
