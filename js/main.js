@@ -332,7 +332,7 @@ level_2.spriteSpawn = [
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 4050, 1450, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 3950, 1450, 50, 50, 1, 0, 0, 0, 0, null, null),
   //Phaser Wall
-  // new SpriteCreator(true, groundPhase, 'tile', groundTile, 4000, 1500, 50, 450, 1, 0, 0, 0, 0, scLocalizedDestruction, null),
+  new SpriteCreator(true, groundPhase, 'tile', groundTile, 4000, 1500, 50, 450, 1, 0, 0, 0, 0, scLocalizedDestruction, null),
   //Slippery Wall to Climb
   new SpriteCreator(true, groundSlippery, 'tile', groundTile, 4800, 0, 50, 1800, 1, 0, 0, 0, 0, null, null),
   //Ground
@@ -376,12 +376,9 @@ level_2.spriteSpawn = [
   //CheckPoint Holder for Third Part
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 3950, 1400, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 3600, 1400, 300, 50, 1, 0, 0, 0, 0, null, null),
-  //Test wall
-  // new SpriteCreator(true, wallRegular, 'sprite', wallTile25, 3800, 1890, 25, 25, 1, 0, 0, 0, 0, null, null),
   //Moveable Wall for Third Part
   new SpriteCreator(true, wallRegular, 'sprite', wallTile25, 3500, 1425, 25, 25, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, wallRegular, 'sprite', wallTile25, 3400, 1425, 25, 25, 1, 0, 0, 0, 0, null, null),
-  // new SpriteCreator(true, wallRegular, 'sprite', wallTile25, 3400, 1425, 25, 200, 1, 0, 0, 0, 0, null, null),
   //Checkpoint Holder for End of Third Part
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 100, 950, 250, 50, 1, 0, 0, 0, 0, null, null),
   //Just to Mess With You on the Last Part of the Third
