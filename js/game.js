@@ -147,10 +147,8 @@ brawl.game.prototype = {
         this.game.physics.arcade.collide([this.ground, this.death], [this.ball, this.enemy, this.ledge, this.wall], this.gdVsMov, this.gdVsMovProcess, this);
         //Ground vs. Invisible Objects
         this.game.physics.arcade.collide([this.ground, this.death], this.invisible, this.gdVsInvisible, this.gdVsInvisibleProcess, this);
-
         //Ground and Death vs. Themselves
         this.game.physics.arcade.collide([this.ground, this.death], [this.ground, this.death], this.gdVsSelf, this.gdVsSelfProcess, this);
-        // this.game.physics.arcade.collide(this.death, this.death, this.gdVsSelf, this.gdVsSelfProcess, this);
 
         //Movable Wall Mechanics vs. Moveable Objects
         this.game.physics.arcade.collide(this.wall, [this.enemy, this.ball, this.ledge], this.wallVsMov, this.wallVsMovProcess, this);
@@ -268,7 +266,8 @@ brawl.game.prototype = {
             }
             else if (onNone && !onHazama) {
                 // this.player.animations.stop();
-                this.player.body.setSize(34, 55.5, 15, 7);
+                // this.player.body.setSize(34, 55.5, 15, 7);
+                this.player.body.setSize(34, 52, 15, 7);
                 if (this.player.body.velocity.x === 0) {
                     this.player.frame = 2;
                 }
@@ -400,7 +399,7 @@ brawl.game.prototype = {
     //     // this.game.debug.text('Global Timer: ' + total, 32, 32);
     //     // this.game.debug.text('Heat Timer: ' + total, 32, 64);
     //     //Body Physics
-    //     // this.game.debug.body(this.player);
+    //     this.game.debug.body(this.player);
     //     // this.game.debug.bodyInfo(this.player, 200, 200);
     //     this.game.debug.physicsGroup(this.death);
     //     //Debugging FPS
