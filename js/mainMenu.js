@@ -5,6 +5,7 @@ brawl.state1.prototype = {
         //////////////////////////////Loads All The Sprites At The Main Menu Screen////////////////////
         this.load.image('background-one', 'assets/trumpFirstBackground.jpg');
         this.load.image('deathTile', 'assets/deathTile.png');
+        this.load.image('deathMoveTile', 'assets/deathMoveTile.png');
         //Immovable Walls
         this.load.image('groundTile', 'assets/groundTile.png');
         this.load.image('gMovingTile', 'assets/gMovingTile.png');

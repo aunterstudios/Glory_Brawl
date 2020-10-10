@@ -1,6 +1,7 @@
 /////////////////////////List of Art or Image Keys of Each Sprite/////////////////
 //Death
 var deathTile = 'deathTile';
+var deathMoveTile = 'deathMoveTile';
 
 //Immovable Wall
 var groundTile = 'groundTile';
