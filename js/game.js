@@ -269,6 +269,7 @@ brawl.game.prototype = {
                 // this.player.body.setSize(34, 55.5, 15, 7);
                 // this.player.body.setSize(34, 52, 15, 7);
                 this.player.body.setSize(34, 49, 15, 7);
+                // this.player.body.setSize(34, 46, 15, 7);
                 if (this.player.body.velocity.x === 0) {
                     this.player.frame = 2;
                 }

@@ -33,20 +33,24 @@ brawl.game.prototype.playerGround = function (player, ground) {
         // immovable.alpha = .5;
 
     }
-    //
+    ////////////////Player vs. Moving Ground/////////////
     if (ground.name === groundRegularMove.name) {
+        player.body.stop();
         ground.body.stop();
-        // player.body.stop();
-        ground.body.moves = false;
+        // player.body.velocity.y = 0;
+        // ground.body.moves = false;
         ground.body.immovable = true;
+        // ground.body.moves = false;
         ground.tint = tintWallPlayerFrozen;
         // ground.alpha = .3;
     }
+    ////////////////Player vs. World Activation/////////////
     //Activating immovableWallWorldGravity (World Gravity)
     if (ground.name === groundWorldGravity.name) {
         this.game.physics.arcade.gravity.setTo(0, 500);
         this.emitterFunction(ground, null, 'destroy');
     }
+    ////////////////Player vs. Power Ups/////////////
     if (ground.name === groundPowerJump.name) {
         player.powerJump = true;
         this.playerJump = -1000;
