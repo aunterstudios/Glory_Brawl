@@ -268,7 +268,7 @@ var level_2 = new LevelCreator(
   4800, //X-Size of World
   2000, //Y-Size of World
   '#FFFDD0', //Background Color
-  true, //Out of Bounds Allowed
+  false, //Out of Bounds Allowed
   1, //Player Scale
   portalNen, //Nen-System
   funGunSet, //Gun-Set
