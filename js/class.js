@@ -1,12 +1,15 @@
 ////////////////////////////////////////////Class Declarations/////////////////////////////////////////////////////
 //Creates Each Individual Level
 class LevelCreator {
-  constructor(worldName, xOfWorld, yOfWorld, metroidvania, backgroundColor) {
+  constructor(worldName, xOfWorld, yOfWorld, backgroundColor, outOfBounds, playerScale, nenSystem, gunSystem) {
     this.worldName = worldName;
     this.xOfWorld = xOfWorld;
     this.yOfWorld = yOfWorld;
-    this.metroidvania = metroidvania;
     this.backgroundColor = backgroundColor;
+    this.outOfBounds = outOfBounds;
+    this.playerScale = playerScale;
+    this.nenSystem = nenSystem;
+    this.gunSystem = gunSystem;
   }
 };
 

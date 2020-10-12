@@ -110,20 +110,31 @@ function shuffle(array) {
 //Level Holder
 var worldClassLevels = [];
 ///////////////////////////////////////////Level 0///////////////////////////////////////////////////////////
-var level_0 = new LevelCreator("Level 0-Physics Testing", 1400, 800, new MetroidvaniaCreator(1, 0, 0, 800, 0, 0, 0, 1400), "#FFFDD0");
+var level_0 = new LevelCreator(
+  "Level 0-Physics Testing", //Name of World
+  1400, //X-Size of World
+  800,  //Y- Size of World 
+  "#FFFDD0", //Background Color
+  true, //Out of Bounds Allowed
+  1, //PlayerScale
+  portalNen, //Nen-System
+  basicGunSet, //Gun-Set
+);
 
-//Player Scale
-level_0.playerScale = 1;
+//Room-Switching
+level_0.metroidvania = new MetroidvaniaCreator(
+  1, //Room-Up-Index
+  0, //Room-Up-Value
+  0, //Room-Down-Index
+  800, //Room-Down-Value
+  0, //Room-Left-Index
+  0, //Room-Left-Value
+  0, //Room-Right-Index
+  1400, // Room-Right-Value, 
+);
 
-//world gravity
+//World Gravity
 // level_0.worldGravity = new worldGravityCreator(0, -200);
-
-//Creation of Nen System in Level
-level_0.nenSystem = portalNen;
-
-//Creation of Gun System in Level
-level_0.gunSystem = basicGunSet;
-// level_0.gunSystem = testGunSet;
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_0.playerPosition = [
@@ -131,9 +142,9 @@ level_0.playerPosition = [
   new PlayerPositionCreator(800, 700),
   new PlayerPositionCreator(800, 700),
   new PlayerPositionCreator(800, 700),
-]
+];
 
-//
+//Object Generation
 level_0.spriteSpawn = [
   //Side Borders
   // new SpriteCreator(true, deathBallKill, 'tile', deathTile, 0, 0, 50, 750, 1, 0, 0, 0, 0, scLocalizedDestruction, null),
@@ -145,7 +156,7 @@ level_0.spriteSpawn = [
   // new SpriteCreator(true, wallRegular, 'tile', wallTile50, 1000, 200, 50, 250, 1, 0, 0, 0, 0, null, null),
   // new SpriteCreator(true, wallCloud, 'tile', wallTile50, 800, 200, 150, 50, 1, 0, 0, 0, 0, null, null),
   //Repeating Ledge
-  // new SpriteCreator(true, ledgeElevator, 'timer', ledge, 400, 100, 150, 50, 1, 300, 200, 0, 0, null, new timerCreator('repeat', 4, 3)),
+  new SpriteCreator(true, ledgeElevator, 'timer', ledge, 400, 100, 150, 50, 1, 300, 200, 0, 0, null, new timerCreator('repeat', 4, 3)),
   // //Ball
   // new SpriteCreator(true, ballRegular, 'sprite', ball, 200, 100, 50, 50, 1, -300, 0, 0, 0, null, null),
   // //Enemy
@@ -189,19 +200,28 @@ level_0.flagSpawn = [
 
 ////////////////////////////////////////Level 1-SandboxMode/////////////////////////////////////
 //New Playground
-var level_1 = new LevelCreator("Level 1-SandboxMode", 1400, 16000, new MetroidvaniaCreator(1, 0, 1, 10000, 2, 0, 1, 1400), '#ffffff');
+var level_1 = new LevelCreator(
+  "Level 1-SandboxMode", //Name of World
+  1400, //X-Size of World
+  16000, //Y-Size of World
+  '#ffffff', //Background Color
+  true, //Out of Bounds Allowed
+  1, //Player Scale
+  seanNen, //Nen-System
+  testGunSet, //Gun-Set
+);
 
-//Player Scale
-level_1.playerScale = 1;
-
-//World Gravity
-// level_1.worldGravity = new worldGravityCreator(200,200);
-
-//Creation of Nen System in Level
-level_1.nenSystem = seanNen;
-
-//Creation of Gun System in Level
-level_1.gunSystem = testGunSet;
+//Room-Switching
+level_1.metroidvania = new MetroidvaniaCreator(
+  1, //Room-Up-Index
+  0, //Room-Up-Value
+  1, //Room-Down-Index
+  10000, //Room-Down-Value
+  2, //Room-Left-Index
+  0, //Room-Left-Value
+  1, //Room-Right-Index
+  1400, //Room-Right-Value
+);
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_1.playerPosition = [
@@ -292,19 +312,29 @@ level_1.flagSpawn = [
 ];
 
 ////////////////////////////////////////Level 2/////////////////////////////////////
-var level_2 = new LevelCreator("Level 2-What", 4800, 2000, new MetroidvaniaCreator(3, 0, 3, 2000, null, null, 1, 4800), '#FFFDD0');
+//Level Begin
+var level_2 = new LevelCreator(
+  "Level 2-What", //Name of World
+  4800, //X-Size of World
+  2000, //Y-Size of World
+  '#FFFDD0', //Background Color
+  true, //Out of Bounds Allowed
+  1, //Player Scale
+  portalNen, //Nen-System
+  funGunSet, //Gun-Set
+);
 
-//Player Scale
-level_2.playerScale = 1;
-
-//World Gravity
-// level_2.worldGravity = new worldGravityCreator(200,200);
-
-//Creation of Nen System in Level
-level_2.nenSystem = portalNen;
-
-//Creation of Gun System in Level
-level_2.gunSystem = funGunSet;
+//Room-Switching
+level_2.metroidvania = new MetroidvaniaCreator(
+  3, //Room-Up-Index
+  0, //Room-Up-Value
+  3, //Room-Down-Index
+  2000, //Room-Down-Value
+  null, //Room-Left-Index
+  null, //Room-Left-Value
+  1, //Room-Right-Index
+  4800, //Room-Right-Value
+);
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_2.playerPosition = [
@@ -420,18 +450,28 @@ level_2.text = [
 ];
 
 ////////////////////////////////////////Level 3/////////////////////////////////////
-var level_3 = new LevelCreator("Level 3-SandboxMode", 1400, 10000, new MetroidvaniaCreator(1, 0, 1, 10000, 2, 0, 1, 1400), '#FFFDD0'); //2400
+var level_3 = new LevelCreator(
+  "Level 3-MovingBlocks", //Name of World
+  1400, //X-Size of World
+  10000, //Y-Size of World
+  '#FFFDD0', //Background Color
+  true, //Out of Bounds Allowed
+  1, //Player Scale
+  portalNen, //Nen-System
+  basicGunSet, //Gun-Set
+);
 
-//Player Scale
-level_3.playerScale = 1;
-
-// level_3.worldGravity = new worldGravityCreator(200, 300);
-
-//Creation of Nen System in Level
-level_3.nenSystem = portalNen;
-
-//Creation of Gun System in Level
-level_3.gunSystem = basicGunSet;
+//Room-Switching
+level_3.metroidvania = new MetroidvaniaCreator(
+  1, //Room-Up-Index
+  0, //Room-Up-Value
+  1, //Room-Down-Index
+  10000, //Room-Down-Value
+  2, //Room-Left-Index
+  0, //Room-Left-Value
+  1, //Room-Right-Index
+  1400, //Room-Right-Value
+);
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_3.playerPosition = [
@@ -459,25 +499,39 @@ level_3.spriteSpawn = [
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 0, 9950, 1400, 50, 1, 0, 0, 0, 0, null, null),
   //////////////////////////////////////Platform Wall Your Friend////////////////////////////////////////////////////
   new SpriteCreator(true, wallRegular, 'sprite', wallTile25, 600, 9900, 25, 25, 1, 0, 0, 0, 0, null, null),
+];
 
+level_3.flagSpawn = [
+  // new flagCreator(1, true, flagSpecial, flag, 4200, 1800, 0, 0, .4, .4, 0, 0,
+  //   new shadowLevelGenerator(0, [
+  //     new shadowLevelArray(2, 4)
+  //   ])),
+  // new flagCreator(3, true, flagRegular, flag, 4700, 1900, 0, 0, 1, 1, 0, 0, null),
 ];
 
 ///////////////////////////////////////////Level 4///////////////////////////////////////////////////////////
-// level4TestTint= Math.random() * 0xffffff;;
-// console.log(level4TestTint);
-var level_4 = new LevelCreator("Level 4-Play Around", 4200, 3000, new MetroidvaniaCreator(4, 0, 4, 3000, 2, 0, 4, 4200), '#ffffff'); //3800
+var level_4 = new LevelCreator(
+  "Level 4-Play Around", //Name of World
+  4200, //X-Size of World
+  3000, //Y-Size of World
+  '#ffffff', //Background Color
+  true, //Out of Bounds Allowed
+  1, //Player Scale
+  portalNen, //Nen-System
+  funGunSet, //Gun-Set
+);
 
-//Player Scale
-level_4.playerScale = 1;
-
-//world gravity
-// level_4.worldGravity = new worldGravityCreator(200,200);
-
-//Creation of Nen System in Level
-level_4.nenSystem = portalNen;
-
-//Creation of Gun System in Level
-level_4.gunSystem = funGunSet;
+//Room-Switching
+level_4.metroidvania = new MetroidvaniaCreator(
+  4, //Room-Up-Index
+  0, //Room-Up-Value
+  4, //Room-Down-Index
+  3000, //Room-Down-Value
+  2, //Room-Left-Index
+  0, //Room-Left-Value
+  4, //Room-Right-Index
+  4200, //Room-Right-Value
+);
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_4.playerPosition = [
@@ -555,7 +609,6 @@ level_4.spriteSpawn = [
 ];
 
 //Flag
-//Flag Spawn
 level_4.flagSpawn = [
   // new flagCreator(1, true, flagSpecial, flag, 4200, 1800, 0, 0, .4, .4, 0, 0,
   //   new shadowLevelGenerator(0, [
@@ -563,7 +616,6 @@ level_4.flagSpawn = [
   //   ])),
   new flagCreator(2, true, flagRegular, flag, 400, 2900, 0, 0, 1, 1, 0, 0, null),
   new flagCreator(3, true, flagRegular, flag, 3700, 2900, 0, 0, 1, 1, 0, 0, null),
-
 ];
 
 //////////////////////////////////////////Pushing All Levels Into World Array/////////////////////////////////////

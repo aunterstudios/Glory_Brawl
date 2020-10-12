@@ -34,15 +34,15 @@ var portalNen = new nenCreator(
 
 var seanNen = new nenCreator(
   400, //Speed
-  -500, //Jump
+  -800, //Jump
   null, //Gravity-X
-  900, //Gravity-Y
-  2, //Double Jump
-  100, //WallJump-X
-  100, //wallJump-Y
-  200, //Stickiness
-  300, //Wall Slide-Y
-  700, //Downwards-S
+  1500, //Gravity-Y
+  1, //Double Jump
+  1000, //WallJump-X
+  500, //wallJump-Y
+  500, //Stiickiness
+  -25, //Wall Slide-Y
+  400, //Downwards-S
   10, //OverLap Bias
 );
 
