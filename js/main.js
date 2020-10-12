@@ -1,5 +1,5 @@
-// var game = new Phaser.Game(1400, 800, Phaser.CANVAS);
-var game = new Phaser.Game(1920, 1080, Phaser.CANVAS);
+var game = new Phaser.Game(1400, 800, Phaser.CANVAS);
+// var game = new Phaser.Game(1920, 1080, Phaser.CANVAS);
 /////////////////////////////////////////////////Disable RightClick////////////////////////////////////
 window.onload = function () {
   document.addEventListener("contextmenu", function (e) {
