@@ -99,13 +99,7 @@ function nextWord() {
   }
 
 }
-/////////////////////////////////////////////////Array Shuffler///////////////////////////////////////
-function shuffle(array) {
-  for (var i = array.length - 1; i > 0; i--) {
-    var j = Math.floor(Math.random() * (i + 1)); // random index from 0 to i
-    [array[i], array[j]] = [array[j], array[i]]; // swap elements
-  }
-}
+
 ///////////////////////////////////////////Levels///////////////////////////////////////////////////////////
 //Level Holder
 var worldClassLevels = [];
@@ -258,51 +252,6 @@ level_1.spriteSpawn = [
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 900, 1300, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 800, 1200, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 1000, 1100, 50, 50, 1, 0, 0, 0, 0, null, null),
-
-
-  //////////////Walls That Kill You
-  // // new SpriteCreator(true, wallKiller, 'tile', wallTile50, 850, 800, 50, 50, 1, 0, 0, 0, 0, null, null),
-  // new SpriteCreator(true, wallRegular, 'tile', wallTile50, 900, 800, 50, 50, 1, 0, 0, 0, 0, null, null),
-  // new SpriteCreator(true, wallSurf, 'tile', wallTile50, 950, 800, 50, 50, 1, 0, 0, 0, 0, null, null),
-  // new SpriteCreator(true, wallInverse, 'tile', wallTile50, 1000, 800, 50, 50, 1, 0, 0, 0, 0, null, null),
-  // // new SpriteCreator(true, wallKiller, 'tile', wallTile50, 1050, 800, 50, 50, 1, 0, 0, 0, 0, null, null),
-  // new SpriteCreator(true, wallRegular, 'tile', wallTile50, 1100, 800, 50, 50, 1, 0, 0, 0, 0, null, null),
-  // new SpriteCreator(true, wallRegular, 'tile', wallTile50, 1150, 800, 50, 50, 1, 0, 0, 0, 0, null, null),
-  ///////////////////////////////////////Spring Board Enemies Section//////////////////////////////////////
-  //Mixed Wall
-  // new SpriteCreator(true, wallRegular, 'tile', wallTile50, 600, 750, 50, 50, 1, 0, 0, 0, 0, null, null),
-  // new SpriteCreator(true, wallKiller, 'tile', wallTile50, 650, 750, 50, 50, 1, 0, 0, 0, 0, null, null),
-  // new SpriteCreator(true, wallRegular, 'tile', wallTile50, 700, 750, 50, 50, 1, 0, 0, 0, 0, null, null),
-  // new SpriteCreator(true, wallKiller, 'tile', wallTile50, 750, 750, 50, 50, 1, 0, 0, 0, 0, null, null),
-  // new SpriteCreator(true, wallRegular, 'tile', wallTile50, 800, 750, 50, 50, 1, 0, 0, 0, 0, null, null),
-  // new SpriteCreator(true, wallKiller, 'tile', wallTile50, 850, 750, 50, 50, 1, 0, 0, 0, 0, null, null),
-  // new SpriteCreator(true, wallRegular, 'tile', wallTile50, 900, 750, 50, 50, 1, 0, 0, 0, 0, null, null),
-  // new SpriteCreator(true, wallKiller, 'tile', wallTile50, 950, 750, 50, 50, 1, 0, 0, 0, 0, null, null),
-  // new SpriteCreator(true, wallRegular, 'tile', wallTile50, 1000, 750, 50, 50, 1, 0, 0, 0, 0, null, null),
-  // new SpriteCreator(true, wallKiller, 'tile', wallTile50, 1050, 750, 50, 50, 1, 0, 0, 0, 0, null, null),
-  // new SpriteCreator(true, wallRegular, 'tile', wallTile50, 1100, 750, 50, 50, 1, 0, 0, 0, 0, null, null),
-  // new SpriteCreator(true, wallKiller, 'tile', wallTile50, 1150, 750, 50, 50, 1, 0, 0, 0, 0, null, null),
-  // new SpriteCreator(true, wallRegular, 'tile', wallTile50, 1200, 750, 50, 50, 1, 0, 0, 0, 0, null, null),
-  // new SpriteCreator(true, wallKiller, 'tile', wallTile50, 1250, 750, 50, 50, 1, 0, 0, 0, 0, null, null),
-  // new SpriteCreator(true, wallRegular, 'tile', wallTile50, 1300, 750, 50, 50, 1, 0, 0, 0, 0, null, null),
-  // //Enemies
-  // new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 600, 850, 50, 50, 1, 0, 0, 0, 0, scNoTypeEnemy, null),
-  // new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 650, 850, 50, 50, 1, 0, 0, 0, 0, scNoTypeEnemy, null),
-  // new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 700, 850, 50, 50, 1, 0, 0, 0, 0, scNoTypeEnemy, null),
-  // new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 750, 850, 50, 50, 1, 0, 0, 0, 0, scNoTypeEnemy, null),
-  // new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 800, 850, 50, 50, 1, 0, 0, 0, 0, scNoTypeEnemy, null),
-  // new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 850, 850, 50, 50, 1, 0, 0, 0, 0, scNoTypeEnemy, null),
-  // new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 900, 850, 50, 50, 1, 0, 0, 0, 0, scNoTypeEnemy, null),
-  // new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 950, 850, 50, 50, 1, 0, 0, 0, 0, scNoTypeEnemy, null),
-  // new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 1000, 850, 50, 50, 1, 0, 0, 0, 0, scNoTypeEnemy, null),
-  // new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 1050, 850, 50, 50, 1, 0, 0, 0, 0, scNoTypeEnemy, null),
-  // new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 1100, 850, 50, 50, 1, 0, 0, 0, 0, scNoTypeEnemy, null),
-  // new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 1150, 850, 50, 50, 1, 0, 0, 0, 0, scNoTypeEnemy, null),
-  // new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 1200, 850, 50, 50, 1, 0, 0, 0, 0, scNoTypeEnemy, null),
-  // new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 1250, 850, 50, 50, 1, 0, 0, 0, 0, scNoTypeEnemy, null),
-  // new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 1300, 850, 50, 50, 1, 0, 0, 0, 0, scNoTypeEnemy, null),
-  //Bottom of Enemies
-  // new SpriteCreator(true, groundRegular, 'tile', groundTile, 575, 1000, 750, 50, 1, 0, 0, 0, 0, null, null),
 ];
 
 //flag spawn
