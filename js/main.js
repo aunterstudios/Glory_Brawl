@@ -114,8 +114,8 @@ var level_0 = new LevelCreator(
   1, //PlayerScale
   portalNen, //Nen-System
   basicGunSet, //Gun-Set
-  false, //Sideways Stick to Walls,
-  false, //Upsidedown Stick
+  true, //Sideways Stick to Walls,
+  true, //Upsidedown Stick
 );
 
 //Room-Switching

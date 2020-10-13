@@ -141,6 +141,15 @@ brawl.game.prototype.playerLedge = function (player, ledge) {
             player.body.velocity.y = -300;
             ledge.body.velocity.y = -300;
         }
+        else if (ledge.body.touching.down) {
+            ledge.body.stop();
+        }
+        else if (ledge.body.touching.left) {
+            ledge.body.velocity.x = 150;
+        }
+        else if (ledge.body.touching.right) {
+            ledge.body.velocity.x = -150;
+        }
         if (!ledge.elevatorActivate) {
             ledge.elevatorActivate = true;
         }
