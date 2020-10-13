@@ -77,6 +77,7 @@ brawl.game.prototype.playerWall = function (player, wall) {
     if (wall.name === wallCloud.name) {
         // player.body.stop();
         // wall.body.stop();
+        // player.alpha = .4;
         if (this.movementUp.isDown) {
             wall.body.velocity.setTo(0, -200);
         }
@@ -90,6 +91,9 @@ brawl.game.prototype.playerWall = function (player, wall) {
             wall.body.velocity.setTo(200, 0);
         }
     }
+    // if (wall.name === wallGhost.name) {
+    //     player.alpha = .4;
+    // }
     if (wall.name === wallKiller.name) {
         this.playerDeath(player, wall);
     }

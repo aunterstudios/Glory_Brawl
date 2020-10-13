@@ -131,3 +131,7 @@ brawl.game.prototype.hazamaContinious = function () {
         }
     }, this, this.player);
 };
+
+brawl.game.prototype.playerContinious = function () {
+    this.player.alpha = 1;
+};
