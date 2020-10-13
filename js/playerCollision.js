@@ -35,9 +35,11 @@ brawl.game.prototype.playerGround = function (player, ground) {
     }
     ////////////////Player vs. Moving Ground/////////////
     if (ground.name === groundRegularMove.name) {
+        ground.groupName = groupGround;
+        ground.name = groundRegular.name;
         player.body.stop();
         ground.body.stop();
-        ground.body.moves = false;
+        // ground.body.moves = false;
         ground.body.immovable = true;
         ground.tint = tintWallPlayerFrozen;
         // ground.alpha = .3;
