@@ -242,11 +242,11 @@ brawl.game.prototype = {
             else if (onTheRightSide && !onHazama) {
                 if (this.sideStick) {
                     this.player.body.setSize(30, 50, 19, 10);
-                    if (onWall || onGround) {
+                    if (onWall || onGround || onEnemy) {
                         this.player.body.velocity.x = this.playerStickiness;
                         this.player.body.velocity.y = this.playerSlippery; //100 is original
                     }
-                    if (onWall || onGround || onLedge) {
+                    if (onWall || onGround || onLedge || onEnemy) {
                         this.player.frame = 7;
                     }
                     if (this.movementLeft.isDown) {
@@ -258,11 +258,11 @@ brawl.game.prototype = {
             else if (onTheLeftSide && !onHazama) {
                 if (this.sideStick) {
                     this.player.body.setSize(30, 50, 15, 10);
-                    if (onWall || onGround) {
+                    if (onWall || onGround || onEnemy) {
                         this.player.body.velocity.x = -this.playerStickiness;
                         this.player.body.velocity.y = this.playerSlippery; //100 is Original
                     }
-                    if (onWall || onGround || onLedge) {
+                    if (onWall || onGround || onLedge || onEnemy) {
                         this.player.frame = 13;
                     }
                     if (this.movementRight.isDown) {
@@ -367,22 +367,22 @@ brawl.game.prototype = {
             }
             if (onTheRightSide && !onHazama) {
                 if (this.sideStick) {
-                    if (onWall || onGround) {
+                    if (onWall || onGround || onEnemy) {
                         this.player.body.velocity.x = this.playerStickiness;
                         this.player.body.velocity.y = this.playerSlippery;
                     }
-                    if (onWall || onGround || onLedge) {
+                    if (onWall || onGround || onLedge || onEnemy) {
                         this.player.frame = 7;
                     }
                 }
             }
             else if (onTheLeftSide && !onHazama) {
                 if (this.sideStick) {
-                    if (onWall || onGround) {
+                    if (onWall || onGround || onEnemy) {
                         this.player.body.velocity.x = -this.playerStickiness;
                         this.player.body.velocity.y = this.playerSlippery;
                     }
-                    if (onWall || onGround || onLedge) {
+                    if (onWall || onGround || onLedge || onEnemy) {
                         this.player.frame = 13;
                     }
                 }

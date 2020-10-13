@@ -45,7 +45,7 @@ brawl.game.prototype.gdVsSelf = function (obj1, obj2) {
 //Ground and Death vs. Moveable Objects
 brawl.game.prototype.gdVsMov = function (groundDeath, moveable) {
     ////////////////////Physics of Immoveable Against Ball or Ledge or Enemy////////////
-    if (groundDeath.name === deathRegularMove.name) {
+    if (groundDeath.name === deathRegularMove.name || groundDeath.name === groundRegularMove.name) {
         moveable.body.stop()
         if (moveable.body.touching.up) {
             groundDeath.body.velocity.y = -200;
@@ -104,6 +104,7 @@ brawl.game.prototype.gdVsInvisible = function (groundDeath, invisible) {
 //Wall Against Moveable Objects
 brawl.game.prototype.wallVsMov = function (wall, mov) {
     ///////////////Actual Collision Physics/////////////
+    // wall.body.stop();
     if (mov.groupName === groupEnemy) {
         mov.name = 'enemyWall';
         mov.tint = tintRemover;
@@ -155,18 +156,18 @@ brawl.game.prototype.ledgeVsEnemy = function (ledge, enemy) {
 
 brawl.game.prototype.ballVsLedge = function (ball, ledge) {
     ///////////////Actual Collision Physics/////////////
-    ball.body.stop();
-    if (ball.body.touching.up) {
-        ledge.body.velocity.y = -300;
+    ledge.body.stop();
+    if (ledge.body.touching.up) {
+        ball.body.velocity.y = -300;
     }
-    else if (ball.body.touching.down) {
-        ledge.body.velocity.y = 300;
+    else if (ledge.body.touching.down) {
+        ball.body.velocity.y = 300;
     }
-    else if (ball.body.touching.left) {
-        ledge.body.velocity.x = -300;
+    else if (ledge.body.touching.left) {
+        ball.body.velocity.x = -300;
     }
-    else if (ball.body.touching.right) {
-        ledge.body.velocity.x = 300;
+    else if (ledge.body.touching.right) {
+        ball.body.velocity.x = 300;
     }
     return;
 };

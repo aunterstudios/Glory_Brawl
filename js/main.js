@@ -107,7 +107,7 @@ var worldClassLevels = [];
 ///////////////////////////////////////////Level 0///////////////////////////////////////////////////////////
 var level_0 = new LevelCreator(
   "Level 0-Physics Testing", //Name of World
-  1400, //X-Size of World
+  2800, //X-Size of World
   800,  //Y- Size of World 
   "#FFFDD0", //Background Color
   true, //Out of Bounds Allowed
@@ -146,23 +146,20 @@ level_0.spriteSpawn = [
   //Side Borders
   // new SpriteCreator(true, deathBallKill, 'tile', deathTile, 0, 0, 50, 750, 1, 0, 0, 0, 0, scLocalizedDestruction, null),
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 0, 0, 50, 750, 1, 0, 0, 0, 0, scLocalizedDestruction, null),
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 1400, 0, 50, 750, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 2750, 0, 50, 750, 1, 0, 0, 0, 0, null, null),
   //Ground
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 0, 800, 1400, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 0, 800, 2800, 50, 1, 0, 0, 0, 0, null, null),
   // new SpriteCreator(true, wallRegular, 'tile', wallTile50, 1000, 200, 150, 50, 1, 0, 0, 0, 0, null, null),
   // new SpriteCreator(true, wallRegular, 'tile', wallTile50, 1000, 200, 50, 250, 1, 0, 0, 0, 0, null, null),
-  // new SpriteCreator(true, wallCloud, 'tile', wallTile50, 800, 200, 150, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallCloud, 'tile', wallTile50, 800, 200, 150, 50, 1, 0, 0, 0, 0, null, null),
   //Repeating Ledge
   new SpriteCreator(true, ledgeElevator, 'timer', ledge, 400, 100, 150, 50, 1, 300, 200, 0, 0, null, new timerCreator('repeat', 4, 3)),
   // //Ball
-  // new SpriteCreator(true, ballRegular, 'sprite', ball, 200, 100, 50, 50, 1, -300, 0, 0, 0, null, null),
+  new SpriteCreator(true, ballRegular, 'sprite', ball, 1600, 100, 50, 50, 1, -300, 0, 0, 0, null, new timerCreator('repeat', 4, 3)),
   // //Enemy
-  // new SpriteCreator(true, enemyDaakath, 'timer', enemyOne, 100, 200, 50, 50, 1, 0, 200, 0, 0, null, new timerCreator('repeat', 4, 3)),
+  new SpriteCreator(true, enemyDaakath, 'timer', enemyOne, 1200, 200, 50, 50, 1, 0, 200, 0, 0, null, new timerCreator('repeat', 4, 3)),
   // new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 100, 400, 50, 50, 1, 300, 0, 0, 0, null, null),
-  // new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 100, 500, 50, 50, 1, 300, 0, 0, 0, null, null),
-  // new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 100, 600, 50, 50, 1, 300, 0, 0, 0, null, null),
-  // new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 100, 700, 50, 50, 1, 300, 0, 0, 0, null, null),
-  // new SpriteCreator(true, wallRegular, 'tile', wallTile50, 350, 350, 50, 400, 1, -200, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallRegular, 'tile', wallTile50, 350, 350, 400, 50, 1, -200, 0, 0, 0, null, null),
   //Falling Spikes
   // new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 500, 100, 50, 50, 1, 0, 0, 0, 500, null, new timerCreator('loop', null, 3)),
   //Windmill Test

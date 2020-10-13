@@ -37,10 +37,8 @@ brawl.game.prototype.playerGround = function (player, ground) {
     if (ground.name === groundRegularMove.name) {
         player.body.stop();
         ground.body.stop();
-        // player.body.velocity.y = 0;
-        // ground.body.moves = false;
+        ground.body.moves = false;
         ground.body.immovable = true;
-        // ground.body.moves = false;
         ground.tint = tintWallPlayerFrozen;
         // ground.alpha = .3;
     }
@@ -104,10 +102,10 @@ brawl.game.prototype.playerEnemy = function (player, enemy) {
         player.body.stop();
         enemy.body.stop();
         if (enemy.body.touching.left) {
-            enemy.body.velocity.setTo(400,0);
+            enemy.body.velocity.setTo(300,0);
         }
         else if (enemy.body.touching.right) {
-            enemy.body.velocity.setTo(-400,0);
+            enemy.body.velocity.setTo(-300,0);
 
         }
     }
