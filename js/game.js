@@ -31,6 +31,9 @@ brawl.game.prototype = {
         this.playerStickiness = nenHolder.playerStickiness;
         this.playerSlippery = nenHolder.playerSlippery;
         this.playerDownwards = nenHolder.playerDownwards;
+        /////////////////////World Physics Restrictions////////////////////
+        this.sideStick = worldClassLevels[this.indexOfCurrentWorld].sideStick;
+        this.upsideDownStick = worldClassLevels[this.indexOfCurrentWorld].upsideDownStick;
         /////////////////////Weapon System//////////////////////
         this.weapon1Holder = worldClassLevels[this.indexOfCurrentWorld].gunSystem[0];
         this.weapon2Holder = worldClassLevels[this.indexOfCurrentWorld].gunSystem[1];
@@ -172,9 +175,29 @@ brawl.game.prototype = {
         var onNone = this.player.body.touching.none;
 
         // If the player is touching a surface, let him have 2 jumps
-        if (onTheFloor || onTheLeftSide || onTheRightSide || onUpsideDown) {
-            this.jumps = this.playerDoubleJumps;
-            this.jumping = false;
+        if (this.sideStick && this.upsideDownStick) {
+            if (onTheFloor || onTheLeftSide || onTheRightSide || onUpsideDown) {
+                this.jumps = this.playerDoubleJumps;
+                this.jumping = false;
+            }
+        }
+        else if (this.sideStick && !this.upsideDownStick) {
+            if (onTheFloor || onTheLeftSide || onTheRightSide) {
+                this.jumps = this.playerDoubleJumps;
+                this.jumping = false;
+            }
+        }
+        else if (!this.sideStick && this.upsideDownStick) {
+            if (onTheFloor || onUpsideDown) {
+                this.jumps = this.playerDoubleJumps;
+                this.jumping = false;
+            }
+        }
+        else if (!this.sideStick && !this.upsideDownStick) {
+            if (onTheFloor) {
+                this.jumps = this.playerDoubleJumps;
+                this.jumping = false;
+            }
         }
 
         // Jump!
@@ -217,52 +240,57 @@ brawl.game.prototype = {
                 }
             }
             else if (onTheRightSide && !onHazama) {
-                this.player.body.setSize(30, 50, 19, 10);
-                if (onWall || onGround) {
-                    this.player.body.velocity.x = this.playerStickiness;
-                    this.player.body.velocity.y = this.playerSlippery; //100 is original
-                }
-                if (onWall || onGround || onLedge) {
-                    this.player.frame = 7;
-                }
-                if (this.movementLeft.isDown) {
-                    this.player.body.velocity.y = -this.playerWallJumpY;
-                    this.player.body.velocity.x = -this.playerWallJumpX;
+                if (this.sideStick) {
+                    this.player.body.setSize(30, 50, 19, 10);
+                    if (onWall || onGround) {
+                        this.player.body.velocity.x = this.playerStickiness;
+                        this.player.body.velocity.y = this.playerSlippery; //100 is original
+                    }
+                    if (onWall || onGround || onLedge) {
+                        this.player.frame = 7;
+                    }
+                    if (this.movementLeft.isDown) {
+                        this.player.body.velocity.y = -this.playerWallJumpY;
+                        this.player.body.velocity.x = -this.playerWallJumpX;
+                    }
                 }
             }
             else if (onTheLeftSide && !onHazama) {
-                this.player.body.setSize(30, 50, 15, 10);
-                if (onWall || onGround) {
-                    this.player.body.velocity.x = -this.playerStickiness;
-                    this.player.body.velocity.y = this.playerSlippery; //100 is Original
-                }
-                if (onWall || onGround || onLedge) {
-                    this.player.frame = 13;
-                }
-                if (this.movementRight.isDown) {
-                    this.player.body.velocity.y = -this.playerWallJumpY;
-                    this.player.body.velocity.x = this.playerWallJumpX;
+                if (this.sideStick) {
+                    this.player.body.setSize(30, 50, 15, 10);
+                    if (onWall || onGround) {
+                        this.player.body.velocity.x = -this.playerStickiness;
+                        this.player.body.velocity.y = this.playerSlippery; //100 is Original
+                    }
+                    if (onWall || onGround || onLedge) {
+                        this.player.frame = 13;
+                    }
+                    if (this.movementRight.isDown) {
+                        this.player.body.velocity.y = -this.playerWallJumpY;
+                        this.player.body.velocity.x = this.playerWallJumpX;
+                    }
                 }
             }
             else if (onUpsideDown && !onHazama) {
-                this.player.body.setSize(34, 55.5, 15, 0);
-                this.player.body.velocity.y = -this.playerStickiness;
-                // if (!onEnemy) {
-                //     this.player.body.velocity.y = -this.playerStickiness;
-                // }
-                if (this.movementLeft.isDown && !this.movementRight.isDown) {
-                    this.player.body.velocity.x = -this.playerSpeed;
-                    this.player.animations.play('upsideDownLeft');
+                if (this.upsideDownStick) {
+                    this.player.body.setSize(34, 55.5, 15, 0);
+                    this.player.body.velocity.y = -this.playerStickiness;
+                    // if (!onEnemy) {
+                    //     this.player.body.velocity.y = -this.playerStickiness;
+                    // }
+                    if (this.movementLeft.isDown && !this.movementRight.isDown) {
+                        this.player.body.velocity.x = -this.playerSpeed;
+                        this.player.animations.play('upsideDownLeft');
+                    }
+                    else if (this.movementRight.isDown && !this.movementLeft.isDown) {
+                        this.player.body.velocity.x = this.playerSpeed;
+                        this.player.animations.play('upsideDownRight');
+                    }
+                    else {
+                        this.player.animations.stop();
+                        this.player.frame = 1;
+                    }
                 }
-                else if (this.movementRight.isDown && !this.movementLeft.isDown) {
-                    this.player.body.velocity.x = this.playerSpeed;
-                    this.player.animations.play('upsideDownRight');
-                }
-                else {
-                    this.player.animations.stop();
-                    this.player.frame = 1;
-                }
-
             }
             else if (onNone && !onHazama) {
                 // this.player.animations.stop();
@@ -303,17 +331,7 @@ brawl.game.prototype = {
                 }
             }
 
-            // //Upwards
-            // if (this.movementUp.isDown) {
-            //     this.player.frame = 2;
-            // }
-
             //////////Downwards Mechanics////////
-            if (this.movementDown.isDown && onUpsideDown && !onHazama) {
-                // this.player.frame = 13;
-                this.player.body.velocity.y = 100;
-            }
-
             if (this.movementDown.isDown && !this.movementLeft.isDown && !this.movementRight.isDown) {
                 this.player.body.setSize(34, 55.5, 15, 7);
                 if (onNone || onUpsideDown || onTheFloor) {
@@ -348,26 +366,32 @@ brawl.game.prototype = {
                 this.game.camera.y += 20;
             }
             if (onTheRightSide && !onHazama) {
-                if (onWall || onGround) {
-                    this.player.body.velocity.x = this.playerStickiness;
-                    this.player.body.velocity.y = this.playerSlippery;
-                }
-                if (onWall || onGround || onLedge) {
-                    this.player.frame = 7;
+                if (this.sideStick) {
+                    if (onWall || onGround) {
+                        this.player.body.velocity.x = this.playerStickiness;
+                        this.player.body.velocity.y = this.playerSlippery;
+                    }
+                    if (onWall || onGround || onLedge) {
+                        this.player.frame = 7;
+                    }
                 }
             }
             else if (onTheLeftSide && !onHazama) {
-                if (onWall || onGround) {
-                    this.player.body.velocity.x = -this.playerStickiness;
-                    this.player.body.velocity.y = this.playerSlippery;
-                }
-                if (onWall || onGround || onLedge) {
-                    this.player.frame = 13;
+                if (this.sideStick) {
+                    if (onWall || onGround) {
+                        this.player.body.velocity.x = -this.playerStickiness;
+                        this.player.body.velocity.y = this.playerSlippery;
+                    }
+                    if (onWall || onGround || onLedge) {
+                        this.player.frame = 13;
+                    }
                 }
             }
             else if (onUpsideDown && !onHazama) {
-                this.player.frame = 1;
-                this.player.body.velocity.y = -this.playerStickiness;
+                if (this.upsideDownStick) {
+                    this.player.frame = 1;
+                    this.player.body.velocity.y = -this.playerStickiness;
+                }
             }
             else if (onNone) {
                 this.player.frame = 2;

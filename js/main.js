@@ -114,6 +114,8 @@ var level_0 = new LevelCreator(
   1, //PlayerScale
   portalNen, //Nen-System
   basicGunSet, //Gun-Set
+  false, //Sideways Stick to Walls,
+  false, //Upsidedown Stick
 );
 
 //Room-Switching
@@ -174,6 +176,7 @@ level_0.spriteSpawn = [
   //Moving Windmill
   // new SpriteCreator(true, deathRegularMove, 'tile', deathTile, 250, 450, 50, 50, 1, 400, 100, 0, 0, null, null),
   new SpriteCreator(true, groundRegularMove, 'tile', gMovingTile, 1000, 200, 50, 50, 1, 0, 200, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 500, 150, 50, 500, 1, 0, 0, 0, 0, null, null),
   // new SpriteCreator(true, groundRegularMove, 'tile', groundTile, 1000, 300, 50, 50, 1, 0, 0, 0, 0, null, null),
   // new SpriteCreator(true, groundRegularMove, 'tile', groundTile, 1000, 400, 50, 50, 1, 0, 0, 0, 0, null, null),
   // new SpriteCreator(true, groundRegularMove, 'tile', groundTile, 1000, 500, 50, 50, 1, 0, 0, 0, 0, null, null),
@@ -204,6 +207,8 @@ var level_1 = new LevelCreator(
   1, //Player Scale
   seanNen, //Nen-System
   testGunSet, //Gun-Set
+  true, //Sideways Stick to Walls,
+  true, //Upsidedown Stick
 );
 
 //Room-Switching
@@ -272,6 +277,8 @@ var level_2 = new LevelCreator(
   1, //Player Scale
   portalNen, //Nen-System
   funGunSet, //Gun-Set
+  true, //Sideways Stick to Walls,
+  true, //Upsidedown Stick
 );
 
 //Room-Switching
@@ -409,6 +416,8 @@ var level_3 = new LevelCreator(
   1, //Player Scale
   portalNen, //Nen-System
   basicGunSet, //Gun-Set
+  true, //Sideways Stick to Walls,
+  true, //Upsidedown Stick
 );
 
 //Room-Switching
@@ -469,6 +478,8 @@ var level_4 = new LevelCreator(
   1, //Player Scale
   portalNen, //Nen-System
   funGunSet, //Gun-Set
+  true, //Sideways Stick to Walls,
+  true, //Upsidedown Stick
 );
 
 //Room-Switching

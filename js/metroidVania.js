@@ -9,7 +9,8 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     this.player.scale.setTo(levelGenerator.playerScale);
     this.player.tint = Phaser.Color.BLACK;
     this.player.body.setSize(34, 55.5, 15, 7);
-    this.player.body.mass = 1; //6
+    // this.player.body.mass = 1; //6
+    this.player.body.mass = 15; //6
     this.player.body.gravity.y = this.playerGravityY;
     if (levelGenerator.outOfBounds) {
         this.player.checkWorldBounds = true;
