@@ -4,14 +4,17 @@ brawl.state1.prototype = {
     preload: function () {
         //////////////////////////////Loads All The Sprites At The Main Menu Screen////////////////////
         this.load.image('background-one', 'assets/trumpFirstBackground.jpg');
+        //Death
         this.load.image('deathTile', 'assets/deathTile.png');
         this.load.image('deathMoveTile', 'assets/deathMoveTile.png');
-        //Immovable Walls
+        //Ground
         this.load.image('groundTile', 'assets/groundTile.png');
         this.load.image('gMovingTile', 'assets/gMovingTile.png');
         //Moveable Walls
         this.load.image('wallTile50', 'assets/wallTile50.png');
         this.load.image('wallTile25', 'assets/wallTile25.png');
+        //Invsible Tiles
+        this.load.image('invisibleTile', 'assets/invisibleTile.png');
         //Ledges
         this.load.image('ledge', 'assets/ledge.png');
         //Traps
@@ -121,7 +124,7 @@ brawl.stateControls.prototype = {
             //Sean Moody Level Mode
             // this.game.state.start('game', true, false, 1, 1, worldClassLevels[1].metroidvania);
             //Actual Levels
-            // this.game.state.start('game', true, false, 4, 3, worldClassLevels[4].metroidvania);
+            // this.game.state.start('game', true, false, 4, 1, worldClassLevels[4].metroidvania);
         }
     }
 };

@@ -8,6 +8,9 @@ var groundTile = 'groundTile';
 var gMovingTile = 'gMovingTile';
 var powerJar = 'powerJar';
 
+//Invisible Tile
+var invsibileTile = 'invisibleTile';
+
 //Moveable Wall
 var wallTile50 = 'wallTile50';
 var wallTile25 = 'wallTile25';
