@@ -159,7 +159,8 @@ level_0.spriteSpawn = [
   // //Enemy
   new SpriteCreator(true, enemyDaakath, 'timer', enemyOne, 1200, 200, 50, 50, 1, 0, 200, 0, 0, null, new timerCreator('repeat', 4, 3)),
   // new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 100, 400, 50, 50, 1, 300, 0, 0, 0, null, null),
-  new SpriteCreator(true, wallRegular, 'tile', wallTile50, 350, 350, 400, 50, 1, -200, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallRegular, 'tile', wallTile50, 1000, 350, 400, 50, 1, -200, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallRegular, 'tile', wallTile50, 300, 150, 50, 400, 1, 0, 0, 0, 0, null, null),
   //Falling Spikes
   // new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 500, 100, 50, 50, 1, 0, 0, 0, 500, null, new timerCreator('loop', null, 3)),
   //Windmill Test
@@ -167,7 +168,7 @@ level_0.spriteSpawn = [
   new SpriteCreator(true, invisibleRegular, 'tile', invsibileTile, 200, 450, 50, 200, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, invisibleRegular, 'tile', invsibileTile, 200, 650, 200, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, invisibleRegular, 'tile', invsibileTile, 350, 450, 50, 200, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, groundRegularMove, 'tile', gMovingTile, 250, 500, 50, 50, 1, 300, 150, 0, 0, null, null),
+  new SpriteCreator(true, groundRegularMove, 'tile', gMovingTile, 250, 500, 50, 50, 1, 1000, 1000, 0, 0, null, null),
   //Box
   // new SpriteCreator(true, wallRegular, 'timer', wallTile50, 300, 200, 50, 50, 1, 0, 400, 0, 0, null,  new timerCreator('loop', null, 3)),
   // new SpriteCreator(true, deathRegularMove, 'tile', deathTile, 1000, 100, 50, 50, 1, 0, 200, 0, 0, null, null),
