@@ -1,6 +1,6 @@
 //Death State
-brawl.state2 = function () { };
-brawl.state2.prototype = {
+brawl.death = function () { };
+brawl.death.prototype = {
     init: function (indexOfCurrentWorld, indexOfPlayerPosition, metroidvania) {
         this.game.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT;
         this.game.world.setBounds(0, 0, 1400, 800);

@@ -40,11 +40,11 @@ window.onload = function () {
 };
 
 //////////////////////////////////////////////////Game States//////////////////////////////////////////////
-game.state.add('mainMenu', brawl.state1);
-game.state.add('deathState', brawl.state2);
+game.state.add('mainMenu', brawl.mainMenu);
+game.state.add('deathState', brawl.death);
 game.state.add('game', brawl.game);
 game.state.add('story', brawl.story);
-game.state.add('controlScreen', brawl.stateControls);
+game.state.add('startScreen', brawl.startScreen);
 //////////////////////////////////////////////////Starting States//////////////////////////////////////////////
 game.state.start('mainMenu');
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////

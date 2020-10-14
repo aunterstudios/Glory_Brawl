@@ -1,6 +1,6 @@
 var brawl = {};
-brawl.state1 = function () { };
-brawl.state1.prototype = {
+brawl.mainMenu = function () { };
+brawl.mainMenu.prototype = {
     preload: function () {
         //////////////////////////////Loads All The Sprites At The Main Menu Screen////////////////////
         this.load.image('background-one', 'assets/trumpFirstBackground.jpg');
@@ -87,14 +87,14 @@ brawl.state1.prototype = {
     },
     update: function () {
         if (this.game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
-            this.game.state.start('controlScreen');
+            this.game.state.start('startScreen');
         }
     }
 };
 
 ////////////////////////Play the Game//////////////////
-brawl.stateControls = function () { };
-brawl.stateControls.prototype = {
+brawl.startScreen = function () { };
+brawl.startScreen.prototype = {
     init: function () {
         this.game.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT;
         this.game.world.setBounds(0, 0, 1400, 800);
