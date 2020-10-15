@@ -244,6 +244,6 @@ brawl.game.prototype.respawn = function (player, flag) {
         for (var i = 0; i < flag.specialHandler.levelSwitchArray.length; i++) {
             worldClassLevels[flag.specialHandler.levelSwitchArray[i].oldLevel] = worldClassLevels[flag.specialHandler.levelSwitchArray[i].shadowLevel];
         }
-        this.game.state.start('story', true, false, respawnHolder.indexOfCurrentWorld, respawnHolder.indexOfPlayerPosition, respawnHolder.metroidvania, flag.specialHandler.page);
+        this.game.state.start('story', true, false, respawnHolder.indexOfCurrentWorld, respawnHolder.indexOfPlayerPosition, flag.specialHandler.page);
     }
 };

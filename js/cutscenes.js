@@ -44,22 +44,21 @@ brawl.death.prototype = {
 //Story Pages
 brawl.story = function () { };
 brawl.story.prototype = {
-    init: function (indexOfCurrentWorld, indexOfPlayerPosition, metroidvania, page) {
+    init: function (indexOfCurrentWorld, indexOfPlayerPosition, page) {
         this.game.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT;
         this.game.world.setBounds(0, 0, 1400, 800);
         //Init To Get to the Next State
         this.indexOfCurrentWorld = indexOfCurrentWorld;
         this.indexOfPlayerPosition = indexOfPlayerPosition;
-        this.metroidvania = metroidvania;
         this.page = page;
     },
     create: function () {
         this.game.stage.backgroundColor = Phaser.Color.WHITE;
         if (this.page === 0) {
-            this.text1 = this.game.add.text(550, 200, "The Shadow is Eternal.\n\nI'm burned in your soul.\n\nWe Will Keep Doing This\n\nForever.");
+            this.text1 = this.game.add.text(550, 200, "The Shadow is Eternal.\n\nTRY THIS FOR SIZE\n\nOH YEAH!.");
             this.text1.font = 'Courier New'
             this.text1.fontSize = 25;
-            this.text1.fill = Phaser.Color.RED;
+            this.text1.fill = Phaser.Color.WHITE;
             this.text1.fontWeight = 'bold';
             this.text1.align = 'center';
         }
