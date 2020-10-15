@@ -240,8 +240,24 @@ brawl.game.prototype.respawn = function (player, flag) {
     respawnHolder.indexOfPlayerPosition = flag.indexOfPlayerPosition;
     ///////////////////The Double Loops of Death//////////////////
     if (flag.specialHandler) {
-        for (var i = 0; i < flag.specialHandler.levelSwitchArray.length; i++) {
-            worldClassLevels[flag.specialHandler.levelSwitchArray[i].oldLevel] = worldClassLevels[flag.specialHandler.levelSwitchArray[i].shadowLevel];
+        ////////////////////////////Completely Replaces a Level//////////////////////////
+        if (flag.specialHandler.name === 'shadowLevel') {
+            for (var i = 0; i < flag.specialHandler.levelSwitchArray.length; i++) {
+                worldClassLevels[flag.specialHandler.levelSwitchArray[i].oldLevel] = worldClassLevels[flag.specialHandler.levelSwitchArray[i].shadowLevel];
+            }
+        }
+        /////////////////////////Triggers Certain Sprites On and Off/////////////////////
+        if (flag.specialHandler.name === 'spriteLevelSwitch') {
+            for (var i = 0; i < flag.specialHandler.insertIndex.length; i++) {
+                for (var j = 0; j < flag.specialHandler.insertSprite.length; j++) {
+                    worldClassLevels[i].spriteSpawn[j].trigger = true;
+                }
+            }
+            for (var i = 0; i < flag.specialHandler.removeIndex.length; i++) {
+                for (var j = 0; j < flag.specialHandler.removeSprite.length; j++) {
+                    worldClassLevels[flag.specialHandler.removeIndex[i]].spriteSpawn[flag.specialHandler.removeSprite[j]].trigger = false;
+                }
+            }
         }
         this.game.state.start('story', true, false, respawnHolder.indexOfCurrentWorld, respawnHolder.indexOfPlayerPosition, flag.specialHandler.page);
     }

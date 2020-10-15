@@ -63,6 +63,7 @@ class nenCreator {
   }
 };
 
+///////////////////////////////////////////////////Sprite and Weapon Generation//////////////////////////////////////////////////
 //Generates Group Array Within Spawn
 class groupArrayCreator {
   constructor(groupSprite, groupCategory) {
@@ -117,7 +118,7 @@ class weaponCreator {
   }
 };
 
-
+//////////////////////////////////////////////////Special Condition Creators for Sprites//////////////////////////////////////////////
 //Creates Special Conditions (scalable)
 class specialConditionCreator {
   constructor(name) {
@@ -136,7 +137,7 @@ class timerCreator {
   }
 }
 
-//////////////////Flag Specific Classes/////////
+/////////////////////////////////////////////Flag Specific Classes//////////////////////////////////////////
 class flagCreator {
   constructor(indexOfPlayerPosition, trigger, spriteType, art, scale, x, y, velocityX, velocityY, gravityX, gravityY, specialHandler) {
     this.indexOfPlayerPosition = indexOfPlayerPosition;
@@ -157,6 +158,7 @@ class flagCreator {
 ///Generate Shadow Levels (Levels that Completely Change Rooms)
 class shadowLevelGenerator {
   constructor(page, levelSwitchArray) {
+    this.name = 'shadowLevel';
     this.page = page; //Denotes the Story Page
     this.levelSwitchArray = levelSwitchArray; //Array that Switches Any number of Levels (Room Index Order Stays the same but becomes completely different)
   }
@@ -169,6 +171,20 @@ class shadowLevelArray {
   }
 }
 
+//Switches on and off sprites in a level
+class spriteLevelSwitch {
+  constructor(page, insertIndex, insertSprite, removeIndex, removeSprite) {
+    this.name = 'spriteLevelSwitch';
+    this.page = page;
+    this.insertIndex = insertIndex;
+    this.insertSprite = insertSprite;
+    this.removeIndex = removeIndex;
+    this.removeSprite = removeSprite;
+  }
+}
+
+
+////////////////////////////////////////////////Text and Images//////////////////////////////////////////////////////
 //Creating Bitmap Text Class
 class textCreator {
   constructor(trigger, x, y, textInput, font, fontSize) {

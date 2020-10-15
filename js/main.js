@@ -49,7 +49,7 @@ game.state.add('startScreen', brawl.startScreen);
 game.state.start('mainMenu');
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "FlagVs.SpecialLevels",
+  "FlagHasPhysics",
   "GLORY BRAWL",
 ];
 
@@ -192,7 +192,13 @@ level_0.flagSpawn = [
     new shadowLevelGenerator(0, [
       new shadowLevelArray(0, 3)
     ])),
-  new flagCreator(0, true, flagRegular, flag, 1, 600, 100, -200, 0, 0, 0, null),
+  new flagCreator(0, true, flagRegular, flag, 1, 100, 500, -200, 0, 0, 0,
+    new spriteLevelSwitch(0, 
+      [], //Insert Index (Levels)
+      [], //Insert Sprite
+      [3], //Remove Index (Levels)
+      [0, 1], //Remove Sprite
+    )),
 ];
 
 ////////////////////////////////////////Level 1-SandboxMode/////////////////////////////////////
@@ -272,7 +278,7 @@ var level_2 = new LevelCreator(
   4800, //X-Size of World
   2000, //Y-Size of World
   '#FFFDD0', //Background Color
-  false, //Out of Bounds Allowed
+  true, //Out of Bounds Allowed
   1, //Player Scale
   portalNen, //Nen-System
   funGunSet, //Gun-Set
