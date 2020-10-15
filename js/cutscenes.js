@@ -1,13 +1,12 @@
 //Death State
 brawl.death = function () { };
 brawl.death.prototype = {
-    init: function (indexOfCurrentWorld, indexOfPlayerPosition, metroidvania) {
+    init: function (indexOfCurrentWorld, indexOfPlayerPosition) {
         this.game.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT;
         this.game.world.setBounds(0, 0, 1400, 800);
         //Init To Get to the Next State
         this.indexOfCurrentWorld = indexOfCurrentWorld;
         this.indexOfPlayerPosition = indexOfPlayerPosition;
-        this.metroidvania = metroidvania;
     },
     preload: function () {
     },
@@ -34,8 +33,7 @@ brawl.death.prototype = {
     },
     update: function () {
         if (this.game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
-            this.game.state.start('game', true, false, this.indexOfCurrentWorld, this.indexOfPlayerPosition, worldClassLevels[this.indexOfCurrentWorld].metroidvania);
-
+            this.game.state.start('game', true, false, this.indexOfCurrentWorld, this.indexOfPlayerPosition);
         }
 
     }
@@ -70,8 +68,7 @@ brawl.story.prototype = {
     },
     update: function () {
         if (this.game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
-            this.game.state.start('game', true, false, this.indexOfCurrentWorld, this.indexOfPlayerPosition, worldClassLevels[this.indexOfCurrentWorld].metroidvania);
-            // console.log(this.indexOfCurrentWorld);
+            this.game.state.start('game', true, false, this.indexOfCurrentWorld, this.indexOfPlayerPosition);
         }
 
     }

@@ -118,13 +118,13 @@ brawl.startScreen.prototype = {
         if (this.game.input.keyboard.isDown(Phaser.Keyboard.X)) {
             /////////CurrentWorld-PlayerPosition-CurrentWorld(metroidvania)////////
             ////////0-Up, 1-Down, 2-Left, 3-Right//////
-            ///////(IndexOfCurrentWorld, Position, MetroidVania(Same as Index of Current World))
+            ///////(IndexOfCurrentWorld, Position)////////////
             //Direct Physics
-            this.game.state.start('game', true, false, 0, 0, worldClassLevels[0].metroidvania);
+            this.game.state.start('game', true, false, 0, 0);
             //Sean Moody Level Mode
-            // this.game.state.start('game', true, false, 1, 1, worldClassLevels[1].metroidvania);
+            // this.game.state.start('game', true, false, 1, 1);
             //Actual Levels
-            // this.game.state.start('game', true, false, 4, 1, worldClassLevels[4].metroidvania);
+            // this.game.state.start('game', true, false, 4, 1);
         }
     }
 };

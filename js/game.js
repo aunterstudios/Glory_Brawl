@@ -1,7 +1,7 @@
 //////////////////////////////////////////Environment//////////////////////////////////////////
 brawl.game = function () { };
 brawl.game.prototype = {
-    init: function (indexOfCurrentWorld, indexOfPlayerPosition, metroidvania) {
+    init: function (indexOfCurrentWorld, indexOfPlayerPosition) {
         //GENERAL MAP SETTINGS 
         this.game.physics.startSystem(Phaser.Physics.ARCADE); // We're going to be using physics, so enable the Arcade Physics system
         this.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT; //Scales our Game
@@ -10,7 +10,7 @@ brawl.game.prototype = {
         */
         this.indexOfCurrentWorld = indexOfCurrentWorld;
         this.indexOfPlayerPosition = indexOfPlayerPosition;
-        this.metroidvania = metroidvania;
+        this.metroidvania = worldClassLevels[this.indexOfCurrentWorld].metroidvania;
         ///////////////////////Setting Gun to Default/////////////
         weapon1Boolean = false;
         weapon2Boolean = false;

@@ -9,7 +9,6 @@ var weapon4Boolean = false;
 var respawnHolder = {
   indexOfCurrentWorld: 2,
   indexOfPlayerPosition: 3,
-  metroidvania: null,
 }
 
 //Toggling Camera

@@ -421,7 +421,7 @@ var level_3 = new LevelCreator(
 
 //Room-Switching
 level_3.metroidvania = new MetroidvaniaCreator(
-  1, //Room-Up-Index
+  2, //Room-Up-Index
   0, //Room-Up-Value
   1, //Room-Down-Index
   10000, //Room-Down-Value
@@ -457,6 +457,8 @@ level_3.spriteSpawn = [
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 0, 9950, 1400, 50, 1, 0, 0, 0, 0, null, null),
   //////////////////////////////////////Platform Wall Your Friend////////////////////////////////////////////////////
   new SpriteCreator(true, wallRegular, 'sprite', wallTile25, 600, 9900, 25, 25, 1, 0, 0, 0, 0, null, null),
+  ////////////////////////////////////Testing////////////////////////////////////
+  new SpriteCreator(true, ledgeElevator, 'sprite', ledge, 200, 900, 25, 25, 1, 0, 0, 0, 0, null, null),
 ];
 
 level_3.flagSpawn = [

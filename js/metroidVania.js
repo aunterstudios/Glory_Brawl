@@ -230,15 +230,15 @@ brawl.game.prototype.killSelf = function () {
 };
 //State Switch
 brawl.game.prototype.deathSwitch = function () {
-    this.game.state.start('deathState', true, false, respawnHolder.indexOfCurrentWorld, respawnHolder.indexOfPlayerPosition, respawnHolder.metroidvania);
+    this.game.state.start('deathState', true, false, respawnHolder.indexOfCurrentWorld, respawnHolder.indexOfPlayerPosition);
 };
 
 //Character Respawn
 brawl.game.prototype.respawn = function (player, flag) {
+    //////////////////////Respawn Checkpoint of Current Level/////////////////
     flag.destroy();
     respawnHolder.indexOfCurrentWorld = this.indexOfCurrentWorld;
     respawnHolder.indexOfPlayerPosition = flag.indexOfPlayerPosition;
-    respawnHolder.metroidvania = this.metroidvania;
     ///////////////////The Double Loops of Death//////////////////
     if (flag.specialHandler) {
         for (var i = 0; i < flag.specialHandler.levelSwitchArray.length; i++) {
