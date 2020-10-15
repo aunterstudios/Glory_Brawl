@@ -238,7 +238,7 @@ brawl.game.prototype.respawn = function (player, flag) {
     flag.destroy();
     respawnHolder.indexOfCurrentWorld = this.indexOfCurrentWorld;
     respawnHolder.indexOfPlayerPosition = flag.indexOfPlayerPosition;
-    ///////////////////The Double Loops of Death//////////////////
+    ///////////////////The Double Loops of Death AKA Level Changes Initiated by Flag//////////////////
     if (flag.specialHandler) {
         ////////////////////////////Completely Replaces a Level//////////////////////////
         if (flag.specialHandler.name === 'shadowLevel') {
@@ -250,7 +250,7 @@ brawl.game.prototype.respawn = function (player, flag) {
         if (flag.specialHandler.name === 'spriteLevelSwitch') {
             for (var i = 0; i < flag.specialHandler.insertIndex.length; i++) {
                 for (var j = 0; j < flag.specialHandler.insertSprite.length; j++) {
-                    worldClassLevels[i].spriteSpawn[j].trigger = true;
+                    worldClassLevels[flag.specialHandler.insertIndex[i]].spriteSpawn[flag.specialHandler.insertSprite[j]].trigger = true;
                 }
             }
             for (var i = 0; i < flag.specialHandler.removeIndex.length; i++) {

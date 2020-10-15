@@ -49,7 +49,7 @@ game.state.add('startScreen', brawl.startScreen);
 game.state.start('mainMenu');
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "FlagHasPhysics",
+  "FlagSpecialConditions",
   "GLORY BRAWL",
 ];
 
