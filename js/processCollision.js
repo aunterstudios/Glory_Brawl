@@ -77,3 +77,14 @@ brawl.game.prototype.ballVsLedgeProcess = function (ball, ledge) {
         return true
     }
 };
+
+brawl.game.prototype.flagVsEprocess = function (flag, obj) {
+    ///////////////Actual Collision Physics/////////////
+    if (flag.groupName === groupFlag || !obj.phase) {
+        return false;
+    }
+    else {
+        return true
+    }
+    return;
+};

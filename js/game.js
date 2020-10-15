@@ -144,9 +144,11 @@ brawl.game.prototype = {
 
         //Respawn Point Mechanics
         this.game.physics.arcade.overlap(this.player, this.flag, this.respawn, null, this);
+        //Flag Mechanics
+        this.game.physics.arcade.collide(this.flag, [this.ground, this.wall, this.enemy, this.ledge, this.death, this.invisible, this.ball], this.flagVsE, this.flagVsEprocess, this);
 
         //Weapon Mechanics
-        this.game.physics.arcade.overlap([this.weapon1.bullets, this.weapon2.bullets, this.weapon3.bullets], [this.ball, this.wall, this.ledge, this.enemy, this.ground, this.death], this.weaponHandler, this.weaponProcess, this);
+        this.game.physics.arcade.overlap([this.weapon1.bullets, this.weapon2.bullets, this.weapon3.bullets], [this.ball, this.wall, this.ledge, this.enemy, this.ground, this.death, this.flag], this.weaponHandler, this.weaponProcess, this);
 
         //Ground and Death vs. Moveable Objects
         this.game.physics.arcade.collide([this.ground, this.death], [this.ball, this.enemy, this.ledge, this.wall], this.gdVsMov, this.gdVsMovProcess, this);
@@ -164,7 +166,7 @@ brawl.game.prototype = {
         this.game.physics.arcade.collide(this.ball, this.ledge, this.ballVsLedge, this.ballVsLedgeProcess, this);
 
         //Enemy Bullet and Falling Spike Mechanics (trapProjectiles)
-        this.game.physics.arcade.overlap([this.enemyBullets.bullets, this.fallingSpikes, this.fallingSpikesTwo], [this.ball, this.wall, this.ground, this.ledge, this.death], this.trapProjectiles, null, this);
+        this.game.physics.arcade.overlap([this.enemyBullets.bullets, this.fallingSpikes, this.fallingSpikesTwo], [this.ball, this.wall, this.ground, this.ledge, this.death, this.flag], this.trapProjectiles, null, this);
 
 
         ////////////////////////////////Actual Controls////////////////////////////////

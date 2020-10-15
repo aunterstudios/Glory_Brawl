@@ -130,7 +130,6 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
         this.weapon4.trackSprite(this.player, 0, 0);
     }
 
-    // - 20 for Tracking//
     ////////////////////////////Image Creation/////////////////////////
     if ('imageSpawn' in levelGenerator) {
         for (var i = 0; i < levelGenerator.imageSpawn.length; i++) {
@@ -158,7 +157,7 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     if ('flagSpawn' in levelGenerator) {
         for (var i = 0; i < levelGenerator.flagSpawn.length; i++) {
             if (levelGenerator.flagSpawn[i].trigger) {
-                this.flagSpawn(levelGenerator.flagSpawn[i]);
+                this.flagSpawn(levelGenerator.flagSpawn[i], i);
             }
         }
 

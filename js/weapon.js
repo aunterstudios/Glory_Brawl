@@ -1,7 +1,7 @@
 //////////////////////////////////////////Weapon Functionality////////////////////////////////////////////
 //When Weapon Hits Moveable Objects (It's Special Property Expressed)
 brawl.game.prototype.weaponHandler = function (bullet, sprite) {
-    if (sprite.groupName === groupBall || sprite.groupName === groupEnemy || sprite.groupName === groupWall || sprite.groupName === groupLedge) {
+    if (sprite.groupName === groupBall || sprite.groupName === groupEnemy || sprite.groupName === groupWall || sprite.groupName === groupLedge || sprite.groupName === groupFlagPhysics) {
         if (bullet.name === 'pull') {
             this.game.physics.arcade.moveToObject(sprite, this.player, bullet.powerOne);
         }
@@ -16,7 +16,7 @@ brawl.game.prototype.weaponHandler = function (bullet, sprite) {
 };
 //Let Weapon Fire Pass Through
 brawl.game.prototype.weaponProcess = function (weapon, ghost) {
-    if (ghost.name === wallCloud.name || ghost.name === deathGhost.name) {
+    if (ghost.name === wallCloud.name || ghost.name === deathGhost.name || ghost.groupName === groupFlag) {
         return false;
     }
     else {

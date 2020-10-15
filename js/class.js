@@ -45,20 +45,6 @@ class worldGravityCreator {
   }
 };
 
-///Generate Shadow Levels
-class shadowLevelGenerator {
-  constructor(page, levelSwitchArray) {
-    this.page = page; //Denotes the Story Page
-    this.levelSwitchArray = levelSwitchArray; //Array that Switches Any number of Levels (Room Index Order Stays the same but becomes completely different)
-  }
-}
-class shadowLevelArray {
-  constructor(oldLevel, shadowLevel) {
-    this.oldLevel = oldLevel; //The Level That's Going To Be Changed
-    this.shadowLevel = shadowLevel; //The New Level that takes place
-  }
-}
-
 //Generates Nen or Physics of the Individual Player
 class nenCreator {
   constructor(playerSpeed, playerJump, playerGravityX, playerGravityY, playerDoubleJumps, playerWallJumpX, playerWallJumpY, playerStickiness, playerSlippery, playerDownwards, overlapBias) {
@@ -106,35 +92,6 @@ class SpriteCreator {
   }
 };
 
-//Creates Special Conditions (scalable)
-class specialConditionCreator {
-  constructor(name) {
-    this.name = name;
-  }
-};
-
-//Experimental Method for Circular Motion of Sprites
-class WindmillCreator {
-  constructor(period, radius, pivotX, pivotY) {
-    this.name = 'windmill';
-    this.period = period;
-    this.radius = radius;
-    this.pivotX = pivotX;
-    this.pivotY = pivotY;
-  }
-}
-
-//Create Timer Class
-class timerCreator {
-  constructor(timerType, repeatAmount, seconds) {
-    {
-      this.timerType = timerType;
-      this.repeatAmount = repeatAmount;
-      this.seconds = seconds;
-    }
-  }
-}
-
 //The individual properties of each sprite. 
 class spriteType {
   constructor(groupNumber, name, tint, mass, anchor, immovable, maxVelocity, bounce) {
@@ -160,36 +117,57 @@ class weaponCreator {
   }
 };
 
-//Creating Images
-class imageCreator {
-  constructor(trigger, name, art, x, y, scale) {
-    this.trigger = trigger;
+
+//Creates Special Conditions (scalable)
+class specialConditionCreator {
+  constructor(name) {
     this.name = name;
-    this.art = art;
-    this.x = x;
-    this.y = y;
-    this.scale = scale;
   }
 };
 
+//Create Timer Class
+class timerCreator {
+  constructor(timerType, repeatAmount, seconds) {
+    {
+      this.timerType = timerType;
+      this.repeatAmount = repeatAmount;
+      this.seconds = seconds;
+    }
+  }
+}
+
 //////////////////Flag Specific Classes/////////
 class flagCreator {
-  constructor(indexOfPlayerPosition, trigger, name, art, x, y, velocityX, velocityY, sizeX, sizeY, gravityX, gravityY, specialHandler) {
+  constructor(indexOfPlayerPosition, trigger, spriteType, art, scale, x, y, velocityX, velocityY, gravityX, gravityY, specialHandler) {
     this.indexOfPlayerPosition = indexOfPlayerPosition;
     this.trigger = trigger;
-    this.name = name;
+    this.spriteType = spriteType;
     this.art = art;
+    this.scale = scale;
     this.x = x;
     this.y = y;
     this.velocityX = velocityX;
     this.velocityY = velocityY;
-    this.sizeX = sizeX;
-    this.sizeY = sizeY;
     this.gravityX = gravityX;
     this.gravityY = gravityY;
     this.specialHandler = specialHandler;
   }
 };
+
+///Generate Shadow Levels (Levels that Completely Change Rooms)
+class shadowLevelGenerator {
+  constructor(page, levelSwitchArray) {
+    this.page = page; //Denotes the Story Page
+    this.levelSwitchArray = levelSwitchArray; //Array that Switches Any number of Levels (Room Index Order Stays the same but becomes completely different)
+  }
+}
+
+class shadowLevelArray {
+  constructor(oldLevel, shadowLevel) {
+    this.oldLevel = oldLevel; //The Level That's Going To Be Changed
+    this.shadowLevel = shadowLevel; //The New Level that takes place
+  }
+}
 
 //Creating Bitmap Text Class
 class textCreator {
@@ -200,5 +178,17 @@ class textCreator {
     this.textInput = textInput;
     this.font = font;
     this.fontSize = fontSize;
+  }
+};
+
+//Creating Images
+class imageCreator {
+  constructor(trigger, name, art, x, y, scale) {
+    this.trigger = trigger;
+    this.name = name;
+    this.art = art;
+    this.x = x;
+    this.y = y;
+    this.scale = scale;
   }
 };

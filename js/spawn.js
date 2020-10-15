@@ -166,20 +166,28 @@ brawl.game.prototype.spriteGen = function (sprite, positionInArray) {
     // this.spriteX.events.onOutOfBounds.add(this.wallOut, this);
 };
 //////////////////////////Flag Spawn(Checkpoints or Respawn Points)/////////////////////////
-brawl.game.prototype.flagSpawn = function (sprite) {
+brawl.game.prototype.flagSpawn = function (sprite, positionInArray) {
+    var groupArray = [
+        groupFlag,
+        groupFlagPhysics
+    ]
     this.flagX = this.flag.create(sprite.x, sprite.y, sprite.art);
-    this.flagX.name = sprite.name;
-    this.flagX.specialHandler = sprite.specialHandler;
-    if (sprite.name === flagSpecial) {
-        this.flagX.tint = Phaser.Color.AQUA;
-    }
-    this.flagX.body.mass = 1;
-    this.flagX.body.maxVelocity.setTo(300);
+    this.flagX.scale.setTo(sprite.scale);
+    this.flagX.name = sprite.spriteType.name;
+    this.flagX.groupName = groupArray[sprite.spriteType.groupNumber];
+    this.flagX.tint = sprite.spriteType.tint;
+    this.flagX.positionInArray = positionInArray;
+    this.flagX.anchor.setTo(sprite.spriteType.anchor);
+    this.flagX.body.immovable = sprite.spriteType.immovable;
+    this.flagX.body.mass = sprite.spriteType.mass;
+    this.flagX.body.gravity.setTo(sprite.gravityX, sprite.gravityY);
+    this.flagX.body.maxVelocity.setTo(sprite.spriteType.maxVelocity);
     this.flagX.body.collideWorldBounds = true;
-    this.flagX.body.bounce.setTo(1);
+    this.flagX.body.bounce.setTo(sprite.spriteType.bounce);
     this.flagX.body.velocity.setTo(sprite.velocityX, sprite.velocityY);
     ////////////////Special Property of Flag//////////////////
     this.flagX.indexOfPlayerPosition = sprite.indexOfPlayerPosition;
+    this.flagX.specialHandler = sprite.specialHandler;
 };
 /////////////////////////////Text Generator/////////////////////////////////
 brawl.game.prototype.textCreator = function (sprite, positionInArray) {

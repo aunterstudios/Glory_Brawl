@@ -21,6 +21,7 @@ var groupFallingSpikes = 'groupFallingSpikes';
 var groupInvisible = 'groupInvisible'
 //Flag
 var groupFlag = 'groupFlag';
+var groupFlagPhysics = 'groupFlagPhysics';
 
 /////////////////////////Global Tints//////////////////////////
 var tintRemover = 0xFFFFFF; //wallRegular (Removes Tint)
@@ -85,5 +86,5 @@ var hazamaFalconia = new spriteType(8, 'hazamaFalconia', testTint, 1, 0, false, 
 var invisibleRegular = new spriteType(9, 'invisibleRegular', Phaser.Color.AQUA, 1000, 0, true, 1000, 1); //Invisible Objects
 
 //Flag Names
-var flagRegular = 'flagRegular';
-var flagSpecial = 'flagSpecial';
+var flagRegular = new spriteType(0, 'flagRegular', tintRemover, 200, 0, false, 1000, 1);
+var flagSpecial = new spriteType(1, 'flagShadow', Phaser.Color.AQUA, 200, 0, false, 1000, 1);

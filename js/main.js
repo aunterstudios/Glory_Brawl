@@ -127,7 +127,7 @@ level_0.metroidvania = new MetroidvaniaCreator(
   0, //Room-Left-Index
   0, //Room-Left-Value
   0, //Room-Right-Index
-  1400, // Room-Right-Value, 
+  1400, // Room-Right-Value,
 );
 
 //World Gravity
@@ -188,11 +188,11 @@ level_0.spriteSpawn = [
 //flag spawn
 level_0.flagSpawn = [
   // //First Flag
-  // new flagCreator(1, true, flagRegular, flag, 600, 400, 0, 0, .4, .4, 0, 0, null),
-  new flagCreator(0, true, flagSpecial, flag, 600, 500, 0, 0, .4, .4, 0, 0,
+  new flagCreator(0, true, flagSpecial, flag, 1, 600, 500, -200, 0, 0, 0,
     new shadowLevelGenerator(0, [
       new shadowLevelArray(0, 3)
     ])),
+  new flagCreator(0, true, flagRegular, flag, 1, 600, 100, -200, 0, 0, 0, null),
 ];
 
 ////////////////////////////////////////Level 1-SandboxMode/////////////////////////////////////
@@ -262,7 +262,7 @@ level_1.spriteSpawn = [
 //flag spawn
 level_1.flagSpawn = [
   // //First Flag
-  new flagCreator(1, true, flagRegular, flag, 750, 150, 0, 0, .4, .4, 0, 0, null),
+  new flagCreator(1, true, flagRegular, flag, 1, 750, 150, 0, 0, 0, 0, null),
 ];
 
 ////////////////////////////////////////Level 2/////////////////////////////////////
@@ -394,9 +394,9 @@ level_2.flagSpawn = [
   //   new shadowLevelGenerator(0, [
   //     new shadowLevelArray(2, 4)
   //   ])),
-  new flagCreator(3, true, flagRegular, flag, 4700, 1900, 0, 0, 1, 1, 0, 0, null),
-  new flagCreator(1, true, flagRegular, flag, 3800, 1350, 0, 0, 1, 1, 0, 0, null),
-  new flagCreator(2, true, flagRegular, flag, 300, 900, 0, 0, 1, 1, 0, 0, null),
+  new flagCreator(3, true, flagRegular, flag, 1, 4700, 1900, 0, 0, 0, 0, null),
+  new flagCreator(1, true, flagRegular, flag, 1, 3800, 1350, 0, 0, 0, 0, null),
+  new flagCreator(2, true, flagRegular, flag, 1, 300, 900, 0, 0, 0, 0, null),
 
 ];
 
@@ -576,8 +576,8 @@ level_4.flagSpawn = [
   //   new shadowLevelGenerator(0, [
   //     new shadowLevelArray(2, 4)
   //   ])),
-  new flagCreator(2, true, flagRegular, flag, 400, 2900, 0, 0, 1, 1, 0, 0, null),
-  new flagCreator(3, true, flagRegular, flag, 3700, 2900, 0, 0, 1, 1, 0, 0, null),
+  new flagCreator(2, true, flagRegular, flag, 1, 400, 2900, 0, 0, 0, 0, null),
+  new flagCreator(3, true, flagRegular, flag, 1, 3700, 2900, 0, 0, 0, 0, null),
 ];
 
 //////////////////////////////////////////Pushing All Levels Into World Array/////////////////////////////////////
