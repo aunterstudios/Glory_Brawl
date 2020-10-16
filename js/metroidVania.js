@@ -246,7 +246,6 @@ brawl.game.prototype.deathSwitch = function () {
 
 //Special Level Switch (No Flag)
 brawl.game.prototype.specialLevelSwitch = function (indexLevel, playerPosition, page) {
-    console.log("Story Hit");
     this.game.state.start('story', true, false, indexLevel, playerPosition, page)
 };
 
