@@ -51,28 +51,29 @@ brawl.story.prototype = {
         this.page = page;
     },
     create: function () {
-        this.game.stage.backgroundColor = Phaser.Color.WHITE;
+        this.game.stage.backgroundColor = Phaser.Color.BLACK;
         if (this.page === 0) {
-            this.text1 = this.game.add.text(550, 200, "The Shadow is Eternal.\n\nTRY THIS FOR SIZE\n\nOH YEAH!.");
-            this.text1.font = 'Courier New'
+            this.text1 = this.game.add.text(575, 300, "The Shadow is Eternal.\n\nTRY THIS FOR SIZE\n\nOH YEAH!.");
+            this.text1.font = 'Arial Black'
             this.text1.fontSize = 25;
-            this.text1.fill = Phaser.Color.WHITE;
+            this.text1.fill = "#00FF00";
             this.text1.fontWeight = 'bold';
             this.text1.align = 'center';
         }
         else if (this.page === 1) {
-            this.text1 = this.game.add.text(550, 200, "TIMER WORKS");
-            this.text1.font = 'Courier New'
+            this.text1 = this.game.add.text(575, 300, "TIMER WORKS");
+            this.text1.font = 'Arial Black'
             this.text1.fontSize = 25;
-            this.text1.fill = Phaser.Color.WHITE;
+            this.text1.fill = "#00FF00";
             this.text1.fontWeight = 'bold';
             this.text1.align = 'center';
         }
-        this.spaceBarPlay = this.game.add.text(590, 700, "Spacebar to Skip");
-        this.spaceBarPlay.font = 'Courier New';
-        this.spaceBarPlay.fontSize = 25;
-        this.spaceBarPlay.fill = Phaser.Color.RED;
+        this.spaceBarPlay = this.game.add.text(530, 700, "Spacebar to Skip");
+        this.spaceBarPlay.font = 'Arial Black';
+        this.spaceBarPlay.fontSize = 30;
+        this.spaceBarPlay.fill = "#00FF00";
         this.spaceBarPlay.fontWeight = 'bold';
+        this.spaceBarPlay.align = 'center';
     },
     update: function () {
         if (this.game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
