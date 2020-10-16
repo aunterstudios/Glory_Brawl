@@ -114,12 +114,12 @@ var level_0 = new LevelCreator(
   1, //PlayerScale
   portalNen, //Nen-System
   basicGunSet, //Gun-Set
-  false, //Sideways Stick to Walls,
-  false, //Upsidedown Stick
+  true, //Sideways Stick to Walls,
+  true, //Upsidedown Stick
 );
 
 //Special Level Initiated
-level_0.specialLevel = new TimerLevel('timed', 1, 5, 0, 3);
+// level_0.specialLevel = new TimerLevel('timed', 1, 5, 0, 10);
 
 //Room-Switching
 level_0.metroidvania = new MetroidvaniaCreator(
