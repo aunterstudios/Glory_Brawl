@@ -60,6 +60,14 @@ brawl.story.prototype = {
             this.text1.fontWeight = 'bold';
             this.text1.align = 'center';
         }
+        else if (this.page === 1) {
+            this.text1 = this.game.add.text(550, 200, "TIMER WORKS");
+            this.text1.font = 'Courier New'
+            this.text1.fontSize = 25;
+            this.text1.fill = Phaser.Color.WHITE;
+            this.text1.fontWeight = 'bold';
+            this.text1.align = 'center';
+        }
         this.spaceBarPlay = this.game.add.text(590, 700, "Spacebar to Skip");
         this.spaceBarPlay.font = 'Courier New';
         this.spaceBarPlay.fontSize = 25;

@@ -114,9 +114,12 @@ var level_0 = new LevelCreator(
   1, //PlayerScale
   portalNen, //Nen-System
   basicGunSet, //Gun-Set
-  true, //Sideways Stick to Walls,
-  true, //Upsidedown Stick
+  false, //Sideways Stick to Walls,
+  false, //Upsidedown Stick
 );
+
+//Special Level Initiated
+level_0.specialLevel = new TimerLevel('timed', 1, 5, 0, 5)
 
 //Room-Switching
 level_0.metroidvania = new MetroidvaniaCreator(
@@ -586,8 +589,58 @@ level_4.flagSpawn = [
   new flagCreator(3, true, flagRegular, flag, 1, 3700, 2900, 0, 0, 0, 0, null),
 ];
 
+///////////////////////////////////////////Level 4///////////////////////////////////////////////////////////
+var level_5 = new LevelCreator(
+  "Level 5-Timer", //Name of World
+  4200, //X-Size of World
+  3000, //Y-Size of World
+  '#b19cd9', //Background Color
+  false, //Out of Bounds Allowed
+  1, //Player Scale
+  portalNen, //Nen-System
+  funGunSet, //Gun-Set
+  true, //Sideways Stick to Walls,
+  true, //Upsidedown Stick
+);
+
+//Room-Switching
+level_5.metroidvania = new MetroidvaniaCreator(
+  4, //Room-Up-Index
+  0, //Room-Up-Value
+  4, //Room-Down-Index
+  3000, //Room-Down-Value
+  2, //Room-Left-Index
+  0, //Room-Left-Value
+  4, //Room-Right-Index
+  4200, //Room-Right-Value
+);
+
+//Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
+level_5.playerPosition = [
+  new PlayerPositionCreator(100, 2900),
+  new PlayerPositionCreator(100, 2900),
+  new PlayerPositionCreator(100, 2900),
+  new PlayerPositionCreator(3500, 2900),
+]
+
+//Sprite Generation
+level_5.spriteSpawn = [
+  ////////////////////////////////////First Phase/////////////////////////////////////////////////////////////
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 0, 3000, 500, 50, 1, 0, 0, 0, 0, null, null),
+];
+
+//Flag
+level_5.flagSpawn = [
+  // new flagCreator(1, true, flagSpecial, flag, 4200, 1800, 0, 0, .4, .4, 0, 0,
+  //   new shadowLevelGenerator(0, [
+  //     new shadowLevelArray(2, 4)
+  //   ])),
+  new flagCreator(2, true, flagRegular, flag, 1, 400, 2900, 0, 0, 0, 0, null),
+  new flagCreator(3, true, flagRegular, flag, 1, 3700, 2900, 0, 0, 0, 0, null),
+];
+
 //////////////////////////////////////////Pushing All Levels Into World Array/////////////////////////////////////
-var levelCount = 4;
+var levelCount = 5;
 for (var i = 0; i <= levelCount; i++) {
   // worldClassLevels.push(eval("level_"+i));
   worldClassLevels.push(window["level_" + i]);

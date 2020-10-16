@@ -171,6 +171,13 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
         }
     }
 
+    ///////////////////World Level Physics///////////////
+    if (levelGenerator.specialLevel) {
+        if (levelGenerator.specialLevel.name === 'timed') {
+            this.game.time.events.add(Phaser.Timer.SECOND * levelGenerator.specialLevel.seconds, this.specialLevelSwitch, this, levelGenerator.specialLevel.indexWorld, levelGenerator.specialLevel.indexOfPlayerPosition, levelGenerator.specialLevel.page)
+        }
+    }
+
     ///////////////////Debugging Purposes (Knowing The Placement of Each Sprites)/////////////////////////
     if (coordinateSystem) {
         var distanceOfXandY = 200;
@@ -230,6 +237,11 @@ brawl.game.prototype.killSelf = function () {
 //State Switch
 brawl.game.prototype.deathSwitch = function () {
     this.game.state.start('deathState', true, false, respawnHolder.indexOfCurrentWorld, respawnHolder.indexOfPlayerPosition);
+};
+
+//Special Level Switch (No Flag)
+brawl.game.prototype.specialLevelSwitch = function (indexLevel, playerPosition, page) {
+    this.game.state.start('story', true, false, indexLevel, playerPosition, page)
 };
 
 //Character Respawn

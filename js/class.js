@@ -208,3 +208,21 @@ class imageCreator {
     this.scale = scale;
   }
 };
+
+////////////////////////////////////////////////Special Levels//////////////////////////////////////////////////////
+
+class SpecialLevels {
+  constructor(name, page, indexWorld, indexOfPlayerPosition) {
+    this.name = name;
+    this.page = page;
+    this.indexWorld = indexWorld;
+    this.indexOfPlayerPosition = indexOfPlayerPosition;
+  }
+}
+
+class TimerLevel extends SpecialLevels {
+  constructor(name, page, indexWorld, indexOfPlayerPosition, seconds) {
+    super(name, page, indexWorld, indexOfPlayerPosition);
+    this.seconds = seconds;
+  }
+}
