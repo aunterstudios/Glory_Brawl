@@ -119,7 +119,7 @@ var level_0 = new LevelCreator(
 );
 
 //Special Level Initiated
-// level_0.specialLevel = new TimerLevel('timed', 1, 5, 0, 5);
+level_0.specialLevel = new TimerLevel('timed', 1, 5, 0, 3);
 
 //Room-Switching
 level_0.metroidvania = new MetroidvaniaCreator(

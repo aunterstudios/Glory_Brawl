@@ -174,7 +174,7 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     ///////////////////World Level Physics///////////////
     if (levelGenerator.specialLevel) {
         if (levelGenerator.specialLevel.name === 'timed') {
-            this.game.time.events.add(Phaser.Timer.SECOND * levelGenerator.specialLevel.seconds, this.specialLevelSwitch, this, levelGenerator.specialLevel.indexWorld, levelGenerator.specialLevel.indexOfPlayerPosition, levelGenerator.specialLevel.page)
+            this.timerSpecialLevel = this.game.time.events.add(Phaser.Timer.SECOND * levelGenerator.specialLevel.seconds, this.specialLevelSwitch, this, levelGenerator.specialLevel.indexWorld, levelGenerator.specialLevel.indexOfPlayerPosition, levelGenerator.specialLevel.page)
         }
     }
 
@@ -225,22 +225,28 @@ brawl.game.prototype.playerOut = function (player) {
 ///////////////////////////////////////////State Switches////////////////////////////////
 //Character Dying From Enemies and Such
 brawl.game.prototype.playerDeath = function (victim, killer) {
-    // console.log(killer.positionInArray);
     this.emitterFunction(victim, null, 'kill');
+    if (this.timerSpecialLevel) {
+        this.game.time.events.remove(this.timerSpecialLevel);
+    }
     this.game.time.events.add(1000, this.deathSwitch, this);
 };
 //Killing Yourself Literally
 brawl.game.prototype.killSelf = function () {
     this.emitterFunction(this.player, null, 'kill');
+    if (this.timerSpecialLevel) {
+        this.game.time.events.remove(this.timerSpecialLevel);
+    }
     this.game.time.events.add(1000, this.deathSwitch, this);
 };
-//State Switch
+//Death Switch
 brawl.game.prototype.deathSwitch = function () {
     this.game.state.start('deathState', true, false, respawnHolder.indexOfCurrentWorld, respawnHolder.indexOfPlayerPosition);
 };
 
 //Special Level Switch (No Flag)
 brawl.game.prototype.specialLevelSwitch = function (indexLevel, playerPosition, page) {
+    console.log("Story Hit");
     this.game.state.start('story', true, false, indexLevel, playerPosition, page)
 };
 
