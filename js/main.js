@@ -120,6 +120,7 @@ var level_0 = new LevelCreator(
 
 //Special Level Initiated
 // level_0.specialLevel = new TimerLevel('timed', 1, 5, 0, 10);
+level_0.specialLevel = new KillAllLevel('killAll', 1, 5, 0, 4);
 
 //Room-Switching
 level_0.metroidvania = new MetroidvaniaCreator(
@@ -160,7 +161,8 @@ level_0.spriteSpawn = [
   // //Ball
   new SpriteCreator(true, ballRegular, 'sprite', ball, 1600, 100, 50, 50, 1, -300, 0, 0, 0, null, new timerCreator('repeat', 4, 3)),
   // //Enemy
-  new SpriteCreator(true, enemyDaakath, 'timer', enemyOne, 1200, 200, 50, 50, 1, 0, 200, 0, 0, null, new timerCreator('repeat', 4, 3)),
+  // new SpriteCreator(true, enemyDaakath, 'timer', enemyOne, 1200, 200, 50, 50, 1, 0, 200, 0, 0, null, new timerCreator('repeat', 4, 3)),
+  new SpriteCreator(true, enemyDaakath, 'timer', enemyOne, 2000, 200, 50, 50, 1, 0, 200, 0, 0, scKillAll, new timerCreator('repeat', 4, 3)),
   // new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 100, 400, 50, 50, 1, 300, 0, 0, 0, null, null),
   new SpriteCreator(true, wallRegular, 'tile', wallTile50, 1000, 350, 400, 50, 1, -200, 0, 0, 0, null, null),
   new SpriteCreator(true, wallRegular, 'tile', wallTile50, 300, 150, 50, 400, 1, 0, 0, 0, 0, null, null),

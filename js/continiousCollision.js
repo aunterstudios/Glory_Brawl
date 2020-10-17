@@ -11,6 +11,14 @@ brawl.game.prototype.emitterFunction = function (sprite1, sprite2, killOrDestroy
         this.emitter.y = sprite1.centerY;
     }
     this.emitter.start(true, 1500, null, 10);
+    if (sprite1.specialCondition) {
+        if (sprite1.specialCondition.name === scKillAll.name) {
+            this.killAmount -= 1;
+            if (this.killAmount === 0) {
+                this.specialLevelSwitch(worldClassLevels[this.indexOfCurrentWorld].specialLevel.indexWorld, worldClassLevels[this.indexOfCurrentWorld].specialLevel.indexOfPlayerPosition, worldClassLevels[this.indexOfCurrentWorld].specialLevel.page)
+            }
+        }
+    }
     if (killOrDestroy === 'kill') {
         sprite1.kill();
     }
