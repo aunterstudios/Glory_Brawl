@@ -36,8 +36,8 @@ brawl.game.prototype = {
         this.upsideDownStick = worldClassLevels[this.indexOfCurrentWorld].upsideDownStick;
         /////////////////////Special Levels////////////////////
         if (worldClassLevels[this.indexOfCurrentWorld].specialLevel) {
-            if (worldClassLevels[this.indexOfCurrentWorld].specialLevel.name === 'killAll') {
-                this.killAmount = worldClassLevels[this.indexOfCurrentWorld].specialLevel.killAmount;
+            if (worldClassLevels[this.indexOfCurrentWorld].specialLevel.name === 'killAll' || worldClassLevels[this.indexOfCurrentWorld].specialLevel.name === 'collected') {
+                this.amount = worldClassLevels[this.indexOfCurrentWorld].specialLevel.amount;
             }
         }
         /////////////////////Weapon System//////////////////////

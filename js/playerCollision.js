@@ -51,8 +51,9 @@ brawl.game.prototype.playerGround = function (player, ground) {
         this.emitterFunction(ground, null, 'destroy');
     }
     ////////////////Player vs. Power Ups/////////////
-    if (ground.name === groundPowerJump.name) {
+    if (ground.name === powerJump.name) {
         player.powerJump = true;
+        // this.playerJump += -1000;
         this.playerJump = -1000;
         this.emitterFunction(ground, null, 'destroy');
     }
@@ -190,13 +191,6 @@ brawl.game.prototype.playerLedge = function (player, ledge) {
 
 ///////////Hazama//////////
 brawl.game.prototype.playerHazama = function (player, hazama) {
-    //ballRegular Physics
-    // console.log(player.body.touching);
-    // if (hazama.name === powerUpFalconia.name) {
-    //     playerJump = -1000;
-    //     player.body.gravity.y = 500;
-    //     this.emitterFunction(hazama, null, 'destroy');
-    // }
     hazama.lastOverlapped = this.game.time.now + 100;
     if (hazama.name === hazamaFalconia.name) {
         player.body.gravity.y = -200;

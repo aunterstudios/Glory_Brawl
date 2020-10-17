@@ -228,8 +228,15 @@ class TimerLevel extends SpecialLevels {
 }
 
 class KillAllLevel extends SpecialLevels {
-  constructor(name, page, indexWorld, indexOfPlayerPosition, killAmount) {
+  constructor(name, page, indexWorld, indexOfPlayerPosition, amount) {
     super(name, page, indexWorld, indexOfPlayerPosition);
-    this.killAmount = killAmount
+    this.amount = amount;
+  }
+}
+
+class CollectLevel extends SpecialLevels {
+  constructor(name, page, indexWorld, indexOfPlayerPosition, amount) {
+    super(name, page, indexWorld, indexOfPlayerPosition);
+    this.amount = amount;
   }
 }

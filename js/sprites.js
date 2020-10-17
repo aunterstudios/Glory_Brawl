@@ -50,10 +50,8 @@ var groundOneWayPlayerBlockDown = new spriteType(1, 'groundOneWayPlayerBlockDown
 var groundOneWayKillObject = new spriteType(1, 'groundOneWayKillObject', testTint, 100, 0, true, 1000, 1); //One Way for Player But Kills Object
 //Moveable Ground
 var groundRegularMove = new spriteType(11, 'groundRegularMove', tintRemover, 100, 0, false, 1000, 1); //No Special Properties
-
-
 //PowerUps (Coded In As Ground)
-var groundPowerJump = new spriteType(1, 'groundPowerUpJump', testTint, 1, 0, true, 1000, 1);
+var powerJump = new spriteType(1, 'powerJump', testTint, 1, 0, true, 1000, 1);
 
 //Moveable Wall Names
 var wallRegular = new spriteType(2, 'wallRegular', tintRemover, 200, .5, false, 1000, 1);

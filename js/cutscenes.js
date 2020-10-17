@@ -53,7 +53,7 @@ brawl.story.prototype = {
     create: function () {
         this.game.stage.backgroundColor = Phaser.Color.BLACK;
         if (this.page === 0) {
-            this.text1 = this.game.add.text(575, 300, "The Shadow is Eternal.\n\nTRY THIS FOR SIZE\n\nOH YEAH!.");
+            this.text1 = this.game.add.text(575, 300, "KillAmount");
             this.text1.font = 'Arial Black'
             this.text1.fontSize = 25;
             this.text1.fill = "#00FF00";

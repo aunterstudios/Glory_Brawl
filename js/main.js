@@ -120,7 +120,8 @@ var level_0 = new LevelCreator(
 
 //Special Level Initiated
 // level_0.specialLevel = new TimerLevel('timed', 1, 5, 0, 10);
-level_0.specialLevel = new KillAllLevel('killAll', 1, 5, 0, 4);
+// level_0.specialLevel = new KillAllLevel('killAll', 0, 5, 0, 1);
+level_0.specialLevel = new CollectLevel('collected', 1, 5, 0, 1);
 
 //Room-Switching
 level_0.metroidvania = new MetroidvaniaCreator(
@@ -148,13 +149,10 @@ level_0.playerPosition = [
 //Object Generation
 level_0.spriteSpawn = [
   //Side Borders
-  // new SpriteCreator(true, deathBallKill, 'tile', deathTile, 0, 0, 50, 750, 1, 0, 0, 0, 0, scLocalizedDestruction, null),
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 0, 0, 50, 750, 1, 0, 0, 0, 0, scLocalizedDestruction, null),
+  new SpriteCreator(true, deathBallKill, 'tile', deathTile, 0, 0, 50, 750, 1, 0, 0, 0, 0, scLocalizedDestruction, null),
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 2750, 0, 50, 750, 1, 0, 0, 0, 0, null, null),
   //Ground
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 0, 800, 2800, 50, 1, 0, 0, 0, 0, null, null),
-  // new SpriteCreator(true, wallRegular, 'tile', wallTile50, 1000, 200, 150, 50, 1, 0, 0, 0, 0, null, null),
-  // new SpriteCreator(true, wallRegular, 'tile', wallTile50, 1000, 200, 50, 250, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, wallCloud, 'tile', wallTile50, 800, 200, 150, 50, 1, 0, 0, 0, 0, null, null),
   //Repeating Ledge
   new SpriteCreator(true, ledgeElevator, 'timer', ledge, 400, 100, 150, 50, 1, 300, 200, 0, 0, null, new timerCreator('repeat', 4, 3)),
@@ -175,35 +173,32 @@ level_0.spriteSpawn = [
   new SpriteCreator(true, invisibleRegular, 'tile', invsibileTile, 350, 450, 50, 200, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, groundRegularMove, 'tile', gMovingTile, 250, 500, 50, 50, 1, 1000, 1000, 0, 0, null, null),
   //Box
-  // new SpriteCreator(true, wallRegular, 'timer', wallTile50, 300, 200, 50, 50, 1, 0, 400, 0, 0, null,  new timerCreator('loop', null, 3)),
-  // new SpriteCreator(true, deathRegularMove, 'tile', deathTile, 1000, 100, 50, 50, 1, 0, 200, 0, 0, null, null),
   //Moving Windmill
   // new SpriteCreator(true, deathRegularMove, 'tile', deathTile, 250, 450, 50, 50, 1, 400, 100, 0, 0, null, null),
   new SpriteCreator(true, groundRegularMove, 'tile', gMovingTile, 1000, 200, 50, 50, 1, 0, 200, 0, 0, null, null),
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 500, 150, 50, 500, 1, 0, 0, 0, 0, null, null),
-  // new SpriteCreator(true, groundRegularMove, 'tile', groundTile, 1000, 300, 50, 50, 1, 0, 0, 0, 0, null, null),
-  // new SpriteCreator(true, groundRegularMove, 'tile', groundTile, 1000, 400, 50, 50, 1, 0, 0, 0, 0, null, null),
-  // new SpriteCreator(true, groundRegularMove, 'tile', groundTile, 1000, 500, 50, 50, 1, 0, 0, 0, 0, null, null),
-  // new SpriteCreator(true, groundRegularMove, 'tile', groundTile, 1000, 600, 50, 50, 1, 0, 0, 0, 0, null, null),
-  //Testing
-  // new SpriteCreator(true, deathRegularMove, 'tile', deathTile, 1250, 100, 50, 600, 1, -400, 0, 0, 0, null, null),
-  // new SpriteCreator(true, wallRegular, 'tile', wallTile50, 1250, 500, 50, 600, 1, -400, 0, 0, 0, null, null),
+  //Power Up
+  new SpriteCreator(true, powerJump, 'sprite', powerJar, 600, 200, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, powerJump, 'sprite', powerJar, 600, 300, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, powerJump, 'sprite', powerJar, 600, 400, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, powerJump, 'sprite', powerJar, 600, 500, 50, 50, 1, 0, 0, 0, 0, null, null),
+
 ];
 
 //flag spawn
 level_0.flagSpawn = [
   // //First Flag
-  new flagCreator(0, true, flagSpecial, flag, 1, 600, 500, -200, 0, 0, 0,
-    new shadowLevelGenerator(0, [
-      new shadowLevelArray(0, 3)
-    ])),
-  new flagCreator(0, true, flagRegular, flag, 1, 100, 500, -200, 0, 0, 0,
-    new spriteLevelSwitch(0, 
-      [], //Insert Index (Levels)
-      [], //Insert Sprite
-      [3], //Remove Index (Levels)
-      [0, 1], //Remove Sprite
-    )),
+  // new flagCreator(0, true, flagSpecial, flag, 1, 600, 500, -200, 0, 0, 0,
+  //   new shadowLevelGenerator(0, [
+  //     new shadowLevelArray(0, 3)
+  //   ])),
+  // new flagCreator(0, true, flagRegular, flag, 1, 100, 500, -200, 0, 0, 0,
+  //   new spriteLevelSwitch(0, 
+  //     [], //Insert Index (Levels)
+  //     [], //Insert Sprite
+  //     [3], //Remove Index (Levels)
+  //     [0, 1], //Remove Sprite
+  //   )),
 ];
 
 ////////////////////////////////////////Level 1-SandboxMode/////////////////////////////////////
