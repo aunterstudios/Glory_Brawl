@@ -44,7 +44,7 @@ brawl.game.prototype.gVsd = function (ground, death) {
             if (death.specialCondition.name === scSpriteKiller.name) {
                 this.emitterFunction(ground, null, 'destroy');
                 if (death.body.touching.right) {
-                    death.body.velocity.x += 500;
+                    death.body.velocity.x = 500;
                 }
             }
         }
