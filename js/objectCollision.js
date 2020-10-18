@@ -14,7 +14,7 @@ brawl.game.prototype.trapProjectiles = function (trapProjectiles, obstacles) {
 };
 
 //Immovable Objects vs. Themselves
-brawl.game.prototype.gdVsSelf = function (obj1, obj2) {
+brawl.game.prototype.gVsd = function (ground, death) {
     ////////////More Special Interactions to Come//////////////
     //Reverses The Velocity's of the Object
     // if (obj1.specialCondition) {
@@ -39,21 +39,44 @@ brawl.game.prototype.gdVsSelf = function (obj1, obj2) {
     //         obj1.body.velocity.x = -200;
     //     }
     // }
-    if (obj1.groupName === groupGroundMove && obj2.groupName === groupDeathMove) {
-        obj1.body.stop();
-        if (obj1.body.touching.up) {
-            obj2.body.velocity.y = -200;
+    if (ground.groupName === groupGroundMove && death.groupName === groupDeathMove) {
+        ground.body.stop();
+        if (ground.body.touching.up) {
+            death.body.velocity.y = -200;
         }
-        else if (obj1.body.touching.down) {
-            obj2.body.velocity.y = 200;
+        else if (ground.body.touching.down) {
+            death.body.velocity.y = 200;
         }
-        else if (obj1.body.touching.left) {
-            obj2.body.velocity.x = -200;
+        else if (ground.body.touching.left) {
+            death.body.velocity.x = -200;
         }
-        else if (obj1.body.touching.right) {
-            obj2.body.velocity.x = 200;
+        else if (ground.body.touching.right) {
+            death.body.velocity.x = 200;
         }
     }
+    return;
+};
+
+brawl.game.prototype.groundVsSelf = function (g1, g2) {
+    
+    return;
+};
+
+brawl.game.prototype.deathVsSelf = function (d1, d2) {
+    // if (d1.groupName === groupDeathMove && d2.groupName === groupDeath) {
+    //     if (d2.body.touching.up) {
+    //         d1.body.velocity.y = -200;
+    //     }
+    //     else if (d2.body.touching.down) {
+    //         d1.body.velocity.y = 200;
+    //     }
+    //     else if (d2.body.touching.left) {
+    //         d1.body.velocity.x = -200;
+    //     }
+    //     else if (d2.body.touching.right) {
+    //         d1.body.velocity.x = 200;
+    //     }
+    // }
     return;
 };
 

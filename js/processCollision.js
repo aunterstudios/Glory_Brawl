@@ -1,8 +1,23 @@
-brawl.game.prototype.gdVsSelfProcess = function (gd1, gd2) {
-    if (gd1.groupName === gd2.groupName) {
+brawl.game.prototype.gVsdProcess = function (ground, death) {
+    if (ground.groupName === groupCollect) {
         return false;
     }
-    else if (gd1.groupName === groupCollect || gd2.groupName === groupCollect) {
+    else {
+        return true;
+    }
+};
+
+brawl.game.prototype.groundVsSelfProcess = function (g1, g2) {
+    if (g1.groupName === g2.groupName || (g1.groupName === groupCollect || g2.groupName === groupCollect)) {
+        return false;
+    }
+    else {
+        return true;
+    }
+};
+
+brawl.game.prototype.deathVsSelfProcess = function (d1, d2) {
+    if (d1.groupName === d2.groupName) {
         return false;
     }
     else {
