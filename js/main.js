@@ -121,7 +121,7 @@ var level_0 = new LevelCreator(
 //Special Level Initiated
 // level_0.specialLevel = new TimerLevel('timed', 1, 5, 0, 10);
 // level_0.specialLevel = new KillAllLevel('killAll', 0, 5, 0, 1);
-level_0.specialLevel = new CollectLevel('collected', 1, 5, 0, 1);
+// level_0.specialLevel = new CollectLevel('collected', 1, 5, 0, 1);
 
 //Room-Switching
 level_0.metroidvania = new MetroidvaniaCreator(
