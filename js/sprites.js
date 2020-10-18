@@ -37,7 +37,7 @@ var deathRegular = new spriteType(0, 'deathRegular', Phaser.Color.RED, 100, 0, t
 var deathBallKill = new spriteType(0, 'deathBallKill', Phaser.Color.RED, 100, 0, true, 1000, 1); //Killable By Ball
 var deathGhost = new spriteType(0, 'deathGhost', Phaser.Color.RED, 100, 0, true, 1000, 1); //Weapon Phases
 //Moveable Death Names
-var deathRegularMove = new spriteType(10, 'deathRegularMov', Phaser.Color.RED, 100, 0, false, 1000, 1); //This one is moving
+var deathRegularMove = new spriteType(10, 'deathRegularMov', Phaser.Color.RED, 100, 0, false, 1000, 1); //This one is Moving
 
 //Ground
 var groundRegular = new spriteType(1, 'groundRegular', tintRemover, 100, 0, true, 1000, 1); //No Special Properties

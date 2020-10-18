@@ -40,25 +40,48 @@ brawl.game.prototype.gVsd = function (ground, death) {
     //     }
     // }
     if (ground.groupName === groupGroundMove && death.groupName === groupDeathMove) {
-        ground.body.stop();
-        if (ground.body.touching.up) {
-            death.body.velocity.y = -200;
+        if (death.specialCondition) {
+            if (death.specialCondition.name === scSpriteKiller.name) {
+                this.emitterFunction(ground, null, 'destroy');
+                if (death.body.touching.right) {
+                    death.body.velocity.x += 500;
+                }
+            }
         }
-        else if (ground.body.touching.down) {
-            death.body.velocity.y = 200;
+        else {
+            ground.body.stop();
+            if (ground.body.touching.up) {
+                death.body.velocity.y = -200;
+            }
+            else if (ground.body.touching.down) {
+                death.body.velocity.y = 200;
+            }
+            else if (ground.body.touching.left) {
+                death.body.velocity.x = -200;
+            }
+            else if (ground.body.touching.right) {
+                death.body.velocity.x = 200;
+            }
         }
-        else if (ground.body.touching.left) {
-            death.body.velocity.x = -200;
-        }
-        else if (ground.body.touching.right) {
-            death.body.velocity.x = 200;
-        }
+        // ground.body.stop();
+        // if (ground.body.touching.up) {
+        //     death.body.velocity.y = -200;
+        // }
+        // else if (ground.body.touching.down) {
+        //     death.body.velocity.y = 200;
+        // }
+        // else if (ground.body.touching.left) {
+        //     death.body.velocity.x = -200;
+        // }
+        // else if (ground.body.touching.right) {
+        //     death.body.velocity.x = 200;
+        // }
     }
     return;
 };
 
 brawl.game.prototype.groundVsSelf = function (g1, g2) {
-    
+
     return;
 };
 
