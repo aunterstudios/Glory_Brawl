@@ -39,6 +39,21 @@ brawl.game.prototype.gdVsSelf = function (obj1, obj2) {
     //         obj1.body.velocity.x = -200;
     //     }
     // }
+    if (obj1.groupName === groupGroundMove && obj2.groupName === groupDeathMove) {
+        obj1.body.stop();
+        if (obj1.body.touching.up) {
+            obj2.body.velocity.y = -200;
+        }
+        else if (obj1.body.touching.down) {
+            obj2.body.velocity.y = 200;
+        }
+        else if (obj1.body.touching.left) {
+            obj2.body.velocity.x = -200;
+        }
+        else if (obj1.body.touching.right) {
+            obj2.body.velocity.x = 200;
+        }
+    }
     return;
 };
 
