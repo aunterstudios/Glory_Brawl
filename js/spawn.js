@@ -92,6 +92,9 @@ brawl.game.prototype.spriteGen = function (sprite, positionInArray) {
         /////////////Moving Ground and Death/////////////
         new groupArrayCreator(this.death, groupDeathMove),
         new groupArrayCreator(this.ground, groupGroundMove),
+        ////////////Coin and Power-Up///////////////////
+        new groupArrayCreator(this.ground, groupCollect),
+        new groupArrayCreator(this.ground, groupCollectPhysics),
     ]
     var groupSprite = groupArray[sprite.spriteType.groupNumber].groupSprite;
     var groupCategory = groupArray[sprite.spriteType.groupNumber].groupCategory;

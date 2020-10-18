@@ -1,12 +1,8 @@
 brawl.game.prototype.gdVsSelfProcess = function (gd1, gd2) {
-    // if (!gd1.specialCondition && !gd2.specialCondition) {
-    //     console.log("Did this hit?"); 
-    //     return false;
-    // }
-    // else {
-    //     return true;
-    // }
-    if ((gd1.groupName === groupDeathMove || gd1.groupName === groupGroundMove) && (gd2.groupName === groupDeathMove || gd2.groupName === groupGroundMove)) {
+    if (gd1.groupName === gd2.groupName) {
+        return false;
+    }
+    else if (gd1.groupName === groupCollect || gd2.groupName === groupCollect) {
         return false;
     }
     else {
@@ -16,7 +12,7 @@ brawl.game.prototype.gdVsSelfProcess = function (gd1, gd2) {
 
 //ground and death vs moveable
 brawl.game.prototype.gdVsMovProcess = function (imb, mov) {
-    if (imb.name === groundOneWayObject || (!mov.phase && !mov.elevatorActivate && (imb.groupName === groupDeathMove || imb.groupName === groupGroundMove))) {
+    if (imb.name === groundOneWayObject || (!mov.phase && !mov.elevatorActivate && (imb.groupName === groupDeathMove || imb.groupName === groupGroundMove)) || imb.groupName === groupCollect) {
         return false;
     }
     else {

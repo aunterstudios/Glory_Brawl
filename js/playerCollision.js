@@ -50,11 +50,14 @@ brawl.game.prototype.playerGround = function (player, ground) {
         this.game.physics.arcade.gravity.setTo(0, 500);
         this.emitterFunction(ground, null, 'destroy');
     }
-    ////////////////Player vs. Power Ups/////////////
+    ////////////////Player vs. Power Ups and Coin/////////////
     if (ground.name === powerJump.name) {
         player.powerJump = true;
         // this.playerJump += -1000;
         this.playerJump = -1000;
+        this.emitterFunction(ground, null, 'destroy');
+    }
+    if (ground.name === coinDefault.name) {
         this.emitterFunction(ground, null, 'destroy');
     }
     return;

@@ -40,6 +40,8 @@ brawl.mainMenu.prototype = {
         this.load.spritesheet('player', 'assets/player.png', 64, 64);
         //Camera
         this.load.image('camera', 'assets/camera.png');
+        //Coin
+        this.load.image('coin', 'assets/coin.png');
         /////////////////////////////////Menu Images and Sprites////////////////////////
         this.load.image('background-three', 'assets/trumpFirstBackground.jpg');
         //Bit Map Font

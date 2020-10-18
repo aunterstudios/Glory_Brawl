@@ -121,7 +121,7 @@ var level_0 = new LevelCreator(
 //Special Level Initiated
 // level_0.specialLevel = new TimerLevel('timed', 1, 5, 0, 10);
 // level_0.specialLevel = new KillAllLevel('killAll', 0, 5, 0, 1);
-// level_0.specialLevel = new CollectLevel('collected', 1, 5, 0, 1);
+level_0.specialLevel = new CollectLevel('collected', 1, 5, 0, 4);
 
 //Room-Switching
 level_0.metroidvania = new MetroidvaniaCreator(
@@ -164,6 +164,7 @@ level_0.spriteSpawn = [
   // new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 100, 400, 50, 50, 1, 300, 0, 0, 0, null, null),
   new SpriteCreator(true, wallRegular, 'tile', wallTile50, 1000, 350, 400, 50, 1, -200, 0, 0, 0, null, null),
   new SpriteCreator(true, wallRegular, 'tile', wallTile50, 300, 150, 50, 400, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallRegular, 'tile', wallTile25, 1000, 350, 25, 25, 1, -200, 0, 0, 0, null, null),
   //Falling Spikes
   // new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 500, 100, 50, 50, 1, 0, 0, 0, 500, null, new timerCreator('loop', null, 3)),
   //Windmill Test
@@ -177,11 +178,14 @@ level_0.spriteSpawn = [
   // new SpriteCreator(true, deathRegularMove, 'tile', deathTile, 250, 450, 50, 50, 1, 400, 100, 0, 0, null, null),
   new SpriteCreator(true, groundRegularMove, 'tile', gMovingTile, 1000, 200, 50, 50, 1, 0, 200, 0, 0, null, null),
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 500, 150, 50, 500, 1, 0, 0, 0, 0, null, null),
-  //Power Up
-  new SpriteCreator(true, powerJump, 'sprite', powerJar, 600, 200, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, powerJump, 'sprite', powerJar, 600, 300, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, powerJump, 'sprite', powerJar, 600, 400, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, powerJump, 'sprite', powerJar, 600, 500, 50, 50, 1, 0, 0, 0, 0, null, null),
+  //Coin
+  new SpriteCreator(true, coinDefault, 'sprite', coin, 600, 200, 50, 50, 1, 0, 0, 0, 0, scCollect, null),
+  new SpriteCreator(true, coinDefault, 'sprite', coin, 600, 300, 50, 50, 1, 0, 0, 0, 0, scCollect, null),
+  new SpriteCreator(true, coinDefault, 'sprite', coin, 600, 400, 50, 50, 1, 0, 0, 0, 0, scCollect, null),
+  new SpriteCreator(true, coinDefault, 'sprite', coin, 600, 500, 50, 50, 1, 0, 0, 0, 0, scCollect, null),
+  new SpriteCreator(true, groundRegularMove, 'tile', gMovingTile, 600, 100, 50, 50, 1, 0, 200, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 600, 700, 50, 50, 1, 0, -200, 0, 0, null, null),
+
 
 ];
 

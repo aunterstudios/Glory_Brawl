@@ -3,10 +3,15 @@
 var deathTile = 'deathTile';
 var deathMoveTile = 'deathMoveTile';
 
-//Immovable Wall
+//Ground
 var groundTile = 'groundTile';
 var gMovingTile = 'gMovingTile';
+
+//Power-Ups
 var powerJar = 'powerJar';
+
+//Coin
+var coin = 'coin';
 
 //Invisible Tile
 var invsibileTile = 'invisibleTile';
