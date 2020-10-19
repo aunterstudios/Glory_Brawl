@@ -6,10 +6,6 @@ brawl.game.prototype.playerGround = function (player, ground) {
     else {
         this.playerSlippery = nenHolder.playerSlippery;
     }
-    //Activating groundOneWay
-    // if (ground.name === groundOneWayPlayerBlockLeft) {
-    //     ground.body.checkCollision.left = false;
-    // }
     ///Activating groundActivation(Like a Cloud)
     if (ground.name === groundActivation.name) {
         if (ground.body.touching.up) {
@@ -27,10 +23,7 @@ brawl.game.prototype.playerGround = function (player, ground) {
             ground.body.velocity.setTo(-200, 0);
         }
         ground.name = groundRegular;
-        // console.log(ground.tint, "1");
         ground.tint = tintWallPlayerFrozen;
-        // console.log(ground.tint, "Removed");
-        // immovable.alpha = .5;
 
     }
     ////////////////Player vs. Moving Ground/////////////
@@ -42,7 +35,6 @@ brawl.game.prototype.playerGround = function (player, ground) {
         // ground.body.moves = false;
         ground.body.immovable = true;
         ground.tint = tintWallPlayerFrozen;
-        // ground.alpha = .3;
     }
     ////////////////Player vs. World Activation/////////////
     //Activating immovableWallWorldGravity (World Gravity)
@@ -124,20 +116,6 @@ brawl.game.prototype.playerEnemy = function (player, enemy) {
     }
 };
 
-// brawl.game.prototype.playerBall = function (player, ball) {
-//     //ballRegular Physics
-//     ball.body.stop();
-//     if (ball.body.touching.down) {
-//         ball.body.velocity.y = -50;
-//     }
-//     if (ball.body.touching.left) {
-//         ball.body.velocity.x = 50;
-//     }
-//     if (ball.body.touching.right) {
-//         ball.body.velocity.x = -50;
-//     }
-// };
-
 brawl.game.prototype.playerLedge = function (player, ledge) {
     /////////////Collision Turned Off////////////
     ledge.phase = false;
@@ -167,28 +145,31 @@ brawl.game.prototype.playerLedge = function (player, ledge) {
         if (ledge.body.touching.up) {
             player.body.velocity.y = -1200;
         }
-        if (ledge.generationType === 'timer') {
-            this.emitterFunction(ledge, null, 'kill');
+        // if (ledge.generationType === 'timer') {
+        //     this.emitterFunction(ledge, null, 'kill');
 
-        }
-        else {
-            this.emitterFunction(ledge, null, 'destroy');
+        // }
+        // else {
+        //     this.emitterFunction(ledge, null, 'destroy');
 
-        }
+        // }
+        this.emitterFunction(ledge, null, 'destroy');
+
     }
     ////////Surfs Up Dude////////
     if (ledge.name === ledgeSurf.name) {
         //Self Destruct
         if (!ledge.surfActivate) {
             ledge.surfActivate = true;
-            if (ledge.generationType === 'timer') {
-                var killOrDestroy = 'kill'
+            // if (ledge.generationType === 'timer') {
+            //     var killOrDestroy = 'kill'
     
-            }
-            else {
-                var killOrDestroy = 'destroy'
-            }
-            this.game.time.events.add(3000, this.spriteSelfDestruct, this, ledge, killOrDestroy);
+            // }
+            // else {
+            //     var killOrDestroy = 'destroy'
+            // }
+            // this.game.time.events.add(3000, this.spriteSelfDestruct, this, ledge, killOrDestroy);
+            this.game.time.events.add(3000, this.spriteSelfDestruct, this, ledge, 'destory');
         }
         //Physics
         ledge.body.stop();

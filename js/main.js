@@ -156,6 +156,9 @@ level_0.spriteSpawn = [
   //Ledge
   // new SpriteCreator(true, ledgeElevator, 'timer', ledge, 400, 100, 150, 50, 1, 300, 200, 0, 0, null, new timerCreator('repeat', 4, 3)),
   new SpriteCreator(true, ledgeElevator, 'timer', ledge, 1000, 100, 150, 50, 1, 0, 200, 0, 0, null, new timerCreator('loop', null, 2)),
+  new SpriteCreator(true, ledgeSurf, 'timer', ledge, 2000, 100, 150, 50, 1, 0, 200, 0, 0, null, new timerCreator('loop', null, 2)),
+  new SpriteCreator(true, ledgeBounce, 'timer', ledge, 1500, 100, 150, 50, 1, 0, 200, 0, 0, null, new timerCreator('loop', null, 2)),
+
   //Ball
   // new SpriteCreator(true, ballRegular, 'sprite', ball, 1600, 100, 50, 50, 1, -300, 0, 0, 0, null, new timerCreator('repeat', 4, 3)),
   //Enemy
