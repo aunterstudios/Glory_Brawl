@@ -141,7 +141,6 @@ brawl.game.prototype = {
         var onGround = this.game.physics.arcade.collide(this.player, this.ground, this.playerGround, this.playerGroundProcess, this);
         var onWall = this.game.physics.arcade.collide(this.player, this.wall, this.playerWall, null, this);
         var onLedge = this.game.physics.arcade.collide(this.player, this.ledge, this.playerLedge, null, this);
-        // var onBall = this.game.physics.arcade.collide(this.player, this.ball, this.playerBall, null, this);
         var onHazama = this.game.physics.arcade.overlap(this.player, this.hazama, this.playerHazama, null, this);
         var onEnemy = this.game.physics.arcade.collide(this.player, this.enemy, this.playerEnemy, null, this);
 

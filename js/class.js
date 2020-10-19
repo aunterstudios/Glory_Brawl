@@ -121,8 +121,10 @@ class weaponCreator {
 //////////////////////////////////////////////////Special Condition Creators for Sprites//////////////////////////////////////////////
 //Creates Special Conditions (scalable)
 class specialConditionCreator {
-  constructor(name) {
+  constructor(name, velocityX, velocityY) {
     this.name = name;
+    this.velocityX = velocityX;
+    this.velocityY = velocityY;
   }
 };
 

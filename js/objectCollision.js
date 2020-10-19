@@ -41,10 +41,19 @@ brawl.game.prototype.gVsd = function (ground, death) {
     // }
     if (ground.groupName === groupGroundMove && death.groupName === groupDeathMove) {
         if (death.specialCondition) {
-            if (death.specialCondition.name === scSpriteKiller.name) {
+            if (death.specialCondition.name === 'spriteKiller') {
                 this.emitterFunction(ground, null, 'destroy');
-                if (death.body.touching.right) {
-                    death.body.velocity.x = 500;
+                if (death.body.touching.up) {
+                    death.body.velocity.y = -death.specialCondition.velocityY;
+                }
+                else if (death.body.touching.down) {
+                    death.body.velocity.y = death.specialCondition.velocityY;
+                }
+                else if (death.body.touching.left) {
+                    death.body.velocity.x = -death.specialCondition.velocityX;
+                }
+                else if (death.body.touching.right) {
+                    death.body.velocity.x = death.specialCondition.velocityX;
                 }
             }
         }
@@ -128,6 +137,23 @@ brawl.game.prototype.gdVsMov = function (groundDeath, moveable) {
     // }
     if (groundDeath.name === groundKillWall.name || groundDeath.name === groundOneWayKillObject.name || moveable.elevatorActivate) {
         this.emitterFunction(moveable, null, 'destroy');
+    }
+    if (groundDeath.specialCondition) {
+        if (groundDeath.specialCondition.name === 'spriteKiller') {
+            this.emitterFunction(moveable, null, 'destroy');
+            if (groundDeath.body.touching.up) {
+                groundDeath.body.velocity.y = -groundDeath.specialCondition.velocityY;
+            }
+            else if (groundDeath.body.touching.down) {
+                groundDeath.body.velocity.y = groundDeath.specialCondition.velocityY;
+            }
+            else if (groundDeath.body.touching.left) {
+                groundDeath.body.velocity.x = -groundDeath.specialCondition.velocityX;
+            }
+            else if (groundDeath.body.touching.right) {
+                groundDeath.body.velocity.x = groundDeath.specialCondition.velocityX;
+            }
+        }
     }
     // ////////////////////Moveable Effects Against groundDeath///////////////
     if (groundDeath.name === deathBallKill.name && moveable.groupName === groupBall) {
