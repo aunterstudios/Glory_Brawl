@@ -153,19 +153,26 @@ level_0.spriteSpawn = [
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 2750, 0, 50, 750, 1, 0, 0, 0, 0, null, null),
   //Ground
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 0, 800, 2800, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 800, 600, 450, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 800, 0, 50, 600, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 1200, 0, 50, 600, 1, 0, 0, 0, 0, null, null),
   //Ledge
   // new SpriteCreator(true, ledgeElevator, 'timer', ledge, 400, 100, 150, 50, 1, 300, 200, 0, 0, null, new timerCreator('repeat', 4, 3)),
-  new SpriteCreator(true, ledgeElevator, 'timer', ledge, 1000, 100, 150, 50, 1, 0, 200, 0, 0, null, new timerCreator('loop', null, 2)),
-  new SpriteCreator(true, ledgeSurf, 'timer', ledge, 2000, 100, 150, 50, 1, 0, 200, 0, 0, null, new timerCreator('loop', null, 2)),
-  new SpriteCreator(true, ledgeBounce, 'timer', ledge, 1500, 100, 150, 50, 1, 0, 200, 0, 0, null, new timerCreator('loop', null, 2)),
-
+  // new SpriteCreator(true, ledgeElevator, 'timer', ledge, 1000, 100, 150, 50, 1, 0, 200, 0, 0, null, new timerCreator('loop', null, 5)),
+  // new SpriteCreator(true, ledgeSurf, 'timer', ledge, 2000, 100, 150, 50, 1, 0, 200, 0, 0, null, new timerCreator('loop', null, 2)),
+  // new SpriteCreator(true, ledgeBounce, 'timer', ledge, 1500, 100, 150, 50, 1, 0, 200, 0, 0, null, new timerCreator('loop', null, 2)),
   //Ball
-  // new SpriteCreator(true, ballRegular, 'sprite', ball, 1600, 100, 50, 50, 1, -300, 0, 0, 0, null, new timerCreator('repeat', 4, 3)),
+  // new SpriteCreator(true, ballRegular, 'sprite', ball, 1400, 400, 50, 50, 1, -300, 0, 0, 0, null, new timerCreator('repeat', 4, 3)),
+  new SpriteCreator(true, ballRegular, 'sprite', ball, 1000, 400, 50, 50, 1, -300, 200, 0, 0, null, null),
   //Enemy
-  // new SpriteCreator(true, enemyDaakath, 'timer', enemyOne, 1200, 200, 50, 50, 1, 0, 200, 0, 0, null, new timerCreator('repeat', 4, 3)),
+  new SpriteCreator(true, enemyDaakath, 'timer', enemyOne, 1000, 100, 50, 50, 1, 0, 200, 0, 0, null, new timerCreator('loop', null, 2)),
   // new SpriteCreator(true, enemyDaakath, 'timer', enemyOne, 400, 200, 50, 50, 1, 0, 200, 0, 0, null, null),
   // Wall
-  // new SpriteCreator(true, wallRegular, 'tile', wallTile50, 1000, 350, 400, 50, 1, -200, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallRegular, 'tile', wallTile50, 1000, 400, 50, 50, 1, 300, 200, 0, 0, null, null),
+  new SpriteCreator(true, wallRegular, 'tile', wallTile50, 1000, 450, 50, 50, 1, 300, 200, 0, 0, null, null),
+  new SpriteCreator(true, wallRegular, 'tile', wallTile50, 1150, 400, 50, 50, 1, 300, 200, 0, 0, null, null),
+  new SpriteCreator(true, wallRegular, 'tile', wallTile50, 1150, 450, 50, 50, 1, 300, 200, 0, 0, null, null),
+
   // new SpriteCreator(true, wallRegular, 'tile', wallTile50, 300, 150, 50, 400, 1, 0, 0, 0, 0, null, null),
   // new SpriteCreator(true, wallRegular, 'tile', wallTile25, 1000, 350, 25, 25, 1, -200, 0, 0, 0, null, null),
   //Falling Spikes
@@ -177,8 +184,8 @@ level_0.spriteSpawn = [
   // new SpriteCreator(true, invisibleRegular, 'tile', invsibileTile, 350, 450, 50, 200, 1, 0, 0, 0, 0, null, null),
   // new SpriteCreator(true, groundRegularMove, 'tile', gMovingTile, 250, 500, 50, 50, 1, 1000, 1000, 0, 0, null, null),
   //Ground Move
-  new SpriteCreator(true, groundRegularMove, 'tile', gMovingTile, 1000, 200, 50, 50, 1, 0, 200, 0, 0, null, null),
-  new SpriteCreator(true, groundRegularMove, 'tile', gMovingTile, 500, 150, 50, 500, 1, -200, 0, 0, 0, null, null),
+  // new SpriteCreator(true, groundRegularMove, 'tile', gMovingTile, 1000, 200, 50, 50, 1, 0, 200, 0, 0, null, null),
+  // new SpriteCreator(true, groundRegularMove, 'tile', gMovingTile, 500, 150, 50, 500, 1, -200, 0, 0, 0, null, null),
   //Coin
   new SpriteCreator(true, coinDefault, 'sprite', coin, 600, 200, 50, 50, 1, 0, 0, 0, 0, scCollect, null),
   new SpriteCreator(true, coinDefault, 'sprite', coin, 600, 300, 50, 50, 1, 0, 0, 0, 0, scCollect, null),
@@ -189,7 +196,7 @@ level_0.spriteSpawn = [
   // new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 600, 300, 50, 50, 1, -300, 0, 0, 0, null, null),
   // new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 600, 400, 50, 50, 1, -300, 0, 0, 0, null, null),
   // new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 600, 500, 50, 50, 1, -300, 0, 0, 0, null, null),
-  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 200, 200, 50, 500, 1, 500, 0, 0, 0, new specialConditionCreator('spriteKiller', 500, 500), null),
+  // new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 200, 200, 50, 500, 1, 500, 0, 0, 0, new specialConditionCreator('spriteKiller', 500, 500), null),
   // new SpriteCreator(true, deathRegular, 'tile', deathTile, 500, 150, 50, 500, 1, 0, 0, 0, 0, null, null),
   //Power Up
   new SpriteCreator(true, powerJump, 'sprite', powerJar, 1300, 500, 50, 50, 1, 0, 0, 0, 0, null, null),

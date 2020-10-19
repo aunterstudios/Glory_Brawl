@@ -144,6 +144,9 @@ brawl.game.prototype = {
         var onHazama = this.game.physics.arcade.overlap(this.player, this.hazama, this.playerHazama, null, this);
         var onEnemy = this.game.physics.arcade.collide(this.player, this.enemy, this.playerEnemy, null, this);
 
+        // console.log(this.ledge.countLiving(), 'countLiving');
+        // console.log(this.ledge.count('name', 'ledgeElevator'), 'countAllName');
+
         //Death Mechanics
         this.game.physics.arcade.overlap(this.player, [this.enemyBullets.bullets, this.death, this.fallingSpikes, this.fallingSpikesTwo], this.playerDeath, null, this);
 

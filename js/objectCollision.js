@@ -133,27 +133,25 @@ brawl.game.prototype.gdVsMov = function (groundDeath, moveable) {
     }
     /////////////////////groundDeath Wall Effects Against Moveable////////////////////
     if (groundDeath.name === groundKillWall.name || groundDeath.name === groundOneWayKillObject.name || moveable.elevatorActivate) {
-        // if (moveable.generationType === 'timer') {
-        //     this.emitterFunction(moveable, null, 'kill');
+        if (moveable.generationType === 'timer') {
+            this.emitterFunction(moveable, null, 'kill');
+        }
+        else {
+            this.emitterFunction(moveable, null, 'destroy');
 
-        // }
-        // else {
-        //     this.emitterFunction(moveable, null, 'destroy');
-
-        // }
-        this.emitterFunction(moveable, null, 'destroy');
+        }
+        // this.emitterFunction(moveable, null, 'destroy');
     }
     if (groundDeath.specialCondition) {
         if (groundDeath.specialCondition.name === 'spriteKiller') {
-            // if (moveable.generationType === 'timer') {
-            //     this.emitterFunction(moveable, null, 'kill');
+            if (moveable.generationType === 'timer') {
+                this.emitterFunction(moveable, null, 'kill');
 
-            // }
-            // else {
-            //     this.emitterFunction(moveable, null, 'destroy');
+            }
+            else {
+                this.emitterFunction(moveable, null, 'destroy');
 
-            // }
-            this.emitterFunction(moveable, null, 'destroy');
+            }
             if (groundDeath.body.touching.up) {
                 groundDeath.body.velocity.y = -groundDeath.specialCondition.velocityY;
             }
@@ -232,15 +230,15 @@ brawl.game.prototype.wallVsMov = function (wall, mov) {
 //Ball Interaction Vs. Enemy
 brawl.game.prototype.ballVsEnemy = function (ball, enemy) {
     ///////////////Actual Collision Physics/////////////
-    // if (enemy.generationType === 'timer') {
-    //     this.emitterFunction(enemy, null, 'kill');
+    if (enemy.generationType === 'timer') {
+        this.emitterFunction(enemy, null, 'kill');
 
-    // }
-    // else {
-    //     this.emitterFunction(enemy, null, 'destroy');
+    }
+    else {
+        this.emitterFunction(enemy, null, 'destroy');
 
-    // }
-    this.emitterFunction(enemy, null, 'destroy');
+    }
+    // this.emitterFunction(enemy, null, 'destroy');
     return;
 };
 
