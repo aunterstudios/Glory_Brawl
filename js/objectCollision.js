@@ -132,15 +132,26 @@ brawl.game.prototype.gdVsMov = function (groundDeath, moveable) {
         }
     }
     /////////////////////groundDeath Wall Effects Against Moveable////////////////////
-    // if (groundDeath.name === groundKillWall.name || groundDeath.name === groundOneWayKillObject.name || groundDeath.body.speed > 0 || moveable.elevatorActivate) {
-    //     this.emitterFunction(moveable, null, 'destroy');
-    // }
     if (groundDeath.name === groundKillWall.name || groundDeath.name === groundOneWayKillObject.name || moveable.elevatorActivate) {
-        this.emitterFunction(moveable, null, 'destroy');
+        if (moveable.generationType === 'timer') {
+            this.emitterFunction(moveable, null, 'kill');
+
+        }
+        else {
+            this.emitterFunction(moveable, null, 'destroy');
+
+        }
     }
     if (groundDeath.specialCondition) {
         if (groundDeath.specialCondition.name === 'spriteKiller') {
-            this.emitterFunction(moveable, null, 'destroy');
+            if (moveable.generationType === 'timer') {
+                this.emitterFunction(moveable, null, 'kill');
+
+            }
+            else {
+                this.emitterFunction(moveable, null, 'destroy');
+
+            }
             if (groundDeath.body.touching.up) {
                 groundDeath.body.velocity.y = -groundDeath.specialCondition.velocityY;
             }
@@ -219,7 +230,14 @@ brawl.game.prototype.wallVsMov = function (wall, mov) {
 //Ball Interaction Vs. Enemy
 brawl.game.prototype.ballVsEnemy = function (ball, enemy) {
     ///////////////Actual Collision Physics/////////////
-    this.emitterFunction(enemy, null, 'destroy');
+    if (enemy.generationType === 'timer') {
+        this.emitterFunction(enemy, null, 'kill');
+
+    }
+    else {
+        this.emitterFunction(enemy, null, 'destroy');
+
+    }
     return;
 };
 

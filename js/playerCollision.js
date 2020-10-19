@@ -167,14 +167,28 @@ brawl.game.prototype.playerLedge = function (player, ledge) {
         if (ledge.body.touching.up) {
             player.body.velocity.y = -1200;
         }
-        this.emitterFunction(ledge, null, 'destroy');
+        if (ledge.generationType === 'timer') {
+            this.emitterFunction(ledge, null, 'kill');
+
+        }
+        else {
+            this.emitterFunction(ledge, null, 'destroy');
+
+        }
     }
     ////////Surfs Up Dude////////
     if (ledge.name === ledgeSurf.name) {
         //Self Destruct
         if (!ledge.surfActivate) {
             ledge.surfActivate = true;
-            this.game.time.events.add(3000, this.spriteSelfDestruct, this, ledge, 'destroy');
+            if (ledge.generationType === 'timer') {
+                var killOrDestroy = 'kill'
+    
+            }
+            else {
+                var killOrDestroy = 'destroy'
+            }
+            this.game.time.events.add(3000, this.spriteSelfDestruct, this, ledge, killOrDestroy);
         }
         //Physics
         ledge.body.stop();
