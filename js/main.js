@@ -113,7 +113,7 @@ var level_0 = new LevelCreator(
   true, //Out of Bounds Allowed
   1, //PlayerScale
   portalNen, //Nen-System
-  killGunSet, //Gun-Set
+  directionalGunSet, //Gun-Set
   true, //Sideways Stick to Walls,
   true, //Upsidedown Stick
 );
@@ -164,7 +164,8 @@ level_0.spriteSpawn = [
   // new SpriteCreator(true, ballRegular, 'timer', ball, 1400, 400, 50, 50, 1, -300, 0, 0, 0, null, new timerCreator('repeat', 4, 3)),
   new SpriteCreator(true, ballRegular, 'sprite', ball, 2000, 400, 50, 50, 1, -300, 200, 0, 0, null, null),
   //Enemy
-  // new SpriteCreator(true, enemyDaakath, 'timer', enemyOne, 1000, 100, 50, 50, 1, 0, 200, 0, 0, null, new timerCreator('loop', null, 2)),
+  new SpriteCreator(true, enemyDaakath, 'timer', enemyOne, 2400, 100, 50, 50, 1, 800, 800, 0, 0, null, new timerCreator('loop', null, 2)),
+  new SpriteCreator(true, enemyDaakath, 'timer', enemyOne, 2500, 700, 50, 50, 1, 800, 800, 0, 0, null, new timerCreator('loop', null, 2)),
   // new SpriteCreator(true, enemyDaakath, 'timer', enemyOne, 400, 200, 50, 50, 1, 0, 200, 0, 0, null, null),
   // Wall
   // new SpriteCreator(true, wallRegular, 'tile', wallTile50, 1000, 400, 50, 50, 1, 300, 200, 0, 0, null, null),
@@ -190,7 +191,7 @@ level_0.spriteSpawn = [
   new SpriteCreator(true, coinDefault, 'sprite', coin, 600, 400, 50, 50, 1, 0, 0, 0, 0, scCollect, null),
   new SpriteCreator(true, coinDefault, 'sprite', coin, 600, 500, 50, 50, 1, 0, 0, 0, 0, scCollect, null),
   //Death Move
-  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 500, 100, 50, 500, 1, 300, 0, 0, 0, new specialConditionCreator('spriteKiller', 300, 300), null),
+  // new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 500, 100, 50, 500, 1, 300, 0, 0, 0, new specialConditionCreator('spriteKiller', 300, 300), null),
   // new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 600, 300, 50, 50, 1, -300, 0, 0, 0, null, null),
   // new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 600, 400, 50, 50, 1, -300, 0, 0, 0, null, null),
   // new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 600, 500, 50, 50, 1, -300, 0, 0, 0, null, null),

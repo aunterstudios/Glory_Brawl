@@ -62,6 +62,7 @@ brawl.game.prototype.enemyAttack = function () {
         //Collision Handler
         enemy.phase = true;
         enemy.alpha = 1;
+        // var enemySpeed = enemy.body.speed;
         if (this.game.physics.arcade.distanceBetween(enemy, this.player, false, true) < 400) {
             //Shooter
             if (enemy.name === enemyShooter.name) {
@@ -70,6 +71,7 @@ brawl.game.prototype.enemyAttack = function () {
             //Daakath
             if (enemy.name === enemyDaakath.name) {
                 this.game.physics.arcade.moveToObject(enemy, this.player, 350);
+                // this.game.physics.arcade.moveToObject(enemy, this.player, enemySpeed);
                 // enemy.tint = Math.random() * 0xffffff;
             }
             if (enemy.name === enemyAccelerate.name) {

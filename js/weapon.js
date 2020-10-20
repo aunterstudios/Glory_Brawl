@@ -2,6 +2,7 @@
 //When Weapon Hits Moveable Objects (It's Special Property Expressed)
 brawl.game.prototype.weaponHandler = function (bullet, sprite) {
     if (sprite.groupName === groupBall || sprite.groupName === groupEnemy || sprite.groupName === groupWall || sprite.groupName === groupLedge || sprite.groupName === groupFlagPhysics) {
+        /////////////////Basic OG Gun Set/////////////////
         if (bullet.name === 'pull') {
             this.game.physics.arcade.moveToObject(sprite, this.player, bullet.powerOne);
         }
@@ -17,8 +18,22 @@ brawl.game.prototype.weaponHandler = function (bullet, sprite) {
             }
             else {
                 this.emitterFunction(sprite, null, 'destroy');
-    
+
             }
+        }
+        ////////////////////Directional Guns//////////////////
+        else if (bullet.name === 'up') {
+            sprite.body.velocity.y = -bullet.powerOne;
+        }
+        else if (bullet.name === 'down') {
+            sprite.body.velocity.y = bullet.powerOne;
+
+        }
+        else if (bullet.name === 'left') {
+            sprite.body.velocity.x = -bullet.powerOne;
+        }
+        else if (bullet.name === 'right') {
+            sprite.body.velocity.x = bullet.powerOne;
         }
     }
     bullet.kill();
