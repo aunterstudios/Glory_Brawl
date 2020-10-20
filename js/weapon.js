@@ -52,6 +52,31 @@ brawl.game.prototype.weaponHandler = function (bullet, sprite) {
         else if (bullet.name === 'right') {
             sprite.body.velocity.x = bullet.powerOne;
         }
+        //////////////////////////Gravity Guns//////////////////////
+        else if (bullet.name === 'gravity') {
+            if (sprite.body.gravity.y < 1500) {
+                sprite.body.gravity.y += bullet.powerOne;
+                // console.log(sprite.body.gravity.y, 'gravity');
+            }
+        }
+        else if (bullet.name === 'antiGravity') {
+            if (sprite.body.gravity.y > -1500) {
+                sprite.body.gravity.y -= bullet.powerOne;
+                // console.log(sprite.body.gravity.y, 'AntiGravity');
+            }
+        }
+        else if (bullet.name === 'gravityLeft') {
+            if (sprite.body.gravity.x > -1500) {
+                sprite.body.gravity.x -= bullet.powerOne;
+                // console.log(sprite.body.gravity.y, 'AntiGravity');
+            }
+        }
+        else if (bullet.name === 'gravityRight') {
+            if (sprite.body.gravity.x < 1500) {
+                sprite.body.gravity.x += bullet.powerOne;
+                // console.log(sprite.body.gravity.y, 'gravity');
+            }
+        }
     }
     bullet.kill();
 };
