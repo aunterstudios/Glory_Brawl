@@ -169,7 +169,7 @@ level_0.spriteSpawn = [
   // new SpriteCreator(true, enemyDaakath, 'timer', enemyOne, 400, 200, 50, 50, 1, 0, 200, 0, 0, null, null),
   // Wall
   // new SpriteCreator(true, wallRegular, 'tile', wallTile50, 1000, 400, 50, 50, 1, 300, 200, 0, 0, null, null),
-  // new SpriteCreator(true, wallRegular, 'tile', wallTile50, 1000, 450, 50, 50, 1, 300, 200, 0, 0, null, null),
+  new SpriteCreator(true, wallRegular, 'tile', wallTile50, 1000, 450, 50, 50, 1, 300, 200, 0, 0, null, null),
   // new SpriteCreator(true, wallRegular, 'tile', wallTile50, 1150, 400, 50, 50, 1, 300, 200, 0, 0, null, null),
   // new SpriteCreator(true, wallRegular, 'tile', wallTile50, 1150, 450, 50, 50, 1, 300, 200, 0, 0, null, null),
   // new SpriteCreator(true, wallRegular, 'tile', wallTile50, 300, 150, 50, 400, 1, 0, 0, 0, 0, null, null),

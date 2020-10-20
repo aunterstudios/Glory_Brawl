@@ -22,12 +22,29 @@ brawl.game.prototype.weaponHandler = function (bullet, sprite) {
             }
         }
         ////////////////////Directional Guns//////////////////
+        //Set One (Momentum Set to Zero)
+        else if (bullet.name === 'upZero') {
+            // sprite.body.velocity.y = -bullet.powerOne;
+           sprite.body.velocity.setTo(0, -bullet.powerOne);
+        }
+        else if (bullet.name === 'downZero') {
+            // sprite.body.velocity.y = bullet.powerOne;
+            sprite.body.velocity.setTo(0, bullet.powerOne);
+        }
+        else if (bullet.name === 'leftZero') {
+            // sprite.body.velocity.x = -bullet.powerOne;
+            sprite.body.velocity.setTo(bullet.powerOne, 0);
+        }
+        else if (bullet.name === 'rightZero') {
+            // sprite.body.velocity.x = bullet.powerOne;
+            sprite.body.velocity.setTo(-bullet.powerOne, 0);
+        }
+        //Set Two (Momentum Continued)
         else if (bullet.name === 'up') {
             sprite.body.velocity.y = -bullet.powerOne;
         }
         else if (bullet.name === 'down') {
             sprite.body.velocity.y = bullet.powerOne;
-
         }
         else if (bullet.name === 'left') {
             sprite.body.velocity.x = -bullet.powerOne;
