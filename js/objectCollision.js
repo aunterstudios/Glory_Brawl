@@ -142,6 +142,7 @@ brawl.game.prototype.gdVsMov = function (groundDeath, moveable) {
         }
         // this.emitterFunction(moveable, null, 'destroy');
     }
+    /////////////////////////Special Condition That Kills Objects While Moving/////////////////////////
     if (groundDeath.specialCondition) {
         if (groundDeath.specialCondition.name === 'spriteKiller') {
             if (moveable.generationType === 'timer') {
