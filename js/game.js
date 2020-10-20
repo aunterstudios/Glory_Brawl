@@ -124,6 +124,8 @@ brawl.game.prototype = {
         // this.bmd.context.fillRect(this.player.x-100, this.player.y-100, 50, 50);
         // this.bmd.dirty = true;
         ////////////////////////////////////////Continious Collision//////////////////////////////////
+        //Debug
+        // this.debugSprites();
         //Player Continious
         // this.playerContinious();
         //Images Moving

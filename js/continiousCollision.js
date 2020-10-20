@@ -1,3 +1,15 @@
+///////////////////////Debugging///////////////////////
+brawl.game.prototype.debugSprites = function () {
+    // console.log(this.enemy.count('name', 'enemyDaakath'), 'EnemyDaakath');
+    // console.log(this.enemy.count('name', 'enemyWall'), 'EnemyWall');
+    // console.log(this.enemy.countDead(), 'DeadEnemy');
+    // console.log(this.enemy.countLiving(), 'LivingEnemy');
+    // console.log(this.fallingSpikes.countDead(), 'FallingSpikesDead');
+    // console.log(this.fallingSpikes.countLiving(), 'FallingSpikesAlive');
+    console.log(this.ledge.countDead(), 'Deadledge');
+    console.log(this.ledge.countLiving(), 'Livingledge');
+};
+
 //////////////////Emitter Function/////////////////////
 brawl.game.prototype.emitterFunction = function (sprite1, sprite2, killOrDestroy) {
     //Sprite 1 is Always Killed

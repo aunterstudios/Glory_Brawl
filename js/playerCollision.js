@@ -121,7 +121,7 @@ brawl.game.prototype.playerLedge = function (player, ledge) {
     ledge.phase = false;
     ledge.alpha = .4;
     //////////Eleveator Ledges/////////
-    if (ledge.name === ledgeElevator.name) {
+    if (ledge.name === ledgeElevator.name || ledge.name === 'ledgeElevatorActivate') {
         if (ledge.body.touching.up) {
             ledge.body.stop();
             player.body.velocity.y = -300;
@@ -136,8 +136,8 @@ brawl.game.prototype.playerLedge = function (player, ledge) {
         else if (ledge.body.touching.right) {
             ledge.body.velocity.x = -150;
         }
-        if (!ledge.elevatorActivate) {
-            ledge.elevatorActivate = true;
+        if (ledge.name === ledgeElevator.name) {
+            ledge.name = 'ledgeElevatorActivate';
         }
     }
     //////////Super Jump Bounce/////////

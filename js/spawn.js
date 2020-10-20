@@ -160,6 +160,9 @@ brawl.game.prototype.spriteGen = function (sprite, positionInArray) {
     if (sprite.spriteType.name === groundOneWayKillObject.name) {
         this.spriteX.alpha = .4;
     }
+    if (groupCategory === groupLedge) {
+        this.spriteX.alpha = 1;
+    }
     ///////////Drag Events///////////
     // this.spriteX.inputEnabled = true;
     // this.spriteX.input.enableDrag();

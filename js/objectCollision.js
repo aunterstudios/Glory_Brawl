@@ -132,7 +132,7 @@ brawl.game.prototype.gdVsMov = function (groundDeath, moveable) {
         }
     }
     /////////////////////groundDeath Wall Effects Against Moveable////////////////////
-    if (groundDeath.name === groundKillWall.name || groundDeath.name === groundOneWayKillObject.name || moveable.elevatorActivate) {
+    if (groundDeath.name === groundKillWall.name || groundDeath.name === groundOneWayKillObject.name || moveable.name === 'ledgeElevatorActivate') {
         if (moveable.generationType === 'timer') {
             this.emitterFunction(moveable, null, 'kill');
         }
@@ -220,10 +220,6 @@ brawl.game.prototype.wallVsMov = function (wall, mov) {
     else if (wall.body.touching.right) {
         mov.body.velocity.x = 300;
     }
-    ///////////////Ledge Specific Death///////////
-    // if (mov.elevatorActivate) {
-    //     this.emitterFunction(mov, null, 'destroy');
-    // }
     return;
 };
 
