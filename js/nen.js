@@ -57,7 +57,7 @@ var seanNen = new nenCreator(
 // ];
 
 var basicGunSet = [
-  //Name, Tint, FireRate, Speed, Power
+  //Name, Tint, FireRate, Speed, Power 1
   new weaponCreator('pull', Phaser.Color.GREEN, 300, 800, 600),//Weapon 1
   new weaponCreator('push', Phaser.Color.BLUE, 300, 800, 2),//Weapon 2
   new weaponCreator('stop', Phaser.Color.VIOLET, 300, 800),//Weapon 3
@@ -66,7 +66,7 @@ var basicGunSet = [
 
 
 var funGunSet = [
-  //Name, Tint, FireRate, Speed
+  //Name, Tint, FireRate, Speed, Power 1
   new weaponCreator('pull', Phaser.Color.GREEN, 250, 1000, 300),//Weapon 1
   new weaponCreator('push', Phaser.Color.BLUE, 250, 1000, 3),//Weapon 2
   new weaponCreator('stop', Phaser.Color.VIOLET, 250, 1000),//Weapon 3
@@ -74,9 +74,17 @@ var funGunSet = [
 ];
 
 var testGunSet = [
-  //Name, Tint, FireRate, Speed
+  //Name, Tint, FireRate, Speed, Power 1
   null, //Weapon 1
   null, //Weapon 2
   null, //Weapon 3
   null, //Weapon 4
 ];
+
+var killGunSet = [
+    //Name, Tint, FireRate, Speed, Power 1
+    new weaponCreator('kill', Phaser.Color.RED, 100, 1500),, //Weapon 1
+    null, //Weapon 2
+    null, //Weapon 3
+    null, //Weapon 4
+]

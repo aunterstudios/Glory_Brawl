@@ -11,6 +11,15 @@ brawl.game.prototype.weaponHandler = function (bullet, sprite) {
         else if (bullet.name === 'stop') {
             sprite.body.stop();
         }
+        else if (bullet.name === 'kill') {
+            if (sprite.generationType === 'timer') {
+                this.emitterFunction(sprite, null, 'kill');
+            }
+            else {
+                this.emitterFunction(sprite, null, 'destroy');
+    
+            }
+        }
     }
     bullet.kill();
 };
