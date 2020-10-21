@@ -124,6 +124,6 @@ var bounceGhostGunSet = [
     //Name, Tint, FireRate, Speed, Power 1
     new weaponCreator('ghost', Phaser.Color.getRandomColor(10), 300, 800), //Weapon 1
     new weaponCreator('push', Phaser.Color.BLUE, 300, 800, 2), //Weapon 2
-    new weaponCreator('pull', Phaser.Color.getRandomColor(10), 300, 800, 600), //Weapon 3
-    null, //Weapon 4
-]
+    new weaponCreator('bounce', Phaser.Color.getRandomColor(10), 300, 800, .1), //Weapon 3
+    new weaponCreator('antiBounce', Phaser.Color.getRandomColor(10), 300, 800, .1) //Weapon 4
+];

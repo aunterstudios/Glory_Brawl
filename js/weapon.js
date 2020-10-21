@@ -117,6 +117,19 @@ brawl.game.prototype.weaponHandler = function (bullet, sprite) {
                 sprite.tint = sprite.originalTint;
             }
         }
+        ////////////Bounce////////////
+        else if (bullet.name === 'bounce') {
+            if (sprite.body.bounce.y < 4.0) {
+                sprite.body.bounce.y += bullet.powerOne;
+                sprite.body.bounce.x += bullet.powerOne;
+            }
+        }
+        else if (bullet.name === 'antiBounce') {
+            if (sprite.body.bounce.y > .1) {
+                sprite.body.bounce.y -= bullet.powerOne;
+                sprite.body.bounce.x -= bullet.powerOne;
+            }
+        }
     }
     bullet.kill();
 };
