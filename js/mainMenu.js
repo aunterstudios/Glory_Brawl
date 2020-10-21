@@ -104,11 +104,14 @@ brawl.startScreen.prototype = {
     preload: function () {
     },
     create: function () {
+        this.game.stage.backgroundColor = '#D3D3D3';
+
         this.text1 = this.game.add.text(100, 200, "I know you don't know what's going on.\n\nBut we've been here countless times.\n\nDoing the same thing over and over again.\n\nTrying to become reborn again.\n\nTo defeat The Shadow.\n\nSo I ask you to remember the words.\n\nGLORY BRAWL");
         this.text1.font = 'Courier New';
         this.text1.fontSize = 25
         this.text1.fill = '#ffffff';
         this.text1.fontWeight = 'bold';
+        this.text1.setShadow(3, 3, 'rgba(0,0,0,0.5)', 2);
 
         this.xToPlay = this.game.add.text(600, 700, "Press X to Play");
         this.xToPlay.font = 'Courier New';
