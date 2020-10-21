@@ -106,6 +106,17 @@ brawl.game.prototype.weaponHandler = function (bullet, sprite) {
 
         //     }
         // }
+        //////////////////Ghost////////////////////
+        else if (bullet.name === 'ghost' && sprite.name !== 'immovable') {
+            if (sprite.ghost) {
+                sprite.ghost = false;
+                sprite.tint = -5747702;
+            }
+            else {
+                sprite.ghost = true;
+                sprite.tint = sprite.originalTint;
+            }
+        }
     }
     bullet.kill();
 };

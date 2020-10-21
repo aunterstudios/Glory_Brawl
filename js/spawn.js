@@ -130,6 +130,7 @@ brawl.game.prototype.spriteGen = function (sprite, positionInArray) {
     this.spriteX.body.maxVelocity.setTo(sprite.spriteType.maxVelocity);
     //Handle Collision Events
     this.spriteX.phase = true;
+    this.spriteX.ghost = true;
     this.spriteX.originalTint = sprite.spriteType.tint;
     // if (sprite.specialCondition) {
     //     this.spriteX.body.setSize(this.spriteX.width / 1.4, this.spriteX.height / 1.4, 20);
@@ -186,6 +187,8 @@ brawl.game.prototype.flagSpawn = function (sprite, positionInArray) {
     this.flagX.nameSave = sprite.spriteType.name;
     this.flagX.groupName = groupArray[sprite.spriteType.groupNumber];
     this.flagX.tint = sprite.spriteType.tint;
+    this.flagX.originalTint = sprite.spriteType.tint;
+    this.flagX.ghost = true;
     this.flagX.positionInArray = positionInArray;
     this.flagX.anchor.setTo(sprite.spriteType.anchor);
     this.flagX.body.immovable = sprite.spriteType.immovable;

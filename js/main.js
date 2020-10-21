@@ -113,7 +113,7 @@ var level_0 = new LevelCreator(
   true, //Out of Bounds Allowed
   1, //PlayerScale
   portalNen, //Nen-System
-  gravityGunSet, //Gun-Set
+  bounceGhostGunSet, //Gun-Set
   true, //Sideways Stick to Walls,
   true, //Upsidedown Stick
 );
