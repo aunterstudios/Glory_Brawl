@@ -86,5 +86,5 @@ var hazamaFalconia = new spriteType(8, 'hazamaFalconia', Phaser.Color.getRandomC
 var invisibleRegular = new spriteType(9, 'invisibleRegular', Phaser.Color.AQUA, 1000, 0, true, 1000, 1); //Invisible Objects
 
 //Flag Names
-var flagRegular = new spriteType(0, 'flagRegular', Phaser.Color.GRAY, 200, 0, false, 1000, 1);
+var flagRegular = new spriteType(0, 'flagRegular', Phaser.Color.getRandomColor(10), 200, 0, false, 1000, 1);
 var flagSpecial = new spriteType(1, 'flagShadow', Phaser.Color.AQUA, 200, 0, false, 1000, 1);
