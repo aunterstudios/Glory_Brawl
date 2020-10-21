@@ -3,13 +3,13 @@
 brawl.game.prototype.weaponHandler = function (bullet, sprite) {
     if (sprite.groupName === groupBall || sprite.groupName === groupEnemy || sprite.groupName === groupWall || sprite.groupName === groupLedge || sprite.groupName === groupFlagPhysics) {
         /////////////////Basic OG Gun Set/////////////////
-        if (bullet.name === 'pull') {
+        if (bullet.name === 'pull' && !sprite.name === 'immovable') {
             this.game.physics.arcade.moveToObject(sprite, this.player, bullet.powerOne);
         }
-        else if (bullet.name === 'push') {
+        else if (bullet.name === 'push' && !sprite.name === 'immovable') {
             sprite.body.velocity.setTo(bullet.body.velocity.x / bullet.powerOne, bullet.body.velocity.y / bullet.powerOne);
         }
-        else if (bullet.name === 'stop') {
+        else if (bullet.name === 'stop' && !sprite.name === 'immovable') {
             sprite.body.stop();
         }
         else if (bullet.name === 'kill') {
@@ -23,55 +23,55 @@ brawl.game.prototype.weaponHandler = function (bullet, sprite) {
         }
         ////////////////////Directional Guns//////////////////
         //Set One (Momentum Set to Zero)
-        else if (bullet.name === 'upZero') {
+        else if (bullet.name === 'upZero' && !sprite.name === 'immovable') {
             // sprite.body.velocity.y = -bullet.powerOne;
-           sprite.body.velocity.setTo(0, -bullet.powerOne);
+            sprite.body.velocity.setTo(0, -bullet.powerOne);
         }
-        else if (bullet.name === 'downZero') {
+        else if (bullet.name === 'downZero' && !sprite.name === 'immovable') {
             // sprite.body.velocity.y = bullet.powerOne;
             sprite.body.velocity.setTo(0, bullet.powerOne);
         }
-        else if (bullet.name === 'leftZero') {
+        else if (bullet.name === 'leftZero' && !sprite.name === 'immovable') {
             // sprite.body.velocity.x = -bullet.powerOne;
             sprite.body.velocity.setTo(bullet.powerOne, 0);
         }
-        else if (bullet.name === 'rightZero') {
+        else if (bullet.name === 'rightZero' && !sprite.name === 'immovable') {
             // sprite.body.velocity.x = bullet.powerOne;
             sprite.body.velocity.setTo(-bullet.powerOne, 0);
         }
         //Set Two (Momentum Continued)
-        else if (bullet.name === 'up') {
+        else if (bullet.name === 'up' && !sprite.name === 'immovable') {
             sprite.body.velocity.y = -bullet.powerOne;
         }
-        else if (bullet.name === 'down') {
+        else if (bullet.name === 'down' && !sprite.name === 'immovable') {
             sprite.body.velocity.y = bullet.powerOne;
         }
-        else if (bullet.name === 'left') {
+        else if (bullet.name === 'left' && !sprite.name === 'immovable') {
             sprite.body.velocity.x = -bullet.powerOne;
         }
-        else if (bullet.name === 'right') {
+        else if (bullet.name === 'right' && !sprite.name === 'immovable') {
             sprite.body.velocity.x = bullet.powerOne;
         }
         //////////////////////////Gravity Guns//////////////////////
-        else if (bullet.name === 'gravity') {
+        else if (bullet.name === 'gravity' && !sprite.name === 'immovable') {
             if (sprite.body.gravity.y < 1500) {
                 sprite.body.gravity.y += bullet.powerOne;
                 // console.log(sprite.body.gravity.y, 'gravity');
             }
         }
-        else if (bullet.name === 'antiGravity') {
+        else if (bullet.name === 'antiGravity' && !sprite.name === 'immovable') {
             if (sprite.body.gravity.y > -1500) {
                 sprite.body.gravity.y -= bullet.powerOne;
                 // console.log(sprite.body.gravity.y, 'AntiGravity');
             }
         }
-        else if (bullet.name === 'gravityLeft') {
+        else if (bullet.name === 'gravityLeft' && !sprite.name === 'immovable') {
             if (sprite.body.gravity.x > -1500) {
                 sprite.body.gravity.x -= bullet.powerOne;
                 // console.log(sprite.body.gravity.y, 'AntiGravity');
             }
         }
-        else if (bullet.name === 'gravityRight') {
+        else if (bullet.name === 'gravityRight' && !sprite.name === 'immovable') {
             if (sprite.body.gravity.x < 1500) {
                 sprite.body.gravity.x += bullet.powerOne;
                 // console.log(sprite.body.gravity.y, 'gravity');
