@@ -92,6 +92,20 @@ brawl.game.prototype.weaponHandler = function (bullet, sprite) {
                 sprite.tint = tintWallPlayerFrozen;
             }
         }
+        // ///////////////////Scale////////////////
+        // else if (bullet.name === 'big') {
+        //     if (sprite.scale.y < 4) {
+        //         sprite.scale.setTo(sprite.scale.y * 2);
+        //         sprite.body.setSize(100 / sprite.scale.x, 10 / sprite.scale.y);
+        //     }
+        // }
+        // else if (bullet.name === 'small') {
+        //     if (sprite.scale.y > .5) {
+        //         sprite.scale.setTo(sprite.scale.y / 2);
+        //         sprite.body.setSize(100 / sprite.scale.x, 10 / sprite.scale.y);
+
+        //     }
+        // }
     }
     bullet.kill();
 };
