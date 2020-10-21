@@ -51,7 +51,7 @@ brawl.game.prototype.wallVsMovProcess = function (wall, mov) {
     /////////////////Actual Collision Physics/////////////
     // bL.body.velocity.setTo(-wall.body.velocity.x, -wall.body.velocity.y);
     //////////////////////Destroys Elevator Ledge/////////////////////////
-    if (!wall.phase || !mov.phase) {
+    if (!wall.phase || !mov.phase || !wall.ghost || !mov.ghost) {
         return false;
     }
     else {
@@ -69,7 +69,7 @@ brawl.game.prototype.playerGroundProcess = function (player, wall) {
 };
 
 brawl.game.prototype.ballVsEnemyProcess = function (ball, enemy) {
-    if (!enemy.phase) {
+    if (!enemy.phase || !ball.ghost || !enemy.ghost) {
         return false;
     }
     else {
@@ -78,7 +78,7 @@ brawl.game.prototype.ballVsEnemyProcess = function (ball, enemy) {
 };
 
 brawl.game.prototype.ledgeVsEnemyProcess = function (ledge, enemy) {
-    if (!ledge.phase || !enemy.phase) {
+    if (!ledge.phase || !enemy.phase || !ledge.ghost || !enemy.ghost) {
         return false;
     }
     else {
@@ -87,7 +87,7 @@ brawl.game.prototype.ledgeVsEnemyProcess = function (ledge, enemy) {
 };
 
 brawl.game.prototype.ballVsLedgeProcess = function (ball, ledge) {
-    if (!ledge.phase) {
+    if (!ledge.phase || !ball.ghost || !ledge.ghost) {
         return false;
     }
     else {
@@ -97,7 +97,7 @@ brawl.game.prototype.ballVsLedgeProcess = function (ball, ledge) {
 
 brawl.game.prototype.flagVsEprocess = function (flag, obj) {
     ///////////////Actual Collision Physics/////////////
-    if (flag.groupName === groupFlag || !obj.phase) {
+    if (flag.groupName === groupFlag || !obj.phase || !obj.ghost || !flag.ghost) {
         return false;
     }
     else {
