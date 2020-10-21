@@ -27,7 +27,10 @@ brawl.game.prototype.deathVsSelfProcess = function (d1, d2) {
 
 //ground and death vs moveable
 brawl.game.prototype.gdVsMovProcess = function (imb, mov) {
-    if (imb.name === groundOneWayObject || (!mov.phase && mov.name === 'ledgeElevatorActivate' && (imb.groupName === groupDeathMove || imb.groupName === groupGroundMove)) || imb.groupName === groupCollect) {
+    if (imb.name === groundOneWayObject || imb.groupName === groupCollect) {
+        return false;
+    }
+    else if (!mov.phase && (imb.groupName === groupDeathMove || imb.groupName === groupGroundMove)) {
         return false;
     }
     else {

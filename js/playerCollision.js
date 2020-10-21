@@ -111,9 +111,13 @@ brawl.game.prototype.playerEnemy = function (player, enemy) {
 
         }
     }
+    else if (enemy.name === 'immovable') {
+        return;
+    }
     else {
         this.playerDeath(player, enemy);
     }
+    return;
 };
 
 brawl.game.prototype.playerLedge = function (player, ledge) {

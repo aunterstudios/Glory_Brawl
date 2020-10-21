@@ -28,7 +28,6 @@ var groupCollectPhysics = 'groupCollectPhysics';
 
 /////////////////////////Global Tints//////////////////////////
 var tintWallPlayerFrozen = 0x00ffff; //Frozen Wall Tints
-var testTint = Math.random() * 0xffffff; // testTint
 /////////////////////////List of Names of Each Sprite (For Different Special Properties)////////////////
 //Death Names
 var deathRegular = new spriteType(0, 'deathRegular', Phaser.Color.RED, 100, 0, true, 1000, 1); //No Special Properties
@@ -38,7 +37,7 @@ var deathGhost = new spriteType(0, 'deathGhost', Phaser.Color.RED, 100, 0, true,
 var deathRegularMove = new spriteType(10, 'deathRegularMov', Phaser.Color.RED, 100, 0, false, 1000, 1); //This one is Moving
 
 //Ground
-var groundRegular = new spriteType(1, 'groundRegular', -1148050, 100, 0, true, 1000, 1); //No Special Properties
+var groundRegular = new spriteType(1, 'groundRegular', Phaser.Color.GRAY, 100, 0, true, 1000, 1); //No Special Properties
 var groundKillWall = new spriteType(1, 'groundKillWall', 7019278.306799905, 100, 0, true, 1000, 1); //Kills Walls(Will Be Everything)
 var groundPhase = new spriteType(1, 'groundPhase', 12758247.409111453, 100, 0, true, 1000, 1); //Killed By Enemy BULLETS
 var groundActivation = new spriteType(1, 'groundActivation', 0xffff00, 100, 0, true, 1000, 1); //Triggers Movement in a Wall
@@ -47,14 +46,14 @@ var groundOneWayObject = new spriteType(1, 'groundOneWayObject', 2499878.0362842
 var groundOneWayPlayer = new spriteType(1, 'groundOneWayPlayer', 241917.63554178402, 100, 0, true, 1000, 1); //One Way (Players Only)
 var groundSlippery = new spriteType(1, 'groundSlippery', 766012.4141677661, 100, 0, true, 1000, 1); //Makes you SLIPPERY!
 var groundOneWayPlayerBlockLeft = new spriteType(1, 'groundOneWayPlayerBlockLeft', 3588771.242333334, 100, 0, true, 1000, 1); //One way player only from the left
-var groundOneWayPlayerBlockDown = new spriteType(1, 'groundOneWayPlayerBlockDown', testTint, 100, 0, true, 1000, 1); //One way player only from the Bottom
-var groundOneWayKillObject = new spriteType(1, 'groundOneWayKillObject', testTint, 100, 0, true, 1000, 1); //One Way for Player But Kills Object
+var groundOneWayPlayerBlockDown = new spriteType(1, 'groundOneWayPlayerBlockDown', Phaser.Color.getRandomColor(10), 100, 0, true, 1000, 1); //One way player only from the Bottom
+var groundOneWayKillObject = new spriteType(1, 'groundOneWayKillObject', Phaser.Color.getRandomColor(10), 100, 0, true, 1000, 1); //One Way for Player But Kills Object
 //Moveable Ground
 var groundRegularMove = new spriteType(11, 'groundRegularMove', Phaser.Color.GRAY, 100, 0, false, 1000, 1); //No Special Properties
 //PowerUps (Coded In As Ground)
-var powerJump = new spriteType(12, 'powerJump', testTint, 1, 0, true, 1000, 1);
+var powerJump = new spriteType(12, 'powerJump', Phaser.Color.getRandomColor(10), 1, 0, true, 1000, 1);
 //Coin (Coded In as Ground)
-var coinDefault = new spriteType(12, 'coinDefault', testTint, 1, 0, true, 1000, 1);
+var coinDefault = new spriteType(12, 'coinDefault', Phaser.Color.getRandomColor(10), 1, 0, true, 1000, 1);
 
 //Moveable Wall Names
 var wallRegular = new spriteType(2, 'wallRegular', Phaser.Color.GRAY, 200, .5, false, 1000, 1);
@@ -81,7 +80,7 @@ var fallingSpikesRegular = new spriteType(6, 'fallingSpikesRegular', Phaser.Colo
 var fallingSpikesRegularTwo = new spriteType(7, 'fallingSpikesRegular', Phaser.Color.RED, 1, .5, false, 10000, 0);
 
 //Hazama
-var hazamaFalconia = new spriteType(8, 'hazamaFalconia', testTint, 1, 0, false, 200, 1); //SUPER JUMPING ABILITY
+var hazamaFalconia = new spriteType(8, 'hazamaFalconia', Phaser.Color.getRandomColor(10), 1, 0, false, 200, 1); //SUPER JUMPING ABILITY
 
 //Invisible
 var invisibleRegular = new spriteType(9, 'invisibleRegular', Phaser.Color.AQUA, 1000, 0, true, 1000, 1); //Invisible Objects

@@ -112,11 +112,11 @@ var gravityGunSet = [
   new weaponCreator('gravityRight', Phaser.Color.getRandomColor(10), 100, 1000, 100),//Weapon 4
 ];
 
-var testTint = Phaser.Color.getRandomColor(10);
-console.log(testTint);
+var test = Phaser.Color.getRandomColor(10);
+console.log(test);
 var immovableGunSet = [
   //Name, Tint, FireRate, Speed, Power 1
-  new weaponCreator('immovable', testTint, 100, 1500), //Weapon 1
+  new weaponCreator('immovable', test, 100, 1500), //Weapon 1
   new weaponCreator('pull', Phaser.Color.GREEN, 300, 800, 600), //Weapon 2
   null, //Weapon 3
   null, //Weapon 4
