@@ -77,6 +77,24 @@ brawl.game.prototype.weaponHandler = function (bullet, sprite) {
                 // console.log(sprite.body.gravity.y, 'gravity');
             }
         }
+        //////////////////////Immovable///////////////////////
+        else if (bullet.name === 'immovable') {
+            if (sprite.body.immovable) {
+                sprite.body.stop();
+                sprite.body.immovable = false;
+                // sprite.body.moves = true;
+                sprite.name = sprite.nameSave;
+                sprite.tint = sprite.originalTint;
+                // sprite.tint = Phaser.Color.getRandomColor();
+            }
+            else {
+                sprite.body.stop();
+                sprite.body.immovable = true;
+                // sprite.body.moves = false;
+                sprite.name = 'immovable';
+                sprite.tint = tintWallPlayerFrozen;
+            }
+        }
     }
     bullet.kill();
 };

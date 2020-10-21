@@ -117,6 +117,7 @@ brawl.game.prototype.spriteGen = function (sprite, positionInArray) {
     }
     //Sprite Name
     this.spriteX.name = sprite.spriteType.name;
+    this.spriteX.nameSave = sprite.spriteType.name;
     this.spriteX.groupName = groupCategory;
     this.spriteX.tint = sprite.spriteType.tint;
     this.spriteX.specialCondition = sprite.specialCondition;
@@ -182,6 +183,7 @@ brawl.game.prototype.flagSpawn = function (sprite, positionInArray) {
     this.flagX = this.flag.create(sprite.x, sprite.y, sprite.art);
     this.flagX.scale.setTo(sprite.scale);
     this.flagX.name = sprite.spriteType.name;
+    this.flagX.nameSave = sprite.spriteType.name;
     this.flagX.groupName = groupArray[sprite.spriteType.groupNumber];
     this.flagX.tint = sprite.spriteType.tint;
     this.flagX.positionInArray = positionInArray;

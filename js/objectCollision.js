@@ -207,19 +207,23 @@ brawl.game.prototype.wallVsMov = function (wall, mov) {
     // wall.body.stop();
     if (mov.groupName === groupEnemy) {
         mov.name = 'enemyWall';
-        mov.tint = tintRemover;
+        mov.nameSave = 'enemyWall';
+        mov.originalTint = Phaser.Color.GRAY;
+        mov.tint = Phaser.Color.GRAY;
     }
-    if (wall.body.touching.up) {
-        mov.body.velocity.y = -300;
-    }
-    else if (wall.body.touching.down) {
-        mov.body.velocity.y = 300;
-    }
-    else if (wall.body.touching.left) {
-        mov.body.velocity.x = -300;
-    }
-    else if (wall.body.touching.right) {
-        mov.body.velocity.x = 300;
+    if (!wall.body.immovable && !mov.body.immovable) {
+        if (wall.body.touching.up) {
+            mov.body.velocity.y = -300;
+        }
+        else if (wall.body.touching.down) {
+            mov.body.velocity.y = 300;
+        }
+        else if (wall.body.touching.left) {
+            mov.body.velocity.x = -300;
+        }
+        else if (wall.body.touching.right) {
+            mov.body.velocity.x = 300;
+        }
     }
     return;
 };
@@ -242,54 +246,60 @@ brawl.game.prototype.ballVsEnemy = function (ball, enemy) {
 //Ledge Interaction Vs. Enemy
 brawl.game.prototype.ledgeVsEnemy = function (ledge, enemy) {
     ///////////////Actual Collision Physics/////////////
-    ledge.body.stop();
-    if (ledge.body.touching.up) {
-        enemy.body.velocity.y = -300;
-    }
-    else if (ledge.body.touching.down) {
-        enemy.body.velocity.y = 300;
-    }
-    else if (ledge.body.touching.left) {
-        enemy.body.velocity.x = -300;
-    }
-    else if (ledge.body.touching.right) {
-        enemy.body.velocity.x = 300;
+    if (!enemy.body.immovable && !ledge.body.immovable) {
+        ledge.body.stop();
+        if (ledge.body.touching.up) {
+            enemy.body.velocity.y = -300;
+        }
+        else if (ledge.body.touching.down) {
+            enemy.body.velocity.y = 300;
+        }
+        else if (ledge.body.touching.left) {
+            enemy.body.velocity.x = -300;
+        }
+        else if (ledge.body.touching.right) {
+            enemy.body.velocity.x = 300;
+        }
     }
     return;
 };
 
 brawl.game.prototype.ballVsLedge = function (ball, ledge) {
     ///////////////Actual Collision Physics/////////////
-    ledge.body.stop();
-    if (ledge.body.touching.up) {
-        ball.body.velocity.y = -300;
-    }
-    else if (ledge.body.touching.down) {
-        ball.body.velocity.y = 300;
-    }
-    else if (ledge.body.touching.left) {
-        ball.body.velocity.x = -300;
-    }
-    else if (ledge.body.touching.right) {
-        ball.body.velocity.x = 300;
+    if (!ball.body.immovable && !ledge.body.immovable) {
+        ledge.body.stop();
+        if (ledge.body.touching.up) {
+            ball.body.velocity.y = -300;
+        }
+        else if (ledge.body.touching.down) {
+            ball.body.velocity.y = 300;
+        }
+        else if (ledge.body.touching.left) {
+            ball.body.velocity.x = -300;
+        }
+        else if (ledge.body.touching.right) {
+            ball.body.velocity.x = 300;
+        }
     }
     return;
 };
 
 brawl.game.prototype.flagVsE = function (flag, obj) {
     ///////////////Actual Collision Physics/////////////
-    obj.body.stop();
-    if (obj.body.touching.up) {
-        flag.body.velocity.y = -300;
-    }
-    else if (obj.body.touching.down) {
-        flag.body.velocity.y = 300;
-    }
-    else if (obj.body.touching.left) {
-        flag.body.velocity.x = -300;
-    }
-    else if (obj.body.touching.right) {
-        flag.body.velocity.x = 300;
+    if (!flag.body.immovable && !obj.body.immovable) {
+        obj.body.stop();
+        if (obj.body.touching.up) {
+            flag.body.velocity.y = -300;
+        }
+        else if (obj.body.touching.down) {
+            flag.body.velocity.y = 300;
+        }
+        else if (obj.body.touching.left) {
+            flag.body.velocity.x = -300;
+        }
+        else if (obj.body.touching.right) {
+            flag.body.velocity.x = 300;
+        }
     }
     return;
 };

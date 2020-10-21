@@ -122,24 +122,6 @@ brawl.game.prototype.wallContinious = function () {
     }, this, this.player);
 };
 
-brawl.game.prototype.groundContinious = function () {
-    this.ground.forEachAlive(function (ground) {
-        if (ground.groupName === groupGroundMove) {
-            ground.body.moves = true;
-            ground.body.immovable = false;
-            ground.tint = Phaser.Color.WHITE;
-            // console.log(ground.tint);
-        }
-    }, this, this.player);
-};
-
-// brawl.game.prototype.ledgeContinious = function () {
-//     this.ledge.forEachAlive(function (ledge) {
-//         ledge.phase = true;
-//         ledge.alpha = 1;
-//     }, this, this.player);
-// };
-
 brawl.game.prototype.hazamaContinious = function () {
     this.hazama.forEachAlive(function (hazama) {
         if (hazama.lastOverlapped && this.game.time.now > hazama.lastOverlapped) {

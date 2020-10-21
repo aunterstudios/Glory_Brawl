@@ -86,7 +86,7 @@ var killGunSet = [
   null, //Weapon 2
   null, //Weapon 3
   null, //Weapon 4
-]
+];
 
 var directionalGunSet = [
   //Name, Tint, FireRate, Speed, Power 1
@@ -94,7 +94,7 @@ var directionalGunSet = [
   new weaponCreator('down', Phaser.Color.getRandomColor(10), 100, 1000, 500),//Weapon 2
   new weaponCreator('left', Phaser.Color.getRandomColor(10), 100, 1000, 500),//Weapon 3
   new weaponCreator('right', Phaser.Color.getRandomColor(10), 100, 1000, 500),//Weapon 4
-]
+];
 
 var directionalTwoGunSet = [
   //Name, Tint, FireRate, Speed, Power 1
@@ -110,4 +110,14 @@ var gravityGunSet = [
   new weaponCreator('antiGravity', Phaser.Color.getRandomColor(10), 100, 1000, 100),//Weapon 2
   new weaponCreator('gravityLeft', Phaser.Color.getRandomColor(10), 100, 1000, 100),//Weapon 3
   new weaponCreator('gravityRight', Phaser.Color.getRandomColor(10), 100, 1000, 100),//Weapon 4
-]
+];
+
+var testTint = Phaser.Color.getRandomColor(10);
+console.log(testTint);
+var immovableGunSet = [
+  //Name, Tint, FireRate, Speed, Power 1
+  new weaponCreator('immovable', testTint, 100, 1500), //Weapon 1
+  new weaponCreator('pull', Phaser.Color.GREEN, 300, 800, 600), //Weapon 2
+  null, //Weapon 3
+  null, //Weapon 4
+];
