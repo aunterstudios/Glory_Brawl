@@ -132,7 +132,7 @@ brawl.game.prototype.gdVsMov = function (groundDeath, moveable) {
         }
     }
     /////////////////////groundDeath Wall Effects Against Moveable////////////////////
-    if (groundDeath.name === groundKillWall.name || groundDeath.name === groundOneWayKillObject.name || moveable.name === 'ledgeElevatorActivate') {
+    if (groundDeath.name === groundKillWall.name || groundDeath.name === groundOneWayKillObject.name || moveable.name === 'ledgeElevatorActivate' || moveable.name === wallExplode.name) {
         if (moveable.generationType === 'timer') {
             this.emitterFunction(moveable, null, 'kill');
         }
@@ -140,7 +140,6 @@ brawl.game.prototype.gdVsMov = function (groundDeath, moveable) {
             this.emitterFunction(moveable, null, 'destroy');
 
         }
-        // this.emitterFunction(moveable, null, 'destroy');
     }
     /////////////////////////Special Condition That Kills Objects While Moving/////////////////////////
     if (groundDeath.specialCondition) {
@@ -223,6 +222,16 @@ brawl.game.prototype.wallVsMov = function (wall, mov) {
         }
         else if (wall.body.touching.right) {
             mov.body.velocity.x = 300;
+        }
+    }
+    ///////////////////Destruction////////////////
+    if (wall.name === wallExplode.name) {
+        if (wall.generationType === 'timer') {
+            this.emitterFunction(wall, null, 'kill');
+        }
+        else {
+            this.emitterFunction(wall, null, 'destroy');
+    
         }
     }
     return;

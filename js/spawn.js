@@ -159,7 +159,7 @@ brawl.game.prototype.spriteGen = function (sprite, positionInArray) {
     if (groupCategory === groupInvisible) {
         this.spriteX.alpha = .3;
     }
-    if (sprite.spriteType.name === groundOneWayKillObject.name) {
+    if (sprite.spriteType.name === groundOneWayKillObject.name || sprite.spriteType.name === groundOneWayPlayer.name) {
         this.spriteX.alpha = .4;
     }
     if (groupCategory === groupLedge) {

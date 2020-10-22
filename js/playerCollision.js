@@ -60,7 +60,7 @@ brawl.game.prototype.playerWall = function (player, wall) {
     wall.phase = false;
     wall.alpha = .4;
     ///////////Default Easy Wall///////////
-    if (wall.name === wallRegular.name) {
+    if (wall.name === wallRegular.name || wall.name === wallExplode.name) {
         // if (wall.body.touching.up || wall.body.touching.down) {
         //     player.body.stop();
         //     wall.body.stop();
@@ -69,18 +69,18 @@ brawl.game.prototype.playerWall = function (player, wall) {
         wall.body.stop();
     }
     //////////Slightly Harder Wall///////////
-    if (wall.name === wallSideMomentum.name) {
-        if (wall.body.touching.up || wall.body.touching.down) {
-            player.body.stop();
-            wall.body.stop();
-        }
-        // else if (wall.body.touching.left) {
-        //     wall.body.velocity.x = 500;
-        // }
-        // else if (wall.body.touching.right) {
-        //     wall.body.velocity.x = -500;
-        // }
-    }
+    // if (wall.name === wallSideMomentum.name) {
+    //     if (wall.body.touching.up || wall.body.touching.down) {
+    //         player.body.stop();
+    //         wall.body.stop();
+    //     }
+    //     // else if (wall.body.touching.left) {
+    //     //     wall.body.velocity.x = 500;
+    //     // }
+    //     // else if (wall.body.touching.right) {
+    //     //     wall.body.velocity.x = -500;
+    //     // }
+    // }
     ///////////////////////////////Special Walls///////////////////////////
     if (wall.name === wallCloud.name) {
         // player.body.stop();
