@@ -1,5 +1,6 @@
 var brawl = {};
 
+//State that loads assets
 brawl.boot = function () { };
 brawl.boot.prototype = {
     init: function () {
@@ -56,9 +57,9 @@ brawl.boot.prototype = {
         }
     },
     create: function () {
+        this.game.state.start('mainMenu');
     },
     update: function () {
-        this.game.state.start('mainMenu');
     }
 };
 
@@ -74,7 +75,7 @@ brawl.mainMenu.prototype = {
     },
     create: function () {
         //Game Background Color
-        this.game.stage.backgroundColor = '#D8A8B2';
+        this.game.stage.backgroundColor = '#000000';
         //Full Screen
         this.fullSize = this.game.input.keyboard.addKey(Phaser.Keyboard.O);
         this.fullSize.onDown.add(this.gofull, this);
