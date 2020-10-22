@@ -154,10 +154,10 @@ brawl.game.prototype.spriteGen = function (sprite, positionInArray) {
     }
     ////////////////////Alpha////////////////////////
     if (groupCategory === groupHazama) {
-        this.spriteX.alpha = .3;
+        this.spriteX.alpha = .2;
     }
     if (groupCategory === groupInvisible) {
-        this.spriteX.alpha = .1;
+        this.spriteX.alpha = .3;
     }
     if (sprite.spriteType.name === groundOneWayKillObject.name) {
         this.spriteX.alpha = .4;

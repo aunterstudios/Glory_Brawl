@@ -223,7 +223,7 @@ var level_1 = new LevelCreator(
   "Level 1-SandboxMode", //Name of World
   1400, //X-Size of World
   16000, //Y-Size of World
-  '#B0CDEA', //Background Color
+  '#EBFAFA', //Background Color
   true, //Out of Bounds Allowed
   1, //Player Scale
   portalNen, //Nen-System
@@ -242,47 +242,55 @@ level_1.metroidvania = new MetroidvaniaCreator(
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_1.playerPosition = [
-  // new PlayerPositionCreator(150, 100),
-  // new PlayerPositionCreator(150, 100),
-  // new PlayerPositionCreator(150, 100),
-  // new PlayerPositionCreator(150, 100),
-  //Second Side
-  new PlayerPositionCreator(700, 100),
+  new PlayerPositionCreator(220, 10),
   new PlayerPositionCreator(700, 100),
   new PlayerPositionCreator(700, 100),
   new PlayerPositionCreator(700, 100),
 ]
 
 level_1.spriteSpawn = [
+  //////////////////////////////////////Your Friends////////////////////////////////
+  new SpriteCreator(true, wallSideMomentum, 'tile', wallTile50, 600, 400, 50, 300, 1, 0, 0, 0, 0, null, null),
   ///////////////////////////////////////Pillars//////////////////////////////////////
   //Left
-  new SpriteCreator(true, groundSlippery, 'tile', groundTile, 0, 0, 50, 8000, 1, 0, 0, 0, 0, null, null),
-  //Middle
-  new SpriteCreator(true, groundSlippery, 'tile', groundTile, 500, 0, 50, 1000, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 0, 0, 50, 8000, 1, 0, 0, 0, 0, null, null),
   //Right
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 1350, 0, 50, 1050, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, groundSlippery, 'tile', groundTile, 1350, 1050, 50, 2000, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 1350, 0, 50, 8000, 1, 0, 0, 0, 0, null, null),
   /////////////////////////////////////////Ground/////////////////////////////////////////////////
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 600, 200, 200, 50, 1, 0, 0, 0, 0, null, null),
-  ////////////////////////////////////////First White Section//////////////////////////////////////////
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 600, 800, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 700, 900, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 850, 1000, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 900, 1200, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 1000, 800, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 550, 1000, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 700, 900, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 900, 1300, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 800, 1200, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 1000, 1100, 50, 50, 1, 0, 0, 0, 0, null, null),
-  ///////////////////////////////////Hazama/////////////////////////////////////////////////////
-  new SpriteCreator(true, hazamaFalconia, 'tile', hazamaHippie, 50, 1000, 1300, 950, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 200, 200, 200, 50, 1, 0, 0, 0, 0, null, null),
+  ////////////////////////////////////////First Section Traps//////////////////////////////////////////
+  //Inside the Box Moving Death
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 400, 1650, 50, 50, 1, -900, 500, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 400, 1650, 50, 50, 1, 900, 500, 0, 0, null, null),
+  //Outside the Box Moving Death - Left
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 150, 1500, 50, 50, 1, 800, 200, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 400, 1600, 50, 50, 1, 800, 200, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 1000, 1700, 50, 50, 1, 800, 200, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 800, 1800, 50, 50, 1, 800, 200, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 400, 1900, 50, 50, 1, 800, 200, 0, 0, null, null),
+  // //Outside the Box Moving Death - Right
+  // new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 700, 1500, 50, 50, 1, 900, 0, 0, 0, null, null),
+  // new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 750, 1600, 50, 50, 1, -900, 0, 0, 0, null, null),
+  // new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 700, 1700, 50, 50, 1, 900, 0, 0, 0, null, null),
+  // new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 800, 1800, 50, 50, 1, -900, 0, 0, 0, null, null),
+  // new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 750, 1900, 50, 50, 1, 900, 0, 0, 0, null, null),
+  ////////Box Traps
+  //Top
+  new SpriteCreator(true, invisibleRegular, 'tile', invsibileTile, 50, 1400, 1300, 50, 1, 0, 0, 0, 0, null, null),
+  //Bottom
+  new SpriteCreator(true, invisibleRegular, 'tile', invsibileTile, 50, 1950, 1300, 50, 1, 0, 0, 0, 0, null, null),
+  // //Left
+  // new SpriteCreator(true, deathRegular, 'tile', deathTile, 200, 1450, 50, 500, 1, 0, 0, 0, 0, null, null),
+  // //Right
+  // new SpriteCreator(true, deathRegular, 'tile', deathTile, 650, 1450, 50, 500, 1, 0, 0, 0, 0, null, null),
+  ///////////////Hazama
+  new SpriteCreator(true, hazamaFalconia, 'tile', hazamaHippie, 50, 1000, 1300, 3000, 1, 0, 0, 0, 0, null, null),
 ];
 
 //flag spawn
 level_1.flagSpawn = [
   // //First Flag
-  new flagCreator(1, true, flagRegular, flag, 1, 750, 150, 0, 0, 0, 0, null),
+  new flagCreator(0, true, flagRegular, flag, 1, 350, 150, 0, 0, 0, 0, null),
 ];
 
 ////////////////////////////////////////Level 2/////////////////////////////////////

@@ -56,18 +56,30 @@ brawl.game.prototype.playerGround = function (player, ground) {
 };
 
 brawl.game.prototype.playerWall = function (player, wall) {
-    //WallRegular?
+    //////////Global Wall Effects////////
     wall.phase = false;
     wall.alpha = .4;
+    ///////////Default Easy Wall///////////
     if (wall.name === wallRegular.name) {
-        // wall.name = wallPlayerFrozen;
-        // wall.body.moves = false;
-        // wall.body.immovable = true;
-        // player.body.stop();
-        // wall.body.stop();
-        // wall.tint = tintWallPlayerFrozen;
+        // if (wall.body.touching.up || wall.body.touching.down) {
+        //     player.body.stop();
+        //     wall.body.stop();
+        // }
         player.body.stop();
         wall.body.stop();
+    }
+    //////////Slightly Harder Wall///////////
+    if (wall.name === wallSideMomentum.name) {
+        if (wall.body.touching.up || wall.body.touching.down) {
+            player.body.stop();
+            wall.body.stop();
+        }
+        // else if (wall.body.touching.left) {
+        //     wall.body.velocity.x = 500;
+        // }
+        // else if (wall.body.touching.right) {
+        //     wall.body.velocity.x = -500;
+        // }
     }
     ///////////////////////////////Special Walls///////////////////////////
     if (wall.name === wallCloud.name) {
@@ -93,6 +105,15 @@ brawl.game.prototype.playerWall = function (player, wall) {
     if (wall.name === wallKiller.name) {
         this.playerDeath(player, wall);
     }
+    ////////////////////////////////Testing//////////////////////////////////
+    //////////////Alpha Test One
+    // if (wall.body.touching.up || wall.body.touching.down) {
+    //     player.body.stop();
+    //     wall.body.stop();
+    // }
+    // else {
+    //     wall.body.velocity.x = player.body.velocity.x;
+    // }
 
     return;
 };

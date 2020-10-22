@@ -56,7 +56,8 @@ var powerJump = new spriteType(12, 'powerJump', Phaser.Color.getRandomColor(10),
 var coinDefault = new spriteType(12, 'coinDefault', Phaser.Color.getRandomColor(10), 1, 0, true, 1000, 1);
 
 //Moveable Wall Names
-var wallRegular = new spriteType(2, 'wallRegular', Phaser.Color.GRAY, 200, .5, false, 1000, 1);
+var wallRegular = new spriteType(2, 'wallRegular', Phaser.Color.GRAY, 200, .5, false, 1000, 1); //Default Easy Wall
+var wallSideMomentum = new spriteType(2, 'wallSideMomentum', Phaser.Color.ORANGE, 200, .5, false, 1000, 1); //Wall That Keeps Side Momentum
 var wallGhost = new spriteType(2, 'wallGhost', 16771007.229130682, 200, .5, true, 1000, 1); //Immovable Wall That Let's You Get Through Objects
 var wallCloud = new spriteType(2, 'wallCloud', 9583870.358153213, 200, .5, true, 1000, 1); //Stationary Shooting Platform Cloud
 var wallKiller = new spriteType(2, 'wallKiller', Phaser.Color.RED, 200, .5, false, 1000, 1);
