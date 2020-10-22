@@ -196,28 +196,20 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
 //////////////////////////Room Switching (Metroidvania) Events//////////////////////////
 brawl.game.prototype.playerOut = function (player) {
     //Up
-    if (player.y <= this.metroidvania.roomUpValue) {
-        // player.reset(0, player.y)
-        // player.body.velocity.x = 400;
-        this.game.state.restart(true, false, this.metroidvania.roomUpIndex, 1, worldClassLevels[this.metroidvania.roomUpIndex].metroidvania);
+    if (player.y <= 0) {
+        this.game.state.restart(true, false, this.metroidvania.roomUpIndex, 1);
     }
     //Down
-    else if (player.y >= this.metroidvania.roomDownValue) {
-        // player.reset(1400, player.y)
-        // player.body.velocity.x = -400;
-        this.game.state.restart(true, false, this.metroidvania.roomDownIndex, 0, worldClassLevels[this.metroidvania.roomDownIndex].metroidvania);
+    else if (player.y >= this.yOfWorld) {
+        this.game.state.restart(true, false, this.metroidvania.roomDownIndex, 0);
     }
     //Left
-    else if (player.x <= this.metroidvania.roomLeftValue) {
-        // player.reset(1400, player.y)
-        // player.body.velocity.x = -400;
-        this.game.state.restart(true, false, this.metroidvania.roomLeftIndex, 3, worldClassLevels[this.metroidvania.roomLeftIndex].metroidvania);
+    else if (player.x <= 0) {
+        this.game.state.restart(true, false, this.metroidvania.roomLeftIndex, 3);
     }
     //Right
-    else if (player.x >= this.metroidvania.roomRightValue) {
-        // player.reset(1400, player.y)
-        // player.body.velocity.x = -400;
-        this.game.state.restart(true, false, this.metroidvania.roomRightIndex, 2, worldClassLevels[this.metroidvania.roomRightIndex].metroidvania);
+    else if (player.x >= this.xOfWorld) {
+        this.game.state.restart(true, false, this.metroidvania.roomRightIndex, 2);
     }
 
 };

@@ -146,9 +146,9 @@ brawl.startScreen.prototype = {
             ////////0-Up, 1-Down, 2-Left, 3-Right//////
             ///////(IndexOfCurrentWorld, Position)////////////
             //Direct Physics
-            // this.game.state.start('game', true, false, 0, 0);
+            this.game.state.start('game', true, false, 0, 0);
             //Sean Moody Level Mode
-            this.game.state.start('game', true, false, 1, 1);
+            // this.game.state.start('game', true, false, 1, 1);
             //Actual Levels
             // this.game.state.start('game', true, false, 4, 1);
         }

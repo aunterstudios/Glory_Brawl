@@ -127,13 +127,9 @@ level_0.specialLevel = new CollectLevel('collected', 1, 5, 0, 4);
 //Room-Switching
 level_0.metroidvania = new MetroidvaniaCreator(
   1, //Room-Up-Index
-  0, //Room-Up-Value
   0, //Room-Down-Index
-  800, //Room-Down-Value
   0, //Room-Left-Index
-  0, //Room-Left-Value
   0, //Room-Right-Index
-  1400, // Room-Right-Value,
 );
 
 //World Gravity
@@ -239,13 +235,9 @@ var level_1 = new LevelCreator(
 //Room-Switching
 level_1.metroidvania = new MetroidvaniaCreator(
   1, //Room-Up-Index
-  0, //Room-Up-Value
   1, //Room-Down-Index
-  10000, //Room-Down-Value
   2, //Room-Left-Index
-  0, //Room-Left-Value
   1, //Room-Right-Index
-  1400, //Room-Right-Value
 );
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
@@ -311,13 +303,9 @@ var level_2 = new LevelCreator(
 //Room-Switching
 level_2.metroidvania = new MetroidvaniaCreator(
   3, //Room-Up-Index
-  0, //Room-Up-Value
   3, //Room-Down-Index
-  2000, //Room-Down-Value
   null, //Room-Left-Index
-  null, //Room-Left-Value
-  1, //Room-Right-Index
-  4800, //Room-Right-Value
+  4, //Room-Right-Index
 );
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
@@ -450,13 +438,9 @@ var level_3 = new LevelCreator(
 //Room-Switching
 level_3.metroidvania = new MetroidvaniaCreator(
   2, //Room-Up-Index
-  0, //Room-Up-Value
   1, //Room-Down-Index
-  10000, //Room-Down-Value
   2, //Room-Left-Index
-  0, //Room-Left-Value
   1, //Room-Right-Index
-  1400, //Room-Right-Value
 );
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
@@ -514,13 +498,9 @@ var level_4 = new LevelCreator(
 //Room-Switching
 level_4.metroidvania = new MetroidvaniaCreator(
   4, //Room-Up-Index
-  0, //Room-Up-Value
   4, //Room-Down-Index
-  3000, //Room-Down-Value
   2, //Room-Left-Index
-  0, //Room-Left-Value
   4, //Room-Right-Index
-  4200, //Room-Right-Value
 );
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
@@ -614,7 +594,7 @@ var level_5 = new LevelCreator(
   4200, //X-Size of World
   3000, //Y-Size of World
   '#b19cd9', //Background Color
-  false, //Out of Bounds Allowed
+  true, //Out of Bounds Allowed
   1, //Player Scale
   portalNen, //Nen-System
   funGunSet, //Gun-Set
@@ -625,13 +605,9 @@ var level_5 = new LevelCreator(
 //Room-Switching
 level_5.metroidvania = new MetroidvaniaCreator(
   4, //Room-Up-Index
-  0, //Room-Up-Value
-  4, //Room-Down-Index
-  3000, //Room-Down-Value
-  2, //Room-Left-Index
-  0, //Room-Left-Value
-  4, //Room-Right-Index
-  4200, //Room-Right-Value
+  2, //Room-Down-Index
+  1, //Room-Left-Index
+  3, //Room-Right-Index
 );
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)

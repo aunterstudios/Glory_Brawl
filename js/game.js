@@ -11,6 +11,9 @@ brawl.game.prototype = {
         this.indexOfCurrentWorld = indexOfCurrentWorld;
         this.indexOfPlayerPosition = indexOfPlayerPosition;
         this.metroidvania = worldClassLevels[this.indexOfCurrentWorld].metroidvania;
+        ///////////////////////Size of World//////////////////////
+        this.xOfWorld = worldClassLevels[this.indexOfCurrentWorld].xOfWorld;
+        this.yOfWorld = worldClassLevels[this.indexOfCurrentWorld].yOfWorld;
         ///////////////////////Setting Gun to Default/////////////
         weapon1Boolean = false;
         weapon2Boolean = false;
@@ -75,7 +78,7 @@ brawl.game.prototype = {
         this.game.physics.arcade.OVERLAP_BIAS = worldClassLevels[this.indexOfCurrentWorld].nenSystem.overlapBias; //10 is original
 
         ////////////////////Game World Size//////////////////////
-        this.game.world.setBounds(0, 0, worldClassLevels[this.indexOfCurrentWorld].xOfWorld, worldClassLevels[this.indexOfCurrentWorld].yOfWorld);
+        this.game.world.setBounds(0, 0, this.xOfWorld, this.yOfWorld);
         ///////////////////World Gravity////////////////////////
         if ('worldGravity' in worldClassLevels[this.indexOfCurrentWorld]) {
             this.game.physics.arcade.gravity.setTo(worldClassLevels[this.indexOfCurrentWorld].worldGravity.gravityX, worldClassLevels[this.indexOfCurrentWorld].worldGravity.gravityY);

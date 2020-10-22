@@ -17,15 +17,11 @@ class LevelCreator {
 
 ///Creates Room Switching
 class MetroidvaniaCreator {
-  constructor(roomUpIndex, roomUpValue, roomDownIndex, roomDownValue, roomLeftIndex, roomLeftValue, roomRightIndex, roomRightValue) {
+  constructor(roomUpIndex, roomDownIndex, roomLeftIndex, roomRightIndex) {
     this.roomUpIndex = roomUpIndex;
-    this.roomUpValue = roomUpValue
     this.roomDownIndex = roomDownIndex;
-    this.roomDownValue = roomDownValue;
     this.roomLeftIndex = roomLeftIndex;
-    this.roomLeftValue = roomLeftValue;
     this.roomRightIndex = roomRightIndex;
-    this.roomRightValue = roomRightValue;
   }
 };
 
