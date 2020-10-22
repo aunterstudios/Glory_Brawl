@@ -4,20 +4,6 @@ var nenHolder;
 
 ////////////////////////Creation of Nen System///////////////////////
 
-// var portalNen = new nenCreator(
-//   400, //Speed
-//   -500, //Jump
-//   null, //Gravity-X
-//   1500, //Gravity-Y
-//   2, //Double Jump
-//   1000, //WallJump-X
-//   500, //wallJump-Y
-//   200, //Stickiness
-//   -25, //Wall Slide-Y
-//   400, //Downwards-S
-//   10, //OverLap Bias
-// );
-
 var portalNen = new nenCreator(
   400, //Speed
   -500, //Jump
@@ -47,14 +33,6 @@ var seanNen = new nenCreator(
 );
 
 ////////////////////////Creation of Gun System Sets///////////////////////
-// var basicGunSet = [
-//   //Name, Tint, FireRate, Speed, Power
-//   new weaponCreator('pull', Phaser.Color.GREEN, 500, 500, 300),//Weapon 1
-//   new weaponCreator('push', Phaser.Color.BLUE, 500, 500, 3),//Weapon 2
-//   new weaponCreator('stop', Phaser.Color.VIOLET, 500, 500),//Weapon 3
-//   null, //Weapon 4
-// ];
-
 var basicGunSet = [
   //Name, Tint, FireRate, Speed, Power 1
   new weaponCreator('pull', Phaser.Color.GREEN, 300, 800, 600),//Weapon 1
@@ -72,7 +50,7 @@ var funGunSet = [
   null, //Weapon 4
 ];
 
-var testGunSet = [
+var noGunSet = [
   //Name, Tint, FireRate, Speed, Power 1
   null, //Weapon 1
   null, //Weapon 2

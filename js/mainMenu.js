@@ -1,6 +1,12 @@
 var brawl = {};
-brawl.mainMenu = function () { };
-brawl.mainMenu.prototype = {
+
+brawl.boot = function () { };
+brawl.boot.prototype = {
+    init: function () {
+        //Full Screen-Scaling
+        this.game.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT;
+        this.game.scale.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
+    },
     preload: function () {
         //////////////////////////////Loads All The Sprites At The Main Menu Screen////////////////////
         this.load.image('background-one', 'assets/trumpFirstBackground.jpg');
@@ -50,23 +56,35 @@ brawl.mainMenu.prototype = {
         }
     },
     create: function () {
+    },
+    update: function () {
+        this.game.state.start('mainMenu');
+    }
+};
 
+
+brawl.mainMenu = function () { };
+brawl.mainMenu.prototype = {
+    init: function () {
         //Full Screen-Scaling
+        this.game.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT;
         this.game.scale.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
-
+    },
+    preload: function () {
+    },
+    create: function () {
+        //Game Background Color
+        this.game.stage.backgroundColor = '#D8A8B2';
+        //Full Screen
         this.fullSize = this.game.input.keyboard.addKey(Phaser.Keyboard.O);
-
         this.fullSize.onDown.add(this.gofull, this);
-
-        //Scaling V.2
-        this.game.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
 
         //Trump Background
         this.trumpBackground = this.game.add.sprite(this.game.world.centerX + 200, this.game.world.centerY, 'background-one');
         this.trumpBackground.anchor.setTo(.5);
 
         //Adding Cool Looking Text
-        text = this.game.add.text(200, 50, '', { font: "30px Impact", fill: "#FF0000" });
+        text = this.game.add.text(200, 50, '', { font: "30px Impact", fill: "#A8D8CE" });
         nextLine();
 
         //Skip Written Already.
@@ -75,7 +93,7 @@ brawl.mainMenu.prototype = {
         //	Font style
         this.text2.font = 'Impact';
         this.text2.fontSize = 30;
-        this.text2.fill = "#FF0000";
+        this.text2.fill = "#A8D8CE";
         this.text2.fontWeight = 'bold';
 
     },
@@ -104,20 +122,22 @@ brawl.startScreen.prototype = {
     preload: function () {
     },
     create: function () {
-        this.game.stage.backgroundColor = '#D3D3D3';
+        this.game.stage.backgroundColor = '#D8A8B2';
 
-        this.text1 = this.game.add.text(100, 200, "I know you don't know what's going on.\n\nBut we've been here countless times.\n\nDoing the same thing over and over again.\n\nTrying to become reborn again.\n\nTo defeat The Shadow.\n\nSo I ask you to remember the words.\n\nGLORY BRAWL");
+        this.text1 = this.game.add.text(100, 200, "Insert Story Here\n\nGLORY BRAWL");
         this.text1.font = 'Courier New';
-        this.text1.fontSize = 25
-        this.text1.fill = '#ffffff';
+        this.text1.fontSize = 30;
+        this.text1.fill = '#A8D8CE';
         this.text1.fontWeight = 'bold';
         this.text1.setShadow(3, 3, 'rgba(0,0,0,0.5)', 2);
 
-        this.xToPlay = this.game.add.text(600, 700, "Press X to Play");
+        this.xToPlay = this.game.add.text(this.game.world.centerX, 700, "Press X to Play");
+        this.xToPlay.anchor.setTo(.5);
         this.xToPlay.font = 'Courier New';
-        this.xToPlay.fontSize = 25;
-        this.xToPlay.fill = '#ff0000'
+        this.xToPlay.fontSize = 40;
+        this.xToPlay.fill = '#A8D8CE';
         this.xToPlay.fontWeight = 'bold';
+        this.xToPlay.setShadow(3, 3, 'rgba(0,0,0,0.5)', 2);
     },
     update: function () {
         if (this.game.input.keyboard.isDown(Phaser.Keyboard.X)) {
@@ -125,9 +145,9 @@ brawl.startScreen.prototype = {
             ////////0-Up, 1-Down, 2-Left, 3-Right//////
             ///////(IndexOfCurrentWorld, Position)////////////
             //Direct Physics
-            this.game.state.start('game', true, false, 0, 0);
+            // this.game.state.start('game', true, false, 0, 0);
             //Sean Moody Level Mode
-            // this.game.state.start('game', true, false, 1, 1);
+            this.game.state.start('game', true, false, 1, 1);
             //Actual Levels
             // this.game.state.start('game', true, false, 4, 1);
         }

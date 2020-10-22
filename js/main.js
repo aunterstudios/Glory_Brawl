@@ -40,13 +40,14 @@ window.onload = function () {
 };
 
 //////////////////////////////////////////////////Game States//////////////////////////////////////////////
+game.state.add('boot', brawl.boot);
 game.state.add('mainMenu', brawl.mainMenu);
 game.state.add('deathState', brawl.death);
 game.state.add('game', brawl.game);
 game.state.add('story', brawl.story);
 game.state.add('startScreen', brawl.startScreen);
 //////////////////////////////////////////////////Starting States//////////////////////////////////////////////
-game.state.start('mainMenu');
+game.state.start('boot');
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
   "GroundVs.Death",
@@ -226,11 +227,11 @@ var level_1 = new LevelCreator(
   "Level 1-SandboxMode", //Name of World
   1400, //X-Size of World
   16000, //Y-Size of World
-  '#ffffff', //Background Color
+  '#B0CDEA', //Background Color
   true, //Out of Bounds Allowed
   1, //Player Scale
-  seanNen, //Nen-System
-  testGunSet, //Gun-Set
+  portalNen, //Nen-System
+  noGunSet, //Gun-Set
   true, //Sideways Stick to Walls,
   true, //Upsidedown Stick
 );
@@ -282,6 +283,8 @@ level_1.spriteSpawn = [
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 900, 1300, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 800, 1200, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 1000, 1100, 50, 50, 1, 0, 0, 0, 0, null, null),
+  ///////////////////////////////////Hazama/////////////////////////////////////////////////////
+  new SpriteCreator(true, hazamaFalconia, 'tile', hazamaHippie, 50, 1000, 1300, 950, 1, 0, 0, 0, 0, null, null),
 ];
 
 //flag spawn
