@@ -279,10 +279,17 @@ level_1.spriteSpawn = [
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 800, 400, 475, 25, .5, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 1000, 800, 350, 25, .5, 0, 0, 0, 0, null, null),
   //Wall of Bounce Ledges
-  new SpriteCreator(true, ledgeSurf, 'sprite', ledge, 1200, 1450, null, null, 1, 500, 0, 0, 0, null, null),
+  new SpriteCreator(true, ledgeSurf, 'sprite', ledge, 1200, 1500, null, null, 1, 500, 0, 0, 0, null, null),
   //Enemies
   // new SpriteCreator(true, enemyDaakath, 'timer', enemyOne, 2500, 700, 50, 50, 1, 800, 800, 0, 0, null, new timerCreator('loop', null, 2)),
   new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 500, 600, 50, 50, 1, 0, 0, 0, 0, null, null),
+  //Last Traps For the Maze
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 100, 1600, 1250, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 100, 1600, 50, 1000, 1, 0, 0, 0, 0, null, null),
+  //Trampoline
+  new SpriteCreator(true, ledgeBounce, 'sprite', ledge, 50, 3200, null, null, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, ledgeBounce, 'sprite', ledge, 400, 2600, null, null, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, ledgeBounce, 'sprite', ledge, 800, 2000, null, null, 1, 0, 0, 0, 0, null, null),
   ////////////////////////////////////////Falling Vanilla SkyTraps//////////////////////////////////////////
   // //Enemies
   // // new SpriteCreator(true, enemyDaakath, 'timer', enemyOne, 2500, 700, 50, 50, 1, 800, 800, 0, 0, null, new timerCreator('loop', null, 2)),
