@@ -36,6 +36,16 @@ brawl.game.prototype.playerGround = function (player, ground) {
         ground.body.immovable = true;
         ground.tint = tintWallPlayerFrozen;
     }
+    ////////////////Ground Destruction//////////////
+    //The Fire Punch
+    if (ground.name === groundFirePunch.name) {
+        if (this.movementDown.isDown && !this.movementUp.isDown && !this.movementLeft.isDown && !this.movementRight.isDown) {
+            this.emitterFunction(ground, null, 'destroy');
+        }
+        else {
+            this.playerDeath(player, ground);
+        }
+    }
     ////////////////Player vs. World Activation/////////////
     //Activating immovableWallWorldGravity (World Gravity)
     if (ground.name === groundWorldGravity.name) {

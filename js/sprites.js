@@ -48,6 +48,7 @@ var groundSlippery = new spriteType(1, 'groundSlippery', 766012.4141677661, 100,
 var groundOneWayPlayerBlockLeft = new spriteType(1, 'groundOneWayPlayerBlockLeft', 3588771.242333334, 100, 0, true, 1000, 1); //One way player only from the left
 var groundOneWayPlayerBlockDown = new spriteType(1, 'groundOneWayPlayerBlockDown', Phaser.Color.getRandomColor(10), 100, 0, true, 1000, 1); //One way player only from the Bottom
 var groundOneWayKillObject = new spriteType(1, 'groundOneWayKillObject', Phaser.Color.getRandomColor(10), 100, 0, true, 1000, 1); //One Way for Player But Kills Object
+var groundFirePunch = new spriteType(1, 'groundFirePunch', Phaser.Color.getRandomColor(10), 100, 0, true, 1000, 1); //Have to Punch to break it! Or Else it Kills You
 //Moveable Ground
 var groundRegularMove = new spriteType(11, 'groundRegularMove', Phaser.Color.GRAY, 100, 0, false, 1000, 1); //No Special Properties
 //PowerUps (Coded In As Ground)
