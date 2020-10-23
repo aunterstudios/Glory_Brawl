@@ -51,21 +51,21 @@ var groundOneWayKillObject = new spriteType(1, 'groundOneWayKillObject', Phaser.
 //Moveable Ground
 var groundRegularMove = new spriteType(11, 'groundRegularMove', Phaser.Color.GRAY, 100, 0, false, 1000, 1); //No Special Properties
 //PowerUps (Coded In As Ground)
-var powerJump = new spriteType(12, 'powerJump', Phaser.Color.getRandomColor(10), 1, 0, true, 1000, 1);
+var powerJump = new spriteType(12, 'powerJump', Phaser.Color.getRandomColor(10), 1, 0, true, 1000, 1); //JUMP HIGH
 //Coin (Coded In as Ground)
-var coinDefault = new spriteType(12, 'coinDefault', Phaser.Color.getRandomColor(10), 1, 0, true, 1000, 1);
+var coinDefault = new spriteType(12, 'coinDefault', Phaser.Color.getRandomColor(10), 1, 0, true, 1000, 1); //Collect Coin
 
 //Moveable Wall Names
 var wallRegular = new spriteType(2, 'wallRegular', Phaser.Color.GRAY, 200, .5, false, 1000, 1); //Default Easy Wall
 var wallExplode = new spriteType(2, 'wallExplode', Phaser.Color.ORANGE, 200, .5, false, 1000, 1); //Wall That Explodes When It Hits Ground or Death
 var wallGhost = new spriteType(2, 'wallGhost', 16771007.229130682, 200, .5, true, 1000, 1); //Immovable Wall That Let's You Get Through Objects
 var wallCloud = new spriteType(2, 'wallCloud', 9583870.358153213, 200, .5, true, 1000, 1); //Stationary Shooting Platform Cloud
-var wallKiller = new spriteType(2, 'wallKiller', Phaser.Color.RED, 200, .5, false, 1000, 1);
+var wallKiller = new spriteType(2, 'wallKiller', Phaser.Color.RED, 200, .5, false, 1000, 1); //Kill You
 
 //Ledge Names
-var ledgeElevator = new spriteType(3, 'ledgeElevator', Phaser.Color.YELLOW, 20, .5, false, 1000, .5);
-var ledgeBounce = new spriteType(3, 'ledgeBounce', Phaser.Color.GREEN, 20, .5, false, 1000, .5);
-var ledgeSurf = new spriteType(3, 'ledgeSurf', Phaser.Color.AQUA, 20, .5, false, 1000, .5);
+var ledgeElevator = new spriteType(3, 'ledgeElevator', Phaser.Color.YELLOW, 20, .5, false, 1000, 1);
+var ledgeBounce = new spriteType(3, 'ledgeBounce', Phaser.Color.GREEN, 20, .5, false, 1000, 1);
+var ledgeSurf = new spriteType(3, 'ledgeSurf', Phaser.Color.AQUA, 20, .5, false, 1000, 1);
 
 //Enemy Names
 var enemyShooter = new spriteType(4, 'enemyShooter', 12758247.409111453, 20, .5, false, 1000, 1);
@@ -73,7 +73,7 @@ var enemyDaakath = new spriteType(4, 'enemyDaakath', 15269906.933038201, 20, .5,
 var enemyAccelerate = new spriteType(4, 'enemyAccelerate', 2885804.4944837275, 20, .5, false, 1000, 1);
 
 //Ball Names
-var ballRegular = new spriteType(5, 'ballRegular', Phaser.Color.BLUE, 20, .5, false, 1000, .5);
+var ballRegular = new spriteType(5, 'ballRegular', Phaser.Color.BLUE, 20, .5, false, 1000, 1);
 
 //Falling Spikes
 var fallingSpikesRegular = new spriteType(6, 'fallingSpikesRegular', Phaser.Color.RED, 1, .5, false, 10000, 0);

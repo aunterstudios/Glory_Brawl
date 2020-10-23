@@ -249,17 +249,38 @@ level_1.playerPosition = [
 ]
 
 level_1.spriteSpawn = [
+  /////////////////////////////////////////Ground/////////////////////////////////////////////////
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 200, 200, 200, 50, 1, 0, 0, 0, 0, null, null),
   //////////////////////////////////////Your Friends////////////////////////////////
-  new SpriteCreator(true, wallExplode, 'tile', wallTile50, 600, 400, 50, 300, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallExplode, 'tile', wallTile50, 550, 400, 50, 200, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, ledgeElevator, 'sprite', ledge, 1000, 100, 150, 50, 1, 0, 200, 0, 0, null, null),
-  ///////////////////////////////////////Pillars//////////////////////////////////////
+  ///////////////////////////////////////Maze//////////////////////////////////////
+  //Middle (To the Right of Ground)
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 600, 0, 50, 1000, 1, 0, 0, 0, 0, null, null),
+  //Wall Jump Pillars
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 650, 100, 50, 1100, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 750, 100, 50, 1100, 1, 0, 0, 0, 0, null, null),
   //Left
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 0, 0, 50, 8000, 1, 0, 0, 0, 0, null, null),
   //Right
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 1350, 0, 50, 8000, 1, 0, 0, 0, 0, null, null),
-  /////////////////////////////////////////Ground/////////////////////////////////////////////////
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 200, 200, 200, 50, 1, 0, 0, 0, 0, null, null),
-  ////////////////////////////////////////First Section Traps//////////////////////////////////////////
+  //Bottom
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 200, 1000, 450, 50, 1, 0, 0, 0, 0, null, null),
+  //Even More Bottom
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 0, 1400, 850, 50, 1, 0, 0, 0, 0, null, null),
+  //Stop-Gap
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 800, 1200, 50, 200, 1, 0, 0, 0, 0, null, null),
+  //Falling Spikes for that extra spice
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 300, 1100, 50, 50, 1, 0, 200, 0, 500, null, new timerCreator('loop', null, 3)),
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 400, 1100, 50, 50, 1, 0, 200, 0, 500, null, new timerCreator('loop', null, 3)),
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 500, 1100, 50, 50, 1, 0, 200, 0, 500, null, new timerCreator('loop', null, 3)),
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 600, 1100, 50, 50, 1, 0, 200, 0, 500, null, new timerCreator('loop', null, 3)),
+  //After Wall Jump Pillars (Max Jump)
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 800, 400, 475, 25, .5, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 1000, 800, 350, 25, .5, 0, 0, 0, 0, null, null),
+  //Wall of Bounce Ledges
+  new SpriteCreator(true, ledgeSurf, 'sprite', ledge, 1200, 1450, null, null, 1, 500, 0, 0, 0, null, null),
+  ////////////////////////////////////////Falling Vanilla SkyTraps//////////////////////////////////////////
   //Enemies
   // new SpriteCreator(true, enemyDaakath, 'timer', enemyOne, 2500, 700, 50, 50, 1, 800, 800, 0, 0, null, new timerCreator('loop', null, 2)),
   new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 500, 600, 50, 50, 1, 0, 0, 0, 0, null, null),
