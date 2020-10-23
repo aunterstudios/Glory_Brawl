@@ -280,45 +280,38 @@ level_1.spriteSpawn = [
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 1000, 800, 350, 25, .5, 0, 0, 0, 0, null, null),
   //Wall of Bounce Ledges
   new SpriteCreator(true, ledgeSurf, 'sprite', ledge, 1200, 1450, null, null, 1, 500, 0, 0, 0, null, null),
-  ////////////////////////////////////////Falling Vanilla SkyTraps//////////////////////////////////////////
   //Enemies
   // new SpriteCreator(true, enemyDaakath, 'timer', enemyOne, 2500, 700, 50, 50, 1, 800, 800, 0, 0, null, new timerCreator('loop', null, 2)),
   new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 500, 600, 50, 50, 1, 0, 0, 0, 0, null, null),
-  //Inside the Box Moving Death
-  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 400, 1900, 50, 50, 1, -1000, 700, 0, 0, null, null),
-  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 400, 2100, 50, 50, 1, 1000, 700, 0, 0, null, null),
-  //Part 2
-  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 400, 2250, 50, 50, 1, -1000, 700, 0, 0, null, null),
-  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 400, 2200, 50, 50, 1, 1000, 700, 0, 0, null, null),
-  //Part 3
-  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 1000, 2250, 50, 50, 1, -1000, 700, 0, 0, null, null),
-  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 1000, 2200, 50, 50, 1, 1000, 700, 0, 0, null, null),
-  //Part 4
-  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 1000, 2250, 50, 50, 1, -1000, 700, 0, 0, null, null),
-  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 1000, 2200, 50, 50, 1, 1000, 700, 0, 0, null, null),
-  // Part 5
-  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 700, 1900, 50, 50, 1, -1000, 700, 0, 0, null, null),
-  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 700, 2100, 50, 50, 1, 1000, 700, 0, 0, null, null),
-  //Part 2
-  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 700, 2250, 50, 50, 1, -1000, 700, 0, 0, null, null),
-  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 700, 2200, 50, 50, 1, 1000, 700, 0, 0, null, null),
-  // //Outside the Box Moving Death - Right
-  // new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 700, 1500, 50, 50, 1, 900, 0, 0, 0, null, null),
-  // new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 750, 1600, 50, 50, 1, -900, 0, 0, 0, null, null),
-  // new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 700, 1700, 50, 50, 1, 900, 0, 0, 0, null, null),
-  // new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 800, 1800, 50, 50, 1, -900, 0, 0, 0, null, null),
-  // new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 750, 1900, 50, 50, 1, 900, 0, 0, 0, null, null),
-  ////////Box Traps
-  //Top
-  new SpriteCreator(true, invisibleRegular, 'tile', invsibileTile, 50, 1800, 1300, 50, 1, 0, 0, 0, 0, null, null),
-  //Bottom
-  // new SpriteCreator(true, groundOneWayPlayer, 'tile', groundTile, 50, 1950, 1300, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, invisibleRegular, 'tile', invsibileTile, 50, 2350, 1300, 50, 1, 0, 0, 0, 0, null, null),
-  // //Left
-  // new SpriteCreator(true, deathRegular, 'tile', deathTile, 200, 1450, 50, 500, 1, 0, 0, 0, 0, null, null),
-  // //Right
-  // new SpriteCreator(true, deathRegular, 'tile', deathTile, 650, 1450, 50, 500, 1, 0, 0, 0, 0, null, null),
-  ///////////////Hazama
+  ////////////////////////////////////////Falling Vanilla SkyTraps//////////////////////////////////////////
+  // //Enemies
+  // // new SpriteCreator(true, enemyDaakath, 'timer', enemyOne, 2500, 700, 50, 50, 1, 800, 800, 0, 0, null, new timerCreator('loop', null, 2)),
+  // new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 500, 600, 50, 50, 1, 0, 0, 0, 0, null, null),
+  // //Inside the Box Moving Death
+  // new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 400, 1900, 50, 50, 1, -1000, 700, 0, 0, null, null),
+  // new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 400, 2100, 50, 50, 1, 1000, 700, 0, 0, null, null),
+  // //Part 2
+  // new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 400, 2250, 50, 50, 1, -1000, 700, 0, 0, null, null),
+  // new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 400, 2200, 50, 50, 1, 1000, 700, 0, 0, null, null),
+  // //Part 3
+  // new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 1000, 2250, 50, 50, 1, -1000, 700, 0, 0, null, null),
+  // new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 1000, 2200, 50, 50, 1, 1000, 700, 0, 0, null, null),
+  // //Part 4
+  // new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 1000, 2250, 50, 50, 1, -1000, 700, 0, 0, null, null),
+  // new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 1000, 2200, 50, 50, 1, 1000, 700, 0, 0, null, null),
+  // // Part 5
+  // new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 700, 1900, 50, 50, 1, -1000, 700, 0, 0, null, null),
+  // new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 700, 2100, 50, 50, 1, 1000, 700, 0, 0, null, null),
+  // //Part 2
+  // new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 700, 2250, 50, 50, 1, -1000, 700, 0, 0, null, null),
+  // new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 700, 2200, 50, 50, 1, 1000, 700, 0, 0, null, null),
+  // ////////Box Traps
+  // //Top
+  // new SpriteCreator(true, invisibleRegular, 'tile', invsibileTile, 50, 1800, 1300, 50, 1, 0, 0, 0, 0, null, null),
+  // //Bottom
+  // // new SpriteCreator(true, groundOneWayPlayer, 'tile', groundTile, 50, 1950, 1300, 50, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, invisibleRegular, 'tile', invsibileTile, 50, 2350, 1300, 50, 1, 0, 0, 0, 0, null, null),
+  ////////////////////////////////////////////////////Hazama///////////////////////////////////////////////////////////////
   // new SpriteCreator(true, hazamaFalconia, 'tile', hazamaHippie, 50, 1450, 1300, 3000, 1, 0, 0, 0, 0, null, null),
 ];
 
