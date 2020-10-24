@@ -78,24 +78,23 @@ brawl.game.prototype.playerWall = function (player, wall) {
         player.body.stop();
         wall.body.stop();
     }
-    //////////Slightly Harder Wall///////////
-    // if (wall.name === wallSideMomentum.name) {
-    //     if (wall.body.touching.up || wall.body.touching.down) {
-    //         player.body.stop();
-    //         wall.body.stop();
-    //     }
-    //     // else if (wall.body.touching.left) {
-    //     //     wall.body.velocity.x = 500;
-    //     // }
-    //     // else if (wall.body.touching.right) {
-    //     //     wall.body.velocity.x = -500;
-    //     // }
-    // }
+    ////////Slightly Harder Wall///////////
+    if (wall.name === wallMomentum.name) {
+        if (wall.body.touching.up) {
+            wall.body.velocity.y = 700;
+        }
+        else if (wall.body.touching.down) {
+            wall.body.velocity.y = -700;
+        }
+        else if (wall.body.touching.left) {
+            wall.body.velocity.x = 700;
+        }
+        else if (wall.body.touching.right) {
+            wall.body.velocity.x = -700;
+        }
+    }
     ///////////////////////////////Special Walls///////////////////////////
     if (wall.name === wallCloud.name) {
-        // player.body.stop();
-        // wall.body.stop();
-        // player.alpha = .4;
         if (this.movementUp.isDown) {
             wall.body.velocity.setTo(0, -200);
         }
@@ -109,9 +108,6 @@ brawl.game.prototype.playerWall = function (player, wall) {
             wall.body.velocity.setTo(200, 0);
         }
     }
-    // if (wall.name === wallGhost.name) {
-    //     player.alpha = .4;
-    // }
     if (wall.name === wallKiller.name) {
         this.playerDeath(player, wall);
     }
@@ -135,10 +131,10 @@ brawl.game.prototype.playerEnemy = function (player, enemy) {
         player.body.stop();
         enemy.body.stop();
         if (enemy.body.touching.left) {
-            enemy.body.velocity.setTo(300,0);
+            enemy.body.velocity.setTo(300, 0);
         }
         else if (enemy.body.touching.right) {
-            enemy.body.velocity.setTo(-300,0);
+            enemy.body.velocity.setTo(-300, 0);
 
         }
     }
@@ -196,7 +192,7 @@ brawl.game.prototype.playerLedge = function (player, ledge) {
             ledge.surfActivate = true;
             if (ledge.generationType === 'timer') {
                 var killOrDestroy = 'kill'
-    
+
             }
             else {
                 var killOrDestroy = 'destroy'

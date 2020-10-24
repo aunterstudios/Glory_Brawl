@@ -62,6 +62,7 @@ var wallExplode = new spriteType(2, 'wallExplode', Phaser.Color.ORANGE, 200, .5,
 var wallGhost = new spriteType(2, 'wallGhost', 16771007.229130682, 200, .5, true, 1000, 1); //Immovable Wall That Let's You Get Through Objects
 var wallCloud = new spriteType(2, 'wallCloud', 9583870.358153213, 200, .5, true, 1000, 1); //Stationary Shooting Platform Cloud
 var wallKiller = new spriteType(2, 'wallKiller', Phaser.Color.RED, 200, .5, false, 1000, 1); //Kill You
+var wallMomentum = new spriteType(2, 'wallMomentum', Phaser.Color.YELLOW, 200, .5, false, 1000, 1); //Goes Nuts (So much momentum)
 
 //Ledge Names
 var ledgeElevator = new spriteType(3, 'ledgeElevator', Phaser.Color.YELLOW, 20, .5, false, 1000, 1);
