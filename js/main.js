@@ -229,7 +229,7 @@ level_0.flagSpawn = [
 var level_1 = new LevelCreator(
   "Level 1-SandboxMode", //Name of World
   1400, //X-Size of World
-  16000, //Y-Size of World
+  12000, //Y-Size of World
   '#EBFAFA', //Background Color
   true, //Out of Bounds Allowed
   1, //Player Scale
@@ -585,6 +585,20 @@ level_1.spriteSpawn = [
   new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 1100, 9400, 50, 50, 1, -1000, 0, 0, 0, null, null),
   new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 1200, 9400, 50, 50, 1, 1000, 0, 0, 0, null, null),
   new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 1300, 9400, 50, 50, 1, -1000, 0, 0, 0, null, null),
+  //Moving Death Box 12
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 100, 9800, 50, 50, 1, -1000, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 200, 9800, 50, 50, 1, 1000, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 300, 9800, 50, 50, 1, -1000, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 400, 9800, 50, 50, 1, 1000, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 500, 9800, 50, 50, 1, -1000, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 600, 9800, 50, 50, 1, 1000, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 700, 9800, 50, 50, 1, -1000, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 800, 9800, 50, 50, 1, 1000, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 900, 9800, 50, 50, 1, -1000, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 1000, 9800, 50, 50, 1, 1000, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 1100, 9800, 50, 50, 1, -1000, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 1200, 9800, 50, 50, 1, 1000, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 1300, 9800, 50, 50, 1, -1000, 0, 0, 0, null, null),
   //Top Border
   new SpriteCreator(true, invisibleRegular, 'tile', invsibileTile, 50, 4800, 1300, 50, 1, 0, 0, 0, 0, null, null),
   //Bottom Border
