@@ -560,6 +560,8 @@ level_1.spriteSpawn = [
   //Activate World Gravity
   new SpriteCreator(true, powerWorldGravity, 'tile', powerJar, 300, 8500, 50, 50, 1, 0, 0, 0, 0, null, null),
   //Ball Gravity World
+  new SpriteCreator(true, ballRegular, 'sprite', ball, 300, 8800, 50, 50, 1, -500, 0, 0, 0, null, null),
+  new SpriteCreator(true, ballRegular, 'sprite', ball, 400, 8800, 50, 50, 1, 500, 0, 0, 0, null, null),
   new SpriteCreator(true, ballRegular, 'sprite', ball, 500, 8800, 50, 50, 1, -500, 0, 0, 0, null, null),
   new SpriteCreator(true, ballRegular, 'sprite', ball, 600, 8800, 50, 50, 1, 500, 0, 0, 0, null, null),
   new SpriteCreator(true, ballRegular, 'sprite', ball, 700, 8800, 50, 50, 1, -500, 0, 0, 0, null, null),
