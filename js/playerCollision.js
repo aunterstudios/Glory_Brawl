@@ -46,17 +46,20 @@ brawl.game.prototype.playerGround = function (player, ground) {
             this.playerDeath(player, ground);
         }
     }
-    ////////////////Player vs. World Activation/////////////
-    //Activating immovableWallWorldGravity (World Gravity)
-    if (ground.name === groundWorldGravity.name) {
-        this.game.physics.arcade.gravity.setTo(0, 500);
-        this.emitterFunction(ground, null, 'destroy');
-    }
     ////////////////Player vs. Power Ups and Coin/////////////
     if (ground.name === powerJump.name) {
         player.powerJump = true;
         // this.playerJump += -1000;
         this.playerJump = -1000;
+        this.emitterFunction(ground, null, 'destroy');
+    }
+    //Activating immovableWallWorldGravity (World Gravity)
+    if (ground.name === powerWorldGravity.name) {
+        this.game.physics.arcade.gravity.setTo(0, 500);
+        this.emitterFunction(ground, null, 'destroy');
+    }
+    if (ground.name === powerNegativeGravity.name) {
+        this.game.physics.arcade.gravity.setTo(0, -500);
         this.emitterFunction(ground, null, 'destroy');
     }
     if (ground.name === coinDefault.name) {

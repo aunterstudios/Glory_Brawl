@@ -35,13 +35,13 @@ var deathBallKill = new spriteType(0, 'deathBallKill', Phaser.Color.RED, 100, 0,
 var deathGhost = new spriteType(0, 'deathGhost', Phaser.Color.RED, 100, 0, true, 1000, 1); //Weapon Phases
 //Moveable Death Names
 var deathRegularMove = new spriteType(10, 'deathRegularMov', Phaser.Color.RED, 100, 0, false, 1000, 1); //This one is Moving
+var deathBallKillMove = new spriteType(10, 'deathBallKillMove', Phaser.Color.RED, 100, 0, true, 1000, 1); //Killable By Ball (Moving)
 
 //Ground
 var groundRegular = new spriteType(1, 'groundRegular', Phaser.Color.GRAY, 100, 0, true, 1000, 1); //No Special Properties
 var groundKillWall = new spriteType(1, 'groundKillWall', 7019278.306799905, 100, 0, true, 1000, 1); //Kills Walls(Will Be Everything)
 var groundPhase = new spriteType(1, 'groundPhase', 12758247.409111453, 100, 0, true, 1000, 1); //Killed By Enemy BULLETS
 var groundActivation = new spriteType(1, 'groundActivation', 0xffff00, 100, 0, true, 1000, 1); //Triggers Movement in a Wall
-var groundWorldGravity = new spriteType(1, 'groundWorldGravity', 8314793.039214706, 100, 0, true, 1000, 1); //Triggers World Gravity
 var groundOneWayObject = new spriteType(1, 'groundOneWayObject', 2499878.036284214, 100, 0, true, 1000, 1); //One Way (Objects Only)
 var groundOneWayPlayer = new spriteType(1, 'groundOneWayPlayer', 241917.63554178402, 100, 0, true, 1000, 1); //One Way (Players Only)
 var groundSlippery = new spriteType(1, 'groundSlippery', 766012.4141677661, 100, 0, true, 1000, 1); //Makes you SLIPPERY!
@@ -53,6 +53,8 @@ var groundFirePunch = new spriteType(1, 'groundFirePunch', Phaser.Color.getRando
 var groundRegularMove = new spriteType(11, 'groundRegularMove', Phaser.Color.GRAY, 100, 0, false, 1000, 1); //No Special Properties
 //PowerUps (Coded In As Ground)
 var powerJump = new spriteType(12, 'powerJump', Phaser.Color.getRandomColor(10), 1, 0, true, 1000, 1); //JUMP HIGH
+var powerWorldGravity = new spriteType(12, 'powerWorldGravity', Phaser.Color.getRandomColor(10), 1, 0, true, 1000, 1); //Triggers World Gravity
+var powerNegativeGravity = new spriteType(12, 'powerNegativeGravity', Phaser.Color.getRandomColor(10), 1, 0, true, 1000, 1); //Triggers Anti World Gravity
 //Coin (Coded In as Ground)
 var coinDefault = new spriteType(12, 'coinDefault', Phaser.Color.getRandomColor(10), 1, 0, true, 1000, 1); //Collect Coin
 

@@ -252,7 +252,7 @@ level_1.playerPosition = [
   new PlayerPositionCreator(220, 10),
   new PlayerPositionCreator(700, 100),
   new PlayerPositionCreator(1150, 3775),
-  new PlayerPositionCreator(700, 100),
+  new PlayerPositionCreator(800, 8375),
 ]
 
 level_1.spriteSpawn = [
@@ -535,6 +535,31 @@ level_1.spriteSpawn = [
   // new SpriteCreator(true, groundOneWayPlayer, 'tile', groundTile, 50, 1950, 1300, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, invisibleRegular, 'tile', invsibileTile, 50, 7950, 1300, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, groundOneWayPlayer, 'tile', groundTile, 50, 8000, 1300, 50, 1, 0, 0, 0, 0, null, null),
+  ////////////////////////////////////////////////////Gymnastics///////////////////////////////////////////////
+  //Ground
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 450, 8400, 500, 50, 1, 0, 0, 0, 0, null, null),
+  //Decorations
+  //Part 1
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 50, 8050, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 100, 8100, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 150, 8150, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 200, 8200, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 250, 8250, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 300, 8300, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, invisibleRegular, 'tile', invsibileTile, 350, 8350, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, invisibleRegular, 'tile', invsibileTile, 400, 8350, 50, 50, 1, 0, 0, 0, 0, null, null),
+  //Part 2
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 1300, 8050, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 1250, 8100, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 1200, 8150, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 1150, 8200, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 1100, 8250, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 1050, 8300, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, invisibleRegular, 'tile', invsibileTile, 1000, 8350, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, invisibleRegular, 'tile', invsibileTile, 950, 8350, 50, 50, 1, 0, 0, 0, 0, null, null),
+  //Activate World Gravity
+  new SpriteCreator(true, powerWorldGravity, 'tile', powerJar, 300, 8500, 50, 50, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, powerNegativeGravity, 'tile', powerJar, 300, 8500, 50, 50, 1, 0, 0, 0, 0, null, null),
   ////////////////////////////////////////////////////Hazama///////////////////////////////////////////////////////////////
   // new SpriteCreator(true, hazamaFalconia, 'tile', hazamaHippie, 50, 1450, 1300, 3000, 1, 0, 0, 0, 0, null, null),
 ];
@@ -545,6 +570,8 @@ level_1.flagSpawn = [
   new flagCreator(0, true, flagRegular, flag, 1, 350, 150, 0, 0, 0, 0, null),
   //Second Flag
   new flagCreator(2, true, flagRegular, flag, 1, 1050, 3750, 0, 0, 0, 0, null),
+  //Third Flag
+  new flagCreator(3, true, flagRegular, flag, 1, 500, 8350, 0, 0, 0, 0, null),
 ];
 
 ////////////////////////////////////////Level 2/////////////////////////////////////

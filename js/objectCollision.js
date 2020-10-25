@@ -167,7 +167,7 @@ brawl.game.prototype.gdVsMov = function (groundDeath, moveable) {
         }
     }
     // ////////////////////Moveable Effects Against groundDeath///////////////
-    if (groundDeath.name === deathBallKill.name && moveable.groupName === groupBall) {
+    if ((groundDeath.name === deathBallKill.name || groundDeath.name === deathBallKillMove.name) && moveable.groupName === groupBall) {
         this.emitterFunction(groundDeath, moveable, 'destroy');
         //Removes Localized Sprites from Regenerating (Spikes)
         if (groundDeath.specialCondition) {
