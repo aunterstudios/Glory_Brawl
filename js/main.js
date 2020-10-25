@@ -171,7 +171,7 @@ level_0.spriteSpawn = [
   //Enemy
   // new SpriteCreator(true, enemyDaakath, 'timer', enemyOne, 2400, 100, 50, 50, 1, 800, 800, 0, 0, null, new timerCreator('loop', null, 2)),
   // new SpriteCreator(true, enemyDaakath, 'timer', enemyOne, 2500, 700, 50, 50, 1, 800, 800, 0, 0, null, new timerCreator('loop', null, 2)),
-  // new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 400, 100, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, enemyShooter, 'sprite', enemyOne, 400, 100, 50, 50, 1, 0, 0, 0, 0, null, null),
   // new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 500, 100, 50, 50, 1, 0, 0, 0, 0, null, null),
   // new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 600, 100, 50, 50, 1, 0, 0, 0, 0, null, null),
   // new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 700, 100, 50, 50, 1, 0, 0, 0, 0, null, null),
@@ -708,29 +708,29 @@ level_2.text = [
 
 ////////////////////////////////////////Level 3/////////////////////////////////////
 var level_3 = new LevelCreator(
-  "Level 3-MovingBlocks", //Name of World
-  1400, //X-Size of World
-  10000, //Y-Size of World
+  "Level 3-Combat", //Name of World
+  7000, //X-Size of World
+  5000, //Y-Size of World
   '#FFFDD0', //Background Color
   true, //Out of Bounds Allowed
   1, //Player Scale
   portalNen, //Nen-System
-  basicGunSet, //Gun-Set
+  killGunSet, //Gun-Set
   true, //Sideways Stick to Walls,
   true, //Upsidedown Stick
 );
 
 //Room-Switching
 level_3.metroidvania = new MetroidvaniaCreator(
-  2, //Room-Up-Index
-  1, //Room-Down-Index
+  1, //Room-Up-Index
+  3, //Room-Down-Index
   2, //Room-Left-Index
-  1, //Room-Right-Index
+  3, //Room-Right-Index
 );
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_3.playerPosition = [
-  new PlayerPositionCreator(200, 100),
+  new PlayerPositionCreator(9900, 50),
   new PlayerPositionCreator(200, 9900),
   new PlayerPositionCreator(200, 9900),
   new PlayerPositionCreator(200, 9900),
@@ -738,24 +738,8 @@ level_3.playerPosition = [
 
 //Sprite Generation
 level_3.spriteSpawn = [
-  ////////////////////////////////////////Side Borders/////////////////////////////////////////////////
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 0, 0, 50, 9950, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 1400, 0, 50, 9950, 1, 0, 0, 0, 0, null, null),
-  ////////////////////////////////////////Moving Blocks/////////////////////////////////////////////////
-  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 300, 9700, 50, 50, 1, 1000, 0, 0, 0, null, null),
-  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 500, 9500, 50, 50, 1, 1000, 0, 0, 0, null, null),
-  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 700, 9300, 50, 50, 1, 1000, 0, 0, 0, null, null),
-  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 900, 9100, 50, 50, 1, 1000, 0, 0, 0, null, null),
-  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 200, 8900, 50, 50, 1, 1000, 0, 0, 0, null, null),
-  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 400, 8700, 50, 50, 1, 1000, 0, 0, 0, null, null),
-  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 600, 8500, 50, 50, 1, 1000, 0, 0, 0, null, null),
-  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 800, 8300, 50, 50, 1, 1000, 0, 0, 0, null, null),
-  ///////////////////////////////////////Ground/////////////////////////////////////////////////////
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 0, 9950, 1400, 50, 1, 0, 0, 0, 0, null, null),
-  //////////////////////////////////////Platform Wall Your Friend////////////////////////////////////////////////////
-  new SpriteCreator(true, wallRegular, 'sprite', wallTile25, 600, 9900, 25, 25, 1, 0, 0, 0, 0, null, null),
-  ////////////////////////////////////Testing////////////////////////////////////
-  new SpriteCreator(true, ledgeElevator, 'sprite', ledge, 200, 900, 25, 25, 1, 0, 0, 0, 0, null, null),
+  ////////////////////////////////////One True Friend////////////////////////////////////////
+  new SpriteCreator(true, wallCloud, 'tile', wallTile50, 9400, 2500, 300, 50, 1, 300, 200, 0, 0, null, null),
 ];
 
 level_3.flagSpawn = [

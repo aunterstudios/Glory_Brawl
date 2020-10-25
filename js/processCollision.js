@@ -103,5 +103,16 @@ brawl.game.prototype.flagVsEprocess = function (flag, obj) {
     else {
         return true
     }
-    return;
+};
+
+
+//Trap Projectiles
+brawl.game.prototype.trapProjectilesProcess = function (projectiles, obj) {
+    ///////////////Actual Collision Physics/////////////
+    if (obj.name === enemyShooter.name) {
+        return false;
+    }
+    else {
+        return true
+    }
 };
