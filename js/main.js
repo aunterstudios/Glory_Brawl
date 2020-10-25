@@ -723,14 +723,14 @@ var level_3 = new LevelCreator(
 //Room-Switching
 level_3.metroidvania = new MetroidvaniaCreator(
   1, //Room-Up-Index
-  3, //Room-Down-Index
+  1, //Room-Down-Index
   2, //Room-Left-Index
   3, //Room-Right-Index
 );
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_3.playerPosition = [
-  new PlayerPositionCreator(9900, 50),
+  new PlayerPositionCreator(6800, 50),
   new PlayerPositionCreator(200, 9900),
   new PlayerPositionCreator(200, 9900),
   new PlayerPositionCreator(200, 9900),
@@ -739,7 +739,7 @@ level_3.playerPosition = [
 //Sprite Generation
 level_3.spriteSpawn = [
   ////////////////////////////////////One True Friend////////////////////////////////////////
-  new SpriteCreator(true, wallCloud, 'tile', wallTile50, 9400, 2500, 300, 50, 1, 300, 200, 0, 0, null, null),
+  new SpriteCreator(true, wallCloud, 'tile', wallTile50, 6400, 2500, 300, 50, 1, 300, 200, 0, 0, null, null),
 ];
 
 level_3.flagSpawn = [
