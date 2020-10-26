@@ -12,7 +12,7 @@ brawl.death.prototype = {
     },
     create: function () {
         //Browser Pause
-        this.game.stage.disableVisibilityChange = true;
+        // this.game.stage.disableVisibilityChange = true;
 
         //Increase Death Total
         ++deaths;
@@ -54,7 +54,7 @@ brawl.story.prototype = {
     },
     create: function () {
         //Browser Pause
-        this.game.stage.disableVisibilityChange = true;
+        // this.game.stage.disableVisibilityChange = true;
         //Background Color
         this.game.stage.backgroundColor = Phaser.Color.BLACK;
         if (this.page === 0) {
