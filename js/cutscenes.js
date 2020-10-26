@@ -11,6 +11,8 @@ brawl.death.prototype = {
     preload: function () {
     },
     create: function () {
+        //Browser Pause
+        this.game.stage.disableVisibilityChange = true;
 
         //Increase Death Total
         ++deaths;
@@ -51,6 +53,9 @@ brawl.story.prototype = {
         this.page = page;
     },
     create: function () {
+        //Browser Pause
+        this.game.stage.disableVisibilityChange = true;
+        //Background Color
         this.game.stage.backgroundColor = Phaser.Color.BLACK;
         if (this.page === 0) {
             this.text1 = this.game.add.text(575, 300, "KillAmount");

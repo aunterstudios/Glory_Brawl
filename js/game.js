@@ -61,6 +61,9 @@ brawl.game.prototype = {
         // this.game.forceSingleUpdate = false;
         //FPS Debugging
         // this.game.fpsProblemNotifier.add(this.handleFpsProblem, this);
+        
+        //Browser Pause
+        this.game.stage.disableVisibilityChange = true;
 
         //Background Color of Game
         this.game.stage.backgroundColor = worldClassLevels[this.indexOfCurrentWorld].backgroundColor;
