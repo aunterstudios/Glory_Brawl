@@ -33,13 +33,14 @@ var tintWallPlayerFrozen = 0x00ffff; //Frozen Wall Tints
 var deathRegular = new spriteType(0, 'deathRegular', Phaser.Color.RED, 100, 0, true, 1000, 1); //No Special Properties
 var deathBallKill = new spriteType(0, 'deathBallKill', Phaser.Color.RED, 100, 0, true, 1000, 1); //Killable By Ball
 var deathGhost = new spriteType(0, 'deathGhost', Phaser.Color.RED, 100, 0, true, 1000, 1); //Weapon Phases
+var deathKillWall = new spriteType(0, 'deathKillWall', Phaser.Color.RED, 100, 0, true, 1000, 1); //Kills Moveable OBjects
 //Moveable Death Names
 var deathRegularMove = new spriteType(10, 'deathRegularMov', Phaser.Color.RED, 100, 0, false, 1000, 1); //This one is Moving
 var deathBallKillMove = new spriteType(10, 'deathBallKillMove', Phaser.Color.RED, 100, 0, true, 1000, 1); //Killable By Ball (Moving)
 
 //Ground
 var groundRegular = new spriteType(1, 'groundRegular', Phaser.Color.GRAY, 100, 0, true, 1000, 1); //No Special Properties
-var groundKillWall = new spriteType(1, 'groundKillWall', 7019278.306799905, 100, 0, true, 1000, 1); //Kills Walls(Will Be Everything)
+var groundKillWall = new spriteType(1, 'groundKillWall', 7019278.306799905, 100, 0, true, 1000, 1); //Kills Moveable Objects
 var groundPhase = new spriteType(1, 'groundPhase', 12758247.409111453, 100, 0, true, 1000, 1); //Killed By Enemy BULLETS
 var groundActivation = new spriteType(1, 'groundActivation', 0xffff00, 100, 0, true, 1000, 1); //Triggers Movement in a Wall
 var groundOneWayObject = new spriteType(1, 'groundOneWayObject', 2499878.036284214, 100, 0, true, 1000, 1); //One Way (Objects Only)
@@ -62,7 +63,8 @@ var coinDefault = new spriteType(12, 'coinDefault', Phaser.Color.getRandomColor(
 var wallRegular = new spriteType(2, 'wallRegular', Phaser.Color.GRAY, 200, .5, false, 1000, 1); //Default Easy Wall
 var wallExplode = new spriteType(2, 'wallExplode', Phaser.Color.ORANGE, 200, .5, false, 1000, 1); //Wall That Explodes When It Hits Ground or Death
 var wallGhost = new spriteType(2, 'wallGhost', 16771007.229130682, 200, .5, true, 1000, 1); //Immovable Wall That Let's You Get Through Objects
-var wallCloud = new spriteType(2, 'wallCloud', 9583870.358153213, 200, .5, true, 1000, 1); //Stationary Shooting Platform Cloud
+var wallCloud = new spriteType(2, 'wallCloud', 9583870.358153213, 200, .5, true, 1000, 1); //Moving Platform Cloud
+var wallLeftRight = new spriteType(2, 'wallLeftRight', Phaser.Color.getRandomColor(), 200, .5, true, 1000, 1); //Moving platform that moves only left and right (OG)
 var wallKiller = new spriteType(2, 'wallKiller', Phaser.Color.RED, 200, .5, false, 1000, 1); //Kill You
 var wallMomentum = new spriteType(2, 'wallMomentum', Phaser.Color.YELLOW, 200, .5, false, 1000, 1); //Goes Nuts (So much momentum)
 

@@ -135,7 +135,7 @@ brawl.game.prototype.weaponHandler = function (bullet, sprite) {
 };
 //Let Weapon Fire Pass Through
 brawl.game.prototype.weaponProcess = function (weapon, ghost) {
-    if (ghost.name === wallCloud.name || ghost.name === deathGhost.name || ghost.groupName === groupFlag) {
+    if (ghost.name === wallCloud.name || ghost.name === deathGhost.name || ghost.groupName === groupFlag || ghost.name === wallLeftRight.name) {
         return false;
     }
     else {

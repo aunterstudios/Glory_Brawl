@@ -709,8 +709,8 @@ level_2.text = [
 ////////////////////////////////////////Level 3/////////////////////////////////////
 var level_3 = new LevelCreator(
   "Level 3-Combat", //Name of World
-  7000, //X-Size of World
-  5000, //Y-Size of World
+  5000, //X-Size of World
+  2800, //Y-Size of World
   '#FFFDD0', //Background Color
   true, //Out of Bounds Allowed
   1, //Player Scale
@@ -730,16 +730,65 @@ level_3.metroidvania = new MetroidvaniaCreator(
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_3.playerPosition = [
-  new PlayerPositionCreator(6800, 50),
-  new PlayerPositionCreator(200, 9900),
-  new PlayerPositionCreator(200, 9900),
-  new PlayerPositionCreator(200, 9900),
+  new PlayerPositionCreator(4750, 100), //Up
+  new PlayerPositionCreator(200, 9900), //Down
+  new PlayerPositionCreator(200, 9900), //Left
+  new PlayerPositionCreator(4750, 1450), //Right
 ]
 
 //Sprite Generation
 level_3.spriteSpawn = [
   ////////////////////////////////////One True Friend////////////////////////////////////////
-  new SpriteCreator(true, wallCloud, 'tile', wallTile50, 6400, 2500, 300, 50, 1, 300, 200, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 4700, 1200, 100, 100, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallLeftRight, 'tile', wallTile50, 4700, 1400, 300, 50, 1, 0, 0, 0, 0, null, null),
+  ////////////////////////////////////Borders///////////////////////////////////////////////
+  //Top
+  new SpriteCreator(true, deathKillWall, 'tile', deathTile, 0, 0, 5000, 50, 1, 0, 0, 0, 0, null, null),
+  //Bottom
+  new SpriteCreator(true, deathKillWall, 'tile', deathTile, 0, 2750, 5000, 50, 1, 0, 0, 0, 0, null, null),
+  //Right
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 4950, 50, 50, 2700, 1, 0, 0, 0, 0, null, null),
+  // ////////////////////////////////////A Taste of Death////////////////////////////////////////////
+  //Top
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 4000, 1000, 50, 300, 1, 0, 0, 0, 0, null, null),
+  //Bottom
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 4000, 1500, 50, 300, 1, 0, 0, 0, 0, null, null),
+  //Enemies
+  //Top Side
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 3950, 1050, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 3950, 1150, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, enemyShooter, 'sprite', enemyOne, 3950, 1250, 50, 50, 1, 0, 0, 0, 0, null, null),
+  //Bottom Side
+  new SpriteCreator(true, enemyShooter, 'sprite', enemyOne, 3950, 1550, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 3950, 1650, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 3950, 1750, 50, 50, 1, 0, 0, 0, 0, null, null),
+  // ////////////////////////////////////Main Traps////////////////////////////////////////////
+  // //Repeating Traps Part 1 (Right to Left Orientation)
+  // new SpriteCreator(true, wallKiller, 'timer', wallTile50, 4000, 50, 50, 50, 1, -700, 700, 0, 0, null, new timerCreator('loop', null, 3)),
+  // new SpriteCreator(true, wallKiller, 'timer', wallTile50, 4000, 2750, 50, 50, 1, -700, -700, 0, 0, null, new timerCreator('loop', null, 3)),
+  // //Repeating Traps Part 2 (Right to Left Orientation)
+  // new SpriteCreator(true, wallKiller, 'timer', wallTile50, 3000, 50, 50, 50, 1, -700, 700, 0, 0, null, new timerCreator('loop', null, 3)),
+  // new SpriteCreator(true, wallKiller, 'timer', wallTile50, 3000, 2750, 50, 50, 1, -700, -700, 0, 0, null, new timerCreator('loop', null, 3)),
+  // //Repeating Traps Part 3 (Right to Left Orientation)
+  // new SpriteCreator(true, wallKiller, 'timer', wallTile50, 2000, 50, 50, 50, 1, -700, 700, 0, 0, null, new timerCreator('loop', null, 3)),
+  // new SpriteCreator(true, wallKiller, 'timer', wallTile50, 2000, 2750, 50, 50, 1, -700, -700, 0, 0, null, new timerCreator('loop', null, 3)),
+  //Repeating Enemies?
+  // new SpriteCreator(true, enemyDaakath, 'timer', enemyOne, 1000, 2750, 50, 50, 1, -700, -700, 0, 0, null, new timerCreator('loop', null, 3)),
+  ////////////////////////////////////Falling Spikes//////////////////////////////////////////
+  //Same X-2
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 4010, 100, 50, 50, 1, 0, 200, 0, 500, null, new timerCreator('loop', null, 1)),
+  //Zero Phase
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 4070, 2700, 50, 50, 1, 0, -200, 0, -500, null, new timerCreator('loop', null, 1)),
+  //Zero Phase - 2
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 4200, 100, 50, 50, 1, 0, 200, 0, 500, null, new timerCreator('loop', null, 1)),
+  //From Top and Bottom-First Phase
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 3400, 2700, 50, 50, 1, 0, -200, 0, -500, null, new timerCreator('loop', null, 1)),
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 3500, 100, 50, 50, 1, 0, 200, 0, 500, null, new timerCreator('loop', null, 1)),
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 3600, 2700, 50, 50, 1, 0, -200, 0, -500, null, new timerCreator('loop', null, 1)),
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 3700, 100, 50, 50, 1, 0, 200, 0, 500, null, new timerCreator('loop', null, 1)),
+  //Same X-1
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 3900, 100, 50, 50, 1, 0, 200, 0, 500, null, new timerCreator('loop', null, 1)),
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 3900, 2700, 50, 50, 1, 0, -200, 0, -500, null, new timerCreator('loop', null, 1)),
 ];
 
 level_3.flagSpawn = [
@@ -747,7 +796,7 @@ level_3.flagSpawn = [
   //   new shadowLevelGenerator(0, [
   //     new shadowLevelArray(2, 4)
   //   ])),
-  // new flagCreator(3, true, flagRegular, flag, 4700, 1900, 0, 0, 1, 1, 0, 0, null),
+  new flagCreator(0, true, flagRegular, flag, 1, 4650, 1325, 0, 0, 0, 0, null),
 ];
 
 ///////////////////////////////////////////Level 4///////////////////////////////////////////////////////////

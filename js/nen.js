@@ -60,10 +60,10 @@ var noGunSet = [
 
 var killGunSet = [
   //Name, Tint, FireRate, Speed, Power 1
-  new weaponCreator('kill', Phaser.Color.RED, 100, 1500), , //Weapon 1
-  null, //Weapon 2
-  null, //Weapon 3
-  null, //Weapon 4
+  new weaponCreator('pull', Phaser.Color.GREEN, 250, 1000, 300),//Weapon 1
+  new weaponCreator('push', Phaser.Color.BLUE, 250, 1000, 3),//Weapon 2
+  new weaponCreator('stop', Phaser.Color.VIOLET, 250, 1000),//Weapon 3
+  new weaponCreator('kill', Phaser.Color.RED, 250, 1000), //Weapon 4
 ];
 
 var directionalGunSet = [
