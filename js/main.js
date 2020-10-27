@@ -738,14 +738,15 @@ level_3.playerPosition = [
 
 //Sprite Generation
 level_3.spriteSpawn = [
-  ////////////////////////////////////One True Friend////////////////////////////////////////
+  ////////////////////////////////////OTrue Friends////////////////////////////////////////
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 4700, 1200, 100, 100, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, wallLeftRight, 'tile', wallTile50, 4700, 1400, 300, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, ballRegular, 'sprite', ball, 4700, 150, 50, 50, 1, 0, 300, 0, 0, null, null),
   ////////////////////////////////////Borders///////////////////////////////////////////////
   //Top
-  new SpriteCreator(true, deathKillWall, 'tile', deathTile, 0, 0, 5000, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathKillWall, 'tile', invsibileTile, 0, 0, 5000, 50, 1, 0, 0, 0, 0, null, null),
   //Bottom
-  new SpriteCreator(true, deathKillWall, 'tile', deathTile, 0, 2750, 5000, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathKillWall, 'tile', invsibileTile, 0, 2750, 5000, 50, 1, 0, 0, 0, 0, null, null),
   //Right
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 4950, 50, 50, 2700, 1, 0, 0, 0, 0, null, null),
   // ////////////////////////////////////A Taste of Death////////////////////////////////////////////
@@ -775,12 +776,13 @@ level_3.spriteSpawn = [
   //Repeating Enemies?
   // new SpriteCreator(true, enemyDaakath, 'timer', enemyOne, 1000, 2750, 50, 50, 1, -700, -700, 0, 0, null, new timerCreator('loop', null, 3)),
   ////////////////////////////////////Falling Spikes//////////////////////////////////////////
-  //Same X-2
-  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 4010, 100, 50, 50, 1, 0, 200, 0, 500, null, new timerCreator('loop', null, 1)),
-  //Zero Phase
-  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 4070, 2700, 50, 50, 1, 0, -200, 0, -500, null, new timerCreator('loop', null, 1)),
   //Zero Phase - 2
   new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 4200, 100, 50, 50, 1, 0, 200, 0, 500, null, new timerCreator('loop', null, 1)),
+  //Zero Phase
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 4070, 2700, 50, 50, 1, 0, -200, 0, -500, null, new timerCreator('loop', null, 1)),
+  //You're Not Standing Up Top or Bottom
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 4010, 100, 50, 50, 1, 0, 200, 0, 500, null, new timerCreator('loop', null, 1)),
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 4010, 2700, 50, 50, 1, 0, -200, 0, -500, null, new timerCreator('loop', null, 1)),
   //From Top and Bottom-First Phase
   new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 3400, 2700, 50, 50, 1, 0, -200, 0, -500, null, new timerCreator('loop', null, 1)),
   new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 3500, 100, 50, 50, 1, 0, 200, 0, 500, null, new timerCreator('loop', null, 1)),

@@ -7,8 +7,8 @@ var weapon4Boolean = false;
 
 //Respawn Holder (The Level You Will Respawn In)
 var respawnHolder = {
-  indexOfCurrentWorld: 2,
-  indexOfPlayerPosition: 3,
+  indexOfCurrentWorld: 1,
+  indexOfPlayerPosition: 0,
 }
 
 //Toggling Camera
