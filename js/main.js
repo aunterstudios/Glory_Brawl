@@ -241,10 +241,10 @@ var level_1 = new LevelCreator(
 
 //Room-Switching
 level_1.metroidvania = new MetroidvaniaCreator(
-  1, //Room-Up-Index
-  1, //Room-Down-Index
-  2, //Room-Left-Index
-  1, //Room-Right-Index
+  0, //Room-Up-Index
+  3, //Room-Down-Index
+  null, //Room-Left-Index
+  null, //Room-Right-Index
 );
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
@@ -619,7 +619,7 @@ level_2.spriteSpawn = [
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 4050, 1450, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 3950, 1450, 50, 50, 1, 0, 0, 0, 0, null, null),
   //Phaser Wall
-  // new SpriteCreator(true, groundPhase, 'tile', groundTile, 4000, 1500, 50, 450, 1, 0, 0, 0, 0, scLocalizedDestruction, null),
+  new SpriteCreator(true, groundPhase, 'tile', groundTile, 4000, 1500, 50, 450, 1, 0, 0, 0, 0, scLocalizedDestruction, null),
   //Slippery Wall to Climb
   new SpriteCreator(true, groundSlippery, 'tile', groundTile, 4800, 0, 50, 1800, 1, 0, 0, 0, 0, null, null),
   //Ground
@@ -749,6 +749,15 @@ level_3.spriteSpawn = [
   new SpriteCreator(true, deathKillWall, 'tile', invsibileTile, 0, 2750, 5000, 50, 1, 0, 0, 0, 0, null, null),
   //Right
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 4950, 50, 50, 2700, 1, 0, 0, 0, 0, null, null),
+  //Left
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 0, 50, 50, 1100, 1, 0, 0, 0, 0, null, null),
+  //Left Decorations
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 50, 1100, 500, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 50, 1700, 500, 50, 1, 0, 0, 0, 0, null, null),
+  //Bottom Border
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 0, 1700, 50, 1050, 1, 0, 0, 0, 0, null, null),
+  //Ball Kill
+  new SpriteCreator(true, deathBallKill, 'tile', ball, 0, 1150, 50, 550, 1, 0, 0, 0, 0, null, null),
   // ////////////////////////////////////A Taste of Death////////////////////////////////////////////
   //Top
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 4000, 1000, 50, 300, 1, 0, 0, 0, 0, null, null),
@@ -763,6 +772,22 @@ level_3.spriteSpawn = [
   new SpriteCreator(true, enemyShooter, 'sprite', enemyOne, 3950, 1550, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 3950, 1650, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 3950, 1750, 50, 50, 1, 0, 0, 0, 0, null, null),
+  //////////////////////////////////////Another One////////////////////////////////////////////
+  //Top
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 3200, 1000, 50, 300, 1, 0, 0, 0, 0, null, null),
+  //Bottom
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 3200, 1500, 50, 300, 1, 0, 0, 0, 0, null, null),
+  //Enemies
+  //Top Side
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 3300, 1050, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, enemyShooter, 'sprite', enemyOne, 3300, 1150, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, enemyShooter, 'sprite', enemyOne, 3300, 1250, 50, 50, 1, 0, 0, 0, 0, null, null),
+  //Bottom Side
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 3300, 1550, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, enemyShooter, 'sprite', enemyOne, 3300, 1650, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 3300, 1750, 50, 50, 1, 0, 0, 0, 0, null, null),
+  //////////////////////////////////////Middle Divider////////////////////////////////////////////
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 2700, 800, 50, 1200, 1, 0, 0, 0, 0, null, null),
   // ////////////////////////////////////Main Traps////////////////////////////////////////////
   // //Repeating Traps Part 1 (Right to Left Orientation)
   // new SpriteCreator(true, wallKiller, 'timer', wallTile50, 4000, 50, 50, 50, 1, -700, 700, 0, 0, null, new timerCreator('loop', null, 3)),
