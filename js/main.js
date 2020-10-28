@@ -800,6 +800,32 @@ level_3.spriteSpawn = [
   // new SpriteCreator(true, wallKiller, 'timer', wallTile50, 2000, 2750, 50, 50, 1, -700, -700, 0, 0, null, new timerCreator('loop', null, 3)),
   //Repeating Enemies?
   // new SpriteCreator(true, enemyDaakath, 'timer', enemyOne, 1000, 2750, 50, 50, 1, -700, -700, 0, 0, null, new timerCreator('loop', null, 3)),
+  // ////////////////////////////////////Top Path////////////////////////////////////////////
+  //Borders
+  new SpriteCreator(true, invisibleRegular, 'tile', invsibileTile, 2700, 50, 50, 750, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, invisibleRegular, 'tile', invsibileTile, 550, 1100, 2150, 50, 1, 0, 0, 0, 0, null, null),
+  //Traps
+  //Vertical Moving
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 300, 200, 50, 50, 1, 0, 1000, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 600, 300, 50, 50, 1, 0, 1000, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 900, 400, 50, 50, 1, 0, 1000, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 1200, 500, 50, 50, 1, 0, 1000, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 1500, 600, 50, 50, 1, 0, 1000, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 1800, 700, 50, 50, 1, 0, 1000, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 2100, 800, 50, 50, 1, 0, 1000, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 2400, 900, 50, 50, 1, 0, 1000, 0, 0, null, null),
+  //Horizontal Moving
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 100, 300, 50, 50, 1, -1000, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 200, 500, 50, 50, 1, 1000, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 300, 700, 50, 50, 1, -1000, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 400, 900, 50, 50, 1, 1000, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 500, 1000, 50, 50, 1, -1000, 0, 0, 0, null, null),
+  // ////////////////////////////////////Bottom Path////////////////////////////////////////////
+  new SpriteCreator(true, fallingSpikesRegularTwo, 'timer', fallingSpikesTwo, 200, 1800, 50, 50, 1, 200, 0, 500, 0, null, new timerCreator('loop', null, 1)),
+  new SpriteCreator(true, fallingSpikesRegularTwo, 'timer', fallingSpikesTwo, 200, 2000, 50, 50, 1, 200, 0, 500, 0, null, new timerCreator('loop', null, 1)),
+  new SpriteCreator(true, fallingSpikesRegularTwo, 'timer', fallingSpikesTwo, 200, 2200, 50, 50, 1, 200, 0, 500, 0, null, new timerCreator('loop', null, 1)),
+  new SpriteCreator(true, fallingSpikesRegularTwo, 'timer', fallingSpikesTwo, 200, 2400, 50, 50, 1, 200, 0, 500, 0, null, new timerCreator('loop', null, 1)),
+  new SpriteCreator(true, fallingSpikesRegularTwo, 'timer', fallingSpikesTwo, 200, 2600, 50, 50, 1, 200, 0, 500, 0, null, new timerCreator('loop', null, 1)),
   ////////////////////////////////////Falling Spikes//////////////////////////////////////////
   //Zero Phase - 2
   new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 4200, 100, 50, 50, 1, 0, 200, 0, 500, null, new timerCreator('loop', null, 1)),
