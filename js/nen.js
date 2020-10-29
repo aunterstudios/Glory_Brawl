@@ -35,9 +35,9 @@ var seanNen = new nenCreator(
 ////////////////////////Creation of Gun System Sets///////////////////////
 var basicGunSet = [
   //Name, Tint, FireRate, Speed, Power 1
-  new weaponCreator('pull', Phaser.Color.GREEN, 300, 800, 600),//Weapon 1
-  new weaponCreator('push', Phaser.Color.BLUE, 300, 800, 2),//Weapon 2
-  new weaponCreator('stop', Phaser.Color.VIOLET, 300, 800),//Weapon 3
+  new weaponCreator('pull', Phaser.Color.GREEN, 100, 1200, 200),//Weapon 1
+  new weaponCreator('push', Phaser.Color.BLUE, 100, 1200, 8),//Weapon 2
+  new weaponCreator('stop', Phaser.Color.VIOLET, 100, 1200),//Weapon 3
   null, //Weapon 4
 ];
 
@@ -60,10 +60,10 @@ var noGunSet = [
 
 var killGunSet = [
   //Name, Tint, FireRate, Speed, Power 1
-  new weaponCreator('pull', Phaser.Color.GREEN, 250, 1000, 300),//Weapon 1
-  new weaponCreator('push', Phaser.Color.BLUE, 250, 1000, 3),//Weapon 2
-  new weaponCreator('stop', Phaser.Color.VIOLET, 250, 1000),//Weapon 3
-  new weaponCreator('kill', Phaser.Color.RED, 250, 1000), //Weapon 4
+  new weaponCreator('pull', Phaser.Color.GREEN, 100, 1200, 200),//Weapon 1
+  new weaponCreator('push', Phaser.Color.BLUE, 100, 1200, 8),//Weapon 2
+  new weaponCreator('stop', Phaser.Color.VIOLET, 100, 1200),//Weapon 3
+  new weaponCreator('kill', Phaser.Color.RED, 100, 1200), //Weapon 4
 ];
 
 var directionalGunSet = [
