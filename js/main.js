@@ -162,7 +162,6 @@ level_0.spriteSpawn = [
   //Ledge
   // new SpriteCreator(true, ledgeElevator, 'timer', ledge, 400, 100, 150, 50, 1, 300, 200, 0, 0, null, new timerCreator('repeat', 4, 3)),
   // new SpriteCreator(true, ledgeElevator, 'timer', ledge, 1000, 100, 150, 50, 1, 0, 200, 0, 0, null, new timerCreator('loop', null, 2)),
-  new SpriteCreator(true, ledgeElevator, 'sprite', ledge, 1000, 100, 150, 50, 1, 0, 200, 0, 0, null, null),
   // new SpriteCreator(true, ledgeSurf, 'timer', ledge, 2000, 100, 150, 50, 1, 0, 200, 0, 0, null, new timerCreator('loop', null, 2)),
   // new SpriteCreator(true, ledgeBounce, 'timer', ledge, 1500, 100, 150, 50, 1, 0, 200, 0, 0, null, new timerCreator('loop', null, 2)),
   //Ball
@@ -575,7 +574,7 @@ level_1.flagSpawn = [
 var level_2 = new LevelCreator(
   "Level 2-ExperimentMechanics", //Name of World
   4800, //X-Size of World
-  2000, //Y-Size of World
+  5000, //Y-Size of World
   '#FFE4E4', //Background Color
   true, //Out of Bounds Allowed
   1, //Player Scale
@@ -610,7 +609,7 @@ level_2.spriteSpawn = [
   //Phaser Wall
   // new SpriteCreator(true, groundPhase, 'tile', groundTile, 4000, 1500, 50, 450, 1, 0, 0, 0, 0, scLocalizedDestruction, null),
   //Slippery Wall to Climb
-  new SpriteCreator(true, groundSlippery, 'tile', groundTile, 4150, 0, 50, 1800, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundSlippery, 'tile', groundTile, 4150, 700, 50, 1100, 1, 0, 0, 0, 0, null, null),
   //Ground
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 4000, 2000, 800, 50, 1, 0, 0, 0, 0, null, null),
 ];

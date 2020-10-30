@@ -72,6 +72,8 @@ var wallMomentum = new spriteType(2, 'wallMomentum', Phaser.Color.YELLOW, 200, .
 var ledgeElevator = new spriteType(3, 'ledgeElevator', Phaser.Color.YELLOW, 20, .5, false, 1000, 1);
 var ledgeBounce = new spriteType(3, 'ledgeBounce', Phaser.Color.GREEN, 20, .5, false, 1000, 1);
 var ledgeSurf = new spriteType(3, 'ledgeSurf', Phaser.Color.AQUA, 20, .5, false, 1000, 1);
+var ledgeBounceSide = new spriteType(3, 'ledgeBounceSide', Phaser.Color.GREEN, 20, .5, false, 1000, 1);
+
 
 //Enemy Names
 var enemyShooter = new spriteType(4, 'enemyShooter', 12758247.409111453, 20, .5, false, 1000, 1);
