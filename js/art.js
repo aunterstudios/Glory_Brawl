@@ -22,7 +22,6 @@ var wallTile25 = 'wallTile25';
 
 //Ledge
 var ledge = 'ledge';
-var ledgeSide = 'ledgeSide';
 
 //enemy
 var enemyOne = 'enemyOne'
