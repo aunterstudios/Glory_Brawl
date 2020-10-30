@@ -41,15 +41,6 @@ var basicGunSet = [
   null, //Weapon 4
 ];
 
-
-var funGunSet = [
-  //Name, Tint, FireRate, Speed, Power 1
-  new weaponCreator('pull', Phaser.Color.GREEN, 250, 1000, 300),//Weapon 1
-  new weaponCreator('push', Phaser.Color.BLUE, 250, 1000, 3),//Weapon 2
-  new weaponCreator('stop', Phaser.Color.VIOLET, 250, 1000),//Weapon 3
-  null, //Weapon 4
-];
-
 var noGunSet = [
   //Name, Tint, FireRate, Speed, Power 1
   null, //Weapon 1

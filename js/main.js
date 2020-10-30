@@ -573,14 +573,14 @@ level_1.flagSpawn = [
 ////////////////////////////////////////Level 2/////////////////////////////////////
 //Level Begin
 var level_2 = new LevelCreator(
-  "Level 2-What", //Name of World
+  "Level 2-ExperimentMechanics", //Name of World
   4800, //X-Size of World
   2000, //Y-Size of World
-  '#FFFDD0', //Background Color
+  '#FFE4E4', //Background Color
   true, //Out of Bounds Allowed
   1, //Player Scale
   portalNen, //Nen-System
-  funGunSet, //Gun-Set
+  basicGunSet, //Gun-Set
   true, //Sideways Stick to Walls,
   true, //Upsidedown Stick
 );
@@ -603,102 +603,21 @@ level_2.playerPosition = [
 
 level_2.spriteSpawn = [
   //Repeating Traps on Slippery Wall
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 4600, 1600, 200, 25, .5, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 4600, 1300, 200, 25, .5, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 4600, 1000, 200, 25, .5, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 4600, 700, 200, 25, .5, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 4600, 400, 200, 25, .5, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 4600, 100, 200, 25, .5, 0, 0, 0, 0, null, null),
-  //Moving Traps (Make Grabbing enemyShooter Harder)
-  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 4200, 50, 50, 50, 1, 0, 700, 0, 0, null, null),
-  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 4400, 50, 50, 50, 1, 0, 700, 0, 0, null, null),
-  //To Help You Grab the Enemy Shooter
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 4300, 50, 50, 50, 1, 0, 0, 0, 0, null, null),
-  //Death Border on Top of Phaser Wall
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 4000, 0, 50, 1500, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 4050, 1450, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 3950, 1450, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 4000, 1600, 200, 25, .5, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 4000, 1300, 200, 25, .5, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 4000, 1000, 200, 25, .5, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 4000, 700, 200, 25, .5, 0, 0, 0, 0, null, null),
   //Phaser Wall
-  new SpriteCreator(true, groundPhase, 'tile', groundTile, 4000, 1500, 50, 450, 1, 0, 0, 0, 0, scLocalizedDestruction, null),
+  // new SpriteCreator(true, groundPhase, 'tile', groundTile, 4000, 1500, 50, 450, 1, 0, 0, 0, 0, scLocalizedDestruction, null),
   //Slippery Wall to Climb
-  new SpriteCreator(true, groundSlippery, 'tile', groundTile, 4800, 0, 50, 1800, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundSlippery, 'tile', groundTile, 4150, 0, 50, 1800, 1, 0, 0, 0, 0, null, null),
   //Ground
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 4000, 2000, 800, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 0, 2000, 4000, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 3950, 1900, 50, 50, 1, 0, 0, 0, 0, null, null),
-  //Moving Traps for Third Part
-  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 400, 1100, 50, 50, 1, 0, 500, 0, 0, null, null),
-  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 800, 1200, 50, 50, 1, 0, 500, 0, 0, null, null),
-  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 1200, 1300, 50, 50, 1, 0, 500, 0, 0, null, null),
-  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 1600, 1100, 50, 50, 1, 0, 500, 0, 0, null, null),
-  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 2000, 1200, 50, 50, 1, 0, 500, 0, 0, null, null),
-  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 2400, 1300, 50, 50, 1, 0, 500, 0, 0, null, null),
-  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 2800, 1100, 50, 50, 1, 0, 500, 0, 0, null, null),
-  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 3200, 1200, 50, 50, 1, 0, 500, 0, 0, null, null),
-  //Enemy to Grab to Kill Phase Wall
-  new SpriteCreator(true, enemyShooter, 'sprite', enemyOne, 4700, 60, 50, 50, 1, 0, 0, 0, 0, null, null),
-  //Death Border Right Hand Side
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 4050, 0, 700, 25, .5, 0, 0, 0, 0, null, null),
-  //Sniper Nest Immovable Wall
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 3950, 1800, 50, 50, 1, 0, 0, 0, 0, null, null),
-  //Top Borders of Movable Traps Wall Edition Part One
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 0, 1450, 3900, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, groundOneWayPlayer, 'tile', groundTile, 3900, 1450, 50, 50, 1, 0, 0, 0, 0, null, null),
-  //Top Borders of Movable Traps Wall Edition Part Two
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 100, 1000, 3900, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, groundOneWayPlayer, 'tile', deathTile, 25, 1000, 100, 50, .5, 0, 0, 0, 0, null, null),
-  //First Moveable Wall to Grab on Left Hand Side
-  new SpriteCreator(true, wallRegular, 'sprite', wallTile25, 200, 1890, 25, 25, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, wallRegular, 'tile', wallTile25, 3400, 1700, 25, 200, 1, 0, 0, 0, 0, null, null),
-  // new SpriteCreator(true, wallRegular, 'sprite', wallTile50, 700, 200, 50, 50, 1, 0, 0, 0, 0, null, null),
-  //Moving Traps on Moveable Wall
-  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 500, 1800, 50, 50, 1, 0, 600, 0, 0, null, null),
-  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 1300, 1800, 50, 50, 1, 0, 600, 0, 0, null, null),
-  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 2100, 1800, 50, 50, 1, 0, 600, 0, 0, null, null),
-  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 2900, 1800, 50, 50, 1, 0, 600, 0, 0, null, null),
-  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 3700, 1800, 50, 50, 1, 0, 600, 0, 0, null, null),
-  // new SpriteCreator(true, deathRegular, 'tile', deathTile, 4400, 50, 50, 50, 1, 0, 700, 0, 0, null, null),
-  //Top Left Border
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 0, 0, 25, 1950, .5, 0, 0, 0, 0, null, null),
-  //CheckPoint Holder for Third Part
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 3950, 1400, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 3600, 1400, 300, 50, 1, 0, 0, 0, 0, null, null),
-  //Moveable Wall for Third Part
-  new SpriteCreator(true, wallRegular, 'sprite', wallTile25, 3500, 1425, 25, 25, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, wallRegular, 'sprite', wallTile25, 3400, 1425, 25, 25, 1, 0, 0, 0, 0, null, null),
-  //Checkpoint Holder for End of Third Part
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 100, 950, 250, 50, 1, 0, 0, 0, 0, null, null),
-  //Just to Mess With You on the Last Part of the Third
-  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 200, 1100, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 200, 1200, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 200, 1300, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 200, 1400, 50, 50, 1, 0, 0, 0, 0, null, null),
-  //Sideways Spikes for Third Part
-  // new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesTwo, 75, 1100, null, null, 1, 800, 0, 400, 0, null, new timerCreator('loop', null, 2)),
-  // new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesTwo, 75, 1200, null, null, 1, 800, 0, 400, 0, null, new timerCreator('loop', null, 2)),
-  // new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesTwo, 75, 1300, null, null, 1, 800, 0, 400, 0, null, new timerCreator('loop', null, 2)),
-  // new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesTwo, 75, 1425, null, null, 1, 800, 0, 400, 0, null, new timerCreator('loop', null, 2)),
-  //Top Border
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 200, 0, 3800, 50, 1, 0, 0, 0, 0, null, null),
-  //Traps for Last Part
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 25, 400, 500, 25, .5, 0, 0, 0, 0, null, null),
-  //Hazama For the lastest part
-  new SpriteCreator(true, hazamaFalconia, 'tile', hazamaHippie, 400, 50, 3600, 950, 1, 0, 0, 0, 0, null, null),
-  //Mini Wall for Second Part
-  new SpriteCreator(true, wallRegular, 'sprite', wallTile25, 3800, 1890, 25, 25, 1, 0, 0, 0, 0, null, null),
-
 ];
 
 //Flag Spawn
 level_2.flagSpawn = [
-  // new flagCreator(1, true, flagSpecial, flag, 4200, 1800, 0, 0, .4, .4, 0, 0,
-  //   new shadowLevelGenerator(0, [
-  //     new shadowLevelArray(2, 4)
-  //   ])),
   new flagCreator(3, true, flagRegular, flag, 1, 4700, 1900, 0, 0, 0, 0, null),
-  new flagCreator(1, true, flagRegular, flag, 1, 3800, 1350, 0, 0, 0, 0, null),
-  new flagCreator(2, true, flagRegular, flag, 1, 300, 900, 0, 0, 0, 0, null),
-
 ];
 
 //Text Creator (Helpful Hints)
@@ -853,7 +772,7 @@ level_3.flagSpawn = [
   //   new shadowLevelGenerator(0, [
   //     new shadowLevelArray(2, 4)
   //   ])),
-  new flagCreator(0, true, flagRegular, flag, 1, 4650, 1325, 0, 0, 0, 0, null),
+  new flagCreator(0, true, flagRegular, flag, 1, 4700, 1150, 0, 0, 0, 0, null),
 ];
 
 ///////////////////////////////////////////Level 4///////////////////////////////////////////////////////////
@@ -865,7 +784,7 @@ var level_4 = new LevelCreator(
   true, //Out of Bounds Allowed
   1, //Player Scale
   portalNen, //Nen-System
-  funGunSet, //Gun-Set
+  basicGunSet, //Gun-Set
   true, //Sideways Stick to Walls,
   true, //Upsidedown Stick
 );
@@ -972,7 +891,7 @@ var level_5 = new LevelCreator(
   true, //Out of Bounds Allowed
   1, //Player Scale
   portalNen, //Nen-System
-  funGunSet, //Gun-Set
+  basicGunSet, //Gun-Set
   true, //Sideways Stick to Walls,
   true, //Upsidedown Stick
 );
