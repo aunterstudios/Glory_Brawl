@@ -602,7 +602,7 @@ level_2.playerPosition = [
 
 level_2.spriteSpawn = [
   /////////////////////////////////////Borders/////////////////////////////////////
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 4750, 2050, 50, 2000, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 4750, 2050, 50, 2950, 1, 0, 0, 0, 0, null, null),
   //////////////////////////////////////Dive///////////////////////////////////////
   //Repeating Traps on Slippery Wall
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 3800, 1950, 200, 25, .5, 0, 0, 0, 0, null, null),
@@ -616,30 +616,31 @@ level_2.spriteSpawn = [
   new SpriteCreator(true, groundSlippery, 'tile', groundTile, 4000, 700, 50, 1300, 1, 0, 0, 0, 0, null, null),
   //Ground
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 4000, 2000, 800, 50, 1, 0, 0, 0, 0, null, null),
+  //Bottom of Ground That Which is Death
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 4000, 2050, 750, 50, 1, 0, 0, 0, 0, null, null),
   //Falling Spikes Section
   new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 3775, 2100, 50, 50, 1, 0, -1000, 0, 0, null, new timerCreator('loop', null, 2)),
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 3750, 2150, 50, 50, 1, 0, 0, 0, 0, null, null),
   //Left Side Barriers of DEATh
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 3650, 700, 50, 1700, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 3700, 2350, 200, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 3900, 2350, 50, 1000, 1, 0, 0, 0, 0, null, null),
-  //Wall Killers
-  new SpriteCreator(true, wallKiller, 'sprite', wallTile50, 4050, 2400, 50, 50, 1, 0, 800, 0, 0, null, null),
-  new SpriteCreator(true, wallKiller, 'sprite', wallTile50, 4100, 2450, 50, 50, 1, 0, 800, 0, 0, null, null),
-  new SpriteCreator(true, wallKiller, 'sprite', wallTile50, 4150, 2500, 50, 50, 1, 0, 800, 0, 0, null, null),
-  new SpriteCreator(true, wallKiller, 'sprite', wallTile50, 4200, 2350, 50, 50, 1, 0, 800, 0, 0, null, null),
-  new SpriteCreator(true, wallKiller, 'sprite', wallTile50, 4250, 2400, 50, 50, 1, 0, 800, 0, 0, null, null),
-  new SpriteCreator(true, wallKiller, 'sprite', wallTile50, 4300, 2450, 50, 50, 1, 0, 800, 0, 0, null, null),
-  new SpriteCreator(true, wallKiller, 'sprite', wallTile50, 4350, 2500, 50, 50, 1, 0, 800, 0, 0, null, null),
-  new SpriteCreator(true, wallKiller, 'sprite', wallTile50, 4400, 2350, 50, 50, 1, 0, 800, 0, 0, null, null),
-  new SpriteCreator(true, wallKiller, 'sprite', wallTile50, 4450, 2400, 50, 50, 1, 0, 800, 0, 0, null, null),
-  new SpriteCreator(true, wallKiller, 'sprite', wallTile50, 4500, 2450, 50, 50, 1, 0, 800, 0, 0, null, null),
-  new SpriteCreator(true, wallKiller, 'sprite', wallTile50, 4550, 2500, 50, 50, 1, 0, 800, 0, 0, null, null),
-  new SpriteCreator(true, wallKiller, 'sprite', wallTile50, 4600, 2350, 50, 50, 1, 0, 800, 0, 0, null, null),
-  new SpriteCreator(true, wallKiller, 'sprite', wallTile50, 4650, 2400, 50, 50, 1, 0, 800, 0, 0, null, null),
-  new SpriteCreator(true, wallKiller, 'sprite', wallTile50, 4700, 2450, 50, 50, 1, 0, 800, 0, 0, null, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 3650, 700, 50, 1600, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 3700, 2250, 350, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 4000, 2300, 50, 1000, 1, 0, 0, 0, 0, null, null),
+  //Surfs Up
+  new SpriteCreator(true, ledgeSurf, 'sprite', ledge, 4000, 2200, 50, 50, 1, 0, 0, 0, 0, null, null),
+  //Wall Killer 2
+  new SpriteCreator(true, wallKiller, 'sprite', wallTile50, 4150, 2450, 50, 50, 1, -1000, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallKiller, 'sprite', wallTile50, 4200, 2500, 50, 50, 1, -1000, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallKiller, 'sprite', wallTile50, 4250, 2550, 50, 50, 1, -1000, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallKiller, 'sprite', wallTile50, 4300, 2600, 50, 50, 1, -1000, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallKiller, 'sprite', wallTile50, 4350, 2650, 50, 50, 1, -1000, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallKiller, 'sprite', wallTile50, 4400, 2700, 50, 50, 1, -1000, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallKiller, 'sprite', wallTile50, 4450, 2750, 50, 50, 1, -1000, 0, 0, 0, null, null),
   //Keep in Wall Killers
-  new SpriteCreator(true, groundOneWayPlayer, 'tile', groundTile, 3950, 2800, 800, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 4050, 2800, 500, 50, 1, 0, 0, 0, 0, null, null),
+  //Wall Momentum After Wall Killers
+  new SpriteCreator(true, wallMomentum, 'sprite', wallTile50, 4600, 3050, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallMomentum, 'sprite', wallTile50, 4400, 3100, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallMomentum, 'sprite', wallTile50, 4200, 3200, 50, 50, 1, 0, 0, 0, 0, null, null),
 ];
 
 //Flag Spawn
