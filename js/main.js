@@ -624,7 +624,7 @@ level_2.spriteSpawn = [
   //Left Side Barriers of DEATh
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 3650, 700, 50, 1600, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 3700, 2250, 350, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 4000, 2300, 50, 1000, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 4000, 2300, 50, 2100, 1, 0, 0, 0, 0, null, null),
   //Surfs Up
   new SpriteCreator(true, ledgeSurf, 'sprite', ledge, 4000, 2200, 50, 50, 1, 0, 0, 0, 0, null, null),
   //Wall Killer 2
@@ -641,6 +641,19 @@ level_2.spriteSpawn = [
   new SpriteCreator(true, wallMomentum, 'sprite', wallTile50, 4600, 3050, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, wallMomentum, 'sprite', wallTile50, 4400, 3100, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, wallMomentum, 'sprite', wallTile50, 4200, 3200, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallMomentum, 'sprite', wallTile50, 4175, 3350, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallMomentum, 'sprite', wallTile50, 4225, 3450, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallMomentum, 'sprite', wallTile50, 4300, 3550, 50, 50, 1, 0, 0, 0, 0, null, null),
+  //Wall Momentum Borders
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 4300, 3350, 450, 50, 1, 0, 0, 0, 0, null, null),
+  //Enemies to Attack Wall Momentum
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 4200, 3830, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 4400, 4000, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 4600, 4139, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 4800, 4330, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 5000, 4500, 50, 50, 1, 0, 0, 0, 0, null, null),
+
+
 ];
 
 //Flag Spawn
