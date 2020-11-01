@@ -85,17 +85,19 @@ brawl.game.prototype.playerWall = function (player, wall) {
     if (wall.name === wallMomentum.name) {
         player.body.stop();
         wall.body.stop();
-        if (wall.body.touching.up) {
-            wall.body.velocity.y = 700;
-        }
-        else if (wall.body.touching.down) {
-            wall.body.velocity.y = -700;
-        }
-        else if (wall.body.touching.left) {
-            wall.body.velocity.x = 700;
-        }
-        else if (wall.body.touching.right) {
-            wall.body.velocity.x = -700;
+        if (!this.movementDown.isDown) {
+            if (wall.body.touching.up) {
+                wall.body.velocity.y = 700;
+            }
+            else if (wall.body.touching.down) {
+                wall.body.velocity.y = -700;
+            }
+            else if (wall.body.touching.left) {
+                wall.body.velocity.x = 700;
+            }
+            else if (wall.body.touching.right) {
+                wall.body.velocity.x = -700;
+            }
         }
     }
     ///////////////////////////////Special Walls///////////////////////////
