@@ -83,6 +83,8 @@ brawl.game.prototype.playerWall = function (player, wall) {
     }
     ////////Slightly Harder Wall///////////
     if (wall.name === wallMomentum.name) {
+        player.body.stop();
+        wall.body.stop();
         if (wall.body.touching.up) {
             wall.body.velocity.y = 700;
         }

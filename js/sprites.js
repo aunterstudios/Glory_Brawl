@@ -45,7 +45,7 @@ var groundPhase = new spriteType(1, 'groundPhase', 12758247.409111453, 100, 0, t
 var groundActivation = new spriteType(1, 'groundActivation', 0xffff00, 100, 0, true, 1000, 1); //Triggers Movement in a Wall
 var groundOneWayObject = new spriteType(1, 'groundOneWayObject', 2499878.036284214, 100, 0, true, 1000, 1); //One Way (Objects Only)
 var groundOneWayPlayer = new spriteType(1, 'groundOneWayPlayer', 241917.63554178402, 100, 0, true, 1000, 1); //One Way (Players Only)
-var groundSlippery = new spriteType(1, 'groundSlippery', 766012.4141677661, 100, 0, true, 1000, 1); //Makes you SLIPPERY!
+var groundSlippery = new spriteType(1, 'groundSlippery', Phaser.Color.YELLOW, 100, 0, true, 1000, 1); //Makes you SLIPPERY!
 var groundOneWayPlayerBlockLeft = new spriteType(1, 'groundOneWayPlayerBlockLeft', 3588771.242333334, 100, 0, true, 1000, 1); //One way player only from the left
 var groundOneWayPlayerBlockDown = new spriteType(1, 'groundOneWayPlayerBlockDown', Phaser.Color.getRandomColor(10), 100, 0, true, 1000, 1); //One way player only from the Bottom
 var groundOneWayKillObject = new spriteType(1, 'groundOneWayKillObject', Phaser.Color.getRandomColor(10), 100, 0, true, 1000, 1); //One Way for Player But Kills Object
@@ -66,7 +66,7 @@ var wallGhost = new spriteType(2, 'wallGhost', 16771007.229130682, 200, .5, true
 var wallCloud = new spriteType(2, 'wallCloud', 9583870.358153213, 200, .5, true, 1000, 1); //Moving Platform Cloud
 var wallLeftRight = new spriteType(2, 'wallLeftRight', Phaser.Color.getRandomColor(), 200, .5, true, 1000, 1); //Moving platform that moves only left and right (OG)
 var wallKiller = new spriteType(2, 'wallKiller', Phaser.Color.RED, 200, .5, false, 1000, 1); //Kill You
-var wallMomentum = new spriteType(2, 'wallMomentum', Phaser.Color.YELLOW, 200, .5, false, 1000, 1); //Goes Nuts (So much momentum)
+var wallMomentum = new spriteType(2, 'wallMomentum', Phaser.Color.GREEN, 200, .5, false, 1000, 1); //Goes Nuts (So much momentum)
 
 //Ledge Names
 var ledgeElevator = new spriteType(3, 'ledgeElevator', Phaser.Color.YELLOW, 20, .5, false, 1000, 1);
