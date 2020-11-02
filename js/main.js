@@ -596,7 +596,7 @@ level_2.metroidvania = new MetroidvaniaCreator(
 level_2.playerPosition = [
   new PlayerPositionCreator(200, 20),
   new PlayerPositionCreator(3800, 4930),
-  new PlayerPositionCreator(200, 925),
+  new PlayerPositionCreator(750, 4750),
   new PlayerPositionCreator(4500, 1900),
 ]
 
@@ -604,6 +604,8 @@ level_2.spriteSpawn = [
   /////////////////////////////////////Borders/////////////////////////////////////
   //Bottom
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 0, 4950, 3450, 50, 1, 0, 0, 0, 0, null, null),
+  //Left
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 0, 0, 50, 4950, 1, 0, 0, 0, 0, null, null),
   //Right
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 4750, 2050, 50, 2950, 1, 0, 0, 0, 0, null, null),
   //////////////////////////////////////Dive///////////////////////////////////////
@@ -628,7 +630,7 @@ level_2.spriteSpawn = [
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 3650, 700, 50, 1600, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 3700, 2250, 350, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 4000, 2300, 50, 2400, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, groundOneWayPlayer, 'tile', groundTile, 4000, 4700, 50, 300, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundOneWayPlayer, 'tile', groundTile, 4000, 4700, 50, 250, 1, 0, 0, 0, 0, null, null),
   //Surfs Up
   new SpriteCreator(true, ledgeSurf, 'sprite', ledge, 4000, 2200, 50, 50, 1, 0, 0, 0, 0, null, null),
   //Wall Killer 2
@@ -673,16 +675,20 @@ level_2.spriteSpawn = [
   new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 4300, 4600, 50, 50, 1, 1000, 0, 0, 0, null, null),
   new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 4350, 4600, 50, 50, 1, 1000, 0, 0, 0, null, null),
   //Bottom Border of the Dive
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 4050, 4950, 700, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 4000, 4950, 750, 50, 1, 0, 0, 0, 0, null, null),
   //////////////////////////////////////Right to Left 2nd Part No Name///////////////////////////////////////
   //Ground
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 3500, 4950, 500, 50, 1, 0, 0, 0, 0, null, null),
   //Left Border of Jungle Gym Slippery Wall and Death
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 3450, 4400, 50, 600, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 3400, 4400, 400, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 2800, 4400, 1000, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, groundSlippery, 'tile', groundTile, 3450, 2400, 50, 2000, 1, 0, 0, 0, 0, null, null),
-  //Top Border
+  //BIG TIME BORDERS
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 1000, 2200, 2650, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 1600, 2700, 50, 2250, 1, 0, 0, 0, 0, null, null),
+  //Canyon Gap
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 1000, 2250, 50, 1300, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 1000, 3800, 50, 1150, 1, 0, 0, 0, 0, null, null),
   //Repeating Traps on Slippery Wall
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 2800, 2950, 850, 25, .5, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 3500, 3250, 150, 25, .5, 0, 0, 0, 0, null, null),
@@ -694,14 +700,51 @@ level_2.spriteSpawn = [
   //Ledge Surf
   new SpriteCreator(true, ledgeSurf, 'sprite', ledge, 3800, 2400, null, null, 1, 0, 0, 0, 0, null, null),
   //Surf Borders
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 2400, 2350, 50, 1200, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 2400, 3550, 600, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 2400, 2325, 50, 2425, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 2450, 3550, 900, 50, 1, 0, 0, 0, 0, null, null),
+  //After Surf Border
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 2400, 4750, 700, 50, 1, 0, 0, 0, 0, null, null),
+  //Wall Killers After Surf Slip (step 1)
+  new SpriteCreator(true, wallKiller, 'sprite', wallTile50, 3300, 3800, 50, 50, 1, 0, -1000, 0, 0, null, null),
+  new SpriteCreator(true, wallKiller, 'sprite', wallTile50, 3300, 3900, 50, 50, 1, 0, 1000, 0, 0, null, null),
+  new SpriteCreator(true, wallKiller, 'sprite', wallTile50, 3300, 4000, 50, 50, 1, 0, -1000, 0, 0, null, null),
+  new SpriteCreator(true, wallKiller, 'sprite', wallTile50, 3300, 4100, 50, 50, 1, 0, 1000, 0, 0, null, null),
+  //Wall Killers After Surf Slip (step 2)
+  new SpriteCreator(true, wallKiller, 'sprite', wallTile50, 2900, 3800, 50, 50, 1, 0, -1000, 0, 0, null, null),
+  new SpriteCreator(true, wallKiller, 'sprite', wallTile50, 2900, 3900, 50, 50, 1, 0, 1000, 0, 0, null, null),
+  new SpriteCreator(true, wallKiller, 'sprite', wallTile50, 2900, 4000, 50, 50, 1, 0, -1000, 0, 0, null, null),
+  new SpriteCreator(true, wallKiller, 'sprite', wallTile50, 2900, 4100, 50, 50, 1, 0, 1000, 0, 0, null, null),
+  //Wall Killers After Surf Slip (step 3)
+  new SpriteCreator(true, wallKiller, 'sprite', wallTile50, 2690, 3800, 50, 50, 1, 0, -1000, 0, 0, null, null),
+  new SpriteCreator(true, wallKiller, 'sprite', wallTile50, 2690, 3900, 50, 50, 1, 0, 1000, 0, 0, null, null),
+  new SpriteCreator(true, wallKiller, 'sprite', wallTile50, 2690, 4000, 50, 50, 1, 0, -1000, 0, 0, null, null),
+  new SpriteCreator(true, wallKiller, 'sprite', wallTile50, 2690, 4100, 50, 50, 1, 0, 1000, 0, 0, null, null),
+  //Finally Ground Regular Move
+  new SpriteCreator(true, groundRegularMove, 'tile', gMovingTile, 3090, 3800, 50, 200, 1, 0, 500, 0, 0, null, null),
+  new SpriteCreator(true, groundRegularMove, 'tile', gMovingTile, 2690, 3800, 50, 200, 1, 0, 500, 0, 0, null, null),
+  //Ledge Surf
+  new SpriteCreator(true, ledgeSurf, 'sprite', ledge, 3200, 4800, null, null, 1, 0, 0, 0, 0, null, null),
+  //Elevator End Point
+  new SpriteCreator(true, ledgeBounce, 'sprite', ledge, 2200, 4850, null, null, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, ledgeBounce, 'sprite', ledge, 1800, 4450, null, null, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, ledgeBounce, 'sprite', ledge, 2200, 4050, null, null, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, ledgeBounce, 'sprite', ledge, 1800, 3650, null, null, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, ledgeBounce, 'sprite', ledge, 2200, 3250, null, null, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, ledgeBounce, 'sprite', ledge, 1800, 2850, null, null, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, ledgeBounce, 'sprite', ledge, 2200, 2450, null, null, 1, 0, 0, 0, 0, null, null),
+  //Ledges Last Obstacle
+  new SpriteCreator(true, ledgeElevator, 'sprite', ledge, 1200, 4850, null, null, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, ledgeElevator, 'sprite', ledge, 1400, 4450, null, null, 1, 0, 0, 0, 0, null, null),
+  /////////////////////////////////////////////Part Three The Power of Ra/////////////////////////////////////////////
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 500, 4800, 400, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, powerJump, 'sprite', powerJar, 400, 4800, 400, 50, 1, 0, 0, 0, 0, null, null),
 ];
 
 //Flag Spawn
 level_2.flagSpawn = [
   new flagCreator(3, true, flagRegular, flag, 1, 4300, 1950, 0, 0, 0, 0, null),
   new flagCreator(1, true, flagRegular, flag, 1, 3700, 4900, 0, 0, 0, 0, null),
+  new flagCreator(2, true, flagRegular, flag, 1, 650, 4750, 0, 0, 0, 0, null),
 ];
 
 //Text Creator (Helpful Hints)
