@@ -50,7 +50,7 @@ game.state.add('startScreen', brawl.startScreen);
 game.state.start('boot');
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "Level2",
+  "Level2-Inspiration",
   "GLORY BRAWL",
 ];
 
@@ -602,6 +602,9 @@ level_2.playerPosition = [
 
 level_2.spriteSpawn = [
   /////////////////////////////////////Borders/////////////////////////////////////
+  //Bottom
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 0, 4950, 3450, 50, 1, 0, 0, 0, 0, null, null),
+  //Right
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 4750, 2050, 50, 2950, 1, 0, 0, 0, 0, null, null),
   //////////////////////////////////////Dive///////////////////////////////////////
   //Repeating Traps on Slippery Wall
@@ -674,6 +677,25 @@ level_2.spriteSpawn = [
   //////////////////////////////////////Right to Left 2nd Part No Name///////////////////////////////////////
   //Ground
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 3500, 4950, 500, 50, 1, 0, 0, 0, 0, null, null),
+  //Left Border of Jungle Gym Slippery Wall and Death
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 3450, 4400, 50, 600, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 3400, 4400, 400, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundSlippery, 'tile', groundTile, 3450, 2400, 50, 2000, 1, 0, 0, 0, 0, null, null),
+  //Top Border
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 1000, 2200, 2650, 50, 1, 0, 0, 0, 0, null, null),
+  //Repeating Traps on Slippery Wall
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 2800, 2950, 850, 25, .5, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 3500, 3250, 150, 25, .5, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 3500, 3550, 150, 25, .5, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 3500, 3850, 150, 25, .5, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 3500, 4150, 150, 25, .5, 0, 0, 0, 0, null, null),
+  //Ledge Bounce For You To Get On The Wall
+  new SpriteCreator(true, ledgeBounce, 'sprite', ledge, 3600, 4600, null, null, 1, 0, 0, 0, 0, null, null),
+  //Ledge Surf
+  new SpriteCreator(true, ledgeSurf, 'sprite', ledge, 3800, 2400, null, null, 1, 0, 0, 0, 0, null, null),
+  //Surf Borders
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 2400, 2350, 50, 1200, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 2400, 3550, 600, 50, 1, 0, 0, 0, 0, null, null),
 ];
 
 //Flag Spawn
