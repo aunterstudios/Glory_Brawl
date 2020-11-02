@@ -69,6 +69,8 @@ brawl.game.prototype.playerGround = function (player, ground) {
 };
 
 brawl.game.prototype.playerWall = function (player, wall) {
+    //////////Resetting Player Effects/////////
+    this.playerSlippery = nenHolder.playerSlippery;
     //////////Global Wall Effects////////
     wall.phase = false;
     wall.alpha = .4;
@@ -140,6 +142,9 @@ brawl.game.prototype.playerWall = function (player, wall) {
 };
 
 brawl.game.prototype.playerEnemy = function (player, enemy) {
+    /////////////////Resetting Player Effects//////////////
+    this.playerSlippery = nenHolder.playerSlippery;
+    ////////////////Player Collision Effects////////////////
     enemy.phase = false;
     enemy.alpha = .4;
     if (enemy.name === 'enemyWall') {
@@ -163,6 +168,8 @@ brawl.game.prototype.playerEnemy = function (player, enemy) {
 };
 
 brawl.game.prototype.playerLedge = function (player, ledge) {
+    /////////////////Resetting Player Effects//////////////
+    this.playerSlippery = nenHolder.playerSlippery;
     /////////////Collision Turned Off////////////
     ledge.phase = false;
     ledge.alpha = .4;

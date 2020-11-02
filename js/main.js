@@ -595,7 +595,7 @@ level_2.metroidvania = new MetroidvaniaCreator(
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_2.playerPosition = [
   new PlayerPositionCreator(200, 20),
-  new PlayerPositionCreator(3750, 1375),
+  new PlayerPositionCreator(3800, 4930),
   new PlayerPositionCreator(200, 925),
   new PlayerPositionCreator(4500, 1900),
 ]
@@ -621,10 +621,11 @@ level_2.spriteSpawn = [
   //Falling Spikes Section
   new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 3775, 2100, 50, 50, 1, 0, -1000, 0, 0, null, new timerCreator('loop', null, 2)),
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 3750, 2150, 50, 50, 1, 0, 0, 0, 0, null, null),
-  //Left Side Barriers of DEATh
+  //Left Side Barriers of DEATH and Entry
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 3650, 700, 50, 1600, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 3700, 2250, 350, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 4000, 2300, 50, 2100, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 4000, 2300, 50, 2400, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundOneWayPlayer, 'tile', groundTile, 4000, 4700, 50, 300, 1, 0, 0, 0, 0, null, null),
   //Surfs Up
   new SpriteCreator(true, ledgeSurf, 'sprite', ledge, 4000, 2200, 50, 50, 1, 0, 0, 0, 0, null, null),
   //Wall Killer 2
@@ -644,21 +645,41 @@ level_2.spriteSpawn = [
   new SpriteCreator(true, wallMomentum, 'sprite', wallTile50, 4175, 3350, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, wallMomentum, 'sprite', wallTile50, 4225, 3450, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, wallMomentum, 'sprite', wallTile50, 4300, 3550, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallMomentum, 'sprite', wallTile50, 4300, 3750, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallMomentum, 'sprite', wallTile50, 4300, 3850, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallMomentum, 'sprite', wallTile50, 4300, 3950, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallMomentum, 'sprite', wallTile50, 4300, 4050, 50, 50, 1, 0, 0, 0, 0, null, null),
   //Wall Momentum Borders
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 4300, 3350, 450, 50, 1, 0, 0, 0, 0, null, null),
   //Enemies to Attack Wall Momentum
   new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 4200, 3830, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 4400, 4000, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 4400, 3600, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 4400, 3800, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 4600, 4139, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 4800, 4330, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 5000, 4500, 50, 50, 1, 0, 0, 0, 0, null, null),
-
-
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 4200, 4200, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 4600, 3600, 50, 50, 1, 0, 0, 0, 0, null, null),
+  //The Last Part of the Dive - Part 1
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 4200, 4400, 50, 50, 1, -1000, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 4250, 4400, 50, 50, 1, -1000, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 4300, 4400, 50, 50, 1, -1000, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 4350, 4400, 50, 50, 1, -1000, 0, 0, 0, null, null),
+  //The Last Part of the Dive - Part 2
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 4200, 4600, 50, 50, 1, 1000, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 4250, 4600, 50, 50, 1, 1000, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 4300, 4600, 50, 50, 1, 1000, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 4350, 4600, 50, 50, 1, 1000, 0, 0, 0, null, null),
+  //Bottom Border of the Dive
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 4050, 4950, 700, 50, 1, 0, 0, 0, 0, null, null),
+  //////////////////////////////////////Right to Left 2nd Part No Name///////////////////////////////////////
+  //Ground
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 3500, 4950, 500, 50, 1, 0, 0, 0, 0, null, null),
 ];
 
 //Flag Spawn
 level_2.flagSpawn = [
   new flagCreator(3, true, flagRegular, flag, 1, 4300, 1950, 0, 0, 0, 0, null),
+  new flagCreator(1, true, flagRegular, flag, 1, 3700, 4900, 0, 0, 0, 0, null),
 ];
 
 //Text Creator (Helpful Hints)
