@@ -50,7 +50,7 @@ game.state.add('startScreen', brawl.startScreen);
 game.state.start('boot');
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "LERPXY tabled for now till second opinion",
+  "LERPXY IT IS",
   "GLORY BRAWL",
 ];
 
