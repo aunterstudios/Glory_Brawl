@@ -686,9 +686,6 @@ level_2.spriteSpawn = [
   //BIG TIME BORDERS
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 1000, 2200, 2650, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 1600, 2700, 50, 2250, 1, 0, 0, 0, 0, null, null),
-  //Canyon Gap
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 1000, 2250, 50, 1300, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 1000, 3800, 50, 1150, 1, 0, 0, 0, 0, null, null),
   //Repeating Traps on Slippery Wall
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 2800, 2950, 850, 25, .5, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 3500, 3250, 150, 25, .5, 0, 0, 0, 0, null, null),
@@ -699,6 +696,10 @@ level_2.spriteSpawn = [
   new SpriteCreator(true, ledgeBounce, 'sprite', ledge, 3600, 4600, null, null, 1, 0, 0, 0, 0, null, null),
   //Ledge Surf
   new SpriteCreator(true, ledgeSurf, 'sprite', ledge, 3800, 2400, null, null, 1, 0, 0, 0, 0, null, null),
+  //Nah to your ledge surf
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 2800, 3500, 50, 50, 1, 0, -1000, 0, 0, null, new timerCreator('loop', null, 2)),
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 3000, 3500, 50, 50, 1, 0, -1000, 0, 0, null, new timerCreator('loop', null, 2)),
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 3200, 3500, 50, 50, 1, 0, -1000, 0, 0, null, new timerCreator('loop', null, 2)),
   //Surf Borders
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 2400, 2325, 50, 2425, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 2450, 3550, 900, 50, 1, 0, 0, 0, 0, null, null),
@@ -720,8 +721,8 @@ level_2.spriteSpawn = [
   new SpriteCreator(true, wallKiller, 'sprite', wallTile50, 2690, 4000, 50, 50, 1, 0, -1000, 0, 0, null, null),
   new SpriteCreator(true, wallKiller, 'sprite', wallTile50, 2690, 4100, 50, 50, 1, 0, 1000, 0, 0, null, null),
   //Finally Ground Regular Move
+  new SpriteCreator(true, groundRegularMove, 'tile', gMovingTile, 3000, 3800, 50, 200, 1, 0, 500, 0, 0, null, null),
   new SpriteCreator(true, groundRegularMove, 'tile', gMovingTile, 3090, 3800, 50, 200, 1, 0, 500, 0, 0, null, null),
-  new SpriteCreator(true, groundRegularMove, 'tile', gMovingTile, 2690, 3800, 50, 200, 1, 0, 500, 0, 0, null, null),
   //Ledge Surf
   new SpriteCreator(true, ledgeSurf, 'sprite', ledge, 3200, 4800, null, null, 1, 0, 0, 0, 0, null, null),
   //Elevator End Point
@@ -733,8 +734,11 @@ level_2.spriteSpawn = [
   new SpriteCreator(true, ledgeBounce, 'sprite', ledge, 1800, 2850, null, null, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, ledgeBounce, 'sprite', ledge, 2200, 2450, null, null, 1, 0, 0, 0, 0, null, null),
   //Ledges Last Obstacle
-  new SpriteCreator(true, ledgeElevator, 'sprite', ledge, 1200, 4850, null, null, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, ledgeElevator, 'sprite', ledge, 1400, 4450, null, null, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, ledgeElevator, 'sprite', ledge, 1200, 4850, null, null, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, ledgeElevator, 'sprite', ledge, 1400, 4450, null, null, 1, 0, 0, 0, 0, null, null),
+  //Canyon Gap
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 1000, 2250, 50, 700, 1, 0, -1000, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 1000, 4600, 50, 700, 1, 0, 1000, 0, 0, null, null),
   /////////////////////////////////////////////Part Three The Power of Ra/////////////////////////////////////////////
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 500, 4800, 400, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, powerJump, 'sprite', powerJar, 400, 4800, 400, 50, 1, 0, 0, 0, 0, null, null),

@@ -217,6 +217,7 @@ brawl.game.prototype.playerOut = function (player) {
 ///////////////////////////////////////////State Switches////////////////////////////////
 //Character Dying From Enemies and Such
 brawl.game.prototype.playerDeath = function (victim, killer) {
+    // this.game.camera.shake();
     this.emitterFunction(victim, null, 'kill');
     if (this.timerSpecialLevel) {
         this.game.time.events.remove(this.timerSpecialLevel);
@@ -225,6 +226,7 @@ brawl.game.prototype.playerDeath = function (victim, killer) {
 };
 //Killing Yourself Literally
 brawl.game.prototype.killSelf = function () {
+    // this.game.camera.shake();
     this.emitterFunction(this.player, null, 'kill');
     if (this.timerSpecialLevel) {
         this.game.time.events.remove(this.timerSpecialLevel);
