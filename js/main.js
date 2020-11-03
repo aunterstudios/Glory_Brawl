@@ -50,7 +50,7 @@ game.state.add('startScreen', brawl.startScreen);
 game.state.start('boot');
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "Can't go back now",
+  "Individual Lerp",
   "GLORY BRAWL",
 ];
 
@@ -238,8 +238,8 @@ var level_1 = new LevelCreator(
   noGunSet, //Gun-Set
   true, //Sideways Stick to Walls,
   true, //Upsidedown Stick
-  1, //X-Camera Lerp
-  1, //Y-Camera Lerp
+  .1, //X-Camera Lerp
+  .3, //Y-Camera Lerp
 );
 
 //Room-Switching
