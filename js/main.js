@@ -50,7 +50,7 @@ game.state.add('startScreen', brawl.startScreen);
 game.state.start('boot');
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "Individual Lerp",
+  "Turned It Down",
   "GLORY BRAWL",
 ];
 
