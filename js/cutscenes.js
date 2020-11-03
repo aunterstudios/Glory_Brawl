@@ -17,12 +17,13 @@ brawl.death.prototype = {
         //Increase Death Total
         ++deaths;
 
-        //Art
-        this.trump = this.game.add.sprite(this.game.world.centerX + 300, this.game.world.centerY, 'background-three');
-        this.trump.anchor.setTo(.5);
-        //this.trump.scale.setTo(.75);
+        //Background
+        this.background = this.game.add.tileSprite(0, 0, 1400, 800, 'player');
+        this.background.animations.add('move');
+        this.background.animations.play('move', 10, true);
 
-        this.text = this.game.add.text(this.game.world.centerX - 250, 220, "SPACEBAR to Try Again \n Attemps to Be Reborn: " + deaths);
+        //Text
+        this.text = this.game.add.text(this.game.world.centerX - 250, 220, "SPACEBAR to Restart \n Deaths: " + deaths);
         this.text.anchor.setTo(0.5);
         this.text.align = 'center';
 

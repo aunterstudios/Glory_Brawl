@@ -10,7 +10,6 @@ brawl.boot.prototype = {
     },
     preload: function () {
         //////////////////////////////Loads All The Sprites At The Main Menu Screen////////////////////
-        this.load.image('background-one', 'assets/trumpFirstBackground.jpg');
         //Death
         this.load.image('deathTile', 'assets/deathTile.png');
         this.load.image('deathMoveTile', 'assets/deathMoveTile.png');
@@ -75,27 +74,46 @@ brawl.mainMenu.prototype = {
     },
     create: function () {
         //Game Background Color
-        this.game.stage.backgroundColor = '#000000';
+        this.game.stage.backgroundColor = '#ffffff';
         //Full Screen
         this.fullSize = this.game.input.keyboard.addKey(Phaser.Keyboard.O);
         this.fullSize.onDown.add(this.gofull, this);
 
-        //Trump Background
-        this.trumpBackground = this.game.add.sprite(this.game.world.centerX + 200, this.game.world.centerY, 'background-one');
-        this.trumpBackground.anchor.setTo(.5);
+        //Background
+        this.background = this.game.add.tileSprite(this.game.world.centerX, this.game.world.centerY, 64, 64, 'player');
+        this.background.animations.add('move');
+        this.background.animations.play('move', 5, true);
+
+        //Accompaying Sprites
+        this.wall = this.game.add.sprite(this.game.world.centerX + 200, this.game.world.centerY, wallTile50);
+        this.wall.tint = Phaser.Color.GRAY;
+        this.wall.pivot.x = 200;
+        this.wall.pivot.y = 200;
+
+        this.ledge = this.game.add.sprite(this.game.world.centerX - 200, this.game.world.centerY, ledge);
+        this.ledge.tint = Phaser.Color.GREEN;
+        this.ledge.pivot.x = 200;
+        this.ledge.pivot.y = 200;
+
+        this.ball = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY - 200, ball);
+        this.ball.tint = Phaser.Color.BLUE;
+        this.ball.pivot.x = 200;
+        this.ball.pivot.y = 200;
 
         //Adding Cool Looking Text
-        text = this.game.add.text(200, 50, '', { font: "30px Impact", fill: "#A8D8CE" });
+        text = this.game.add.text(200, 50, '', { font: "30px Impact", fill: "#FF0000" });
         nextLine();
 
         //Skip Written Already.
-        this.text2 = game.add.text(200, 600, "Press SPACEBAR to Play.\nPress O to go Full-Screen");
+        this.text2 = game.add.text(this.game.world.centerX, this.game.world.centerY + 300, "Press SPACEBAR to Play.\nPress O to go Full-Screen");
 
         //	Font style
         this.text2.font = 'Impact';
         this.text2.fontSize = 30;
-        this.text2.fill = "#A8D8CE";
+        this.text2.fill = "#FF0000";
         this.text2.fontWeight = 'bold';
+        this.text2.align = 'center';
+        this.text2.anchor.setTo(.5);
 
     },
     gofull: function () {
@@ -107,6 +125,11 @@ brawl.mainMenu.prototype = {
         }
     },
     update: function () {
+        this.background.rotation += .01;
+        this.wall.rotation += .01;
+        this.ball.rotation += .01;
+        this.ledge.rotation += .01;
+
         if (this.game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
             this.game.state.start('startScreen');
         }
