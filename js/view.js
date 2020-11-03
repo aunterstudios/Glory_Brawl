@@ -95,3 +95,9 @@ brawl.game.prototype.slowMotionStop = function () {
     // this.game.time.desiredFps = this.game.time.suggestedFps;
     this.game.time.slowMotion = 1.0;
 };
+
+////////////////////////////////////////Camera Shake and Flash////////////////////////////////////
+brawl.game.prototype.shakeFlash = function () {
+    this.game.camera.shake();
+    this.game.camera.flash(0xff0000, 500, false, 1);
+};
