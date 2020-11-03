@@ -19,13 +19,13 @@ var portalNen = new nenCreator(
 );
 
 var seanNen = new nenCreator(
-  400, //Speed
-  -800, //Jump
+  1000, //Speed
+  -2000, //Jump
   null, //Gravity-X
-  1500, //Gravity-Y
-  1, //Double Jump
-  1000, //WallJump-X
-  500, //wallJump-Y
+  100, //Gravity-Y
+  2, //Double Jump
+  2000, //WallJump-X
+  100, //wallJump-Y
   500, //Stiickiness
   -25, //Wall Slide-Y
   400, //Downwards-S

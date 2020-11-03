@@ -108,12 +108,12 @@ var worldClassLevels = [];
 ///////////////////////////////////////////Level 0///////////////////////////////////////////////////////////
 var level_0 = new LevelCreator(
   "Level 0-Physics Testing", //Name of World
-  2800, //X-Size of World
-  800,  //Y- Size of World 
+  5000, //X-Size of World
+  5000,  //Y- Size of World 
   "#FFFDD0", //Background Color
   true, //Out of Bounds Allowed
   1, //PlayerScale
-  portalNen, //Nen-System
+  seanNen, //Nen-System
   bounceGhostGunSet, //Gun-Set
   true, //Sideways Stick to Walls,
   true, //Upsidedown Stick
@@ -147,7 +147,7 @@ level_0.playerPosition = [
 level_0.spriteSpawn = [
   //Side Borders
   new SpriteCreator(true, deathBallKill, 'tile', deathTile, 0, 0, 50, 750, 1, 0, 0, 0, 0, scLocalizedDestruction, null),
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 2750, 0, 50, 750, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, deathRegular, 'tile', deathTile, 2750, 0, 50, 750, 1, 0, 0, 0, 0, null, null),
   //Ground
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 0, 800, 2800, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 1200, 400, 50, 500, 1, 0, 0, 0, 0, null, null),
