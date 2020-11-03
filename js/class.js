@@ -1,7 +1,7 @@
 ////////////////////////////////////////////Class Declarations/////////////////////////////////////////////////////
 //Creates Each Individual Level
 class LevelCreator {
-  constructor(worldName, xOfWorld, yOfWorld, backgroundColor, outOfBounds, playerScale, nenSystem, gunSystem, sideStick, upsideDownStick,) {
+  constructor(worldName, xOfWorld, yOfWorld, backgroundColor, outOfBounds, playerScale, nenSystem, gunSystem, sideStick, upsideDownStick, lerpX, lerpY) {
     this.worldName = worldName;
     this.xOfWorld = xOfWorld;
     this.yOfWorld = yOfWorld;
@@ -12,6 +12,8 @@ class LevelCreator {
     this.gunSystem = gunSystem;
     this.sideStick = sideStick;
     this.upsideDownStick = upsideDownStick;
+    this.lerpX = lerpX;
+    this.lerpY = lerpY;
   }
 };
 

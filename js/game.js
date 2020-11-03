@@ -37,6 +37,9 @@ brawl.game.prototype = {
         /////////////////////World Physics Restrictions////////////////////
         this.sideStick = worldClassLevels[this.indexOfCurrentWorld].sideStick;
         this.upsideDownStick = worldClassLevels[this.indexOfCurrentWorld].upsideDownStick;
+        /////////////////////Camera Style/////////////////////
+        this.lerpX = worldClassLevels[this.indexOfCurrentWorld].lerpX;
+        this.lerpY = worldClassLevels[this.indexOfCurrentWorld].lerpY;
         /////////////////////Special Levels////////////////////
         if (worldClassLevels[this.indexOfCurrentWorld].specialLevel) {
             if (worldClassLevels[this.indexOfCurrentWorld].specialLevel.name === 'killAll' || worldClassLevels[this.indexOfCurrentWorld].specialLevel.name === 'collected') {

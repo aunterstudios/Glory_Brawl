@@ -117,6 +117,8 @@ var level_0 = new LevelCreator(
   bounceGhostGunSet, //Gun-Set
   true, //Sideways Stick to Walls,
   true, //Upsidedown Stick
+  1, //X-Camera Lerp
+  1, //Y-Camera Lerp
 );
 
 //Special Level Initiated
@@ -236,6 +238,8 @@ var level_1 = new LevelCreator(
   noGunSet, //Gun-Set
   true, //Sideways Stick to Walls,
   true, //Upsidedown Stick
+  1, //X-Camera Lerp
+  1, //Y-Camera Lerp
 );
 
 //Room-Switching
@@ -582,6 +586,8 @@ var level_2 = new LevelCreator(
   basicGunSet, //Gun-Set
   true, //Sideways Stick to Walls,
   true, //Upsidedown Stick
+  .1, //X-Camera Lerp
+  .4, //Y-Camera Lerp
 );
 
 //Room-Switching
@@ -768,6 +774,8 @@ var level_3 = new LevelCreator(
   killGunSet, //Gun-Set
   true, //Sideways Stick to Walls,
   true, //Upsidedown Stick
+  1, //X-Camera Lerp
+  1, //Y-Camera Lerp
 );
 
 //Room-Switching
@@ -918,6 +926,8 @@ var level_4 = new LevelCreator(
   basicGunSet, //Gun-Set
   true, //Sideways Stick to Walls,
   true, //Upsidedown Stick
+  1, //X-Camera Lerp
+  1, //Y-Camera Lerp
 );
 
 //Room-Switching
@@ -1025,6 +1035,8 @@ var level_5 = new LevelCreator(
   basicGunSet, //Gun-Set
   true, //Sideways Stick to Walls,
   true, //Upsidedown Stick
+  1, //X-Camera Lerp
+  1, //Y-Camera Lerp
 );
 
 //Room-Switching
