@@ -32,8 +32,8 @@ brawl.game.prototype.goPause = function () {
 /////////////////////////////////////////////////Camera///////////////////////////////////////////
 brawl.game.prototype.cameraPlayer = function () {
     ////////////////////////////////////////////Camera on Player///////////////////////////////////////////////////////////
-    this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_LOCKON);
-    // this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_LOCKON, .1, .1);
+    // this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_LOCKON);
+    this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_LOCKON, .1, .1);
     //Toggle Camera
     this.game.input.keyboard.addKeyCapture([Phaser.Keyboard.SHIFT]);
     this.cameraStyle = this.game.input.keyboard.addKey(Phaser.Keyboard.SHIFT);
@@ -47,8 +47,8 @@ brawl.game.prototype.cameraChange = function () {
         cameraBoolean = true;
     }
     if (cameraBoolean) {
-        this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_LOCKON);
-        // this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_LOCKON, .1, .1);
+        // this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_LOCKON);
+        this.game.camera.follow(this.player, Phaser.Camera.FOLLOW_LOCKON, .1, .1);
         this.cameraImage.kill();
         //Bullet Kill Type
         this.weapon1.bulletKillType = Phaser.Weapon.KILL_CAMERA_BOUNDS;
@@ -98,6 +98,6 @@ brawl.game.prototype.slowMotionStop = function () {
 
 ////////////////////////////////////////Camera Shake and Flash////////////////////////////////////
 brawl.game.prototype.shakeFlash = function () {
-    this.game.camera.shake();
+    this.game.camera.shake(.020);
     this.game.camera.flash(0xff0000, 500, false, .5);
 };
