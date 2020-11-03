@@ -55,6 +55,7 @@ brawl.game.prototype.playerGround = function (player, ground) {
     }
     //Activating immovableWallWorldGravity (World Gravity)
     if (ground.name === powerWorldGravity.name) {
+        this.game.camera.shake(.05);
         this.game.physics.arcade.gravity.setTo(0, 500);
         this.emitterFunction(ground, null, 'destroy');
     }
