@@ -99,5 +99,5 @@ brawl.game.prototype.slowMotionStop = function () {
 ////////////////////////////////////////Camera Shake and Flash////////////////////////////////////
 brawl.game.prototype.shakeFlash = function () {
     this.game.camera.shake();
-    this.game.camera.flash(0xff0000, 500, false, 1);
+    this.game.camera.flash(0xff0000, 500, false, .5);
 };
