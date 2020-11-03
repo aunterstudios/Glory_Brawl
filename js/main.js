@@ -50,7 +50,7 @@ game.state.add('startScreen', brawl.startScreen);
 game.state.start('boot');
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "Less Annoying-Massive Changes",
+  "LERPXY tabled for now till second opinion",
   "GLORY BRAWL",
 ];
 
@@ -721,7 +721,7 @@ level_2.spriteSpawn = [
   new SpriteCreator(true, wallKiller, 'sprite', wallTile50, 2690, 4000, 50, 50, 1, 0, -1000, 0, 0, null, null),
   new SpriteCreator(true, wallKiller, 'sprite', wallTile50, 2690, 4100, 50, 50, 1, 0, 1000, 0, 0, null, null),
   //Finally Ground Regular Move
-  new SpriteCreator(true, groundRegularMove, 'tile', gMovingTile, 3000, 3800, 50, 200, 1, 0, 500, 0, 0, null, null),
+  new SpriteCreator(true, groundRegularMove, 'tile', gMovingTile, 2690, 3800, 50, 200, 1, 0, 500, 0, 0, null, null),
   new SpriteCreator(true, groundRegularMove, 'tile', gMovingTile, 3090, 3800, 50, 200, 1, 0, 500, 0, 0, null, null),
   //Ledge Surf
   new SpriteCreator(true, ledgeSurf, 'sprite', ledge, 3200, 4800, null, null, 1, 0, 0, 0, 0, null, null),
@@ -1016,8 +1016,8 @@ level_4.flagSpawn = [
 ///////////////////////////////////////////Level 4///////////////////////////////////////////////////////////
 var level_5 = new LevelCreator(
   "Level 5-Timer", //Name of World
-  4200, //X-Size of World
-  3000, //Y-Size of World
+  10000, //X-Size of World
+  5000, //Y-Size of World
   '#b19cd9', //Background Color
   true, //Out of Bounds Allowed
   1, //Player Scale
@@ -1038,7 +1038,7 @@ level_5.metroidvania = new MetroidvaniaCreator(
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_5.playerPosition = [
   new PlayerPositionCreator(100, 2900),
-  new PlayerPositionCreator(100, 2900),
+  new PlayerPositionCreator(9900, 50),
   new PlayerPositionCreator(100, 2900),
   new PlayerPositionCreator(3500, 2900),
 ]
@@ -1046,7 +1046,7 @@ level_5.playerPosition = [
 //Sprite Generation
 level_5.spriteSpawn = [
   ////////////////////////////////////First Phase/////////////////////////////////////////////////////////////
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 0, 3000, 500, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 9500, 100, 1000, 50, 1, 0, 0, 0, 0, null, null),
 ];
 
 //Flag
