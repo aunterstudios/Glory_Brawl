@@ -50,7 +50,7 @@ game.state.add('startScreen', brawl.startScreen);
 game.state.start('boot');
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "Level2-Inspiration",
+  "Shake Flash Reduced",
   "GLORY BRAWL",
 ];
 
