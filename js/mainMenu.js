@@ -48,8 +48,6 @@ brawl.boot.prototype = {
         this.load.image('camera', 'assets/camera.png');
         //Coin
         this.load.image('coin', 'assets/coin.png');
-        /////////////////////////////////Menu Images and Sprites////////////////////////
-        this.load.image('background-three', 'assets/trumpFirstBackground.jpg');
         //Bit Map Font
         if (bitmapBoolean) {
             this.game.load.bitmapFont('fontGrind', 'assets/fontGrind.png', 'assets/fontGrind.fnt');
@@ -85,17 +83,17 @@ brawl.mainMenu.prototype = {
         this.background.animations.play('move', 5, true);
 
         //Accompaying Sprites
-        this.wall = this.game.add.sprite(this.game.world.centerX + 200, this.game.world.centerY, wallTile50);
+        this.wall = this.game.add.sprite(this.game.world.centerX + 150, this.game.world.centerY, wallTile50);
         this.wall.tint = Phaser.Color.GRAY;
         this.wall.pivot.x = 200;
-        this.wall.pivot.y = 200;
+        this.wall.pivot.y = 250;
 
-        this.ledge = this.game.add.sprite(this.game.world.centerX - 200, this.game.world.centerY, ledge);
+        this.ledge = this.game.add.sprite(this.game.world.centerX - 150, this.game.world.centerY, ledge);
         this.ledge.tint = Phaser.Color.GREEN;
         this.ledge.pivot.x = 200;
-        this.ledge.pivot.y = 200;
+        this.ledge.pivot.y = 250;
 
-        this.ball = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY - 200, ball);
+        this.ball = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY - 150, ball);
         this.ball.tint = Phaser.Color.BLUE;
         this.ball.pivot.x = 200;
         this.ball.pivot.y = 200;
@@ -125,10 +123,16 @@ brawl.mainMenu.prototype = {
         }
     },
     update: function () {
+        //Rotation
         this.background.rotation += .01;
-        this.wall.rotation += .01;
-        this.ball.rotation += .01;
-        this.ledge.rotation += .01;
+        this.wall.rotation += .02;
+        this.ball.rotation += .02;
+        this.ledge.rotation += .02;
+
+        //Tint
+        this.wall.tint = Phaser.Color.getRandomColor();
+        this.ball.tint = Phaser.Color.getRandomColor();
+        this.ledge.tint = Phaser.Color.getRandomColor();
 
         if (this.game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
             this.game.state.start('startScreen');

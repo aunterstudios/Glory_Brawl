@@ -22,6 +22,11 @@ brawl.death.prototype = {
         this.background.animations.add('move');
         this.background.animations.play('move', 10, true);
 
+        //Text Bar
+        this.bar = this.game.add.graphics();
+        this.bar.beginFill(0x000000, .5);
+        this.bar.drawRect(200, 150, 500, 150);
+
         //Text
         this.text = this.game.add.text(this.game.world.centerX - 250, 220, "SPACEBAR to Restart \n Deaths: " + deaths);
         this.text.anchor.setTo(0.5);
