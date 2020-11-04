@@ -579,8 +579,8 @@ var level_2 = new LevelCreator(
   "Level 2-ExperimentMechanics", //Name of World
   4800, //X-Size of World
   5000, //Y-Size of World
-  // '#FFE4E4', //Background Color
-  Phaser.Color.getRandomColor(10, 100, 5), //Background Color
+  '#FFE4E4', //Background Color
+  // Phaser.Color.getRandomColor(10, 100, 5), //Background Color
   true, //Out of Bounds Allowed
   1, //Player Scale
   portalNen, //Nen-System
