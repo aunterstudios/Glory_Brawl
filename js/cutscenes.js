@@ -26,7 +26,7 @@ brawl.death.prototype = {
         // this.background.animations.add('move');
         // this.background.animations.play('move', 10, true);
         this.background.animations.add('move');
-        this.background.animations.play('move', 10, true);
+        this.background.animations.play('move', 5, true);
 
         //Text Bar
         this.bar = this.game.add.graphics();
@@ -58,6 +58,7 @@ brawl.death.prototype = {
         this.bloodRain.start(false, 1600, 5, 0);
     },
     update: function () {
+        this.background.rotation += .01;
         if (this.game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
             this.game.state.start('game', true, false, this.indexOfCurrentWorld, this.indexOfPlayerPosition);
         }
