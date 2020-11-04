@@ -72,7 +72,7 @@ brawl.mainMenu.prototype = {
     },
     create: function () {
         //Game Background Color
-        this.game.stage.backgroundColor = '#ffffff';
+        // this.game.stage.backgroundColor = '#ffffff';
         //Full Screen
         this.fullSize = this.game.input.keyboard.addKey(Phaser.Keyboard.O);
         this.fullSize.onDown.add(this.gofull, this);
@@ -123,6 +123,8 @@ brawl.mainMenu.prototype = {
         }
     },
     update: function () {
+        //Background Color
+        this.game.stage.backgroundColor = Phaser.Color.getRandomColor(50, 200, 5);
         //Rotation
         this.background.rotation += .01;
         this.wall.rotation += .02;
