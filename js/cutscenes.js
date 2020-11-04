@@ -40,6 +40,7 @@ brawl.death.prototype = {
 
     },
     update: function () {
+        this.game.stage.backgroundColor = Phaser.Color.getRandomColor(10, 100, 5);
         if (this.game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
             this.game.state.start('game', true, false, this.indexOfCurrentWorld, this.indexOfPlayerPosition);
         }
