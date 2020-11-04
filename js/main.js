@@ -716,18 +716,12 @@ level_2.spriteSpawn = [
   new SpriteCreator(true, wallKiller, 'sprite', wallTile50, 3300, 3900, 50, 50, 1, 0, 1000, 0, 0, null, null),
   new SpriteCreator(true, wallKiller, 'sprite', wallTile50, 3300, 4000, 50, 50, 1, 0, -1000, 0, 0, null, null),
   new SpriteCreator(true, wallKiller, 'sprite', wallTile50, 3300, 4100, 50, 50, 1, 0, 1000, 0, 0, null, null),
-  //Wall Killers After Surf Slip (step 2)
-  new SpriteCreator(true, wallKiller, 'sprite', wallTile50, 2900, 3800, 50, 50, 1, 0, -1000, 0, 0, null, null),
-  new SpriteCreator(true, wallKiller, 'sprite', wallTile50, 2900, 3900, 50, 50, 1, 0, 1000, 0, 0, null, null),
-  new SpriteCreator(true, wallKiller, 'sprite', wallTile50, 2900, 4000, 50, 50, 1, 0, -1000, 0, 0, null, null),
-  new SpriteCreator(true, wallKiller, 'sprite', wallTile50, 2900, 4100, 50, 50, 1, 0, 1000, 0, 0, null, null),
   //Wall Killers After Surf Slip (step 3)
   new SpriteCreator(true, wallKiller, 'sprite', wallTile50, 2690, 3800, 50, 50, 1, 0, -1000, 0, 0, null, null),
   new SpriteCreator(true, wallKiller, 'sprite', wallTile50, 2690, 3900, 50, 50, 1, 0, 1000, 0, 0, null, null),
   new SpriteCreator(true, wallKiller, 'sprite', wallTile50, 2690, 4000, 50, 50, 1, 0, -1000, 0, 0, null, null),
   new SpriteCreator(true, wallKiller, 'sprite', wallTile50, 2690, 4100, 50, 50, 1, 0, 1000, 0, 0, null, null),
   //Finally Ground Regular Move
-  new SpriteCreator(true, groundRegularMove, 'tile', gMovingTile, 2690, 3800, 50, 200, 1, 0, 500, 0, 0, null, null),
   new SpriteCreator(true, groundRegularMove, 'tile', gMovingTile, 3090, 3800, 50, 200, 1, 0, 500, 0, 0, null, null),
   //Ledge Surf
   new SpriteCreator(true, ledgeSurf, 'sprite', ledge, 3200, 4800, null, null, 1, 0, 0, 0, 0, null, null),
