@@ -713,10 +713,8 @@ level_2.spriteSpawn = [
   //After Surf Border
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 2400, 4750, 950, 50, 1, 0, 0, 0, 0, null, null),
   //Wall Killers After Surf Slip (step 1)
-  new SpriteCreator(true, wallKiller, 'sprite', wallTile50, 3300, 3800, 50, 50, 1, 0, -1000, 0, 0, null, null),
-  new SpriteCreator(true, wallKiller, 'sprite', wallTile50, 3300, 3900, 50, 50, 1, 0, 1000, 0, 0, null, null),
-  new SpriteCreator(true, wallKiller, 'sprite', wallTile50, 3300, 4000, 50, 50, 1, 0, -1000, 0, 0, null, null),
   new SpriteCreator(true, wallKiller, 'sprite', wallTile50, 3300, 4100, 50, 50, 1, 0, 1000, 0, 0, null, null),
+  new SpriteCreator(true, wallKiller, 'sprite', wallTile50, 3300, 4100, 50, 50, 1, 0, -1000, 0, 0, null, null),
   //Finally Ground Regular Move
   new SpriteCreator(true, groundRegularMove, 'tile', gMovingTile, 3100, 3800, 50, 50, 1, 0, 700, 0, 0, null, null),
   //Ledge Surf for the groovy movy
