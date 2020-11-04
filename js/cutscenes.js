@@ -17,10 +17,14 @@ brawl.death.prototype = {
         //Increase Death Total
         ++deaths;
 
-        //Background
-        this.background = this.game.add.tileSprite(0, 0, 1400, 800, 'player');
-        this.background.animations.add('move');
-        this.background.animations.play('move', 10, true);
+        // //Background
+        // this.background = this.game.add.tileSprite(0, 0, 1400, 800, 'player');
+        // this.background.animations.add('move');
+        // this.background.animations.play('move', 10, true);
+
+        this.background = this.game.add.sprite(this.game.world.centerX - 50, this.game.world.centerY, 'player');
+        this.background.animations.add('move', [13, 14, 15], 10, true);
+        this.background.animations.play('move');
 
         //Text Bar
         this.bar = this.game.add.graphics();
@@ -40,7 +44,7 @@ brawl.death.prototype = {
 
         //New Emitter
         this.bloodRain = this.game.add.emitter(this.game.world.centerX, 0, 2000);
-        this.bloodRain.width = this.game.world.width*1.5;
+        this.bloodRain.width = this.game.world.width * 1.5;
         // this.bloodRain.angle = 30; // uncomment to set an angle for the rain.
         this.bloodRain.makeParticles('particles');
         this.bloodRain.minParticleScale = 1;
