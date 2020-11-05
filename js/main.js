@@ -593,7 +593,7 @@ var level_2 = new LevelCreator(
 
 //Room-Switching
 level_2.metroidvania = new MetroidvaniaCreator(
-  3, //Room-Up-Index
+  4, //Room-Up-Index
   3, //Room-Down-Index
   null, //Room-Left-Index
   4, //Room-Right-Index
@@ -601,7 +601,7 @@ level_2.metroidvania = new MetroidvaniaCreator(
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_2.playerPosition = [
-  new PlayerPositionCreator(4700, 100),
+  new PlayerPositionCreator(4725, 100),
   new PlayerPositionCreator(3800, 4930),
   new PlayerPositionCreator(750, 4750),
   new PlayerPositionCreator(4500, 1900),
@@ -617,7 +617,7 @@ level_2.spriteSpawn = [
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 4750, 2050, 50, 2950, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, groundSlippery, 'tile', groundTile, 4750, 0, 50, 500, 1, 0, 0, 0, 0, null, null),
   //Top
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 50, 0, 4300, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 50, 0, 4300, 25, .5, 0, 0, 0, 0, null, null),
   //////////////////////////////////////Dive///////////////////////////////////////
   //Repeating Traps on Slippery Wall
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 3800, 1950, 200, 25, .5, 0, 0, 0, 0, null, null),
