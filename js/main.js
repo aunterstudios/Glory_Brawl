@@ -601,7 +601,7 @@ level_2.metroidvania = new MetroidvaniaCreator(
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_2.playerPosition = [
-  new PlayerPositionCreator(200, 20),
+  new PlayerPositionCreator(4700, 100),
   new PlayerPositionCreator(3800, 4930),
   new PlayerPositionCreator(750, 4750),
   new PlayerPositionCreator(4500, 1900),
@@ -615,6 +615,9 @@ level_2.spriteSpawn = [
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 0, 0, 50, 4950, 1, 0, 0, 0, 0, null, null),
   //Right
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 4750, 2050, 50, 2950, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundSlippery, 'tile', groundTile, 4750, 0, 50, 500, 1, 0, 0, 0, 0, null, null),
+  //Top
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 50, 0, 4300, 50, 1, 0, 0, 0, 0, null, null),
   //////////////////////////////////////Dive///////////////////////////////////////
   //Repeating Traps on Slippery Wall
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 3800, 1950, 200, 25, .5, 0, 0, 0, 0, null, null),
@@ -734,8 +737,24 @@ level_2.spriteSpawn = [
   new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 1000, 2250, 50, 700, 1, 0, -1000, 0, 0, null, null),
   new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 1000, 4600, 50, 700, 1, 0, 1000, 0, 0, null, null),
   /////////////////////////////////////////////Part Three The Power of Ra/////////////////////////////////////////////
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 500, 4800, 400, 50, 1, 0, 0, 0, 0, null, null),
+  //Power-Up Needed to Complete Level
   new SpriteCreator(true, powerJump, 'sprite', powerJar, 400, 4800, 400, 50, 1, 0, 0, 0, 0, null, null),
+  //Ground W/ Flag
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 500, 4800, 400, 50, 1, 0, 0, 0, 0, null, null),
+  //Platforms (The Jungle Gym) The First Jump
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 200, 4000, 50, 50, 1, 0, 0, 0, 0, null, null),
+  //Second Jump
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 500, 3200, 50, 50, 1, 0, 0, 0, 0, null, null),
+  //Third Jump
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 200, 2400, 50, 50, 1, 0, 0, 0, 0, null, null),
+  //Fourth Jump Last
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 600, 600, 50, 50, 1, 0, 0, 0, 0, null, null),
+  //Past the Bottom Death Border
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 1800, 250, 50, 50, 1, 0, 0, 0, 0, null, null),
+  //Bottom Death Border Against FIrst Part
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 1200, 500, 3600, 50, 1, 0, 0, 0, 0, null, null),
+  //Surfs Up
+  new SpriteCreator(true, ledgeSurf, 'sprite', ledge, 3500, 400, null, null, 1, 0, 0, 0, 0, null, null),
 ];
 
 //Flag Spawn
