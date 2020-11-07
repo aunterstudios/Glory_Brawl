@@ -50,7 +50,7 @@ game.state.add('startScreen', brawl.startScreen);
 game.state.start('boot');
 //////////////////////////////////////////////////Main Menu Story//////////////////////////////////////////////
 var content = [
-  "More Cool Stuff Later",
+  "Canvas Size",
   "GLORY BRAWL",
 ];
 
