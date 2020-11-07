@@ -29,7 +29,7 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     //Camera Indicator
     this.cameraImage = this.game.add.image(0, 0, 'camera');
     this.cameraImage.fixedToCamera = true;
-    this.cameraImage.cameraOffset.setTo(200, 100);
+    this.cameraImage.cameraOffset.setTo(300, 150);
     //Kill Right Away To Remove it From View Then to Revive
     this.cameraImage.kill();
 
@@ -40,7 +40,7 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
         // this.slowMotionFollow = this.imageGroup.create(this.player.x + (i * 40), this.player.y - 50, slowMotion);
         this.slowMotionFollow = this.slowMotionGroup.create(i * 100 + 50, 6208, slowMotion);
         this.slowMotionFollow.fixedToCamera = true;
-        this.slowMotionFollow.cameraOffset.setTo(i * 100 + 50, 700);
+        this.slowMotionFollow.cameraOffset.setTo(i * 100 + 50, 800);
         this.slowMotionFollow.name = slowMotion;
         // this.slowMotionFollow.fixedToCamera = true;
         this.slowMotionArray.push(this.slowMotionFollow);

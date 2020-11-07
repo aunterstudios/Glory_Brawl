@@ -1,4 +1,4 @@
-var game = new Phaser.Game(1400, 800, Phaser.CANVAS);
+var game = new Phaser.Game(1600, 900, Phaser.CANVAS);
 // var game = new Phaser.Game(1920, 1080, Phaser.CANVAS);
 /////////////////////////////////////////////////Disable RightClick////////////////////////////////////
 window.onload = function () {
@@ -229,7 +229,7 @@ level_0.flagSpawn = [
 //New Playground
 var level_1 = new LevelCreator(
   "Level 1-SandboxMode", //Name of World
-  1400, //X-Size of World
+  1600, //X-Size of World
   10000, //Y-Size of World
   '#EBFAFA', //Background Color
   true, //Out of Bounds Allowed
@@ -268,7 +268,7 @@ level_1.spriteSpawn = [
   //Left
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 0, 0, 50, 10000, 1, 0, 0, 0, 0, null, null),
   //Right
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 1350, 0, 50, 10000, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 1550, 0, 50, 10000, 1, 0, 0, 0, 0, null, null),
   ///////////////////////////////////////Maze//////////////////////////////////////
   //Middle (To the Right of Ground)
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 600, 0, 50, 1000, 1, 0, 0, 0, 0, null, null),
@@ -288,14 +288,14 @@ level_1.spriteSpawn = [
   new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 600, 1100, 50, 50, 1, 0, 200, 0, 500, null, new timerCreator('loop', null, 1)),
   //After Wall Jump Pillars (Max Jump)
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 800, 400, 475, 25, .5, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 1000, 800, 350, 25, .5, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 1200, 800, 350, 25, .5, 0, 0, 0, 0, null, null),
   //Wall of Bounce Ledges
   new SpriteCreator(true, ledgeSurf, 'sprite', ledge, 1200, 1500, null, null, 1, 500, 0, 0, 0, null, null),
   //Enemies
   // new SpriteCreator(true, enemyDaakath, 'timer', enemyOne, 2500, 700, 50, 50, 1, 800, 800, 0, 0, null, new timerCreator('loop', null, 2)),
   new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 500, 600, 50, 50, 1, 0, 0, 0, 0, null, null),
   //Last Traps For the Maze
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 100, 1600, 1250, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 100, 1600, 1450, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 100, 1600, 50, 1000, 1, 0, 0, 0, 0, null, null),
   //Trampoline
   new SpriteCreator(true, ledgeBounce, 'sprite', ledge, 100, 3200, null, null, 1, 0, 0, 0, 0, null, null),
@@ -303,69 +303,77 @@ level_1.spriteSpawn = [
   new SpriteCreator(true, ledgeBounce, 'sprite', ledge, 800, 2400, null, null, 1, 0, 0, 0, 0, null, null),
   //Trampoline Borders
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 50, 3400, 1000, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 1000, 1900, 50, 1600, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 1000, 1900, 150, 1600, 1, 0, 0, 0, 0, null, null),
   //Fire Punch (Section 1)
-  new SpriteCreator(true, groundFirePunch, 'tile', groundTile, 1050, 2000, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, groundFirePunch, 'tile', groundTile, 1100, 2000, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, groundFirePunch, 'tile', groundTile, 1150, 2000, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, groundFirePunch, 'tile', groundTile, 1200, 2000, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, groundFirePunch, 'tile', groundTile, 1250, 2000, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, groundFirePunch, 'tile', groundTile, 1300, 2000, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, groundFirePunch, 'tile', groundTile, 1350, 2000, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundFirePunch, 'tile', groundTile, 1400, 2000, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundFirePunch, 'tile', groundTile, 1450, 2000, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundFirePunch, 'tile', groundTile, 1500, 2000, 50, 50, 1, 0, 0, 0, 0, null, null),
   //Fire Punch (Section 2)
-  new SpriteCreator(true, groundFirePunch, 'tile', groundTile, 1050, 2300, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, groundFirePunch, 'tile', groundTile, 1100, 2300, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, groundFirePunch, 'tile', groundTile, 1150, 2300, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, groundFirePunch, 'tile', groundTile, 1200, 2300, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, groundFirePunch, 'tile', groundTile, 1250, 2300, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, groundFirePunch, 'tile', groundTile, 1300, 2300, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, groundFirePunch, 'tile', groundTile, 1350, 2300, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundFirePunch, 'tile', groundTile, 1400, 2300, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundFirePunch, 'tile', groundTile, 1450, 2300, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundFirePunch, 'tile', groundTile, 1500, 2300, 50, 50, 1, 0, 0, 0, 0, null, null),
   //Fire Punch (Section 3)
-  new SpriteCreator(true, groundFirePunch, 'tile', groundTile, 1050, 2600, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, groundFirePunch, 'tile', groundTile, 1100, 2600, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, groundFirePunch, 'tile', groundTile, 1150, 2600, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, groundFirePunch, 'tile', groundTile, 1200, 2600, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, groundFirePunch, 'tile', groundTile, 1250, 2600, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, groundFirePunch, 'tile', groundTile, 1300, 2600, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, groundFirePunch, 'tile', groundTile, 1350, 2600, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundFirePunch, 'tile', groundTile, 1400, 2600, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundFirePunch, 'tile', groundTile, 1450, 2600, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundFirePunch, 'tile', groundTile, 1500, 2600, 50, 50, 1, 0, 0, 0, 0, null, null),
   //Fire Punch (Section 4)
-  new SpriteCreator(true, groundFirePunch, 'tile', groundTile, 1050, 2900, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, groundFirePunch, 'tile', groundTile, 1100, 2900, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, groundFirePunch, 'tile', groundTile, 1150, 2900, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, groundFirePunch, 'tile', groundTile, 1200, 2900, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, groundFirePunch, 'tile', groundTile, 1250, 2900, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, groundFirePunch, 'tile', groundTile, 1300, 2900, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, groundFirePunch, 'tile', groundTile, 1350, 2900, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundFirePunch, 'tile', groundTile, 1400, 2900, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundFirePunch, 'tile', groundTile, 1450, 2900, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundFirePunch, 'tile', groundTile, 1500, 2900, 50, 50, 1, 0, 0, 0, 0, null, null),
   //Fire Punch (Section 5)
-  new SpriteCreator(true, groundFirePunch, 'tile', groundTile, 1050, 3200, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, groundFirePunch, 'tile', groundTile, 1100, 3200, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, groundFirePunch, 'tile', groundTile, 1150, 3200, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, groundFirePunch, 'tile', groundTile, 1200, 3200, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, groundFirePunch, 'tile', groundTile, 1250, 3200, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, groundFirePunch, 'tile', groundTile, 1300, 3200, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, groundFirePunch, 'tile', groundTile, 1350, 3200, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundFirePunch, 'tile', groundTile, 1400, 3200, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundFirePunch, 'tile', groundTile, 1450, 3200, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundFirePunch, 'tile', groundTile, 1500, 3200, 50, 50, 1, 0, 0, 0, 0, null, null),
   //Fire Punch (Section 6)
-  new SpriteCreator(true, groundFirePunch, 'tile', groundTile, 1050, 3500, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, groundFirePunch, 'tile', groundTile, 1100, 3500, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, groundFirePunch, 'tile', groundTile, 1150, 3500, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, groundFirePunch, 'tile', groundTile, 1200, 3500, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, groundFirePunch, 'tile', groundTile, 1250, 3500, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, groundFirePunch, 'tile', groundTile, 1300, 3500, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, groundFirePunch, 'tile', groundTile, 1350, 3500, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundFirePunch, 'tile', groundTile, 1400, 3500, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundFirePunch, 'tile', groundTile, 1450, 3500, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundFirePunch, 'tile', groundTile, 1500, 3500, 50, 50, 1, 0, 0, 0, 0, null, null),
   ////////////////////////////////////////An Area of Combat Sort Of/////////////////////////////////////////
   //Ground
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 1000, 3800, 350, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 1200, 3800, 350, 50, 1, 0, 0, 0, 0, null, null),
   //Jumping off Points
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 200, 3800, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 400, 3800, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 600, 3800, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 800, 3800, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 1000, 3800, 50, 50, 1, 0, 0, 0, 0, null, null),
   // new SpriteCreator(true, groundRegular, 'tile', groundTile, 200, 3800, 1150, 50, 1, 0, 0, 0, 0, null, null),
   //Your Friends >.<
   new SpriteCreator(true, wallMomentum, 'sprite', wallTile50, 225, 4000, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, wallMomentum, 'sprite', wallTile50, 425, 4000, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, wallMomentum, 'sprite', wallTile50, 625, 4000, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, wallMomentum, 'sprite', wallTile50, 825, 4000, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallMomentum, 'sprite', wallTile50, 1025, 4000, 50, 50, 1, 0, 0, 0, 0, null, null),
   // new SpriteCreator(true, wallMomentum, 'sprite', wallTile50, 200, 4000, 800, 50, 1, 0, 0, 0, 0, null, null),
   //The Sean Moody Obession Traps
   new SpriteCreator(true, wallMomentum, 'sprite', wallTile50, 100, 4400, 50, 50, 1, 0, 0, 0, 0, null, null),
@@ -393,6 +401,10 @@ level_1.spriteSpawn = [
   new SpriteCreator(true, wallMomentum, 'sprite', wallTile50, 1200, 4400, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, wallMomentum, 'sprite', wallTile50, 1250, 4400, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, wallMomentum, 'sprite', wallTile50, 1300, 4400, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallMomentum, 'sprite', wallTile50, 1350, 4400, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallMomentum, 'sprite', wallTile50, 1400, 4400, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallMomentum, 'sprite', wallTile50, 1450, 4400, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallMomentum, 'sprite', wallTile50, 1500, 4400, 50, 50, 1, 0, 0, 0, 0, null, null),
   //The Enemies of Sean Moody He Wants Destroyed
   new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 100, 4500, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 150, 4500, 50, 50, 1, 0, 0, 0, 0, null, null),
@@ -419,6 +431,10 @@ level_1.spriteSpawn = [
   new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 1200, 4500, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 1250, 4500, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 1300, 4500, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 1350, 4500, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 1400, 4500, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 1450, 4500, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 1500, 4500, 50, 50, 1, 0, 0, 0, 0, null, null),
   ////////////////////////////////////////Falling Vanilla SkyTraps//////////////////////////////////////////
   //Moving Death Box 1
   new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 100, 5000, 50, 50, 1, -1000, 0, 0, 0, null, null),
@@ -492,14 +508,14 @@ level_1.spriteSpawn = [
   new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 1300, 6600, 50, 50, 1, -1000, 0, 0, 0, null, null),
   //Moving Death Box 5
   //Top Border
-  new SpriteCreator(true, invisibleRegular, 'tile', invsibileTile, 50, 4800, 1300, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, invisibleRegular, 'tile', invsibileTile, 50, 4800, 1500, 50, 1, 0, 0, 0, 0, null, null),
   //Bottom Border
   // new SpriteCreator(true, groundOneWayPlayer, 'tile', groundTile, 50, 1950, 1300, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, invisibleRegular, 'tile', invsibileTile, 50, 6750, 1300, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, groundOneWayPlayer, 'tile', groundTile, 50, 7000, 1300, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, invisibleRegular, 'tile', invsibileTile, 50, 6750, 1500, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundOneWayPlayer, 'tile', groundTile, 50, 7000, 1500, 50, 1, 0, 0, 0, 0, null, null),
   ////////////////////////////////////////////////////Gymnastics///////////////////////////////////////////////
   //Ground
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 450, 7400, 500, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 450, 7400, 700, 50, 1, 0, 0, 0, 0, null, null),
   //Decorations
   //Part 1
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 50, 7050, 50, 50, 1, 0, 0, 0, 0, null, null),
@@ -511,14 +527,14 @@ level_1.spriteSpawn = [
   new SpriteCreator(true, invisibleRegular, 'tile', invsibileTile, 350, 7350, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, invisibleRegular, 'tile', invsibileTile, 400, 7350, 50, 50, 1, 0, 0, 0, 0, null, null),
   //Part 2
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 1300, 7050, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 1250, 7100, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 1200, 7150, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 1150, 7200, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 1100, 7250, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 1050, 7300, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, invisibleRegular, 'tile', invsibileTile, 1000, 7350, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, invisibleRegular, 'tile', invsibileTile, 950, 7350, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 1500, 7050, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 1450, 7100, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 1400, 7150, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 1350, 7200, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 1300, 7250, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 1250, 7300, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, invisibleRegular, 'tile', invsibileTile, 1200, 7350, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, invisibleRegular, 'tile', invsibileTile, 1150, 7350, 50, 50, 1, 0, 0, 0, 0, null, null),
   //Activate World Gravity
   new SpriteCreator(true, powerWorldGravity, 'tile', powerJar, 300, 7500, 50, 50, 1, 0, 0, 0, 0, null, null),
   //Ball Gravity World
@@ -558,6 +574,11 @@ level_1.spriteSpawn = [
   new SpriteCreator(true, deathBallKillMove, 'tile', ball, 1200, 7900, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, deathBallKillMove, 'tile', ball, 1250, 7900, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, deathBallKillMove, 'tile', ball, 1300, 7900, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathBallKillMove, 'tile', ball, 1350, 7900, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathBallKillMove, 'tile', ball, 1400, 7900, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathBallKillMove, 'tile', ball, 1450, 7900, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathBallKillMove, 'tile', ball, 1500, 7900, 50, 50, 1, 0, 0, 0, 0, null, null),
+
   // new SpriteCreator(true, powerNegativeGravity, 'tile', powerJar, 300, 8500, 50, 50, 1, 0, 0, 0, 0, null, null),
   ////////////////////////////////////////////////////Hazama///////////////////////////////////////////////////////////////
   // new SpriteCreator(true, hazamaFalconia, 'tile', hazamaHippie, 50, 1450, 1300, 3000, 1, 0, 0, 0, 0, null, null),
@@ -568,7 +589,7 @@ level_1.flagSpawn = [
   // //First Flag
   new flagCreator(0, true, flagRegular, flag, 1, 350, 150, 0, 0, 0, 0, null),
   //Second Flag
-  new flagCreator(2, true, flagRegular, flag, 1, 1050, 3750, 0, 0, 0, 0, null),
+  new flagCreator(2, true, flagRegular, flag, 1, 1250, 3750, 0, 0, 0, 0, null),
   //Third Flag
   new flagCreator(3, true, flagRegular, flag, 1, 500, 7350, 0, 0, 0, 0, null),
 ];
@@ -924,8 +945,8 @@ level_3.flagSpawn = [
 ///////////////////////////////////////////Level 4///////////////////////////////////////////////////////////
 var level_4 = new LevelCreator(
   "Level 4-Play Around", //Name of World
-  4200, //X-Size of World
-  3000, //Y-Size of World
+  6000, //X-Size of World
+  1600, //Y-Size of World
   '#ffffff', //Background Color
   true, //Out of Bounds Allowed
   1, //Player Scale

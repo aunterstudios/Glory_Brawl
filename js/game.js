@@ -115,12 +115,12 @@ brawl.game.prototype = {
         if (bitmapBoolean) {
             this.text = this.game.add.bitmapText(200, 6208, 'fontGrind', worldName, 32);
             this.text.fixedToCamera = true;
-            this.text.cameraOffset.setTo(1100, 700);
+            this.text.cameraOffset.setTo(1300, 800);
         }
         else {
             this.text = this.game.add.text(200, 6208, worldName, { font: "20px Arial", fill: "#000000", align: "center" });
             this.text.fixedToCamera = true;
-            this.text.cameraOffset.setTo(1100, 700);
+            this.text.cameraOffset.setTo(1300, 800);
         }
     },
     // //How Game Updates Real-Time (Actual Controls)////
@@ -377,18 +377,18 @@ brawl.game.prototype = {
             this.player.frame = 0;
             //Original is 8 (Camera Speed)
             if (this.movementLeft.isDown) {
-                this.game.camera.x -= 20;
+                this.game.camera.x -= 30;
             }
             else if (this.movementRight.isDown) {
-                this.game.camera.x += 20;
+                this.game.camera.x += 30;
             }
             if (this.movementUp.isDown) {
-                this.game.camera.y -= 20;
+                this.game.camera.y -= 30;
                 // this.jumping = true;
                 this.player.body.velocity.y = 0; //need to fix this
             }
             else if (this.movementDown.isDown) {
-                this.game.camera.y += 20;
+                this.game.camera.y += 30;
             }
             if (onTheRightSide && !onHazama) {
                 if (this.sideStick) {
