@@ -22,7 +22,7 @@ brawl.death.prototype = {
         // this.background.animations.add('move');
         // this.background.animations.play('move', 10, true);
 
-        this.background = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY, 'player');
+        this.background = this.game.add.sprite(this.game.world.centerX+100, this.game.world.centerY, 'player');
         // this.background.animations.add('move');
         // this.background.animations.play('move', 10, true);
         this.background.animations.add('move');
