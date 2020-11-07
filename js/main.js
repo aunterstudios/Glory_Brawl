@@ -254,7 +254,7 @@ level_1.metroidvania = new MetroidvaniaCreator(
 level_1.playerPosition = [
   new PlayerPositionCreator(220, 10),
   new PlayerPositionCreator(700, 100),
-  new PlayerPositionCreator(1150, 3775),
+  new PlayerPositionCreator(1400, 3775),
   new PlayerPositionCreator(800, 7375),
 ]
 
