@@ -118,6 +118,20 @@ brawl.game.prototype.playerWall = function (player, wall) {
             wall.body.velocity.setTo(200, 0);
         }
     }
+    if (wall.name === wallCloudSuper.name) {
+        if (this.movementUp.isDown) {
+            wall.body.velocity.setTo(0, -500);
+        }
+        else if (this.movementDown.isDown) {
+            wall.body.velocity.setTo(0, 500);
+        }
+        else if (this.movementLeft.isDown) {
+            wall.body.velocity.setTo(-500, 0);
+        }
+        else if (this.movementRight.isDown) {
+            wall.body.velocity.setTo(500, 0);
+        }
+    }
     if (wall.name === wallLeftRight.name) {
         if (this.movementLeft.isDown) {
             wall.body.velocity.setTo(-300, 0);

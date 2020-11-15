@@ -944,14 +944,14 @@ level_3.flagSpawn = [
 
 ///////////////////////////////////////////Level 4///////////////////////////////////////////////////////////
 var level_4 = new LevelCreator(
-  "Level 4-Play Around", //Name of World
-  6000, //X-Size of World
-  1600, //Y-Size of World
+  "Level 4-Space Shooter", //Name of World
+  8000, //X-Size of World
+  1800, //Y-Size of World
   '#ffffff', //Background Color
   true, //Out of Bounds Allowed
   1, //Player Scale
   portalNen, //Nen-System
-  basicGunSet, //Gun-Set
+  onlyKillGunSet, //Gun-Set
   true, //Sideways Stick to Walls,
   true, //Upsidedown Stick
   1, //X-Camera Lerp
@@ -968,77 +968,18 @@ level_4.metroidvania = new MetroidvaniaCreator(
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_4.playerPosition = [
+  new PlayerPositionCreator(200, 500),
+  new PlayerPositionCreator(200, 1500),
   new PlayerPositionCreator(100, 2900),
-  new PlayerPositionCreator(100, 2900),
-  new PlayerPositionCreator(100, 2900),
-  new PlayerPositionCreator(3500, 2900),
+  new PlayerPositionCreator(200, 1500),
 ]
 
 //Sprite Generation
 level_4.spriteSpawn = [
-  ////////////////////////////////////First Phase/////////////////////////////////////////////////////////////
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 0, 3000, 500, 50, 1, 0, 0, 0, 0, null, null),
-  //Obstacles
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 500, 2500, 50, 450, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 1000, 2250, 50, 450, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 1500, 2500, 50, 450, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, groundOneWayKillObject, 'tile', groundTile, 2950, 2250, 50, 700, 1, 0, 0, 0, 0, null, null),
-  //Top Border
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 0, 2200, 3000, 50, 1, 0, 0, 0, 0, null, null),
-  //Surf Board
-  new SpriteCreator(true, wallCloud, 'tile', wallTile50, 300, 2750, 150, 50, 1, 0, 0, 0, 0, null, null),
-  //Repeating Traps
-  new SpriteCreator(true, wallKiller, 'timer', wallTile50, 2850, 2350, 50, 50, 1, -400, 400, 0, 0, null, new timerCreator('loop', null, 2)),
-  new SpriteCreator(true, wallKiller, 'timer', wallTile50, 2850, 2850, 50, 50, 1, -400, -400, 0, 0, null, new timerCreator('loop', null, 2)),
-  //enemies
-  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 1025, 2750, null, null, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 1450, 2850, null, null, 1, 0, 0, 0, 0, null, null),
-  ////////////////////////////////////Bottom of Map Death////////////////////////////////////////////////////////////
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 500, 3000, 2500, 50, 1, 0, 0, 0, 0, null, null),
-  /////////////////////////////////////Left Border of Map//////////////////////////////////////////////////
-  // new SpriteCreator(true, groundKillWall, 'tile', groundTile, 0, 2250, 50, 600, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, groundKillWall, 'tile', groundTile, 0, 2250, 50, 600, 1, 0, 0, 0, 0, null, null),
-  //////////////////////////////////////Second Phase///////////////////////////////////////////
-  //Ground
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 3000, 3000, 1200, 50, 1, 0, 0, 0, 0, null, null),
-  //Left Side Border
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 2950, 500, 50, 1700, 1, 0, 0, 0, 0, null, null),
-  //Ledges
-  new SpriteCreator(true, ledgeBounce, 'sprite', ledge, 3400, 2850, null, null, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, ledgeBounce, 'sprite', ledge, 3600, 2300, null, null, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, ledgeBounce, 'sprite', ledge, 3700, 600, null, null, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, ledgeBounce, 'sprite', ledge, 3400, 900, null, null, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, ledgeBounce, 'sprite', ledge, 3500, 1000, null, null, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, ledgeBounce, 'sprite', ledge, 3600, 1400, null, null, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, ledgeBounce, 'sprite', ledge, 3700, 1500, null, null, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, ledgeBounce, 'sprite', ledge, 3600, 1600, null, null, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, ledgeBounce, 'sprite', ledge, 3500, 1700, null, null, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, ledgeBounce, 'sprite', ledge, 3700, 1800, null, null, 1, 0, 0, 0, 0, null, null),
-  //surf LedgeS
-  new SpriteCreator(true, ledgeSurf, 'sprite', ledge, 2600, 400, null, null, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, ledgeSurf, 'sprite', ledge, 1800, 1000, null, null, 1, 0, 0, 0, 0, null, null),
-  //Elevator Ledges
-  new SpriteCreator(true, ledgeElevator, 'sprite', ledge, 2650, 2000, null, null, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, ledgeElevator, 'sprite', ledge, 2250, 2000, null, null, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, ledgeElevator, 'sprite', ledge, 1800, 2000, null, null, 1, 0, 0, 0, 0, null, null),
-  //Death Traps for Surf Ledge
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 2000, 800, 950, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 1300, 0, 150, 1500, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 1450, 1500, 700, 50, 1, 0, 0, 0, 0, null, null),
-  //Enemies
-  // new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 3600, 2100, null, null, 1, 0, 0, 0, 0, null, null),
-  // new SpriteCreator(true, enemyShooter, 'sprite', enemyOne, 3400, 2400, null, null, 1, 0, 0, 0, 0, null, null),
-  // new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 3700, 2300, null, null, 1, 0, 0, 0, 0, null, null),
-  // new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 3150, 2450, null, null, 1, 0, 0, 0, 0, null, null),
-  // new SpriteCreator(true, enemyShooter, 'sprite', enemyOne, 3899, 2500, null, null, 1, 0, 0, 0, 0, null, null),
-  //Windmill Test
-  new SpriteCreator(true, invisibleRegular, 'tile', deathTile, 200, 600, 200, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, invisibleRegular, 'tile', deathTile, 200, 650, 50, 200, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, invisibleRegular, 'tile', deathTile, 200, 850, 200, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, invisibleRegular, 'tile', deathTile, 350, 650, 50, 200, 1, 0, 0, 0, 0, null, null),
-  //Moving Windmill
-  new SpriteCreator(true, deathRegularMove, 'tile', deathTile, 250, 800, 50, 50, 1, 400, 100, 0, 0, null, null),
-  // new SpriteCreator(true, ballRegular, 'sprite', ball, 400, 800, 50, 50, 1, 500, 500, 0, 0, null, null),
+  ////////////////////////////////////Ground/////////////////////////////////////////////////////////////
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 0, 1750, 500, 50, 1, 0, 0, 0, 0, null, null),
+  //////////////////////////////////SpaceShip////////////////////////
+  new SpriteCreator(true, wallCloudSuper, 'tile', wallTile50, 400, 1600, 200, 50, 1, 0, 0, 0, 0, null, null),
 ];
 
 //Flag
@@ -1047,8 +988,7 @@ level_4.flagSpawn = [
   //   new shadowLevelGenerator(0, [
   //     new shadowLevelArray(2, 4)
   //   ])),
-  new flagCreator(2, true, flagRegular, flag, 1, 400, 2900, 0, 0, 0, 0, null),
-  new flagCreator(3, true, flagRegular, flag, 1, 3700, 2900, 0, 0, 0, 0, null),
+  new flagCreator(0, true, flagRegular, flag, 1, 400, 1700, 0, 0, 0, 0, null),
 ];
 
 ///////////////////////////////////////////Level 4///////////////////////////////////////////////////////////

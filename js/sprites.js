@@ -64,6 +64,7 @@ var wallRegular = new spriteType(2, 'wallRegular', Phaser.Color.GRAY, 200, .5, f
 var wallExplode = new spriteType(2, 'wallExplode', Phaser.Color.ORANGE, 200, .5, false, 1000, 1); //Wall That Explodes When It Hits Ground or Death
 var wallGhost = new spriteType(2, 'wallGhost', 16771007.229130682, 200, .5, true, 1000, 1); //Immovable Wall That Let's You Get Through Objects
 var wallCloud = new spriteType(2, 'wallCloud', 9583870.358153213, 200, .5, true, 1000, 1); //Moving Platform Cloud
+var wallCloudSuper = new spriteType(2, 'wallCloudSuper', Phaser.Color.getRandomColor(), 200, .5, true, 1000, 1); //Faster Moving Platform Cloud (Cloud Super)
 var wallLeftRight = new spriteType(2, 'wallLeftRight', Phaser.Color.getRandomColor(), 200, .5, true, 1000, 1); //Moving platform that moves only left and right (OG)
 var wallKiller = new spriteType(2, 'wallKiller', Phaser.Color.RED, 200, .5, false, 1000, 1); //Kill You
 var wallMomentum = new spriteType(2, 'wallMomentum', Phaser.Color.GREEN, 200, .5, false, 1000, 1); //Goes Nuts (So much momentum)
