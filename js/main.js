@@ -912,9 +912,6 @@ level_3.spriteSpawn = [
   new SpriteCreator(true, fallingSpikesRegularTwo, 'timer', fallingSpikesTwo, 100, 2200, 50, 50, 1, 200, 0, 500, 0, null, new timerCreator('loop', null, 1)),
   new SpriteCreator(true, fallingSpikesRegularTwo, 'timer', fallingSpikesTwo, 100, 2400, 50, 50, 1, 200, 0, 500, 0, null, new timerCreator('loop', null, 1)),
   new SpriteCreator(true, fallingSpikesRegularTwo, 'timer', fallingSpikesTwo, 100, 2600, 50, 50, 1, 200, 0, 500, 0, null, new timerCreator('loop', null, 1)),
-  new SpriteCreator(true, ledgeElevator, 'sprite', ledge, 300, 1900, 150, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, ledgeElevator, 'sprite', ledge, 300, 2100, 150, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, ledgeElevator, 'sprite', ledge, 300, 2300, 150, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, ledgeElevator, 'sprite', ledge, 300, 2500, 150, 50, 1, 0, 0, 0, 0, null, null),
   ////////////////////////////////////Falling Spikes//////////////////////////////////////////
   //Zero Phase - 2
@@ -980,6 +977,8 @@ level_4.spriteSpawn = [
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 0, 1750, 500, 50, 1, 0, 0, 0, 0, null, null),
   //////////////////////////////////SpaceShip////////////////////////
   new SpriteCreator(true, wallCloudSuper, 'tile', wallTile50, 400, 1600, 200, 50, 1, 0, 0, 0, 0, null, null),
+  /////////////////////////////////Object Killer////////////////////
+  new SpriteCreator(true, groundOneWayKillObject, 'tile', groundTile, 0, 1200, 500, 50, 1, 0, 0, 0, 0, null, null),
 ];
 
 //Flag

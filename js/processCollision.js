@@ -36,6 +36,9 @@ brawl.game.prototype.gdVsMovProcess = function (imb, mov) {
     else if (!mov.ghost) {
         return false;
     }
+    else if (imb.name === groundOneWayKillObject.name && (mov.name === wallCloud.name || mov.name === wallCloudSuper.name)) {
+        return false;
+    }
     else {
         return true;
     }
