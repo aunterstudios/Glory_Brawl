@@ -27,7 +27,7 @@ brawl.game.prototype.deathVsSelfProcess = function (d1, d2) {
 
 //ground and death vs moveable
 brawl.game.prototype.gdVsMovProcess = function (imb, mov) {
-    if (imb.name === groundOneWayObject || imb.groupName === groupCollect) {
+    if (imb.name === groundOneWayObject.name || imb.groupName === groupCollect) {
         return false;
     }
     else if (!mov.phase && (imb.groupName === groupDeathMove || imb.groupName === groupGroundMove)) {
@@ -47,7 +47,12 @@ brawl.game.prototype.gdVsMovProcess = function (imb, mov) {
 
 //Ground and Death vs Invisible Objects
 brawl.game.prototype.gdVsInvisbleProcess = function (imb, invisible) {
-
+    if (invisible.name === invisibleTrapIndicator.name) {
+        return false;
+    }
+    else {
+        return true;
+    }
 };
 
 brawl.game.prototype.wallVsMovProcess = function (wall, mov) {

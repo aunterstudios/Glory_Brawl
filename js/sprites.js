@@ -75,7 +75,6 @@ var ledgeBounce = new spriteType(3, 'ledgeBounce', Phaser.Color.GREEN, 20, .5, f
 var ledgeSurf = new spriteType(3, 'ledgeSurf', Phaser.Color.AQUA, 20, .5, false, 1000, 1);
 var ledgeBounceSide = new spriteType(3, 'ledgeBounceSide', Phaser.Color.GREEN, 20, .5, false, 1000, 1);
 
-
 //Enemy Names
 var enemyShooter = new spriteType(4, 'enemyShooter', 12758247.409111453, 20, .5, false, 1000, 1);
 var enemyDaakath = new spriteType(4, 'enemyDaakath', 15269906.933038201, 20, .5, false, 1000, 1);
@@ -93,7 +92,8 @@ var fallingSpikesRegularTwo = new spriteType(7, 'fallingSpikesRegular', Phaser.C
 var hazamaFalconia = new spriteType(8, 'hazamaFalconia', Phaser.Color.getRandomColor(10), 1, 0, false, 200, 1); //SUPER JUMPING ABILITY
 
 //Invisible
-var invisibleRegular = new spriteType(9, 'invisibleRegular', Phaser.Color.AQUA, 1000, 0, true, 1000, 1); //Invisible Objects
+var invisibleRegular = new spriteType(9, 'invisibleRegular', Phaser.Color.AQUA, 1000, 0, true, 1000, 1); //Invisible Objects (Bounce Ground and Death)
+var invisibleTrapIndicator = new spriteType(9, 'invisibleTrapIndicator', Phaser.Color.getRandomColor(100), 1000, .5, true, 1000, 1); //Falling Spikes Indicator
 
 //Flag Names
 var flagRegular = new spriteType(0, 'flagRegular', Phaser.Color.getRandomColor(10), 200, 0, false, 1000, 1);
