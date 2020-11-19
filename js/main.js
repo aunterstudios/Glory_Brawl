@@ -972,7 +972,7 @@ var level_4 = new LevelCreator(
   900, //Y-Size of World
   '#ffffff', //Background Color
   true, //Out of Bounds Allowed
-  .5, //Player Scale
+  .6, //Player Scale
   portalNen, //Nen-System
   onlyKillGunSet, //Gun-Set
   true, //Sideways Stick to Walls,
@@ -999,15 +999,22 @@ level_4.playerPosition = [
 
 //Sprite Generation
 level_4.spriteSpawn = [
+  /////////////////////////////////////Borders//////////////////////////////////////////////////////////
+  //Top
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 50, 0, 7950, 50, 1, 0, 0, 0, 0, null, null),
+  //Bottom
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 550, 850, 7450, 50, 1, 0, 0, 0, 0, null, null),
+  //Left
+  new SpriteCreator(true, groundSlippery, 'tile', groundTile, 0, 0, 50, 850, 1, 0, 0, 0, 0, null, null),
   ////////////////////////////////////Ground/////////////////////////////////////////////////////////////
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 0, 850, 500, 50, 1, 0, 0, 0, 0, null, null),
   //////////////////////////////////SpaceShip////////////////////////
-  new SpriteCreator(true, wallCloudSuper, 'tile', wallTile50, 400, 450, 200, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallCloudSuper, 'tile', wallTile50, 400, 450, 150, 50, 1, 0, 0, 0, 0, null, null),
   /////////////////////////////////Object Killer////////////////////
-  new SpriteCreator(true, groundOneWayKillObject, 'tile', groundTile, 500, 0, 50, 900, 1, 0, 0, 0, 0, null, null),
-  ///////////////////////////////////Test/////////////////////////////
-  // new SpriteCreator(true, groundOneWayObject, 'tile', groundTile, 600, 0, 50, 900, 1, 0, 0, 0, 0, null, null),
-  // new SpriteCreator(true, wallRegular, 'tile', wallTile50, 800, 450, 100, 50, 1, -300, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundOneWayKillObject, 'tile', groundTile, 500, 50, 50, 850, 1, 0, 0, 0, 0, null, null),
+  ////////////////////////////////Quasi Pillars of Separation/////////////////////////////////
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 1300, 400, 50, 450, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 1800, 50, 50, 450, 1, 0, 0, 0, 0, null, null),
 ];
 
 //Flag
