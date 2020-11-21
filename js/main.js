@@ -659,12 +659,16 @@ level_2.spriteSpawn = [
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 4000, 2000, 800, 50, 1, 0, 0, 0, 0, null, null),
   //Bottom of Ground That Which is Death
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 4000, 2050, 750, 50, 1, 0, 0, 0, 0, null, null),
-  //Falling Spikes Section
+  //Falling Spikes Section-1
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 3725, 2100, 50, 50, 1, 0, -1000, 0, 0, null, new timerCreator('loop', null, 2)),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 3700, 2150, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 3725, 2137.5, null, null, .5, 0, 0, 0, 0, null, null),
+  //Falling Spikes Section-2
   new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 3775, 2100, 50, 50, 1, 0, -1000, 0, 0, null, new timerCreator('loop', null, 2)),
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 3750, 2150, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 3775, 2137.5, null, null, .5, 0, 0, 0, 0, null, null),
   //Left Side Barriers of DEATH and Entry
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 3650, 700, 50, 1600, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 3650, 550, 50, 1750, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 3700, 2250, 350, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 4000, 2300, 50, 2400, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, groundOneWayPlayer, 'tile', groundTile, 4000, 4700, 50, 250, 1, 0, 0, 0, 0, null, null),
@@ -759,10 +763,7 @@ level_2.spriteSpawn = [
   new SpriteCreator(true, ledgeBounce, 'sprite', ledge, 1800, 3650, null, null, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, ledgeBounce, 'sprite', ledge, 2200, 3250, null, null, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, ledgeBounce, 'sprite', ledge, 1800, 2850, null, null, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, ledgeBounce, 'sprite', ledge, 2200, 2450, null, null, 1, 0, 0, 0, 0, null, null),
-  //Ledges Last Obstacle
-  // new SpriteCreator(true, ledgeElevator, 'sprite', ledge, 1200, 4850, null, null, 1, 0, 0, 0, 0, null, null),
-  // new SpriteCreator(true, ledgeElevator, 'sprite', ledge, 1400, 4450, null, null, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, ledgeBounce, 'sprite', ledge, 2200, 2450, null, null, 1, 0, 0, 0, 0, null, null),
   //Canyon Gap
   new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 1000, 2250, 50, 700, 1, 0, -1000, 0, 0, null, null),
   new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 1000, 4600, 50, 700, 1, 0, 1000, 0, 0, null, null),
@@ -777,8 +778,18 @@ level_2.spriteSpawn = [
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 500, 3200, 50, 50, 1, 0, 0, 0, 0, null, null),
   //Third Jump
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 200, 2400, 50, 50, 1, 0, 0, 0, 0, null, null),
-  //Fourth Jump Last
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 600, 600, 50, 50, 1, 0, 0, 0, 0, null, null),
+  //Fourth Jump (Inside Dead Space)
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 1400, 2000, 50, 50, 1, 0, 0, 0, 0, null, null),
+  //Fifth Jump (Inside Ded Space)
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 2825, 2000, 50, 50, 1, 0, 0, 0, 0, null, null),
+  //Sixth Jump (Inside Dead Space)
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 3400, 1250, 50, 50, 1, 0, 0, 0, 0, null, null),
+  //Seventh Jump (Inside Dead Space)
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 2250, 800, 50, 50, 1, 0, 0, 0, 0, null, null),
+  //Ledge Bounce For the Corner Jump
+  new SpriteCreator(true, ledgeBounce, 'sprite', ledge, 3500, 2100, null, null, 1, 0, 0, 0, 0, null, null),
+  //The Corner Jump
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 450, 400, 50, 50, 1, 0, 0, 0, 0, null, null),
   //Past the Bottom Death Border
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 1800, 250, 50, 50, 1, 0, 0, 0, 0, null, null),
   //Bottom Death Border Against FIrst Part
@@ -1009,12 +1020,49 @@ level_4.spriteSpawn = [
   ////////////////////////////////////Ground/////////////////////////////////////////////////////////////
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 0, 850, 500, 50, 1, 0, 0, 0, 0, null, null),
   //////////////////////////////////SpaceShip////////////////////////
-  new SpriteCreator(true, wallCloudSuper, 'tile', wallTile50, 400, 450, 150, 50, 1, 0, 0, 0, 0, null, null),
-  /////////////////////////////////Object Killer////////////////////
+  new SpriteCreator(true, wallCloud, 'tile', wallTile25, 400, 450, 150, 25, 1, 0, 0, 0, 0, null, null),
+  /////////////////////////////////Object Killer Border Beginning////////////////////
   new SpriteCreator(true, groundOneWayKillObject, 'tile', groundTile, 500, 50, 50, 850, 1, 0, 0, 0, 0, null, null),
-  ////////////////////////////////Quasi Pillars of Separation/////////////////////////////////
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 1300, 400, 50, 450, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 1800, 50, 50, 450, 1, 0, 0, 0, 0, null, null),
+  ////////////////////////////////First Pillar-1300X/////////////////////////////////
+  //Actual Pillar
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 1300, 250, 50, 600, 1, 0, 0, 0, 0, null, null),
+  //Traps on Pillar-Part 1
+  new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 1275, 300, null, null, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallKiller, 'timer', wallTile50, 1275, 300, null, null, 1, -800, 1000, 0, 0, null, new timerCreator('loop', null, 1.5)),
+  //Traps on Pillar-Part 2
+  new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 1275, 800, null, null, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallKiller, 'timer', wallTile50, 1275, 800, null, null, 1, -800, -1000, 0, 0, null, new timerCreator('loop', null, 1.5)),
+  //Traps on Pillar- Part 3 The Middle Bad BOy
+  new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 1275, 550, null, null, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallKiller, 'timer', wallTile50, 1275, 550, null, null, 1, -800, -1000, 0, 0, null, new timerCreator('loop', null, 1.5)),
+  ///////////////////////////////Second Pillar-1800X///////////////////////////////
+  //Actual Pillar
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 1800, 50, 50, 400, 1, 0, 0, 0, 0, null, null),
+  //A Little Sprinkle of Spikes for Funsies
+  new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 1450, 62.5, null, null, .5, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 1550, 62.5, null, null, .5, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 1650, 62.5, null, null, .5, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 1750, 62.5, null, null, .5, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 1450, 100, 50, 50, 1, 0, 0, 0, 700, null, new timerCreator('loop', null, 2.5)),
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 1550, 100, 50, 50, 1, 0, 0, 0, 700, null, new timerCreator('loop', null, 1)),
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 1650, 100, 50, 50, 1, 0, 0, 0, 700, null, new timerCreator('loop', null, 2)),
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 1750, 100, 50, 50, 1, 0, 0, 0, 700, null, new timerCreator('loop', null, 1.5)),
+  //Kill These WallKillers WIth Your Gun Bounce Section
+  new SpriteCreator(true, wallKiller, 'sprite', wallTile50, 1825, 300, null, null, 1, 0, 1000, 0, 0, null, null),
+  new SpriteCreator(true, wallKiller, 'sprite', wallTile50, 1825, 800, null, null, 1, 0, -1000, 0, 0, null, null),
+  ///////////////////////////////Third Pillar-2300X///////////////////////////////
+  //Actual Pillar (Quasi Pillar!)
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 2300, 200, 50, 50, 1, 0, 1000, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 2300, 300, 50, 50, 1, 0, -1000, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 2300, 400, 50, 50, 1, 0, 1000, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 2300, 500, 50, 50, 1, 0, -1000, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 2300, 600, 50, 50, 1, 0, 1000, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 2300, 700, 50, 50, 1, 0, -1000, 0, 0, null, null),
+  //The Enemies That Shoot at You
+  new SpriteCreator(true, enemyShooter, 'sprite', enemyOne, 2000, 200, null, null, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, enemyShooter, 'sprite', enemyOne, 2200, 400, null, null, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, enemyShooter, 'sprite', enemyOne, 2100, 273.4, null, null, 1, 0, 0, 0, 0, null, null),
+
 ];
 
 //Flag
