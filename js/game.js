@@ -64,7 +64,7 @@ brawl.game.prototype = {
         // this.game.forceSingleUpdate = false;
         //FPS Debugging
         // this.game.fpsProblemNotifier.add(this.handleFpsProblem, this);
-        
+
         //Browser Pause
         // this.game.stage.disableVisibilityChange = true;
 
@@ -115,12 +115,12 @@ brawl.game.prototype = {
         if (bitmapBoolean) {
             this.text = this.game.add.bitmapText(200, 6208, 'fontGrind', worldName, 32);
             this.text.fixedToCamera = true;
-            this.text.cameraOffset.setTo(1300, 800);
+            this.text.cameraOffset.setTo(1450, 800);
         }
         else {
             this.text = this.game.add.text(200, 6208, worldName, { font: "20px Arial", fill: "#000000", align: "center" });
             this.text.fixedToCamera = true;
-            this.text.cameraOffset.setTo(1300, 800);
+            this.text.cameraOffset.setTo(1450, 800);
         }
     },
     // //How Game Updates Real-Time (Actual Controls)////
@@ -452,10 +452,13 @@ brawl.game.prototype = {
     //     //Body Physics
     //     // this.game.debug.body(this.player);
     //     // this.game.debug.bodyInfo(this.player, 200, 200);
-    //     this.game.debug.physicsGroup(this.ground);
-    //     this.game.debug.physicsGroup(this.ledge);
+    //     // this.game.debug.physicsGroup(this.ground);
+    //     // this.game.debug.physicsGroup(this.ledge);
     //     // this.game.debug.physicsGroup(this.ball);
     //     //Debugging FPS
     //     // this.game.debug.text(this.game.time.fps, 200, 300);
+    //     //Input
+    //     this.game.debug.inputInfo(32, 32);
+    //     this.game.debug.pointer(this.game.input.activePointer);
     // },
 };

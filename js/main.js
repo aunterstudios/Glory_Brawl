@@ -107,7 +107,7 @@ function nextWord() {
 var worldClassLevels = [];
 ///////////////////////////////////////////Level 0///////////////////////////////////////////////////////////
 var level_0 = new LevelCreator(
-  "Level 0-Physics Testing", //Name of World
+  "[0]Physics Testing", //Name of World
   5000, //X-Size of World
   5000,  //Y- Size of World 
   "#FFFDD0", //Background Color
@@ -228,7 +228,7 @@ level_0.flagSpawn = [
 ////////////////////////////////////////Level 1-SandboxMode/////////////////////////////////////
 //New Playground
 var level_1 = new LevelCreator(
-  "Level 1-SandboxMode", //Name of World
+  "[1]Downward", //Name of World
   1600, //X-Size of World
   10000, //Y-Size of World
   '#EBFAFA', //Background Color
@@ -602,7 +602,7 @@ level_1.flagSpawn = [
 ////////////////////////////////////////Level 2/////////////////////////////////////
 //Level Begin
 var level_2 = new LevelCreator(
-  "Level 2-ExperimentMechanics", //Name of World
+  "[2]JungleGym", //Name of World
   4800, //X-Size of World
   5000, //Y-Size of World
   '#FFE4E4', //Background Color
@@ -812,7 +812,7 @@ level_2.text = [
 
 ////////////////////////////////////////Level 3/////////////////////////////////////
 var level_3 = new LevelCreator(
-  "Level 3-Combat", //Name of World
+  "[3]Puzzle", //Name of World
   5000, //X-Size of World
   2800, //Y-Size of World
   '#FFFDD0', //Background Color
@@ -978,7 +978,7 @@ level_3.flagSpawn = [
 
 ///////////////////////////////////////////Level 4///////////////////////////////////////////////////////////
 var level_4 = new LevelCreator(
-  "Level 4-Space Shooter", //Name of World
+  "[4]Asteroid", //Name of World
   8000, //X-Size of World
   900, //Y-Size of World
   Phaser.Color.getRandomColor(150, 255), //Background Color
@@ -1028,19 +1028,19 @@ level_4.spriteSpawn = [
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 1300, 250, 50, 600, 1, 0, 0, 0, 0, null, null),
   //Traps on Pillar-Part 1
   new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 1275, 300, null, null, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, wallKiller, 'timer', wallTile50, 1275, 300, null, null, 1, -800, -800, 0, 0, null, new timerCreator('loop', null, 1.5)),
+  new SpriteCreator(true, wallKiller, 'timer', wallTile50, 1275, 300, null, null, 1, -600, -600, 0, 0, null, new timerCreator('loop', null, 2)),
   //Traps on Pillar-Part 2
   new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 1275, 800, null, null, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, wallKiller, 'timer', wallTile50, 1275, 800, null, null, 1, -800, -800, 0, 0, null, new timerCreator('loop', null, 1.5)),
+  new SpriteCreator(true, wallKiller, 'timer', wallTile50, 1275, 800, null, null, 1, -600, -600, 0, 0, null, new timerCreator('loop', null, 2)),
   //Traps on Pillar- Part 3 The Middle Bad BOy
   new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 1275, 550, null, null, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, wallKiller, 'timer', wallTile50, 1275, 550, null, null, 1, -800, -800, 0, 0, null, new timerCreator('loop', null, 1.5)),
+  new SpriteCreator(true, wallKiller, 'timer', wallTile50, 1275, 550, null, null, 1, -600, -600, 0, 0, null, new timerCreator('loop', null, 2)),
   //Bottom Traps-1
   new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 800, 825, null, null, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, wallKiller, 'timer', wallTile50, 800, 825, null, null, 1, 800, -800, 0, 0, null, new timerCreator('loop', null, 1.5)),
+  new SpriteCreator(true, wallKiller, 'timer', wallTile50, 800, 825, null, null, 1, 800, -600, 0, 0, null, new timerCreator('loop', null, 2)),
   // //Bottom Traps-2
   // new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 1100, 825, null, null, 1, 0, 0, 0, 0, null, null),
-  // new SpriteCreator(true, wallKiller, 'timer', wallTile50, 1100, 825, null, null, 1, 800, -800, 0, 0, null, new timerCreator('loop', null, 1.5)),
+  // new SpriteCreator(true, wallKiller, 'timer', wallTile50, 1100, 825, null, null, 1, 800, -600, 0, 0, null, new timerCreator('loop', null, 2)),
   ///////////////////////////////Second Pillar-1800X///////////////////////////////
   //Actual Pillar
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 1800, 50, 50, 400, 1, 0, 0, 0, 0, null, null),
@@ -1079,6 +1079,15 @@ level_4.spriteSpawn = [
   new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 2800, 500, 50, 50, 1, 0, -1000, 0, 0, null, null),
   new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 2800, 600, 50, 50, 1, 0, 1000, 0, 0, null, null),
   new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 2800, 700, 50, 50, 1, 0, -1000, 0, 0, null, null),
+  //The Middle
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 2530, 275.9, 50, 400, 1, 0, 0, 0, 0, null, null),
+  //Enemies in the Middle
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 2613.3, 361.2, null, null, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, enemyShooter, 'sprite', enemyOne, 2613.3, 597.4, null, null, 1, 0, 0, 0, 0, null, null),
+  ////////////////////////////Doom Trap of Spawning Enemies-5000X////////////////////////////////////
+  //Da Borders For this
+  new SpriteCreator(true, groundOneWayKillObject, 'tile', groundTile, 3000, 50, 50, 850, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundOneWayKillObject, 'tile', groundTile, 5000, 50, 50, 850, 1, 0, 0, 0, 0, null, null),
 ];
 
 //Flag
