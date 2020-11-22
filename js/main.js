@@ -981,7 +981,7 @@ var level_4 = new LevelCreator(
   "[4]Asteroid", //Name of World
   8000, //X-Size of World
   900, //Y-Size of World
-  Phaser.Color.getRandomColor(150, 255), //Background Color
+  Phaser.Color.getRandomColor(200, 255), //Background Color
   true, //Out of Bounds Allowed
   .6, //Player Scale
   portalNen, //Nen-System
@@ -1087,7 +1087,29 @@ level_4.spriteSpawn = [
   ////////////////////////////Doom Trap of Spawning Enemies-5000X////////////////////////////////////
   //Da Borders For this
   new SpriteCreator(true, groundOneWayKillObject, 'tile', groundTile, 3000, 50, 50, 850, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, groundOneWayKillObject, 'tile', groundTile, 5000, 50, 50, 850, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundOneWayPlayer, 'tile', groundTile, 5000, 50, 50, 850, 1, 0, 0, 0, 0, null, null),
+  //Initial Boom! From the Wall
+  new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 4975, 200, null, null, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallKiller, 'timer', wallTile50, 4975, 200, null, null, 1, -1000, -700, 0, 0, null, new timerCreator('loop', null, 1.5)),
+  new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 4975, 400, null, null, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallKiller, 'timer', wallTile50, 4975, 400, null, null, 1, -1000, -700, 0, 0, null, new timerCreator('loop', null, 1.5)),
+  new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 4975, 600, null, null, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallKiller, 'timer', wallTile50, 4975, 600, null, null, 1, -1000, -700, 0, 0, null, new timerCreator('loop', null, 1.5)),
+  new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 4975, 800, null, null, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallKiller, 'timer', wallTile50, 4975, 800, null, null, 1, -1000, -700, 0, 0, null, new timerCreator('loop', null, 1.5)),
+  //THe BOTTOm THE BOTTOM THE BOTTOm
+  new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 3822.4, 825, null, null, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallKiller, 'timer', wallTile50, 3822.4, 825, null, null, 1, 800, -600, 0, 0, null, new timerCreator('loop', null, 2)),
+  new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 4306.7, 825, null, null, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, wallKiller, 'timer', wallTile50, 4306.7, 825, null, null, 1, 800, -600, 0, 0, null, new timerCreator('loop', null, 2)),
+  //THE BRICKS
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 3250, 222.3, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 3393.8, 734.3, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 3610.5, 404.9, 50, 300, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 4000, 400, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 4182.9, 611.2, 50, 100, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 4398.6, 218.3, 50, 200, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 4478.6, 627.1, 50, 100, 1, 0, 0, 0, 0, null, null),
 ];
 
 //Flag
