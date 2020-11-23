@@ -848,7 +848,7 @@ level_3.spriteSpawn = [
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 4700, 1200, 100, 100, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, wallLeftRight, 'tile', wallTile50, 4700, 1400, 300, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, ballRegular, 'sprite', ball, 4700, 150, 50, 50, 1, 0, 300, 0, 0, null, null),
-  new SpriteCreator(true, ledgeElevator, 'sprite', ledge, 2900, 200, 150, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, ledgeElevator, 'sprite', ledge, 200, 2700, null, null, 1, 0, 0, 0, 0, null, null),
   ////////////////////////////////////Borders///////////////////////////////////////////////
   //Top
   new SpriteCreator(true, deathKillWall, 'tile', invsibileTile, 0, 0, 5000, 50, 1, 0, 0, 0, 0, null, null),
@@ -858,9 +858,21 @@ level_3.spriteSpawn = [
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 4950, 50, 50, 2700, 1, 0, 0, 0, 0, null, null),
   //Left
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 0, 50, 50, 1100, 1, 0, 0, 0, 0, null, null),
-  //Left Decorations
+  //Left Decorations Top
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 50, 1100, 500, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 50, 1700, 500, 50, 1, 0, 0, 0, 0, null, null),
+  //Left Decorations Bottom
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 50, 1700, 2000, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 2150, 1700, 50, 50, 1, 1000, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 2200, 1700, 50, 50, 1, 1000, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 2250, 1700, 50, 50, 1, 1000, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 2300, 1700, 50, 50, 1, 1000, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 2350, 1700, 50, 50, 1, 1000, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 2400, 1700, 50, 50, 1, 1000, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 2450, 1700, 50, 50, 1, 1000, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 2500, 1700, 50, 50, 1, 1000, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 2550, 1700, 50, 50, 1, 1000, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 2600, 1700, 50, 50, 1, 1000, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 2650, 1700, 50, 50, 1, 1000, 0, 0, 0, null, null),
   //Left Bottom Border
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 0, 1700, 50, 1050, 1, 0, 0, 0, 0, null, null),
   //Ball Kill
@@ -929,11 +941,11 @@ level_3.spriteSpawn = [
   new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 500, 1000, 50, 50, 1, -1000, 0, 0, 0, null, null),
   // ////////////////////////////////////Bottom Path////////////////////////////////////////////
   //Traps and Help
-  new SpriteCreator(true, fallingSpikesRegularTwo, 'timer', fallingSpikesTwo, 100, 1800, 50, 50, 1, 1000, 0, 2000, 0, null, new timerCreator('loop', null, 1)),
-  new SpriteCreator(true, fallingSpikesRegularTwo, 'timer', fallingSpikesTwo, 100, 2000, 50, 50, 1, 1000, 0, 2000, 0, null, new timerCreator('loop', null, 1)),
-  new SpriteCreator(true, fallingSpikesRegularTwo, 'timer', fallingSpikesTwo, 100, 2200, 50, 50, 1, 1000, 0, 2000, 0, null, new timerCreator('loop', null, 1)),
-  new SpriteCreator(true, fallingSpikesRegularTwo, 'timer', fallingSpikesTwo, 100, 2400, 50, 50, 1, 1000, 0, 2000, 0, null, new timerCreator('loop', null, 1)),
-  new SpriteCreator(true, fallingSpikesRegularTwo, 'timer', fallingSpikesTwo, 100, 2600, 50, 50, 1, 1000, 0, 2000, 0, null, new timerCreator('loop', null, 1)),
+  new SpriteCreator(true, fallingSpikesRegularTwo, 'timer', fallingSpikesTwo, 100, 1800, 50, 50, 1, 1000, 0, 1800, 0, null, new timerCreator('loop', null, 1)),
+  new SpriteCreator(true, fallingSpikesRegularTwo, 'timer', fallingSpikesTwo, 100, 2000, 50, 50, 1, 1000, 0, 1800, 0, null, new timerCreator('loop', null, 1)),
+  new SpriteCreator(true, fallingSpikesRegularTwo, 'timer', fallingSpikesTwo, 100, 2200, 50, 50, 1, 1000, 0, 1800, 0, null, new timerCreator('loop', null, 1)),
+  new SpriteCreator(true, fallingSpikesRegularTwo, 'timer', fallingSpikesTwo, 100, 2400, 50, 50, 1, 1000, 0, 1800, 0, null, new timerCreator('loop', null, 1)),
+  new SpriteCreator(true, fallingSpikesRegularTwo, 'timer', fallingSpikesTwo, 100, 2600, 50, 50, 1, 1000, 0, 1800, 0, null, new timerCreator('loop', null, 1)),
   //Bottom Path Indicators
   new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 62.5, 1800, null, null, .5, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 62.5, 2000, null, null, .5, 0, 0, 0, 0, null, null),
