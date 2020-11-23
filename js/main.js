@@ -906,10 +906,10 @@ level_3.spriteSpawn = [
   new SpriteCreator(true, enemyShooter, 'sprite', enemyOne, 3300, 1650, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 3300, 1750, 50, 50, 1, 0, 0, 0, 0, null, null),
   //////////////////////////////////////Middle Divider////////////////////////////////////////////
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 2700, 400, 50, 1600, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 2700, 500, 50, 1700, 1, 0, 0, 0, 0, null, null),
   // ////////////////////////////////////Top Path////////////////////////////////////////////
   //Borders
-  new SpriteCreator(true, invisibleRegular, 'tile', invsibileTile, 2700, 50, 50, 350, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, invisibleRegular, 'tile', invsibileTile, 2700, 50, 50, 450, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, invisibleRegular, 'tile', invsibileTile, 550, 1100, 2150, 50, 1, 0, 0, 0, 0, null, null),
   //Traps
   //Vertical Moving
