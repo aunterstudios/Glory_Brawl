@@ -941,11 +941,11 @@ level_3.spriteSpawn = [
   new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 500, 1000, 50, 50, 1, -1000, 0, 0, 0, null, null),
   // ////////////////////////////////////Bottom Path////////////////////////////////////////////
   //Traps and Help
-  new SpriteCreator(true, fallingSpikesRegularTwo, 'timer', fallingSpikesTwo, 100, 1800, 50, 50, 1, 1000, 0, 1200, 0, null, new timerCreator('loop', null, 1)),
-  new SpriteCreator(true, fallingSpikesRegularTwo, 'timer', fallingSpikesTwo, 100, 2000, 50, 50, 1, 1000, 0, 1200, 0, null, new timerCreator('loop', null, 1)),
-  new SpriteCreator(true, fallingSpikesRegularTwo, 'timer', fallingSpikesTwo, 100, 2200, 50, 50, 1, 1000, 0, 1200, 0, null, new timerCreator('loop', null, 1)),
-  new SpriteCreator(true, fallingSpikesRegularTwo, 'timer', fallingSpikesTwo, 100, 2400, 50, 50, 1, 1000, 0, 1200, 0, null, new timerCreator('loop', null, 1)),
-  new SpriteCreator(true, fallingSpikesRegularTwo, 'timer', fallingSpikesTwo, 100, 2600, 50, 50, 1, 1000, 0, 1200, 0, null, new timerCreator('loop', null, 1)),
+  new SpriteCreator(true, fallingSpikesRegularTwo, 'timer', fallingSpikesTwo, 100, 1800, 50, 50, 1, 800, 0, 1000, 0, null, new timerCreator('loop', null, 1)),
+  new SpriteCreator(true, fallingSpikesRegularTwo, 'timer', fallingSpikesTwo, 100, 2000, 50, 50, 1, 800, 0, 1000, 0, null, new timerCreator('loop', null, 1)),
+  new SpriteCreator(true, fallingSpikesRegularTwo, 'timer', fallingSpikesTwo, 100, 2200, 50, 50, 1, 800, 0, 1000, 0, null, new timerCreator('loop', null, 1)),
+  new SpriteCreator(true, fallingSpikesRegularTwo, 'timer', fallingSpikesTwo, 100, 2400, 50, 50, 1, 800, 0, 1000, 0, null, new timerCreator('loop', null, 1)),
+  new SpriteCreator(true, fallingSpikesRegularTwo, 'timer', fallingSpikesTwo, 100, 2600, 50, 50, 1, 800, 0, 1000, 0, null, new timerCreator('loop', null, 1)),
   //Bottom Path Indicators
   new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 62.5, 1800, null, null, .5, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 62.5, 2000, null, null, .5, 0, 0, 0, 0, null, null),
