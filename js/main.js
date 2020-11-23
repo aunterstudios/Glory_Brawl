@@ -1090,7 +1090,7 @@ level_4.spriteSpawn = [
   new SpriteCreator(true, groundOneWayPlayer, 'tile', groundTile, 5000, 50, 50, 850, 1, 0, 0, 0, 0, null, null),
   //Initial Boom! From the Wall
   new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 4975, 156.8, null, null, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, wallKiller, 'timer', wallTile50, 4975, 156.8, null, null, 1, -1000, -700, 0, 0, null, new timerCreator('loop', null, 2,5)),
+  new SpriteCreator(true, wallKiller, 'timer', wallTile50, 4975, 156.8, null, null, 1, -1000, -700, 0, 0, null, new timerCreator('loop', null, 2.5)),
   // //THe BOTTOm THE BOTTOM THE BOTTOm
   new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 3822.4, 833.5, null, null, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, wallKiller, 'timer', wallTile50, 3822.4, 833.5, null, null, 1, 1000, 700, 0, 0, null, new timerCreator('loop', null, 2.5)),
