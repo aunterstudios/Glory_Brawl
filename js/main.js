@@ -906,22 +906,10 @@ level_3.spriteSpawn = [
   new SpriteCreator(true, enemyShooter, 'sprite', enemyOne, 3300, 1650, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 3300, 1750, 50, 50, 1, 0, 0, 0, 0, null, null),
   //////////////////////////////////////Middle Divider////////////////////////////////////////////
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 2700, 800, 50, 1200, 1, 0, 0, 0, 0, null, null),
-  // ////////////////////////////////////Main Traps////////////////////////////////////////////
-  // //Repeating Traps Part 1 (Right to Left Orientation)
-  // new SpriteCreator(true, wallKiller, 'timer', wallTile50, 4000, 50, 50, 50, 1, -700, 700, 0, 0, null, new timerCreator('loop', null, 3)),
-  // new SpriteCreator(true, wallKiller, 'timer', wallTile50, 4000, 2750, 50, 50, 1, -700, -700, 0, 0, null, new timerCreator('loop', null, 3)),
-  // //Repeating Traps Part 2 (Right to Left Orientation)
-  // new SpriteCreator(true, wallKiller, 'timer', wallTile50, 3000, 50, 50, 50, 1, -700, 700, 0, 0, null, new timerCreator('loop', null, 3)),
-  // new SpriteCreator(true, wallKiller, 'timer', wallTile50, 3000, 2750, 50, 50, 1, -700, -700, 0, 0, null, new timerCreator('loop', null, 3)),
-  // //Repeating Traps Part 3 (Right to Left Orientation)
-  // new SpriteCreator(true, wallKiller, 'timer', wallTile50, 2000, 50, 50, 50, 1, -700, 700, 0, 0, null, new timerCreator('loop', null, 3)),
-  // new SpriteCreator(true, wallKiller, 'timer', wallTile50, 2000, 2750, 50, 50, 1, -700, -700, 0, 0, null, new timerCreator('loop', null, 3)),
-  //Repeating Enemies?
-  // new SpriteCreator(true, enemyDaakath, 'timer', enemyOne, 1000, 2750, 50, 50, 1, -700, -700, 0, 0, null, new timerCreator('loop', null, 3)),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 2700, 400, 50, 1600, 1, 0, 0, 0, 0, null, null),
   // ////////////////////////////////////Top Path////////////////////////////////////////////
   //Borders
-  new SpriteCreator(true, invisibleRegular, 'tile', invsibileTile, 2700, 50, 50, 750, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, invisibleRegular, 'tile', invsibileTile, 2700, 50, 50, 350, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, invisibleRegular, 'tile', invsibileTile, 550, 1100, 2150, 50, 1, 0, 0, 0, 0, null, null),
   //Traps
   //Vertical Moving
