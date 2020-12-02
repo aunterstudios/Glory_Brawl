@@ -107,7 +107,7 @@ brawl.mainMenu.prototype = {
         lineText(text);
 
         //Skip Written Already.
-        this.text2 = game.add.text(this.game.world.centerX, this.game.world.centerY + 300, "Press SPACEBAR to Play.\nPress O to go Full-Screen");
+        this.text2 = game.add.text(this.game.world.centerX-20, this.game.world.centerY + 300, "Press SPACEBAR to Play.\nPress O to go Full-Screen");
 
         //	Font style
         this.text2.font = 'Impact';
@@ -116,6 +116,8 @@ brawl.mainMenu.prototype = {
         this.text2.fontWeight = 'bold';
         this.text2.align = 'center';
         this.text2.anchor.setTo(.5);
+        this.text2.stroke = "#ffffff";
+        this.text2.strokeThickness = 4;
 
     },
     gofull: function () {
@@ -179,7 +181,7 @@ brawl.startScreen.prototype = {
         // ];
         // var text = new lineTextCreator(200, 250, 'Bradley Hand', "#FF0000", 30, content, 80, 2)
         // kernText(text);
-        
+
         this.xToPlay = this.game.add.text(this.game.world.centerX, 700, "Press X to Play");
         // this.xToPlay.anchor.setTo(.5);
         this.xToPlay.font = 'Courier New';
