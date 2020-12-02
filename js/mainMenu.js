@@ -103,7 +103,7 @@ brawl.mainMenu.prototype = {
             "Canvas Size",
             "GLORY BRAWL",
         ];
-        var text = new lineTextCreator(200, 50, 'Impact', '#ffffff', 30, content, 120, 400)
+        var text = new lineTextCreator(200, 50, 'Impact', '#ffffff', 30, content, 120, 400, '#000000', 4)
         lineText(text);
 
         //Skip Written Already.
@@ -158,15 +158,28 @@ brawl.startScreen.prototype = {
     create: function () {
         //Background
         // this.game.stage.backgroundColor = Phaser.Color.getRandomColor(10, 50);
+
+        //Line by Line
         var content = [
             "I know longer remember who I am or why I'm here.",
             "But I'm filled with desire to find answers.",
             "Why is my heart filled with such anger and sadness?",
             "Why must I complete Glory Brawl's trials?",
         ];
-        var text = new lineTextCreator(200, 250, 'Bradley Hand', "#FF0000", 30, content, 120, 400)
+        var text = new lineTextCreator(200, 250, 'Bradley Hand', "#FF0000", 30, content, 120, 400, '#000000', 4)
         lineText(text);
 
+        //Kern
+        // var content = [
+        //     " ",
+        //     "I know longer remember who I am or why I'm here.",
+        //     "But I'm filled with desire to find answers.",
+        //     "Why is my heart filled with such anger and sadness?",
+        //     "Why must I complete Glory Brawl's trials?",
+        // ];
+        // var text = new lineTextCreator(200, 250, 'Bradley Hand', "#FF0000", 30, content, 80, 2)
+        // kernText(text);
+        
         this.xToPlay = this.game.add.text(this.game.world.centerX, 700, "Press X to Play");
         // this.xToPlay.anchor.setTo(.5);
         this.xToPlay.font = 'Courier New';

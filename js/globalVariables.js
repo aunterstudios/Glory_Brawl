@@ -52,6 +52,10 @@ function lineText(displayText) {
   text.font = displayText.font;
   text.fontSize = displayText.fontSize;
   text.fill = displayText.fill;
+  if (displayText.stroke) {
+    text.stroke = displayText.stroke;
+    text.strokeThickness = displayText.strokeThickness;
+  }
 
   //////Inner Functions Declared///////
   //Line By Line
@@ -97,6 +101,60 @@ function lineText(displayText) {
   }
 
   //Magic Happening!
+  nextLine();
+}
+
+///New Line of Text Displayed One at A Time
+function kernText(displayText) {
+  ////////The Actual Text////////////
+  var content = displayText.content;
+  //Creating the Mechanism
+  var index = 0;
+  var line = '';
+
+  //Timing
+  var wordDelay = displayText.wordDelay;
+  var lineDelay = displayText.lineDelay;
+
+  //The Text
+  var text = this.game.add.text(displayText.x, displayText.y, '');
+  text.font = displayText.font;
+  text.fontSize = displayText.fontSize;
+  text.fill = displayText.fill;
+  if (displayText.stroke) {
+    text.stroke = displayText.stroke;
+    text.strokeThickness = displayText.strokeThickness;
+  }
+
+  //////Internal Function Declaration////////
+  //One Line
+  function updateLine() {
+
+    if (line.length < content[index].length) {
+      line = content[index].substr(0, line.length + 1);
+      // text.text = line;
+      text.setText(line);
+    }
+    else {
+      //  Wait 2 seconds then start a new line
+      this.game.time.events.add(Phaser.Timer.SECOND * lineDelay, nextLine, this);
+    }
+
+  }
+
+  //Next Line
+  function nextLine() {
+
+    index++;
+
+    if (index < content.length) {
+      line = '';
+      this.game.time.events.repeat(wordDelay, content[index].length + 1, updateLine, this);
+    }
+
+  }
+
+  //Magic Happening
   nextLine();
 }
 
