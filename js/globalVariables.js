@@ -35,6 +35,7 @@ var timerEvents;
 var deaths = 0;
 
 ////////////////////////////////////////////Text Function////////////////////////////////////
+//Display Word By Word
 function lineText(displayText) {
   ////////The Actual Text////////////
   var content = displayText.content;

@@ -100,11 +100,11 @@ brawl.mainMenu.prototype = {
 
         //Adding Cool Looking Text
         var content = [
-          "Canvas Size",
-          "GLORY BRAWL",
+            "Canvas Size",
+            "GLORY BRAWL",
         ];
-        var mainMenuText = new lineTextCreator(200, 50, 'Impact', '#ffffff', 30, content, 120, 400)
-        lineText(mainMenuText);
+        var text = new lineTextCreator(200, 50, 'Impact', '#ffffff', 30, content, 120, 400)
+        lineText(text);
 
         //Skip Written Already.
         this.text2 = game.add.text(this.game.world.centerX, this.game.world.centerY + 300, "Press SPACEBAR to Play.\nPress O to go Full-Screen");
@@ -156,24 +156,27 @@ brawl.startScreen.prototype = {
     preload: function () {
     },
     create: function () {
-        this.game.stage.backgroundColor = '#D8A8B2';
-
-        this.text1 = this.game.add.text(100, 200, "Insert Story Here\n\nGLORY BRAWL");
-        this.text1.font = 'Courier New';
-        this.text1.fontSize = 30;
-        this.text1.fill = '#A8D8CE';
-        this.text1.fontWeight = 'bold';
-        this.text1.setShadow(3, 3, 'rgba(0,0,0,0.5)', 2);
+        //Background
+        // this.game.stage.backgroundColor = Phaser.Color.getRandomColor(10, 50);
+        var content = [
+            "I know longer remember who I am or why I'm here.",
+            "But I'm filled with desire to find answers.",
+            "Why is my heart filled with such anger and sadness?",
+            "Why must I complete Glory Brawl's trials?",
+        ];
+        var text = new lineTextCreator(200, 250, 'Bradley Hand', "#FF0000", 30, content, 120, 400)
+        lineText(text);
 
         this.xToPlay = this.game.add.text(this.game.world.centerX, 700, "Press X to Play");
-        this.xToPlay.anchor.setTo(.5);
+        // this.xToPlay.anchor.setTo(.5);
         this.xToPlay.font = 'Courier New';
-        this.xToPlay.fontSize = 40;
+        this.xToPlay.fontSize = 20;
         this.xToPlay.fill = '#A8D8CE';
         this.xToPlay.fontWeight = 'bold';
         this.xToPlay.setShadow(3, 3, 'rgba(0,0,0,0.5)', 2);
     },
     update: function () {
+        this.game.stage.backgroundColor = Phaser.Color.getRandomColor(10, 100, 5);
         if (this.game.input.keyboard.isDown(Phaser.Keyboard.X)) {
             /////////CurrentWorld-PlayerPosition-CurrentWorld(metroidvania)////////
             ////////0-Up, 1-Down, 2-Left, 3-Right//////
