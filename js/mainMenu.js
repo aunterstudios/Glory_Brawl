@@ -99,8 +99,12 @@ brawl.mainMenu.prototype = {
         this.ball.pivot.y = 200;
 
         //Adding Cool Looking Text
-        text = this.game.add.text(200, 50, '', { font: "30px Impact", fill: "#FF0000" });
-        nextLine();
+        var content = [
+          "Canvas Size",
+          "GLORY BRAWL",
+        ];
+        var mainMenuText = new lineTextCreator(200, 50, 'Impact', '#ffffff', 30, content, 120, 400)
+        lineText(mainMenuText);
 
         //Skip Written Already.
         this.text2 = game.add.text(this.game.world.centerX, this.game.world.centerY + 300, "Press SPACEBAR to Play.\nPress O to go Full-Screen");
