@@ -62,6 +62,10 @@ var lineIndex = 0;
 var wordDelay = 120;
 var lineDelay = 400;
 
+function lineText () {
+  
+}
+
 function nextLine() {
 
   if (lineIndex === content.length) {
