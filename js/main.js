@@ -923,9 +923,9 @@ level_3.flagSpawn = [
 ];
 
 //Text Creator (Helpful Hints)
-// level_3.text = [
-//   new textCreator(true, 4650, 1800, "Test", fontGrind, 25),
-// ];
+level_3.text = [
+  new textCreator(true, 4650, 1800, "Test", fontGrind, 25),
+];
 
 ///////////////////////////////////////////Level 4///////////////////////////////////////////////////////////
 var level_4 = new LevelCreator(
