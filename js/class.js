@@ -211,7 +211,7 @@ class imageCreator {
 
 //Cool Looking Text
 class lineTextCreator {
-  constructor(x, y, font, fill, fontSize, content, wordDelay, lineDelay, stroke, strokeThickness, seconds,) {
+  constructor(x, y, font, fill, fontSize, content, wordDelay, lineDelay, stroke, strokeThickness) {
     this.x = x;
     this.y = y;
     this.font = font;

@@ -168,7 +168,7 @@ brawl.startScreen.prototype = {
             "Why is my heart filled with such anger and sadness?",
             "Why must I complete Glory Brawl's trials?",
         ];
-        var text = new lineTextCreator(200, 250, 'Bradley Hand', "#FF0000", 30, content, 120, 400, '#000000', 4)
+        var text = new lineTextCreator(200, 250, 'Lucida Console', "#FF0000", 30, content, 120, 400, '#000000', 4)
         lineText(text);
 
         //Kern
@@ -186,8 +186,10 @@ brawl.startScreen.prototype = {
         // this.xToPlay.anchor.setTo(.5);
         this.xToPlay.font = 'Courier New';
         this.xToPlay.fontSize = 20;
-        this.xToPlay.fill = '#A8D8CE';
+        this.xToPlay.fill = '#ffffff';
         this.xToPlay.fontWeight = 'bold';
+        this.xToPlay.stroke = "#000000";
+        this.xToPlay.strokeThickness = 4;
         this.xToPlay.setShadow(3, 3, 'rgba(0,0,0,0.5)', 2);
     },
     update: function () {

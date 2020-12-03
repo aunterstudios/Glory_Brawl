@@ -42,6 +42,9 @@ brawl.game.prototype.spriteGroupGenerator = function () {
     //Slow Motion
     this.slowMotionGroup = this.game.add.group();
     this.slowMotionGroup.classType = Phaser.Image;
+    //Text
+    this.textGroup = this.game.add.group();
+    this.textGroup.enableBody = false;
     ////////////////////////////////Creating Enemy Bullets///////////////////////////////
     //  Creates 30 bullets, using the 'bullet' graphic
     this.enemyBullets = this.game.add.weapon(1000, 'bulletOne');
@@ -208,16 +211,18 @@ brawl.game.prototype.textCreator = function (sprite, positionInArray) {
         console.log(sprite, positionInArray);
     }
     if (bitmapBoolean) {
-        this.text1 = this.game.add.bitmapText(sprite.x, sprite.y, sprite.font, sprite.textInput, sprite.fontSize);
+        this.text = this.game.add.bitmapText(sprite.x, sprite.y, sprite.font, sprite.textInput, sprite.fontSize);
     }
     else {
-        this.text1 = this.game.add.text(sprite.x, sprite.y, sprite.textInput);
-        this.text1.font = 'Courier New'
-        this.text1.fontSize = 25;
-        this.text1.fill = '#000000';
-        this.text1.fontWeight = 'bold';
+        this.text = this.game.add.text(sprite.x, sprite.y, sprite.textInput);
+        this.text.font = 'Courier New'
+        this.text.fontSize = 25;
+        this.text.fill = '#000000';
+        this.text.fontWeight = 'bold';
     }
-    this.text1.positionInArray = positionInArray;
+    this.text.positionInArray = positionInArray;
+    this.text.visible = false;
+    this.textGroup.add(this.text);
 };
 
 

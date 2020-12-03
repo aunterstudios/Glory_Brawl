@@ -135,8 +135,6 @@ brawl.game.prototype = {
         ////////////////////////////////////////Continious Collision//////////////////////////////////
         //Debug
         // this.debugSprites();
-        //Player Continious
-        // this.playerContinious();
         //Images Moving
         // this.imageMovement();
         ///Enemies Attacking
@@ -147,6 +145,8 @@ brawl.game.prototype = {
         // this.groundContinious();
         //Hazama
         this.hazamaContinious();
+        //Text
+        this.textContinious();
         ///////////////////////////////////////////Physics////////////////////////////////////////
         //Player Mechanics
         var onGround = this.game.physics.arcade.collide(this.player, this.ground, this.playerGround, this.playerGroundProcess, this);

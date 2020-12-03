@@ -922,6 +922,11 @@ level_3.flagSpawn = [
   new flagCreator(0, true, flagRegular, flag, 1, 4700, 1150, 0, 0, 0, 0, null),
 ];
 
+//Text Creator (Helpful Hints)
+// level_3.text = [
+//   new textCreator(true, 4650, 1800, "Test", fontGrind, 25),
+// ];
+
 ///////////////////////////////////////////Level 4///////////////////////////////////////////////////////////
 var level_4 = new LevelCreator(
   "[4]Asteroid", //Name of World

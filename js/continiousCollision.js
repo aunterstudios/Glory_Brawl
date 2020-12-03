@@ -122,6 +122,7 @@ brawl.game.prototype.wallContinious = function () {
     }, this, this.player);
 };
 
+//Hazama
 brawl.game.prototype.hazamaContinious = function () {
     this.hazama.forEachAlive(function (hazama) {
         if (hazama.lastOverlapped && this.game.time.now > hazama.lastOverlapped) {
@@ -136,6 +137,13 @@ brawl.game.prototype.hazamaContinious = function () {
     }, this, this.player);
 };
 
-brawl.game.prototype.playerContinious = function () {
-    this.player.alpha = 1;
+//Text
+
+brawl.game.prototype.textContinious = function () {
+    this.textGroup.forEachAlive(function (text) {
+        if (this.game.physics.arcade.distanceBetween(text, this.player, false, true) < 400) {
+            text.visible = true;
+        }
+    }, this, this.player);
 };
+
