@@ -113,14 +113,14 @@ brawl.game.prototype = {
 
         //////////////////////////////////////BitMap Text////////////////////////////////////////////
         if (bitmapBoolean) {
-            this.text = this.game.add.bitmapText(200, 6208, 'fontGrind', worldName, 32);
+            this.text = this.game.add.bitmapText(0, 0, 'fontGrind', worldName, 32);
             this.text.fixedToCamera = true;
-            this.text.cameraOffset.setTo(1450, 800);
+            this.text.cameraOffset.setTo(1350, 810);
         }
         else {
-            this.text = this.game.add.text(200, 6208, worldName, { font: "20px Arial", fill: "#000000", align: "center" });
+            this.text = this.game.add.text(0, 0, worldName, { font: "20px Arial", fill: "#000000", align: "center" });
             this.text.fixedToCamera = true;
-            this.text.cameraOffset.setTo(1450, 800);
+            this.text.cameraOffset.setTo(1350, 810);
         }
     },
     // //How Game Updates Real-Time (Actual Controls)////

@@ -1060,7 +1060,6 @@ level_4.spriteSpawn = [
   new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 5280, 725.4, null, null, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 5662.9, 754.1, null, null, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 5754.3, 225.2, null, null, 1, 0, 0, 0, 0, null, null),
-
 ];
 
 //Flag
@@ -1072,12 +1071,12 @@ level_4.flagSpawn = [
   new flagCreator(0, true, flagRegular, flag, 1, 400, 800, 0, 0, 0, 0, null),
 ];
 
-///////////////////////////////////////////Level 4///////////////////////////////////////////////////////////
+///////////////////////////////////////////Level 5///////////////////////////////////////////////////////////
 var level_5 = new LevelCreator(
-  "Level 5-Timer", //Name of World
-  10000, //X-Size of World
+  "[5]The Beginning", //Name of World
+  5000, //X-Size of World
   5000, //Y-Size of World
-  '#b19cd9', //Background Color
+  '#DCDCDC', //Background Color
   true, //Out of Bounds Allowed
   1, //Player Scale
   portalNen, //Nen-System
@@ -1098,16 +1097,16 @@ level_5.metroidvania = new MetroidvaniaCreator(
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_5.playerPosition = [
-  new PlayerPositionCreator(100, 2900),
-  new PlayerPositionCreator(9900, 50),
-  new PlayerPositionCreator(100, 2900),
-  new PlayerPositionCreator(3500, 2900),
+  new PlayerPositionCreator(100, 300),
+  new PlayerPositionCreator(100, 300),
+  new PlayerPositionCreator(100, 300),
+  new PlayerPositionCreator(100, 300),
 ]
 
 //Sprite Generation
 level_5.spriteSpawn = [
   ////////////////////////////////////First Phase/////////////////////////////////////////////////////////////
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 9500, 100, 1000, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 0, 4950, 1000, 50, 1, 0, 0, 0, 0, null, null),
 ];
 
 //Flag
