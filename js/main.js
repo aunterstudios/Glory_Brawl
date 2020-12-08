@@ -1080,11 +1080,11 @@ var level_5 = new LevelCreator(
   true, //Out of Bounds Allowed
   1, //Player Scale
   portalNen, //Nen-System
-  basicGunSet, //Gun-Set
+  noGunSet, //Gun-Set
   true, //Sideways Stick to Walls,
   true, //Upsidedown Stick
-  1, //X-Camera Lerp
-  1, //Y-Camera Lerp
+  .1, //X-Camera Lerp
+  .1, //Y-Camera Lerp
 );
 
 //Room-Switching

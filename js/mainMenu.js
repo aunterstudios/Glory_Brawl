@@ -103,21 +103,52 @@ brawl.mainMenu.prototype = {
             "Canvas Size",
             "GLORY BRAWL",
         ];
-        var text = new lineTextCreator(200, 50, 'Impact', '#ffffff', 30, content, 120, 400, '#000000', 4)
+        var text = new lineTextCreator(100, 150, 'Impact', '#ffffff', 42, content, 120, 400, '#000000', 4)
         lineText(text);
 
+        ///////////////////Main Title Reflect Later Use/////////////////
+        // this.titleText = this.game.add.text(200, 150, "GLORY BRAWL");
+        // this.titleText.font = 'Impact';
+        // this.titleText.fontSize = 42;
+        // this.titleText.fill = "#ffffff";
+        // this.titleText.fontWeight = 'bold';
+        // this.titleText.align = 'center';
+        // this.titleText.anchor.setTo(.5);
+        // this.titleText.stroke = "#ff0000";
+        // this.titleText.strokeThickness = 4;
+
+        // //Title Reflect
+        // this.titleTextReflect = this.game.add.text(200, 200, "GLORY BRAWl");
+        // //  Centers the text
+        // this.titleTextReflect.anchor.set(0.5);
+        // this.titleTextReflect.align = 'center';
+        // this.titleTextReflect.scale.y = -1;
+        // //  Our font + size
+        // this.titleTextReflect.font = 'Impact';
+        // this.titleTextReflect.fontWeight = 'bold';
+        // this.titleTextReflect.fontSize = 42;
+        // //  Here we create a linear gradient on the Text context.
+        // //  This uses the exact same method of creating a gradient as you do on a normal Canvas context.
+        // var grd = this.titleTextReflect.context.createLinearGradient(0, 0, 0, this.titleText.canvas.height);
+        // //  Add in 2 color stops
+        // grd.addColorStop(0, 'rgba(255,255,255,0)');
+        // grd.addColorStop(1, 'rgba(255,255,255,0.08)');
+        // //  And apply to the Text
+        // this.titleTextReflect.fill = grd;
+
+
         //Skip Written Already.
-        this.text2 = game.add.text(this.game.world.centerX-20, this.game.world.centerY + 300, "Press SPACEBAR to Play.\nPress O to go Full-Screen");
+        this.skipText = this.game.add.text(this.game.world.centerX - 10, this.game.world.centerY + 375, "Press SPACEBAR to Play.\nPress O to go Full-Screen");
 
         //	Font style
-        this.text2.font = 'Impact';
-        this.text2.fontSize = 30;
-        this.text2.fill = "#FF0000";
-        this.text2.fontWeight = 'bold';
-        this.text2.align = 'center';
-        this.text2.anchor.setTo(.5);
-        this.text2.stroke = "#ffffff";
-        this.text2.strokeThickness = 4;
+        this.skipText.font = 'Impact';
+        this.skipText.fontSize = 30;
+        this.skipText.fill = "#FF0000";
+        this.skipText.fontWeight = 'bold';
+        this.skipText.align = 'center';
+        this.skipText.anchor.setTo(.5);
+        this.skipText.stroke = "#ffffff";
+        this.skipText.strokeThickness = 4;
 
     },
     gofull: function () {
