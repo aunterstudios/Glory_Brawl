@@ -22,27 +22,33 @@ brawl.death.prototype = {
         // this.background.animations.add('move');
         // this.background.animations.play('move', 10, true);
 
-        this.background = this.game.add.sprite(this.game.world.centerX+100, this.game.world.centerY, 'player');
+        this.background = this.game.add.sprite(this.game.world.centerX + 100, this.game.world.centerY, 'player');
         // this.background.animations.add('move');
         // this.background.animations.play('move', 10, true);
         this.background.animations.add('move');
         this.background.animations.play('move', 5, true);
 
-        //Text Bar
-        this.bar = this.game.add.graphics();
-        this.bar.beginFill(0x000000, .5);
-        this.bar.drawRect(200, 150, 500, 150);
-
         //Text
-        this.text = this.game.add.text(this.game.world.centerX - 250, 220, "SPACEBAR to Restart \n Deaths: " + deaths);
-        this.text.anchor.setTo(0.5);
-        this.text.align = 'center';
+        this.deathText = this.game.add.text(this.game.world.centerX - 250, 220, "SPACEBAR to Restart \n Deaths: " + deaths);
+        //Font Style
+        this.deathText.anchor.setTo(0.5);
+        this.deathText.align = 'center';
+        this.deathText.font = 'Arial Black';
+        this.deathText.fontSize = 35;
+        // this.deathText.fill = "#ff0000";
+        this.deathText.fontWeight = 'bold';
+        this.deathText.stroke = "#ffffff";
+        this.deathText.strokeThickness = 4;
 
-        //	Font style
-        this.text.font = 'Arial Black';
-        this.text.fontSize = 35;
-        this.text.fill = "#ff0000";
-        this.text.fontWeight = 'bold';
+        //Gradient of Text
+        var grd = this.deathText.context.createLinearGradient(0, 0, 0, this.deathText.height);
+
+        //  Add in 2 color stops
+        grd.addColorStop(0, "#ffafbd");
+        grd.addColorStop(1, "#ffc3a0");
+
+        //  And apply to the Text
+        this.deathText.fill = grd;
 
         //New Emitter
         this.bloodRain = this.game.add.emitter(this.game.world.centerX, 0, 2000);
