@@ -1124,7 +1124,7 @@ level_5.spriteSpawn = [
 
 level_5.text = [
   new textCreator(true, 200, 1000, "RED IS DEATH", fontGrind, 72),
-  new textCreator(true, 289.5, 4600, "W-Jump/Double-Jump\nA-Left\nS-Punch\nD-Right\nP-Pause\nO-Fullscreen", fontGrind, 32),
+  new textCreator(true, 289.5, 4600, "W-Jump/Double-Jump\nA-Left\nS-Punch\nD-Right\nP-Pause/Controls\nO-Fullscreen", fontGrind, 32),
 ];
 
 //////////////////////////////////////////Pushing All Levels Into World Array/////////////////////////////////////

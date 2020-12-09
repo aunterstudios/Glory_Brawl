@@ -126,7 +126,7 @@ brawl.game.prototype = {
         //Control Screen Pause
         this.controlScreen = this.game.add.image(0, 0, 'controlScreen');
         this.controlScreen.fixedToCamera = true;
-        this.controlScreen.cameraOffset.setTo(565, 150);
+        this.controlScreen.cameraOffset.setTo(530, 125);
         //Kill Right Away To Remove it From View Then to Revive
         this.controlScreen.kill();
 
