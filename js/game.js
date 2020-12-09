@@ -122,6 +122,13 @@ brawl.game.prototype = {
             this.text.fixedToCamera = true;
             this.text.cameraOffset.setTo(1350, 810);
         }
+
+        //Control Screen Pause
+        this.controlScreen = this.game.add.image(0, 0, 'controlScreen');
+        this.controlScreen.fixedToCamera = true;
+        this.controlScreen.cameraOffset.setTo(550, 150);
+        //Kill Right Away To Remove it From View Then to Revive
+        this.controlScreen.kill();
     },
     // //How Game Updates Real-Time (Actual Controls)////
     update: function () {
