@@ -129,6 +129,7 @@ brawl.game.prototype = {
         this.controlScreen.cameraOffset.setTo(565, 150);
         //Kill Right Away To Remove it From View Then to Revive
         this.controlScreen.kill();
+
     },
     // //How Game Updates Real-Time (Actual Controls)////
     update: function () {
@@ -153,7 +154,7 @@ brawl.game.prototype = {
         //Hazama
         this.hazamaContinious();
         //Text
-        // this.textContinious();
+        this.textContinious();
         ///////////////////////////////////////////Physics////////////////////////////////////////
         //Player Mechanics
         var onGround = this.game.physics.arcade.collide(this.player, this.ground, this.playerGround, this.playerGroundProcess, this);
