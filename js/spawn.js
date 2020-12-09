@@ -216,7 +216,7 @@ brawl.game.prototype.textCreator = function (sprite, positionInArray) {
     else {
         this.text = this.game.add.text(sprite.x, sprite.y, sprite.textInput);
         this.text.font = 'Courier New'
-        this.text.fontSize = 25;
+        this.text.fontSize = sprite.fontSize;
         this.text.fill = '#000000';
         this.text.fontWeight = 'bold';
     }

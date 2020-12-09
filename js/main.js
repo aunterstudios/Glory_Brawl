@@ -1076,7 +1076,7 @@ var level_5 = new LevelCreator(
   "[5]The Beginning", //Name of World
   5000, //X-Size of World
   5000, //Y-Size of World
-  '#DCDCDC', //Background Color
+  '#D0CFCF', //Background Color
   true, //Out of Bounds Allowed
   1, //Player Scale
   portalNen, //Nen-System
@@ -1097,30 +1097,34 @@ level_5.metroidvania = new MetroidvaniaCreator(
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_5.playerPosition = [
-  new PlayerPositionCreator(100, 300),
-  new PlayerPositionCreator(100, 300),
-  new PlayerPositionCreator(100, 300),
-  new PlayerPositionCreator(100, 300),
+  new PlayerPositionCreator(200, 300),
+  new PlayerPositionCreator(200, 300),
+  new PlayerPositionCreator(200, 300),
+  new PlayerPositionCreator(200, 300),
 ]
 
 //Sprite Generation
 level_5.spriteSpawn = [
-  ////////////////////////////////////First Phase/////////////////////////////////////////////////////////////
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 0, 4950, 1000, 50, 1, 0, 0, 0, 0, null, null),
+  ////////////////////////////////////Ground/////////////////////////////////////////////////////////////
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 0, 4950, 5000, 50, 1, 0, 0, 0, 0, null, null),
+  //////////////////////////////////////Borders//////////////////////////////////////////////////////////
+  //Top
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 300, 0, 4700, 50, 1, 0, 0, 0, 0, null, null),
+  //Left
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 0, 0, 50, 4950, 1, 0, 0, 0, 0, null, null),
 ];
 
 //Flag
-level_5.flagSpawn = [
-  // new flagCreator(1, true, flagSpecial, flag, 4200, 1800, 0, 0, .4, .4, 0, 0,
-  //   new shadowLevelGenerator(0, [
-  //     new shadowLevelArray(2, 4)
-  //   ])),
-  new flagCreator(2, true, flagRegular, flag, 1, 400, 2900, 0, 0, 0, 0, null),
-  new flagCreator(3, true, flagRegular, flag, 1, 3700, 2900, 0, 0, 0, 0, null),
-];
+// level_5.flagSpawn = [
+//   // new flagCreator(1, true, flagSpecial, flag, 4200, 1800, 0, 0, .4, .4, 0, 0,
+//   //   new shadowLevelGenerator(0, [
+//   //     new shadowLevelArray(2, 4)
+//   //   ])),
+// ];
 
 level_5.text = [
-  new textCreator(true, 500, 500, "Test", fontGrind, 25),
+  new textCreator(true, 200, 1000, "RED IS DEATH", fontGrind, 72),
+  new textCreator(true, 289.5, 4600, "W-Jump/Double-Jump\nA-Left\nS-Punch\nD-Right\nP-Pause\nO-Fullscreen", fontGrind, 32),
 ];
 
 //////////////////////////////////////////Pushing All Levels Into World Array/////////////////////////////////////
