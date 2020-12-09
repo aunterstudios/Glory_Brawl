@@ -33,6 +33,13 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     //Kill Right Away To Remove it From View Then to Revive
     this.cameraImage.kill();
 
+    //Control Screen Pause
+    this.controlScreen = this.game.add.image(0, 0, 'controlScreen');
+    this.controlScreen.fixedToCamera = true;
+    this.controlScreen.cameraOffset.setTo(550, 150);
+    //Kill Right Away To Remove it From View Then to Revive
+    this.controlScreen.kill();
+
     ///////////////////////Slow Motion Indicator////////////////////
     this.slowMotionArray = [];
     for (var i = 0; i < slowMotionLimit; i++) {

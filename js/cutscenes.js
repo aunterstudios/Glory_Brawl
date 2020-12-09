@@ -14,6 +14,8 @@ brawl.death.prototype = {
         //Browser Pause
         // this.game.stage.disableVisibilityChange = true;
 
+        // this.game.stage.backgroundColor = "#ffffff";
+
         //Increase Death Total
         ++deaths;
 

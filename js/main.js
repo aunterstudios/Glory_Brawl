@@ -1119,6 +1119,10 @@ level_5.flagSpawn = [
   new flagCreator(3, true, flagRegular, flag, 1, 3700, 2900, 0, 0, 0, 0, null),
 ];
 
+// level_5.text = [
+//   new textCreator(true, 500, 500, "Test", fontGrind, 25),
+// ];
+
 //////////////////////////////////////////Pushing All Levels Into World Array/////////////////////////////////////
 var levelCount = 5;
 for (var i = 0; i <= levelCount; i++) {

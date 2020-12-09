@@ -48,6 +48,8 @@ brawl.boot.prototype = {
         this.load.image('camera', 'assets/camera.png');
         //Coin
         this.load.image('coin', 'assets/coin.png');
+        //Controls
+        this.load.image('controlScreen', 'assets/controls.png');
         //Bit Map Font
         if (bitmapBoolean) {
             this.game.load.bitmapFont('fontGrind', 'assets/fontGrind.png', 'assets/fontGrind.fnt');

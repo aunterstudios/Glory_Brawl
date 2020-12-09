@@ -24,9 +24,11 @@ brawl.game.prototype.gofull = function () {
 brawl.game.prototype.goPause = function () {
     if (this.game.paused) {
         this.game.paused = false;
+        this.controlScreen.kill();
     }
     else {
         this.game.paused = true;
+        this.controlScreen.revive();
     }
 };
 /////////////////////////////////////////////////Camera///////////////////////////////////////////

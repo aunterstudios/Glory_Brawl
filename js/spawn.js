@@ -221,7 +221,7 @@ brawl.game.prototype.textCreator = function (sprite, positionInArray) {
         this.text.fontWeight = 'bold';
     }
     this.text.positionInArray = positionInArray;
-    this.text.visible = false;
+    // this.text.visible = false;
     this.textGroup.add(this.text);
 };
 
