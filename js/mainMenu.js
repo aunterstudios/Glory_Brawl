@@ -53,7 +53,7 @@ brawl.boot.prototype = {
         this.load.image('controlScreen', 'assets/controls.png');
         //Bit Map Font
         if (bitmapBoolean) {
-            this.game.load.bitmapFont('fontGrind', 'assets/carrier_command.png', 'assets/carrier_command.xml');
+            this.game.load.bitmapFont('fontGrind', 'assets/fontGrind.png', 'assets/fontGrind.fnt');
         }
     },
     create: function () {
