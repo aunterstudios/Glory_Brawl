@@ -1074,7 +1074,7 @@ level_4.flagSpawn = [
 ///////////////////////////////////////////Level 5///////////////////////////////////////////////////////////
 var level_5 = new LevelCreator(
   "[5]The Beginning", //Name of World
-  5000, //X-Size of World
+  9000, //X-Size of World
   5000, //Y-Size of World
   '#D0CFCF', //Background Color
   true, //Out of Bounds Allowed
@@ -1106,7 +1106,7 @@ level_5.playerPosition = [
 //Sprite Generation
 level_5.spriteSpawn = [
   ////////////////////////////////////Ground/////////////////////////////////////////////////////////////
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 0, 4950, 5000, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 0, 4950, 9000, 50, 1, 0, 0, 0, 0, null, null),
   //////////////////////////////////////Borders//////////////////////////////////////////////////////////
   //Top
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 300, 0, 4700, 50, 1, 0, 0, 0, 0, null, null),
@@ -1125,6 +1125,17 @@ level_5.spriteSpawn = [
 level_5.text = [
   new textCreator(true, 200, 1000, "RED IS DEATH", fontGrind, 72),
   new textCreator(true, 289.5, 4600, "W-Jump/Double-Jump\nA-Left\nS-Punch\nD-Right\nP-Pause/Controls\nO-Fullscreen", fontGrind, 32),
+  new textCreator(true, 1000, 4700, "We've been doing this\nfor a long time", fontGrind, 32),
+  new textCreator(true, 1800, 4700, "So many\ndifferent methods failing", fontGrind, 32),
+  new textCreator(true, 2600, 4700, "But after thousands of years", fontGrind, 32),
+  new textCreator(true, 3400, 4700, "I realized the story\nneeds to unfold\na certain way", fontGrind, 32),
+  new textCreator(true, 4200, 4700, "You can't be given\nthe entire story\nfrom the beginning", fontGrind, 32),
+  new textCreator(true, 5000, 4700, "That clarity needs to\ncome from progression", fontGrind, 32),
+  new textCreator(true, 5800, 4700, "To cure\nthe rage and sadness\nin your heart", fontGrind, 32),
+  new textCreator(true, 6600, 4700, "For the ultimate goal of\nfinally freeing you", fontGrind, 32),
+  new textCreator(true, 7400, 4700, "But never forget", fontGrind, 32),
+  new textCreator(true, 8200, 4700, "The SHADOW is your enemy", fontGrind, 32),
+
 ];
 
 //////////////////////////////////////////Pushing All Levels Into World Array/////////////////////////////////////

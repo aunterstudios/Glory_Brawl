@@ -141,7 +141,7 @@ brawl.game.prototype.hazamaContinious = function () {
 
 brawl.game.prototype.textContinious = function () {
     this.textGroup.forEachAlive(function (text) {
-        if (this.game.physics.arcade.distanceBetween(text, this.player, false, true) < 300) {
+        if (this.game.physics.arcade.distanceBetween(text, this.player, false, true) < 350) {
             text.visible = true;
         }
     }, this, this.player);
