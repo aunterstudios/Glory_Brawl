@@ -9,6 +9,7 @@ brawl.boot.prototype = {
         this.game.scale.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
     },
     preload: function () {
+        //////////////////////////////Cross Origin//////////////////////////////////////
         //////////////////////////////Loads All The Sprites At The Main Menu Screen////////////////////
         //Death
         this.load.image('deathTile', 'assets/deathTile.png');
@@ -52,7 +53,7 @@ brawl.boot.prototype = {
         this.load.image('controlScreen', 'assets/controls.png');
         //Bit Map Font
         if (bitmapBoolean) {
-            this.game.load.bitmapFont('fontGrind', 'assets/fontGrind.png', 'assets/fontGrind.fnt');
+            this.game.load.bitmapFont('fontGrind', 'assets/carrier_command.png', 'assets/carrier_command.xml');
         }
     },
     create: function () {
