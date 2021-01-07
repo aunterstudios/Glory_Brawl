@@ -1109,7 +1109,7 @@ level_5.spriteSpawn = [
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 0, 4950, 9000, 50, 1, 0, 0, 0, 0, null, null),
   //////////////////////////////////////Borders//////////////////////////////////////////////////////////
   //Top
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 300, 0, 4700, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 300, 0, 1000, 50, 1, 0, 0, 0, 0, null, null),
   //Left
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 0, 0, 50, 4950, 1, 0, 0, 0, 0, null, null),
 ];
