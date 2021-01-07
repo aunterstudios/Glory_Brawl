@@ -1,0 +1,26 @@
+{
+  "name": "http-server",
+  "version": "0.12.3",
+  "description": "A prison platformer-game",
+  "main": "index.js",
+  "dependencies": {
+    "http-server": "^0.12.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "sdf"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aunterstudios/Glory_Brawl.git"
+  },
+  "keywords": [
+    "a"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aunterstudios/Glory_Brawl/issues"
+  },
+  "homepage": "https://github.com/aunterstudios/Glory_Brawl#readme"
+}
