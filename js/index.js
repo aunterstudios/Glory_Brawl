@@ -65,6 +65,7 @@ var level_0 = new LevelCreator(
   true, //Upsidedown Stick
   1, //X-Camera Lerp
   1, //Y-Camera Lerp
+  fontNokia, //World Font Name
 );
 
 //Special Level Initiated
@@ -186,6 +187,7 @@ var level_1 = new LevelCreator(
   true, //Upsidedown Stick
   .1, //X-Camera Lerp
   .3, //Y-Camera Lerp
+  fontNokia, //World Font Name
 );
 
 //Room-Switching
@@ -561,6 +563,7 @@ var level_2 = new LevelCreator(
   true, //Upsidedown Stick
   .1, //X-Camera Lerp
   .4, //Y-Camera Lerp
+  fontNokia, //World Font Name
 );
 
 //Room-Switching
@@ -770,6 +773,7 @@ var level_3 = new LevelCreator(
   true, //Upsidedown Stick
   1, //X-Camera Lerp
   1, //Y-Camera Lerp
+  fontNokia, //World Font Name
 );
 
 //Room-Switching
@@ -941,6 +945,7 @@ var level_4 = new LevelCreator(
   true, //Upsidedown Stick
   1, //X-Camera Lerp
   .1, //Y-Camera Lerp
+  fontNokia, //World Font Name
 );
 
 //Room-Switching
@@ -1085,6 +1090,7 @@ var level_5 = new LevelCreator(
   true, //Upsidedown Stick
   .1, //X-Camera Lerp
   1, //Y-Camera Lerp
+  fontNokia, //World Font Name
 );
 
 //Room-Switching
@@ -1123,18 +1129,21 @@ level_5.spriteSpawn = [
 // ];
 
 level_5.text = [
-  new textCreator(true, 200, 1000, "RED IS DEATH", fontGrind, 72),
-  new textCreator(true, 289.5, 4600, "W-Jump/Double-Jump\nA-Left\nS-Punch\nD-Right\nP-Pause/Controls\nO-Fullscreen", fontGrind, 32),
-  new textCreator(true, 1000, 4700, "We've been doing this\nfor a long time", fontGrind, 32),
-  new textCreator(true, 1800, 4700, "So many\ndifferent methods failing", fontGrind, 32),
-  new textCreator(true, 2600, 4700, "But after thousands of years", fontGrind, 32),
-  new textCreator(true, 3400, 4700, "I realized the story\nneeds to unfold\na certain way", fontGrind, 32),
-  new textCreator(true, 4200, 4700, "You can't be given\nthe entire story\nfrom the beginning", fontGrind, 32),
-  new textCreator(true, 5000, 4700, "That clarity needs to\ncome from progression", fontGrind, 32),
-  new textCreator(true, 5800, 4700, "To cure\nthe rage and sadness\nin your heart", fontGrind, 32),
-  new textCreator(true, 6600, 4700, "For the ultimate goal of\nfinally freeing you", fontGrind, 32),
-  new textCreator(true, 7400, 4700, "But never forget", fontGrind, 32),
-  new textCreator(true, 8200, 4700, "The SHADOW is your enemy", fontGrind, 32),
+  new textCreator(true, 200, 1000, "RED IS DEATH", fontNokia, 72),
+  new textCreator(true, 289.5, 4600, "W-Jump/Double-Jump\nA-Left\nS-Punch\nD-Right\nP-Pause/Controls\nO-Fullscreen", fontNokia, 32),
+  new textCreator(true, 1000, 4700, "We've been doing this\nfor a long time", fontNokia, 32),
+  new textCreator(true, 1800, 4700, "So many\ndifferent methods failing", fontNokia, 32),
+  new textCreator(true, 2600, 4700, "But after thousands of years", fontNokia, 32),
+  new textCreator(true, 3400, 4700, "I realized the story\nneeds to unfold\na certain way", fontNokia, 32),
+  new textCreator(true, 4200, 4700, "You can't be given\nthe entire story\nfrom the beginning", fontNokia, 32),
+  new textCreator(true, 5000, 4700, "That clarity needs to\ncome from progression", fontNokia, 32),
+  new textCreator(true, 5800, 4700, "To cure\nthe rage and sadness\nin your heart", fontNokia, 32),
+  new textCreator(true, 6600, 4700, "For the ultimate goal of\nfinally freeing you", fontNokia, 32),
+  new textCreator(true, 7400, 4700, "But never forget", fontNokia, 32),
+  // new textCreator(true, 8200, 4700, "The       is your enemy", fontNokia, 32),
+  new textCreator(true, 8200, 4700, "The", fontNokia, 32),
+  new textCreator(true, 8280, 4700, "Shadow", fontGrind, 32),
+  new textCreator(true, 8400, 4700, "is your enemy", fontNokia, 32),
 
 ];
 

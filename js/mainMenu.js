@@ -53,6 +53,7 @@ brawl.boot.prototype = {
         //Bit Map Font
         if (bitmapBoolean) {
             this.game.load.bitmapFont('fontGrind', 'assets/fontGrind.png', 'assets/fontGrind.fnt');
+            this.game.load.bitmapFont('fontNokia', 'assets/fontNokia.png', 'assets/fontNokia.xml');
         }
     },
     create: function () {
