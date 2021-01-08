@@ -7,7 +7,9 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     this.game.physics.arcade.enable(this.player); //enables physics for player
     this.player.anchor.setTo(.5);
     this.player.scale.setTo(levelGenerator.playerScale);
-    this.player.tint = Phaser.Color.BLACK;
+    if (this.game.stage.backgroundColor !== 0) {
+        this.player.tint = Phaser.Color.BLACK;
+    }
     this.player.body.setSize(34, 55.5, 15, 7);
     // this.player.body.mass = 1; //6
     this.player.body.mass = 15; //6

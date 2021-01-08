@@ -30,29 +30,37 @@ brawl.death.prototype = {
         this.background.animations.add('move');
         this.background.animations.play('move', 5, true);
 
-        //Text
-        this.deathText = this.game.add.text(this.game.world.centerX - 250, 220, "SPACEBAR to Restart \n Deaths: " + deaths);
-        //Font Style
-        this.deathText.anchor.setTo(0.5);
-        this.deathText.align = 'center';
-        this.deathText.font = 'Arial Black';
-        this.deathText.fontSize = 35;
-        // this.deathText.fill = "#ff0000";
-        this.deathText.fontWeight = 'bold';
-        this.deathText.stroke = "#ffffff";
-        this.deathText.strokeThickness = 4;
+        ////////////////////////////////////////Death Text///////////////////////////////////////
+        if (this.game.stage.backgroundColor === 0) {
+            this.deathText = this.game.add.bitmapText(this.game.world.centerX - 250, 220, fontGrind, "SPACEBAR\n\nto Restart", 35);
 
-        //Gradient of Text
-        var grd = this.deathText.context.createLinearGradient(0, 0, 0, this.deathText.height);
+            ///////////////////////////////////////Death Number////////////////////////////////////////////
+            this.deathText4 = this.game.add.bitmapText(this.game.world.centerX + 250, 270, fontNokia, deaths, 35);
+            this.deathText4 = this.game.add.text(this.game.world.centerX + 275, 290, deaths);
+            //Font Style
+            this.deathText4.font = 'Brush Script MT';
+            this.deathText4.fontSize = 35;
+            this.deathText4.fontWeight = 'bold';
+            // this.deathText4.stroke = "#ffffff";
+            // this.deathText4.strokeThickness = 4;
+            this.deathText4.fill = "#FF0000"
 
-        //  Add in 2 color stops
-        grd.addColorStop(0, "#ffafbd");
-        grd.addColorStop(1, "#ffc3a0");
+            // //Gradient of Text
+            // var grd = this.deathText4.context.createLinearGradient(0, 0, 0, this.deathText4.height);
 
-        //  And apply to the Text
-        this.deathText.fill = grd;
+            // //Fill Grid
+            // grd.addColorStop(0, "#ffafbd");
+            // grd.addColorStop(1, "#ffc3a0");
+            // this.deathText4.fill = grd;
+        }
+        else {
+            this.deathText = this.game.add.bitmapText(this.game.world.centerX - 250, 220, fontBlock, "SPACEBAR", 35);
+            this.deathText2 = this.game.add.bitmapText(this.game.world.centerX - 250, 270, fontNokia, "to Restart", 35);
+            this.deathText4 = this.game.add.bitmapText(this.game.world.centerX + 250, 270, fontNokia, deaths, 35);
+        }
+        this.deathText3 = this.game.add.bitmapText(this.game.world.centerX + 250, 220, fontGrind, "Deaths", 35);
 
-        //New Emitter
+        ////////////////////////////////Blood Rain Emitter//////////////////////////////
         this.bloodRain = this.game.add.emitter(this.game.world.centerX, 0, 2000);
         this.bloodRain.width = this.game.world.width * 1.5;
         // this.bloodRain.angle = 30; // uncomment to set an angle for the rain.
@@ -67,6 +75,7 @@ brawl.death.prototype = {
     },
     update: function () {
         this.background.rotation += .01;
+        this.background.tint = Phaser.Color.getRandomColor();
         if (this.game.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR)) {
             this.game.state.start('game', true, false, this.indexOfCurrentWorld, this.indexOfPlayerPosition);
         }
