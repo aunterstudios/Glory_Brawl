@@ -115,7 +115,7 @@ brawl.game.prototype = {
 
         //////////////////////////////////////BitMap Text////////////////////////////////////////////
         if (bitmapBoolean) {
-            this.text = this.game.add.bitmapText(0, 0, this.fontWorld, worldName, 20);
+            this.text = this.game.add.bitmapText(0, 0, this.fontWorld, worldName, 32);
             this.text.fixedToCamera = true;
             this.text.cameraOffset.setTo(1350, 810);
         }

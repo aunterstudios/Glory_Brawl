@@ -1078,7 +1078,7 @@ level_4.flagSpawn = [
 
 ///////////////////////////////////////////Level 5///////////////////////////////////////////////////////////
 var level_5 = new LevelCreator(
-  "[5]The Beginning", //Name of World
+  "[5]Beginning", //Name of World
   9000, //X-Size of World
   5000, //Y-Size of World
   '#D0CFCF', //Background Color
@@ -1130,8 +1130,11 @@ level_5.spriteSpawn = [
 
 level_5.text = [
   new textCreator(true, 200, 1000, "RED IS DEATH", fontNokia, 72),
-  new textCreator(true, 289.5, 4600, "W-Jump/Double-Jump\nA-Left\nS-Punch\nD-Right\nP-Pause/Controls\nO-Fullscreen", fontNokia, 32),
+  // new textCreator(true, 289.5, 4600, "W-Jump/Double-Jump\nA-Left\nS-Punch\nD-Right\nP-Pause/Controls\nO-Fullscreen", fontNokia, 32),
+  new textCreator(true, 289.5, 4600, "W-\nA-\nS-\nD-\nP-\n0-", fontBlock, 32),
+  new textCreator(true, 340, 4600, "Jump/Double-Jump\nLeft\nPunch\nRight\nPause/Controls\nFullscreen", fontNokia, 32),
   new textCreator(true, 1000, 4700, "We've been doing this\nfor a long time", fontNokia, 32),
+  // new textCreator(true, 1000, 4700, "WE'VE BEEN DOING THIS A LONG TIME", fontBlock, 32),
   new textCreator(true, 1800, 4700, "So many\ndifferent methods failing", fontNokia, 32),
   new textCreator(true, 2600, 4700, "But after thousands of years", fontNokia, 32),
   new textCreator(true, 3400, 4700, "I realized the story\nneeds to unfold\na certain way", fontNokia, 32),
@@ -1141,9 +1144,9 @@ level_5.text = [
   new textCreator(true, 6600, 4700, "For the ultimate goal of\nfinally freeing you", fontNokia, 32),
   new textCreator(true, 7400, 4700, "But never forget", fontNokia, 32),
   // new textCreator(true, 8200, 4700, "The       is your enemy", fontNokia, 32),
-  new textCreator(true, 8200, 4700, "The", fontNokia, 32),
-  new textCreator(true, 8280, 4700, "Shadow", fontGrind, 32),
-  new textCreator(true, 8400, 4700, "is your enemy", fontNokia, 32),
+  new textCreator(true, 8205, 4700, "The", fontNokia, 32),
+  new textCreator(true, 8255, 4700, "Shadow", fontGrind, 32),
+  new textCreator(true, 8365, 4700, "is your enemy", fontNokia, 32),
 
 ];
 

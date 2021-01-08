@@ -27,6 +27,7 @@ var bitmapBoolean = true;
 //BMD Font
 var fontGrind = 'fontGrind';
 var fontNokia = 'fontNokia';
+var fontBlock = 'fontBlock';
 
 //Slow Motion
 var slowMotionLimit;
