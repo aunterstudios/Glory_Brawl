@@ -172,6 +172,28 @@ level_0.flagSpawn = [
   //   )),
 ];
 
+//Text
+// level_0.text = [
+//   new textCreator(true, 200, 1000, "RED IS DEATH", fontNokia, 72),
+//   // new textCreator(true, 289.5, 4600, "W-Jump/Double-Jump\nA-Left\nS-Punch\nD-Right\nP-Pause/Controls\nO-Fullscreen", fontNokia, 32),
+//   new textCreator(true, 289.5, 4600, "W-\nA-\nS-\nD-\nP-\n0-", fontBlock, 32),
+//   new textCreator(true, 340, 4600, "Jump/Double-Jump\nLeft\nPunch\nRight\nPause/Controls\nFullscreen", fontNokia, 32),
+//   new textCreator(true, 1000, 4700, "We've been doing this\nfor a long time", fontNokia, 32),
+//   // new textCreator(true, 1000, 4700, "WE'VE BEEN DOING THIS A LONG TIME", fontBlock, 32),
+//   new textCreator(true, 1800, 4700, "So many\ndifferent methods failing", fontNokia, 32),
+//   new textCreator(true, 2600, 4700, "But after thousands of years", fontNokia, 32),
+//   new textCreator(true, 3400, 4700, "I realized the story\nneeds to unfold\na certain way", fontNokia, 32),
+//   new textCreator(true, 4200, 4700, "You can't be given\nthe entire story\nfrom the beginning", fontNokia, 32),
+//   new textCreator(true, 5000, 4700, "That clarity needs to\ncome from progression", fontNokia, 32),
+//   new textCreator(true, 5800, 4700, "To cure\nthe rage and sadness\nin your heart", fontNokia, 32),
+//   new textCreator(true, 6600, 4700, "For the ultimate goal of\nfinally freeing you", fontNokia, 32),
+//   new textCreator(true, 7400, 4700, "But never forget", fontNokia, 32),
+//   // new textCreator(true, 8200, 4700, "The       is your enemy", fontNokia, 32),
+//   new textCreator(true, 8205, 4700, "The", fontNokia, 32),
+//   new textCreator(true, 8255, 4700, "Shadow", fontGrind, 32),
+//   new textCreator(true, 8365, 4700, "is your enemy", fontNokia, 32),
+// ];
+
 ////////////////////////////////////////Level 1-SandboxMode/////////////////////////////////////
 //New Playground
 var level_1 = new LevelCreator(
@@ -756,7 +778,7 @@ level_2.flagSpawn = [
 
 //Text Creator (Helpful Hints)
 level_2.text = [
-  new textCreator(true, 4650, 1800, "Sandbox\n\n→", fontGrind, 25),
+  new textCreator(true, 4650, 1800, "Sandbox\n\n→", fontNokia, 25),
 ];
 
 ////////////////////////////////////////Level 3/////////////////////////////////////
@@ -927,9 +949,9 @@ level_3.flagSpawn = [
 ];
 
 //Text Creator (Helpful Hints)
-level_3.text = [
-  new textCreator(true, 4650, 1800, "Test", fontGrind, 25),
-];
+// level_3.text = [
+//   new textCreator(true, 4650, 1800, "Test", fontGrind, 25),
+// ];
 
 ///////////////////////////////////////////Level 4///////////////////////////////////////////////////////////
 var level_4 = new LevelCreator(
@@ -1147,7 +1169,6 @@ level_5.text = [
   new textCreator(true, 8205, 4700, "The", fontNokia, 32),
   new textCreator(true, 8255, 4700, "Shadow", fontGrind, 32),
   new textCreator(true, 8365, 4700, "is your enemy", fontNokia, 32),
-
 ];
 
 //////////////////////////////////////////Pushing All Levels Into World Array/////////////////////////////////////
