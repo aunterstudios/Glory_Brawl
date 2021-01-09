@@ -1176,7 +1176,7 @@ var level_6 = new LevelCreator(
   "[6]Movement", //Name of World
   2000, //X-Size of World
   2000, //Y-Size of World
-  '#D0CFCF', //Background Color
+  '#c7ebdf', //Background Color
   true, //Out of Bounds Allowed
   1, //Player Scale
   portalNen, //Nen-System
@@ -1224,7 +1224,7 @@ level_6.spriteSpawn = [
   //Top Hat
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 600, 900, 1000, 50, 1, 0, 0, 0, 0, null, null),
   ///////////////////////////////////Disledge Pit///////////////////////////////////
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 550, 200, 50, 750, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 550, 125, 50, 800, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 600, 450, 400, 50, 1, 0, 0, 0, 0, null, null),
 ];
 
@@ -1241,7 +1241,10 @@ level_6.text = [
   new textCreator(true, 675, 1600, "D             A", fontBlock, 32),
   new textCreator(true, 500, 1200, "Hold    Then Double-Jump", fontNokia, 32),
   new textCreator(true, 550, 1200, "A", fontBlock, 32),
-  new textCreator(true, 200, 1000, "Reverse", fontNokia, 32),
+  new textCreator(true, 150, 1000, "Reverse the Movement", fontNokia, 32),
+  new textCreator(true, 195, 206, "You can move upside down", fontNokia, 32),
+  new textCreator(true, 750, 150, "Press    to disoldge\nfrom surfaces", fontNokia, 32),
+  new textCreator(true, 810, 150, "S", fontBlock, 32),
 ];
 
 
