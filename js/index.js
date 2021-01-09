@@ -1100,7 +1100,7 @@ level_4.flagSpawn = [
 
 ///////////////////////////////////////////Level 5///////////////////////////////////////////////////////////
 var level_5 = new LevelCreator(
-  "[5]Beginning", //Name of World
+  "[5]Premise", //Name of World
   9000, //X-Size of World
   5000, //Y-Size of World
   '#D0CFCF', //Background Color
@@ -1120,7 +1120,7 @@ level_5.metroidvania = new MetroidvaniaCreator(
   4, //Room-Up-Index
   2, //Room-Down-Index
   1, //Room-Left-Index
-  3, //Room-Right-Index
+  6, //Room-Right-Index
 );
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
@@ -1128,7 +1128,7 @@ level_5.playerPosition = [
   new PlayerPositionCreator(200, 300),
   new PlayerPositionCreator(200, 300),
   new PlayerPositionCreator(200, 300),
-  new PlayerPositionCreator(200, 300),
+  new PlayerPositionCreator(8860, 4925),
 ]
 
 //Sprite Generation
@@ -1171,8 +1171,82 @@ level_5.text = [
   new textCreator(true, 8365, 4700, "is your enemy", fontNokia, 32),
 ];
 
+///////////////////////////////////////////Level 6///////////////////////////////////////////////////////////
+var level_6 = new LevelCreator(
+  "[6]Movement", //Name of World
+  2000, //X-Size of World
+  2000, //Y-Size of World
+  '#D0CFCF', //Background Color
+  true, //Out of Bounds Allowed
+  1, //Player Scale
+  portalNen, //Nen-System
+  noGunSet, //Gun-Set
+  true, //Sideways Stick to Walls,
+  true, //Upsidedown Stick
+  .1, //X-Camera Lerp
+  1, //Y-Camera Lerp
+  fontNokia, //World Font Name
+);
+
+//Room-Switching
+level_6.metroidvania = new MetroidvaniaCreator(
+  4, //Room-Up-Index
+  2, //Room-Down-Index
+  5, //Room-Left-Index
+  3, //Room-Right-Index
+);
+
+//Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
+level_6.playerPosition = [
+  new PlayerPositionCreator(200, 300),
+  new PlayerPositionCreator(200, 300),
+  new PlayerPositionCreator(100, 1925),
+  new PlayerPositionCreator(200, 300),
+]
+
+//Sprite Generation
+level_6.spriteSpawn = [
+  ////////////////////////////////////Ground/////////////////////////////////////////////////////////////
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 0, 1950, 950, 50, 1, 0, 0, 0, 0, null, null),
+  //////////////////////////////////////Borders//////////////////////////////////////////////////////////
+  //Top
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 0, 0, 300, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 250, 50, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 300, 0, 700, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 1000, 0, 50, 200, 1, 0, 0, 0, 0, null, null),
+  //Left
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 0, 50, 50, 1200, 1, 0, 0, 0, 0, null, null),
+  ////////////////////////////////////Jump on Wall First///////////////////////////
+  //The Wall
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 900, 950, 50, 950, 1, 0, 0, 0, 0, null, null),
+  //Death Pit
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 600, 1900, 350, 50, 1, 0, 0, 0, 0, null, null),
+  //Top Hat
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 600, 900, 1000, 50, 1, 0, 0, 0, 0, null, null),
+  ///////////////////////////////////Disledge Pit///////////////////////////////////
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 550, 200, 50, 750, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 600, 450, 400, 50, 1, 0, 0, 0, 0, null, null),
+];
+
+//Flag
+level_6.flagSpawn = [
+  new flagCreator(2, true, flagRegular, flag, 1, 200, 1900, 0, 0, 0, 0, null),
+];
+
+level_6.text = [
+  new textCreator(true, 164, 1850, "Checkpoint", fontNokia, 32),
+  new textCreator(true, 380, 1750, "Jump on the wall", fontNokia, 32),
+  new textCreator(true, 625, 1870, "You stick to surfaces", fontNokia, 32),
+  new textCreator(true, 625, 1600, "Hold    and Tap\nto Fast Climb", fontNokia, 32),
+  new textCreator(true, 675, 1600, "D             A", fontBlock, 32),
+  new textCreator(true, 500, 1200, "Hold    Then Double-Jump", fontNokia, 32),
+  new textCreator(true, 550, 1200, "A", fontBlock, 32),
+  new textCreator(true, 200, 1000, "Reverse", fontNokia, 32),
+];
+
+
 //////////////////////////////////////////Pushing All Levels Into World Array/////////////////////////////////////
-var levelCount = 5;
+var levelCount = 6;
 for (var i = 0; i <= levelCount; i++) {
   // worldClassLevels.push(eval("level_"+i));
   worldClassLevels.push(window["level_" + i]);
