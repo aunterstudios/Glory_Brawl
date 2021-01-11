@@ -69,7 +69,7 @@ class groupArrayCreator {
     this.groupSprite = groupSprite;
     this.groupCategory = groupCategory;
   }
-}
+};
 
 //Generates Sprite Placement (Physics)
 class SpriteCreator {
@@ -136,7 +136,7 @@ class timerCreator {
       this.seconds = seconds;
     }
   }
-}
+};
 
 /////////////////////////////////////////////Flag Specific Classes//////////////////////////////////////////
 class flagCreator {
@@ -163,14 +163,14 @@ class shadowLevelGenerator {
     this.page = page; //Denotes the Story Page
     this.levelSwitchArray = levelSwitchArray; //Array that Switches Any number of Levels (Room Index Order Stays the same but becomes completely different)
   }
-}
+};
 
 class shadowLevelArray {
   constructor(oldLevel, shadowLevel) {
     this.oldLevel = oldLevel; //The Level That's Going To Be Changed
     this.shadowLevel = shadowLevel; //The New Level that takes place
   }
-}
+};
 
 //Switches on and off sprites in a level
 class spriteLevelSwitch {
@@ -182,10 +182,10 @@ class spriteLevelSwitch {
     this.removeIndex = removeIndex;
     this.removeSprite = removeSprite;
   }
-}
+};
 
 
-////////////////////////////////////////////////Text and Images//////////////////////////////////////////////////////
+////////////////////////////////////////////////Art and Text//////////////////////////////////////////////////////
 //Creating Bitmap Text Class
 class textCreator {
   constructor(trigger, x, y, textInput, font, fontSize) {
@@ -224,7 +224,15 @@ class lineTextCreator {
     this.stroke = stroke;
     this.strokeThickness = strokeThickness;
   }
-}
+};
+
+class BackgroundColorChange {
+  constructor(min, max, opacity) {
+    this.min = min;
+    this.max = max;
+    this.opacity = opacity;
+  }
+};
 
 ////////////////////////////////////////////////Special Levels//////////////////////////////////////////////////////
 
@@ -235,25 +243,25 @@ class SpecialLevels {
     this.indexWorld = indexWorld;
     this.indexOfPlayerPosition = indexOfPlayerPosition;
   }
-}
+};
 
 class TimerLevel extends SpecialLevels {
   constructor(name, page, indexWorld, indexOfPlayerPosition, seconds) {
     super(name, page, indexWorld, indexOfPlayerPosition);
     this.seconds = seconds;
   }
-}
+};
 
 class KillAllLevel extends SpecialLevels {
   constructor(name, page, indexWorld, indexOfPlayerPosition, amount) {
     super(name, page, indexWorld, indexOfPlayerPosition);
     this.amount = amount;
   }
-}
+};
 
 class CollectLevel extends SpecialLevels {
   constructor(name, page, indexWorld, indexOfPlayerPosition, amount) {
     super(name, page, indexWorld, indexOfPlayerPosition);
     this.amount = amount;
   }
-}
+};

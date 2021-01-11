@@ -1294,7 +1294,7 @@ var level_7 = new LevelCreator(
   "[7]??????????", //Name of World
   1600, //X-Size of World
   20000, //Y-Size of World
-  Phaser.Color.getRandomColor(254, 254, 5), //Background Color
+  "#ffffff", //Background Color
   false, //Out of Bounds Allowed
   1, //Player Scale
   portalNen, //Nen-System
@@ -1307,7 +1307,7 @@ var level_7 = new LevelCreator(
 );
 
 //Changing Background Color
-level_7.colorChange = true;
+level_7.colorChange = new BackgroundColorChange(200, 255, 10);
 
 //Special Level Condition
 level_7.specialLevel = new TimerLevel('timed', 0, 5, 0, 5);
@@ -1330,7 +1330,7 @@ level_7.playerPosition = [
 
 //Sprite Generation
 level_7.spriteSpawn = [
-  
+
 ];
 
 //Flag

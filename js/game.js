@@ -59,7 +59,10 @@ brawl.game.prototype = {
         this.fontWorld = worldClassLevels[this.indexOfCurrentWorld].fontWorld;
         ///////////////////Changing Background Color///////////////////////
         if (worldClassLevels[this.indexOfCurrentWorld].colorChange) {
-            this.colorChange = worldClassLevels[this.indexOfCurrentWorld].colorChange;
+            this.colorChange = true;
+            this.minColor = worldClassLevels[this.indexOfCurrentWorld].colorChange.min;
+            this.maxColor = worldClassLevels[this.indexOfCurrentWorld].colorChange.max;
+            this.opacity = worldClassLevels[this.indexOfCurrentWorld].colorChange.opacity;
         }
         else {
             this.colorChange = false;
@@ -151,7 +154,7 @@ brawl.game.prototype = {
         // this.bmd.dirty = true;
         ///////////////////////////////////////Color Changing Background///////////////////////////////
         if (this.colorChange) {
-            this.game.stage.backgroundColor = Phaser.Color.getRandomColor(0, 250, 5);
+            this.game.stage.backgroundColor = Phaser.Color.getRandomColor(this.minColor, this.maxColor, this.opacity);
         }
         ////////////////////////////////////////Continious Collision//////////////////////////////////
         //Debug

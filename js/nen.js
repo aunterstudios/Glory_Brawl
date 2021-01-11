@@ -32,6 +32,21 @@ var seanNen = new nenCreator(
   10, //OverLap Bias
 );
 
+//For the Story Scenes
+var begNen = new nenCreator(
+  9000, //Speed
+  -2000, //Jump
+  null, //Gravity-X
+  5000, //Gravity-Y
+  10, //Double Jump
+  2000, //WallJump-X
+  100, //wallJump-Y
+  500, //Stiickiness
+  -25, //Wall Slide-Y
+  5000, //Downwards-S
+  10, //OverLap Bias
+);
+
 ////////////////////////Creation of Gun System Sets///////////////////////
 var basicGunSet = [
   //Name, Tint, FireRate, Speed, Power 1
