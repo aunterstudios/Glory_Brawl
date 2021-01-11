@@ -198,15 +198,15 @@ brawl.startScreen.prototype = {
         //Background
         // this.game.stage.backgroundColor = Phaser.Color.getRandomColor(10, 50);
 
-        //Line by Line
-        var content = [
-            "I know longer remember who I am or why I'm here.",
-            "But I'm filled with desire to find answers.",
-            "Why is my heart filled with such anger and sadness?",
-            "Why must I complete Glory Brawl's trials?",
-        ];
-        var text = new lineTextCreator(200, 250, 'Lucida Console', "#FF0000", 30, content, 120, 400, '#000000', 4)
-        lineText(text);
+        // //Line by Line
+        // var content = [
+        //     "I know longer remember who I am or why I'm here.",
+        //     "But I'm filled with desire to find answers.",
+        //     "Why is my heart filled with such anger and sadness?",
+        //     "Why must I complete Glory Brawl's trials?",
+        // ];
+        // var text = new lineTextCreator(200, 250, 'Lucida Console', "#FF0000", 30, content, 120, 400, '#000000', 4)
+        // lineText(text);
 
         //Kern
         // var content = [
@@ -219,7 +219,29 @@ brawl.startScreen.prototype = {
         // var text = new lineTextCreator(200, 250, 'Bradley Hand', "#FF0000", 30, content, 80, 2)
         // kernText(text);
 
-        this.xToPlay = this.game.add.text(this.game.world.centerX, 700, "Press X to Play");
+        this.text = this.game.add.text(525, 100, "GLORY BRAWL");
+        this.text.font = 'Courier New'
+        this.text.fontSize = 72;
+        this.text.fill = "#ffffff";
+        this.text.fontWeight = 'bold';
+        this.text.align = 'center';
+        this.text.stroke = "#CDD193";
+        this.text.strokeThickness = 5;
+
+        var content = [
+            " ",
+            "When I was about to kill myself.",
+            "I realized something.",
+            "I just want to fuck and tell stories.",
+        ];
+        var text = new lineTextCreator(400, 300, 'Courier New', "#ffffff", 30, content, 120, 400, "#000000", 10)
+        lineText(text)
+
+        // var text = new lineTextCreator(400, 400, 'Courier New', "#ffffff", 30, content, 50, 2, "#000000", 10)
+        // kernText(text)
+
+        /////////////////////////Skip//////////////////////////////////////
+        this.xToPlay = this.game.add.text(50, 750, "Press X to Play");
         // this.xToPlay.anchor.setTo(.5);
         this.xToPlay.font = 'Courier New';
         this.xToPlay.fontSize = 20;
@@ -230,7 +252,7 @@ brawl.startScreen.prototype = {
         this.xToPlay.setShadow(3, 3, 'rgba(0,0,0,0.5)', 2);
     },
     update: function () {
-        this.game.stage.backgroundColor = Phaser.Color.getRandomColor(10, 100, 5);
+        // this.game.stage.backgroundColor = Phaser.Color.getRandomColor(10, 100, 5);
         if (this.game.input.keyboard.isDown(Phaser.Keyboard.X)) {
             /////////CurrentWorld-PlayerPosition-CurrentWorld(metroidvania)////////
             ////////0-Up, 1-Down, 2-Left, 3-Right//////

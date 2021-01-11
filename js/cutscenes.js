@@ -97,24 +97,27 @@ brawl.story.prototype = {
     create: function () {
         //Browser Pause
         // this.game.stage.disableVisibilityChange = true;
+        //Sprites
+        // this.imagePlayer = this.game.add.image(700, 600, 'player');
+        // this.imagePlayer.animations.add('left', [7, 8, 9], 10, true);
+        // this.imagePlayer.animations.add('right', [13, 14, 15], 10, true);
+        // this.game.stage.backgroundColor = Phaser.Color.WHITE;
         //Background Color
-        this.game.stage.backgroundColor = Phaser.Color.BLACK;
         if (this.page === 0) {
-            this.text1 = this.game.add.text(525, 100, "GLORY BRAWL");
-            this.text1.font = 'Courier New'
-            this.text1.fontSize = 72;
-            this.text1.fill = "#ffffff";
-            this.text1.fontWeight = 'bold';
-            this.text1.align = 'center';
-
+            //Line by Line
             var content = [
                 " ",
-                "When I was about to kill myself.",
-                "I realized something.",
-                "I just want to fuck and tell stories.",
+                "I know longer remember who I am or why I'm here.",
+                "But I'm filled with desire to find answers.",
+                "Why is my heart filled with such anger and sadness?",
+                "Why must I complete Glory Brawl's trials?",
             ];
-            var text = new lineTextCreator(525, 400, 'Impact', "#FF0000", 30, content, 50, 2)
-            kernText(text)
+            // var text = new lineTextCreator(200, 250, 'Lucida Console', "#FF0000", 30, content, 120, 400, '#000000', 4)
+            // lineText(text);
+            var text = new lineTextCreator(200, 350, 'Courier New', "#000000", 30, content, 50, 2, '#8A0707', 4)
+            kernText(text);
+            ////////////////////////////////Blood Rain Emitter//////////////////////////////
+            this.emitterStory();
         }
         else if (this.page === 1) {
             this.text1 = this.game.add.text(525, 300, "TIMER WORKS");
@@ -124,11 +127,11 @@ brawl.story.prototype = {
             this.text1.fontWeight = 'bold';
             this.text1.align = 'center';
         }
-        this.spaceBarPlay = this.game.add.text(100, 775, "Spacebar to Skip");
+        this.spaceBarPlay = this.game.add.text(50, 775, "Spacebar to Skip");
         this.spaceBarPlay.font = 'Arial Black';
-        this.spaceBarPlay.fontSize = 16;
+        this.spaceBarPlay.fontSize = 20;
         // this.spaceBarPlay.fill = "#00FF00";
-        this.spaceBarPlay.fill = "#ffffff";
+        this.spaceBarPlay.fill = "#000000";
         this.spaceBarPlay.fontWeight = 'bold';
         this.spaceBarPlay.align = 'center';
     },
@@ -137,5 +140,19 @@ brawl.story.prototype = {
             this.game.state.start('game', true, false, this.indexOfCurrentWorld, this.indexOfPlayerPosition);
         }
 
-    }
+    },
+    emitterStory: function () {
+        ////////////////////////////////Blood Rain Emitter//////////////////////////////
+        this.bloodRain = this.game.add.emitter(this.game.world.centerX, 0, 2000);
+        this.bloodRain.width = this.game.world.width * 1.5;
+        // this.bloodRain.angle = 30; // uncomment to set an angle for the rain.
+        this.bloodRain.makeParticles('particles');
+        this.bloodRain.minParticleScale = 1;
+        this.bloodRain.maxParticleScale = 1.5;
+        this.bloodRain.setYSpeed(300, 500);
+        this.bloodRain.setXSpeed(-5, 5);
+        this.bloodRain.minRotation = 0;
+        this.bloodRain.maxRotation = 40;
+        this.bloodRain.start(false, 1600, 5, 0);
+    },
 };

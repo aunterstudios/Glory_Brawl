@@ -69,7 +69,7 @@ var level_0 = new LevelCreator(
 );
 
 //Changing Background Color
-level_0.colorChange = true;
+level_0.colorChange = new BackgroundColorChange(200, 255, 5);
 
 //Special Level Initiated
 // level_0.specialLevel = new TimerLevel('timed', 1, 5, 0, 10);
@@ -1297,7 +1297,7 @@ var level_7 = new LevelCreator(
   "#ffffff", //Background Color
   false, //Out of Bounds Allowed
   1, //Player Scale
-  portalNen, //Nen-System
+  begNen, //Nen-System
   noGunSet, //Gun-Set
   true, //Sideways Stick to Walls,
   true, //Upsidedown Stick
@@ -1307,7 +1307,7 @@ var level_7 = new LevelCreator(
 );
 
 //Changing Background Color
-level_7.colorChange = new BackgroundColorChange(200, 255, 10);
+level_7.colorChange = new BackgroundColorChange(200, 255, 5);
 
 //Special Level Condition
 level_7.specialLevel = new TimerLevel('timed', 0, 5, 0, 5);
