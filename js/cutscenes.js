@@ -100,12 +100,21 @@ brawl.story.prototype = {
         //Background Color
         this.game.stage.backgroundColor = Phaser.Color.BLACK;
         if (this.page === 0) {
-            this.text1 = this.game.add.text(575, 300, "KillAmount");
-            this.text1.font = 'Arial Black'
-            this.text1.fontSize = 25;
-            this.text1.fill = "#00FF00";
+            this.text1 = this.game.add.text(550, 100, "GLORY BRAWL");
+            this.text1.font = 'Brush Script MT'
+            this.text1.fontSize = 72;
+            this.text1.fill = "#ffffff";
             this.text1.fontWeight = 'bold';
             this.text1.align = 'center';
+
+            var content = [
+                " ",
+                "I was about to kill myself,",
+                "Before I realized.",
+                "I have to tell this story.",
+            ];
+            var text = new lineTextCreator(600, 400, 'Comic Sans', "#FF0000", 30, content, 40, 2)
+            kernText(text)
         }
         else if (this.page === 1) {
             this.text1 = this.game.add.text(575, 300, "TIMER WORKS");
@@ -115,10 +124,11 @@ brawl.story.prototype = {
             this.text1.fontWeight = 'bold';
             this.text1.align = 'center';
         }
-        this.spaceBarPlay = this.game.add.text(530, 700, "Spacebar to Skip");
+        this.spaceBarPlay = this.game.add.text(700, 750, "Spacebar to Skip");
         this.spaceBarPlay.font = 'Arial Black';
-        this.spaceBarPlay.fontSize = 30;
-        this.spaceBarPlay.fill = "#00FF00";
+        this.spaceBarPlay.fontSize = 16;
+        // this.spaceBarPlay.fill = "#00FF00";
+        this.spaceBarPlay.fill = "#ffffff";
         this.spaceBarPlay.fontWeight = 'bold';
         this.spaceBarPlay.align = 'center';
     },

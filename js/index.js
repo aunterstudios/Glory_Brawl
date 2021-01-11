@@ -1198,7 +1198,7 @@ level_6.metroidvania = new MetroidvaniaCreator(
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_6.playerPosition = [
-  new PlayerPositionCreator(200, 300),
+  new PlayerPositionCreator(900, 300),
   new PlayerPositionCreator(200, 300),
   new PlayerPositionCreator(100, 1925),
   new PlayerPositionCreator(200, 300),
@@ -1213,24 +1213,56 @@ level_6.spriteSpawn = [
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 0, 0, 300, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 250, 50, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 300, 0, 700, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 1000, 0, 50, 200, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 1050, 0, 950, 50, 1, 0, 0, 0, 0, null, null),
+  //Dislodge Stop Gap (STill TOp)
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 1000, 0, 50, 450, 1, 0, 0, 0, 0, null, null),
   //Left
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 0, 50, 50, 1200, 1, 0, 0, 0, 0, null, null),
+  //Right
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 1950, 50, 50, 1950, 1, 0, 0, 0, 0, null, null),
+  //Bottom
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 1200, 1950, 750, 50, 1, 0, 0, 0, 0, null, null),
+  //Bottom Ground
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 1400, 1900, 50, 50, 1, 0, 0, 0, 0, null, null),
   ////////////////////////////////////Jump on Wall First///////////////////////////
   //The Wall
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 900, 950, 50, 950, 1, 0, 0, 0, 0, null, null),
   //Death Pit
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 600, 1900, 350, 50, 1, 0, 0, 0, 0, null, null),
   //Top Hat
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 600, 900, 1000, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 600, 900, 1050, 50, 1, 0, 0, 0, 0, null, null),
   ///////////////////////////////////Disledge Pit///////////////////////////////////
+  //Left-Hand Border
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 550, 125, 50, 800, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 600, 450, 400, 50, 1, 0, 0, 0, 0, null, null),
+  //Safe Haven
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 800, 450, 250, 50, 1, 0, 0, 0, 0, null, null),
+  //Underneath Safe Haven
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 750, 500, 300, 50, 1, 0, 0, 0, 0, null, null),
+  //You Can Double-Jump in the Air
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 1200, 825, 50, 50, 1, 0, 0, 0, 0, null, null),
+  ///////////////////////////////////Baby Pillars of Death//////////////////////////
+  //Base Pillar
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 1650, 150, 50, 800, 1, 0, 0, 0, 0, null, null),
+  //Opposite Side Base Pillar Death
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 1700, 200, 25, 1550, .5, 0, 0, 0, 0, null, null),
+  //Death Traps
+  // new SpriteCreator(true, deathRegular, 'tile', deathTile, 1550, 625, 100, 25, .5, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, deathRegular, 'tile', deathTile, 1550, 300, 100, 25, .5, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 1600, 625, 50, 25, .5, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 1600, 300, 50, 25, .5, 0, 0, 0, 0, null, null),
+  ////////////////////////////////////The Last Pillar//////////////////////////////
+  //Base Pillar
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 1150, 1200, 50, 800, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, deathRegular, 'tile', deathTile, 1550, 625, 100, 25, .5, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, deathRegular, 'tile', deathTile, 1550, 300, 100, 25, .5, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 1200, 1350, 50, 25, .5, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 1200, 1725, 50, 25, .5, 0, 0, 0, 0, null, null),
 ];
 
 //Flag
 level_6.flagSpawn = [
   new flagCreator(2, true, flagRegular, flag, 1, 200, 1900, 0, 0, 0, 0, null),
+  new flagCreator(0, true, flagRegular, flag, 1, 875, 400, 0, 0, 0, 0, null),
 ];
 
 level_6.text = [
@@ -1245,11 +1277,69 @@ level_6.text = [
   new textCreator(true, 195, 206, "You can move upside down", fontNokia, 32),
   new textCreator(true, 750, 150, "Press    to disoldge\nfrom surfaces", fontNokia, 32),
   new textCreator(true, 810, 150, "S", fontBlock, 32),
+  new textCreator(true, 800, 625, "You can control your\nmovement in the air", fontNokia, 32),
+  // new textCreator(true, 800, 625, "You can double-jump\nin the air", fontNokia, 32),
+  new textCreator(true, 1250, 500, "Once you touch\na surface you\ncan double-jump again", fontNokia, 32),
+  // new textCreator(true, 1250, 200, "Super important\n       |\n       |\n       V", fontNokia, 32),
+  new textCreator(true, 1775, 200, "Hold    to\nslow fall", fontNokia, 32),
+  new textCreator(true, 1825, 200, "S", fontBlock, 32),
+  new textCreator(true, 1350, 1725, "Dislodging will\nbe useful here", fontNokia, 32),
+];
+
+///////////////////////////////////////////Level 7(The Real True Beginning)///////////////////////////////////////////////////////////
+var level_7 = new LevelCreator(
+  "[7]??????????", //Name of World
+  1600, //X-Size of World
+  20000, //Y-Size of World
+  Phaser.Color.getRandomColor(254, 254, 5), //Background Color
+  false, //Out of Bounds Allowed
+  1, //Player Scale
+  portalNen, //Nen-System
+  noGunSet, //Gun-Set
+  true, //Sideways Stick to Walls,
+  true, //Upsidedown Stick
+  .1, //X-Camera Lerp
+  1, //Y-Camera Lerp
+  fontNokia, //World Font Name
+);
+
+level_7.colorChange = true;
+
+level_7.specialLevel = new TimerLevel('timed', 0, 5, 0, 5);
+
+//Room-Switching
+level_7.metroidvania = new MetroidvaniaCreator(
+  5, //Room-Up-Index
+  5, //Room-Down-Index
+  5, //Room-Left-Index
+  5, //Room-Right-Index
+);
+
+//Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
+level_7.playerPosition = [
+  new PlayerPositionCreator(800, 200),
+  new PlayerPositionCreator(200, 300),
+  new PlayerPositionCreator(100, 1925),
+  new PlayerPositionCreator(200, 300),
+]
+
+//Sprite Generation
+level_7.spriteSpawn = [
+  
+];
+
+//Flag
+level_7.flagSpawn = [
+
+];
+
+level_7.text = [
+
 ];
 
 
 //////////////////////////////////////////Pushing All Levels Into World Array/////////////////////////////////////
-var levelCount = 6;
+var levelCount = 7;
 for (var i = 0; i <= levelCount; i++) {
   // worldClassLevels.push(eval("level_"+i));
   worldClassLevels.push(window["level_" + i]);

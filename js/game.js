@@ -57,6 +57,13 @@ brawl.game.prototype = {
         this.game.time.slowMotion = 1.0;
         ////////////////////World Name Font/////////////////
         this.fontWorld = worldClassLevels[this.indexOfCurrentWorld].fontWorld;
+        ///////////////////Changing Background Color///////////////////////
+        if (worldClassLevels[this.indexOfCurrentWorld].colorChange) {
+            this.colorChange = worldClassLevels[this.indexOfCurrentWorld].colorChange;
+        }
+        else {
+            this.colorChange = false;
+        }
     },
     create: function () {
         //Initializing FPS framework
@@ -142,6 +149,10 @@ brawl.game.prototype = {
         /////////////////////////////////////////BMD////////////////////////////////////////////////
         // this.bmd.context.fillRect(this.player.x-100, this.player.y-100, 50, 50);
         // this.bmd.dirty = true;
+        ///////////////////////////////////////Color Changing Background///////////////////////////////
+        if (this.colorChange) {
+            this.game.stage.backgroundColor = Phaser.Color.getRandomColor(0, 250, 5);
+        }
         ////////////////////////////////////////Continious Collision//////////////////////////////////
         //Debug
         // this.debugSprites();
@@ -454,21 +465,21 @@ brawl.game.prototype = {
         }
     },
     /////////////////////////Debugging + Timer///////////////////////////
-    render: function () {
-        //Timer Debugging
-        // this.game.debug.text('Elapsed seconds: ' + this.game.time.totalElapsedSeconds(), 32, 32);
-        // this.game.debug.text('Global Timer: ' + total, 32, 32);
-        // this.game.debug.text('Heat Timer: ' + total, 32, 64);
-        //Body Physics
-        // this.game.debug.body(this.player);
-        // this.game.debug.bodyInfo(this.player, 200, 200);
-        // this.game.debug.physicsGroup(this.ground);
-        // this.game.debug.physicsGroup(this.ledge);
-        // this.game.debug.physicsGroup(this.ball);
-        //Debugging FPS
-        // this.game.debug.text(this.game.time.fps, 200, 300);
-        //Input
-        this.game.debug.inputInfo(32, 32);
-        this.game.debug.pointer(this.game.input.activePointer);
-    },
+    // render: function () {
+    //     //Timer Debugging
+    //     // this.game.debug.text('Elapsed seconds: ' + this.game.time.totalElapsedSeconds(), 32, 32);
+    //     // this.game.debug.text('Global Timer: ' + total, 32, 32);
+    //     // this.game.debug.text('Heat Timer: ' + total, 32, 64);
+    //     //Body Physics
+    //     // this.game.debug.body(this.player);
+    //     // this.game.debug.bodyInfo(this.player, 200, 200);
+    //     // this.game.debug.physicsGroup(this.ground);
+    //     // this.game.debug.physicsGroup(this.ledge);
+    //     // this.game.debug.physicsGroup(this.ball);
+    //     //Debugging FPS
+    //     // this.game.debug.text(this.game.time.fps, 200, 300);
+    //     //Input
+    //     this.game.debug.inputInfo(32, 32);
+    //     this.game.debug.pointer(this.game.input.activePointer);
+    // },
 };
