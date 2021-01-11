@@ -68,6 +68,9 @@ var level_0 = new LevelCreator(
   fontNokia, //World Font Name
 );
 
+//Changing Background Color
+level_0.colorChange = true;
+
 //Special Level Initiated
 // level_0.specialLevel = new TimerLevel('timed', 1, 5, 0, 10);
 // level_0.specialLevel = new KillAllLevel('killAll', 0, 5, 0, 1);
@@ -1303,8 +1306,10 @@ var level_7 = new LevelCreator(
   fontNokia, //World Font Name
 );
 
+//Changing Background Color
 level_7.colorChange = true;
 
+//Special Level Condition
 level_7.specialLevel = new TimerLevel('timed', 0, 5, 0, 5);
 
 //Room-Switching
