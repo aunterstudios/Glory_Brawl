@@ -1342,9 +1342,56 @@ level_7.text = [
 
 ];
 
+////////////////////////////////////////////////////////Level 8 The Gun Level///////////////////////////////////////////////////////
+var level_8 = new LevelCreator(
+  "[8]Guns", //Name of World
+  3200, //X-Size of World
+  5000, //Y-Size of World
+  "#ffffff", //Background Color
+  false, //Out of Bounds Allowed
+  1, //Player Scale
+  portalNen, //Nen-System
+  noGunSet, //Gun-Set
+  true, //Sideways Stick to Walls,
+  true, //Upsidedown Stick
+  .1, //X-Camera Lerp
+  1, //Y-Camera Lerp
+  fontNokia, //World Font Name
+);
+
+//Room-Switching
+level_8.metroidvania = new MetroidvaniaCreator(
+  5, //Room-Up-Index
+  5, //Room-Down-Index
+  5, //Room-Left-Index
+  5, //Room-Right-Index
+);
+
+//Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
+level_8.playerPosition = [
+  new PlayerPositionCreator(800, 200),
+  new PlayerPositionCreator(200, 300),
+  new PlayerPositionCreator(100, 1925),
+  new PlayerPositionCreator(200, 300),
+]
+
+//Sprite Generation
+level_8.spriteSpawn = [
+
+];
+
+//Flag
+level_8.flagSpawn = [
+
+];
+
+level_8.text = [
+
+];
+
 
 //////////////////////////////////////////Pushing All Levels Into World Array/////////////////////////////////////
-var levelCount = 7;
+var levelCount = 8;
 for (var i = 0; i <= levelCount; i++) {
   // worldClassLevels.push(eval("level_"+i));
   worldClassLevels.push(window["level_" + i]);

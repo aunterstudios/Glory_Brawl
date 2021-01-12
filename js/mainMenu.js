@@ -220,35 +220,48 @@ brawl.startScreen.prototype = {
         // kernText(text);
 
         this.text = this.game.add.text(525, 100, "GLORY BRAWL");
-        this.text.font = 'Courier New'
+        this.text.font = 'Courier New';
         this.text.fontSize = 72;
         this.text.fill = "#ffffff";
         this.text.fontWeight = 'bold';
         this.text.align = 'center';
-        this.text.stroke = "#CDD193";
-        this.text.strokeThickness = 5;
+        this.text.stroke = "#CD5C5C";
+        this.text.strokeThickness = 10;
+        this.text.setShadow(3, 3, 'rgba(0,0,0,0.5)', 2);
+
+        this.newText = this.game.add.text(525, 800, "GLORY BRAWL");
+        this.newText.font = 'Courier New';
+        this.newText.fontSize = 72;
+        this.newText.fill = "#ffffff";
+        this.newText.fontWeight = 'bold';
+        this.newText.align = 'center';
+        this.newText.stroke = "#CD5C5C";
+        this.newText.strokeThickness = 10;
+        this.newText.setShadow(3, 3, 'rgba(0,0,0,0.5)', 2);
 
         var content = [
-            " ",
-            "When I was about to kill myself.",
-            "I realized something.",
-            "I just want to fuck and tell stories.",
+            "Through a fog",
+            "Of depression and neuroticism",
+            "I saw a chance of salvation",
+            "The completion of this story",
+            "The start of my revenge.",
         ];
-        var text = new lineTextCreator(400, 300, 'Courier New', "#ffffff", 30, content, 120, 400, "#000000", 10)
+
+        var text = new lineTextCreator(400, 350, 'Courier New', "#ffffff", 30, content, 200, 200, "#000000", 10)
         lineText(text)
 
         // var text = new lineTextCreator(400, 400, 'Courier New', "#ffffff", 30, content, 50, 2, "#000000", 10)
         // kernText(text)
 
         /////////////////////////Skip//////////////////////////////////////
-        this.xToPlay = this.game.add.text(50, 750, "Press X to Play");
+        this.xToPlay = this.game.add.text(50, 850, "Press X to Play");
         // this.xToPlay.anchor.setTo(.5);
         this.xToPlay.font = 'Courier New';
         this.xToPlay.fontSize = 20;
         this.xToPlay.fill = '#ffffff';
-        this.xToPlay.fontWeight = 'bold';
+        // this.xToPlay.fontWeight = 'bold';
         this.xToPlay.stroke = "#000000";
-        this.xToPlay.strokeThickness = 4;
+        this.xToPlay.strokeThickness = 10;
         this.xToPlay.setShadow(3, 3, 'rgba(0,0,0,0.5)', 2);
     },
     update: function () {

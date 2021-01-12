@@ -107,10 +107,9 @@ brawl.story.prototype = {
             //Line by Line
             var content = [
                 " ",
-                "I know longer remember who I am or why I'm here.",
-                "But I'm filled with desire to find answers.",
-                "Why is my heart filled with such anger and sadness?",
-                "Why must I complete Glory Brawl's trials?",
+                "There's something I need to do",
+                "I know it has something to do with this pain inside me",
+                "And Glory Brawl has the answers",
             ];
             // var text = new lineTextCreator(200, 250, 'Lucida Console', "#FF0000", 30, content, 120, 400, '#000000', 4)
             // lineText(text);
@@ -127,7 +126,7 @@ brawl.story.prototype = {
             this.text1.fontWeight = 'bold';
             this.text1.align = 'center';
         }
-        this.spaceBarPlay = this.game.add.text(50, 775, "Spacebar to Skip");
+        this.spaceBarPlay = this.game.add.text(50, 850, "Spacebar to Skip");
         this.spaceBarPlay.font = 'Arial Black';
         this.spaceBarPlay.fontSize = 20;
         // this.spaceBarPlay.fill = "#00FF00";

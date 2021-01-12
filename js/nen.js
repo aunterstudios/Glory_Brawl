@@ -34,10 +34,10 @@ var seanNen = new nenCreator(
 
 //For the Story Scenes
 var begNen = new nenCreator(
-  9000, //Speed
-  -2000, //Jump
+  50, //Speed
+  100, //Jump
   null, //Gravity-X
-  500, //Gravity-Y
+  1500, //Gravity-Y
   10, //Double Jump
   2000, //WallJump-X
   100, //wallJump-Y
