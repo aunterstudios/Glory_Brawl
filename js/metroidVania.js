@@ -77,7 +77,7 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
         this.weapon1Text = this.game.add.bitmapText(0, 0, this.fontWorld, "1."+this.weapon1Holder.name, 32);
         this.weapon1Text.tint = this.weapon1Holder.tint;
         this.weapon1Text.fixedToCamera = true;
-        this.weapon1Text.cameraOffset.setTo(400, 810);
+        this.weapon1Text.cameraOffset.setTo(1450, 80);
     }
 
     if (this.weapon2Holder) {
@@ -101,7 +101,7 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
         this.weapon2Text = this.game.add.bitmapText(0, 0, this.fontWorld, "2."+this.weapon2Holder.name, 32);
         this.weapon2Text.tint = this.weapon2Holder.tint;
         this.weapon2Text.fixedToCamera = true;
-        this.weapon2Text.cameraOffset.setTo(400, 830);
+        this.weapon2Text.cameraOffset.setTo(1450, 100);
     }
 
     if (this.weapon3Holder) {
@@ -125,7 +125,7 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
         this.weapon3Text = this.game.add.bitmapText(0, 0, this.fontWorld, "3."+this.weapon3Holder.name, 32);
         this.weapon3Text.tint = this.weapon3Holder.tint;
         this.weapon3Text.fixedToCamera = true;
-        this.weapon3Text.cameraOffset.setTo(400, 850);
+        this.weapon3Text.cameraOffset.setTo(1450, 120);
     }
 
     if (this.weapon4Holder) {
@@ -149,7 +149,7 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
         this.weapon4Text = this.game.add.bitmapText(0, 0, this.fontWorld, "4."+this.weapon4Holder.name, 32);
         this.weapon4Text.tint = this.weapon4Holder.tint;
         this.weapon4Text.fixedToCamera = true;
-        this.weapon4Text.cameraOffset.setTo(400, 870);
+        this.weapon4Text.cameraOffset.setTo(1450, 140);
     }
 
     ////////////////////////////Image Creation/////////////////////////

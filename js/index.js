@@ -1397,9 +1397,9 @@ level_7.text = [
 var level_8 = new LevelCreator(
   "[8]Guns", //Name of World
   3200, //X-Size of World
-  5000, //Y-Size of World
-  "#ffffff", //Background Color
-  false, //Out of Bounds Allowed
+  2500, //Y-Size of World
+  "#f4d9cf", //Background Color
+  true, //Out of Bounds Allowed
   1, //Player Scale
   portalNen, //Nen-System
   killGunSet, //Gun-Set
@@ -1430,6 +1430,16 @@ level_8.playerPosition = [
 level_8.spriteSpawn = [
   //////////////////////////////////Ground//////////////////////////////////////
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 50, 400, 950, 50, 1, 0, 0, 0, 0, null, null),
+  /////////////////////////////////Borders//////////////////////////////////////
+  //Middle Divider
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 1550, 0, 50, 2000, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathBallKill, 'tile', ball, 1500, 2000, 50, 450, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathBallKill, 'tile', ball, 1550, 2000, 50, 450, 1, 0, 0, 0, 0, null, null),
+  //Bottom First Half
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 0, 2450, 1600, 50, 1, 0, 0, 0, 0, null, null),
+  ////////////////////////////////Ball/////////////////////////////////////////////
+  new SpriteCreator(true, ballRegular, 'sprite', ball, 1500, 1500, 50, 50, 1, 0, 0, 0, 0, null, null),
+
 ];
 
 //Flag
