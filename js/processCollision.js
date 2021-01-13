@@ -67,15 +67,6 @@ brawl.game.prototype.wallVsMovProcess = function (wall, mov) {
     }
 };
 
-brawl.game.prototype.playerGroundProcess = function (player, wall) {
-    if (wall.name === groundOneWayPlayer.name || wall.name === groundOneWayKillObject.name) {
-        return false;
-    }
-    else {
-        return true
-    }
-};
-
 brawl.game.prototype.ballVsEnemyProcess = function (ball, enemy) {
     if (!enemy.phase || !ball.ghost || !enemy.ghost) {
         return false;

@@ -107,9 +107,10 @@ brawl.story.prototype = {
             //Line by Line
             var content = [
                 " ",
-                "There's something I need to do",
-                "I know it has something to do with this pain inside me",
-                "And Glory Brawl has the answers",
+                "I don't know where I am",
+                "or even who I am",
+                "I just know I have one purpose",
+                "to defeat GLORY BRAWL",
             ];
             // var text = new lineTextCreator(200, 250, 'Lucida Console', "#FF0000", 30, content, 120, 400, '#000000', 4)
             // lineText(text);

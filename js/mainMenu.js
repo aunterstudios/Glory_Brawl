@@ -242,9 +242,9 @@ brawl.startScreen.prototype = {
         var content = [
             "Through a fog",
             "Of depression and neuroticism",
-            "I saw a chance of salvation",
+            "I saw a chance for salvation",
             "The completion of this story",
-            "The start of my revenge.",
+            "The start of my revenge",
         ];
 
         var text = new lineTextCreator(400, 350, 'Courier New', "#ffffff", 30, content, 200, 200, "#000000", 10)

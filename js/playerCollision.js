@@ -260,3 +260,40 @@ brawl.game.prototype.playerHazama = function (player, hazama) {
     }
 
 };
+
+///////////////////////////////////Player Process Collisions/////////////////////////////////////
+brawl.game.prototype.playerGroundProcess = function (player, ground) {
+    if (ground.name === groundOneWayPlayer.name || ground.name === groundOneWayKillObject.name) {
+        return false;
+    }
+    // else if (ground.specialCondition) {
+    //     if (ground.specialCondition.name === scNoPhysics.name) {
+    //         return false;
+    //     }
+    // }
+    else {
+        return true
+    }
+};
+
+// brawl.game.prototype.playerWallProcess = function (player, wall) {
+//     if (wall.specialCondition) {
+//         if (wall.specialCondition.name === scNoPhysics.name) {
+//             return false;
+//         }
+//     }
+//     else {
+//         return true
+//     }
+// };
+
+// brawl.game.prototype.playerLedgeProcess = function (player, ledge) {
+//     if (ledge.specialCondition) {
+//         if (ledge.specialCondition.name === scNoPhysics.name) {
+//             return false;
+//         }
+//     }
+//     else {
+//         return true
+//     }
+// };
