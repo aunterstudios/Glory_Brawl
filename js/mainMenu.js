@@ -105,7 +105,7 @@ brawl.mainMenu.prototype = {
 
         //Adding Cool Looking Text
         var content = [
-            "Canvas Size",
+            "Beginning Levels",
             "GLORY BRAWL",
         ];
         var text = new lineTextCreator(100, 150, 'Impact', '#ffffff', 42, content, 120, 400, '#000000', 4)
@@ -143,16 +143,16 @@ brawl.mainMenu.prototype = {
 
 
         //Skip Written Already.
-        this.skipText = this.game.add.text(this.game.world.centerX - 10, this.game.world.centerY + 375, "Press SPACEBAR to Play.\nPress O to go Full-Screen");
+        this.skipText = this.game.add.text(this.game.world.centerX - 25, this.game.world.centerY + 375, "Press SPACEBAR to Play.\nPress O to go Full-Screen");
 
         //	Font style
         this.skipText.font = 'Impact';
         this.skipText.fontSize = 30;
-        this.skipText.fill = "#FF0000";
+        this.skipText.fill = "#ffffff";
         this.skipText.fontWeight = 'bold';
         this.skipText.align = 'center';
         this.skipText.anchor.setTo(.5);
-        this.skipText.stroke = "#ffffff";
+        this.skipText.stroke = "#000000";
         this.skipText.strokeThickness = 4;
 
     },

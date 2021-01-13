@@ -1194,7 +1194,7 @@ var level_6 = new LevelCreator(
 //Room-Switching
 level_6.metroidvania = new MetroidvaniaCreator(
   4, //Room-Up-Index
-  2, //Room-Down-Index
+  8, //Room-Down-Index
   5, //Room-Left-Index
   3, //Room-Right-Index
 );
@@ -1332,56 +1332,56 @@ level_7.playerPosition = [
 
 //Sprite Generation
 level_7.spriteSpawn = [
-  ///////////////////////////////////Ground Sprites////////////////////////////////////////////////////
-  //X-Set One
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 1000, 200, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, groundSlippery, 'tile', groundTile, 900, 700, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 1100, 1200, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, groundSlippery, 'tile', groundTile, 1200, 1700, 50, 50, 1, 0, 0, 0, 0, null, null),
-  //X-Set Two
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 1000, 2200, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, groundSlippery, 'tile', groundTile, 900, 2700, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 1100, 3200, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, groundSlippery, 'tile', groundTile, 1200, 3700, 50, 50, 1, 0, 0, 0, 0, null, null),
-  ///////////////////////////////////Ledge Sprites////////////////////////////////////////////////////
-  //X-Set One
-  new SpriteCreator(true, ledgeSurf, 'sprite', ledge, 1300, 250, null, null, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, ledgeElevator, 'sprite', ledge, 1400, 750, null, null, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, ledgeBounce, 'sprite', ledge, 1500, 1250, null, null, 1, 0, 0, 0, 0, null, null),
-  //X-Set Two
-  new SpriteCreator(true, ledgeSurf, 'sprite', ledge, 1300, 1750, null, null, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, ledgeElevator, 'sprite', ledge, 1400, 2250, null, null, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, ledgeBounce, 'sprite', ledge, 1500, 2750, null, null, 1, 0, 0, 0, 0, null, null),
-  //X-Set Three
-  new SpriteCreator(true, ledgeSurf, 'sprite', ledge, 1300, 3250, null, null, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, ledgeElevator, 'sprite', ledge, 1400, 3750, null, null, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, ledgeBounce, 'sprite', ledge, 1500, 4250, null, null, 1, 0, 0, 0, 0, null, null),
-  ///////////////////////////////////Wall Sprites//////////////////////////////////////////////
-  //X-Set One
-  new SpriteCreator(true, wallRegular, 'tile', wallTile50, 500, 200, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, wallMomentum, 'tile', wallTile50, 600, 700, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, wallRegular, 'tile', wallTile50, 700, 1200, 50, 50, 1, 0, 0, 0, 0, null, null),
-  //X-Set Two
-  new SpriteCreator(true, wallRegular, 'tile', wallTile50, 500, 1700, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, wallMomentum, 'tile', wallTile50, 600, 2200, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, wallRegular, 'tile', wallTile50, 700, 2700, 50, 50, 1, 0, 0, 0, 0, null, null),
-  //X-Set Three
-  new SpriteCreator(true, wallRegular, 'tile', wallTile50, 500, 3200, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, wallMomentum, 'tile', wallTile50, 600, 3700, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, wallRegular, 'tile', wallTile50, 700, 4200, 50, 50, 1, 0, 0, 0, 0, null, null),
-  ////////////////////////////////Ball Sprites//////////////////////////////////////////////////
-  //X-Set One
-  new SpriteCreator(true, ballRegular, 'sprite', ball, 200, 250, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, ballRegular, 'sprite', ball, 300, 750, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, ballRegular, 'sprite', ball, 400, 1250, 50, 50, 1, 0, 0, 0, 0, null, null),
-  //X-Set Two
-  new SpriteCreator(true, ballRegular, 'sprite', ball, 200, 1750, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, ballRegular, 'sprite', ball, 300, 2250, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, ballRegular, 'sprite', ball, 400, 2750, 50, 50, 1, 0, 0, 0, 0, null, null),
-  //X-Set Three
-  new SpriteCreator(true, ballRegular, 'sprite', ball, 200, 3250, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, ballRegular, 'sprite', ball, 300, 3750, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, ballRegular, 'sprite', ball, 400, 4250, 50, 50, 1, 0, 0, 0, 0, null, null),
+  // ///////////////////////////////////Ground Sprites////////////////////////////////////////////////////
+  // //X-Set One
+  // new SpriteCreator(true, groundRegular, 'tile', groundTile, 1000, 200, 50, 50, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, groundSlippery, 'tile', groundTile, 900, 700, 50, 50, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, groundRegular, 'tile', groundTile, 1100, 1200, 50, 50, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, groundSlippery, 'tile', groundTile, 1200, 1700, 50, 50, 1, 0, 0, 0, 0, null, null),
+  // //X-Set Two
+  // new SpriteCreator(true, groundRegular, 'tile', groundTile, 1000, 2200, 50, 50, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, groundSlippery, 'tile', groundTile, 900, 2700, 50, 50, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, groundRegular, 'tile', groundTile, 1100, 3200, 50, 50, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, groundSlippery, 'tile', groundTile, 1200, 3700, 50, 50, 1, 0, 0, 0, 0, null, null),
+  // ///////////////////////////////////Ledge Sprites////////////////////////////////////////////////////
+  // //X-Set One
+  // new SpriteCreator(true, ledgeSurf, 'sprite', ledge, 1300, 250, null, null, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, ledgeElevator, 'sprite', ledge, 1400, 750, null, null, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, ledgeBounce, 'sprite', ledge, 1500, 1250, null, null, 1, 0, 0, 0, 0, null, null),
+  // //X-Set Two
+  // new SpriteCreator(true, ledgeSurf, 'sprite', ledge, 1300, 1750, null, null, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, ledgeElevator, 'sprite', ledge, 1400, 2250, null, null, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, ledgeBounce, 'sprite', ledge, 1500, 2750, null, null, 1, 0, 0, 0, 0, null, null),
+  // //X-Set Three
+  // new SpriteCreator(true, ledgeSurf, 'sprite', ledge, 1300, 3250, null, null, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, ledgeElevator, 'sprite', ledge, 1400, 3750, null, null, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, ledgeBounce, 'sprite', ledge, 1500, 4250, null, null, 1, 0, 0, 0, 0, null, null),
+  // ///////////////////////////////////Wall Sprites//////////////////////////////////////////////
+  // //X-Set One
+  // new SpriteCreator(true, wallRegular, 'tile', wallTile50, 500, 200, 50, 50, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, wallMomentum, 'tile', wallTile50, 600, 700, 50, 50, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, wallRegular, 'tile', wallTile50, 700, 1200, 50, 50, 1, 0, 0, 0, 0, null, null),
+  // //X-Set Two
+  // new SpriteCreator(true, wallRegular, 'tile', wallTile50, 500, 1700, 50, 50, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, wallMomentum, 'tile', wallTile50, 600, 2200, 50, 50, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, wallRegular, 'tile', wallTile50, 700, 2700, 50, 50, 1, 0, 0, 0, 0, null, null),
+  // //X-Set Three
+  // new SpriteCreator(true, wallRegular, 'tile', wallTile50, 500, 3200, 50, 50, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, wallMomentum, 'tile', wallTile50, 600, 3700, 50, 50, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, wallRegular, 'tile', wallTile50, 700, 4200, 50, 50, 1, 0, 0, 0, 0, null, null),
+  // ////////////////////////////////Ball Sprites//////////////////////////////////////////////////
+  // //X-Set One
+  // new SpriteCreator(true, ballRegular, 'sprite', ball, 200, 250, 50, 50, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, ballRegular, 'sprite', ball, 300, 750, 50, 50, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, ballRegular, 'sprite', ball, 400, 1250, 50, 50, 1, 0, 0, 0, 0, null, null),
+  // //X-Set Two
+  // new SpriteCreator(true, ballRegular, 'sprite', ball, 200, 1750, 50, 50, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, ballRegular, 'sprite', ball, 300, 2250, 50, 50, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, ballRegular, 'sprite', ball, 400, 2750, 50, 50, 1, 0, 0, 0, 0, null, null),
+  // //X-Set Three
+  // new SpriteCreator(true, ballRegular, 'sprite', ball, 200, 3250, 50, 50, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, ballRegular, 'sprite', ball, 300, 3750, 50, 50, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, ballRegular, 'sprite', ball, 400, 4250, 50, 50, 1, 0, 0, 0, 0, null, null),
 ];
 
 //Flag
@@ -1412,7 +1412,7 @@ var level_8 = new LevelCreator(
 
 //Room-Switching
 level_8.metroidvania = new MetroidvaniaCreator(
-  5, //Room-Up-Index
+  6, //Room-Up-Index
   5, //Room-Down-Index
   5, //Room-Left-Index
   5, //Room-Right-Index
@@ -1420,7 +1420,7 @@ level_8.metroidvania = new MetroidvaniaCreator(
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_8.playerPosition = [
-  new PlayerPositionCreator(800, 200),
+  new PlayerPositionCreator(400, 200),
   new PlayerPositionCreator(200, 300),
   new PlayerPositionCreator(100, 1925),
   new PlayerPositionCreator(200, 300),
@@ -1428,7 +1428,8 @@ level_8.playerPosition = [
 
 //Sprite Generation
 level_8.spriteSpawn = [
-
+  //////////////////////////////////Ground//////////////////////////////////////
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 50, 400, 950, 50, 1, 0, 0, 0, 0, null, null),
 ];
 
 //Flag

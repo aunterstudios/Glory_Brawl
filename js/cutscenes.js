@@ -107,14 +107,16 @@ brawl.story.prototype = {
             //Line by Line
             var content = [
                 " ",
-                "I don't know where I am",
-                "or even who I am",
-                "I just know I have one purpose",
-                "to defeat GLORY BRAWL",
+                "It fills me with great pain",
+                "To think about these words",
+                "Yet, it's the only light available",
+                "To find answers",
+                "Who am I?",
+                "GLORY BRAWL"
             ];
             // var text = new lineTextCreator(200, 250, 'Lucida Console', "#FF0000", 30, content, 120, 400, '#000000', 4)
             // lineText(text);
-            var text = new lineTextCreator(200, 350, 'Courier New', "#000000", 30, content, 50, 2, '#8A0707', 4)
+            var text = new lineTextCreator(200, 350, 'Garamond', "#ffffff", 48, content, 50, 2, '#000000', 7)
             kernText(text);
             ////////////////////////////////Blood Rain Emitter//////////////////////////////
             this.emitterStory();
