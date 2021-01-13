@@ -1402,7 +1402,7 @@ var level_8 = new LevelCreator(
   false, //Out of Bounds Allowed
   1, //Player Scale
   portalNen, //Nen-System
-  noGunSet, //Gun-Set
+  killGunSet, //Gun-Set
   true, //Sideways Stick to Walls,
   true, //Upsidedown Stick
   .1, //X-Camera Lerp

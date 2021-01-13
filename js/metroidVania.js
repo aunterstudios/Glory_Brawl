@@ -73,6 +73,11 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
         this.weapon1.fireRate = this.weapon1Holder.weaponFireRate;
         // Track Player
         this.weapon1.trackSprite(this.player, 0, 0);
+        ///////////////Adding Text///////////////
+        this.weapon1Text = this.game.add.bitmapText(0, 0, this.fontWorld, "1."+this.weapon1Holder.name, 32);
+        this.weapon1Text.tint = this.weapon1Holder.tint;
+        this.weapon1Text.fixedToCamera = true;
+        this.weapon1Text.cameraOffset.setTo(400, 810);
     }
 
     if (this.weapon2Holder) {
@@ -92,6 +97,11 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
         this.weapon2.fireRate = this.weapon2Holder.weaponFireRate;
         // Track Player
         this.weapon2.trackSprite(this.player, 0, 0);
+        ///////////////Adding Text///////////////
+        this.weapon2Text = this.game.add.bitmapText(0, 0, this.fontWorld, "2."+this.weapon2Holder.name, 32);
+        this.weapon2Text.tint = this.weapon2Holder.tint;
+        this.weapon2Text.fixedToCamera = true;
+        this.weapon2Text.cameraOffset.setTo(400, 830);
     }
 
     if (this.weapon3Holder) {
@@ -111,6 +121,11 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
         this.weapon3.fireRate = this.weapon3Holder.weaponFireRate;
         // Track Player
         this.weapon3.trackSprite(this.player, 0, 0);
+        ///////////////Adding Text///////////////
+        this.weapon3Text = this.game.add.bitmapText(0, 0, this.fontWorld, "3."+this.weapon3Holder.name, 32);
+        this.weapon3Text.tint = this.weapon3Holder.tint;
+        this.weapon3Text.fixedToCamera = true;
+        this.weapon3Text.cameraOffset.setTo(400, 850);
     }
 
     if (this.weapon4Holder) {
@@ -130,6 +145,11 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
         this.weapon4.fireRate = this.weapon4Holder.weaponFireRate;
         // Track Player
         this.weapon4.trackSprite(this.player, 0, 0);
+        ///////////////Adding Text///////////////
+        this.weapon4Text = this.game.add.bitmapText(0, 0, this.fontWorld, "4."+this.weapon4Holder.name, 32);
+        this.weapon4Text.tint = this.weapon4Holder.tint;
+        this.weapon4Text.fixedToCamera = true;
+        this.weapon4Text.cameraOffset.setTo(400, 870);
     }
 
     ////////////////////////////Image Creation/////////////////////////
