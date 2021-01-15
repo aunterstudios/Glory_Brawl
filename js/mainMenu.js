@@ -240,14 +240,16 @@ brawl.startScreen.prototype = {
         this.newText.setShadow(3, 3, 'rgba(0,0,0,0.5)', 2);
 
         var content = [
-            "Through a fog",
+            "While enduring a miasma",
             "Of depression and neuroticism",
+            "Crushing my soul from within",
             "I saw a chance for salvation",
             "The completion of this story",
             "The start of my revenge",
+            "To tell stories and to fuck"
         ];
 
-        var text = new lineTextCreator(400, 350, 'Courier New', "#ffffff", 30, content, 200, 200, "#000000", 10)
+        var text = new lineTextCreator(400, 300, 'Courier New', "#ffffff", 30, content, 200, 200, "#000000", 10)
         lineText(text)
 
         // var text = new lineTextCreator(400, 400, 'Courier New', "#ffffff", 30, content, 50, 2, "#000000", 10)
@@ -272,6 +274,8 @@ brawl.startScreen.prototype = {
             ///////(IndexOfCurrentWorld, Position)////////////
             //Direct Physics
             // this.game.state.start('game', true, false, 0, 0);
+            //Beginning
+            // this.game.state.start('game', true, false, 7, 0);
             //Levels
             this.game.state.start('game', true, false, 8, 0);
             // this.game.state.start('game', true, false, 2, 3);

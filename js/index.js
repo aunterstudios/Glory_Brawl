@@ -1202,9 +1202,9 @@ level_6.metroidvania = new MetroidvaniaCreator(
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_6.playerPosition = [
   new PlayerPositionCreator(900, 300),
-  new PlayerPositionCreator(200, 300),
+  new PlayerPositionCreator(1050, 1800),
   new PlayerPositionCreator(100, 1925),
-  new PlayerPositionCreator(200, 300),
+  new PlayerPositionCreator(1050, 1800),
 ]
 
 //Sprite Generation
@@ -1287,6 +1287,7 @@ level_6.text = [
   new textCreator(true, 1775, 200, "Hold    to\nslow fall", fontNokia, 32),
   new textCreator(true, 1825, 200, "S", fontBlock, 32),
   new textCreator(true, 1350, 1725, "Dislodging will\nbe useful here", fontNokia, 32),
+  new textCreator(true, 1775, 1400, "Make sure\nyou have\ndouble-jumps", fontNokia, 32),
 ];
 
 ///////////////////////////////////////////Level 7(The Real True Beginning)///////////////////////////////////////////////////////////
@@ -1420,7 +1421,7 @@ level_8.metroidvania = new MetroidvaniaCreator(
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_8.playerPosition = [
-  new PlayerPositionCreator(400, 200),
+  new PlayerPositionCreator(200, 50),
   new PlayerPositionCreator(200, 300),
   new PlayerPositionCreator(100, 1925),
   new PlayerPositionCreator(200, 300),
@@ -1429,7 +1430,12 @@ level_8.playerPosition = [
 //Sprite Generation
 level_8.spriteSpawn = [
   //////////////////////////////////Ground//////////////////////////////////////
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 50, 400, 950, 50, 1, 0, 0, 0, 0, null, null),
+  //Ground with Flag
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 50, 400, 1150, 50, 1, 0, 0, 0, 0, null, null),
+  //Ground With Ball
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 400, 650, 1150, 50, 1, 0, 0, 0, 0, null, null),
+  //Last Stable Ground
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 50, 900, 500, 50, 1, 0, 0, 0, 0, null, null),
   /////////////////////////////////Borders//////////////////////////////////////
   //Middle Divider
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 1550, 0, 50, 2000, 1, 0, 0, 0, 0, null, null),
@@ -1437,18 +1443,31 @@ level_8.spriteSpawn = [
   new SpriteCreator(true, deathBallKill, 'tile', ball, 1550, 2000, 50, 450, 1, 0, 0, 0, 0, null, null),
   //Bottom First Half
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 0, 2450, 1600, 50, 1, 0, 0, 0, 0, null, null),
+  //Left
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 0, 0, 50, 2450, 1, 0, 0, 0, 0, null, null),
   ////////////////////////////////Ball/////////////////////////////////////////////
-  new SpriteCreator(true, ballRegular, 'sprite', ball, 1500, 1500, 50, 50, 1, 0, 0, 0, 0, null, null),
-
+  new SpriteCreator(true, ballRegular, 'sprite', ball, 950, 550, 50, 50, 1, 0, 0, 0, 0, null, null),
+  ///////////////////////////////Prevent First Half Cheese/////////////////////////
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 1550, 0, 50, 2000, 1, 0, 0, 0, 0, null, null),
 ];
 
 //Flag
 level_8.flagSpawn = [
-
+  new flagCreator(0, true, flagRegular, flag, 1, 277, 350, 0, 0, 0, 0, null),
 ];
 
 level_8.text = [
-
+  new textCreator(true, 400, 150, "1\n2\n3\n4", fontBlock, 32),
+  new textCreator(true, 450, 200, "-Access Spirit Guns", fontNokia, 32),
+  new textCreator(true, 1100, 150, "Different pocket dimensions\n=\nDifferent Guns", fontNokia, 32),
+  // new textCreator(true, 900, 150, "LEFT\nCLICK", fontBlock, 32),
+  // new textCreator(true, 1100, 175, "-Shoot", fontNokia, 32),
+  new textCreator(true, 400, 500, "LEFT\nCLICK", fontBlock, 32),
+  new textCreator(true, 590, 525, "-Shoot", fontNokia, 32),
+  new textCreator(true, 1300, 500, "Use the ball\nto destroy\ndeath wall", fontNokia, 32),
+  new textCreator(true, 140, 750, "Press\nTo kill yourself\nIf you destroy the ball", fontNokia, 32),
+  new textCreator(true, 200, 750, "R", fontBlock, 32),
+  new textCreator(true, 140, 500, "Bullets are killed\noffscreen", fontNokia, 32),
 ];
 
 
