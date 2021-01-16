@@ -288,8 +288,8 @@ brawl.startScreen.prototype = {
             //Beginning
             // this.game.state.start('game', true, false, 7, 0);
             //Levels
-            // this.game.state.start('game', true, false, 8, 0);
-            this.game.state.start('game', true, false, 4, 1);
+            this.game.state.start('game', true, false, 8, 0);
+            // this.game.state.start('game', true, false, 4, 1);
         }
     }
 };

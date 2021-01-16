@@ -1484,7 +1484,7 @@ level_8.text = [
   new textCreator(true, 140, 750, "Press\nTo kill yourself\nIf you destroy the ball", fontNokia, 32),
   new textCreator(true, 200, 750, "R", fontBlock, 32),
   new textCreator(true, 140, 500, "Bullets are killed\noffscreen", fontNokia, 32),
-  new textCreator(true, 645, 2250, "The trap is still spawning\nDon't touch\nEven if you can't see", fontNokia, 32),
+  new textCreator(true, 645, 2250, "Even if the trap\ncan't be seen anymore\nit's still there", fontNokia, 32),
   new textCreator(true, 150, 2250, "Destroy deathWall with the ball\n\nBlock fallingSpikes with ball", fontNokia, 32),
 ];
 
