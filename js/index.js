@@ -1438,9 +1438,9 @@ level_8.spriteSpawn = [
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 50, 900, 500, 50, 1, 0, 0, 0, 0, null, null),
   /////////////////////////////////Borders//////////////////////////////////////
   //Middle Divider
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 1550, 0, 50, 2000, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, deathBallKill, 'tile', ball, 1500, 2000, 50, 450, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, deathBallKill, 'tile', ball, 1550, 2000, 50, 450, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 1550, 0, 50, 2200, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathBallKill, 'tile', ball, 1500, 2200, 50, 250, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathBallKill, 'tile', ball, 1550, 2200, 50, 250, 1, 0, 0, 0, 0, null, null),
   //Bottom First Half
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 0, 2450, 1600, 50, 1, 0, 0, 0, 0, null, null),
   //Left
@@ -1465,6 +1465,7 @@ level_8.text = [
   new textCreator(true, 400, 500, "LEFT\nCLICK", fontBlock, 32),
   new textCreator(true, 590, 525, "-Shoot", fontNokia, 32),
   new textCreator(true, 1300, 500, "Use the ball\nto destroy\ndeath wall", fontNokia, 32),
+  new textCreator(true, 925, 490, "Ball", fontNokia, 32),
   new textCreator(true, 140, 750, "Press\nTo kill yourself\nIf you destroy the ball", fontNokia, 32),
   new textCreator(true, 200, 750, "R", fontBlock, 32),
   new textCreator(true, 140, 500, "Bullets are killed\noffscreen", fontNokia, 32),

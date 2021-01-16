@@ -239,15 +239,26 @@ brawl.startScreen.prototype = {
         this.newText.strokeThickness = 10;
         this.newText.setShadow(3, 3, 'rgba(0,0,0,0.5)', 2);
 
+        // var content = [
+        //     "While enduring a miasma",
+        //     "Of depression and neuroticism",
+        //     "Crushing my soul from within",
+        //     "I saw a chance for salvation",
+        //     "The completion of this story",
+        //     "The start of my revenge",
+        //     "To tell stories and to fuck"
+        // ];
+
         var content = [
-            "While enduring a miasma",
-            "Of depression and neuroticism",
-            "Crushing my soul from within",
-            "I saw a chance for salvation",
-            "The completion of this story",
-            "The start of my revenge",
-            "To tell stories and to fuck"
+            "It's so hard to do anything",
+            "when the miasma of",
+            "depression and neuroticism",
+            "constantly eats your soul",
+            "but I saw a chance for salvation",
+            "the completion of this story",
+            "a chance for happiness"
         ];
+
 
         var text = new lineTextCreator(400, 300, 'Courier New', "#ffffff", 30, content, 200, 200, "#000000", 10)
         lineText(text)
