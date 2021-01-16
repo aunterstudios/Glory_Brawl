@@ -1397,7 +1397,7 @@ level_7.text = [
 ////////////////////////////////////////////////////////Level 8 The Gun Level///////////////////////////////////////////////////////
 var level_8 = new LevelCreator(
   "[8]Guns", //Name of World
-  3200, //X-Size of World
+  1600, //X-Size of World
   2500, //Y-Size of World
   "#f4d9cf", //Background Color
   true, //Out of Bounds Allowed
@@ -1447,8 +1447,22 @@ level_8.spriteSpawn = [
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 0, 0, 50, 2450, 1, 0, 0, 0, 0, null, null),
   ////////////////////////////////Ball/////////////////////////////////////////////
   new SpriteCreator(true, ballRegular, 'sprite', ball, 950, 550, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, ballRegular, 'sprite', ball, 550, 2300, 50, 50, 1, 0, 0, 0, 0, null, null),
   ///////////////////////////////Prevent First Half Cheese/////////////////////////
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 1550, 0, 50, 2000, 1, 0, 0, 0, 0, null, null),
+  //////////////////////////////Falling Spikes Intro//////////////////////////////
+  //Hat
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 600, 2150, 950, 50, 1, 0, 0, 0, 0, null, null),
+  //Trap 1
+  // new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 612.5, 2250, 50, 50, 1, 0, 200, 0, 500, null, new timerCreator('loop', null, .5)),
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', 'particles', 612.5, 2215, 50, 50, 1, 0, 200, 0, 500, null, new timerCreator('loop', null, .5)),
+  new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 612.5, 2212.5, null, null, .5, 0, 0, 0, 0, null, null),
+  // //Trap 2
+  // new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 1000, 2250, 50, 50, 1, 0, 200, 0, 500, null, new timerCreator('loop', null, .5)),
+  // new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 1000, 2212.5, null, null, .5, 0, 0, 0, 0, null, null),
+  // //Trap 3
+  // new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 1387.5, 2250, 50, 50, 1, 0, 200, 0, 500, null, new timerCreator('loop', null, .5)),
+  // new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 1387.5, 2212.5, null, null, .5, 0, 0, 0, 0, null, null),
 ];
 
 //Flag
@@ -1464,11 +1478,13 @@ level_8.text = [
   // new textCreator(true, 1100, 175, "-Shoot", fontNokia, 32),
   new textCreator(true, 400, 500, "LEFT\nCLICK", fontBlock, 32),
   new textCreator(true, 590, 525, "-Shoot", fontNokia, 32),
-  new textCreator(true, 1300, 500, "Use the ball\nto destroy\ndeath wall", fontNokia, 32),
+  new textCreator(true, 1300, 500, "Guide the ball\nto the end", fontNokia, 32),
   new textCreator(true, 925, 490, "Ball", fontNokia, 32),
   new textCreator(true, 140, 750, "Press\nTo kill yourself\nIf you destroy the ball", fontNokia, 32),
   new textCreator(true, 200, 750, "R", fontBlock, 32),
   new textCreator(true, 140, 500, "Bullets are killed\noffscreen", fontNokia, 32),
+  new textCreator(true, 645, 2250, "The trap is just invisible\nIt's still there", fontNokia, 32),
+  new textCreator(true, 150, 2250, "Destroy deathWall with the ball\n\nBlock fallingSpikes with ball", fontNokia, 32),
 ];
 
 
