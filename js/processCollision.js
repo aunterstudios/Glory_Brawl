@@ -111,6 +111,11 @@ brawl.game.prototype.trapProjectilesProcess = function (projectiles, obj) {
     if (obj.name === enemyShooter.name) {
         return false;
     }
+    else if (obj.specialCondition) {
+        if (obj.specialCondition.name === scFallingSpikes.name && projectiles.groupName === groupFallingSpikes) {
+            return false;
+        }
+    }
     else {
         return true
     }

@@ -32,6 +32,7 @@ var ball = 'ball';
 //Falling Spikes
 var fallingSpikesOne = 'fallingSpikesOne';
 var fallingSpikesTwo = 'fallingSpikesTwo';
+var particles = 'particles';
 
 //Flag
 var flag = 'flag';

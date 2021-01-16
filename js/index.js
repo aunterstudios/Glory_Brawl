@@ -244,21 +244,21 @@ level_1.spriteSpawn = [
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 1550, 0, 50, 10000, 1, 0, 0, 0, 0, null, null),
   ///////////////////////////////////////Maze//////////////////////////////////////
   //Middle (To the Right of Ground)
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 600, 0, 50, 1000, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 600, 0, 50, 1000, 1, 0, 0, 0, 0, scFallingSpikes, null),
   //Wall Jump Pillars
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 650, 100, 50, 1100, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 750, 100, 50, 1100, 1, 0, 0, 0, 0, null, null),
-  //Bottom
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 200, 1000, 450, 50, 1, 0, 0, 0, 0, null, null),
+  //Bottom FALLING SPIKES
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 200, 950, 450, 100, 1, 0, 0, 0, 0, scFallingSpikes, null),
   //Even More Bottom
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 0, 1400, 850, 50, 1, 0, 0, 0, 0, null, null),
   //Stop-Gap
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 800, 1200, 50, 200, 1, 0, 0, 0, 0, null, null),
   //Falling Spikes for that extra spice
-  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 300, 1100, 50, 50, 1, 0, 200, 0, 500, null, new timerCreator('loop', null, 1)),
-  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 400, 1100, 50, 50, 1, 0, 200, 0, 500, null, new timerCreator('loop', null, 1)),
-  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 500, 1100, 50, 50, 1, 0, 200, 0, 500, null, new timerCreator('loop', null, 1)),
-  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 600, 1100, 50, 50, 1, 0, 200, 0, 500, null, new timerCreator('loop', null, 1)),
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 300, 1000, 50, 50, 1, 0, 275, 0, 500, null, new timerCreator('loop', null, 1)),
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 400, 1000, 50, 50, 1, 0, 275, 0, 500, null, new timerCreator('loop', null, 1)),
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 500, 1000, 50, 50, 1, 0, 275, 0, 500, null, new timerCreator('loop', null, 1)),
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 600, 1000, 50, 50, 1, 0, 275, 0, 500, null, new timerCreator('loop', null, 1)),
   //Indicators for Falling Spikes
   new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 300, 1062.5, null, null, .5, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 400, 1062.5, null, null, .5, 0, 0, 0, 0, null, null),
@@ -633,17 +633,17 @@ level_2.spriteSpawn = [
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 4000, 2000, 800, 50, 1, 0, 0, 0, 0, null, null),
   //Bottom of Ground That Which is Death
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 4000, 2050, 750, 50, 1, 0, 0, 0, 0, null, null),
+  //Falling Spikes Holder
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 3700, 2150, 100, 100, 1, 0, 0, 0, 0, scFallingSpikes, null),
   //Falling Spikes Section-1
-  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 3725, 2100, 50, 50, 1, 0, -1000, 0, 0, null, new timerCreator('loop', null, 2)),
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 3700, 2150, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 3725, 2250, 50, 50, 1, 0, -1100, 0, 0, null, new timerCreator('loop', null, 2)),
   new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 3725, 2137.5, null, null, .5, 0, 0, 0, 0, null, null),
   //Falling Spikes Section-2
-  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 3775, 2100, 50, 50, 1, 0, -1000, 0, 0, null, new timerCreator('loop', null, 2)),
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 3750, 2150, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 3775, 2250, 50, 50, 1, 0, -1100, 0, 0, null, new timerCreator('loop', null, 2)),
   new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 3775, 2137.5, null, null, .5, 0, 0, 0, 0, null, null),
   //Left Side Barriers of DEATH and Entry
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 3650, 550, 50, 1750, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 3700, 2250, 350, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 3700, 2250, 350, 50, 1, 0, 0, 0, 0, scFallingSpikes, null),
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 4000, 2300, 50, 2400, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, groundOneWayPlayer, 'tile', groundTile, 4000, 4700, 50, 250, 1, 0, 0, 0, 0, null, null),
   //Surfs Up
@@ -712,15 +712,16 @@ level_2.spriteSpawn = [
   //Ledge Surf
   new SpriteCreator(true, ledgeSurf, 'sprite', ledge, 3800, 2400, null, null, 1, 0, 0, 0, 0, null, null),
   //Nah to your ledge surf
-  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 2800, 3500, 50, 50, 1, 0, -1000, 0, 0, null, new timerCreator('loop', null, 2)),
-  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 3000, 3500, 50, 50, 1, 0, -1000, 0, 0, null, new timerCreator('loop', null, 2)),
-  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 3200, 3500, 50, 50, 1, 0, -1000, 0, 0, null, new timerCreator('loop', null, 2)),
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 2800, 3600, 50, 50, 1, 0, -1000, 0, 0, null, new timerCreator('loop', null, 2)),
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 3000, 3600, 50, 50, 1, 0, -1000, 0, 0, null, new timerCreator('loop', null, 2)),
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 3200, 3600, 50, 50, 1, 0, -1000, 0, 0, null, new timerCreator('loop', null, 2)),
   new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 2800, 3537.5, null, null, .5, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 3000, 3537.5, null, null, .5, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 3200, 3537.5, null, null, .5, 0, 0, 0, 0, null, null),
   //Surf Borders
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 2400, 2325, 50, 2425, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 2450, 3550, 900, 50, 1, 0, 0, 0, 0, null, null),
+  //Falling Spike Wall
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 2450, 3550, 900, 100, 1, 0, 0, 0, 0, scFallingSpikes, null),
   //After Surf Border
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 2400, 4750, 950, 50, 1, 0, 0, 0, 0, null, null),
   //Wall Killers After Surf Slip (step 1)
@@ -826,9 +827,9 @@ level_3.spriteSpawn = [
   new SpriteCreator(true, ledgeElevator, 'sprite', ledge, 200, 2700, null, null, 1, 0, 0, 0, 0, null, null),
   ////////////////////////////////////Borders///////////////////////////////////////////////
   //Top
-  new SpriteCreator(true, deathKillWall, 'tile', invsibileTile, 0, 0, 5000, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathKillWall, 'tile', invsibileTile, 0, 0, 5000, 50, 1, 0, 0, 0, 0, scFallingSpikes, null),
   //Bottom
-  new SpriteCreator(true, deathKillWall, 'tile', invsibileTile, 0, 2750, 5000, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathKillWall, 'tile', invsibileTile, 0, 2750, 5000, 50, 1, 0, 0, 0, 0, scFallingSpikes, null),
   //Right
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 4950, 50, 50, 2700, 1, 0, 0, 0, 0, null, null),
   //Left
@@ -849,7 +850,7 @@ level_3.spriteSpawn = [
   new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 2600, 1700, 50, 50, 1, 1000, 0, 0, 0, null, null),
   new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 2650, 1700, 50, 50, 1, 1000, 0, 0, 0, null, null),
   //Left Bottom Border
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 0, 1700, 50, 1050, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 0, 1700, 50, 1050, 1, 0, 0, 0, 0, scFallingSpikes, null),
   //Ball Kill
   new SpriteCreator(true, deathBallKill, 'tile', ball, 0, 1150, 50, 550, 1, 0, 0, 0, 0, null, null),
   // ////////////////////////////////////A Taste of Death////////////////////////////////////////////
@@ -904,11 +905,11 @@ level_3.spriteSpawn = [
   new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 500, 1000, 50, 50, 1, -1000, 0, 0, 0, null, null),
   // ////////////////////////////////////Bottom Path////////////////////////////////////////////
   //Traps and Help
-  new SpriteCreator(true, fallingSpikesRegularTwo, 'timer', fallingSpikesTwo, 100, 1800, 50, 50, 1, 200, 0, 500, 0, null, new timerCreator('loop', null, 1)),
-  new SpriteCreator(true, fallingSpikesRegularTwo, 'timer', fallingSpikesTwo, 100, 2000, 50, 50, 1, 200, 0, 500, 0, null, new timerCreator('loop', null, 1)),
-  new SpriteCreator(true, fallingSpikesRegularTwo, 'timer', fallingSpikesTwo, 100, 2200, 50, 50, 1, 200, 0, 500, 0, null, new timerCreator('loop', null, 1)),
-  new SpriteCreator(true, fallingSpikesRegularTwo, 'timer', fallingSpikesTwo, 100, 2400, 50, 50, 1, 200, 0, 500, 0, null, new timerCreator('loop', null, 1)),
-  new SpriteCreator(true, fallingSpikesRegularTwo, 'timer', fallingSpikesTwo, 100, 2600, 50, 50, 1, 200, 0, 500, 0, null, new timerCreator('loop', null, 1)),
+  new SpriteCreator(true, fallingSpikesRegularTwo, 'timer', fallingSpikesTwo, -50, 1800, 50, 50, 1, 350, 0, 550, 0, null, new timerCreator('loop', null, 1)),
+  new SpriteCreator(true, fallingSpikesRegularTwo, 'timer', fallingSpikesTwo, -50, 2000, 50, 50, 1, 350, 0, 550, 0, null, new timerCreator('loop', null, 1)),
+  new SpriteCreator(true, fallingSpikesRegularTwo, 'timer', fallingSpikesTwo, -50, 2200, 50, 50, 1, 350, 0, 550, 0, null, new timerCreator('loop', null, 1)),
+  new SpriteCreator(true, fallingSpikesRegularTwo, 'timer', fallingSpikesTwo, -50, 2400, 50, 50, 1, 350, 0, 550, 0, null, new timerCreator('loop', null, 1)),
+  new SpriteCreator(true, fallingSpikesRegularTwo, 'timer', fallingSpikesTwo, -50, 2600, 50, 50, 1, 350, 0, 550, 0, null, new timerCreator('loop', null, 1)),
   //Bottom Path Indicators
   new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 62.5, 1800, null, null, .5, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 62.5, 2000, null, null, .5, 0, 0, 0, 0, null, null),
@@ -917,29 +918,29 @@ level_3.spriteSpawn = [
   new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 62.5, 2600, null, null, .5, 0, 0, 0, 0, null, null),
   ////////////////////////////////////Falling Spikes//////////////////////////////////////////
   //Zero Phase - 2
-  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 4200, 100, 50, 50, 1, 0, 200, 0, 500, null, new timerCreator('loop', null, 1)),
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 4200, -50, 50, 50, 1, 0, 300, 0, 600, null, new timerCreator('loop', null, 1)),
   new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 4200, 62.5, null, null, .5, 0, 0, 0, 0, null, null),
   //Zero Phase
-  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 4070, 2700, 50, 50, 1, 0, -200, 0, -500, null, new timerCreator('loop', null, 1)),
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 4070, 2850, 50, 50, 1, 0, -300, 0, -600, null, new timerCreator('loop', null, 1)),
   new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 4070, 2737.5, null, null, .5, 0, 0, 0, 0, null, null),
   //You're Not Standing Up Top or Bottom
-  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 4010, 100, 50, 50, 1, 0, 200, 0, 500, null, new timerCreator('loop', null, 1)),
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 4010, -50, 50, 50, 1, 0, 300, 0, 600, null, new timerCreator('loop', null, 1)),
   new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 4010, 62.5, null, null, .5, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 4010, 2700, 50, 50, 1, 0, -200, 0, -500, null, new timerCreator('loop', null, 1)),
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 4010, 2850, 50, 50, 1, 0, -300, 0, -600, null, new timerCreator('loop', null, 1)),
   new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 4010, 2737.5, null, null, .5, 0, 0, 0, 0, null, null),
   //From Top and Bottom-First Phase
-  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 3400, 2700, 50, 50, 1, 0, -200, 0, -500, null, new timerCreator('loop', null, 1)),
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 3400, 2850, 50, 50, 1, 0, -300, 0, -600, null, new timerCreator('loop', null, 1)),
   new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 3400, 2737.5, null, null, .5, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 3500, 100, 50, 50, 1, 0, 200, 0, 500, null, new timerCreator('loop', null, 1)),
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 3500, -50, 50, 50, 1, 0, 300, 0, 600, null, new timerCreator('loop', null, 1)),
   new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 3500, 62.5, null, null, .5, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 3600, 2700, 50, 50, 1, 0, -200, 0, -500, null, new timerCreator('loop', null, 1)),
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 3600, 2850, 50, 50, 1, 0, -300, 0, -600, null, new timerCreator('loop', null, 1)),
   new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 3600, 2737.5, null, null, .5, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 3700, 100, 50, 50, 1, 0, 200, 0, 500, null, new timerCreator('loop', null, 1)),
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 3700, -50, 50, 50, 1, 0, 300, 0, 600, null, new timerCreator('loop', null, 1)),
   new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 3700, 62.5, null, null, .5, 0, 0, 0, 0, null, null),
   //Same X-1
-  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 3900, 100, 50, 50, 1, 0, 200, 0, 500, null, new timerCreator('loop', null, 1)),
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 3900, -50, 50, 50, 1, 0, 300, 0, 600, null, new timerCreator('loop', null, 1)),
   new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 3900, 62.5, null, null, .5, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 3900, 2700, 50, 50, 1, 0, -200, 0, -500, null, new timerCreator('loop', null, 1)),
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 3900, 2850, 50, 50, 1, 0, -300, 0, -600, null, new timerCreator('loop', null, 1)),
   new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 3900, 2737.5, null, null, .5, 0, 0, 0, 0, null, null),
 ];
 
@@ -993,7 +994,7 @@ level_4.playerPosition = [
 level_4.spriteSpawn = [
   /////////////////////////////////////Borders//////////////////////////////////////////////////////////
   //Top
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 50, 0, 6000, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 50, 0, 6000, 50, 1, 0, 0, 0, 0, scFallingSpikes, null),
   //Bottom
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 550, 850, 5450, 50, 1, 0, 0, 0, 0, null, null),
   //Left
@@ -1030,10 +1031,10 @@ level_4.spriteSpawn = [
   new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 1550, 62.5, null, null, .5, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 1650, 62.5, null, null, .5, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 1750, 62.5, null, null, .5, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 1450, 100, 50, 50, 1, 0, 0, 0, 700, null, new timerCreator('loop', null, 2.5)),
-  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 1550, 100, 50, 50, 1, 0, 0, 0, 700, null, new timerCreator('loop', null, 1)),
-  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 1650, 100, 50, 50, 1, 0, 0, 0, 700, null, new timerCreator('loop', null, 2)),
-  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 1750, 100, 50, 50, 1, 0, 0, 0, 700, null, new timerCreator('loop', null, 1.5)),
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 1450, -50, 50, 50, 1, 0, 0, 0, 800, null, new timerCreator('loop', null, 2.5)),
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 1550, -50, 50, 50, 1, 0, 0, 0, 800, null, new timerCreator('loop', null, 1)),
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 1650, -50, 50, 50, 1, 0, 0, 0, 800, null, new timerCreator('loop', null, 2)),
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 1750, -50, 50, 50, 1, 0, 0, 0, 800, null, new timerCreator('loop', null, 1.5)),
   //Kill These WallKillers WIth Your Gun Bounce Section
   new SpriteCreator(true, wallKiller, 'sprite', wallTile50, 1825, 300, null, null, 1, 0, 1000, 0, 0, null, null),
   new SpriteCreator(true, wallKiller, 'sprite', wallTile50, 1825, 800, null, null, 1, 0, -1000, 0, 0, null, null),
@@ -1049,9 +1050,9 @@ level_4.spriteSpawn = [
   new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 2000, 62.5, null, null, .5, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 2100, 62.5, null, null, .5, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 2200, 62.5, null, null, .5, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 2000, 100, 50, 50, 1, 0, 0, 0, 700, null, new timerCreator('loop', null, 2.5)),
-  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 2100, 100, 50, 50, 1, 0, 0, 0, 700, null, new timerCreator('loop', null, 1)),
-  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 2200, 100, 50, 50, 1, 0, 0, 0, 700, null, new timerCreator('loop', null, 2)),
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 2000, -50, 50, 50, 1, 0, 0, 0, 800, null, new timerCreator('loop', null, 2.5)),
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 2100, -50, 50, 50, 1, 0, 0, 0, 800, null, new timerCreator('loop', null, 1)),
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 2200, -50, 50, 50, 1, 0, 0, 0, 800, null, new timerCreator('loop', null, 2)),
   //////////////////////////////Fourth Pillar-2800X//////////////////////////////
   //Actual Pillar (Quasi Pillar!)
   new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 2800, 200, 50, 50, 1, 0, 1000, 0, 0, null, null),
@@ -1452,17 +1453,17 @@ level_8.spriteSpawn = [
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 1550, 0, 50, 2000, 1, 0, 0, 0, 0, null, null),
   //////////////////////////////Falling Spikes Intro//////////////////////////////
   //Hat
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 600, 2150, 950, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 600, 2100, 950, 100, 1, 0, 0, 0, 0, scFallingSpikes, null),
   //Trap 1
-  // new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 612.5, 2250, 50, 50, 1, 0, 200, 0, 500, null, new timerCreator('loop', null, .5)),
-  new SpriteCreator(true, fallingSpikesRegular, 'timer', 'particles', 612.5, 2215, 50, 50, 1, 0, 200, 0, 500, null, new timerCreator('loop', null, .5)),
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 612.5, 2150, 50, 50, 1, 0, 300, 0, 500, null, new timerCreator('loop', null, .5)),
+  // new SpriteCreator(true, fallingSpikesRegular, 'timer', 'particles', 612.5, 2215, 50, 50, 1, 0, 200, 0, 500, null, new timerCreator('loop', null, .5)),
   new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 612.5, 2212.5, null, null, .5, 0, 0, 0, 0, null, null),
   // //Trap 2
-  // new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 1000, 2250, 50, 50, 1, 0, 200, 0, 500, null, new timerCreator('loop', null, .5)),
-  // new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 1000, 2212.5, null, null, .5, 0, 0, 0, 0, null, null),
-  // //Trap 3
-  // new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 1387.5, 2250, 50, 50, 1, 0, 200, 0, 500, null, new timerCreator('loop', null, .5)),
-  // new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 1387.5, 2212.5, null, null, .5, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 1000, 2150, 50, 50, 1, 0, 300, 0, 500, null, new timerCreator('loop', null, .5)),
+  new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 1000, 2212.5, null, null, .5, 0, 0, 0, 0, null, null),
+  //Trap 3
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 1387.5, 2150, 50, 50, 1, 0, 300, 0, 500, null, new timerCreator('loop', null, .5)),
+  new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 1387.5, 2212.5, null, null, .5, 0, 0, 0, 0, null, null),
 ];
 
 //Flag
@@ -1483,7 +1484,7 @@ level_8.text = [
   new textCreator(true, 140, 750, "Press\nTo kill yourself\nIf you destroy the ball", fontNokia, 32),
   new textCreator(true, 200, 750, "R", fontBlock, 32),
   new textCreator(true, 140, 500, "Bullets are killed\noffscreen", fontNokia, 32),
-  new textCreator(true, 645, 2250, "The trap is just invisible\nIt's still there", fontNokia, 32),
+  new textCreator(true, 645, 2250, "The trap is still spawning\nDon't touch\nEven if you can't see", fontNokia, 32),
   new textCreator(true, 150, 2250, "Destroy deathWall with the ball\n\nBlock fallingSpikes with ball", fontNokia, 32),
 ];
 
