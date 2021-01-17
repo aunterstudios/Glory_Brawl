@@ -1157,7 +1157,7 @@ level_5.spriteSpawn = [
 level_5.text = [
   new textCreator(true, 200, 1000, "RED IS DEATH", fontNokia, 72),
   // new textCreator(true, 289.5, 4600, "W-Jump/Double-Jump\nA-Left\nS-Punch\nD-Right\nP-Pause/Controls\nO-Fullscreen", fontNokia, 32),
-  new textCreator(true, 289.5, 4600, "W-\nA-\nS-\nD-\nP-\n0-", fontBlock, 32),
+  new textCreator(true, 289.5, 4600, "W-\nA-\nS-\nD-\nP-\nO-", fontBlock, 32),
   new textCreator(true, 340, 4600, "Jump/Double-Jump\nLeft\nPunch\nRight\nPause/Controls\nFullscreen", fontNokia, 32),
   new textCreator(true, 1000, 4700, "We've been doing this\nfor a long time", fontNokia, 32),
   // new textCreator(true, 1000, 4700, "WE'VE BEEN DOING THIS A LONG TIME", fontBlock, 32),
@@ -1438,19 +1438,88 @@ level_8.spriteSpawn = [
   //Last Stable Ground
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 50, 900, 500, 50, 1, 0, 0, 0, 0, null, null),
   /////////////////////////////////Borders//////////////////////////////////////
-  //Middle Divider
+  //Right & End
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 1550, 0, 50, 2200, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, deathBallKill, 'tile', ball, 1500, 2200, 50, 250, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, deathBallKill, 'tile', ball, 1550, 2200, 50, 250, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, deathBallKill, 'tile', ball, 1500, 2200, 50, 250, 1, 0, 0, 0, 0, scLocalizedDestruction, null),
+  new SpriteCreator(true, deathBallKill, 'tile', ball, 1550, 2200, 50, 250, 1, 0, 0, 0, 0, scLocalizedDestruction, null),
   //Bottom First Half
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 0, 2450, 1600, 50, 1, 0, 0, 0, 0, null, null),
   //Left
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 0, 0, 50, 2450, 1, 0, 0, 0, 0, null, null),
   ////////////////////////////////Ball/////////////////////////////////////////////
   new SpriteCreator(true, ballRegular, 'sprite', ball, 950, 550, 50, 50, 1, 0, 0, 0, 0, null, null),
-  new SpriteCreator(true, ballRegular, 'sprite', ball, 550, 2300, 50, 50, 1, 0, 0, 0, 0, null, null),
+  // new SpriteCreator(true, ballRegular, 'sprite', ball, 550, 2300, 50, 50, 1, 0, 0, 0, 0, null, null),
   ///////////////////////////////Prevent First Half Cheese/////////////////////////
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 1550, 0, 50, 2000, 1, 0, 0, 0, 0, null, null),
+  ///////////////////////////////Main Middle Obstacles////////////////////////////
+  //Base 50-50 Blocks
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 400, 1600, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 1009.6, 1388.7, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 600, 1200, 50, 50, 1, 0, 0, 0, 0, null, null),
+  //
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 850, 800, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 1250, 900, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 300, 1400, 50, 50, 1, 0, 0, 0, 0, null, null),
+  //
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 500, 1444.8, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 1009.6, 1388.7, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 1200, 1200, 50, 50, 1, 0, 0, 0, 0, null, null),
+  //
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 1050, 1261, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 530, 1900, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 1058, 1625, 50, 50, 1, 0, 0, 0, 0, null, null),
+  //
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 826, 1766, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 861, 1485, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 765, 1521, 50, 50, 1, 0, 0, 0, 0, null, null),
+  //
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 525, 1742, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 543, 1346, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 1180, 1322, 50, 50, 1, 0, 0, 0, 0, null, null),
+  //
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 696, 1877, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 553, 1640, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 923, 1319, 50, 50, 1, 0, 0, 0, 0, null, null),
+  //
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 200, 1000, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 1264, 750, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 942, 1173, 50, 50, 1, 0, 0, 0, 0, null, null),
+  //
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 157, 1319, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 215, 1589, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 1379, 1054, 50, 50, 1, 0, 0, 0, 0, null, null),
+  //50x-150/200y Blocks
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 1400, 1600, 50, 150, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 800, 1200, 50, 200, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 639, 1586.5, 50, 200, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 1200, 1400, 50, 200, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 500, 1025, 50, 150, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 686.6, 876.9, 50, 200, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 665, 1376, 50, 150, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 401, 1284, 50, 150, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 1221, 1762, 50, 150, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 1030, 1900, 50, 150, 1, 0, 0, 0, 0, null, null),
+  //150/200x-50y Blocks
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 800, 1000, 200, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 200, 1172, 150, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 210, 1820, 200, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 800, 1600, 150, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 1227.8, 1965, 150, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 1328, 1250, 200, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 140, 1658, 200, 50, 1, 0, 0, 0, 0, null, null),
+  //Stocky Boy Blocks 400x,50y
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 50, 1950.5, 400, 100, 1, 0, 0, 0, 0, null, null),
+  //Boxes
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 985, 1782.6, 100, 100, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 720, 1950, 100, 100, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 50, 1450, 100, 100, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 1450, 1100, 100, 100, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 1450, 1400, 100, 100, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 1102, 996, 100, 100, 1, 0, 0, 0, 0, null, null),
+  //Twin Primes
+  // //Moving tiles
+  // new SpriteCreator(true, groundRegularMove, 'tile', gMovingTile, 700, 1700, 50, 50, 1, 1000, 0, 0, 0, null, null),
+  // new SpriteCreator(true, groundRegularMove, 'tile', gMovingTile, 900, 1000, 50, 200, 1, 1000, 0, 0, 0, null, null),
   //////////////////////////////Falling Spikes Intro//////////////////////////////
   //Hat
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 600, 2100, 950, 100, 1, 0, 0, 0, 0, scFallingSpikes, null),
@@ -1484,7 +1553,7 @@ level_8.text = [
   new textCreator(true, 140, 750, "Press\nTo kill yourself\nIf you destroy the ball", fontNokia, 32),
   new textCreator(true, 200, 750, "R", fontBlock, 32),
   new textCreator(true, 140, 500, "Bullets are killed\noffscreen", fontNokia, 32),
-  new textCreator(true, 645, 2250, "Even if the trap\ncan't be seen anymore\nit's still there", fontNokia, 32),
+  new textCreator(true, 645, 2250, "The trap is spawning\neven if it's unseen", fontNokia, 32),
   new textCreator(true, 150, 2250, "Destroy deathWall with the ball\n\nBlock fallingSpikes with ball", fontNokia, 32),
 ];
 

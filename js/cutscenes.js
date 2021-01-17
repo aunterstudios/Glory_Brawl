@@ -107,9 +107,11 @@ brawl.story.prototype = {
             //Line by Line
             var content = [
                 " ",
-                "It fills me with great pain",
-                "To say these words",
-                "But it is the only light available",
+                "When I think about it",
+                "I'm hit with a wave",
+                "of rage and sadness",
+                "but I must endure",
+                "for it is the only light available",
                 "GLORY BRAWL"
             ];
             // var text = new lineTextCreator(200, 250, 'Lucida Console', "#FF0000", 30, content, 120, 400, '#000000', 4)

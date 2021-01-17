@@ -249,14 +249,23 @@ brawl.startScreen.prototype = {
         //     "To tell stories and to fuck"
         // ];
 
+        // var content = [
+        //     "It's so hard to do anything",
+        //     "when the miasma of",
+        //     "depression and neuroticism",
+        //     "constantly eats your soul",
+        //     "but I saw a chance for salvation",
+        //     "the completion of this story",
+        //     "a chance for happiness"
+        // ];
+
         var content = [
-            "It's so hard to do anything",
-            "when the miasma of",
-            "depression and neuroticism",
-            "constantly eats your soul",
-            "but I saw a chance for salvation",
-            "the completion of this story",
-            "a chance for happiness"
+            "The almighty warrior",
+            "that suffers the miasma",
+            "of depression and neuroticism",
+            "finds the antidote",
+            "through the completion of this story",
+            "the start of his counter-attack",
         ];
 
 
@@ -286,9 +295,9 @@ brawl.startScreen.prototype = {
             //Direct Physics
             // this.game.state.start('game', true, false, 0, 0);
             //Beginning
-            // this.game.state.start('game', true, false, 7, 0);
+            this.game.state.start('game', true, false, 7, 0);
             //Levels
-            this.game.state.start('game', true, false, 8, 0);
+            // this.game.state.start('game', true, false, 8, 0);
             // this.game.state.start('game', true, false, 4, 1);
         }
     }
