@@ -1534,7 +1534,7 @@ level_8.spriteSpawn = [
   new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 1387.5, 2150, 50, 50, 1, 0, 300, 0, 500, null, new timerCreator('loop', null, .5)),
   new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 1387.5, 2212.5, null, null, .5, 0, 0, 0, 0, null, null),
   /////////////////////////////Enemies//////////////////////////
-  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 525, 2082, 50, 50, 1, 0, 0, 0, 0, null, null),
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 525, 2082, 50, 50, 1, 0, 0, 0, 0, null, null, 100),
   new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 417, 1537, 50, 50, 1, 0, 0, 0, 0, null, null),
   new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 1150, 1556, 50, 50, 1, 0, 0, 0, 0, null, null),
 
@@ -1560,8 +1560,8 @@ level_8.text = [
   new textCreator(true, 140, 500, "Bullets are killed\noffscreen", fontNokia, 32),
   new textCreator(true, 645, 2250, "The trap is spawning\neven if it's unseen", fontNokia, 32),
   new textCreator(true, 150, 2250, "Destroy deathWall with the ball\n\nBlock fallingSpikes with ball", fontNokia, 32),
-  new textCreator(true, 359, 1489, "Destroy deathWall with the ball\n\nBlock fallingSpikes with ball", fontNokia, 32),
-  new textCreator(true, 1076, 1493, "Destroy deathWall with the ball\n\nBlock fallingSpikes with ball", fontNokia, 32),
+  new textCreator(true, 359, 1489, "Evil Spirit", fontNokia, 32),
+  new textCreator(true, 1076, 1493, "Evil Spirit", fontNokia, 32),
 ];
 
 

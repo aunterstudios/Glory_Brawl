@@ -34,7 +34,7 @@ brawl.game.prototype.emitterFunction = function (sprite1, sprite2, killOrDestroy
     if (killOrDestroy === 'kill') {
         sprite1.kill();
     }
-    else {
+    else if (killOrDestroy === 'destroy') {
         sprite1.destroy();
     }
 };

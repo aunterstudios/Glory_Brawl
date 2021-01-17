@@ -13,12 +13,30 @@ brawl.game.prototype.weaponHandler = function (bullet, sprite) {
             sprite.body.stop();
         }
         else if (bullet.name === 'kill') {
-            if (sprite.generationType === 'timer') {
-                this.emitterFunction(sprite, null, 'kill');
+            /////////////////////////For Enemies With Life Spawn///////////////////////
+            if (sprite.lifeSpan) {
+                // console.log(sprite.lifeSpan);
+                sprite.lifeSpan -= bullet.powerOne;
+                this.emitterFunction(sprite, null, 'blood');
+                if (sprite.lifeSpan < 0) {
+                    if (sprite.generationType === 'timer') {
+                        this.emitterFunction(sprite, null, 'kill');
+                    }
+                    else {
+                        this.emitterFunction(sprite, null, 'destroy');
+        
+                    }
+                }
             }
+            ////////////////////////One Hit Kill//////////////////////////
             else {
-                this.emitterFunction(sprite, null, 'destroy');
-
+                if (sprite.generationType === 'timer') {
+                    this.emitterFunction(sprite, null, 'kill');
+                }
+                else {
+                    this.emitterFunction(sprite, null, 'destroy');
+    
+                }
             }
         }
         ////////////////////Directional Guns//////////////////
@@ -135,7 +153,7 @@ brawl.game.prototype.weaponHandler = function (bullet, sprite) {
 };
 //Let Weapon Fire Pass Through
 brawl.game.prototype.weaponProcess = function (weapon, ghost) {
-    if (ghost.name === wallCloud.name || ghost.name === wallCloudSuper.name|| ghost.name === deathGhost.name || ghost.groupName === groupFlag || ghost.name === wallLeftRight.name) {
+    if (ghost.name === wallCloud.name || ghost.name === wallCloudSuper.name || ghost.name === deathGhost.name || ghost.groupName === groupFlag || ghost.name === wallLeftRight.name) {
         return false;
     }
     else if (ghost.groupName === groupLedge && !ghost.phase) {

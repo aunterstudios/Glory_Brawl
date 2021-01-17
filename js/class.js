@@ -73,7 +73,7 @@ class groupArrayCreator {
 
 //Generates Sprite Placement (Physics)
 class SpriteCreator {
-  constructor(trigger, spriteType, generationType, art, x, y, widthX, widthY, scale, velocityX, velocityY, gravityX, gravityY, specialCondition, time) {
+  constructor(trigger, spriteType, generationType, art, x, y, widthX, widthY, scale, velocityX, velocityY, gravityX, gravityY, specialCondition, time, lifeSpan) {
     this.trigger = trigger;
     this.spriteType = spriteType;
     this.generationType = generationType;
@@ -89,6 +89,7 @@ class SpriteCreator {
     this.gravityY = gravityY;
     this.specialCondition = specialCondition;
     this.time = time;
+    this.lifeSpan = lifeSpan;
   }
 };
 

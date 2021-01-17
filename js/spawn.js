@@ -138,6 +138,10 @@ brawl.game.prototype.spriteGen = function (sprite, positionInArray) {
     // if (sprite.specialCondition) {
     //     this.spriteX.body.setSize(this.spriteX.width / 1.4, this.spriteX.height / 1.4, 20);
     // }
+    ////////////////////////////Enemy LifeSpan//////////////////////////
+    if (sprite.lifeSpan) {
+        this.spriteX.lifeSpan = sprite.lifeSpan;
+    }
     /////////////////////Worlds Bound Configuration////////////////////////
     if (groupCategory !== groupFallingSpikes) {
         this.spriteX.body.collideWorldBounds = true;
@@ -162,7 +166,7 @@ brawl.game.prototype.spriteGen = function (sprite, positionInArray) {
     if (groupCategory === groupInvisible) {
         this.spriteX.alpha = .3;
     }
-    if (sprite.spriteType.name === groundOneWayKillObject.name || sprite.spriteType.name === groundOneWayPlayer.name || sprite.spriteType.name === groundOneWayObject.name ) {
+    if (sprite.spriteType.name === groundOneWayKillObject.name || sprite.spriteType.name === groundOneWayPlayer.name || sprite.spriteType.name === groundOneWayObject.name) {
         this.spriteX.alpha = .4;
     }
     if (groupCategory === groupLedge) {

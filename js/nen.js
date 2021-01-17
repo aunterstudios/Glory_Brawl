@@ -69,7 +69,7 @@ var killGunSet = [
   new weaponCreator('pull', Phaser.Color.GREEN, 100, 1200, 200),//Weapon 1
   new weaponCreator('push', Phaser.Color.BLUE, 100, 1200, 8),//Weapon 2
   new weaponCreator('stop', Phaser.Color.VIOLET, 100, 1200),//Weapon 3
-  new weaponCreator('kill', Phaser.Color.RED, 100, 1200), //Weapon 4
+  new weaponCreator('kill', Phaser.Color.RED, 100, 1200, 10), //Weapon 4
 ];
 
 var onlyKillGunSet = [
