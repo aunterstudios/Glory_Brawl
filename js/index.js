@@ -1309,7 +1309,7 @@ var level_7 = new LevelCreator(
 );
 
 //Changing Background Color
-level_7.colorChange = new BackgroundColorChange(200, 255, 5);
+level_7.colorChange = new BackgroundColorChange(100, 254, 5);
 
 //Special Level Condition
 level_7.specialLevel = new TimerLevel('timed', 0, 5, 0, 5);
@@ -1417,7 +1417,7 @@ level_8.metroidvania = new MetroidvaniaCreator(
   6, //Room-Up-Index
   5, //Room-Down-Index
   5, //Room-Left-Index
-  5, //Room-Right-Index
+  9, //Room-Right-Index
 );
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
@@ -1425,7 +1425,7 @@ level_8.playerPosition = [
   new PlayerPositionCreator(200, 50),
   new PlayerPositionCreator(200, 300),
   new PlayerPositionCreator(100, 1925),
-  new PlayerPositionCreator(200, 300),
+  new PlayerPositionCreator(1450, 2350),
 ]
 
 //Sprite Generation
@@ -1561,11 +1561,122 @@ level_8.text = [
   new textCreator(true, 150, 2250, "Destroy deathWall with the ball\n\nBlock fallingSpikes with ball", fontNokia, 32),
   new textCreator(true, 359, 1489, "Evil Spirit", fontNokia, 32),
   new textCreator(true, 1076, 1493, "Evil Spirit", fontNokia, 32),
+  // new textCreator(true, 861, 910, "Ball is Kill", fontNokia, 32),
+];
+
+///////////////////////////////////////////Level 9(Sniper Mode)///////////////////////////////////////////////////////////
+var level_9 = new LevelCreator(
+  "[9]SniperV1", //Name of World
+  2650, //X-Size of World
+  1850, //Y-Size of World
+  "#ebffc3", //Background Color
+  true, //Out of Bounds Allowed
+  1, //Player Scale
+  portalNen, //Nen-System
+  basicGunSet, //Gun-Set
+  true, //Sideways Stick to Walls,
+  true, //Upsidedown Stick
+  .1, //X-Camera Lerp
+  1, //Y-Camera Lerp
+  fontNokia, //World Font Name
+);
+
+//Room-Switching
+level_9.metroidvania = new MetroidvaniaCreator(
+  5, //Room-Up-Index
+  5, //Room-Down-Index
+  8, //Room-Left-Index
+  5, //Room-Right-Index
+);
+
+//Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
+level_9.playerPosition = [
+  new PlayerPositionCreator(800, 200),
+  new PlayerPositionCreator(200, 300),
+  new PlayerPositionCreator(100, 200),
+  new PlayerPositionCreator(200, 300),
+]
+
+//Sprite Generation
+level_9.spriteSpawn = [
+  // ///////////////////////////////////Ledge Sprites////////////////////////////////////////////////////
+  // new SpriteCreator(true, ledgeSurf, 'sprite', ledge, 1300, 250, null, null, 1, 0, 0, 0, 0),
+  // new SpriteCreator(true, ledgeElevator, 'sprite', ledge, 1400, 750, null, null, 1, 0, 0, 0, 0),
+  // new SpriteCreator(true, ledgeBounce, 'sprite', ledge, 1500, 1250, null, null, 1, 0, 0, 0, 0),
+  /////////////////////////////////////Ground (Starting Point)///////////////////////////////////
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 0, 450, 1000, 50, 1, 0, 0, 0, 0),
+  ////////////////////////////////////Borders//////////////////////////////////
+  //Top
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 0, 0, 2650, 50, 1, 0, 0, 0, 0),
+  //Left
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 0, 500, 50, 1350, 1, 0, 0, 0, 0),
+  //Right (Mini)
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 2600, 0, 50, 500, 1, 0, 0, 0, 0),
+  ///////////////////////////////////The Ball//////////////////////////////////
+  // new SpriteCreator(true, ballRegular, 'sprite', ball, 3000, 250, 50, 50, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, ballRegular, 'sprite', ball, 2550, 250, 50, 50, 1, 0, 0, 0, 0),
+  ///////////////////////////////////Long Strip Ball///////////////////////////
+  //First Strip
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 1950, 500, 650, 50, 1, 0, 0, 0, 0),
+  //Holds Ledges and Enemies
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 2600, 500, 50, 1350, 1, 0, 0, 0, 0),
+  ///////////////////////////////////Snipers Nest//////////////////////////////
+  //Jump Off Point
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 750, 350, 50, 50, 1, 0, 0, 0, 0),
+  //Nest
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 1450, 50, 50, 250, 1, 0, 0, 0, 0),
+  //////////////////////////////////Pit of Destructible//////////////////////////////////////
+  ////////////Borders
+  //Left Border
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 1000, 400, 50, 700, 1, 0, 0, 0, 0),
+  //Right Border
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 1900, 400, 50, 600, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, deathBallKill, 'tile', ball, 1900, 1000, 50, 800, 1, 0, 0, 0, 0),
+  //Destroy w/ Ball
+  new SpriteCreator(true, deathBallKill, 'tile', ball, 1050, 1000, 850, 50, 1, 0, 0, 0, 0),
+  //Wall Snipers Below Pit
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 1174, 1400, 50, 250, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 1731, 1629, 50, 50, 1, 0, 0, 0, 0),
+  //Bottom of Pit
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 400, 1800, 2200, 50, 1, 0, 0, 0, 0),
+  //Enemies
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 2400, 600, 50, 50, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 2400, 700, 50, 50, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 2400, 800, 50, 50, 1, 0, 0, 0, 0),
+  //Bounce Ledge
+  new SpriteCreator(true, ledgeBounce, 'sprite', ledge, 2500, 610, null, null, 1, 0, 0, 0, 0),
+  //Safety Wall
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 350, 700, 50, 500, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 400, 1150, 100, 50, 1, 0, 0, 0, 0),
+  //Trap for Safety Wall
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 350, 1200, 50, 650, 1, 0, 0, 0, 0),
+  ///////////////////////////////////////BOTTOM GUARD DEATH BALL///////////////////////////////
+  new SpriteCreator(true, deathBallKill, 'tile', ball, 50, 800, 300, 50, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, deathBallKill, 'tile', ball, 50, 1000, 300, 50, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, deathBallKill, 'tile', ball, 50, 1200, 300, 50, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, deathBallKill, 'tile', ball, 50, 1400, 300, 50, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, deathBallKill, 'tile', ball, 50, 1600, 300, 50, 1, 0, 0, 0, 0),
+  // new SpriteCreator(true, deathBallKill, 'tile', ball, 50, 1800, 300, 50, 1, 0, 0, 0, 0),
+];
+
+//Flag
+level_9.flagSpawn = [
+  new flagCreator(2, true, flagRegular, flag, 1, 250, 400, 0, 0, 0, 0),
+];
+
+level_9.text = [
+  new textCreator(true, 300, 200, "Press\nto toggle Sniper Mode\n\nUse Sniper Mode\nto Scout and Snipe", fontNokia, 32),
+  new textCreator(true, 360, 190, "SHIFT", fontBlock, 32),
+  new textCreator(true, 300, 550, "WASD", fontBlock, 32),
+  new textCreator(true, 300, 600, "to move in Sniper Mode", fontNokia, 32),
+  new textCreator(true, 675, 200, "Bullets are not killed\noffscreen in Sniper Mode", fontNokia, 32),
+  new textCreator(true, 1350, 1200, "Grab the super bounce pad\nOne time use", fontNokia, 32),
+  new textCreator(true, 1400, 1500, "Ball kills evil spirits", fontNokia, 32),
 ];
 
 
 //////////////////////////////////////////Pushing All Levels Into World Array/////////////////////////////////////
-var levelCount = 8;
+var levelCount = 9;
 for (var i = 0; i <= levelCount; i++) {
   // worldClassLevels.push(eval("level_"+i));
   worldClassLevels.push(window["level_" + i]);

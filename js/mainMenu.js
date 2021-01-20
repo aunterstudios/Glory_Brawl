@@ -259,14 +259,36 @@ brawl.startScreen.prototype = {
         //     "a chance for happiness"
         // ];
 
+        // var content = [
+        //     "The almighty warrior",
+        //     "that suffers the miasma",
+        //     "of depression and neuroticism",
+        //     "finds the antidote",
+        //     "through the completion of this story",
+        //     "the start of his counter-attack",
+        // ];
+
+        // var content = [
+        //     "I've always been a warrior",
+        //     "fighting an epic battle of life and death",
+        //     "against the almighty and invincible evil",
+        //     "known as depression and neuroticism",
+        //     "I don't think I ever had a chance of winning",
+        //     "but I have one last gambit to play",
+        //     "the completion of this story"
+        // ];
+
         var content = [
-            "The almighty warrior",
-            "that suffers the miasma",
-            "of depression and neuroticism",
-            "finds the antidote",
-            "through the completion of this story",
-            "the start of his counter-attack",
+            "This is my prayer to myself",
+            "I am the bravest warrior",
+            "sworn to fight the almighty evil",
+            "known as depression and neuroticism",
+            "I don't think I ever had a chance of winning",
+            "But I will keep fighting",
+            "for I do have one last gambit to play",
+            "the completion of this story"
         ];
+
 
 
         var text = new lineTextCreator(400, 300, 'Courier New', "#ffffff", 30, content, 200, 200, "#000000", 10)
@@ -302,7 +324,7 @@ brawl.startScreen.prototype = {
             // this.game.state.start('game', true, false, 3, 0);
             // this.game.state.start('game', true, false, 4, 1);
             //Introduction Levels
-            this.game.state.start('game', true, false, 8, 0);
+            this.game.state.start('game', true, false, 9, 2);
         }
     }
 };
