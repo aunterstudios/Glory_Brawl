@@ -1584,7 +1584,7 @@ var level_9 = new LevelCreator(
 //Room-Switching
 level_9.metroidvania = new MetroidvaniaCreator(
   5, //Room-Up-Index
-  5, //Room-Down-Index
+  10, //Room-Down-Index
   8, //Room-Left-Index
   5, //Room-Right-Index
 );
@@ -1655,7 +1655,7 @@ level_9.spriteSpawn = [
   new SpriteCreator(true, deathBallKill, 'tile', ball, 50, 1000, 300, 50, 1, 0, 0, 0, 0),
   new SpriteCreator(true, deathBallKill, 'tile', ball, 50, 1200, 300, 50, 1, 0, 0, 0, 0),
   new SpriteCreator(true, deathBallKill, 'tile', ball, 50, 1400, 300, 50, 1, 0, 0, 0, 0),
-  new SpriteCreator(true, deathBallKill, 'tile', ball, 50, 1600, 300, 50, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, deathBallKill, 'tile', ball, 50, 1600, 300, 50, 1, 0, 0, 0, 0, scLocalizedDestruction),
   // new SpriteCreator(true, deathBallKill, 'tile', ball, 50, 1800, 300, 50, 1, 0, 0, 0, 0),
 ];
 
@@ -1670,13 +1670,75 @@ level_9.text = [
   new textCreator(true, 300, 550, "WASD", fontBlock, 32),
   new textCreator(true, 300, 600, "to move in Sniper Mode", fontNokia, 32),
   new textCreator(true, 675, 200, "Bullets are not killed\noffscreen in Sniper Mode", fontNokia, 32),
-  new textCreator(true, 1350, 1200, "Grab the super bounce pad\nOne time use", fontNokia, 32),
+  new textCreator(true, 1350, 1200, "Grab the bounce board\nOne time use", fontNokia, 32),
   new textCreator(true, 1400, 1500, "Ball kills evil spirits", fontNokia, 32),
+];
+
+///////////////////////////////////////////Level 9(Sniper Mode)///////////////////////////////////////////////////////////
+var level_10 = new LevelCreator(
+  "[10]SniperV2", //Name of World
+  4200, //X-Size of World
+  900, //Y-Size of World
+  "#d2e0fc", //Background Color
+  true, //Out of Bounds Allowed
+  1, //Player Scale
+  portalNen, //Nen-System
+  basicGunSet, //Gun-Set
+  true, //Sideways Stick to Walls,
+  true, //Upsidedown Stick
+  .1, //X-Camera Lerp
+  1, //Y-Camera Lerp
+  fontNokia, //World Font Name
+);
+
+//Room-Switching
+level_10.metroidvania = new MetroidvaniaCreator(
+  9, //Room-Up-Index
+  5, //Room-Down-Index
+  8, //Room-Left-Index
+  5, //Room-Right-Index
+);
+
+//Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
+level_10.playerPosition = [
+  new PlayerPositionCreator(200, 300),
+  new PlayerPositionCreator(200, 300),
+  new PlayerPositionCreator(100, 200),
+  new PlayerPositionCreator(200, 300),
+]
+
+//Sprite Generation
+level_10.spriteSpawn = [
+  ////////////////////////////Ground////////////////////////////////
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 0, 500, 1000, 400, 1, 0, 0, 0, 0),
+  ///////////////////////////Ledge Surfs///////////////////////////
+  new SpriteCreator(true, ledgeSurf, 'sprite', ledge, 3600, 700, null, null, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, ledgeSurf, 'sprite', ledge, 3600, 800, null, null, 1, 0, 0, 0, 0),
+  //////////////////////////End////////////////////////////////
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 3800, 850, 400, 100, 1, 0, 0, 0, 0),
+  /////////////////////////Borders/////////////////////////////
+  //Top
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 300, 0, 3900, 50, 1, 0, 0, 0, 0),
+  //Left
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 0, 0, 50, 500, 1, 0, 0, 0, 0),
+  ////////////////////////Lava////////////////////////////////
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 1000, 850, 2800, 50, 1, 0, 0, 0, 0),
+];
+
+//Flag
+level_10.flagSpawn = [
+
+];
+
+level_10.text = [
+  new textCreator(true, 300, 200, "Use the surf boards\nUseable for 4 seconds", fontNokia, 32),
+  new textCreator(true, 749.5, 200, "W-\nA-\nS-\nD-", fontBlock, 32),
+  new textCreator(true, 800, 200, "Jump-Off\nLeft\nDown\nRight", fontNokia, 32),
 ];
 
 
 //////////////////////////////////////////Pushing All Levels Into World Array/////////////////////////////////////
-var levelCount = 9;
+var levelCount = 10;
 for (var i = 0; i <= levelCount; i++) {
   // worldClassLevels.push(eval("level_"+i));
   worldClassLevels.push(window["level_" + i]);
