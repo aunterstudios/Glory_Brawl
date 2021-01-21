@@ -221,10 +221,6 @@ brawl.game.prototype.playerOut = function (player) {
     if (player.y <= 0) {
         this.game.state.restart(true, false, this.metroidvania.roomUpIndex, 1);
     }
-    //Down
-    else if (player.y >= this.yOfWorld) {
-        this.game.state.restart(true, false, this.metroidvania.roomDownIndex, 0);
-    }
     //Left
     else if (player.x <= 0) {
         this.game.state.restart(true, false, this.metroidvania.roomLeftIndex, 3);
@@ -232,6 +228,10 @@ brawl.game.prototype.playerOut = function (player) {
     //Right
     else if (player.x >= this.xOfWorld) {
         this.game.state.restart(true, false, this.metroidvania.roomRightIndex, 2);
+    }
+    //Down
+    else if (player.y >= this.yOfWorld) {
+        this.game.state.restart(true, false, this.metroidvania.roomDownIndex, 0);
     }
 
 };
