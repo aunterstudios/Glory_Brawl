@@ -1760,7 +1760,7 @@ level_11.metroidvania = new MetroidvaniaCreator(
   9, //Room-Up-Index
   5, //Room-Down-Index
   10, //Room-Left-Index
-  5, //Room-Right-Index
+  6, //Room-Right-Index
 );
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
@@ -1768,13 +1768,13 @@ level_11.playerPosition = [
   new PlayerPositionCreator(200, 100),
   new PlayerPositionCreator(200, 300),
   new PlayerPositionCreator(150, 210),
-  new PlayerPositionCreator(200, 200),
+  new PlayerPositionCreator(1550, 50),
 ]
 
 //Sprite Generation
 level_11.spriteSpawn = [
-  ////////////////////////////Ground////////////////////////////////
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 0, 300, 200, 50, 1, 0, 0, 0, 0),
+  //////////////////////////Ground////////////////////////////////
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 0, 300, 400, 50, 1, 0, 0, 0, 0),
   /////////////////////////Borders/////////////////////////////
   //Top
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 0, 0, 1400, 50, 1, 0, 0, 0, 0),
@@ -1782,15 +1782,24 @@ level_11.spriteSpawn = [
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 0, 850, 1600, 50, 1, 0, 0, 0, 0),
   //Left
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 0, 350, 50, 500, 1, 0, 0, 0, 0),
+  //Right
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 1550, 0, 50, 850, 1, 0, 0, 0, 0),
+  ////////////////////////Divider/////////////////////////
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 775, 50, 50, 700, 1, 0, 0, 0, 0),
+  ///////////////////////Ledge Elevator//////////////////
+  new SpriteCreator(true, ledgeElevator, 'sprite', ledge, 900, 100, null, null, 1, 0, 0, 0, 0),
 ];
 
 //Flag
 level_11.flagSpawn = [
-
+  new flagCreator(2, true, flagRegular, flag, 1, 250, 250, 0, 0, 0, 0),
 ];
 
 level_11.text = [
-
+  new textCreator(true, 475, 200, "Press\nfor slowMotion", fontNokia, 32),
+  new textCreator(true, 540, 200, "Q", fontBlock, 32),
+  new textCreator(true, 850, 200, "The elevator board\nFragile once used\n\n\nHold\nTo Push Down", fontNokia, 32),
+  new textCreator(true, 905, 325, "S", fontBlock, 32),
 ];
 
 
