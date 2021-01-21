@@ -596,7 +596,7 @@ level_2.metroidvania = new MetroidvaniaCreator(
   4, //Room-Up-Index
   3, //Room-Down-Index
   null, //Room-Left-Index
-  4, //Room-Right-Index
+  3, //Room-Right-Index
 );
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
@@ -1139,6 +1139,8 @@ level_5.playerPosition = [
 level_5.spriteSpawn = [
   ////////////////////////////////////Ground/////////////////////////////////////////////////////////////
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 0, 4950, 9000, 50, 1, 0, 0, 0, 0),
+  //Ground Stopper
+  // new SpriteCreator(true, groundRegular, 'tile', groundTile, 9500, 5050, 500, 50, 1, 0, 0, 0, 0),
   //////////////////////////////////////Borders//////////////////////////////////////////////////////////
   //Top
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 300, 0, 1000, 50, 1, 0, 0, 0, 0),
@@ -1592,8 +1594,8 @@ level_9.metroidvania = new MetroidvaniaCreator(
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_9.playerPosition = [
   new PlayerPositionCreator(800, 200),
-  new PlayerPositionCreator(200, 300),
-  new PlayerPositionCreator(100, 200),
+  new PlayerPositionCreator(200, 1750),
+  new PlayerPositionCreator(100, 400),
   new PlayerPositionCreator(200, 300),
 ]
 
@@ -1674,7 +1676,7 @@ level_9.text = [
   new textCreator(true, 1400, 1500, "Ball kills evil spirits", fontNokia, 32),
 ];
 
-///////////////////////////////////////////Level 9(Sniper Mode)///////////////////////////////////////////////////////////
+///////////////////////////////////////////Level 10(Sniper ModeV2)///////////////////////////////////////////////////////////
 var level_10 = new LevelCreator(
   "[10]SniperV2", //Name of World
   4200, //X-Size of World
@@ -1696,15 +1698,15 @@ level_10.metroidvania = new MetroidvaniaCreator(
   9, //Room-Up-Index
   5, //Room-Down-Index
   8, //Room-Left-Index
-  5, //Room-Right-Index
+  11, //Room-Right-Index
 );
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_10.playerPosition = [
-  new PlayerPositionCreator(200, 300),
+  new PlayerPositionCreator(200, 100),
   new PlayerPositionCreator(200, 300),
   new PlayerPositionCreator(100, 200),
-  new PlayerPositionCreator(200, 300),
+  new PlayerPositionCreator(4017, 750),
 ]
 
 //Sprite Generation
@@ -1727,7 +1729,7 @@ level_10.spriteSpawn = [
 
 //Flag
 level_10.flagSpawn = [
-
+  new flagCreator(0, true, flagRegular, flag, 1, 350, 450, 0, 0, 0, 0),
 ];
 
 level_10.text = [
@@ -1736,9 +1738,64 @@ level_10.text = [
   new textCreator(true, 800, 200, "Jump-Off\nLeft\nDown\nRight", fontNokia, 32),
 ];
 
+///////////////////////////////////////////Level 11(SlowMotion Elevator)///////////////////////////////////////////////////////////
+var level_11 = new LevelCreator(
+  "[11]SlowMotion", //Name of World
+  1600, //X-Size of World
+  900, //Y-Size of World
+  "#d2e0fc", //Background Color
+  true, //Out of Bounds Allowed
+  1, //Player Scale
+  portalNen, //Nen-System
+  basicGunSet, //Gun-Set
+  true, //Sideways Stick to Walls,
+  true, //Upsidedown Stick
+  .1, //X-Camera Lerp
+  1, //Y-Camera Lerp
+  fontNokia, //World Font Name
+);
+
+//Room-Switching
+level_11.metroidvania = new MetroidvaniaCreator(
+  9, //Room-Up-Index
+  5, //Room-Down-Index
+  10, //Room-Left-Index
+  5, //Room-Right-Index
+);
+
+//Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
+level_11.playerPosition = [
+  new PlayerPositionCreator(200, 100),
+  new PlayerPositionCreator(200, 300),
+  new PlayerPositionCreator(150, 210),
+  new PlayerPositionCreator(200, 200),
+]
+
+//Sprite Generation
+level_11.spriteSpawn = [
+  ////////////////////////////Ground////////////////////////////////
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 0, 300, 200, 50, 1, 0, 0, 0, 0),
+  /////////////////////////Borders/////////////////////////////
+  //Top
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 0, 0, 1400, 50, 1, 0, 0, 0, 0),
+  //Bottom
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 0, 850, 1600, 50, 1, 0, 0, 0, 0),
+  //Left
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 0, 350, 50, 500, 1, 0, 0, 0, 0),
+];
+
+//Flag
+level_11.flagSpawn = [
+
+];
+
+level_11.text = [
+
+];
+
 
 //////////////////////////////////////////Pushing All Levels Into World Array/////////////////////////////////////
-var levelCount = 10;
+var levelCount = 11;
 for (var i = 0; i <= levelCount; i++) {
   // worldClassLevels.push(eval("level_"+i));
   worldClassLevels.push(window["level_" + i]);
