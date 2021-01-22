@@ -1579,7 +1579,7 @@ var level_9 = new LevelCreator(
   true, //Sideways Stick to Walls,
   true, //Upsidedown Stick
   .1, //X-Camera Lerp
-  1, //Y-Camera Lerp
+  1, //Y-Camera Lerps
   fontNokia, //World Font Name
 );
 
@@ -1811,7 +1811,7 @@ var level_12 = new LevelCreator(
   true, //Out of Bounds Allowed
   1, //Player Scale
   portalNen, //Nen-System
-  basicGunSet, //Gun-Set
+  strongGunSet, //Gun-Set
   true, //Sideways Stick to Walls,
   true, //Upsidedown Stick
   .1, //X-Camera Lerp
@@ -1845,6 +1845,8 @@ level_12.spriteSpawn = [
   //Mid
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 0, 900, 2800, 50, 1, 0, 0, 0, 0),
   //Top
+  ///////////////////////Wall/////////////////////////////
+    new SpriteCreator(true, wallRegular, 'tile', wallTile50, 2000, 2400, 300, 50, 1, 0, 0, 0, 0),
 ];
 
 //Flag

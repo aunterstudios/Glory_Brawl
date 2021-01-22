@@ -56,6 +56,14 @@ var basicGunSet = [
   null, //Weapon 4
 ];
 
+var strongGunSet = [
+  //Name, Tint, FireRate, Speed, Power 1
+  new weaponCreator('pull', Phaser.Color.GREEN, 100, 1200, 500),//Weapon 1
+  new weaponCreator('push', Phaser.Color.BLUE, 100, 1200, 4),//Weapon 2
+  new weaponCreator('stop', Phaser.Color.VIOLET, 100, 1200),//Weapon 3
+  null, //Weapon 4
+];
+
 var noGunSet = [
   //Name, Tint, FireRate, Speed, Power 1
   null, //Weapon 1
