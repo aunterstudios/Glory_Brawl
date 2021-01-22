@@ -1757,7 +1757,7 @@ var level_11 = new LevelCreator(
 
 //Room-Switching
 level_11.metroidvania = new MetroidvaniaCreator(
-  9, //Room-Up-Index
+  12, //Room-Up-Index
   5, //Room-Down-Index
   10, //Room-Left-Index
   6, //Room-Right-Index
@@ -1784,7 +1784,7 @@ level_11.spriteSpawn = [
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 0, 350, 50, 500, 1, 0, 0, 0, 0),
   //Right
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 1550, 0, 50, 850, 1, 0, 0, 0, 0),
-  ////////////////////////Divider/////////////////////////
+  ////////////////////////Dividers/////////////////////////
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 775, 50, 50, 700, 1, 0, 0, 0, 0),
   ///////////////////////Ledge Elevator//////////////////
   new SpriteCreator(true, ledgeElevator, 'sprite', ledge, 900, 100, null, null, 1, 0, 0, 0, 0),
@@ -1802,9 +1802,64 @@ level_11.text = [
   new textCreator(true, 905, 325, "S", fontBlock, 32),
 ];
 
+///////////////////////////////////////////Level 12(Platform Surfing)///////////////////////////////////////////////////////////
+var level_12 = new LevelCreator(
+  "[12]PlatformSurfing", //Name of World
+  3200, //X-Size of World
+  2700, //Y-Size of World
+  "#d2e0fc", //Background Color
+  true, //Out of Bounds Allowed
+  1, //Player Scale
+  portalNen, //Nen-System
+  basicGunSet, //Gun-Set
+  true, //Sideways Stick to Walls,
+  true, //Upsidedown Stick
+  .1, //X-Camera Lerp
+  1, //Y-Camera Lerp
+  fontNokia, //World Font Name
+);
+
+//Room-Switching
+level_12.metroidvania = new MetroidvaniaCreator(
+  9, //Room-Up-Index
+  11, //Room-Down-Index
+  10, //Room-Left-Index
+  6, //Room-Right-Index
+);
+
+//Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
+level_12.playerPosition = [
+  new PlayerPositionCreator(200, 100),
+  new PlayerPositionCreator(3100, 2500),
+  new PlayerPositionCreator(150, 210),
+  new PlayerPositionCreator(1550, 50),
+]
+
+//Sprite Generation
+level_12.spriteSpawn = [
+  //////////////////////////Ground////////////////////////////////
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 3000, 2650, 400, 50, 1, 0, 0, 0, 0),
+  ////////////////////////Dividers/////////////////////////
+  //Bottom
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 400, 1800, 2800, 50, 1, 0, 0, 0, 0),
+  //Mid
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 0, 900, 2800, 50, 1, 0, 0, 0, 0),
+  //Top
+];
+
+//Flag
+level_12.flagSpawn = [
+
+];
+
+level_12.text = [
+
+];
+
+
 
 //////////////////////////////////////////Pushing All Levels Into World Array/////////////////////////////////////
-var levelCount = 11;
+var levelCount = 12;
 for (var i = 0; i <= levelCount; i++) {
   // worldClassLevels.push(eval("level_"+i));
   worldClassLevels.push(window["level_" + i]);
