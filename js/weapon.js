@@ -156,7 +156,10 @@ brawl.game.prototype.weaponProcess = function (weapon, ghost) {
     if (ghost.name === wallCloud.name || ghost.name === wallCloudSuper.name || ghost.name === deathGhost.name || ghost.groupName === groupFlag || ghost.name === wallLeftRight.name) {
         return false;
     }
-    else if (ghost.groupName === groupLedge && !ghost.phase) {
+    // else if (ghost.groupName === groupLedge && !ghost.phase) {
+    //     return false;
+    // }
+    else if (!ghost.phase) {
         return false;
     }
     else {

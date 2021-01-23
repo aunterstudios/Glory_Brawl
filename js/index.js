@@ -1830,7 +1830,7 @@ level_12.metroidvania = new MetroidvaniaCreator(
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_12.playerPosition = [
   new PlayerPositionCreator(200, 100),
-  new PlayerPositionCreator(3100, 2500),
+  new PlayerPositionCreator(2800, 2400),
   new PlayerPositionCreator(150, 210),
   new PlayerPositionCreator(1550, 50),
 ]
@@ -1839,6 +1839,9 @@ level_12.playerPosition = [
 level_12.spriteSpawn = [
   //////////////////////////Ground////////////////////////////////
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 3000, 2650, 400, 50, 1, 0, 0, 0, 0),
+  ////////////////////////Opening Pillars///////////////////////
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 2750, 2550, 50, 150, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 2500, 2550, 50, 150, 1, 0, 0, 0, 0),
   ////////////////////////Dividers/////////////////////////
   //Bottom
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 400, 1800, 2800, 50, 1, 0, 0, 0, 0),
@@ -1846,7 +1849,15 @@ level_12.spriteSpawn = [
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 0, 900, 2800, 50, 1, 0, 0, 0, 0),
   //Top
   ///////////////////////Wall/////////////////////////////
-    new SpriteCreator(true, wallRegular, 'tile', wallTile50, 2000, 2400, 300, 50, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, wallRegular, 'tile', wallTile50, 2000, 2400, 300, 50, 1, 0, 0, 0, 0),
+  ////////////////////////Border////////////////////////////
+  //Bottom
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 0, 2650, 2500, 50, 1, 0, 0, 0, 0),
+  //////////////////////First Section///////////////////////
+  //First Wall
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 1500, 1850, 50, 650, 1, 0, 0, 0, 0),
+  //Second Wall
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 800, 2100, 50, 550, 1, 0, 0, 0, 0),
 ];
 
 //Flag
@@ -1855,7 +1866,10 @@ level_12.flagSpawn = [
 ];
 
 level_12.text = [
-
+  new textCreator(true, 2450, 2250, "Jump and Shoot\nto platform surf", fontNokia, 32),
+  new textCreator(true, 1800, 2150, "Press\nto push down", fontNokia, 32),
+  new textCreator(true, 1860, 2145, "S", fontBlock, 32),
+  new textCreator(true, 1800, 2450, "Stick on the side", fontNokia, 32),
 ];
 
 

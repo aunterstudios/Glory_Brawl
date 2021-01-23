@@ -30,7 +30,10 @@ brawl.game.prototype.gdVsMovProcess = function (imb, mov) {
     if (imb.name === groundOneWayObject.name || imb.groupName === groupCollect) {
         return false;
     }
-    else if (!mov.phase && (imb.groupName === groupDeathMove || imb.groupName === groupGroundMove)) {
+    // else if (!mov.phase && (imb.groupName === groupDeathMove || imb.groupName === groupGroundMove)) {
+    //     return false;
+    // }
+    else if (!mov.phase) {
         return false;
     }
     else if (!mov.ghost) {
