@@ -187,7 +187,8 @@ brawl.game.prototype.playerLedge = function (player, ledge) {
     this.playerSlippery = nenHolder.playerSlippery;
     /////////////Collision Turned Off////////////
     ledge.phase = false;
-    ledge.alpha = .4;
+    // ledge.alpha = .4;
+    ledge.tint = Phaser.Color.WHITE;
     //////////Eleveator Ledges/////////
     if (ledge.name === ledgeElevator.name || ledge.name === 'ledgeElevatorActivate') {
         if (ledge.body.touching.up) {
