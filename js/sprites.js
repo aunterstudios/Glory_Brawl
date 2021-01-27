@@ -44,11 +44,10 @@ var groundKillWall = new spriteType(1, 'groundKillWall', 7019278.306799905, 100,
 var groundPhase = new spriteType(1, 'groundPhase', 12758247.409111453, 100, 0, true, 1000, 1); //Killed By Enemy BULLETS
 var groundActivation = new spriteType(1, 'groundActivation', 0xffff00, 100, 0, true, 1000, 1); //Triggers Movement in a Wall
 var groundOneWayObject = new spriteType(1, 'groundOneWayObject', 2499878.036284214, 100, 0, true, 1000, 1); //One Way (Objects Only)
-var groundOneWayPlayer = new spriteType(1, 'groundOneWayPlayer', 241917.63554178402, 100, 0, true, 1000, 1); //One Way (Players Only)
 var groundSlippery = new spriteType(1, 'groundSlippery', Phaser.Color.YELLOW, 100, 0, true, 1000, 1); //Makes you SLIPPERY!
 var groundOneWayPlayerBlockLeft = new spriteType(1, 'groundOneWayPlayerBlockLeft', 3588771.242333334, 100, 0, true, 1000, 1); //One way player only from the left
 var groundOneWayPlayerBlockDown = new spriteType(1, 'groundOneWayPlayerBlockDown', Phaser.Color.getRandomColor(10), 100, 0, true, 1000, 1); //One way player only from the Bottom
-var groundOneWayKillObject = new spriteType(1, 'groundOneWayKillObject', Phaser.Color.getRandomColor(10), 100, 0, true, 1000, 1); //One Way for Player But Kills Object
+var groundOneWayKillObject = new spriteType(1, 'groundOneWayKillObject', 241917.63554178402, 100, 0, true, 1000, 1); //One Way for Player But Kills Object
 var groundFirePunch = new spriteType(1, 'groundFirePunch', Phaser.Color.RED, 100, 0, true, 1000, 1); //Have to Punch to break it! Or Else it Kills You
 //Moveable Ground
 var groundRegularMove = new spriteType(11, 'groundRegularMove', Phaser.Color.GRAY, 100, 0, false, 1000, 1); //No Special Properties

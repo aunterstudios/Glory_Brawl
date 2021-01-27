@@ -488,9 +488,9 @@ level_1.spriteSpawn = [
   //Top Border
   new SpriteCreator(true, invisibleRegular, 'tile', invsibileTile, 50, 4800, 1500, 50, 1, 0, 0, 0, 0),
   //Bottom Border
-  // new SpriteCreator(true, groundOneWayPlayer, 'tile', groundTile, 50, 1950, 1300, 50, 1, 0, 0, 0, 0),
+  // new SpriteCreator(true, groundOneWayKillObject, 'tile', groundTile, 50, 1950, 1300, 50, 1, 0, 0, 0, 0),
   new SpriteCreator(true, invisibleRegular, 'tile', invsibileTile, 50, 6750, 1500, 50, 1, 0, 0, 0, 0),
-  new SpriteCreator(true, groundOneWayPlayer, 'tile', groundTile, 50, 7000, 1500, 50, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, groundOneWayKillObject, 'tile', groundTile, 50, 7000, 1500, 50, 1, 0, 0, 0, 0),
   ////////////////////////////////////////////////////Gymnastics///////////////////////////////////////////////
   //Ground
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 450, 7400, 700, 50, 1, 0, 0, 0, 0),
@@ -645,7 +645,7 @@ level_2.spriteSpawn = [
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 3650, 550, 50, 1750, 1, 0, 0, 0, 0),
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 3700, 2250, 350, 50, 1, 0, 0, 0, 0, scFallingSpikes),
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 4000, 2300, 50, 2400, 1, 0, 0, 0, 0),
-  new SpriteCreator(true, groundOneWayPlayer, 'tile', groundTile, 4000, 4700, 50, 250, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, groundOneWayKillObject, 'tile', groundTile, 4000, 4700, 50, 250, 1, 0, 0, 0, 0),
   //Surfs Up
   new SpriteCreator(true, ledgeSurf, 'sprite', ledge, 4000, 2200, 50, 50, 1, 0, 0, 0, 0),
   //Wall Killer 2
@@ -1069,7 +1069,7 @@ level_4.spriteSpawn = [
   ////////////////////////////Doom Trap of Spawning Enemies-5000X////////////////////////////////////
   //Da Borders For this
   new SpriteCreator(true, groundOneWayKillObject, 'tile', groundTile, 3000, 50, 50, 850, 1, 0, 0, 0, 0),
-  new SpriteCreator(true, groundOneWayPlayer, 'tile', groundTile, 5000, 50, 50, 850, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, groundOneWayKillObject, 'tile', groundTile, 5000, 50, 50, 850, 1, 0, 0, 0, 0),
   //Initial Boom! From the Wall
   new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 4975, 156.8, null, null, 1, 0, 0, 0, 0),
   new SpriteCreator(true, wallKiller, 'timer', wallTile50, 4975, 156.8, null, null, 1, -500, -700, 0, 0, null, new timerCreator('loop', null, 2.5)),
@@ -1850,12 +1850,15 @@ level_12.spriteSpawn = [
   //Top
   ///////////////////////Wall/////////////////////////////
   new SpriteCreator(true, wallRegular, 'tile', wallTile50, 2000, 2400, 300, 50, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, ledgeSurf, 'sprite', ledge, 1800, 2000, null, null, 1, 0, 0, 0, 0),
   ////////////////////////Border////////////////////////////
   //Bottom
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 0, 2650, 2500, 50, 1, 0, 0, 0, 0),
   //////////////////////First Section///////////////////////
   //First Wall
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 1500, 1850, 50, 650, 1, 0, 0, 0, 0),
+  // new SpriteCreator(true, deathRegular, 'tile', deathTile, 1500, 1850, 50, 650, 1, 0, 0, 0, 0),
+  //Test
+  new SpriteCreator(true, groundOneWayKillObject, 'tile', groundTile, 1500, 1850, 50, 650, 1, 0, 0, 0, 0),
   //Second Wall
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 800, 2100, 50, 550, 1, 0, 0, 0, 0),
 ];

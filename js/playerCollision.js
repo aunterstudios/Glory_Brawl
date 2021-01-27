@@ -264,7 +264,7 @@ brawl.game.prototype.playerHazama = function (player, hazama) {
 
 ///////////////////////////////////Player Process Collisions/////////////////////////////////////
 brawl.game.prototype.playerGroundProcess = function (player, ground) {
-    if (ground.name === groundOneWayPlayer.name || ground.name === groundOneWayKillObject.name) {
+    if (ground.name === groundOneWayKillObject.name) {
         return false;
     }
     // else if (ground.specialCondition) {

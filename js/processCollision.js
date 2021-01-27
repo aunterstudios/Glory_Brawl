@@ -33,9 +33,12 @@ brawl.game.prototype.gdVsMovProcess = function (imb, mov) {
     // else if (!mov.phase && (imb.groupName === groupDeathMove || imb.groupName === groupGroundMove)) {
     //     return false;
     // }
-    else if (!mov.phase && (mov.groupName !== groupLedge)) {
+    else if (!mov.phase && (mov.groupName !== groupLedge) && (imb.name !== groundOneWayKillObject.name)) {
         return false;
     }
+    // else if (!mov.phase && imb.name !== groundOneWayKillObject.name) {
+    //     return false;
+    // }
     else if (!mov.ghost) {
         return false;
     }
