@@ -1832,13 +1832,18 @@ level_12.playerPosition = [
   new PlayerPositionCreator(200, 100),
   new PlayerPositionCreator(2800, 2400),
   new PlayerPositionCreator(150, 210),
-  new PlayerPositionCreator(1550, 50),
+  new PlayerPositionCreator(2800, 1650),
 ]
 
 //Sprite Generation
 level_12.spriteSpawn = [
   //////////////////////////Ground////////////////////////////////
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 3000, 2650, 400, 50, 1, 0, 0, 0, 0),
+  //////////////////////////Borders//////////////////////////////
+  //Top
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 400, 0, 2750, 50, 1, 0, 0, 0, 0),
+  //Right
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 3150, 0, 50, 2650, 1, 0, 0, 0, 0),
   ////////////////////////Opening Pillars///////////////////////
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 2750, 2550, 50, 150, 1, 0, 0, 0, 0),
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 2500, 2550, 50, 150, 1, 0, 0, 0, 0),
@@ -1878,8 +1883,11 @@ level_12.spriteSpawn = [
   //
   new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 2600, 950, 50, 50, 1, 0, 700, 0, 800, null, new timerCreator('loop', null, .5)),
   new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 2600, 1012.5, null, null, .5, 0, 0, 0, 0),
-  ///////////////////////Wall/////////////////////////////
+  ///////////////////////Walls/////////////////////////////
+  //First Wall
   new SpriteCreator(true, wallRegular, 'tile', wallTile50, 2000, 2400, 300, 50, 1, 0, 0, 0, 0),
+  //Second Wall
+  new SpriteCreator(true, wallRegular, 'tile', wallTile50, 2950, 800, 300, 50, 1, 0, 0, 0, 0),
   ////////////////////////Border////////////////////////////
   //Bottom
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 0, 2650, 2500, 50, 1, 0, 0, 0, 0),
@@ -1890,16 +1898,29 @@ level_12.spriteSpawn = [
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 800, 2000, 50, 650, 1, 0, 0, 0, 0),
   /////////////////////End of Upside Down Section//////////////////////
   //Finish Line Kills Wall
-  new SpriteCreator(true, groundOneWayKillObject, 'tile', groundTile, 2700, 900, 50, 900, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, groundOneWayKillObject, 'tile', groundTile, 2700, 1000, 50, 800, 1, 0, 0, 0, 0),
   //Stagalite
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 1600, 1000, 50, 550, 1, 0, 0, 0, 0),
   //Last Death Wall with Falling Spikes
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 2200, 1000, 50, 450, 1, 0, 0, 0, 0),
+  /////////////////////Third Part//////////////////////////////
+  //Ground w/ Flag for Last Section
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 2750, 1750, 400, 50, 1, 0, 0, 0, 0),
+  //Moving Death Tiles
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 2400, 200, 50, 50, 1, 0, -1000, 0, 0),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 2400, 300, 50, 50, 1, 0, 1000, 0, 0),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 2400, 400, 50, 50, 1, 0, -1000, 0, 0),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 2400, 500, 50, 50, 1, 0, 1000, 0, 0),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 2400, 600, 50, 50, 1, 0, 1000, 0, 0),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 2400, 700, 50, 50, 1, 0, -1000, 0, 0),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 2400, 800, 50, 50, 1, 0, 1000, 0, 0),
+
 ];
 
 //Flag
 level_12.flagSpawn = [
   new flagCreator(1, true, flagRegular, flag, 1, 2900, 2600, 0, 0, 0, 0),
+  new flagCreator(3, true, flagRegular, flag, 1, 2900, 1700, 0, 0, 0, 0),
 ];
 
 level_12.text = [
