@@ -278,16 +278,25 @@ brawl.startScreen.prototype = {
         //     "the completion of this story"
         // ];
 
+        // var content = [
+        //     "This is my prayer to myself",
+        //     "I am the bravest warrior",
+        //     "sworn to fight the almighty evil",
+        //     "known as depression and neuroticism",
+        //     "I don't think I ever had a chance of winning",
+        //     "But I will keep fighting",
+        //     "for I do have one last gambit to play",
+        //     "the completion of this story"
+        // ];
+
         var content = [
-            "This is my prayer to myself",
-            "I am the bravest warrior",
-            "sworn to fight the almighty evil",
-            "known as depression and neuroticism",
-            "I don't think I ever had a chance of winning",
-            "But I will keep fighting",
-            "for I do have one last gambit to play",
-            "the completion of this story"
+            "A warrior is tasked with a duty",
+            "To slay the three great evils of his world",
+            "Obsessiveness, depression, and neuroticism",
+            "To accomplish this",
+            "He needs to complete this story"
         ];
+
 
 
 
