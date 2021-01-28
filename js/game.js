@@ -128,6 +128,7 @@ brawl.game.prototype = {
             this.text = this.game.add.bitmapText(0, 0, this.fontWorld, worldName, 32);
             this.text.fixedToCamera = true;
             this.text.cameraOffset.setTo(1350, 810);
+            // this.text.cameraOffset.setTo(1300, 810);
         }
         else {
             this.text = this.game.add.text(0, 0, worldName, { font: "20px Arial", fill: "#000000", align: "center" });
