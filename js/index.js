@@ -1938,7 +1938,7 @@ level_12.text = [
 var level_13 = new LevelCreator(
   "[13]ObjManipulation", //Name of World
   1600, //X-Size of World
-  900, //Y-Size of World
+  1800, //Y-Size of World
   "#E1FFE6", //Background Color
   true, //Out of Bounds Allowed
   1, //Player Scale
@@ -1954,15 +1954,15 @@ var level_13 = new LevelCreator(
 //Room-Switching
 level_13.metroidvania = new MetroidvaniaCreator(
   9, //Room-Up-Index
-  11, //Room-Down-Index
+  12, //Room-Down-Index
   10, //Room-Left-Index
   6, //Room-Right-Index
 );
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_13.playerPosition = [
-  new PlayerPositionCreator(200, 100),
-  new PlayerPositionCreator(200, 200),
+  new PlayerPositionCreator(200, 400),
+  new PlayerPositionCreator(500, 1600),
   new PlayerPositionCreator(150, 210),
   new PlayerPositionCreator(2800, 1650),
 ]
@@ -1970,28 +1970,66 @@ level_13.playerPosition = [
 //Sprite Generation
 level_13.spriteSpawn = [
   //////////////////////////Ground////////////////////////////////
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 0, 850, 400, 50, 1, 0, 0, 0, 0),
-  // /////////////////////Third Part//////////////////////////////
-  // //Ground w/ Flag for Last Section
-  // new SpriteCreator(true, groundRegular, 'tile', groundTile, 2750, 1750, 400, 50, 1, 0, 0, 0, 0),
-  // //Moving Death Tiles
-  // new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 2400, 200, 50, 50, 1, 0, -1000, 0, 0),
-  // new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 2400, 300, 50, 50, 1, 0, 1000, 0, 0),
-  // new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 2400, 400, 50, 50, 1, 0, -1000, 0, 0),
-  // new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 2400, 500, 50, 50, 1, 0, 1000, 0, 0),
-  // new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 2400, 600, 50, 50, 1, 0, 1000, 0, 0),
-  // new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 2400, 700, 50, 50, 1, 0, -1000, 0, 0),
-  // new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 2400, 800, 50, 50, 1, 0, 1000, 0, 0),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 0, 1750, 600, 50, 1, 0, 0, 0, 0),
+  ////////////////////////Borders///////////////////////////////////
+  //Left
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 0, 0, 50, 1750, 1, 0, 0, 0, 0),
+  //Top
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 50, 0, 1550, 50, 1, 0, 0, 0, 0),
+  //Bottom
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 825, 1750, 750, 50, 1, 0, 0, 0, 0),
+  //Right
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 1575, 0, 25, 1400, .5, 0, 0, 0, 0),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 1575, 1600, 25, 200, .5, 0, 0, 0, 0),
+  /////////////////////////Walls//////////////////////////////////
+  new SpriteCreator(true, wallRegular, 'tile', wallTile50, 400, 1400, 50, 300, 1, 0, 0, 0, 0),
+  ////////////////////////Moving Death Tiles Horizontal///////////////////////
+  //Horizontal
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 200, 900, 50, 50, 1, -1000, 0, 0, 0),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 300, 900, 50, 50, 1, 1000, 0, 0, 0),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 400, 900, 50, 50, 1, -1000, 0, 0, 0),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 500, 900, 50, 50, 1, 1000, 0, 0, 0),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 600, 900, 50, 50, 1, -1000, 0, 0, 0),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 700, 900, 50, 50, 1, 1000, 0, 0, 0),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 800, 900, 50, 50, 1, -1000, 0, 0, 0),
+  //Vertical
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 775, 200, 50, 50, 1, 0, 1000, 0, 0),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 775, 300, 50, 50, 1, 0, -1000, 0, 0),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 775, 400, 50, 50, 1, 0, 1000, 0, 0),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 775, 500, 50, 50, 1, 0, -1000, 0, 0),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 775, 600, 50, 50, 1, 0, 1000, 0, 0),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 775, 700, 50, 50, 1, 0, -1000, 0, 0),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 775, 800, 50, 50, 1, 0, 1000, 0, 0),
+  //Mixed The Fun part
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 900, 1200, 50, 50, 1, -1000, 1000, 0, 0),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 1000, 1300, 50, 50, 1, 1000, -1000, 0, 0),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 1100, 1200, 50, 50, 1, -1000, 1000, 0, 0),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 1200, 1300, 50, 50, 1, 1000, -1000, 0, 0),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 1300, 1200, 50, 50, 1, -1000, 1000, 0, 0),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 1400, 1300, 50, 50, 1, 1000, -1000, 0, 0),
+  new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 1500, 1200, 50, 50, 1, -1000, 1000, 0, 0),
+  //////////////////////////Mid Divider//////////////////////////
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 775, 900, 50, 900, 1, 0, 0, 0, 0),
+  /////////////////////////Invisible Divider For Last Part/////////////////////////////
+  new SpriteCreator(true, invisibleRegular, 'tile', invsibileTile, 825, 900, 750, 50, 1, 0, 0, 0, 0),
+  /////////////////////////Right Ground Barrier//////////////////////
+  //Ground
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 1400, 1575, 200, 25, .5, 0, 0, 0, 0),
+  //Barrier Left
+  new SpriteCreator(true, invisibleRegular, 'tile', invsibileTile, 1400, 1400, 25, 175, .5, 0, 0, 0, 0),
+  //Barrier Top
+  new SpriteCreator(true, invisibleRegular, 'tile', invsibileTile, 1425, 1400, 175, 25, .5, 0, 0, 0, 0),
 
 ];
 
 //Flag
 level_13.flagSpawn = [
-  // new flagCreator(3, true, flagRegular, flag, 1, 2900, 1700, 0, 0, 0, 0),
+  new flagCreator(1, true, flagRegular, flag, 1, 400, 1700, 0, 0, 0, 0),
 ];
 
 level_13.text = [
-  // new textCreator(true, 1800, 1250, "Press\nto push down", fontNokia, 32),
+  new textCreator(true, 550, 1400, "Fast climbable", fontNokia, 32),
+  new textCreator(true, 150, 1400, "Use the platform\nto block", fontNokia, 32),
 ];
 
 
