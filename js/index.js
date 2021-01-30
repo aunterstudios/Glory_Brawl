@@ -1925,6 +1925,7 @@ level_12.flagSpawn = [
 
 level_12.text = [
   new textCreator(true, 2450, 1350, "Jump and Shoot\nto platform surf", fontNokia, 32),
+  new textCreator(true, 2800, 1450, "Gun Strength Always\nSubject to Change", fontNokia, 32),
   new textCreator(true, 1800, 1250, "Press\nto push down", fontNokia, 32),
   new textCreator(true, 1860, 1245, "S", fontBlock, 32),
   new textCreator(true, 1800, 1350, "Stick on the side", fontNokia, 32),
@@ -1934,7 +1935,7 @@ level_12.text = [
   new textCreator(true, 1800, 250, "Destroyer Wall", fontNokia, 32),
 ];
 
-///////////////////////////////////////////Level 13(Platform Surfing v 2)///////////////////////////////////////////////////////////
+///////////////////////////////////////////Level 13(Obj Manipulation)///////////////////////////////////////////////////////////
 var level_13 = new LevelCreator(
   "[13]ObjManipulation", //Name of World
   1600, //X-Size of World
@@ -1956,7 +1957,7 @@ level_13.metroidvania = new MetroidvaniaCreator(
   9, //Room-Up-Index
   12, //Room-Down-Index
   10, //Room-Left-Index
-  6, //Room-Right-Index
+  14, //Room-Right-Index
 );
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
@@ -1964,7 +1965,7 @@ level_13.playerPosition = [
   new PlayerPositionCreator(200, 400),
   new PlayerPositionCreator(500, 1600),
   new PlayerPositionCreator(150, 210),
-  new PlayerPositionCreator(2800, 1650),
+  new PlayerPositionCreator(1550, 1450),
 ]
 
 //Sprite Generation
@@ -1982,7 +1983,7 @@ level_13.spriteSpawn = [
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 1575, 0, 25, 1400, .5, 0, 0, 0, 0),
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 1575, 1600, 25, 200, .5, 0, 0, 0, 0),
   /////////////////////////Walls//////////////////////////////////
-  new SpriteCreator(true, wallRegular, 'tile', wallTile50, 400, 1400, 50, 300, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, wallRegular, 'tile', wallTile50, 460, 1400, 50, 300, 1, 0, 0, 0, 0),
   ////////////////////////Moving Death Tiles Horizontal///////////////////////
   //Horizontal
   new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, 200, 900, 50, 50, 1, -1000, 0, 0, 0),
@@ -2019,7 +2020,6 @@ level_13.spriteSpawn = [
   new SpriteCreator(true, invisibleRegular, 'tile', invsibileTile, 1400, 1400, 25, 175, .5, 0, 0, 0, 0),
   //Barrier Top
   new SpriteCreator(true, invisibleRegular, 'tile', invsibileTile, 1425, 1400, 175, 25, .5, 0, 0, 0, 0),
-
 ];
 
 //Flag
@@ -2029,13 +2029,109 @@ level_13.flagSpawn = [
 
 level_13.text = [
   new textCreator(true, 550, 1400, "Fast climbable", fontNokia, 32),
-  new textCreator(true, 150, 1400, "Use the platform\nto block", fontNokia, 32),
+  new textCreator(true, 150, 1400, "Block with platform", fontNokia, 32),
+];
+
+///////////////////////////////////////////Level 14(ObjConversion)///////////////////////////////////////////////////////////
+var level_14 = new LevelCreator(
+  "[14]ObjConversion", //Name of World
+  2200, //X-Size of World
+  900, //Y-Size of World
+  "#E1FFE6", //Background Color
+  true, //Out of Bounds Allowed
+  1, //Player Scale
+  portalNen, //Nen-System
+  basicGunSet, //Gun-Set
+  true, //Sideways Stick to Walls,
+  true, //Upsidedown Stick
+  .1, //X-Camera Lerp
+  1, //Y-Camera Lerp
+  fontNokia, //World Font Name
+);
+
+//Room-Switching
+level_14.metroidvania = new MetroidvaniaCreator(
+  9, //Room-Up-Index
+  12, //Room-Down-Index
+  13, //Room-Left-Index
+  6, //Room-Right-Index
+);
+
+//Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
+level_14.playerPosition = [
+  new PlayerPositionCreator(200, 400),
+  new PlayerPositionCreator(500, 1600),
+  new PlayerPositionCreator(200, 400),
+  new PlayerPositionCreator(2800, 1650),
+]
+
+//Sprite Generation
+level_14.spriteSpawn = [
+  //////////////////////////Ground////////////////////////////////
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 0, 500, 500, 400, 1, 0, 0, 0, 0),
+  /////////////////////////Borders///////////////////////////////
+  //Bottom
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 500, 850, 1700, 50, 1, 0, 0, 0, 0, scFallingSpikes),
+  //Top
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 0, 0, 2200, 50, 1, 0, 0, 0, 0, scFallingSpikes),
+  /////////////////////////Top Traps///////////////////////////
+  //
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 1000, 0, 50, 50, 1, 0, 1500, 0, 1500, null, new timerCreator('loop', null, .3)),
+  new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 1000, 62.5, null, null, .5, 0, 0, 0, 0),
+  //
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 1200, 0, 50, 50, 1, 0, 1500, 0, 1500, null, new timerCreator('loop', null, .3)),
+  new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 1200, 62.5, null, null, .5, 0, 0, 0, 0),
+  //
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 1400, 0, 50, 50, 1, 0, 1500, 0, 1500, null, new timerCreator('loop', null, .3)),
+  new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 1400, 62.5, null, null, .5, 0, 0, 0, 0),
+  //
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 1600, 0, 50, 50, 1, 0, 1500, 0, 1500, null, new timerCreator('loop', null, .3)),
+  new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 1600, 62.5, null, null, .5, 0, 0, 0, 0),
+  //
+  //
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 1800, 0, 50, 50, 1, 0, 1500, 0, 1500, null, new timerCreator('loop', null, .3)),
+  new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 1800, 62.5, null, null, .5, 0, 0, 0, 0),
+  ////////////////////////Bottom Traps/////////////////////////
+  //
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 1000, 900, 50, 50, 1, 0, -1500, 0, -1500, null, new timerCreator('loop', null, .3)),
+  new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 1000, 837.5, null, null, .5, 0, 0, 0, 0),
+  //
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 1200, 900, 50, 50, 1, 0, -1500, 0, -1500, null, new timerCreator('loop', null, .3)),
+  new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 1200, 837.5, null, null, .5, 0, 0, 0, 0),
+  //
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 1400, 900, 50, 50, 1, 0, -1500, 0, -1500, null, new timerCreator('loop', null, .3)),
+  new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 1400, 837.5, null, null, .5, 0, 0, 0, 0),
+  //
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 1600, 900, 50, 50, 1, 0, -1500, 0, -1500, null, new timerCreator('loop', null, .3)),
+  new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 1600, 837.5, null, null, .5, 0, 0, 0, 0),
+  //
+  new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, 1800, 900, 50, 50, 1, 0, -1500, 0, -1500, null, new timerCreator('loop', null, .3)),
+  new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 1800, 837.5, null, null, .5, 0, 0, 0, 0),
+  //////////////////////Walls////////////////////////
+  new SpriteCreator(true, wallRegular, 'tile', wallTile50, 800, 600, 50, 300, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, wallRegular, 'tile', wallTile50, 800, 300, 300, 50, 1, 0, 0, 0, 0),
+  ////////////////////Enemies///////////////////
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 2000, 150, 50, 50, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 2000, 300, 50, 50, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 2000, 450, 50, 50, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 2000, 600, 50, 50, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 2000, 750, 50, 50, 1, 0, 0, 0, 0),
+
+];
+
+//Flag
+level_14.flagSpawn = [
+  new flagCreator(2, true, flagRegular, flag, 1, 400, 450, 0, 0, 0, 0),
+];
+
+level_14.text = [
+  new textCreator(true, 150, 200, "Turns enemies into platforms", fontNokia, 32),
 ];
 
 
 
 //////////////////////////////////////////Pushing All Levels Into World Array/////////////////////////////////////
-var levelCount = 13;
+var levelCount = 14;
 for (var i = 0; i <= levelCount; i++) {
   // worldClassLevels.push(eval("level_"+i));
   worldClassLevels.push(window["level_" + i]);
