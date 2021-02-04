@@ -204,6 +204,7 @@ brawl.game.prototype.gdVsInvisible = function (groundDeath, invisible) {
 brawl.game.prototype.wallVsMov = function (wall, mov) {
     ///////////////Actual Collision Physics/////////////
     // wall.body.stop();
+    // mov.body.stop();
     if (mov.groupName === groupEnemy) {
         mov.name = 'enemyWall';
         mov.nameSave = 'enemyWall';

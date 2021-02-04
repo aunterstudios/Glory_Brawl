@@ -36,11 +36,11 @@ var deathGhost = new spriteType(0, 'deathGhost', Phaser.Color.RED, 100, 0, true,
 var deathKillWall = new spriteType(0, 'deathKillWall', Phaser.Color.RED, 100, 0, true, 1000, 1); //Kills Moveable OBjects
 //Moveable Death Names
 var deathRegularMove = new spriteType(10, 'deathRegularMov', Phaser.Color.RED, 100, 0, false, 1000, 1); //This one is Moving
-var deathBallKillMove = new spriteType(10, 'deathBallKillMove', Phaser.Color.RED, 100, 0, true, 1000, 1); //Killable By Ball (Moving)
+var deathBallKillMove = new spriteType(10, 'deathBallKillMove', Phaser.Color.RED, 100, 0, false, 1000, 1); //Killable By Ball (Moving)
 
 //Ground
 var groundRegular = new spriteType(1, 'groundRegular', Phaser.Color.GRAY, 100, 0, true, 1000, 1); //No Special Properties
-var groundKillWall = new spriteType(1, 'groundKillWall', 7019278.306799905, 100, 0, true, 1000, 1); //Kills Moveable Objects
+var groundKillWall = new spriteType(1, 'groundKillWall', Phaser.Color.getRandomColor(10), 100, 0, true, 1000, 1); //Kills Moveable Objects
 var groundPhase = new spriteType(1, 'groundPhase', 12758247.409111453, 100, 0, true, 1000, 1); //Killed By Enemy BULLETS
 var groundActivation = new spriteType(1, 'groundActivation', 0xffff00, 100, 0, true, 1000, 1); //Triggers Movement in a Wall
 var groundOneWayObject = new spriteType(1, 'groundOneWayObject', 2499878.036284214, 100, 0, true, 1000, 1); //One Way (Objects Only)

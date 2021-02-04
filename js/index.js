@@ -2054,7 +2054,7 @@ level_14.metroidvania = new MetroidvaniaCreator(
   9, //Room-Up-Index
   12, //Room-Down-Index
   13, //Room-Left-Index
-  6, //Room-Right-Index
+  15, //Room-Right-Index
 );
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
@@ -2128,10 +2128,121 @@ level_14.text = [
   new textCreator(true, 150, 200, "Turns enemies into platforms", fontNokia, 32),
 ];
 
+///////////////////////////////////////////Level 15(Power-Up Descent)///////////////////////////////////////////////////////////
+var level_15 = new LevelCreator(
+  "[15]PowerUp", //Name of World
+  1600, //X-Size of World
+  6000, //Y-Size of World
+  "#E1FFE6", //Background Color
+  false, //Out of Bounds Allowed
+  1, //Player Scale
+  portalNen, //Nen-System
+  noGunSet, //Gun-Set
+  true, //Sideways Stick to Walls,
+  true, //Upsidedown Stick
+  .1, //X-Camera Lerp
+  1, //Y-Camera Lerp
+  fontNokia, //World Font Name
+);
+
+//Room-Switching
+level_15.metroidvania = new MetroidvaniaCreator(
+  9, //Room-Up-Index
+  12, //Room-Down-Index
+  13, //Room-Left-Index
+  6, //Room-Right-Index
+);
+
+//Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
+level_15.playerPosition = [
+  new PlayerPositionCreator(200, 400),
+  new PlayerPositionCreator(500, 1600),
+  new PlayerPositionCreator(800, 100),
+  new PlayerPositionCreator(2800, 1650),
+]
+
+//Sprite Generation
+level_15.spriteSpawn = [
+  //////////////////////////Ground////////////////////////////////
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 475, 200, 600, 50, 1, 0, 0, 0, 0),
+  /////////////////////////Gravity//////////////////////////
+  new SpriteCreator(true, powerWorldGravity, 'tile', powerJar, 750, 400, 50, 50, 1, 0, 0, 0, 0),
+  ////////////////////////Death////////////////////////////
+  new SpriteCreator(true, deathBallKill, 'tile', ball, 0, 700, 1600, 50, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 0, 5950, 1600, 50, 1, 0, 0, 0, 0),
+  ///////////////////////Ball/////////////////////////////
+  new SpriteCreator(true, ballRegular, 'tile', ball, 0, 800, 1600, 50, 1, 0, 0, 0, 0),
+
+];
+
+//Flag
+level_15.flagSpawn = [
+  new flagCreator(2, true, flagRegular, flag, 1, 700, 150, 0, 0, 0, 0),
+  // new flagCreator(2, true, flagRegular, flag, 1, 750, 840, 0, 0, 0, 0),
+  new flagCreator(0, true, flagRegular, flag, 1, 750, 840, 0, 0, 0, 0,
+    new shadowLevelGenerator(0, [
+      new shadowLevelArray(15, 16)
+    ])),
+];
+
+level_15.text = [
+];
+
+///////////////////////////////////////////Level 16(First Shadow Level)///////////////////////////////////////////////////////////
+var level_16 = new LevelCreator(
+  "RunGun", //Name of World
+  1600, //X-Size of World
+  3600, //Y-Size of World
+  "#FFFFFF", //Background Color
+  false, //Out of Bounds Allowed
+  1, //Player Scale
+  portalNen, //Nen-System
+  onlyKillGunSet, //Gun-Set
+  true, //Sideways Stick to Walls,
+  true, //Upsidedown Stick
+  .1, //X-Camera Lerp
+  1, //Y-Camera Lerp
+  fontGrind, //World Font Name
+);
+
+//Room-Switching
+level_16.metroidvania = new MetroidvaniaCreator(
+  9, //Room-Up-Index
+  12, //Room-Down-Index
+  13, //Room-Left-Index
+  6, //Room-Right-Index
+);
+
+//Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
+level_16.playerPosition = [
+  new PlayerPositionCreator(200, 400),
+  new PlayerPositionCreator(500, 1600),
+  new PlayerPositionCreator(800, 100),
+  new PlayerPositionCreator(2800, 1650),
+]
+
+//Sprite Generation
+level_16.spriteSpawn = [
+  //////////////////////////Ground////////////////////////////////
+  new SpriteCreator(true, groundKillWall, 'tile', groundTile, 0, 3550, 600, 50, 1, 0, 0, 0, 0),
+  /////////////////////////Test Object///////////////////////////
+  new SpriteCreator(true, ballRegular, 'tile', ball, 0, 500, 50, 50, 1, 0, 200, 0, 0),
+];
+
+//Flag
+level_16.flagSpawn = [
+
+];
+
+level_16.text = [
+];
+
+
+
 
 
 //////////////////////////////////////////Pushing All Levels Into World Array/////////////////////////////////////
-var levelCount = 14;
+var levelCount = 16;
 for (var i = 0; i <= levelCount; i++) {
   // worldClassLevels.push(eval("level_"+i));
   worldClassLevels.push(window["level_" + i]);

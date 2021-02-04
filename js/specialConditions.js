@@ -3,4 +3,4 @@ var scLocalizedDestruction = new specialConditionCreator('localizedDestruction')
 var scKillAll = new specialConditionCreator('killAll'); //Kill All Sprites to Advance to Next Level
 var scCollect = new specialConditionCreator('collect'); //Collect All Sprites to Advance to Next Level
 var scNoPhysics = new specialConditionCreator('noPhysics'); //Disables Physics of Sprite (Essesntially Just Becomes an Image)
-var scFallingSpikes = new specialConditionCreator("fallingSpikes");
+var scFallingSpikes = new specialConditionCreator("fallingSpikes"); //Allows Falling Spikes to Go Through Object

@@ -82,7 +82,7 @@ var killGunSet = [
 
 var onlyKillGunSet = [
   //Name, Tint, FireRate, Speed, Power 1
-  new weaponCreator('kill', Phaser.Color.RED, 50, 1500), //Weapon 1
+  new weaponCreator('kill', Phaser.Color.RED, 50, 1500, 10), //Weapon 1
   null, //Weapon 2
   null, //Weapon 3
   null, //Weapon 4
