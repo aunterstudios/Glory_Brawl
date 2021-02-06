@@ -289,14 +289,20 @@ brawl.startScreen.prototype = {
         //     "the completion of this story"
         // ];
 
-        var content = [
-            "A warrior is tasked with a duty",
-            "To slay the three great evils of his world",
-            "Obsessiveness, depression, and neuroticism",
-            "To accomplish this",
-            "He needs to complete this story"
-        ];
+        // var content = [
+        //     "A warrior is tasked with a duty",
+        //     "To slay the three great evils of his world",
+        //     "Obsessiveness, depression, and neuroticism",
+        //     "To accomplish this",
+        //     "He needs to complete this story"
+        // ];
 
+        var content = [
+            "Let it be known",
+            "that I waded through a fog of",
+            "obsessiveness, depression, and neuroticism",
+            "and still completed this story",
+        ];
 
 
 
@@ -333,7 +339,8 @@ brawl.startScreen.prototype = {
             // this.game.state.start('game', true, false, 3, 0);
             // this.game.state.start('game', true, false, 4, 1);
             //Working on these Levels
-            this.game.state.start('game', true, false, 16, 1);
+            // this.game.state.start('game', true, false, 16, 1);
+            this.game.state.start('game', true, false, 5, 0);
         }
     }
 };

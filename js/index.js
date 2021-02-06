@@ -2231,7 +2231,21 @@ level_16.spriteSpawn = [
 
 //Flag
 level_16.flagSpawn = [
-
+  //////////////////////////Ground////////////////////////////////
+  new SpriteCreator(true, groundKillWall, 'tile', groundTile, 0, 2650, 400, 50, 1, 0, 0, 0, 0),
+  /////////////////////////First Screen//////////////////////////
+  ////////Tree Wall///////
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 350, 2275, 50, 50, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 375, 2275, 50, 50, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 400, 2275, 50, 50, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 425, 2275, 50, 50, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 375, 2300, 50, 50, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 400, 2325, 50, 50, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 425, 2300, 50, 50, 1, 0, 0, 0, 0),
+  //Stem
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 413, 2375, 25, 300, .5, 0, 0, 0, 0),
+  /////////////////////////Test Object///////////////////////////
+  new SpriteCreator(true, ballRegular, 'tile', ball, 0, 500, 50, 50, 1, 0, 200, 0, 0),
 ];
 
 level_16.text = [
