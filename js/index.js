@@ -2190,11 +2190,11 @@ level_15.text = [
 
 ///////////////////////////////////////////Level 16(First Shadow Level)///////////////////////////////////////////////////////////
 var level_16 = new LevelCreator(
-  "RunGun", //Name of World
+  "[16]RunGun", //Name of World
   1600, //X-Size of World
-  3600, //Y-Size of World
+  2700, //Y-Size of World
   "#FFFFFF", //Background Color
-  false, //Out of Bounds Allowed
+  true, //Out of Bounds Allowed
   1, //Player Scale
   portalNen, //Nen-System
   onlyKillGunSet, //Gun-Set
@@ -2209,7 +2209,7 @@ var level_16 = new LevelCreator(
 level_16.metroidvania = new MetroidvaniaCreator(
   9, //Room-Up-Index
   12, //Room-Down-Index
-  13, //Room-Left-Index
+  5, //Room-Left-Index
   6, //Room-Right-Index
 );
 
@@ -2224,7 +2224,7 @@ level_16.playerPosition = [
 //Sprite Generation
 level_16.spriteSpawn = [
   //////////////////////////Ground////////////////////////////////
-  new SpriteCreator(true, groundKillWall, 'tile', groundTile, 0, 3550, 600, 50, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, groundKillWall, 'tile', groundTile, 0, 2650, 400, 50, 1, 0, 0, 0, 0),
   /////////////////////////Test Object///////////////////////////
   new SpriteCreator(true, ballRegular, 'tile', ball, 0, 500, 50, 50, 1, 0, 200, 0, 0),
 ];
