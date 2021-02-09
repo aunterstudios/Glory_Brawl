@@ -235,6 +235,13 @@ class BackgroundColorChange {
   }
 };
 
+class PlayerStatsText {
+  constructor(name, value) {
+    this.name = name;
+    this.value = value;
+  }
+}
+
 ////////////////////////////////////////////////Special Levels//////////////////////////////////////////////////////
 
 class SpecialLevels {

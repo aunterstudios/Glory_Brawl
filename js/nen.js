@@ -18,6 +18,20 @@ var portalNen = new nenCreator(
   10, //OverLap Bias
 );
 
+var tonedNen = new nenCreator(
+  400, //Speed
+  -500, //Jump
+  null, //Gravity-X
+  1500, //Gravity-Y
+  2, //Double Jump
+  500, //WallJump-X
+  500, //wallJump-Y
+  500, //Stiickiness
+  -25, //Wall Slide-Y
+  400, //Downwards-S
+  10, //OverLap Bias
+);
+
 var seanNen = new nenCreator(
   1000, //Speed
   -2000, //Jump
