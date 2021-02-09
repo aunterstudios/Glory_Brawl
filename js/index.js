@@ -2190,10 +2190,10 @@ level_15.text = [
 
 ///////////////////////////////////////////Level 16(First Shadow Level)///////////////////////////////////////////////////////////
 var level_16 = new LevelCreator(
-  "[16]RunGun", //Name of World
+  "[16]Run N'Gun", //Name of World
   1600, //X-Size of World
   2700, //Y-Size of World
-  "#FFFFFF", //Background Color
+  "#92C4EE", //Background Color
   true, //Out of Bounds Allowed
   1, //Player Scale
   portalNen, //Nen-System
@@ -2213,6 +2213,8 @@ level_16.metroidvania = new MetroidvaniaCreator(
   6, //Room-Right-Index
 );
 
+// level_16.colorChange = new BackgroundColorChange(175, 200, 255);
+
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_16.playerPosition = [
   new PlayerPositionCreator(200, 400),
@@ -2223,29 +2225,92 @@ level_16.playerPosition = [
 
 //Sprite Generation
 level_16.spriteSpawn = [
-  //////////////////////////Ground////////////////////////////////
-  new SpriteCreator(true, groundKillWall, 'tile', groundTile, 0, 2650, 400, 50, 1, 0, 0, 0, 0),
-  /////////////////////////Test Object///////////////////////////
-  new SpriteCreator(true, ballRegular, 'tile', ball, 0, 500, 50, 50, 1, 0, 200, 0, 0),
+  // //////////////////////////Ground////////////////////////////////
+  // new SpriteCreator(true, groundKillWall, 'tile', groundTile, 0, 2650, 400, 50, 1, 0, 0, 0, 0),
+  // /////////////////////////First Screen//////////////////////////
+  // ////////Tree Wall///////
+  // new SpriteCreator(true, groundRegular, 'tile', groundTile, 350, 2275, 50, 50, 1, 0, 0, 0, 0),
+  // new SpriteCreator(true, groundRegular, 'tile', groundTile, 375, 2275, 50, 50, 1, 0, 0, 0, 0),
+  // new SpriteCreator(true, groundRegular, 'tile', groundTile, 400, 2275, 50, 50, 1, 0, 0, 0, 0),
+  // new SpriteCreator(true, groundRegular, 'tile', groundTile, 425, 2275, 50, 50, 1, 0, 0, 0, 0),
+  // new SpriteCreator(true, groundRegular, 'tile', groundTile, 450, 2275, 50, 50, 1, 0, 0, 0, 0),
+  // new SpriteCreator(true, groundRegular, 'tile', groundTile, 375, 2300, 50, 50, 1, 0, 0, 0, 0),
+  // new SpriteCreator(true, groundRegular, 'tile', groundTile, 425, 2300, 50, 50, 1, 0, 0, 0, 0),
+  // new SpriteCreator(true, groundRegular, 'tile', groundTile, 400, 2325, 50, 50, 1, 0, 0, 0, 0),
+  // //Stem
+  // new SpriteCreator(true, groundRegular, 'tile', groundTile, 413, 2375, 25, 300, .5, 0, 0, 0, 0),
+  // //Mound
+  // new SpriteCreator(true, deathRegular, 'tile', deathTile, 350, 2632, 50, 50, .5, 0, 0, 0, 0),
+  // new SpriteCreator(true, deathRegular, 'tile', deathTile, 398, 2612, 50, 50, .5, 0, 0, 0, 0),
+  // new SpriteCreator(true, deathRegular, 'tile', deathTile, 434, 2634, 50, 50, .5, 0, 0, 0, 0),
+  // new SpriteCreator(true, deathRegular, 'tile', deathTile, 479, 2608, 50, 50, .5, 0, 0, 0, 0),
+  // new SpriteCreator(true, deathRegular, 'tile', deathTile, 466, 2660, 50, 50, .5, 0, 0, 0, 0),
+  // /////////Jungle Gym Set True///////
+  // //
+  // new SpriteCreator(true, groundRegular, 'tile', groundTile, 600, 1800, 50, 50, 1, 0, 0, 0, 0),
+  // new SpriteCreator(true, deathRegular, 'tile', deathTile, 650, 1825, 50, 50, 1, 0, 0, 0, 0),
+  // //
+  // new SpriteCreator(true, groundRegular, 'tile', groundTile, 700, 1850, 50, 50, 1, 0, 0, 0, 0),
+  // new SpriteCreator(true, deathRegular, 'tile', deathTile, 750, 1875, 50, 50, 1, 0, 0, 0, 0),
+  // //
+  // new SpriteCreator(true, groundRegular, 'tile', groundTile, 800, 1900, 50, 50, 1, 0, 0, 0, 0),
+  // new SpriteCreator(true, deathRegular, 'tile', deathTile, 850, 1925, 50, 50, 1, 0, 0, 0, 0),
+  // //
+  // new SpriteCreator(true, groundRegular, 'tile', groundTile, 900, 1950, 50, 50, 1, 0, 0, 0, 0),
+  // new SpriteCreator(true, deathRegular, 'tile', deathTile, 950, 1975, 50, 50, 1, 0, 0, 0, 0),
+  // //
+  // new SpriteCreator(true, groundRegular, 'tile', groundTile, 1000, 2000, 50, 50, 1, 0, 0, 0, 0),
+  // new SpriteCreator(true, deathRegular, 'tile', deathTile, 1050, 2025, 50, 50, 1, 0, 0, 0, 0),
+  // //
+  // new SpriteCreator(true, groundRegular, 'tile', groundTile, 1100, 2050, 50, 50, 1, 0, 0, 0, 0),
+  // new SpriteCreator(true, deathRegular, 'tile', deathTile, 1150, 2075, 50, 50, 1, 0, 0, 0, 0),
+  // //
+  // new SpriteCreator(true, groundRegular, 'tile', groundTile, 1200, 2100, 50, 50, 1, 0, 0, 0, 0),
+  // new SpriteCreator(true, deathRegular, 'tile', deathTile, 1250, 2125, 50, 50, 1, 0, 0, 0, 0),
+  // //
+  // new SpriteCreator(true, groundRegular, 'tile', groundTile, 1300, 2100, 50, 50, 1, 0, 0, 0, 0),
+  // new SpriteCreator(true, deathRegular, 'tile', deathTile, 1350, 2125, 50, 50, 1, 0, 0, 0, 0),
+  // //
+  // new SpriteCreator(true, groundRegular, 'tile', groundTile, 1400, 2100, 50, 50, 1, 0, 0, 0, 0),
+  // new SpriteCreator(true, deathRegular, 'tile', deathTile, 1450, 2125, 50, 50, 1, 0, 0, 0, 0),
+  // //
+  // new SpriteCreator(true, groundRegular, 'tile', groundTile, 1500, 2100, 50, 50, 1, 0, 0, 0, 0),
+  // new SpriteCreator(true, deathRegular, 'tile', deathTile, 1550, 2125, 50, 50, 1, 0, 0, 0, 0),
+  // //////////Elevator////////////
+  // new SpriteCreator(true, ledgeElevator, 'sprite', ledge, 1450, 2600, null, null, 1, 0, 0, 0, 0),
+  // ////////Bounce Pad///////////
+  // new SpriteCreator(true, ledgeBounce, 'sprite', ledge, 1450, 2000, null, null, 1, 0, 0, 0, 0),
+  // ////////Landing Zone for Bounce Pad////////////
+  // new SpriteCreator(true, groundRegular, 'tile', groundTile, 200, 1500, 50, 50, 1, 0, 0, 0, 0),
+  // /////////////////////////Test Object///////////////////////////
+  // new SpriteCreator(true, ballRegular, 'tile', ball, 0, 500, 50, 50, 1, 0, 200, 0, 0),
+  ///////////////////////////Starting Position//////////////////////
+  //B
+  new SpriteCreator(true, groundKillWall, 'tile', groundTile, 0, 2650, 150, 50, .7, 0, 0, 0, 0),
+  //First Hump
+  new SpriteCreator(true, groundKillWall, 'tile', groundTile, 100, 2620, 50, 50, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, groundKillWall, 'tile', groundTile, 125, 2580, 50, 50, .5, 0, 0, 0, 0),
+  //Down Hump
+  new SpriteCreator(true, groundKillWall, 'tile', groundTile, 175, 2630, 50, 50, .9, 0, 0, 0, 0),
+  new SpriteCreator(true, groundKillWall, 'tile', groundTile, 125, 2580, 50, 50, .5, 0, 0, 0, 0),
+  new SpriteCreator(true, groundKillWall, 'tile', groundTile, 225, 2580, 50, 50, 1, 0, 0, 0, 0),
+  //Wavy Humps
+  new SpriteCreator(true, groundKillWall, 'tile', groundTile, 250, 2605, 50, 50, .5, 0, 0, 0, 0),
+  new SpriteCreator(true, groundKillWall, 'tile', groundTile, 300, 2555, 50, 50, 1, 0, 0, 0, 0),
+  //First Death Mound
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 350, 2605, 50, 50, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 375, 2630, 50, 50, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 425, 2680, 50, 50, .5, 0, 0, 0, 0),
+  //Tree
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 475, 2400, 25, 250, .5, 0, 0, 0, 0),
+  //Test
+  new SpriteCreator(true, ledgeSurf, 'sprite', ledge, 500, 2500, null, null, 1, 0, 0, 0, 0),
+
 ];
 
 //Flag
 level_16.flagSpawn = [
-  //////////////////////////Ground////////////////////////////////
-  new SpriteCreator(true, groundKillWall, 'tile', groundTile, 0, 2650, 400, 50, 1, 0, 0, 0, 0),
-  /////////////////////////First Screen//////////////////////////
-  ////////Tree Wall///////
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 350, 2275, 50, 50, 1, 0, 0, 0, 0),
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 375, 2275, 50, 50, 1, 0, 0, 0, 0),
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 400, 2275, 50, 50, 1, 0, 0, 0, 0),
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 425, 2275, 50, 50, 1, 0, 0, 0, 0),
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 375, 2300, 50, 50, 1, 0, 0, 0, 0),
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 400, 2325, 50, 50, 1, 0, 0, 0, 0),
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 425, 2300, 50, 50, 1, 0, 0, 0, 0),
-  //Stem
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 413, 2375, 25, 300, .5, 0, 0, 0, 0),
-  /////////////////////////Test Object///////////////////////////
-  new SpriteCreator(true, ballRegular, 'tile', ball, 0, 500, 50, 50, 1, 0, 200, 0, 0),
+
 ];
 
 level_16.text = [
