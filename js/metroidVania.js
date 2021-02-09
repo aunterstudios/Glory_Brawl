@@ -49,7 +49,7 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     ]
 
     for (var i = 0; i < this.playerStats.length; i++) {
-        this.playerStatsText = this.game.add.bitmapText(0, 0, this.fontWorld, this.playerStats[i].name + " " + this.playerStats[i].value, 32);
+        this.playerStatsText = this.game.add.bitmapText(0, 0, this.fontWorld, this.playerStats[i].name + " " + this.playerStats[i].value, 28);
         this.playerStatsText.fixedToCamera = true;
         this.playerStatsText.cameraOffset.setTo(50, i * 20 + 50);
     }
