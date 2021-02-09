@@ -57,6 +57,20 @@ brawl.game.prototype = {
         this.game.time.slowMotion = 1.0;
         ////////////////////World Name Font/////////////////
         this.fontWorld = worldClassLevels[this.indexOfCurrentWorld].fontWorld;
+        ///////////////////World Name Font Text/////////////
+        if (worldClassLevels[this.indexOfCurrentWorld].fontWorldColor) {
+            this.fontWorldColor = worldClassLevels[this.indexOfCurrentWorld].fontWorldColor;
+        }
+        else {
+            this.fontWorldColor = Phaser.Color.BLACK;
+        }
+        ///////////////////PlayerStats Text//////////////////
+        if (worldClassLevels[this.indexOfCurrentWorld].playerStatsColor) {
+            this.playerStatsColor = worldClassLevels[this.indexOfCurrentWorld].playerStatsColor;
+        }
+        else {
+            this.playerStatsColor = Phaser.Color.BLACK;
+        }
         ///////////////////Changing Background Color///////////////////////
         if (worldClassLevels[this.indexOfCurrentWorld].colorChange) {
             this.colorChange = true;
@@ -128,6 +142,7 @@ brawl.game.prototype = {
             this.text = this.game.add.bitmapText(0, 0, this.fontWorld, worldName, 32);
             this.text.fixedToCamera = true;
             this.text.cameraOffset.setTo(1350, 810);
+            this.text.tint = this.fontWorldColor;
             // this.text.cameraOffset.setTo(1300, 810);
         }
         else {

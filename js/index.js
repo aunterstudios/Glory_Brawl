@@ -68,6 +68,12 @@ var level_0 = new LevelCreator(
   fontNokia, //World Font Name
 );
 
+//Font World Color
+//level_0.fontWorldColor = Phaser.Color.BLUE;
+
+//Player Stats Color
+//level_0.playerStatsColor = Phaser.Color.BLUE;
+
 //Changing Background Color
 level_0.colorChange = new BackgroundColorChange(200, 255, 5);
 
@@ -2205,6 +2211,9 @@ var level_16 = new LevelCreator(
   fontGrind, //World Font Name
 );
 
+// level_16.playerStatsColor = Phaser.Color.BLUE;
+// level_16.fontWorldColor = Phaser.Color.BLUE;
+
 //Room-Switching
 level_16.metroidvania = new MetroidvaniaCreator(
   9, //Room-Up-Index
@@ -2213,7 +2222,7 @@ level_16.metroidvania = new MetroidvaniaCreator(
   6, //Room-Right-Index
 );
 
-// level_16.colorChange = new BackgroundColorChange(175, 200, 255);
+level_16.colorChange = new BackgroundColorChange(175, 200, 100);
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_16.playerPosition = [

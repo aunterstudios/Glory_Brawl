@@ -189,13 +189,14 @@ class spriteLevelSwitch {
 ////////////////////////////////////////////////Art and Text//////////////////////////////////////////////////////
 //Creating Bitmap Text Class
 class textCreator {
-  constructor(trigger, x, y, textInput, font, fontSize) {
+  constructor(trigger, x, y, textInput, font, fontSize, tint) {
     this.trigger = trigger;
     this.x = x;
     this.y = y;
     this.textInput = textInput;
     this.font = font;
     this.fontSize = fontSize;
+    this.tint = tint;
   }
 };
 

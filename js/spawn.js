@@ -221,6 +221,12 @@ brawl.game.prototype.textCreator = function (sprite, positionInArray) {
         this.text.fill = '#000000';
         this.text.fontWeight = 'bold';
     }
+    if (!sprite.tint) {
+        this.text.tint = Phaser.Color.BLACK;
+    }
+    else {
+        this.text.tint = sprite.tint;
+    }
     this.text.positionInArray = positionInArray;
     this.text.visible = false;
     this.textGroup.add(this.text);

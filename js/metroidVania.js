@@ -52,6 +52,7 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
         this.playerStatsText = this.game.add.bitmapText(0, 0, this.fontWorld, this.playerStats[i].name + " " + this.playerStats[i].value, 24);
         this.playerStatsText.fixedToCamera = true;
         this.playerStatsText.cameraOffset.setTo(60, i * 20 + 50);
+        this.playerStatsText.tint = this.playerStatsColor;
     }
 
     ///////////////////////Slow Motion Indicator////////////////////
