@@ -2125,7 +2125,7 @@ level_14.flagSpawn = [
 ];
 
 level_14.text = [
-  new textCreator(true, 150, 200, "Turns enemies into platforms", fontNokia, 32),
+  new textCreator(true, 250, 300, "Turns enemies into platforms", fontNokia, 32),
 ];
 
 ///////////////////////////////////////////Level 15(Power-Up Descent)///////////////////////////////////////////////////////////
