@@ -32,18 +32,18 @@ brawl.death.prototype = {
 
         ////////////////////////////////////////Death Text///////////////////////////////////////
         if (this.game.stage.backgroundColor === 0) {
-            this.deathText = this.game.add.bitmapText(this.game.world.centerX - 250, 220, fontGrind, "SPACEBAR\n\nto Restart", 35);
+            this.restartText = this.game.add.bitmapText(this.game.world.centerX - 250, 220, fontGrind, "SPACEBAR\n\nto Restart", 35);
 
             ///////////////////////////////////////Death Number////////////////////////////////////////////
-            this.deathText4 = this.game.add.bitmapText(this.game.world.centerX + 250, 270, fontNokia, deaths, 35);
-            this.deathText4 = this.game.add.text(this.game.world.centerX + 275, 290, deaths);
+            this.deathNumber= this.game.add.bitmapText(this.game.world.centerX + 250, 270, fontNokia, deaths, 35);
+            this.plainText = this.game.add.text(this.game.world.centerX + 275, 290, deaths);
             //Font Style
-            this.deathText4.font = 'Brush Script MT';
-            this.deathText4.fontSize = 35;
-            this.deathText4.fontWeight = 'bold';
-            // this.deathText4.stroke = "#ffffff";
-            // this.deathText4.strokeThickness = 4;
-            this.deathText4.fill = "#FF0000"
+            this.plainText.font = 'Brush Script MT';
+            this.plainText.fontSize = 35;
+            this.plainText.fontWeight = 'bold';
+            // this.plainText.stroke = "#ffffff";
+            // this.plainText.strokeThickness = 4;
+            this.plainText.fill = "#FF0000"
 
             // //Gradient of Text
             // var grd = this.deathText4.context.createLinearGradient(0, 0, 0, this.deathText4.height);
@@ -54,11 +54,16 @@ brawl.death.prototype = {
             // this.deathText4.fill = grd;
         }
         else {
-            this.deathText = this.game.add.bitmapText(this.game.world.centerX - 250, 220, fontBlock, "SPACEBAR", 35);
-            this.deathText2 = this.game.add.bitmapText(this.game.world.centerX - 250, 270, fontNokia, "to Restart", 35);
-            this.deathText4 = this.game.add.bitmapText(this.game.world.centerX + 250, 270, fontNokia, deaths, 35);
+            this.spacebarText = this.game.add.bitmapText(this.game.world.centerX - 250, 220, fontBlock, "SPACEBAR", 35);
+            this.restartText = this.game.add.bitmapText(this.game.world.centerX - 250, 270, fontNokia, "to Restart", 35);
+            this.deathNumber = this.game.add.bitmapText(this.game.world.centerX + 250, 270, fontNokia, deaths, 35);
         }
-        this.deathText3 = this.game.add.bitmapText(this.game.world.centerX + 250, 220, fontGrind, "Deaths", 35);
+        this.deathText = this.game.add.bitmapText(this.game.world.centerX + 250, 220, fontGrind, "dEAThS", 35);
+
+        //Tint
+        this.restartText.tint = Phaser.Color.BLACK;
+        this.deathText.tint = Phaser.Color.BLACK;
+        this.deathNumber.tint = Phaser.Color.BLACK;
 
         ////////////////////////////////Blood Rain Emitter//////////////////////////////
         this.bloodRain = this.game.add.emitter(this.game.world.centerX, 0, 2000);

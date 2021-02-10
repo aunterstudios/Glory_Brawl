@@ -2202,7 +2202,7 @@ var level_16 = new LevelCreator(
   "#92C4EE", //Background Color
   true, //Out of Bounds Allowed
   1, //Player Scale
-  portalNen, //Nen-System
+  shadowNen, //Nen-System
   onlyKillGunSet, //Gun-Set
   true, //Sideways Stick to Walls,
   true, //Upsidedown Stick
@@ -2211,8 +2211,9 @@ var level_16 = new LevelCreator(
   fontGrind, //World Font Name
 );
 
-// level_16.playerStatsColor = Phaser.Color.BLUE;
-// level_16.fontWorldColor = Phaser.Color.BLUE;
+//Stats and World Font Color
+level_16.playerStatsColor = Phaser.Color.BLACK;
+level_16.fontWorldColor = Phaser.Color.BLACK;
 
 //Room-Switching
 level_16.metroidvania = new MetroidvaniaCreator(
@@ -2222,7 +2223,7 @@ level_16.metroidvania = new MetroidvaniaCreator(
   6, //Room-Right-Index
 );
 
-level_16.colorChange = new BackgroundColorChange(175, 200, 100);
+level_16.colorChange = new BackgroundColorChange(170, 180, 100);
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_16.playerPosition = [
