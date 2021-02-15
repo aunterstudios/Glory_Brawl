@@ -67,6 +67,7 @@ var wallCloudSuper = new spriteType(2, 'wallCloudSuper', Phaser.Color.getRandomC
 var wallLeftRight = new spriteType(2, 'wallLeftRight', Phaser.Color.getRandomColor(), 200, .5, true, 1000, 1); //Moving platform that moves only left and right (OG)
 var wallKiller = new spriteType(2, 'wallKiller', Phaser.Color.RED, 200, .5, false, 1000, 1); //Kill You
 var wallMomentum = new spriteType(2, 'wallMomentum', Phaser.Color.GREEN, 200, .5, false, 1000, 1); //Goes Nuts (So much momentum)
+var wallOneTouch = new spriteType(2, 'wallOneTouch', Phaser.Color.getRandomColor(0,25), 200, .5, false, 1000, 1); //Wall that explodes one you touch it.
 
 //Ledge Names
 var ledgeElevator = new spriteType(3, 'ledgeElevator', Phaser.Color.YELLOW, 20, .5, false, 1000, 1);

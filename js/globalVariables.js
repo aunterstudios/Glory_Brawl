@@ -28,6 +28,7 @@ var bitmapBoolean = true;
 var fontGrind = 'fontGrind';
 var fontNokia = 'fontNokia';
 var fontBlock = 'fontBlock';
+var fontLogan = 'fontLogan';
 
 //Slow Motion
 var slowMotionLimit;

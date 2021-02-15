@@ -143,6 +143,16 @@ brawl.game.prototype.playerWall = function (player, wall) {
     if (wall.name === wallKiller.name) {
         this.playerDeath(player, wall);
     }
+    if (wall.name === wallOneTouch.name) {
+        if (wall.generationType === 'timer') {
+            this.emitterFunction(wall, null, 'kill');
+
+        }
+        else {
+            this.emitterFunction(wall, null, 'destroy');
+
+        }
+    }
     ////////////////////////////////Testing//////////////////////////////////
     //////////////Alpha Test One
     // if (wall.body.touching.up || wall.body.touching.down) {

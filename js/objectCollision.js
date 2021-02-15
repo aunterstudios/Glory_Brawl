@@ -183,7 +183,7 @@ brawl.game.prototype.gdVsMov = function (groundDeath, moveable) {
     return;
 };
 
-//Ground and Death vs. Moveable Objects
+//Ground and Death vs. Invisible Objects
 brawl.game.prototype.gdVsInvisible = function (groundDeath, invisible) {
     // if (invisible.body.touching.up) {
     //     groundDeath.body.velocity.y = 500;

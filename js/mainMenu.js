@@ -55,6 +55,7 @@ brawl.boot.prototype = {
             this.game.load.bitmapFont('fontGrind', 'assets/fontGrind.png', 'assets/fontGrind.fnt');
             this.game.load.bitmapFont('fontBlock', 'assets/fontBlock.png', 'assets/fontBlock.fnt');
             this.game.load.bitmapFont('fontNokia', 'assets/fontNokia.png', 'assets/fontNokia.fnt');
+            this.game.load.bitmapFont('fontLogan', 'assets/fontLogan.png', 'assets/fontLogan.fnt');
         }
     },
     create: function () {

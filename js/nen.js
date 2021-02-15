@@ -32,9 +32,9 @@ var tonedNen = new nenCreator(
   10, //OverLap Bias
 );
 
-var shadowNen = new nenCreator(
+var onlySpeedNen = new nenCreator(
   800, //Speed
-  -1000, //Jump
+  -500, //Jump
   null, //Gravity-X
   1500, //Gravity-Y
   2, //Double Jump
