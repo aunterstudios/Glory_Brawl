@@ -102,17 +102,17 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
             this['weapon' + weaponNumber].trackSprite(this.player, 0, 0);
             ///////////////Adding Text///////////////
             if (this.weaponAllHolder[i].powerOne) {
-                this['weapon' + weaponNumber + 'text'] = this.game.add.bitmapText(0, 0, fontLogan, weaponNumber + "." + this.weaponAllHolder[i].name + " " + this.weaponAllHolder[i].powerOne, 24);
+                this['weapon' + weaponNumber + 'text'] = this.game.add.bitmapText(0, 0, fontLogan, weaponNumber + " " + this.weaponAllHolder[i].name + " " + this.weaponAllHolder[i].powerOne, 24);
             }
             else {
-                this['weapon' + weaponNumber + 'text'] = this.game.add.bitmapText(0, 0, fontLogan, weaponNumber + "." + this.weaponAllHolder[i].name, 24);
+                this['weapon' + weaponNumber + 'text'] = this.game.add.bitmapText(0, 0, fontLogan, weaponNumber + " " + this.weaponAllHolder[i].name, 24);
             }
             this['weapon' + weaponNumber + 'text'].tint = this.weaponAllHolder[i].tint;
             this['weapon' + weaponNumber + 'text'].fixedToCamera = true;
             this['weapon' + weaponNumber + 'text'].cameraOffset.setTo(1450, i * 25 + 80);
         }
     }
-    
+
     ////////////////////////////Image Creation/////////////////////////
     if ('imageSpawn' in levelGenerator) {
         for (var i = 0; i < levelGenerator.imageSpawn.length; i++) {
