@@ -52,6 +52,7 @@ brawl.game.prototype.playerGround = function (player, ground) {
         // this.playerJump += -1000;
         this.playerJump = -1000;
         this.emitterFunction(ground, null, 'destroy');
+        this.playerStatsTextJump.text = 'Jump' + " " + this.playerJump;
     }
     //Activating immovableWallWorldGravity (World Gravity)
     if (ground.name === powerWorldGravity.name) {

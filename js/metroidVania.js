@@ -49,12 +49,16 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     ]
 
     for (var i = 0; i < this.playerStats.length; i++) {
-        this.playerStatsText = this.game.add.bitmapText(0, 0, fontLogan, this.playerStats[i].name + " " + this.playerStats[i].value, 24);
-        this.playerStatsText.fixedToCamera = true;
-        this.playerStatsText.cameraOffset.setTo(60, i * 20 + 50);
-        this.playerStatsText.tint = this.playerStatsColor;
+        // this.playerStatsText = this.game.add.bitmapText(0, 0, fontLogan, this.playerStats[i].name + " " + this.playerStats[i].value, 24);
+        // this.playerStatsText.fixedToCamera = true;
+        // this.playerStatsText.cameraOffset.setTo(60, i * 20 + 50);
+        // this.playerStatsText.tint = this.playerStatsColor;
+        this['playerStatsText'+this.playerStats[i].name] = this.game.add.bitmapText(0, 0, fontLogan, this.playerStats[i].name + " " + this.playerStats[i].value, 24);
+        this['playerStatsText'+this.playerStats[i].name].fixedToCamera = true;
+        this['playerStatsText'+this.playerStats[i].name].cameraOffset.setTo(60, i * 20 + 50);
+        this['playerStatsText'+this.playerStats[i].name].tint = this.playerStatsColor;
     }
-
+    
     ///////////////////////Slow Motion Indicator////////////////////
     this.slowMotionArray = [];
     for (var i = 0; i < slowMotionLimit; i++) {
