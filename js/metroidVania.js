@@ -53,12 +53,12 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
         // this.playerStatsText.fixedToCamera = true;
         // this.playerStatsText.cameraOffset.setTo(60, i * 20 + 50);
         // this.playerStatsText.tint = this.playerStatsColor;
-        this['playerStatsText'+this.playerStats[i].name] = this.game.add.bitmapText(0, 0, fontLogan, this.playerStats[i].name + " " + this.playerStats[i].value, 24);
-        this['playerStatsText'+this.playerStats[i].name].fixedToCamera = true;
-        this['playerStatsText'+this.playerStats[i].name].cameraOffset.setTo(60, i * 20 + 50);
-        this['playerStatsText'+this.playerStats[i].name].tint = this.playerStatsColor;
+        this['playerStatsText' + this.playerStats[i].name] = this.game.add.bitmapText(0, 0, fontLogan, this.playerStats[i].name + " " + this.playerStats[i].value, 24);
+        this['playerStatsText' + this.playerStats[i].name].fixedToCamera = true;
+        this['playerStatsText' + this.playerStats[i].name].cameraOffset.setTo(60, i * 20 + 50);
+        this['playerStatsText' + this.playerStats[i].name].tint = this.playerStatsColor;
     }
-    
+
     ///////////////////////Slow Motion Indicator////////////////////
     this.slowMotionArray = [];
     for (var i = 0; i < slowMotionLimit; i++) {
@@ -73,129 +73,46 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     }
 
     //////////////////Adding Weapons////////////////////
-
-    //Weapon Groups Initialized
-    this.weapon1 = this.game.add.weapon(30, 'bulletOne');
-    this.weapon2 = this.game.add.weapon(30, 'bulletOne');
-    this.weapon3 = this.game.add.weapon(30, 'bulletOne');
-    this.weapon4 = this.game.add.weapon(30, 'bulletOne');
-
-    if (this.weapon1Holder) {
-        // Name
-        this.weapon1.bullets.setAll('name', this.weapon1Holder.name);
-        // Tint
-        this.weapon1.bullets.setAll('tint', this.weapon1Holder.tint);
-        // Power One
-        this.weapon1.bullets.setAll('powerOne', this.weapon1Holder.powerOne, false, false, 0, true);
-        // The bullet will be automatically killed when it leaves the camera bounds
-        this.weapon1.bulletKillType = Phaser.Weapon.KILL_CAMERA_BOUNDS;
-        //  Because our bullet is drawn facing up, we need to offset its rotation:
-        this.weapon1.bulletAngleOffset = 90;
-        // The speed at which the bullet is fired
-        this.weapon1.bulletSpeed = this.weapon1Holder.weaponBulletSpeed;
-        // Speed-up the rate of fire, allowing them to shoot 1 bullet every 60ms
-        this.weapon1.fireRate = this.weapon1Holder.weaponFireRate;
-        // Track Player
-        this.weapon1.trackSprite(this.player, 0, 0);
-        ///////////////Adding Text///////////////
-        if (this.weapon1Holder.powerOne) {
-            this.weapon1Text = this.game.add.bitmapText(0, 0, fontLogan, "1." + this.weapon1Holder.name + " " + this.weapon1Holder.powerOne, 24);
-        }
-        else {
-            this.weapon1Text = this.game.add.bitmapText(0, 0, fontLogan, "1." + this.weapon1Holder.name, 24);
-        }
-        this.weapon1Text.tint = this.weapon1Holder.tint;
-        this.weapon1Text.fixedToCamera = true;
-        this.weapon1Text.cameraOffset.setTo(1450, 80);
+    //Initializing Weapons
+    for (var i = 1; i < 5; i++) {
+        this["weapon" + i] = this.game.add.weapon(30, 'bulletOne');
     }
 
-    if (this.weapon2Holder) {
-        // Name
-        this.weapon2.bullets.setAll('name', this.weapon2Holder.name);
-        // Tint
-        this.weapon2.bullets.setAll('tint', this.weapon2Holder.tint);
-        // Power One
-        this.weapon2.bullets.setAll('powerOne', this.weapon2Holder.powerOne, false, false, 0, true);
-        // The bullet will be automatically killed when it leaves the camera bounds
-        this.weapon2.bulletKillType = Phaser.Weapon.KILL_CAMERA_BOUNDS;
-        // Because our bullet is drawn facing up, we need to offset its rotation:
-        this.weapon2.bulletAngleOffset = 90;
-        // The speed at which the bullet is fired
-        this.weapon2.bulletSpeed = this.weapon2Holder.weaponBulletSpeed;
-        // Speed-up the rate of fire, allowing them to shoot 1 bullet every 60ms
-        this.weapon2.fireRate = this.weapon2Holder.weaponFireRate;
-        // Track Player
-        this.weapon2.trackSprite(this.player, 0, 0);
-        ///////////////Adding Text///////////////
-        if (this.weapon2Holder.powerOne) {
-            this.weapon2Text = this.game.add.bitmapText(0, 0, fontLogan, "2." + this.weapon2Holder.name + " " + this.weapon2Holder.powerOne, 24);
+    //Creating The Weapons
+    for (var i = 0; i < this.weaponAllHolder.length; i++) {
+        // console.log(this.weaponAllHolder[i]);
+        if (this.weaponAllHolder[i]) {
+            //Making the Array Make Sense
+            var weaponNumber = i + 1;
+            // Name
+            this['weapon' + weaponNumber].bullets.setAll('name', this.weaponAllHolder[i].name);
+            // Tint
+            this['weapon' + weaponNumber].bullets.setAll('tint', this.weaponAllHolder[i].tint);
+            // Power One
+            this['weapon' + weaponNumber].bullets.setAll('powerOne', this.weaponAllHolder[i].powerOne, false, false, 0, true);
+            // The bullet will be automatically killed when it leaves the camera bounds
+            this['weapon' + weaponNumber].bulletKillType = Phaser.Weapon.KILL_CAMERA_BOUNDS;
+            //  Because our bullet is drawn facing up, we need to offset its rotation:
+            this['weapon' + weaponNumber].bulletAngleOffset = 90;
+            // The speed at which the bullet is fired
+            this['weapon' + weaponNumber].bulletSpeed = this.weaponAllHolder[i].weaponBulletSpeed;
+            // Speed-up the rate of fire, allowing them to shoot 1 bullet every 60ms
+            this['weapon' + weaponNumber].fireRate = this.weaponAllHolder[i].weaponFireRate;
+            // Track Player
+            this['weapon' + weaponNumber].trackSprite(this.player, 0, 0);
+            ///////////////Adding Text///////////////
+            if (this.weaponAllHolder[i].powerOne) {
+                this['weapon' + weaponNumber + 'text'] = this.game.add.bitmapText(0, 0, fontLogan, weaponNumber + "." + this.weaponAllHolder[i].name + " " + this.weaponAllHolder[i].powerOne, 24);
+            }
+            else {
+                this['weapon' + weaponNumber + 'text'] = this.game.add.bitmapText(0, 0, fontLogan, weaponNumber + "." + this.weaponAllHolder[i].name, 24);
+            }
+            this['weapon' + weaponNumber + 'text'].tint = this.weaponAllHolder[i].tint;
+            this['weapon' + weaponNumber + 'text'].fixedToCamera = true;
+            this['weapon' + weaponNumber + 'text'].cameraOffset.setTo(1450, i * 25 + 80);
         }
-        else {
-            this.weapon2Text = this.game.add.bitmapText(0, 0, fontLogan, "2." + this.weapon2Holder.name, 24);
-        }
-        this.weapon2Text.tint = this.weapon2Holder.tint;
-        this.weapon2Text.fixedToCamera = true;
-        this.weapon2Text.cameraOffset.setTo(1450, 105);
     }
-
-    if (this.weapon3Holder) {
-        // Name
-        this.weapon3.bullets.setAll('name', this.weapon3Holder.name);
-        // Tint
-        this.weapon3.bullets.setAll('tint', this.weapon3Holder.tint);
-        // Power One
-        this.weapon3.bullets.setAll('powerOne', this.weapon3Holder.powerOne, false, false, 0, true);
-        // The bullet will be automatically killed when it leaves the camera bounds
-        this.weapon3.bulletKillType = Phaser.Weapon.KILL_CAMERA_BOUNDS;
-        // Because our bullet is drawn facing up, we need to offset its rotation:
-        this.weapon3.bulletAngleOffset = 90;
-        // The speed at which the bullet is fired
-        this.weapon3.bulletSpeed = this.weapon3Holder.weaponBulletSpeed;
-        // Speed-up the rate of fire, allowing them to shoot 1 bullet every 60ms
-        this.weapon3.fireRate = this.weapon3Holder.weaponFireRate;
-        // Track Player
-        this.weapon3.trackSprite(this.player, 0, 0);
-        ///////////////Adding Text///////////////
-        if (this.weapon3Holder.powerOne) {
-            this.weapon3Text = this.game.add.bitmapText(0, 0, fontLogan, "3." + this.weapon3Holder.name + " " + this.weapon3Holder.powerOne, 24);
-        }
-        else {
-            this.weapon3Text = this.game.add.bitmapText(0, 0, fontLogan, "3." + this.weapon3Holder.name, 24);
-        }
-        this.weapon3Text.tint = this.weapon3Holder.tint;
-        this.weapon3Text.fixedToCamera = true;
-        this.weapon3Text.cameraOffset.setTo(1450, 130);
-    }
-
-    if (this.weapon4Holder) {
-        // Name
-        this.weapon4.bullets.setAll('name', this.weapon4Holder.name);
-        // Tint
-        this.weapon4.bullets.setAll('tint', this.weapon4Holder.tint);
-        // Power One
-        this.weapon4.bullets.setAll('powerOne', this.weapon4Holder.powerOne, false, false, 0, true);
-        //  The bullet will be automatically killed when it leaves the camera bounds
-        this.weapon4.bulletKillType = Phaser.Weapon.KILL_CAMERA_BOUNDS;
-        //  Because our bullet is drawn facing up, we need to offset its rotation:
-        this.weapon4.bulletAngleOffset = 90;
-        //  The speed at which the bullet is fired
-        this.weapon4.bulletSpeed = this.weapon4Holder.weaponBulletSpeed;
-        //  Speed-up the rate of fire, allowing them to shoot 1 bullet every 60ms
-        this.weapon4.fireRate = this.weapon4Holder.weaponFireRate;
-        // Track Player
-        this.weapon4.trackSprite(this.player, 0, 0);
-        ///////////////Adding Text///////////////
-        if (this.weapon4Holder.powerOne) {
-            this.weapon4Text = this.game.add.bitmapText(0, 0, fontLogan, "4." + this.weapon4Holder.name + " " + this.weapon4Holder.powerOne, 24);
-        }
-        else {
-            this.weapon4Text = this.game.add.bitmapText(0, 0, fontLogan, "4." + this.weapon4Holder.name, 24);
-        }
-        this.weapon4Text.tint = this.weapon4Holder.tint;
-        this.weapon4Text.fixedToCamera = true;
-        this.weapon4Text.cameraOffset.setTo(1450, 155);
-    }
-
+    
     ////////////////////////////Image Creation/////////////////////////
     if ('imageSpawn' in levelGenerator) {
         for (var i = 0; i < levelGenerator.imageSpawn.length; i++) {

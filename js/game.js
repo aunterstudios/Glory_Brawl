@@ -47,10 +47,14 @@ brawl.game.prototype = {
             }
         }
         /////////////////////Weapon System//////////////////////
+        this.weaponAllHolder = [];
         this.weapon1Holder = worldClassLevels[this.indexOfCurrentWorld].gunSystem[0];
         this.weapon2Holder = worldClassLevels[this.indexOfCurrentWorld].gunSystem[1];
         this.weapon3Holder = worldClassLevels[this.indexOfCurrentWorld].gunSystem[2];
         this.weapon4Holder = worldClassLevels[this.indexOfCurrentWorld].gunSystem[3];
+        for (var i = 1; i < 5; i++) {
+            this.weaponAllHolder.push(this['weapon'+i+"Holder"]);
+        }
         //////////////////////Slow Motion Reset//////////////////
         slowMotionLimit = 1;
         timerEvents = [];
