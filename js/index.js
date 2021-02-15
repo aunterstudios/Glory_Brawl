@@ -2276,21 +2276,17 @@ level_16.spriteSpawn = [
   ////////////////////////////////////First Screen///////////////////////////////////////////////
   //Ground
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 0, 2650, 150, 50, 1, 0, 0, 0, 0),
-  /////////Jumbled Obstacles (GROUND)
-  //50x50
+  //Mini Grounds
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 228, 2320, 50, 50, 1, 0, 0, 0, 0),
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 577, 2612, 50, 50, 1, 0, 0, 0, 0),
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 754, 2483, 50, 50, 1, 0, 0, 0, 0),
-  //100x100
+  //Box 
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 447, 2378, 100, 100, 1, 0, 0, 0, 0),
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 472, 2320, 100, 100, 1, 0, 0, 0, 0),
-  /////////Jumbled Obstacles (killGround)
-  /////////Jumbled Obstacles (Death)
-  //50x50
+  //Mini Deaths
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 150, 2600, 50, 50, 1, 0, 0, 0, 0),
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 556, 2280, 50, 50, 1, 0, 0, 0, 0),
-  /////////Jumbled Obstacles (killDeath)
-  /////////Box Decoration
+  /////////Ornament of Death
   //Left
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 793, 2118, 50, 200, 1, 0, 0, 0, 0),
   //Top
@@ -2301,6 +2297,10 @@ level_16.spriteSpawn = [
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 793, 2318, 300, 50, 1, 0, 0, 0, 0),
   //Obj. Inside
   new SpriteCreator(true, wallKiller, 'tile', wallTile50, 940, 2250, 50, 50, 1, 1000, 1000, 1000, 1000),
+  /////////
+  //Twin Towers
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 318, 2028, 50, 250, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 398, 2028, 50, 250, 1, 0, 0, 0, 0),
 
 ];
 
