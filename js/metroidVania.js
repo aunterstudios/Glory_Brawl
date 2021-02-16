@@ -36,24 +36,24 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
     this.cameraImage.kill();
 
     ///////////////////////Player Stats/////////////////////////////
-    this.playerStats = [
-        new PlayerStatsText('Speed', this.playerSpeed),
-        new PlayerStatsText('Jump', this.playerJump),
-        new PlayerStatsText('GravityX', this.playerGravityX),
-        new PlayerStatsText('GravityY', this.playerGravityY),
-        new PlayerStatsText('Jumps', this.playerDoubleJumps),
-        new PlayerStatsText('WallJumpX', this.playerWallJumpX),
-        new PlayerStatsText('WallJumpY', this.playerWallJumpY),
-        new PlayerStatsText('Stickiness', this.playerStickiness),
-        new PlayerStatsText('Punch', this.playerDownwards),
-    ]
+    // this.playerStats = [
+    //     new PlayerStatsText('Speed', this.playerSpeed),
+    //     new PlayerStatsText('Jump', this.playerJump),
+    //     new PlayerStatsText('GravityX', this.playerGravityX),
+    //     new PlayerStatsText('GravityY', this.playerGravityY),
+    //     new PlayerStatsText('Jumps', this.playerDoubleJumps),
+    //     new PlayerStatsText('WallJumpX', this.playerWallJumpX),
+    //     new PlayerStatsText('WallJumpY', this.playerWallJumpY),
+    //     new PlayerStatsText('Stickiness', this.playerStickiness),
+    //     new PlayerStatsText('Punch', this.playerDownwards),
+    // ]
 
-    for (var i = 0; i < this.playerStats.length; i++) {
-        this['playerStatsText' + this.playerStats[i].name] = this.game.add.bitmapText(0, 0, fontLogan, this.playerStats[i].name + " " + this.playerStats[i].value, 18);
-        this['playerStatsText' + this.playerStats[i].name].fixedToCamera = true;
-        this['playerStatsText' + this.playerStats[i].name].cameraOffset.setTo(60, i * 20 + 50);
-        this['playerStatsText' + this.playerStats[i].name].tint = this.playerStatsColor;
-    }
+    // for (var i = 0; i < this.playerStats.length; i++) {
+    //     this['playerStatsText' + this.playerStats[i].name] = this.game.add.bitmapText(0, 0, fontLogan, this.playerStats[i].name + " " + this.playerStats[i].value, 18);
+    //     this['playerStatsText' + this.playerStats[i].name].fixedToCamera = true;
+    //     this['playerStatsText' + this.playerStats[i].name].cameraOffset.setTo(60, i * 20 + 50);
+    //     this['playerStatsText' + this.playerStats[i].name].tint = this.playerStatsColor;
+    // }
 
     ///////////////////////Slow Motion Indicator////////////////////
     this.slowMotionArray = [];

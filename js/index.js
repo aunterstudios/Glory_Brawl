@@ -2223,7 +2223,7 @@ level_16.metroidvania = new MetroidvaniaCreator(
   6, //Room-Right-Index
 );
 
-// level_16.colorChange = new BackgroundColorChange(170, 180, 100);
+level_16.colorChange = new BackgroundColorChange(0, 254, 20);
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_16.playerPosition = [
@@ -2235,70 +2235,64 @@ level_16.playerPosition = [
 
 //Sprite Generation
 level_16.spriteSpawn = [
-  // ///////////////////////////First Screen//////////////////////
-  // //B
-  // new SpriteCreator(true, groundKillWall, 'tile', groundTile, 0, 2650, 150, 50, .7, 0, 0, 0, 0),
-  // //First Hump
-  // new SpriteCreator(true, groundKillWall, 'tile', groundTile, 100, 2620, 50, 50, 1, 0, 0, 0, 0),
-  // new SpriteCreator(true, groundKillWall, 'tile', groundTile, 125, 2580, 50, 50, .5, 0, 0, 0, 0),
-  // //Down Hump
-  // new SpriteCreator(true, groundKillWall, 'tile', groundTile, 175, 2630, 50, 50, .9, 0, 0, 0, 0),
-  // new SpriteCreator(true, groundKillWall, 'tile', groundTile, 125, 2580, 50, 50, .5, 0, 0, 0, 0),
-  // new SpriteCreator(true, groundKillWall, 'tile', groundTile, 225, 2580, 50, 50, 1, 0, 0, 0, 0),
-  // //Wavy Humps
-  // new SpriteCreator(true, groundKillWall, 'tile', groundTile, 250, 2605, 50, 50, .5, 0, 0, 0, 0),
-  // new SpriteCreator(true, groundKillWall, 'tile', groundTile, 300, 2555, 50, 50, 1, 0, 0, 0, 0),
-  // //First Death Mound
-  // new SpriteCreator(true, deathRegular, 'tile', deathTile, 350, 2605, 50, 50, 1, 0, 0, 0, 0),
-  // new SpriteCreator(true, deathRegular, 'tile', deathTile, 375, 2630, 50, 50, 1, 0, 0, 0, 0),
-  // new SpriteCreator(true, deathRegular, 'tile', deathTile, 425, 2680, 50, 50, .5, 0, 0, 0, 0),
-  // //First Restriction
-  // new SpriteCreator(true, deathRegular, 'tile', deathTile, 500, 2100, 50, 400, 1, 0, 0, 0, 0),
-  // //Restrictions for Jump
-  // new SpriteCreator(true, deathRegular, 'tile', deathTile, 200, 2200, 150, 50, 1, 0, 0, 0, 0),
-  // //Continious Death Mounds
-  // new SpriteCreator(true, deathRegular, 'tile', deathTile, 505, 2640, 50, 50, .3, 0, 0, 0, 0),
-  // new SpriteCreator(true, deathRegular, 'tile', deathTile, 550, 2650, 100, 50, 1, 0, 0, 0, 0),
-  // new SpriteCreator(true, deathRegular, 'tile', deathTile, 575, 2625, 100, 50, .5, 0, 0, 0, 0),
-  // //Tree
-  // new SpriteCreator(true, groundRegular, 'tile', groundTile, 475, 2400, 25, 250, .5, 0, 0, 0, 0),
-  // //Bounce
-  // new SpriteCreator(true, ledgeBounce, 'sprite', ledge, 1400, 2600, null, null, 1, 0, 0, 0, 0),
-  // //Top
-  // new SpriteCreator(true, deathRegular, 'tile', deathTile, 0, 1800, 1300, 50, .5, 0, 0, 0, 0),
-  // ///////////////////////////Second Screen//////////////////////
-  // //First Wall Explosion + Border
-  // new SpriteCreator(true, wallOneTouch, 'tile', wallTile50, 1000, 1600, 150, 50, 1, 0, 0, 0, 0),
-  // new SpriteCreator(true, deathRegular, 'tile', deathTile, 800, 1500, 100, 200, .5, 0, 0, 0, 0),
-  // //Second Top
-  // new SpriteCreator(true, deathRegular, 'tile', deathTile, 500, 900, 1000, 50, .5, 0, 0, 0, 0),
   ////////////////////////////////////Borders///////////////////////////////////////////////
-  ////////////////////////////////////First Screen///////////////////////////////////////////////
-  //Ground
+  ///////////////////////////////////Ground/////////////////////////////////////////////////
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 0, 2650, 150, 50, 1, 0, 0, 0, 0),
-  //Mini Grounds
+  ///////////////////////////////////Base Boxes//////////////////////////////////////////////
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 228, 2320, 50, 50, 1, 0, 0, 0, 0),
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 577, 2612, 50, 50, 1, 0, 0, 0, 0),
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 754, 2483, 50, 50, 1, 0, 0, 0, 0),
-  //Box 
+  //////////////////////////////////Actual Box/////////////////////////////////////////////////
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 447, 2378, 100, 100, 1, 0, 0, 0, 0),
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 472, 2320, 100, 100, 1, 0, 0, 0, 0),
-  //Mini Deaths
+  ////////////////////////////////Base Deaths//////////////////////////////////////////////////
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 150, 2600, 50, 50, 1, 0, 0, 0, 0),
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 556, 2280, 50, 50, 1, 0, 0, 0, 0),
-  /////////Ornament of Death
-  //Left
+  ///////////////////////////////Ornament of Doom//////////////////////////////////////////
+  //Bottom Left
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 793, 2118, 50, 200, 1, 0, 0, 0, 0),
-  //Top
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 843, 2118, 200, 50, 1, 0, 0, 0, 0),
-  //Right
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 1043, 2118, 50, 200, 1, 0, 0, 0, 0),
-  //Bottom
+  //Bottom Top
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 843, 2118, 50, 50, 1, 0, 0, 0, 0),
+  //Mega Duper Right
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 1043, 1368, 50, 950, 1, 0, 0, 0, 0),
+  //Very Bottom
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 793, 2318, 300, 50, 1, 0, 0, 0, 0),
-  //Obj. Inside
-  new SpriteCreator(true, wallKiller, 'tile', wallTile50, 940, 2250, 50, 50, 1, 1000, 1000, 1000, 1000),
-  /////////
-  //Twin Towers
+  //Left Connector
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 893, 1768, 50, 400, 1, 0, 0, 0, 0),
+  //Top Section Bottom 
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 693, 1768, 200, 50, 1, 0, 0, 0, 0),
+  //Top Section Left
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 693, 1368, 50, 400, 1, 0, 0, 0, 0),
+  //Very Top
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 743, 1368, 300, 50, 1, 0, 0, 0, 0),
+  //Objects ENEMIES Inside
+  //
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 790, 1500, null, null, 1, 1000, 1000, 0, 0),
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 840, 1500, null, null, 1, -1000, 1000, 0, 0),
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 890, 1500, null, null, 1, 1000, -1000, 0, 0),
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 940, 1500, null, null, 1, 1000, 1000, 0, 0),
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 990, 1500, null, null, 1, -1000, -1000, 0, 0),
+  //
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 790, 1600, null, null, 1, -1000, -1000, 0, 0),
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 840, 1600, null, null, 1, 1000, -1000, 0, 0),
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 890, 1600, null, null, 1, -1000, 1000, 0, 0),
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 940, 1600, null, null, 1, 1000, -1000, 0, 0),
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 990, 1600, null, null, 1, 1000, 1000, 0, 0),
+  //
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 790, 1700, null, null, 1, -1000, 1000, 0, 0),
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 840, 1700, null, null, 1, 1000, -1000, 0, 0),
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 890, 1700, null, null, 1, -1000, 1000, 0, 0),
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 940, 1700, null, null, 1, 1000, -1000, 0, 0),
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 990, 1700, null, null, 1, -1000, 1000, 0, 0),
+  //
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 900, 2196, null, null, 1, -1000, 1000, 0, 0),
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 950, 2196, null, null, 1, -1000, 1000, 0, 0),
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 1000, 2196, null, null, 1, -1000, 1000, 0, 0),
+  //
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 900, 2271, null, null, 1, 1000, -1000, 0, 0),
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 950, 2271, null, null, 1, 1000, -1000, 0, 0),
+  new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 1000, 2271, null, null, 1, 1000, -1000, 0, 0),
+  ///////////////////////////////Twin Towers//////////////////////////////////////////
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 318, 2028, 50, 250, 1, 0, 0, 0, 0),
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 398, 2028, 50, 250, 1, 0, 0, 0, 0),
 
