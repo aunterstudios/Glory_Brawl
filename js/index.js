@@ -1317,7 +1317,7 @@ var level_7 = new LevelCreator(
 );
 
 //Changing Background Color
-level_7.colorChange = new BackgroundColorChange(100, 254, 5);
+level_7.colorChange = new BackgroundColorChange(100, 254, 1);
 
 //Special Level Condition
 level_7.specialLevel = new TimerLevel('timed', 0, 5, 0, 5);
@@ -2223,7 +2223,7 @@ level_16.metroidvania = new MetroidvaniaCreator(
   6, //Room-Right-Index
 );
 
-level_16.colorChange = new BackgroundColorChange(0, 254, 20);
+level_16.colorChange = new BackgroundColorChange(0, 254, 1);
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_16.playerPosition = [
@@ -2245,6 +2245,7 @@ level_16.spriteSpawn = [
   //////////////////////////////////Actual Box/////////////////////////////////////////////////
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 447, 2378, 100, 100, 1, 0, 0, 0, 0),
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 472, 2320, 100, 100, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 619, 2083, 100, 100, 1, 0, 0, 0, 0),
   ////////////////////////////////Base Deaths//////////////////////////////////////////////////
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 150, 2600, 50, 50, 1, 0, 0, 0, 0),
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 556, 2280, 50, 50, 1, 0, 0, 0, 0),
@@ -2254,9 +2255,9 @@ level_16.spriteSpawn = [
   //Bottom Top
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 843, 2118, 50, 50, 1, 0, 0, 0, 0),
   //Mega Duper Right
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 1043, 1368, 50, 950, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 1043, 1368, 50, 1000, 1, 0, 0, 0, 0),
   //Very Bottom
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 793, 2318, 300, 50, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 793, 2318, 150, 50, 1, 0, 0, 0, 0),
   //Left Connector
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 893, 1768, 50, 400, 1, 0, 0, 0, 0),
   //Top Section Bottom 
@@ -2295,7 +2296,43 @@ level_16.spriteSpawn = [
   ///////////////////////////////Twin Towers//////////////////////////////////////////
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 318, 2028, 50, 250, 1, 0, 0, 0, 0),
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 398, 2028, 50, 250, 1, 0, 0, 0, 0),
-
+  ///////////////////////////////First Screen Divider//////////////////////////////////////////
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 893, 2368, 50, 325, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 1043, 2368, 50, 325, 1, 0, 0, 0, 0),
+  ///////////////////////////////Monkey Bars///////////////////////////////////////////////////
+  //Normal Set 1
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 0, 1550, 50, 50, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 50, 1500, 50, 50, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 100, 1450, 50, 50, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 150, 1400, 50, 50, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 200, 1350, 50, 50, 1, 0, 0, 0, 0),
+  //Overlapping set 1
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 225, 1325, 50, 50, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 250, 1300, 50, 50, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 275, 1275, 50, 50, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 300, 1250, 50, 50, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 325, 1225, 50, 50, 1, 0, 0, 0, 0),
+  //Normal Set 2
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 375, 1175, 50, 50, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 425, 1125, 50, 50, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 475, 1075, 50, 50, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 525, 1025, 50, 50, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 575, 975, 50, 50, 1, 0, 0, 0, 0),
+  //Descent Overlap Set 1
+  new SpriteCreator(true, groundOneWayKillObject, 'tile', groundTile, 600, 1000, 50, 50, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, groundOneWayKillObject, 'tile', groundTile, 625, 1025, 50, 50, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, groundOneWayKillObject, 'tile', groundTile, 650, 1050, 50, 50, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, groundOneWayKillObject, 'tile', groundTile, 675, 1075, 50, 50, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, groundOneWayKillObject, 'tile', groundTile, 700, 1100, 50, 50, 1, 0, 0, 0, 0),
+  //Normal One Way Set
+  new SpriteCreator(true, groundOneWayKillObject, 'tile', groundTile, 750, 1150, 50, 50, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, groundOneWayKillObject, 'tile', groundTile, 800, 1200, 50, 50, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, groundOneWayKillObject, 'tile', groundTile, 850, 1250, 50, 50, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, groundOneWayKillObject, 'tile', groundTile, 900, 1300, 50, 50, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, groundOneWayKillObject, 'tile', groundTile, 950, 1350, 50, 50, 1, 0, 0, 0, 0),
+  ///////////////////////////////The Cross///////////////////////////////////////////////////
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 203, 1720, 300, 50, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 335, 1595, 50, 300, 1, 0, 0, 0, 0),
 ];
 
 //Flag
