@@ -75,7 +75,7 @@ var level_0 = new LevelCreator(
 //level_0.playerStatsColor = Phaser.Color.BLUE;
 
 //Changing Background Color
-level_0.colorChange = new BackgroundColorChange(200, 255, 5);
+// level_0.colorChange = new BackgroundColorChange(200, 255, 5);
 
 //Special Level Initiated
 // level_0.specialLevel = new TimerLevel('timed', 1, 5, 0, 10);
@@ -2223,7 +2223,7 @@ level_16.metroidvania = new MetroidvaniaCreator(
   6, //Room-Right-Index
 );
 
-level_16.colorChange = new BackgroundColorChange(0, 254, 1);
+// level_16.colorChange = new BackgroundColorChange(0, 254, 1);
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_16.playerPosition = [
@@ -2237,18 +2237,10 @@ level_16.playerPosition = [
 level_16.spriteSpawn = [
   ////////////////////////////////////Borders///////////////////////////////////////////////
   ///////////////////////////////////Ground/////////////////////////////////////////////////
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 0, 2650, 150, 50, 1, 0, 0, 0, 0),
-  ///////////////////////////////////Base Boxes//////////////////////////////////////////////
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 228, 2320, 50, 50, 1, 0, 0, 0, 0),
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 577, 2612, 50, 50, 1, 0, 0, 0, 0),
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 754, 2483, 50, 50, 1, 0, 0, 0, 0),
-  //////////////////////////////////Actual Box/////////////////////////////////////////////////
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 447, 2378, 100, 100, 1, 0, 0, 0, 0),
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 472, 2320, 100, 100, 1, 0, 0, 0, 0),
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 619, 2083, 100, 100, 1, 0, 0, 0, 0),
-  ////////////////////////////////Base Deaths//////////////////////////////////////////////////
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 150, 2600, 50, 50, 1, 0, 0, 0, 0),
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 556, 2280, 50, 50, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 0, 2650, 400, 50, 1, 0, 0, 0, 0),
+  //////////////////////////////////PhallicStructure/////////////////////////////////////////////////
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 447, 2378, 100, 50, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 472, 2228, 50, 150, 1, 0, 0, 0, 0),
   ///////////////////////////////Ornament of Doom//////////////////////////////////////////
   //Bottom Left
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 793, 2118, 50, 200, 1, 0, 0, 0, 0),
@@ -2293,9 +2285,6 @@ level_16.spriteSpawn = [
   new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 900, 2271, null, null, 1, 1000, -1000, 0, 0),
   new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 950, 2271, null, null, 1, 1000, -1000, 0, 0),
   new SpriteCreator(true, enemyDaakath, 'sprite', enemyOne, 1000, 2271, null, null, 1, 1000, -1000, 0, 0),
-  ///////////////////////////////Twin Towers//////////////////////////////////////////
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 318, 2028, 50, 250, 1, 0, 0, 0, 0),
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 398, 2028, 50, 250, 1, 0, 0, 0, 0),
   ///////////////////////////////First Screen Divider//////////////////////////////////////////
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 893, 2368, 50, 325, 1, 0, 0, 0, 0),
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 1043, 2368, 50, 325, 1, 0, 0, 0, 0),
@@ -2330,9 +2319,8 @@ level_16.spriteSpawn = [
   new SpriteCreator(true, groundOneWayKillObject, 'tile', groundTile, 850, 1250, 50, 50, 1, 0, 0, 0, 0),
   new SpriteCreator(true, groundOneWayKillObject, 'tile', groundTile, 900, 1300, 50, 50, 1, 0, 0, 0, 0),
   new SpriteCreator(true, groundOneWayKillObject, 'tile', groundTile, 950, 1350, 50, 50, 1, 0, 0, 0, 0),
-  ///////////////////////////////The Cross///////////////////////////////////////////////////
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 203, 1720, 300, 50, 1, 0, 0, 0, 0),
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 335, 1595, 50, 300, 1, 0, 0, 0, 0),
+  ///////////////////////////////////////Ledge Bounce End/////////////////////////////////////////////
+  new SpriteCreator(true, ledgeElevator, 'sprite', ledge, 550, 1305, null, null, 1, 0, 0, 0, 0),
 ];
 
 //Flag

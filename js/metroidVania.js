@@ -105,7 +105,7 @@ brawl.game.prototype.worldCreator = function (levelGenerator) {
             }
             this['weapon' + weaponNumber + 'text'].tint = this.weaponAllHolder[i].tint;
             this['weapon' + weaponNumber + 'text'].fixedToCamera = true;
-            this['weapon' + weaponNumber + 'text'].cameraOffset.setTo(1450, i * 25 + 80);
+            this['weapon' + weaponNumber + 'text'].cameraOffset.setTo(1430, i * 25 + 80);
         }
     }
 
