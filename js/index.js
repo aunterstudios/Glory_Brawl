@@ -2227,8 +2227,8 @@ level_16.metroidvania = new MetroidvaniaCreator(
 
 //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
 level_16.playerPosition = [
-  new PlayerPositionCreator(50, 2550),
-  new PlayerPositionCreator(50, 2550),
+  new PlayerPositionCreator(100, 2550),
+  new PlayerPositionCreator(100, 2550),
   new PlayerPositionCreator(800, 100),
   new PlayerPositionCreator(2800, 1650),
 ]
@@ -2237,10 +2237,26 @@ level_16.playerPosition = [
 level_16.spriteSpawn = [
   ////////////////////////////////////Borders///////////////////////////////////////////////
   ///////////////////////////////////Ground/////////////////////////////////////////////////
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 0, 2650, 400, 50, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 0, 2650, 200, 50, 1, 0, 0, 0, 0),
+  ///////////////////////////////////Roof/////////////////////////////////////////////////
+  //Good Guy
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 0, 2400, 200, 50, 1, 0, 0, 0, 0),
+  //Bad Roof
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 250, 2400, 450, 50, 1, 0, 0, 0, 0),
+  ///////////////////////////////////Initial Death Intro Phase///////////////////////////////
+  //Continuing Death
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 250, 2650, 650, 50, 1, 0, 0, 0, 0),
+  /////////////////////////////////Death Entrance Ornaments//////////////////////////////////////
+  //Top
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 200, 2350, 50, 125, .5, 0, 0, 0, 0),
+  //Bottom
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 200, 2625, 50, 75, .5, 0, 0, 0, 0),
   //////////////////////////////////PhallicStructure/////////////////////////////////////////////////
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 447, 2378, 100, 50, 1, 0, 0, 0, 0),
-  new SpriteCreator(true, groundRegular, 'tile', groundTile, 472, 2228, 50, 150, 1, 0, 0, 0, 0),
+  // new SpriteCreator(true, groundRegular, 'tile', groundTile, 447, 2378, 100, 50, 1, 0, 0, 0, 0),
+  // new SpriteCreator(true, groundRegular, 'tile', groundTile, 472, 2228, 50, 150, 1, 0, 0, 0, 0),
+  /////////////////////////////////Barriers//////////////////////////////////////////////////////
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 0, 2450, 50, 200, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, groundOneWayKillObject, 'tile', groundTile, 150, 2450, 50, 200, 1, 0, 0, 0, 0),
   ///////////////////////////////Ornament of Doom//////////////////////////////////////////
   //Bottom Left
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 793, 2118, 50, 200, 1, 0, 0, 0, 0),
@@ -2251,7 +2267,7 @@ level_16.spriteSpawn = [
   //Very Bottom
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 793, 2318, 150, 50, 1, 0, 0, 0, 0),
   //Left Connector
-  new SpriteCreator(true, deathRegular, 'tile', deathTile, 893, 1768, 50, 400, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 893, 1768, 50, 400, 1, 0, 0, 0, 0),
   //Top Section Bottom 
   new SpriteCreator(true, deathRegular, 'tile', deathTile, 693, 1768, 200, 50, 1, 0, 0, 0, 0),
   //Top Section Left
@@ -2319,13 +2335,37 @@ level_16.spriteSpawn = [
   new SpriteCreator(true, groundOneWayKillObject, 'tile', groundTile, 850, 1250, 50, 50, 1, 0, 0, 0, 0),
   new SpriteCreator(true, groundOneWayKillObject, 'tile', groundTile, 900, 1300, 50, 50, 1, 0, 0, 0, 0),
   new SpriteCreator(true, groundOneWayKillObject, 'tile', groundTile, 950, 1350, 50, 50, 1, 0, 0, 0, 0),
-  ///////////////////////////////////////Ledge Bounce End/////////////////////////////////////////////
+  ///////////////////////////////////////Ledge Bounces/////////////////////////////////////////////
+  //End of First
   new SpriteCreator(true, ledgeElevator, 'sprite', ledge, 550, 1305, null, null, 1, 0, 0, 0, 0),
+  ///////////////////////////////////////Ledge Elevators/////////////////////////////////////////////
+  //First One You See
+  new SpriteCreator(true, ledgeElevator, 'sprite', ledge, 792, 2580, null, null, 1, 0, 0, 0, 0),
+  //Get On It 2nd
+  // new SpriteCreator(true, ledgeElevator, 'sprite', ledge, 650, 2360, null, null, 1, 0, 0, 0, 0),
+  ///////////////////////////////////////Spawning Traps Beginning///////////////////////////////////////////////////
+  //Beginning
+  new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 600, 2625, null, null, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, wallKiller, 'timer', wallTile50, 600, 2650, null, null, 1, -100, -1000, 0, 0, null, new timerCreator('loop', null, 2)),
+  new SpriteCreator(true, wallKiller, 'timer', wallTile50, 600, 2650, null, null, 1, -100, -1000, 0, 0),
+  //Tetris Fighters
+  new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, 614.5, 2069, null, null, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, wallKiller, 'timer', wallTile50, 614.5, 2069, null, null, 1, 1000, 300, 0, 0, null, new timerCreator('loop', null, 2)),
+  new SpriteCreator(true, wallKiller, 'timer', wallTile50, 614.5, 2069, null, null, 1, 1000, 300, 0, 0),
+  ///////////////////////////////////////Tetris Block Barrier With Zig Zags/////////////////////////////////////////////
+  //Tetris Block
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 540, 1950, 50, 450, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 590, 1950, 200, 50, 1, 0, 0, 0, 0),
+  //Ground Kill Walls
+  new SpriteCreator(true, groundKillWall, 'tile', groundTile, 650, 2271, 50, 50, 1, 0, 0, 0, 0),
+  //////////////////////////////////////Reverse Jungle Gym With Traps//////////////////////////////////////////////////
+  new SpriteCreator(true, deathRegular, 'tile', deathTile, 650, 1760, 50, 50, 1, 0, 0, 0, 0),
+
 ];
 
 //Flag
 level_16.flagSpawn = [
-
+  new flagCreator(1, true, flagRegular, flag, 1, 100, 2600, 0, 0, 0, 0),
 ];
 
 level_16.text = [
