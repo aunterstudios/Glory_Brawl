@@ -108,6 +108,7 @@ brawl.mainMenu.prototype = {
         var content = [
             "Beginning Levels",
             "WEBGL!",
+            "Toned Down",
             "GLORY BRAWL",
         ];
         var text = new lineTextCreator(100, 150, 'Impact', '#ffffff', 42, content, 120, 400, '#000000', 4)
@@ -168,7 +169,7 @@ brawl.mainMenu.prototype = {
     },
     update: function () {
         //Background Color
-        this.game.stage.backgroundColor = Phaser.Color.getRandomColor(10, 100, 5);
+        this.game.stage.backgroundColor = Phaser.Color.getRandomColor(20, 30, 5);
         // this.game.stage.backgroundColor = Phaser.Color.getRandomColor(100, 250, 5);
         //Rotation
         this.background.rotation += .01;
