@@ -1,4 +1,4 @@
-var game = new Phaser.Game(1600, 900, Phaser.CANVAS);
+var game = new Phaser.Game(1600, 900, Phaser.AUTO);
 // var game = new Phaser.Game(1920, 1080, Phaser.CANVAS);
 /////////////////////////////////////////////////Disable RightClick////////////////////////////////////
 window.onload = function () {

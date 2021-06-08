@@ -107,7 +107,7 @@ brawl.mainMenu.prototype = {
         //Adding Cool Looking Text
         var content = [
             "Beginning Levels",
-            "REBORN!",
+            "WEBGL!",
             "GLORY BRAWL",
         ];
         var text = new lineTextCreator(100, 150, 'Impact', '#ffffff', 42, content, 120, 400, '#000000', 4)
