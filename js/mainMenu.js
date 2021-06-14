@@ -106,7 +106,7 @@ brawl.mainMenu.prototype = {
 
         //Adding Cool Looking Text
         var content = [
-            "Beginning Levels",
+            "Rogue Version",
             "WEBGL!",
             "Toned Down",
             "GLORY BRAWL",
