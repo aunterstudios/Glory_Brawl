@@ -316,7 +316,7 @@ brawl.startScreen.prototype = {
         // kernText(text)
 
         /////////////////////////Skip//////////////////////////////////////
-        this.xToPlay = this.game.add.text(50, 850, "Press X to Play\n\nPress Y to Play");
+        this.xToPlay = this.game.add.text(50, 800, "Press X to Play STORY\nPress Y to Play ROGUE");
         // this.xToPlay.anchor.setTo(.5);
         this.xToPlay.font = 'Courier New';
         this.xToPlay.fontSize = 20;
@@ -348,7 +348,7 @@ brawl.startScreen.prototype = {
         }
         ///////////////Rogue Version///////////////////
         else if (this.game.input.keyboard.isDown(Phaser.Keyboard.Y)) {
-            this.game.start('game', true, false, null, 0, true);
+            this.game.state.start('game', true, false, 3, 0, 1);
         }
     }
 };

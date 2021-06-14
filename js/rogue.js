@@ -1,13 +1,34 @@
 brawl.game.prototype.rogueGenerator = function () {
+    ////////////RNG Generators///////////////
+    //Size of World
+    var xOfWorld = 1600 * (Math.floor(Math.random() * 6) + 1);
+    var yOfWorld = 900 * (Math.floor(Math.random() * 10) + 1);
+
+    //Nen System
+    var rogueNen = new nenCreator(
+        randomRange(200, 1500), //Speed
+        randomRange(-1000, -400), //Jump
+        null, //Gravity-X
+        randomRange(-500, 1500), //Gravity-Y
+        randomRange(2, 10), //Double Jump
+        randomRange(200, 2000), //WallJump-X
+        randomRange(500, 1000), //wallJump-Y
+        randomRange(500, 500), //Stiickiness
+        -25, //Wall Slide-Y
+        randomRange(200, 400), //Downwards-S
+        10, //OverLap Bias
+    );
+
+    /////////////Template////////////////
     var rogueTemplate = new LevelCreator(
-        "[0]Physics Testing", //Name of World
-        5000, //X-Size of World
-        5000,  //Y- Size of World 
+        "RogueWorld", //Name of World
+        xOfWorld, //X-Size of World
+        yOfWorld,  //Y- Size of World 
         "#FFFDD0", //Background Color
-        true, //Out of Bounds Allowed
+        false, //Out of Bounds Allowed
         1, //PlayerScale
-        seanNen, //Nen-System
-        bounceGhostGunSet, //Gun-Set
+        rogueNen, //Nen-System
+        basicGunSet, //Gun-Set
         true, //Sideways Stick to Walls,
         true, //Upsidedown Stick
         1, //X-Camera Lerp
@@ -50,7 +71,9 @@ brawl.game.prototype.rogueGenerator = function () {
 
     //Object Generation
     rogueTemplate.spriteSpawn = [
-
+        new SpriteCreator(true, wallRegular, 'tile', wallTile50, 1000, 400, 400, 50, 1, 0, 0, 0, 0),
+        new SpriteCreator(true, wallRegular, 'tile', wallTile50, 1500, 400, 50, 400, 1, 0, 0, 0, 0),
+        new SpriteCreator(true, groundRegular, 'tile', groundTile, 0, 800, 2800, 50, 1, 0, 0, 0, 0),
     ];
 
     //flag spawn
