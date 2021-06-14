@@ -1,19 +1,29 @@
 //////////////////////////////////////////Environment//////////////////////////////////////////
 brawl.game = function () { };
 brawl.game.prototype = {
-    init: function (indexOfCurrentWorld, indexOfPlayerPosition) {
+    init: function (indexOfCurrentWorld, indexOfPlayerPosition, rogueInit) {
         //GENERAL MAP SETTINGS 
         this.game.physics.startSystem(Phaser.Physics.ARCADE); // We're going to be using physics, so enable the Arcade Physics system
         this.scale.scaleMode = Phaser.ScaleManager.EXACT_FIT; //Scales our Game
         /*
         Essentially the room initializes with the index of the current world, where the player should spawn in the world, and lastly the rooms available to switch to depending on the side.
         */
+        ///////////////////World Triggers/////////////////////////
         this.indexOfCurrentWorld = indexOfCurrentWorld;
         this.indexOfPlayerPosition = indexOfPlayerPosition;
-        this.metroidvania = worldClassLevels[this.indexOfCurrentWorld].metroidvania;
+        ///////////////////Rogue or Story/////////////////////////
+        if (rogueInit) {
+            this.worldLevel = this.rogueGenerator();
+        }
+        else {
+            this.worldLevel = worldClassLevels[this.indexOfCurrentWorld];
+        }
+        console.log(this.worldLevel);
+        //////////////////World Attributes/////////////////////////
+        this.metroidvania = this.worldLevel.metroidvania;
         ///////////////////////Size of World//////////////////////
-        this.xOfWorld = worldClassLevels[this.indexOfCurrentWorld].xOfWorld;
-        this.yOfWorld = worldClassLevels[this.indexOfCurrentWorld].yOfWorld;
+        this.xOfWorld = this.worldLevel.xOfWorld;
+        this.yOfWorld = this.worldLevel.yOfWorld;
         ///////////////////////Setting Gun to Default/////////////
         weapon1Boolean = false;
         weapon2Boolean = false;
@@ -22,7 +32,7 @@ brawl.game.prototype = {
         ///////////////////Setting Camera to Default///////////////
         cameraBoolean = true;
         ///////////////////////Nen System of The Game Placed As Holder////////////////////////////
-        nenHolder = worldClassLevels[this.indexOfCurrentWorld].nenSystem;
+        nenHolder = this.worldLevel.nenSystem;
         ///////////////////////These Are Resetting the Player Attributes For Each Level////////////////////
         this.playerSpeed = nenHolder.playerSpeed;
         this.playerJump = nenHolder.playerJump;
@@ -35,52 +45,52 @@ brawl.game.prototype = {
         this.playerSlippery = nenHolder.playerSlippery;
         this.playerDownwards = nenHolder.playerDownwards;
         /////////////////////World Physics Restrictions////////////////////
-        this.sideStick = worldClassLevels[this.indexOfCurrentWorld].sideStick;
-        this.upsideDownStick = worldClassLevels[this.indexOfCurrentWorld].upsideDownStick;
+        this.sideStick = this.worldLevel.sideStick;
+        this.upsideDownStick = this.worldLevel.upsideDownStick;
         /////////////////////Camera Style/////////////////////
-        this.lerpX = worldClassLevels[this.indexOfCurrentWorld].lerpX;
-        this.lerpY = worldClassLevels[this.indexOfCurrentWorld].lerpY;
+        this.lerpX = this.worldLevel.lerpX;
+        this.lerpY = this.worldLevel.lerpY;
         /////////////////////Special Levels////////////////////
-        if (worldClassLevels[this.indexOfCurrentWorld].specialLevel) {
-            if (worldClassLevels[this.indexOfCurrentWorld].specialLevel.name === 'killAll' || worldClassLevels[this.indexOfCurrentWorld].specialLevel.name === 'collected') {
-                this.amount = worldClassLevels[this.indexOfCurrentWorld].specialLevel.amount;
+        if (this.worldLevel.specialLevel) {
+            if (this.worldLevel.specialLevel.name === 'killAll' || this.worldLevel.specialLevel.name === 'collected') {
+                this.amount = this.worldLevel.specialLevel.amount;
             }
         }
         /////////////////////Weapon System//////////////////////
         this.weaponAllHolder = [];
-        this.weapon1Holder = worldClassLevels[this.indexOfCurrentWorld].gunSystem[0];
-        this.weapon2Holder = worldClassLevels[this.indexOfCurrentWorld].gunSystem[1];
-        this.weapon3Holder = worldClassLevels[this.indexOfCurrentWorld].gunSystem[2];
-        this.weapon4Holder = worldClassLevels[this.indexOfCurrentWorld].gunSystem[3];
+        this.weapon1Holder = this.worldLevel.gunSystem[0];
+        this.weapon2Holder = this.worldLevel.gunSystem[1];
+        this.weapon3Holder = this.worldLevel.gunSystem[2];
+        this.weapon4Holder = this.worldLevel.gunSystem[3];
         for (var i = 1; i < 5; i++) {
-            this.weaponAllHolder.push(this['weapon'+i+"Holder"]);
+            this.weaponAllHolder.push(this['weapon' + i + "Holder"]);
         }
         //////////////////////Slow Motion Reset//////////////////
         slowMotionLimit = 1;
         timerEvents = [];
         this.game.time.slowMotion = 1.0;
         ////////////////////World Name Font/////////////////
-        this.fontWorld = worldClassLevels[this.indexOfCurrentWorld].fontWorld;
+        this.fontWorld = this.worldLevel.fontWorld;
         ///////////////////World Name Font Text/////////////
-        if (worldClassLevels[this.indexOfCurrentWorld].fontWorldColor) {
-            this.fontWorldColor = worldClassLevels[this.indexOfCurrentWorld].fontWorldColor;
+        if (this.worldLevel.fontWorldColor) {
+            this.fontWorldColor = this.worldLevel.fontWorldColor;
         }
         else {
             this.fontWorldColor = Phaser.Color.BLACK;
         }
         ///////////////////PlayerStats Text//////////////////
-        if (worldClassLevels[this.indexOfCurrentWorld].playerStatsColor) {
-            this.playerStatsColor = worldClassLevels[this.indexOfCurrentWorld].playerStatsColor;
+        if (this.worldLevel.playerStatsColor) {
+            this.playerStatsColor = this.worldLevel.playerStatsColor;
         }
         else {
             this.playerStatsColor = Phaser.Color.BLACK;
         }
         ///////////////////Changing Background Color///////////////////////
-        if (worldClassLevels[this.indexOfCurrentWorld].colorChange) {
+        if (this.worldLevel.colorChange) {
             this.colorChange = true;
-            this.minColor = worldClassLevels[this.indexOfCurrentWorld].colorChange.min;
-            this.maxColor = worldClassLevels[this.indexOfCurrentWorld].colorChange.max;
-            this.opacity = worldClassLevels[this.indexOfCurrentWorld].colorChange.opacity;
+            this.minColor = this.worldLevel.colorChange.min;
+            this.maxColor = this.worldLevel.colorChange.max;
+            this.opacity = this.worldLevel.colorChange.opacity;
         }
         else {
             this.colorChange = false;
@@ -99,7 +109,7 @@ brawl.game.prototype = {
         // this.game.stage.disableVisibilityChange = true;
 
         //Background Color of Game
-        this.game.stage.backgroundColor = worldClassLevels[this.indexOfCurrentWorld].backgroundColor;
+        this.game.stage.backgroundColor = this.worldLevel.backgroundColor;
 
         //Sort Direction
         this.game.physics.arcade.sortDirection = Phaser.Physics.Arcade.SORT_NONE;
@@ -111,13 +121,13 @@ brawl.game.prototype = {
         this.createPause();
 
         //Overlap Bias to Prevent Sprite Tunneling
-        this.game.physics.arcade.OVERLAP_BIAS = worldClassLevels[this.indexOfCurrentWorld].nenSystem.overlapBias; //10 is original
+        this.game.physics.arcade.OVERLAP_BIAS = this.worldLevel.nenSystem.overlapBias; //10 is original
 
         ////////////////////Game World Size//////////////////////
         this.game.world.setBounds(0, 0, this.xOfWorld, this.yOfWorld);
         ///////////////////World Gravity////////////////////////
-        if ('worldGravity' in worldClassLevels[this.indexOfCurrentWorld]) {
-            this.game.physics.arcade.gravity.setTo(worldClassLevels[this.indexOfCurrentWorld].worldGravity.gravityX, worldClassLevels[this.indexOfCurrentWorld].worldGravity.gravityY);
+        if ('worldGravity' in this.worldLevel) {
+            this.game.physics.arcade.gravity.setTo(this.worldLevel.worldGravity.gravityX, this.worldLevel.worldGravity.gravityY);
         }
 
         //////////////////Initializing Sprite Groups///////////////
@@ -128,15 +138,15 @@ brawl.game.prototype = {
 
         /////////////////////////World Creation Initialization Grid///////////////////////
         var worldName;
-        this.worldCreator(worldClassLevels[this.indexOfCurrentWorld]);
-        worldName = worldClassLevels[this.indexOfCurrentWorld].worldName
+        this.worldCreator(this.worldLevel);
+        worldName = this.worldLevel.worldName
 
         ////////////////////////////////////////////Camera on Player///////////////////////////////////////////////////////////
         this.cameraPlayer()
 
         //////////////////////////////////////////Creating BMD///////////////////////////////
         //bmd is following around stuff
-        // this.bmd = this.game.add.bitmapData(worldClassLevels[this.indexOfCurrentWorld].xOfWorld, worldClassLevels[this.indexOfCurrentWorld].yOfWorld);
+        // this.bmd = this.game.add.bitmapData(this.worldLevel.xOfWorld, this.worldLevel.yOfWorld);
         // this.bmd.context.fillStyle = '#FF0000';
 
         // this.bg = game.add.sprite(0, 0, this.bmd);

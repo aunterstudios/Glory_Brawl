@@ -316,7 +316,7 @@ brawl.startScreen.prototype = {
         // kernText(text)
 
         /////////////////////////Skip//////////////////////////////////////
-        this.xToPlay = this.game.add.text(50, 850, "Press X to Play");
+        this.xToPlay = this.game.add.text(50, 850, "Press X to Play\n\nPress Y to Play");
         // this.xToPlay.anchor.setTo(.5);
         this.xToPlay.font = 'Courier New';
         this.xToPlay.fontSize = 20;
@@ -327,7 +327,7 @@ brawl.startScreen.prototype = {
         this.xToPlay.setShadow(3, 3, 'rgba(0,0,0,0.5)', 2);
     },
     update: function () {
-        // this.game.stage.backgroundColor = Phaser.Color.getRandomColor(10, 100, 5);
+        ///////////////////Story Mode///////////////////////
         if (this.game.input.keyboard.isDown(Phaser.Keyboard.X)) {
             /////////CurrentWorld-PlayerPosition-CurrentWorld(metroidvania)////////
             ////////0-Up, 1-Down, 2-Left, 3-Right//////
@@ -345,6 +345,10 @@ brawl.startScreen.prototype = {
             // this.game.state.start('game', true, false, 16, 1);
             // this.game.state.start('game', true, false, 5, 0);
             // this.game.state.start('game', true, false, 6, 1);
+        }
+        ///////////////Rogue Version///////////////////
+        else if (this.game.input.keyboard.isDown(Phaser.Keyboard.Y)) {
+            this.game.start('game', true, false, null, 0, true);
         }
     }
 };
