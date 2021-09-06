@@ -162,6 +162,10 @@ function kernText(displayText) {
 }
 
 ///////////////////////////Random Integers Rogue//////////////////////////////////
+//Rogue Level Holder
+var rogueTemplate;
+
+
 function randomRange(min, max) {
   min = Math.ceil(min);
   max = Math.floor(max);

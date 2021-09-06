@@ -20,7 +20,7 @@ brawl.game.prototype.rogueGenerator = function () {
     );
 
     /////////////Template////////////////
-    var rogueTemplate = new LevelCreator(
+    rogueTemplate = new LevelCreator(
         "RogueWorld", //Name of World
         xOfWorld, //X-Size of World
         yOfWorld,  //Y- Size of World 
@@ -35,6 +35,9 @@ brawl.game.prototype.rogueGenerator = function () {
         1, //Y-Camera Lerp
         fontNokia, //World Font Name
     );
+
+    //Test
+    // console.log(rogueTemplate, 'Check Rogue Works');
 
     //Font World Color
     //rogueTemplate.fontWorldColor = Phaser.Color.BLUE;
@@ -69,12 +72,12 @@ brawl.game.prototype.rogueGenerator = function () {
         new PlayerPositionCreator(800, 700),
     ];
 
-    //Object Generation
-    rogueTemplate.spriteSpawn = [
-        new SpriteCreator(true, wallRegular, 'tile', wallTile50, 1000, 400, 400, 50, 1, 0, 0, 0, 0),
-        new SpriteCreator(true, wallRegular, 'tile', wallTile50, 1500, 400, 50, 400, 1, 0, 0, 0, 0),
-        new SpriteCreator(true, groundRegular, 'tile', groundTile, 0, 800, 2800, 50, 1, 0, 0, 0, 0),
-    ];
+    // //Object Generation
+    // rogueTemplate.spriteSpawn = [
+    //     new SpriteCreator(true, wallRegular, 'tile', wallTile50, 1000, 400, 400, 50, 1, 0, 0, 0, 0),
+    //     new SpriteCreator(true, wallRegular, 'tile', wallTile50, 1500, 400, 50, 400, 1, 0, 0, 0, 0),
+    //     new SpriteCreator(true, groundRegular, 'tile', groundTile, 0, 800, 2800, 50, 1, 0, 0, 0, 0),
+    // ];
 
     //flag spawn
     rogueTemplate.flagSpawn = [
@@ -92,6 +95,20 @@ brawl.game.prototype.rogueGenerator = function () {
         //   )),
     ];
 
+    //Tile and Terrain Generation
+    var xIterator = xOfWorld/800;
+    var yIterator = yOfWorld/450;
+    
+    console.log(xIterator, 'x', yIterator, 'y');
+
     return rogueTemplate;
 
 };
+
+
+////Tile and Terrain Generator
+
+brawl.game.prototype.tileTerrainGenerator = function () {
+ 
+};
+

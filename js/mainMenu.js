@@ -107,7 +107,7 @@ brawl.mainMenu.prototype = {
         //Adding Cool Looking Text
         var content = [
             "Rogue Version",
-            "WEBGL!",
+            "Joe Sucks The Tiniest Dick",
             "Toned Down",
             "GLORY BRAWL",
         ];
