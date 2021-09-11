@@ -98,3 +98,7 @@ var invisibleTrapIndicator = new spriteType(9, 'invisibleTrapIndicator', Phaser.
 //Flag Names
 var flagRegular = new spriteType(0, 'flagRegular', Phaser.Color.getRandomColor(10), 200, 0, false, 1000, 1);
 var flagSpecial = new spriteType(1, 'flagShadow', Phaser.Color.AQUA, 200, 0, false, 1000, 1);
+
+
+
+////////////////////////////////////////Rogue Variables////////////////////////

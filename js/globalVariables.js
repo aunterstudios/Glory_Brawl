@@ -165,6 +165,11 @@ function kernText(displayText) {
 //Rogue Level Holder
 var rogueTemplate;
 
+//Array containing the list of 
+var terrainArray = [
+  new TerrainClass('beginnerTest'),
+];
+
 
 function randomRange(min, max) {
   min = Math.ceil(min);

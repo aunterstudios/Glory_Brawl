@@ -1,8 +1,10 @@
 brawl.game.prototype.rogueGenerator = function () {
     ////////////RNG Generators///////////////
     //Size of World
-    var xOfWorld = 1600 * (Math.floor(Math.random() * 6) + 1);
-    var yOfWorld = 900 * (Math.floor(Math.random() * 10) + 1);
+    var xOfWorld = 1600 * (Math.floor(Math.random() * 5) + 1);
+    var yOfWorld = 900 * (Math.floor(Math.random() * 5) + 1);
+    // var xOfWorld = 1600 * (Math.floor(Math.random() * 2) + 1);
+    // var yOfWorld = 900 * (Math.floor(Math.random() * 2) + 1);
 
     //Nen System
     var rogueNen = new nenCreator(
@@ -61,23 +63,27 @@ brawl.game.prototype.rogueGenerator = function () {
         0, //Room-Right-Index
     );
 
+    //Tile and Terrain Generation
+    var xIterator = xOfWorld / 800;
+    var yIterator = yOfWorld / 450;
+
+    //Specific Terrain
+    var terrainIndex = Math.floor(Math.random() * terrainArray.length);
+
     //World Gravity
     // rogueTemplate.worldGravity = new worldGravityCreator(0, -200);
 
     //Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
     rogueTemplate.playerPosition = [
+        new PlayerPositionCreator(800, 700), //0,0
         new PlayerPositionCreator(800, 700),
-        new PlayerPositionCreator(800, 700),
-        new PlayerPositionCreator(800, 700),
+        new PlayerPositionCreator(800, 700), //0,
         new PlayerPositionCreator(800, 700),
     ];
 
-    // //Object Generation
-    // rogueTemplate.spriteSpawn = [
-    //     new SpriteCreator(true, wallRegular, 'tile', wallTile50, 1000, 400, 400, 50, 1, 0, 0, 0, 0),
-    //     new SpriteCreator(true, wallRegular, 'tile', wallTile50, 1500, 400, 50, 400, 1, 0, 0, 0, 0),
-    //     new SpriteCreator(true, groundRegular, 'tile', groundTile, 0, 800, 2800, 50, 1, 0, 0, 0, 0),
-    // ];
+    //Initializing Array for Rogue Template
+    rogueTemplate.spriteSpawn = [
+    ];
 
     //flag spawn
     rogueTemplate.flagSpawn = [
@@ -95,11 +101,20 @@ brawl.game.prototype.rogueGenerator = function () {
         //   )),
     ];
 
-    //Tile and Terrain Generation
-    var xIterator = xOfWorld/800;
-    var yIterator = yOfWorld/450;
-    
-    console.log(xIterator, 'x', yIterator, 'y');
+    //Troubleshooting
+    // console.log(terrainIndex, 'terrainIndex');
+    console.log(xIterator, yIterator);
+    // console.log(terrainArray[terrainIndex], "actual terrain")
+
+    ///////////////////Initializing Rogue Generation
+    for (var i = 0; i < yIterator; i++) {
+        var yBlock = i * 450;
+        for (var z = 0; z < xIterator; z++) {
+            var xBlock = z * 800;
+            // console.log(xBlock, 'x', yBlock, 'y');
+            this.tileTerrainGenerator(xBlock, yBlock, 0, terrainArray[terrainIndex]);
+        }
+    }
 
     return rogueTemplate;
 
@@ -108,7 +123,49 @@ brawl.game.prototype.rogueGenerator = function () {
 
 ////Tile and Terrain Generator
 
-brawl.game.prototype.tileTerrainGenerator = function () {
- 
+brawl.game.prototype.tileTerrainGenerator = function (x, y, playerPosition, terrain) {
+    //List of Tiles
+    var tileArray;
+    // if (terrain.name === 'beginnertest') {
+    //     tileArray = [
+    //         [new SpriteCreator(true, wallRegular, 'tile', wallTile50, x, y + 200, 400, 50, 1, 0, 0, 0, 0),
+    //         new SpriteCreator(true, wallRegular, 'tile', wallTile50, x + 100, y, 50, 400, 1, 0, 0, 0, 0),
+    //         new SpriteCreator(true, groundRegular, 'tile', groundTile, x, y + 350, 400, 50, 1, 0, 0, 0, 0),]
+    //     ];
+    // };
+    tileArray = [
+        //Test Variation
+        [new SpriteCreator(true, wallRegular, 'tile', wallTile50, x, y + 200, 400, 50, 1, 0, 0, 0, 0),
+        new SpriteCreator(true, wallRegular, 'tile', wallTile50, x + 100, y, 50, 400, 1, 0, 0, 0, 0),
+        new SpriteCreator(true, groundRegular, 'tile', groundTile, x, y + 350, 400, 50, 1, 0, 0, 0, 0),],
+        //Variation of Spikes
+        //
+        [new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, x + 200, y + 300, 50, 50, 1, 0, 300, 0, 500, null, new timerCreator('loop', null, .5)),
+        new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, x + 200, y + 362.25, null, null, .5, 0, 0, 0, 0),
+        //
+        new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, x + 300, y + 300, 50, 50, 1, 0, 300, 0, 500, null, new timerCreator('loop', null, .5)),
+        new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, x + 300, y + 362.25, null, null, .5, 0, 0, 0, 0),
+        //
+        new SpriteCreator(true, fallingSpikesRegular, 'timer', fallingSpikesOne, x + 400, y + 300, 50, 50, 1, 0, 300, 0, 500, null, new timerCreator('loop', null, .5)),
+        new SpriteCreator(true, invisibleTrapIndicator, 'sprite', invsibileTile, x + 400, y + 362.25, null, null, .5, 0, 0, 0, 0),],
+        //Ledges
+        [new SpriteCreator(true, ledgeSurf, 'sprite', ledge, 1300, 250, null, null, 1, 0, 0, 0, 0),
+        new SpriteCreator(true, ledgeElevator, 'sprite', ledge, 1400, 750, null, null, 1, 0, 0, 0, 0),
+        new SpriteCreator(true, ledgeBounce, 'sprite', ledge, 1500, 1250, null, null, 1, 0, 0, 0, 0),],
+        //Moving Death
+        [new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, x + 300, y + 200, 50, 50, 1, 300, -1000, 0, 0),
+        new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, x + 150, y + 50, 50, 50, 1, 150, 1000, 0, 0),
+        new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, x + 300, y + 100, 50, 50, 1, 100, -1000, 0, 0),
+        new SpriteCreator(true, deathRegularMove, 'tile', deathMoveTile, x + 300, y + 200, 50, 50, 1, 200, 1000, 0, 0),],
+    ];
+    // var tileChoice = tileArray[0];
+    // console.log(tileChoice);
+    // console.log(tileArray[0],'Is it hitting?');
+    var randomIndex = Math.floor(Math.random() * tileArray.length);
+    console.log(tileArray[randomIndex], 'index');
+    for (var i = 0; i < tileArray[randomIndex].length; i++) {
+        rogueTemplate.spriteSpawn.push(tileArray[randomIndex][i]);
+    }
+    // return;
 };
 

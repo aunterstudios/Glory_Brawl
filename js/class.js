@@ -274,3 +274,12 @@ class CollectLevel extends SpecialLevels {
     this.amount = amount;
   }
 };
+
+
+//////////////////////////////////////////////////Rogue levels////////////////////////////////////
+class TerrainClass {
+  constructor(name, tileSize) {
+    this.name = name;
+    this.tileSize = tileSize;
+  }
+};
