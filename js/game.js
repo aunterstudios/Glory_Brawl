@@ -328,7 +328,7 @@ brawl.game.prototype = {
                     if (onWall || onGround || onLedge || onEnemy) {
                         this.player.frame = 7;
                     }
-                    if (this.movementLeft.isDown) {
+                    if (this.movementUp.isDown) {
                         this.player.body.velocity.y = -this.playerWallJumpY;
                         this.player.body.velocity.x = -this.playerWallJumpX;
                     }
@@ -344,7 +344,7 @@ brawl.game.prototype = {
                     if (onWall || onGround || onLedge || onEnemy) {
                         this.player.frame = 13;
                     }
-                    if (this.movementRight.isDown) {
+                    if (this.movementUp.isDown) {
                         this.player.body.velocity.y = -this.playerWallJumpY;
                         this.player.body.velocity.x = this.playerWallJumpX;
                     }

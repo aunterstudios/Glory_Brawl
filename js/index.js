@@ -2371,12 +2371,110 @@ level_16.flagSpawn = [
 level_16.text = [
 ];
 
+////////////////////////////////New Level///////////////////////////////////
+var level_17 = new LevelCreator(
+  "[17]Game Loop Change", //Name of World
+  3200, //X-Size of World
+  1800,  //Y- Size of World 
+  "#FFFDD0", //Background Color
+  false, //Out of Bounds Allowed
+  .3, //PlayerScale
+  testNen, //Nen-System
+  noGunSet, //Gun-Set
+  true, //Sideways Stick to Walls,
+  true, //Upsidedown Stick
+  1, //X-Camera Lerp
+  1, //Y-Camera Lerp
+  fontNokia, //World Font Name
+);
+
+//Font World Color
+//level_17.fontWorldColor = Phaser.Color.BLUE;
+
+//Player Stats Color
+//level_17.playerStatsColor = Phaser.Color.BLUE;
+
+//Changing Background Color
+// level_17.colorChange = new BackgroundColorChange(200, 255, 5);
+
+//Special Level Initiated
+// level_17.specialLevel = new TimerLevel('timed', 1, 5, 0, 10);
+// level_17.specialLevel = new KillAllLevel('killAll', 0, 5, 0, 1);
+level_17.specialLevel = new CollectLevel('collected', 1, 5, 0, 4);
+
+//Room-Switching
+level_17.metroidvania = new MetroidvaniaCreator(
+  1, //Room-Up-Index
+  0, //Room-Down-Index
+  0, //Room-Left-Index
+  0, //Room-Right-Index
+);
+
+//World Gravity
+// level_17.worldGravity = new worldGravityCreator(0, -200);
+
+//Up, Down, Left, Right (Player Position in the Room) When Spawned (indexOfPlayerPosition)
+level_17.playerPosition = [
+  new PlayerPositionCreator(800, 700),
+  new PlayerPositionCreator(800, 700),
+  new PlayerPositionCreator(800, 700),
+  new PlayerPositionCreator(800, 700),
+];
+
+//Object Generation
+level_17.spriteSpawn = [
+  //Ground
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 0, 800, 2800, 25, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, groundRegular, 'tile', groundTile, 1200, 400, 25, 500, 1, 0, 0, 0, 0),
+    //////////////////////Walls////////////////////////
+    new SpriteCreator(true, wallRegular, 'tile', wallTile25, 800, 600, 25, 25, 1, 0, 0, 0, 0),
+    new SpriteCreator(true, wallRegular, 'tile', wallTile25, 800, 300, 25, 25, 1, 0, 0, 0, 0),
+];
+
+//flag spawn
+level_17.flagSpawn = [
+  // //First Flag
+  // new flagCreator(0, true, flagSpecial, flag, 1, 600, 500, -200, 0, 0, 0,
+  //   new shadowLevelGenerator(0, [
+  //     new shadowLevelArray(0, 3)
+  //   ])),
+  // new flagCreator(0, true, flagRegular, flag, 1, 100, 500, -200, 0, 0, 0,
+  //   new spriteLevelSwitch(0, 
+  //     [], //Insert Index (Levels)
+  //     [], //Insert Sprite
+  //     [3], //Remove Index (Levels)
+  //     [0, 1], //Remove Sprite
+  //   )),
+];
+
+//Text
+// level_17.text = [
+//   new textCreator(true, 200, 1000, "RED IS DEATH", fontNokia, 72),
+//   // new textCreator(true, 289.5, 4600, "W-Jump/Double-Jump\nA-Left\nS-Punch\nD-Right\nP-Pause/Controls\nO-Fullscreen", fontNokia, 32),
+//   new textCreator(true, 289.5, 4600, "W-\nA-\nS-\nD-\nP-\n0-", fontBlock, 32),
+//   new textCreator(true, 340, 4600, "Jump/Double-Jump\nLeft\nPunch\nRight\nPause/Controls\nFullscreen", fontNokia, 32),
+//   new textCreator(true, 1000, 4700, "We've been doing this\nfor a long time", fontNokia, 32),
+//   // new textCreator(true, 1000, 4700, "WE'VE BEEN DOING THIS A LONG TIME", fontBlock, 32),
+//   new textCreator(true, 1800, 4700, "So many\ndifferent methods failing", fontNokia, 32),
+//   new textCreator(true, 2600, 4700, "But after thousands of years", fontNokia, 32),
+//   new textCreator(true, 3400, 4700, "I realized the story\nneeds to unfold\na certain way", fontNokia, 32),
+//   new textCreator(true, 4200, 4700, "You can't be given\nthe entire story\nfrom the beginning", fontNokia, 32),
+//   new textCreator(true, 5000, 4700, "That clarity needs to\ncome from progression", fontNokia, 32),
+//   new textCreator(true, 5800, 4700, "To cure\nthe rage and sadness\nin your heart", fontNokia, 32),
+//   new textCreator(true, 6600, 4700, "For the ultimate goal of\nfinally freeing you", fontNokia, 32),
+//   new textCreator(true, 7400, 4700, "But never forget", fontNokia, 32),
+//   // new textCreator(true, 8200, 4700, "The       is your enemy", fontNokia, 32),
+//   new textCreator(true, 8205, 4700, "The", fontNokia, 32),
+//   new textCreator(true, 8255, 4700, "Shadow", fontGrind, 32),
+//   new textCreator(true, 8365, 4700, "is your enemy", fontNokia, 32),
+// ];
+
 
 
 
 
 //////////////////////////////////////////Pushing All Levels Into World Array/////////////////////////////////////
-var levelCount = 16;
+var levelCount = 17;
 for (var i = 0; i <= levelCount; i++) {
   // worldClassLevels.push(eval("level_"+i));
   worldClassLevels.push(window["level_" + i]);

@@ -75,6 +75,22 @@ var begNen = new nenCreator(
   10, //OverLap Bias
 );
 
+var testNen = new nenCreator(
+  400, //Speed
+  -500, //Jump
+  null, //Gravity-X
+  1500, //Gravity-Y
+  2, //Double Jump
+  1000, //WallJump-X
+  500, //wallJump-Y
+  500, //Stiickiness
+  -25, //Wall Slide-Y
+  400, //Downwards-S
+  10, //OverLap Bias
+);
+
+
+
 ////////////////////////Creation of Gun System Sets///////////////////////
 var basicGunSet = [
   //Name, Tint, FireRate, Speed, Power 1
