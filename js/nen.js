@@ -77,15 +77,15 @@ var begNen = new nenCreator(
 
 var testNen = new nenCreator(
   400, //Speed
-  -800, //Jump
+  -400, //Jump
   null, //Gravity-X
-  1500, //Gravity-Y
+  700, //Gravity-Y
   2, //Double Jump
   700, //WallJump-X
   250, //wallJump-Y
   500, //Stiickiness
   -25, //Wall Slide-Y
-  400, //Downwards-S
+  300, //Downwards-S
   10, //OverLap Bias
 );
 

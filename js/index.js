@@ -2429,10 +2429,13 @@ level_17.spriteSpawn = [
   //////////////////////Walls////////////////////////
   new SpriteCreator(true, wallRegular, 'tile', wallTile25, 800, 600, 25, 25, 1, 0, 0, 0, 0),
   new SpriteCreator(true, wallRegular, 'tile', wallTile25, 800, 300, 25, 25, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, wallGhost, 'tile', wallTile25, 2000, 300, 500, 25, 1, 0, 500, 0, 0),
   //Ledges
   new SpriteCreator(true, ledgeElevator, 'sprite', ledge, 400, 400, null, null, 1, 0, 0, 0, 0),
   new SpriteCreator(true, ledgeSurf, 'sprite', ledge, 500, 400, null, null, 1, 0, 0, 0, 0),
   new SpriteCreator(true, ledgeBounce, 'sprite', ledge, 600, 400, null, null, 1, 0, 0, 0, 0),
+  //Moving Ground
+  new SpriteCreator(true, groundRegularMove, 'tile', gMovingTile, 1600, 400, 50, 50, 1, 700, 0, 0, 0),
 
 ];
 
@@ -2450,6 +2453,10 @@ level_17.flagSpawn = [
   //     [3], //Remove Index (Levels)
   //     [0, 1], //Remove Sprite
   //   )),
+  new flagCreator(0, true, flagRegular, flag, 1, 750, 600, 0, 0, 0, 0,
+    new shadowLevelGenerator(0, [
+      new shadowLevelArray(17, 0)
+    ])),
 ];
 
 //Text
