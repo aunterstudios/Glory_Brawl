@@ -2381,8 +2381,8 @@ var level_17 = new LevelCreator(
   .3, //PlayerScale
   testNen, //Nen-System
   noGunSet, //Gun-Set
-  true, //Sideways Stick to Walls,
-  true, //Upsidedown Stick
+  false, //Sideways Stick to Walls,
+  false, //Upsidedown Stick
   1, //X-Camera Lerp
   1, //Y-Camera Lerp
   fontNokia, //World Font Name
@@ -2426,9 +2426,14 @@ level_17.spriteSpawn = [
   //Ground
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 0, 800, 2800, 25, 1, 0, 0, 0, 0),
   new SpriteCreator(true, groundRegular, 'tile', groundTile, 1200, 400, 25, 500, 1, 0, 0, 0, 0),
-    //////////////////////Walls////////////////////////
-    new SpriteCreator(true, wallRegular, 'tile', wallTile25, 800, 600, 25, 25, 1, 0, 0, 0, 0),
-    new SpriteCreator(true, wallRegular, 'tile', wallTile25, 800, 300, 25, 25, 1, 0, 0, 0, 0),
+  //////////////////////Walls////////////////////////
+  new SpriteCreator(true, wallRegular, 'tile', wallTile25, 800, 600, 25, 25, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, wallRegular, 'tile', wallTile25, 800, 300, 25, 25, 1, 0, 0, 0, 0),
+  //Ledges
+  new SpriteCreator(true, ledgeElevator, 'sprite', ledge, 400, 400, null, null, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, ledgeSurf, 'sprite', ledge, 500, 400, null, null, 1, 0, 0, 0, 0),
+  new SpriteCreator(true, ledgeBounce, 'sprite', ledge, 600, 400, null, null, 1, 0, 0, 0, 0),
+
 ];
 
 //flag spawn

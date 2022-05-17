@@ -410,7 +410,7 @@ brawl.game.prototype = {
                 }
             }
 
-            //////////Downwards Mechanics////////
+            ////////Downwards Mechanics////////
             if (this.movementDown.isDown && !this.movementLeft.isDown && !this.movementRight.isDown) {
                 this.player.body.setSize(34, 55.5, 15, 7);
                 if (onNone || onUpsideDown || onTheFloor) {
