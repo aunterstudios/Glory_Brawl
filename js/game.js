@@ -411,19 +411,19 @@ brawl.game.prototype = {
             }
 
             ////////Downwards Mechanics////////
-            if (this.movementDown.isDown && !this.movementLeft.isDown && !this.movementRight.isDown) {
-                this.player.body.setSize(34, 55.5, 15, 7);
-                if (onNone || onUpsideDown || onTheFloor) {
-                    this.player.frame = 3;
-                    this.player.body.velocity.y = this.playerDownwards;
-                }
-                if (onTheLeftSide && !onHazama) {
-                    this.player.body.velocity.x = 500;
-                }
-                if (onTheRightSide && !onHazama) {
-                    this.player.body.velocity.x = -500;
-                }
-            }
+            // if (this.movementDown.isDown && !this.movementLeft.isDown && !this.movementRight.isDown) {
+            //     this.player.body.setSize(34, 55.5, 15, 7);
+            //     if (onNone || onUpsideDown || onTheFloor) {
+            //         this.player.frame = 3;
+            //         this.player.body.velocity.y = this.playerDownwards;
+            //     }
+            //     if (onTheLeftSide && !onHazama) {
+            //         this.player.body.velocity.x = 500;
+            //     }
+            //     if (onTheRightSide && !onHazama) {
+            //         this.player.body.velocity.x = -500;
+            //     }
+            // }
         }
         //Freelook
         else {

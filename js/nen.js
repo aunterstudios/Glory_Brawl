@@ -77,9 +77,9 @@ var begNen = new nenCreator(
 
 var testNen = new nenCreator(
   400, //Speed
-  -400, //Jump
+  -500, //Jump
   null, //Gravity-X
-  700, //Gravity-Y
+  1500, //Gravity-Y
   2, //Double Jump
   700, //WallJump-X
   250, //wallJump-Y

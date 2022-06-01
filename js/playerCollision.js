@@ -36,6 +36,11 @@ brawl.game.prototype.playerGround = function (player, ground) {
         ground.body.immovable = true;
         ground.tint = tintWallPlayerFrozen;
     }
+    //#2
+    // if (ground.name === groundRegularMove.name) {
+    //     player.body.stop();
+    //     ground.body.stop();
+    // }
     ////////////////Ground Destruction//////////////
     //The Fire Punch
     if (ground.name === groundFirePunch.name) {
