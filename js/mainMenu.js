@@ -330,7 +330,7 @@ brawl.startScreen.prototype = {
             /////////CurrentWorld-PlayerPosition-CurrentWorld(metroidvania)////////
             ////////0-Up, 1-Down, 2-Left, 3-Right//////
             ///////(IndexOfCurrentWorld, Position)////////////
-            this.game.state.start('game', true, false, 1, 0);
+            this.game.state.start('game', true, false, 0, 0);
         }
         ///////////////Rogue Version///////////////////
         else if (this.game.input.keyboard.isDown(Phaser.Keyboard.Y)) {

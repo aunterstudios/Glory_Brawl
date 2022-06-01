@@ -7,7 +7,7 @@ var weapon4Boolean = false;
 
 //Respawn Holder (The Level You Will Respawn In)
 var respawnHolder = {
-  indexOfCurrentWorld: 17,
+  indexOfCurrentWorld: 0,
   indexOfPlayerPosition: 0,
 }
 
